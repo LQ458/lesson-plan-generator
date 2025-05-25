@@ -9,6 +9,7 @@ class AppState extends ChangeNotifier {
   String _currentScreen = 'home';
   double _downloadProgress = 0.0;
   String? _downloadError;
+  ThemeMode _themeMode = ThemeMode.system;
   final AIService _aiService = AIService();
 
   // 获取当前离线模式状态
@@ -29,6 +30,9 @@ class AppState extends ChangeNotifier {
   // 获取下载错误信息
   String? get downloadError => _downloadError;
 
+  // 获取主题模式
+  ThemeMode get themeMode => _themeMode;
+
   // 构造函数，初始化时从SharedPreferences加载状态
   AppState() {
     _loadFromPrefs();
@@ -39,6 +43,10 @@ class AppState extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     _isOfflineMode = prefs.getBool('isOfflineMode') ?? false;
     _isModelLoaded = prefs.getBool('isModelLoaded') ?? false;
+    
+    // 加载主题模式
+    final themeModeIndex = prefs.getInt('themeMode') ?? 0;
+    _themeMode = ThemeMode.values[themeModeIndex];
     
     // 检查AI模型是否真的已加载
     if (_isModelLoaded) {
@@ -67,6 +75,7 @@ class AppState extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isOfflineMode', _isOfflineMode);
     await prefs.setBool('isModelLoaded', _isModelLoaded);
+    await prefs.setInt('themeMode', _themeMode.index);
   }
 
   // 切换离线模式
@@ -202,5 +211,29 @@ class AppState extends ChangeNotifier {
       setLoading(false);
       return '文本识别失败：${e.toString()}';
     }
+  }
+
+  // 切换主题模式
+  void setThemeMode(ThemeMode mode) {
+    _themeMode = mode;
+    _saveToPrefs();
+    notifyListeners();
+  }
+
+  // 循环切换主题模式
+  void toggleThemeMode() {
+    switch (_themeMode) {
+      case ThemeMode.system:
+        _themeMode = ThemeMode.light;
+        break;
+      case ThemeMode.light:
+        _themeMode = ThemeMode.dark;
+        break;
+      case ThemeMode.dark:
+        _themeMode = ThemeMode.system;
+        break;
+    }
+    _saveToPrefs();
+    notifyListeners();
   }
 } 

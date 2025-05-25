@@ -184,9 +184,12 @@ class _LessonPlanScreenState extends State<LessonPlanScreen> {
                   ),
                   child: Text(
                     _generatedPlan ?? '',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       height: 1.5,
+                      color: Theme.of(context).brightness == Brightness.dark 
+                          ? Colors.white 
+                          : Colors.black87,
                     ),
                   ),
                 ),

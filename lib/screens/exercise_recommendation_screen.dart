@@ -279,9 +279,8 @@ class _ExerciseRecommendationScreenState
         const SizedBox(height: 8),
         Text(
           '${_gradeController.text} ${_subjectController.text} · ${_generatedExercises?.length ?? 0}道题目',
-          style: TextStyle(
-            fontSize: 14,
-            color: AppTheme.textSecondaryColor,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
           ),
         ),
         const SizedBox(height: 16),
@@ -321,9 +320,8 @@ class _ExerciseRecommendationScreenState
                     const SizedBox(width: 8),
                     Text(
                       exercise['type'],
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppTheme.textSecondaryColor,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(context).textTheme.bodySmall?.color?.withOpacity(0.7),
                       ),
                     ),
                   ],

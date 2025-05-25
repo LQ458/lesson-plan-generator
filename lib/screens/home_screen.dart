@@ -17,6 +17,15 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('毕节教师助手'),
         actions: [
+          // 主题切换按钮
+          IconButton(
+            icon: Icon(_getThemeIcon(appState.themeMode)),
+            onPressed: () {
+              appState.toggleThemeMode();
+            },
+            tooltip: _getThemeTooltip(appState.themeMode),
+          ),
+          const SizedBox(width: 8),
           // 离线模式开关
           Switch(
             value: appState.isOfflineMode,
@@ -34,10 +43,9 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // 欢迎信息
-              const Text(
+              Text(
                 '欢迎使用毕节教师助手',
-                style: TextStyle(
-                  fontSize: 24,
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -46,18 +54,14 @@ class HomeScreen extends StatelessWidget {
                 appState.isOfflineMode 
                     ? '当前为离线模式，部分功能可能受限' 
                     : '当前为在线模式，可使用全部功能',
-                style: TextStyle(
-                  color: AppTheme.textSecondaryColor,
-                  fontSize: 14,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 24),
               
               // 功能模块标题
-              const Text(
+              Text(
                 '核心功能',
-                style: TextStyle(
-                  fontSize: 18,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -186,33 +190,28 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 12),
               Text(
                 title,
-                style: TextStyle(
-                  fontSize: 16,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: isDisabled 
-                      ? Colors.grey 
-                      : AppTheme.textPrimaryColor,
+                  color: isDisabled ? Colors.grey : null,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
                 description,
-                style: TextStyle(
-                  fontSize: 12,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: isDisabled 
                       ? Colors.grey 
-                      : AppTheme.textSecondaryColor,
+                      : Theme.of(context).textTheme.bodySmall?.color?.withOpacity(0.7),
                 ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               if (isDisabled)
-                const Padding(
-                  padding: EdgeInsets.only(top: 8.0),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Text(
                     '离线模式不可用',
-                    style: TextStyle(
-                      fontSize: 10,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Colors.red,
                     ),
                   ),
@@ -254,7 +253,7 @@ class HomeScreen extends StatelessWidget {
                   appState.isModelLoaded 
                       ? '离线AI模型已加载'
                       : '离线AI模型未加载',
-                  style: const TextStyle(
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -263,10 +262,7 @@ class HomeScreen extends StatelessWidget {
                   appState.isModelLoaded 
                       ? '可在无网络环境下使用AI功能'
                       : '点击下载离线AI模型，支持无网络使用',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: AppTheme.textSecondaryColor,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 if (appState.isLoading && appState.downloadProgress > 0)
                   Padding(
@@ -276,10 +272,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           '下载中: ${(appState.downloadProgress * 100).toStringAsFixed(1)}%',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: AppTheme.textSecondaryColor,
-                          ),
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const SizedBox(height: 4),
                         LinearProgressIndicator(
@@ -297,8 +290,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
                       '错误: ${appState.downloadError}',
-                      style: const TextStyle(
-                        fontSize: 12,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Colors.red,
                       ),
                     ),
@@ -342,5 +334,27 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  IconData _getThemeIcon(ThemeMode themeMode) {
+    switch (themeMode) {
+      case ThemeMode.system:
+        return Icons.brightness_auto;
+      case ThemeMode.light:
+        return Icons.brightness_7;
+      case ThemeMode.dark:
+        return Icons.brightness_4;
+    }
+  }
+
+  String _getThemeTooltip(ThemeMode themeMode) {
+    switch (themeMode) {
+      case ThemeMode.system:
+        return '跟随系统主题';
+      case ThemeMode.light:
+        return '浅色主题';
+      case ThemeMode.dark:
+        return '深色主题';
+    }
   }
 } 
