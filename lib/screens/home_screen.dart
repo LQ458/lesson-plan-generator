@@ -4,6 +4,7 @@ import 'package:teachai_app/models/app_state.dart';
 import 'package:teachai_app/screens/document_scan_screen.dart';
 import 'package:teachai_app/screens/exercise_recommendation_screen.dart';
 import 'package:teachai_app/screens/lesson_plan_screen.dart';
+import 'package:teachai_app/screens/mistake_analysis_screen.dart';
 import 'package:teachai_app/utils/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -115,12 +116,12 @@ class HomeScreen extends StatelessWidget {
                     title: '错题分析',
                     description: '智能分析学生错题，找出知识薄弱点',
                     icon: Icons.analytics,
-                    isOfflineAvailable: false,
+                    isOfflineAvailable: true,
                     onTap: () {
-                      // TODO: 导航到错题分析页面
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('错题分析功能开发中...'),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MistakeAnalysisScreen(),
                         ),
                       );
                     },

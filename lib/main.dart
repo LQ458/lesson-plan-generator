@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:teachai_app/screens/home_screen.dart';
 import 'package:teachai_app/utils/app_theme.dart';
 import 'package:teachai_app/models/app_state.dart';
+import 'package:teachai_app/services/data_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,8 +13,8 @@ void main() async {
   // 初始化Hive本地数据库
   await Hive.initFlutter();
   
-  // 注册Hive适配器（后续实现）
-  // await Hive.registerAdapter(LessonPlanAdapter());
+  // 初始化数据服务（包含适配器注册和示例数据生成）
+  await DataService.init();
   
   runApp(
     ChangeNotifierProvider(
