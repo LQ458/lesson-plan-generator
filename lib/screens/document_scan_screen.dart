@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:teachai_app/models/app_state.dart';
+import 'package:teachai_app/utils/app_theme.dart';
 import 'package:teachai_app/utils/app_theme.dart';
 
 class DocumentScanScreen extends StatefulWidget {
@@ -64,40 +66,52 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('纸质资料数字化'),
+    final isDark = CupertinoTheme.of(context).brightness == Brightness.dark;
+    
+    return CupertinoPageScaffold(
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('纸质资料数字化'),
       ),
-      body: SafeArea(
+      child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 '拍摄或选择纸质资料',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: CupertinoTheme.of(context).textTheme.navTitleTextStyle,
               ),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                    child: ElevatedButton.icon(
+                    child: CupertinoButton.filled(
                       onPressed: _takePicture,
-                      icon: const Icon(Icons.camera_alt),
-                      label: const Text('拍照'),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(CupertinoIcons.camera, color: CupertinoColors.white),
+                          SizedBox(width: 8),
+                          Text('拍照'),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: OutlinedButton.icon(
+                    child: CupertinoButton(
                       onPressed: _pickFromGallery,
-                      icon: const Icon(Icons.photo_library),
-                      label: const Text('从相册选择'),
+                      color: CupertinoColors.systemGrey5,
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(CupertinoIcons.photo, color: CupertinoColors.systemBlue),
+                          SizedBox(width: 8),
+                          Text('从相册选择', style: TextStyle(color: CupertinoColors.systemBlue)),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -105,9 +119,9 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
               const SizedBox(height: 24),
               
               if (_imageFile != null) ...[
-                const Text(
+                Text(
                   '预览图片',
-                  style: TextStyle(
+                  style: CupertinoTheme.of(context).textTheme.textStyle.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -124,7 +138,7 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
                 ),
                 const SizedBox(height: 16),
                 Center(
-                  child: ElevatedButton(
+                  child: CupertinoButton.filled(
                     onPressed: _isProcessing ? null : _processImage,
                     child: _isProcessing
                         ? const Row(
@@ -133,9 +147,8 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
                               SizedBox(
                                 width: 16,
                                 height: 16,
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  color: Colors.white,
+                                child: CupertinoActivityIndicator(
+                                  color: CupertinoColors.white,
                                 ),
                               ),
                               SizedBox(width: 8),
@@ -149,53 +162,46 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
               
               if (_recognizedText != null) ...[
                 const SizedBox(height: 24),
-                const Text(
+                Text(
                   '识别结果',
-                  style: TextStyle(
+                  style: CupertinoTheme.of(context).textTheme.textStyle.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    child: SingleChildScrollView(
-                      child: Text(
-                        _recognizedText!,
-                        style: const TextStyle(
-                          height: 1.5,
+                                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: AppTheme.iosCardDecoration(isDark: isDark),
+                      child: SingleChildScrollView(
+                        child: Text(
+                          _recognizedText!,
+                          style: CupertinoTheme.of(context).textTheme.textStyle.copyWith(
+                            height: 1.5,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
                 const SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
-                      child: OutlinedButton(
+                      child: CupertinoButton(
+                        color: CupertinoColors.systemGrey5,
                         onPressed: () {
                           // TODO: 编辑识别结果
                         },
-                        child: const Text('编辑'),
+                        child: const Text('编辑', style: TextStyle(color: CupertinoColors.systemBlue)),
                       ),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
-                      child: ElevatedButton(
+                      child: CupertinoButton.filled(
                         onPressed: () {
                           // TODO: 保存识别结果
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('内容已保存'),
-                            ),
-                          );
+                          _showAlert('内容已保存');
                         },
                         child: const Text('保存'),
                       ),
@@ -206,6 +212,22 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void _showAlert(String message) {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+        title: const Text('提示'),
+        content: Text(message),
+        actions: [
+          CupertinoDialogAction(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('确定'),
+          ),
+        ],
       ),
     );
   }

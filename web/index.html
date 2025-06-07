@@ -18,21 +18,255 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="毕节教师教育助手 - 智能AI教学工具">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="teachai_app">
+  <meta name="apple-mobile-web-app-title" content="毕节教师助手">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>teachai_app</title>
+  <title>毕节教师助手 - 智能AI教学工具</title>
   <link rel="manifest" href="manifest.json">
+  
+  <!-- 预加载中文字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- 预加载字体文件 -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/notosanssc/v36/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYxNbPzS5HE.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/notosanssc/v36/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG4_FnYxNbPzS5HE.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- iOS风格Loading样式 -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      overflow: hidden;
+      background: #F2F2F7; /* iOS系统背景色 */
+      font-display: swap;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #F2F2F7;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.3s ease-out;
+    }
+    
+    .loading-content {
+      text-align: center;
+      max-width: 300px;
+      padding: 40px 20px;
+    }
+    
+    .app-logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 24px;
+      border-radius: 22px; /* iOS App图标圆角 */
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .app-logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+      border-radius: 22px;
+    }
+    
+    .app-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #000000;
+      letter-spacing: -0.5px;
+      font-display: swap;
+      text-rendering: optimizeLegibility;
+    }
+    
+    .app-subtitle {
+      font-size: 16px;
+      color: #8E8E93;
+      margin-bottom: 40px;
+      font-weight: 400;
+      font-display: swap;
+      text-rendering: optimizeLegibility;
+    }
+    
+    .loading-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .ios-spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid #E5E5EA;
+      border-top: 2px solid #007AFF;
+      border-radius: 50%;
+      animation: ios-spin 1s linear infinite;
+    }
+    
+    .loading-text {
+      font-size: 15px;
+      color: #8E8E93;
+      font-weight: 400;
+      animation: ios-pulse 2s ease-in-out infinite;
+      font-display: swap;
+      text-rendering: optimizeLegibility;
+    }
+    
+    .loading-dots::after {
+      content: '';
+      display: inline-block;
+      animation: ios-dots 1.5s steps(4, end) infinite;
+    }
+    
+    @keyframes ios-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes ios-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    
+    @keyframes ios-dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+    
+    /* 深色模式支持 */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #000000;
+      }
+      
+      .loading-container {
+        background: #000000;
+      }
+      
+      .app-title {
+        color: #FFFFFF;
+      }
+      
+      .app-subtitle {
+        color: #AEAEB2;
+      }
+      
+      .loading-text {
+        color: #AEAEB2;
+      }
+      
+      .ios-spinner {
+        border: 2px solid #2C2C2E;
+        border-top: 2px solid #007AFF;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- iOS风格Loading界面 -->
+  <div id="loading-indicator" class="loading-container">
+    <div class="loading-content">
+      <div class="app-logo">
+        🎓
+      </div>
+      <div class="app-title">毕节教师助手</div>
+      <div class="app-subtitle">智能AI教学工具</div>
+      <div class="loading-indicator">
+        <div class="ios-spinner"></div>
+        <div class="loading-text">
+          正在加载应用<span class="loading-dots"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="flutter_bootstrap.js" async></script>
+  
+  <!-- 移除Loading的脚本 -->
+  <script>
+    // 检查字体是否加载完成
+    function checkFontsLoaded() {
+      return new Promise((resolve) => {
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(() => {
+            // 额外等待一点时间确保字体完全渲染
+            setTimeout(resolve, 300);
+          });
+        } else {
+          // 备用方案：等待固定时间
+          setTimeout(resolve, 1500);
+        }
+      });
+    }
+
+    // 移除loading界面
+    function removeLoadingIndicator() {
+      const loadingIndicator = document.getElementById('loading-indicator');
+      if (loadingIndicator) {
+        loadingIndicator.style.opacity = '0';
+        setTimeout(function() {
+          loadingIndicator.remove();
+          document.body.style.overflow = 'auto';
+        }, 500);
+      }
+    }
+
+    // 当Flutter应用加载完成后移除loading界面
+    window.addEventListener('flutter-first-frame', async function() {
+      // 等待字体加载完成
+      await checkFontsLoaded();
+      // 再等待一点时间确保Flutter完全渲染
+      setTimeout(removeLoadingIndicator, 200);
+    });
+    
+    // 备用方案：如果flutter-first-frame事件没有触发，10秒后自动移除
+    setTimeout(removeLoadingIndicator, 10000);
+
+    // 预加载关键字体
+    const fontPreloader = new FontFace('Noto Sans SC', 'url(https://fonts.gstatic.com/s/notosanssc/v36/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYxNbPzS5HE.woff2)');
+    fontPreloader.load().then(function(loadedFont) {
+      document.fonts.add(loadedFont);
+    }).catch(function(error) {
+      console.log('字体预加载失败:', error);
+    });
+  </script>
 </body>
 </html>

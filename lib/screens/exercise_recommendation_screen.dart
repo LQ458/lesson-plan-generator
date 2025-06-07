@@ -375,11 +375,7 @@ class _ExerciseRecommendationScreenState
         ElevatedButton(
           onPressed: () {
             // TODO: 保存练习题
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('练习题已保存'),
-              ),
-            );
+            _showAlert('练习题已保存');
           },
           child: const Text('保存练习题'),
         ),
@@ -398,5 +394,21 @@ class _ExerciseRecommendationScreenState
       default:
         return Colors.blue;
     }
+  }
+
+  void _showAlert(String message) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('提示'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('确定'),
+          ),
+        ],
+      ),
+    );
   }
 } 

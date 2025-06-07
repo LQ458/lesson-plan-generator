@@ -1,41 +1,152 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // 品牌色
-  static const Color primaryColor = Color(0xFF3F51B5); // 深蓝紫色
-  static const Color secondaryColor = Color(0xFF4CAF50); // 绿色
-  static const Color accentColor = Color(0xFFFFC107); // 琥珀色
+  // iOS风格品牌色
+  static const Color primaryColor = Color(0xFF007AFF); // iOS蓝色
+  static const Color secondaryColor = Color(0xFF34C759); // iOS绿色
+  static const Color accentColor = Color(0xFFFF9500); // iOS橙色
+
+  // iOS系统色
+  static const Color systemBlue = Color(0xFF007AFF);
+  static const Color systemGreen = Color(0xFF34C759);
+  static const Color systemIndigo = Color(0xFF5856D6);
+  static const Color systemOrange = Color(0xFFFF9500);
+  static const Color systemPink = Color(0xFFFF2D92);
+  static const Color systemPurple = Color(0xFFAF52DE);
+  static const Color systemRed = Color(0xFFFF3B30);
+  static const Color systemTeal = Color(0xFF5AC8FA);
+  static const Color systemYellow = Color(0xFFFFCC00);
+
+  // iOS灰色系
+  static const Color systemGray = Color(0xFF8E8E93);
+  static const Color systemGray2 = Color(0xFFAEAEB2);
+  static const Color systemGray3 = Color(0xFFC7C7CC);
+  static const Color systemGray4 = Color(0xFFD1D1D6);
+  static const Color systemGray5 = Color(0xFFE5E5EA);
+  static const Color systemGray6 = Color(0xFFF2F2F7);
+
+  // iOS背景色
+  static const Color systemBackground = Color(0xFFFFFFFF);
+  static const Color secondarySystemBackground = Color(0xFFF2F2F7);
+  static const Color tertiarySystemBackground = Color(0xFFFFFFFF);
+
+  // iOS深色背景色
+  static const Color systemBackgroundDark = Color(0xFF000000);
+  static const Color secondarySystemBackgroundDark = Color(0xFF1C1C1E);
+  static const Color tertiarySystemBackgroundDark = Color(0xFF2C2C2E);
 
   // 功能色
-  static const Color successColor = Color(0xFF4CAF50); // 绿色
-  static const Color warningColor = Color(0xFFFF9800); // 橙色
-  static const Color errorColor = Color(0xFFF44336); // 红色
-  static const Color infoColor = Color(0xFF2196F3); // 蓝色
+  static const Color successColor = systemGreen;
+  static const Color warningColor = systemOrange;
+  static const Color errorColor = systemRed;
+  static const Color infoColor = systemBlue;
 
   // 中性色
-  static const Color backgroundColor = Color(0xFFF5F5F5); // 浅灰背景
-  static const Color surfaceColor = Colors.white; // 白色表面
-  static const Color textPrimaryColor = Color(0xFF212121); // 主要文本
-  static const Color textSecondaryColor = Color(0xFF757575); // 次要文本
-  static const Color dividerColor = Color(0xFFBDBDBD); // 分隔线
+  static const Color backgroundColor = systemBackground;
+  static const Color surfaceColor = Colors.white;
+  static const Color textPrimaryColor = Color(0xFF000000);
+  static const Color textSecondaryColor = systemGray;
+  static const Color dividerColor = systemGray4;
 
   // 深色主题色
-  static const Color darkBackgroundColor = Color(0xFF121212); // 深色背景
-  static const Color darkSurfaceColor = Color(0xFF1E1E1E); // 深色表面
-  static const Color darkTextPrimaryColor = Color(0xFFFFFFFF); // 深色文本
-  static const Color darkTextSecondaryColor = Color(0xFFB0B0B0); // 深色次要文本
+  static const Color darkBackgroundColor = systemBackgroundDark;
+  static const Color darkSurfaceColor = secondarySystemBackgroundDark;
+  static const Color darkTextPrimaryColor = Color(0xFFFFFFFF);
+  static const Color darkTextSecondaryColor = systemGray2;
 
-  // 卡片阴影
-  static List<BoxShadow> cardShadow = [
+  // iOS风格阴影
+  static List<BoxShadow> iosShadow = [
     BoxShadow(
       color: Colors.black.withOpacity(0.1),
       blurRadius: 10,
-      offset: const Offset(0, 4),
+      offset: const Offset(0, 2),
     ),
   ];
 
-  // 亮色主题
+  // 获取Cupertino主题
+  static CupertinoThemeData getCupertinoTheme({required bool isDark}) {
+    return CupertinoThemeData(
+      brightness: isDark ? Brightness.dark : Brightness.light,
+      primaryColor: systemBlue,
+      primaryContrastingColor: isDark ? darkTextPrimaryColor : textPrimaryColor,
+      scaffoldBackgroundColor: isDark ? systemBackgroundDark : systemBackground,
+      textTheme: CupertinoTextThemeData(
+        textStyle: TextStyle(
+          inherit: false, // 确保inherit为false，避免插值冲突
+          color: isDark ? darkTextPrimaryColor : textPrimaryColor,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 17.0,
+          letterSpacing: -0.4,
+          decoration: TextDecoration.none,
+        ),
+        actionTextStyle: TextStyle(
+          inherit: false,
+          color: systemBlue,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 17.0,
+          letterSpacing: -0.4,
+          decoration: TextDecoration.none,
+        ),
+        tabLabelTextStyle: TextStyle(
+          inherit: false,
+          color: isDark ? darkTextPrimaryColor : textPrimaryColor,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 10.0,
+          letterSpacing: -0.24,
+          decoration: TextDecoration.none,
+        ),
+        navTitleTextStyle: TextStyle(
+          inherit: false,
+          color: isDark ? darkTextPrimaryColor : textPrimaryColor,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 17.0,
+          fontWeight: FontWeight.w600,
+          letterSpacing: -0.4,
+          decoration: TextDecoration.none,
+        ),
+        navLargeTitleTextStyle: TextStyle(
+          inherit: false,
+          color: isDark ? darkTextPrimaryColor : textPrimaryColor,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 34.0,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.4,
+          decoration: TextDecoration.none,
+        ),
+        navActionTextStyle: TextStyle(
+          inherit: false,
+          color: systemBlue,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 17.0,
+          letterSpacing: -0.4,
+          decoration: TextDecoration.none,
+        ),
+        pickerTextStyle: TextStyle(
+          inherit: false,
+          color: isDark ? darkTextPrimaryColor : textPrimaryColor,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 21.0,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -0.6,
+          decoration: TextDecoration.none,
+        ),
+        dateTimePickerTextStyle: TextStyle(
+          inherit: false,
+          color: isDark ? darkTextPrimaryColor : textPrimaryColor,
+          fontFamily: 'CupertinoSystemText',
+          fontSize: 21.0,
+          fontWeight: FontWeight.w400,
+          letterSpacing: -0.6,
+          decoration: TextDecoration.none,
+        ),
+      ),
+      barBackgroundColor: isDark ? secondarySystemBackgroundDark : secondarySystemBackground,
+    );
+  }
+
+  // 亮色主题（保留Material Design兼容性）
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.light(
@@ -143,7 +254,7 @@ class AppTheme {
     ),
   );
 
-  // 深色主题
+  // 深色主题（保留Material Design兼容性）
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.dark(
@@ -225,7 +336,7 @@ class AppTheme {
       foregroundColor: Colors.white,
     ),
     dividerTheme: const DividerThemeData(
-      color: dividerColor,
+      color: systemGray3,
       thickness: 1,
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -233,11 +344,11 @@ class AppTheme {
       fillColor: darkSurfaceColor,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: dividerColor),
+        borderSide: const BorderSide(color: systemGray3),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(color: dividerColor),
+        borderSide: const BorderSide(color: systemGray3),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
@@ -250,4 +361,27 @@ class AppTheme {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     ),
   );
+
+  // iOS风格按钮样式
+  static BoxDecoration iosButtonDecoration({
+    required Color color,
+    bool isPressed = false,
+  }) {
+    return BoxDecoration(
+      color: isPressed ? color.withOpacity(0.8) : color,
+      borderRadius: BorderRadius.circular(8),
+      boxShadow: isPressed ? [] : iosShadow,
+    );
+  }
+
+  // iOS风格卡片装饰
+  static BoxDecoration iosCardDecoration({
+    required bool isDark,
+  }) {
+    return BoxDecoration(
+      color: isDark ? darkSurfaceColor : surfaceColor,
+      borderRadius: BorderRadius.circular(12),
+      boxShadow: iosShadow,
+    );
+  }
 } 

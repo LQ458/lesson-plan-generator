@@ -321,6 +321,18 @@ class DataService {
       }
     }
     
+    // 如果没有数据，生成一些示例趋势数据用于演示
+    if (trend.values.every((count) => count == 0) && _mistakeBox.isEmpty) {
+      // 生成示例趋势数据
+      List<int> sampleData = [1, 2, 3, 4, 3, 1, 0];
+      int index = 0;
+      for (int i = 6; i >= 0; i--) {
+        DateTime date = DateTime(now.year, now.month, now.day - i);
+        trend[date] = sampleData[index];
+        index++;
+      }
+    }
+    
     return trend;
   }
 

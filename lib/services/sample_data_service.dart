@@ -112,7 +112,7 @@ class SampleDataService {
         studentAnswer: questionData['wrong']!,
         knowledgePoint: knowledgePoint,
         difficulty: difficulty,
-        recordedAt: DateTime.now().subtract(Duration(days: _random.nextInt(15))),
+        recordedAt: DateTime.now().subtract(Duration(days: _random.nextInt(7))),
         isResolved: _random.nextBool(),
       ));
     }
