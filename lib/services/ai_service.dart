@@ -3,6 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:dio/dio.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'online_ai_service.dart';
+import 'enhanced_ocr_service.dart';
 
 class AIService {
   static final AIService _instance = AIService._internal();
@@ -12,6 +15,13 @@ class AIService {
 
   bool _isModelLoaded = false;
   bool get isModelLoaded => _isModelLoaded;
+  
+  // 集成在线AI服务
+  final OnlineAIService _onlineAI = OnlineAIService();
+  final EnhancedOCRService _ocrService = EnhancedOCRService();
+  
+  // 网络连接检测
+  final Connectivity _connectivity = Connectivity();
 
   // 初始化AI模型
   Future<bool> initModel() async {
@@ -74,74 +84,34 @@ class AIService {
     }
   }
 
-  // 生成教案
+  // 生成教案（智能路由）
   Future<String> generateLessonPlan({
     required String subject,
     required String grade,
     required String topic,
+    String? requirements,
   }) async {
-    if (!_isModelLoaded && !kIsWeb) {
-      return '错误：AI模型未加载，请先下载并初始化模型';
-    }
-
     try {
-      // 模拟AI生成过程
-      await Future.delayed(const Duration(seconds: 2));
-      
-      return '''
-# ${topic}教案
-
-## 基本信息
-- 学科：${subject}
-- 年级：${grade}
-- 课时：1课时
-
-## 教学目标
-1. 知识目标：理解${topic}的基本概念和原理
-2. 能力目标：掌握${topic}的应用方法
-3. 情感目标：培养学生的学习兴趣和探究精神
-
-## 教学重点
-${topic}的核心概念和基本应用
-
-## 教学难点
-${topic}的深层理解和灵活运用
-
-## 教学准备
-1. 多媒体课件
-2. 学习任务单
-3. 练习题
-
-## 教学过程
-### 一、导入新课
-1. 创设情境，引入话题
-2. 提出问题，激发兴趣
-
-### 二、新课讲解
-1. 讲解${topic}的基本概念
-2. 演示${topic}的应用实例
-3. 引导学生思考和讨论
-
-### 三、巩固练习
-1. 基础练习：概念理解
-2. 提高练习：应用能力
-3. 拓展练习：创新思维
-
-### 四、总结反思
-1. 归纳本节课的知识要点
-2. 学生自评与互评
-3. 教师点评与总结
-
-## 板书设计
-[${topic}板书设计图]
-
-## 课后作业
-1. 完成教材习题
-2. 预习下一节课内容
-''';
+      // 检查网络连接
+      if (await _isOnlineAvailable()) {
+        // 优先使用在线AI
+        return await _onlineAI.generateLessonPlan(
+          subject: subject,
+          grade: grade,
+          topic: topic,
+          requirements: requirements,
+        );
+      } else if (_isModelLoaded) {
+        // 使用离线模型
+        return await _generateOfflineLessonPlan(subject, grade, topic);
+      } else {
+        // 返回基础模板
+        return _getBasicLessonPlanTemplate(subject, grade, topic);
+      }
     } catch (e) {
       debugPrint('生成教案失败: $e');
-      return '生成教案失败，请稍后重试';
+      // 降级到基础模板
+      return _getBasicLessonPlanTemplate(subject, grade, topic);
     }
   }
 
@@ -185,7 +155,7 @@ ${topic}的深层理解和灵活运用
     }
   }
 
-  // OCR文本识别
+  // OCR文本识别（使用增强服务）
   Future<String> recognizeText(String imagePath) async {
     try {
       if (kIsWeb) {
@@ -218,5 +188,144 @@ ${topic}的深层理解和灵活运用
       debugPrint('OCR识别失败: $e');
       return '文字识别失败，请确保图片清晰并重试';
     }
+  }
+
+  // 设置AI API密钥
+  void setApiKey(String apiKey, {String provider = 'qianwen'}) {
+    _onlineAI.setApiKey(apiKey, provider: provider);
+  }
+
+  // 检查网络连接
+  Future<bool> _isOnlineAvailable() async {
+    try {
+      final connectivityResult = await _connectivity.checkConnectivity();
+      return !connectivityResult.contains(ConnectivityResult.none);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // 离线教案生成
+  Future<String> _generateOfflineLessonPlan(String subject, String grade, String topic) async {
+    // 模拟本地模型推理
+    await Future.delayed(const Duration(seconds: 3));
+    return _getBasicLessonPlanTemplate(subject, grade, topic);
+  }
+
+  // 基础教案模板
+  String _getBasicLessonPlanTemplate(String subject, String grade, String topic) {
+    return '''
+# ${topic}教案（${subject} - ${grade}年级）
+
+## 教学目标
+1. **知识目标**：理解${topic}的基本概念和基本原理
+2. **能力目标**：掌握${topic}的基本方法和应用技巧
+3. **情感目标**：培养学习兴趣，增强探索精神
+
+## 教学重点
+${topic}的核心概念和基本应用方法
+
+## 教学难点
+${topic}概念的深入理解和灵活运用
+
+## 教学过程
+
+### 一、导入环节（5分钟）
+1. 复习相关知识，引出新课题
+2. 创设学习情境，激发学习兴趣
+
+### 二、新课教学（25分钟）
+1. **概念讲解**：介绍${topic}的定义和特点
+2. **方法教学**：演示${topic}的基本方法
+3. **例题分析**：通过具体例子加深理解
+
+### 三、练习巩固（10分钟）
+1. 基础练习：加强概念理解
+2. 变式练习：培养应用能力
+
+### 四、总结提升（5分钟）
+1. 知识梳理：归纳本课要点
+2. 方法总结：总结学习方法
+
+## 板书设计
+```
+${topic}
+├── 概念
+├── 特点
+├── 方法
+└── 应用
+```
+
+## 作业布置
+1. 完成课后练习题
+2. 预习下节课内容
+
+*注：此为基础模板，建议连接网络使用完整AI功能*
+''';
+  }
+
+  // 增强OCR识别
+  Future<String> recognizeTextEnhanced(String imagePath, {
+    bool isHandwriting = false,
+    bool isMathFormula = false,
+  }) async {
+    try {
+      await _ocrService.initialize();
+      
+      if (isMathFormula) {
+        return await _ocrService.recognizeMathFormula(imagePath);
+      } else if (isHandwriting) {
+        final result = await _ocrService.recognizeHandwriting(imagePath);
+        return result.formattedText;
+      } else {
+        final result = await _ocrService.recognizeText(imagePath);
+        return result.formattedText;
+      }
+    } catch (e) {
+      debugPrint('增强OCR识别失败: $e');
+      return await recognizeText(imagePath); // 降级到基础OCR
+    }
+  }
+
+  // 批量OCR识别
+  Future<List<String>> recognizeTextBatch(List<String> imagePaths) async {
+    try {
+      await _ocrService.initialize();
+      final results = await _ocrService.recognizeBatch(imagePaths);
+      return results.map((result) => result.formattedText).toList();
+    } catch (e) {
+      debugPrint('批量OCR识别失败: $e');
+      // 降级到逐个识别
+      final results = <String>[];
+      for (final path in imagePaths) {
+        results.add(await recognizeText(path));
+      }
+      return results;
+    }
+  }
+
+  // 内容分析
+  Future<String> analyzeContent({
+    required String content,
+    required String analysisType,
+  }) async {
+    try {
+      if (await _isOnlineAvailable()) {
+        return await _onlineAI.analyzeContent(
+          content: content,
+          analysisType: analysisType,
+        );
+      } else {
+        return '内容分析需要网络连接，请检查网络后重试';
+      }
+    } catch (e) {
+      debugPrint('内容分析失败: $e');
+      return '内容分析暂时不可用，请稍后重试';
+    }
+  }
+
+  // 释放资源
+  Future<void> dispose() async {
+    await _ocrService.dispose();
   }
 } 

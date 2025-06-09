@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
+
 import 'package:teachai_app/screens/home_screen.dart';
 import 'package:teachai_app/screens/login_screen.dart';
 import 'package:teachai_app/utils/app_theme.dart';
@@ -14,11 +14,19 @@ import 'package:teachai_app/models/user.dart';
 import 'package:teachai_app/services/data_service.dart';
 import 'package:teachai_app/services/auth_service.dart';
 import 'package:teachai_app/services/tour_service.dart';
+import 'package:teachai_app/config/env_loader.dart';
+
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // 重置TourService的GlobalKey以避免冲突
+  TourService.resetKeys();
+  
+  // 初始化环境变量
+  await EnvLoader.initialize();
   
   // 初始化Hive本地数据库
   await Hive.initFlutter();
@@ -112,27 +120,27 @@ class TeachAIApp extends StatelessWidget {
                 }
               });
             },
-                          builder: (context) => CupertinoApp(
+          builder: (context) => CupertinoApp(
                 navigatorKey: navigatorKey,
-                title: 'TeachAI - 毕节教师助手',
-                theme: AppTheme.getCupertinoTheme(
-                  isDark: appState.themeMode == ThemeMode.dark || 
-                         (appState.themeMode == ThemeMode.system && 
-                          MediaQuery.platformBrightnessOf(context) == Brightness.dark),
-                ),
-                localizationsDelegates: const [
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: const [
-                  Locale('zh', 'CN'),
-                  Locale('en', 'US'),
-                ],
-                home: AuthService.isLoggedIn ? const HomeScreen() : const LoginScreen(),
-                debugShowCheckedModeBanner: false,
+              title: 'TeachAI - 毕节教师助手',
+              theme: AppTheme.getCupertinoTheme(
+                isDark: appState.themeMode == ThemeMode.dark || 
+                       (appState.themeMode == ThemeMode.system && 
+                        MediaQuery.platformBrightnessOf(context) == Brightness.dark),
               ),
-          ),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('zh', 'CN'),
+                Locale('en', 'US'),
+      ],
+              home: AuthService.isLoggedIn ? const HomeScreen() : const LoginScreen(),
+              debugShowCheckedModeBanner: false,
+              ),
+            ),
         );
       },
     );

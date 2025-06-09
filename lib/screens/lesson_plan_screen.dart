@@ -4,6 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:teachai_app/models/app_state.dart';
 import 'package:teachai_app/services/ai_service.dart';
 import 'package:teachai_app/services/loading_service.dart';
+import 'package:teachai_app/services/data_service.dart';
+import 'package:teachai_app/models/lesson_plan.dart';
+import 'package:teachai_app/screens/saved_lessons_screen.dart';
 import 'package:teachai_app/utils/app_theme.dart';
 
 class LessonPlanScreen extends StatefulWidget {
@@ -47,19 +50,19 @@ class _LessonPlanScreenState extends State<LessonPlanScreen> {
           await Future.delayed(const Duration(seconds: 2));
           
           return await AIService().generateLessonPlan(
-            subject: _subjectController.text,
-            grade: _gradeController.text,
-            topic: _topicController.text,
+        subject: _subjectController.text,
+        grade: _gradeController.text,
+        topic: _topicController.text,
           );
         },
         loadingMessage: '正在生成教案...',
         successMessage: '教案生成成功！',
       );
       
-      setState(() {
-        _isGenerating = false;
-        _generatedPlan = result;
-      });
+        setState(() {
+          _isGenerating = false;
+          _generatedPlan = result;
+        });
     } catch (e) {
       // LoadingService.withLoading 已经处理了错误显示
     }
@@ -322,16 +325,114 @@ class _LessonPlanScreenState extends State<LessonPlanScreen> {
     );
   }
 
+  Future<void> _saveLessonPlan(String title) async {
+    try {
+      final now = DateTime.now();
+      final lessonPlan = LessonPlan(
+        id: 'lesson_${now.millisecondsSinceEpoch}',
+        title: title,
+        subject: _subjectController.text,
+        grade: _gradeController.text,
+        topic: _topicController.text,
+        content: _generatedPlan ?? '',
+        createdAt: now,
+        updatedAt: now,
+      );
+
+      await DataService.saveLessonPlan(lessonPlan);
+      
+      _showSuccessDialog();
+    } catch (e) {
+      _showAlert('保存失败：$e');
+    }
+  }
+
+  void _showSuccessDialog() {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+        title: const Text('保存成功'),
+        content: const Text('教案已成功保存到本地，您可以在已保存教案中查看。'),
+        actions: [
+          CupertinoDialogAction(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pop(context); // 返回主页面
+            },
+            child: const Text('确定'),
+          ),
+          CupertinoDialogAction(
+            onPressed: () {
+              Navigator.pop(context);
+              // 导航到已保存教案页面
+              _navigateToSavedLessons();
+            },
+            child: const Text('查看已保存'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _navigateToSavedLessons() {
+    Navigator.push(
+      context,
+      CupertinoPageRoute(
+        builder: (context) => const SavedLessonsScreen(),
+      ),
+    );
+  }
+
   void _showSaveDialog() {
+    final titleController = TextEditingController(
+      text: '${_topicController.text}教案',
+    );
+    
     showCupertinoDialog(
       context: context,
       builder: (context) => CupertinoAlertDialog(
         title: const Text('保存教案'),
-        content: const Text('教案已保存到本地'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 16),
+            const Text(
+              '请输入教案标题：',
+              style: TextStyle(fontSize: 14),
+            ),
+            const SizedBox(height: 12),
+            CupertinoTextField(
+              controller: titleController,
+              placeholder: '教案标题',
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: CupertinoColors.systemGrey4,
+                  width: 0.5,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ],
+        ),
         actions: [
           CupertinoDialogAction(
+            isDestructiveAction: true,
             onPressed: () => Navigator.pop(context),
-            child: const Text('确定'),
+            child: const Text('取消'),
+          ),
+          CupertinoDialogAction(
+            onPressed: () async {
+              final title = titleController.text.trim();
+              if (title.isEmpty) {
+                _showAlert('请输入教案标题');
+                return;
+              }
+              
+              Navigator.pop(context);
+              await _saveLessonPlan(title);
+            },
+            child: const Text('保存'),
           ),
         ],
       ),

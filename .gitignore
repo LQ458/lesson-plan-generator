@@ -44,3 +44,15 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /node_modules
+
+# Environment variables and sensitive configuration
+.env
+.env.local
+.env.production
+.env.development
+*.env
+config/keys.dart
+
+# API keys and secrets (additional safety)
+**/api_keys.dart
+**/secrets.dart

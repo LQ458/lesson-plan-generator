@@ -6,14 +6,45 @@ import '../utils/app_theme.dart';
 import '../main.dart';
 
 class TourService {
-  // 全局Key用于引导
-  static final GlobalKey profileKey = GlobalKey();
-  static final GlobalKey themeToggleKey = GlobalKey();
-  static final GlobalKey offlineModeKey = GlobalKey();
-  static final GlobalKey lessonPlanKey = GlobalKey();
-  static final GlobalKey exerciseKey = GlobalKey();
-  static final GlobalKey mistakeAnalysisKey = GlobalKey();
-  static final GlobalKey documentScanKey = GlobalKey();
+  // 使用UniqueKey替代部分GlobalKey
+  static final UniqueKey _uniqueKey = UniqueKey();
+  
+  // 使用延迟初始化和可重置的GlobalKey
+  static GlobalKey get profileKey => _profileKey ??= GlobalKey(debugLabel: 'profile');
+  static GlobalKey? _profileKey;
+  
+  static GlobalKey get themeToggleKey => _themeToggleKey ??= GlobalKey(debugLabel: 'themeToggle');
+  static GlobalKey? _themeToggleKey;
+  
+  static GlobalKey get offlineModeKey => _offlineModeKey ??= GlobalKey(debugLabel: 'offlineMode');
+  static GlobalKey? _offlineModeKey;
+  
+  static GlobalKey get lessonPlanKey => _lessonPlanKey ??= GlobalKey(debugLabel: 'lessonPlan');
+  static GlobalKey? _lessonPlanKey;
+  
+  static GlobalKey get exerciseKey => _exerciseKey ??= GlobalKey(debugLabel: 'exercise');
+  static GlobalKey? _exerciseKey;
+  
+  static GlobalKey get mistakeAnalysisKey => _mistakeAnalysisKey ??= GlobalKey(debugLabel: 'mistakeAnalysis');
+  static GlobalKey? _mistakeAnalysisKey;
+  
+  static GlobalKey get savedLessonsKey => _savedLessonsKey ??= GlobalKey(debugLabel: 'savedLessons');
+  static GlobalKey? _savedLessonsKey;
+  
+  static GlobalKey get documentScanKey => _documentScanKey ??= GlobalKey(debugLabel: 'documentScan');
+  static GlobalKey? _documentScanKey;
+
+  // 重置所有GlobalKey的方法
+  static void resetKeys() {
+    _profileKey = null;
+    _themeToggleKey = null;
+    _offlineModeKey = null;
+    _lessonPlanKey = null;
+    _exerciseKey = null;
+    _mistakeAnalysisKey = null;
+    _savedLessonsKey = null;
+    _documentScanKey = null;
+  }
 
   // 引导步骤配置
   static List<TourStep> get tourSteps => [
@@ -54,6 +85,12 @@ class TourService {
       icon: CupertinoIcons.chart_bar,
     ),
     TourStep(
+      key: savedLessonsKey,
+      title: '已保存教案',
+      description: '管理和查看您保存的教案\n支持搜索、筛选和编辑功能',
+      icon: CupertinoIcons.folder,
+    ),
+    TourStep(
       key: documentScanKey,
       title: '纸质资料数字化',
       description: '使用OCR技术将纸质资料转为电子版\n支持文字识别和格式化处理',
@@ -75,6 +112,7 @@ class TourService {
             lessonPlanKey,
             exerciseKey,
             mistakeAnalysisKey,
+            savedLessonsKey,
             documentScanKey,
           ]);
         } else {
@@ -101,6 +139,7 @@ class TourService {
         lessonPlanKey,
         exerciseKey,
         mistakeAnalysisKey,
+        savedLessonsKey,
         documentScanKey,
       ]);
     } else {
@@ -114,33 +153,57 @@ class TourService {
     required String title,
     required String description,
     required Widget child,
-    IconData? icon,
     VoidCallback? onTargetClick,
   }) {
-    return Showcase(
-      key: key,
-      title: title,
-      description: description,
-      targetShapeBorder: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-      ),
-      titleTextStyle: const TextStyle(
-        color: Colors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
-      descTextStyle: const TextStyle(
-        color: Colors.white,
-        fontSize: 14,
-        height: 1.4,
-      ),
-      overlayColor: Colors.black.withOpacity(0.8),
-      targetBorderRadius: BorderRadius.circular(8),
-      tooltipBackgroundColor: AppTheme.systemBlue,
-      tooltipPadding: const EdgeInsets.all(16),
-      onTargetClick: onTargetClick ?? () {}, // 提供默认的空回调
-      disposeOnTap: true,
-      child: child,
+    return Builder(
+      builder: (context) {
+        // 检查ShowCaseWidget上下文
+        bool hasShowCaseWidget = false;
+        try {
+          ShowCaseWidget.of(context);
+          hasShowCaseWidget = true;
+        } catch (e) {
+          print('ShowCaseWidget context not found: $e');
+          hasShowCaseWidget = false;
+        }
+        
+        // 如果没有ShowCaseWidget或key有问题,直接返回child
+        if (!hasShowCaseWidget || key.currentContext?.mounted == false) {
+          print('Falling back to original widget for $title');
+          return child;
+        }
+        
+        try {
+          return Showcase(
+            key: key,
+            title: title,
+            description: description,
+            targetShapeBorder: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
+            titleTextStyle: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+            descTextStyle: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              height: 1.4,
+            ),
+            overlayColor: Colors.black.withOpacity(0.8),
+            targetBorderRadius: BorderRadius.circular(8),
+            tooltipBackgroundColor: AppTheme.systemBlue,
+            tooltipPadding: const EdgeInsets.all(16),
+            onTargetClick: onTargetClick ?? () {},
+            disposeOnTap: true,
+            child: child,
+          );
+        } catch (e) {
+          print('Showcase creation failed for $title: $e');
+          return child; // 失败时返回原始widget
+        }
+      },
     );
   }
 
@@ -189,6 +252,7 @@ class TourService {
                     lessonPlanKey,
                     exerciseKey,
                     mistakeAnalysisKey,
+                    savedLessonsKey,
                     documentScanKey,
                   ]);
                 } else {
@@ -257,7 +321,7 @@ class TourService {
     if (AuthService.isLoggedIn && !AuthService.hasSeenTour) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (context.mounted) {
-          showWelcomeDialog(context);
+        showWelcomeDialog(context);
         }
       });
     }
