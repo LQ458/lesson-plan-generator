@@ -293,17 +293,18 @@ class _SavedLessonsScreenState extends State<SavedLessonsScreen> {
   }
 
   Widget _buildInfoChip(String text, Color color) {
+    final isDark = CupertinoTheme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: isDark ? color.withOpacity(0.2) : color,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         text,
         style: TextStyle(
           fontSize: 12,
-          color: color,
+          color: isDark ? color : Colors.white,
           fontWeight: FontWeight.w500,
         ),
       ),

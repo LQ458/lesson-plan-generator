@@ -1,0 +1,18 @@
+[
+    {
+        "key": "cmd+r",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Flutter: Hot Reload",
+        "when": "!inDebugRepl"
+    },
+    {
+        "key": "cmd+shift+r", 
+        "command": "workbench.action.tasks.runTask",
+        "args": "Flutter: Hot Restart"
+    },
+    {
+        "key": "cmd+shift+a",
+        "command": "workbench.action.tasks.runTask", 
+        "args": "Flutter: Attach to Running App"
+    }
+] 

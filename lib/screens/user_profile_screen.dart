@@ -142,23 +142,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           ),
           
           _buildSettingItem(
-            icon: CupertinoIcons.wifi_slash,
-            title: '离线模式',
-            subtitle: '管理离线功能',
-            trailing: Consumer<AppState>(
-              builder: (context, appState, child) {
-                return CupertinoSwitch(
-                  value: appState.isOfflineMode,
-                  onChanged: (value) {
-                    appState.toggleOfflineMode();
-                  },
-                );
-              },
-            ),
-            isDark: isDark,
-          ),
-          
-          _buildSettingItem(
             icon: CupertinoIcons.bell,
             title: '通知设置',
             subtitle: '管理推送通知',

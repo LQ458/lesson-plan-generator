@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flutter: Attach to Device",
+            "type": "dart",
+            "request": "attach",
+            "deviceId": "iPhone X",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Flutter: Launch on iPhone X",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "deviceId": "5AA0259F-98ED-4CCB-A948-84351C989AF0"
+        }
+    ]
+} 

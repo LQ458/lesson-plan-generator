@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:teachai_app/models/app_state.dart';
-import 'package:teachai_app/utils/app_theme.dart';
-import 'package:teachai_app/utils/app_theme.dart';
+import '../models/app_state.dart';
+import '../services/ai_service.dart';
+import '../utils/app_theme.dart';
 
 class DocumentScanScreen extends StatefulWidget {
   const DocumentScanScreen({super.key});
@@ -16,22 +16,29 @@ class DocumentScanScreen extends StatefulWidget {
 
 class _DocumentScanScreenState extends State<DocumentScanScreen> {
   final ImagePicker _picker = ImagePicker();
+  final AIService _aiService = AIService();
   XFile? _imageFile;
   bool _isProcessing = false;
   String? _recognizedText;
 
   Future<void> _takePicture() async {
-    final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
-    if (photo != null) {
+    final image = await _picker.pickImage(
+      source: ImageSource.camera,
+      imageQuality: 80,
+    );
+    if (image != null) {
       setState(() {
-        _imageFile = photo;
+        _imageFile = image;
         _recognizedText = null;
       });
     }
   }
 
   Future<void> _pickFromGallery() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final image = await _picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 80,
+    );
     if (image != null) {
       setState(() {
         _imageFile = image;
@@ -47,10 +54,8 @@ class _DocumentScanScreenState extends State<DocumentScanScreen> {
       _isProcessing = true;
     });
 
-    // 使用真实的OCR服务识别文本
-    final appState = Provider.of<AppState>(context, listen: false);
     try {
-      final recognizedText = await appState.recognizeText(_imageFile!.path);
+      final recognizedText = await _aiService.recognizeText(_imageFile!.path);
       
       setState(() {
         _isProcessing = false;

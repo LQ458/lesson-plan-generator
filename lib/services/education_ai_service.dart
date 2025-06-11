@@ -74,7 +74,7 @@ class EducationAIService {
         requirements: prompt,
       );
     } catch (e) {
-      return _getEducationLessonTemplate(subject, grade, topic, textbookVersion);
+      throw Exception('❌ 教育专业教案生成失败\n\n原因：${e.toString()}\n\n请检查：\n1. 网络连接是否正常\n2. API密钥是否正确配置\n3. 账号余额是否充足\n\n👉 前往"个人中心 → AI服务配置"检查设置');
     }
   }
 
@@ -101,7 +101,7 @@ class EducationAIService {
         count: count,
       );
     } catch (e) {
-      return _getEducationExerciseTemplate(subject, grade, topic, difficulty, count);
+      throw Exception('❌ 教育专业练习题生成失败\n\n原因：${e.toString()}\n\n请检查：\n1. 网络连接是否正常\n2. API密钥是否正确配置\n3. 账号余额是否充足\n\n👉 前往"个人中心 → AI服务配置"检查设置');
     }
   }
 
@@ -238,127 +238,7 @@ ${includeExploration ? '- 探究题：发展科学思维和实践能力' : ''}
     return grade.contains('小学') ? '小学' : '初中';
   }
 
-  // 教育专用教案模板
-  String _getEducationLessonTemplate(String subject, String grade, String topic, String textbookVersion) {
-    final gradeCategory = _getGradeCategory(grade);
-    final competencies = _coreCompetencies[subject]?.take(2).join('、') ?? '核心素养';
-    
-    return '''
-# ${topic}教案（${subject} ${grade}年级 ${textbookVersion}）
 
-## 教学目标
-
-### 核心素养目标
-通过本节课学习，发展学生的${competencies}，培养学科思维能力。
-
-### 具体目标
-1. **知识与技能**：理解${topic}的概念，掌握基本方法
-2. **过程与方法**：经历探究过程，形成科学思维
-3. **情感态度价值观**：增强学习兴趣，培养科学精神
-
-## 教学重难点
-- **重点**：${topic}的核心概念和基本应用
-- **难点**：概念的深层理解和实际运用
-
-## 教学过程
-
-### 一、情境导入（5分钟）
-创设真实情境，联系生活实际，激发学习兴趣，引出本课主题。
-
-### 二、探究新知（25分钟）
-#### 1. 概念建构（10分钟）
-- 引导学生观察、思考、发现
-- 师生互动，构建概念
-- 明确概念的本质特征
-
-#### 2. 方法探索（10分钟）
-- 学生自主探索解决方法
-- 小组合作交流讨论
-- 教师适时引导点拨
-
-#### 3. 应用实践（5分钟）
-- 基础练习巩固理解
-- 变式练习深化认知
-
-### 三、总结拓展（8分钟）
-#### 1. 知识梳理（3分钟）
-学生自主梳理本课所学，构建知识网络
-
-#### 2. 能力提升（5分钟）
-联系实际，拓展应用，发展核心素养
-
-### 四、作业设计（2分钟）
-#### 基础作业
-巩固基本概念和方法
-
-#### 拓展作业
-联系生活实际，培养应用能力
-
-## 板书设计
-```
-${topic}
-├── 概念：[核心定义]
-├── 特征：[主要特点]
-├── 方法：[解决策略]
-└── 应用：[实际运用]
-```
-
-## 教学反思
-关注学生学习过程，及时调整教学策略，体现个性化教学。
-
-*注：此为基础模板，建议结合具体教学内容和学生实际情况进行调整*
-''';
-  }
-
-  // 教育专用练习题模板
-  String _getEducationExerciseTemplate(String subject, String grade, String topic, String difficulty, int count) {
-    return '''
-# ${topic}练习题（${grade}年级 ${difficulty}难度）
-
-## 基础巩固题
-
-### 题目1：概念理解
-**题目**：下列关于${topic}的表述中，正确的是（　）
-A. [选项A - 基础概念]
-B. [选项B - 关键特征]  
-C. [选项C - 常见误区]
-D. [选项D - 拓展理解]
-
-**答案**：B
-**解析**：考查对${topic}基本概念的理解。正确答案体现了核心特征...
-**能力考查**：概念理解、基础记忆
-**难度等级**：★☆☆
-
-## 能力提升题
-
-### 题目2：方法应用
-**题目**：某实际问题中涉及${topic}，请运用所学知识分析解决...
-
-**解答要点**：
-1. 分析题意，明确问题本质
-2. 选择合适方法，建立模型
-3. 求解过程，得出结论
-
-**能力考查**：分析应用、逻辑推理
-**难度等级**：★★☆
-
-## 探究拓展题
-
-### 题目3：综合探究
-**题目**：通过查阅资料或实际调查，探究${topic}在生活中的应用...
-
-**探究建议**：
-- 收集相关资料
-- 进行实地调研
-- 分析整理数据
-- 得出结论建议
-
-**能力考查**：探究实践、创新思维
-**难度等级**：★★★
-
-*注：题目数量为示例，实际应生成${count}道完整题目*
-''';
-  }
 
   // 设置API密钥
   void setApiKey(String apiKey, {String provider = 'qianwen'}) {

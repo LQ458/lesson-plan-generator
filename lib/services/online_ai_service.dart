@@ -12,22 +12,43 @@ class OnlineAIService {
 
   final Dio _dio = Dio();
   
-  // 支持多个AI服务提供商
+  // 支持多个国内AI服务提供商
   static final Map<String, Map<String, String>> _providers = {
     'qianwen': {
       'url': EnvironmentConfig.apiBaseUrls['alicloud']!,
       'model': EnvironmentConfig.defaultModels['alicloud']!,
       'apiKey': EnvironmentConfig.aliCloudApiKey,
+      'name': '阿里云通义千问',
     },
     'wenxin': {
       'url': EnvironmentConfig.apiBaseUrls['baidu_chat']!,
       'model': EnvironmentConfig.defaultModels['baidu']!,
       'apiKey': EnvironmentConfig.baiduApiKey,
+      'name': '百度文心一言',
     },
     'chatglm': {
       'url': EnvironmentConfig.apiBaseUrls['chatglm']!,
       'model': EnvironmentConfig.defaultModels['chatglm']!,
       'apiKey': EnvironmentConfig.chatGlmApiKey,
+      'name': '智谱ChatGLM',
+    },
+    'deepseek': {
+      'url': EnvironmentConfig.apiBaseUrls['deepseek']!,
+      'model': EnvironmentConfig.defaultModels['deepseek']!,
+      'apiKey': EnvironmentConfig.deepSeekApiKey,
+      'name': '深度求索',
+    },
+    'doubao': {
+      'url': EnvironmentConfig.apiBaseUrls['doubao']!,
+      'model': EnvironmentConfig.defaultModels['doubao']!,
+      'apiKey': EnvironmentConfig.doubaoApiKey,
+      'name': '字节豆包',
+    },
+    'kimi': {
+      'url': EnvironmentConfig.apiBaseUrls['kimi']!,
+      'model': EnvironmentConfig.defaultModels['kimi']!,
+      'apiKey': EnvironmentConfig.deepSeekApiKey, // Kimi暂用DeepSeek key
+      'name': 'Kimi智能助手',
     },
   };
 
@@ -36,24 +57,60 @@ class OnlineAIService {
   
   // 自动初始化API配置
   void _initializeApiConfig() {
-    // 按优先级检查可用的API服务
-    final availableProviders = _providers.entries
-        .where((entry) => entry.value['apiKey']?.isNotEmpty == true)
-        .toList();
+    // 按优先级检查可用的API服务（优选性价比高的服务商）
+    final preferredOrder = EnvironmentConfig.getPreferredProviders();
     
-    if (availableProviders.isNotEmpty) {
-      final firstProvider = availableProviders.first;
-      _currentProvider = firstProvider.key;
-      _apiKey = firstProvider.value['apiKey'];
-      
-      _dio.options.headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $_apiKey',
-      };
-      
-      debugPrint('自动配置AI服务: $_currentProvider');
-    } else {
-      debugPrint('警告: 未找到有效的API配置，请检查环境变量设置');
+    for (final providerKey in preferredOrder) {
+      final provider = _providers[providerKey];
+      if (provider != null && provider['apiKey']?.isNotEmpty == true) {
+        _currentProvider = providerKey;
+        _apiKey = provider['apiKey'];
+        
+        _configureHeaders(providerKey);
+        
+        debugPrint('自动配置AI服务: ${provider['name']} ($providerKey)');
+        return;
+      }
+    }
+    
+    debugPrint('警告: 未找到有效的API配置，请在设置中配置API密钥');
+  }
+  
+  // 配置请求头（不同服务商可能需要不同的认证方式）
+  void _configureHeaders(String provider) {
+    switch (provider) {
+      case 'qianwen':
+        _dio.options.headers = {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $_apiKey',
+          'X-DashScope-SSE': 'disable',
+        };
+        break;
+      case 'wenxin':
+        // 百度需要先获取access_token
+        _dio.options.headers = {
+          'Content-Type': 'application/json',
+        };
+        break;
+      case 'chatglm':
+      case 'deepseek':
+      case 'kimi':
+        _dio.options.headers = {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $_apiKey',
+        };
+        break;
+      case 'doubao':
+        _dio.options.headers = {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $_apiKey',
+        };
+        break;
+      default:
+        _dio.options.headers = {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $_apiKey',
+        };
     }
   }
   
@@ -62,10 +119,8 @@ class OnlineAIService {
     _apiKey = apiKey;
     _currentProvider = provider;
     
-    _dio.options.headers = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer $_apiKey',
-    };
+    _configureHeaders(provider);
+    debugPrint('手动设置AI服务: ${_providers[provider]?['name']} ($provider)');
   }
   
   // 获取服务状态
@@ -97,7 +152,7 @@ class OnlineAIService {
       return await _callAI(prompt, type: 'lesson_plan');
     } catch (e) {
       debugPrint('生成教案失败: $e');
-      return _getFallbackLessonPlan(subject, grade, topic);
+      throw Exception('❌ 在线教案生成失败\n\n原因：${e.toString()}\n\n请检查：\n1. 网络连接是否正常\n2. API密钥是否正确\n3. 账号余额是否充足\n\n👉 前往"个人中心 → AI服务配置"检查设置');
     }
   }
 
@@ -115,7 +170,7 @@ class OnlineAIService {
       return await _callAI(prompt, type: 'exercises');
     } catch (e) {
       debugPrint('生成练习题失败: $e');
-      return _getFallbackExercises(subject, grade, topic, difficulty, count);
+      throw Exception('❌ 在线练习题生成失败\n\n原因：${e.toString()}\n\n请检查：\n1. 网络连接是否正常\n2. API密钥是否正确\n3. 账号余额是否充足\n\n👉 前往"个人中心 → AI服务配置"检查设置');
     }
   }
 
@@ -147,47 +202,132 @@ ${content}
     }
   }
 
-  // 构建教案提示词
+  // 构建教案提示词 - 增强多样性和专业性
   String _buildLessonPlanPrompt(String subject, String grade, String topic, String? requirements) {
+    // 根据学科和年级调整教案风格
+    final isElementary = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'].contains(grade);
+    final schoolLevel = isElementary ? '小学' : (grade.contains('初') ? '初中' : '高中');
+    
     return '''
-你是一名资深的${subject}教师，请为${grade}年级学生设计一份关于"${topic}"的教案。
+作为一名资深的${subject}教师，请为${schoolLevel}${grade}学生设计一份关于"${topic}"的详细教案。
 
-基本要求：
-1. 遵循新课标要求，适合中国教育体系
-2. 教案结构完整：教学目标、重难点、教学过程、板书设计等
-3. 教学方法多样，注重学生主体性
-4. 内容详实具体，可直接使用
-5. 字数控制在1000-1500字
+## 教案设计要求：
+### 基本规范
+- 严格遵循最新课程标准和教育教学理念
+- 体现学科核心素养培养
+- 突出学生主体地位，教师主导作用
+- 融入德育元素和价值观引导
 
-${requirements != null ? '特殊要求：$requirements' : ''}
+### 结构完整性
+1. **教学目标**：知识与技能、过程与方法、情感态度价值观三维目标
+2. **教学重难点**：明确重点知识和技能难点
+3. **教学准备**：教具、学具、多媒体资源等
+4. **教学过程**：详细的教学环节设计
+5. **板书设计**：合理的板书布局
+6. **作业设计**：分层次的课后作业
+7. **教学反思**：预设的反思要点
 
-请生成详细的教案内容：
+### 教学特色
+- 采用多种教学方法（讲授、讨论、探究、合作学习等）
+- 设计互动环节和学生活动
+- 关注不同层次学生的学习需求
+- 融入现代教育技术手段
+
+### 内容要求
+- 知识点讲解详细具体
+- 例题和练习设计合理
+- 教学活动可操作性强
+- 时间分配科学合理
+
+${requirements != null ? '### 特殊要求\n$requirements\n' : ''}
+
+### 格式要求
+- 使用markdown格式，层次清晰
+- 字数控制在1500-2000字
+- 包含必要的表格和列表
+- 适合直接打印使用
+
+请生成完整的教案内容：
 ''';
   }
 
-  // 构建练习题提示词
+  // 构建练习题提示词 - 提升专业性
   String _buildExercisePrompt(String subject, String grade, String topic, String difficulty, int count) {
+    final isElementary = ['一年级', '二年级', '三年级', '四年级', '五年级', '六年级'].contains(grade);
+    final schoolLevel = isElementary ? '小学' : (grade.contains('初') ? '初中' : '高中');
+    
     return '''
-请为${grade}年级${subject}科目"${topic}"设计${count}道${difficulty}难度的练习题。
+请为${schoolLevel}${grade}${subject}科目"${topic}"单元设计${count}道高质量的${difficulty}难度练习题。
 
-要求：
-1. 题型多样：选择题、填空题、解答题等
-2. 难度适中，符合${difficulty}水平
-3. 每题都要有详细的解析过程
-4. 答案准确，解析清晰易懂
-5. 题目贴近教学实际
+## 题目设计要求：
 
-格式要求：
-题目编号、题目内容、选项（如有）、标准答案、详细解析
+### 题型分布
+- 基础题（${difficulty == '简单' ? '60%' : difficulty == '中等' ? '40%' : '20%'}）：考查基本概念和技能
+- 综合题（${difficulty == '简单' ? '30%' : difficulty == '中等' ? '40%' : '40%'}）：考查知识运用能力  
+- 拓展题（${difficulty == '简单' ? '10%' : difficulty == '中等' ? '20%' : '40%'}）：考查创新思维能力
 
-请生成练习题：
+### 题目类型
+${_getQuestionTypes(subject, schoolLevel)}
+
+### 质量标准
+1. **科学性**：题目内容准确，符合学科规律
+2. **适切性**：难度适合目标年级学生
+3. **层次性**：从易到难，螺旋上升
+4. **实用性**：贴近生活实际，有教育价值
+5. **规范性**：表述清楚，答案标准
+
+### 答案要求
+- 每题提供详细的解题过程
+- 包含解题思路和方法指导
+- 标明易错点和注意事项
+- 提供变式训练建议
+
+### 格式要求
+```
+## 第X题（题型）【${difficulty}】
+[题目内容]
+
+**答案：** [标准答案]
+
+**解析：** [详细解题过程和思路]
+
+**拓展：** [相关知识点或变式]
+```
+
+请生成高质量的练习题：
 ''';
+  }
+
+  // 根据学科获取合适的题型
+  String _getQuestionTypes(String subject, String schoolLevel) {
+    final questionTypes = <String, Map<String, List<String>>>{
+      '语文': {
+        '小学': ['填空题', '选择题', '阅读理解', '看图写话', '造句练习'],
+        '初中': ['选择题', '填空题', '阅读理解', '古诗文默写', '作文题'],
+        '高中': ['选择题', '填空题', '现代文阅读', '古诗文阅读', '写作题'],
+      },
+      '数学': {
+        '小学': ['计算题', '应用题', '填空题', '选择题', '图形题'],
+        '初中': ['计算题', '化简题', '解方程', '应用题', '几何证明'],
+        '高中': ['选择题', '填空题', '解答题', '应用题', '证明题'],
+      },
+      '英语': {
+        '小学': ['选择题', '填空题', '连线题', '翻译题', '看图说话'],
+        '初中': ['选择题', '完形填空', '阅读理解', '翻译题', '写作题'],
+        '高中': ['选择题', '完形填空', '阅读理解', '语法填空', '书面表达'],
+      },
+    };
+    
+    final types = questionTypes[subject]?[schoolLevel] ?? 
+                  ['选择题', '填空题', '简答题', '应用题', '分析题'];
+    
+    return types.map((type) => '- $type').join('\n');
   }
 
   // 调用AI API
   Future<String> _callAI(String prompt, {required String type}) async {
-    if (_apiKey == null) {
-      throw Exception('API密钥未设置');
+    if (_apiKey == null || _apiKey!.isEmpty) {
+      throw Exception('🔑 API密钥未配置\n\n请前往"个人中心 → AI服务配置"配置API密钥\n\n推荐服务商：\n• DeepSeek (免费额度)\n• 通义千问 (性能优秀)\n• 智谱ChatGLM (免费额度)');
     }
 
     try {
@@ -197,7 +337,9 @@ ${requirements != null ? '特殊要求：$requirements' : ''}
       if (e.response?.statusCode == 429) {
         throw Exception('请求过于频繁，请稍后重试');
       } else if (e.response?.statusCode == 401) {
-        throw Exception('API密钥无效');
+        throw Exception('API密钥无效，请检查密钥配置');
+      } else if (e.response?.statusCode == 403) {
+        throw Exception('API密钥权限不足或账户余额不足');
       } else {
         throw Exception('网络请求失败：${e.message}');
       }
@@ -222,13 +364,16 @@ ${requirements != null ? '特殊要求：$requirements' : ''}
             'parameters': {
               'max_tokens': 2000,
               'temperature': 0.7,
+              'top_p': 0.8,
             },
           },
         );
         
       case 'wenxin':
+        // 百度文心一言需要先获取access_token
+        final accessToken = await _getBaiduAccessToken();
         return await _dio.post(
-          provider['url']!,
+          '${provider['url']}?access_token=$accessToken',
           data: {
             'messages': [
               {
@@ -236,8 +381,9 @@ ${requirements != null ? '特殊要求：$requirements' : ''}
                 'content': prompt,
               }
             ],
-            'max_tokens': 2000,
+            'max_output_tokens': 2000,
             'temperature': 0.7,
+            'top_p': 0.8,
           },
         );
         
@@ -254,11 +400,79 @@ ${requirements != null ? '特殊要求：$requirements' : ''}
             ],
             'max_tokens': 2000,
             'temperature': 0.7,
+            'top_p': 0.8,
+          },
+        );
+        
+      case 'deepseek':
+        return await _dio.post(
+          provider['url']!,
+          data: {
+            'model': provider['model'],
+            'messages': [
+              {
+                'role': 'user',
+                'content': prompt,
+              }
+            ],
+            'max_tokens': 2000,
+            'temperature': 0.7,
+            'stream': false,
+          },
+        );
+        
+      case 'doubao':
+        return await _dio.post(
+          provider['url']!,
+          data: {
+            'model': provider['model'],
+            'messages': [
+              {
+                'role': 'user',
+                'content': prompt,
+              }
+            ],
+            'max_tokens': 2000,
+            'temperature': 0.7,
+          },
+        );
+        
+      case 'kimi':
+        return await _dio.post(
+          provider['url']!,
+          data: {
+            'model': provider['model'],
+            'messages': [
+              {
+                'role': 'user',
+                'content': prompt,
+              }
+            ],
+            'max_tokens': 2000,
+            'temperature': 0.7,
           },
         );
         
       default:
-        throw Exception('不支持的AI服务提供商');
+        throw Exception('不支持的AI服务提供商: $_currentProvider');
+    }
+  }
+  
+  // 获取百度access_token
+  Future<String> _getBaiduAccessToken() async {
+    try {
+      final response = await _dio.post(
+        EnvironmentConfig.apiBaseUrls['baidu_auth']!,
+        queryParameters: {
+          'grant_type': 'client_credentials',
+          'client_id': EnvironmentConfig.baiduApiKey,
+          'client_secret': EnvironmentConfig.baiduSecretKey,
+        },
+      );
+      
+      return response.data['access_token'];
+    } catch (e) {
+      throw Exception('获取百度access_token失败: $e');
     }
   }
 
@@ -275,96 +489,19 @@ ${requirements != null ? '特殊要求：$requirements' : ''}
           return data['result'] ?? '生成失败';
           
         case 'chatglm':
+        case 'deepseek':
+        case 'doubao':
+        case 'kimi':
           return data['choices'][0]['message']['content'] ?? '生成失败';
           
         default:
+          debugPrint('未知的AI服务提供商: $_currentProvider');
           return '生成失败';
       }
     } catch (e) {
       debugPrint('解析响应失败: $e');
-      return '内容解析失败';
+      return '内容解析失败，请检查API配置';
     }
-  }
-
-  // 降级方案：基础教案模板
-  String _getFallbackLessonPlan(String subject, String grade, String topic) {
-    return '''
-# ${topic}教案（${subject} - ${grade}年级）
-
-## 教学目标
-1. **知识目标**：理解${topic}的基本概念和基本原理
-2. **能力目标**：掌握${topic}的基本方法和应用技巧
-3. **情感目标**：培养学习兴趣，增强探索精神
-
-## 教学重点
-${topic}的核心概念和基本应用方法
-
-## 教学难点
-${topic}概念的深入理解和灵活运用
-
-## 教学过程
-
-### 一、导入环节（5分钟）
-1. 复习相关知识，引出新课题
-2. 创设学习情境，激发学习兴趣
-
-### 二、新课教学（25分钟）
-1. **概念讲解**：介绍${topic}的定义和特点
-2. **方法教学**：演示${topic}的基本方法
-3. **例题分析**：通过具体例子加深理解
-
-### 三、练习巩固（10分钟）
-1. 基础练习：加强概念理解
-2. 变式练习：培养应用能力
-
-### 四、总结提升（5分钟）
-1. 知识梳理：归纳本课要点
-2. 方法总结：总结学习方法
-
-## 板书设计
-```
-${topic}
-├── 概念
-├── 特点
-├── 方法
-└── 应用
-```
-
-## 作业布置
-1. 完成课后练习题
-2. 预习下节课内容
-
-*注：此为离线模板，建议根据实际情况调整*
-''';
-  }
-
-  // 降级方案：基础练习题模板
-  String _getFallbackExercises(String subject, String grade, String topic, String difficulty, int count) {
-    return '''
-## ${topic}练习题（${difficulty}难度）
-
-### 题目1：基础理解题
-**题目**：下列关于${topic}的说法中，正确的是（　）
-A. 选项A
-B. 选项B  
-C. 选项C
-D. 选项D
-
-**答案**：请参考教材内容
-**解析**：建议复习相关概念
-
-### 题目2：应用分析题
-**题目**：请结合${topic}的相关知识，分析以下问题...
-
-**答案要点**：
-1. 要点一
-2. 要点二
-3. 要点三
-
-**解析**：此题考查对${topic}的理解和应用能力
-
-*注：共需生成${count}道题目，当前为离线模板。建议连接网络使用完整功能。*
-''';
   }
 
   // 检查服务可用性
@@ -377,6 +514,28 @@ D. 选项D
       return true;
     } catch (e) {
       return false;
+    }
+  }
+
+  // OCR文本识别
+  Future<String> recognizeText(String imagePath) async {
+    try {
+      final prompt = '''
+请分析这张图片中的文字内容，并按照以下要求输出：
+1. 准确识别所有文字
+2. 保持原有的段落结构
+3. 如果是数学公式，请用标准格式表示
+4. 如果是手写字，请尽量识别清楚
+
+请只输出识别到的文字内容，不要添加额外说明。
+''';
+      
+      // 注意：这里需要图片上传功能，实际实现可能需要将图片转换为base64或使用其他方式
+      // 暂时返回提示信息，真实实现时需要图片处理能力
+      return 'OCR功能需要图片上传能力，请在移动端使用或配置支持图片分析的AI服务';
+    } catch (e) {
+      debugPrint('在线OCR识别失败: $e');
+      return '在线OCR识别失败，请稍后重试';
     }
   }
 

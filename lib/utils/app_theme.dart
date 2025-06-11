@@ -48,6 +48,7 @@ class AppTheme {
   static const Color surfaceColor = Colors.white;
   static const Color textPrimaryColor = Color(0xFF000000);
   static const Color textSecondaryColor = systemGray;
+  static const Color secondaryText = systemGray; // 添加secondaryText别名
   static const Color dividerColor = systemGray4;
 
   // 深色主题色

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
-import '../models/app_state.dart';
 import '../models/mistake_record.dart';
 import '../services/data_service.dart';
 import '../utils/app_theme.dart';
@@ -718,11 +716,10 @@ class _MistakeAnalysisScreenState extends State<MistakeAnalysisScreen> {
                     
                     if (confirm == true) {
                       await DataService.clearAllData();
-                      await DataService.generateSampleData();
                       _loadMistakes();
                       _applyFilters();
                       setState(() {}); // 刷新图表
-                      _showAlert('示例数据已重新生成');
+                      _showAlert('数据已清空，请添加新的错题记录');
                     }
                   },
                   child: const Text('重新生成'),

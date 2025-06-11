@@ -2,7 +2,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../models/lesson_plan.dart';
 import '../models/exercise.dart';
 import '../models/mistake_record.dart';
-import 'sample_data_service.dart';
 
 class DataService {
   static late Box<LessonPlan> _lessonPlanBox;
@@ -28,41 +27,6 @@ class DataService {
     _exerciseBox = await Hive.openBox<Exercise>('exercises');
     _mistakeBox = await Hive.openBox<MistakeRecord>('mistakes');
     _settingsBox = await Hive.openBox<String>('settings');
-
-    // 如果是首次启动，生成示例数据
-    await _initializeSampleDataIfNeeded();
-  }
-
-  /// 如果需要，初始化示例数据
-  static Future<void> _initializeSampleDataIfNeeded() async {
-    String hasInitializedStr = _settingsBox.get('sample_data_initialized', defaultValue: 'false') ?? 'false';
-    bool hasInitialized = hasInitializedStr == 'true';
-    
-    if (!hasInitialized && _lessonPlanBox.isEmpty && _exerciseBox.isEmpty && _mistakeBox.isEmpty) {
-      await generateSampleData();
-      await _settingsBox.put('sample_data_initialized', 'true');
-    }
-  }
-
-  /// 生成示例数据
-  static Future<void> generateSampleData() async {
-    // 生成示例教案
-    List<LessonPlan> samplePlans = SampleDataService.generateSampleLessonPlans();
-    for (LessonPlan plan in samplePlans) {
-      await _lessonPlanBox.put(plan.id, plan);
-    }
-
-    // 生成示例练习题
-    List<Exercise> sampleExercises = SampleDataService.generateSampleExercises();
-    for (Exercise exercise in sampleExercises) {
-      await _exerciseBox.put(exercise.id, exercise);
-    }
-
-    // 生成示例错题记录
-    List<MistakeRecord> sampleMistakes = SampleDataService.generateSampleMistakeRecords();
-    for (MistakeRecord mistake in sampleMistakes) {
-      await _mistakeBox.put(mistake.id, mistake);
-    }
   }
 
   /// 清空所有数据
@@ -70,7 +34,6 @@ class DataService {
     await _lessonPlanBox.clear();
     await _exerciseBox.clear();
     await _mistakeBox.clear();
-    await _settingsBox.put('sample_data_initialized', 'false');
   }
 
   // ==================== 教案相关操作 ====================
@@ -318,18 +281,6 @@ class DataService {
       
       if (trend.containsKey(recordDate)) {
         trend[recordDate] = trend[recordDate]! + 1;
-      }
-    }
-    
-    // 如果没有数据，生成一些示例趋势数据用于演示
-    if (trend.values.every((count) => count == 0) && _mistakeBox.isEmpty) {
-      // 生成示例趋势数据
-      List<int> sampleData = [1, 2, 3, 4, 3, 1, 0];
-      int index = 0;
-      for (int i = 6; i >= 0; i--) {
-        DateTime date = DateTime(now.year, now.month, now.day - i);
-        trend[date] = sampleData[index];
-        index++;
       }
     }
     

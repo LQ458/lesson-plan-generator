@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '12.0'
+platform :ios, '12.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -39,5 +39,37 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+    
+    # Set minimum iOS deployment target to 12.0 for all pods
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      
+      # Disable code signing for simulator builds
+      if config.name == 'Debug' || config.name == 'Profile'
+        config.build_settings['CODE_SIGN_IDENTITY[sdk=iphonesimulator*]'] = ''
+        config.build_settings['CODE_SIGN_STYLE'] = 'Manual'
+      end
+      
+      # Permission handler 权限宏配置
+      config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
+        '$(inherited)',
+        
+        ## 相机权限
+        'PERMISSION_CAMERA=1',
+        
+        ## 照片/存储权限  
+        'PERMISSION_PHOTOS=1',
+        'PERMISSION_PHOTOS_ADD_ONLY=1',
+        
+        ## 通知权限
+        'PERMISSION_NOTIFICATIONS=1',
+        
+        ## 位置权限（如需要）
+        'PERMISSION_LOCATION_WHENINUSE=1',
+        
+        ## 麦克风权限
+        'PERMISSION_MICROPHONE=1',
+      ]
+    end
   end
 end
