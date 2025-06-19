@@ -43,7 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-/node_modules
+**/node_modules
 
 # Environment variables and sensitive configuration
 .env
@@ -56,3 +56,249 @@ config/keys.dart
 # API keys and secrets (additional safety)
 **/api_keys.dart
 **/secrets.dart
+
+# ==========================================
+# Node.js & npm/yarn/pnpm
+# ==========================================
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ==========================================
+# Next.js
+# ==========================================
+**/.next/
+**/out/
+**/.vercel
+**/next-env.d.ts
+**/*.tsbuildinfo
+
+# ==========================================
+# Build outputs
+# ==========================================
+**/build/
+**/dist/
+**/coverage/
+
+# ==========================================
+# Environment variables and sensitive data
+# ==========================================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+config/keys.dart
+
+# API keys and secrets (additional safety)
+**/api_keys.dart
+**/secrets.dart
+**/config/secrets.js
+**/config/keys.js
+
+# ==========================================
+# Operating System files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# IDE and Editor files
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.atom/
+.sublime-*
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+logs/
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# Runtime data
+# ==========================================
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ==========================================
+# Coverage directory used by tools like istanbul
+# ==========================================
+lib-cov
+coverage/
+*.lcov
+.nyc_output
+
+# ==========================================
+# Dependency directories
+# ==========================================
+node_modules/
+jspm_packages/
+bower_components/
+
+# ==========================================
+# TypeScript
+# ==========================================
+*.tsbuildinfo
+.tscache/
+
+# ==========================================
+# Optional npm cache directory
+# ==========================================
+.npm
+
+# ==========================================
+# Optional eslint cache
+# ==========================================
+.eslintcache
+
+# ==========================================
+# Microbundle cache
+# ==========================================
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ==========================================
+# Optional REPL history
+# ==========================================
+.node_repl_history
+
+# ==========================================
+# Output of 'npm pack'
+# ==========================================
+*.tgz
+
+# ==========================================
+# Yarn Integrity file
+# ==========================================
+.yarn-integrity
+
+# ==========================================
+# dotenv environment variables file
+# ==========================================
+.env.test
+
+# ==========================================
+# parcel-bundler cache (https://parceljs.org/)
+# ==========================================
+.cache
+.parcel-cache
+
+# ==========================================
+# Database
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+data/
+dump.rdb
+
+# ==========================================
+# Temporary folders
+# ==========================================
+tmp/
+temp/
+
+# ==========================================
+# Firebase
+# ==========================================
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# ==========================================
+# Terraform
+# ==========================================
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ==========================================
+# AWS
+# ==========================================
+.aws/
+
+# ==========================================
+# Docker
+# ==========================================
+docker-compose.override.yml
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+*.class
+*.pyc
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# ==========================================
+# IntelliJ related
+# ==========================================
+*.iml
+*.ipr
+*.iws
+
+# ==========================================
+# Flutter/Dart/Pub related (if applicable)
+# ==========================================
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+
+# ==========================================
+# Symbolication related
+# ==========================================
+app.*.symbols
+
+# ==========================================
+# Obfuscation related
+# ==========================================
+app.*.map.json
+
+# ==========================================
+# Android Studio (if applicable)
+# ==========================================
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# ==========================================
+# Package managers lock files (keep these)
+# NOTE: Uncomment the following lines if you want to ignore lock files
+# pnpm-lock.yaml
+# package-lock.json
+# yarn.lock
+# ==========================================

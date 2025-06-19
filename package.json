@@ -1,0 +1,48 @@
+{
+  "name": "teachai",
+  "version": "2.0.0",
+  "description": "基于 Next.js 和 Node.js 的全栈 AI 教案生成应用",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:server\" \"pnpm run dev:web\"",
+    "dev:web": "cd web && pnpm dev",
+    "dev:server": "cd server && pnpm run dev",
+    "build": "pnpm run build:web && pnpm run build:server",
+    "build:web": "cd web && pnpm build",
+    "build:server": "cd server && pnpm run build",
+    "start": "concurrently \"pnpm run start:server\" \"pnpm run start:web\"",
+    "start:web": "cd web && pnpm start",
+    "start:server": "cd server && pnpm start",
+    "install:all": "pnpm install && cd web && pnpm install && cd ../server && pnpm install",
+    "clean": "rm -rf web/node_modules web/.next server/node_modules",
+    "lint": "cd web && pnpm lint",
+    "test": "cd server && pnpm test",
+    "format": "npx prettier --write ."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.0.0"
+  },
+  "keywords": [
+    "ai",
+    "education",
+    "lesson-plan",
+    "nextjs",
+    "nodejs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "TeachAI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/teachai.git"
+  },
+  "workspaces": [
+    "web",
+    "server"
+  ]
+}

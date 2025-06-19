@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apple Design System Base Styles */
+:root {
+  /* Light theme colors */
+  --color-bg: 255 255 255;
+  --color-surface: 242 242 247;
+  --color-elevated: 255 255 255;
+  --color-text: 0 0 0;
+  --color-text-secondary: 142 142 147;
+  --color-border: 229 229 234;
+  --color-separator: 198 198 200;
+
+  /* Apple semantic colors */
+  --color-blue: 0 122 255;
+  --color-green: 52 199 89;
+  --color-indigo: 88 86 214;
+  --color-orange: 255 149 0;
+  --color-pink: 255 45 146;
+  --color-purple: 175 82 222;
+  --color-red: 255 59 48;
+  --color-teal: 90 200 250;
+  --color-yellow: 255 204 0;
+
+  /* Background and foreground */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  /* Dark theme colors */
+  --color-bg: 0 0 0;
+  --color-surface: 28 28 30;
+  --color-elevated: 44 44 46;
+  --color-text: 255 255 255;
+  --color-text-secondary: 142 142 147;
+  --color-border: 58 58 60;
+  --color-separator: 84 84 88;
+
+  /* Adjusted semantic colors for dark mode */
+  --color-blue: 10 132 255;
+  --color-green: 48 209 88;
+  --color-indigo: 94 92 230;
+  --color-orange: 255 159 10;
+  --color-pink: 255 55 95;
+  --color-purple: 191 90 242;
+  --color-red: 255 69 58;
+  --color-teal: 100 210 255;
+  --color-yellow: 255 214 10;
+
+  /* Background and foreground for dark mode */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+* {
+  border-color: rgb(229 229 234 / 0.5);
+}
+
+.dark * {
+  border-color: rgb(58 58 60 / 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  h5 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  h6 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+p {
+  line-height: 1.75;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--color-blue)),
+    0 0 0 4px rgb(var(--color-blue) / 0.2);
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgb(var(--color-blue) / 0.2);
+  color: rgb(var(--color-blue));
+}
+
+/* Component styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--color-blue)),
+    0 0 0 4px rgb(var(--color-blue) / 0.2);
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background-color: rgb(var(--color-blue));
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary:hover {
+  background-color: rgb(var(--color-blue) / 0.9);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  background-color: rgb(var(--color-blue) / 0.8);
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: rgb(var(--color-surface));
+  color: rgb(var(--color-text));
+  border: 1px solid rgb(var(--color-border));
+}
+
+.btn-secondary:hover {
+  background-color: rgb(229 229 234 / 0.5);
+  transform: translateY(-1px);
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgb(75 85 99 / 0.5);
+}
+
+.btn-secondary:active {
+  background-color: rgb(229 229 234 / 0.8);
+  transform: translateY(0);
+}
+
+.dark .btn-secondary:active {
+  background-color: rgb(55 65 81 / 0.8);
+}
+
+.btn-ghost {
+  color: rgb(var(--color-text));
+  background-color: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: rgb(229 229 234 / 0.3);
+}
+
+.dark .btn-ghost:hover {
+  background-color: rgb(75 85 99 / 0.3);
+}
+
+.btn-ghost:active {
+  background-color: rgb(229 229 234 / 0.5);
+}
+
+.dark .btn-ghost:active {
+  background-color: rgb(55 65 81 / 0.5);
+}
+
+/* Card styles */
+.card {
+  background-color: rgb(var(--color-elevated));
+  border-radius: 1rem;
+  border: 1px solid rgb(var(--color-border));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s;
+}
+
+.card-hover:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.card-hover:active {
+  transform: translateY(0);
+}
+
+/* Input styles */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(var(--color-border));
+  background-color: rgb(var(--color-elevated));
+  color: rgb(var(--color-text));
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.input::placeholder {
+  color: rgb(var(--color-text-secondary));
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgb(var(--color-blue));
+  box-shadow: 0 0 0 3px rgb(var(--color-blue) / 0.1);
+}
+
+/* Navigation styles */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  color: rgb(var(--color-text-secondary));
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  color: rgb(var(--color-text));
+  background-color: rgb(229 229 234 / 0.3);
+}
+
+.dark .nav-link:hover {
+  background-color: rgb(75 85 99 / 0.3);
+}
+
+.nav-link-active {
+  color: rgb(var(--color-blue));
+  background-color: rgb(var(--color-blue) / 0.1);
+}
+
+.nav-link-active:hover {
+  background-color: rgb(var(--color-blue) / 0.15);
+}
+
+/* Glass effect */
+.glass {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .glass {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-blue)),
+    rgb(var(--color-purple))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-scale {
+  animation: scale 0.2s ease-out;
+}
+
+/* Scrollbar styles */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-apple {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-text-secondary)) transparent;
+}
+
+.scrollbar-apple::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-apple::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-apple::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-text-secondary));
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.scrollbar-apple::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--color-text));
+}
