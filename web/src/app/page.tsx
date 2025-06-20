@@ -174,11 +174,11 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-r from-apple-blue to-apple-purple dark:from-apple-blue/90 dark:to-apple-purple/90">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white dark:text-white mb-6">
             准备好开始了吗？
           </h2>
 
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white/90 dark:text-white/90 mb-8">
             立即体验AI驱动的智能教学工具，让教学变得更加高效
           </p>
 
