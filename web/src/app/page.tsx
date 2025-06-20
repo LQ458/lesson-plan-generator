@@ -172,7 +172,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-apple-blue to-apple-purple">
+      <section className="py-24 bg-gradient-to-r from-apple-blue to-apple-purple dark:from-apple-blue/90 dark:to-apple-purple/90">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             准备好开始了吗？
@@ -185,13 +185,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/lesson-plan"
-              className="btn bg-white text-apple-blue hover:bg-gray-100 text-lg px-8 py-4"
+              className="btn bg-white text-apple-blue hover:bg-gray-50 dark:bg-white dark:text-apple-blue dark:hover:bg-gray-100 text-lg px-8 py-4 font-semibold shadow-lg"
             >
               生成第一个教案
             </Link>
             <Link
               href="/settings"
-              className="btn bg-white/20 text-white hover:bg-white/30 border-white/30 text-lg px-8 py-4"
+              className="btn bg-white/90 text-apple-blue hover:bg-white border-2 border-white/50 dark:bg-white/20 dark:text-white dark:hover:bg-white/30 dark:border-white/30 text-lg px-8 py-4 font-semibold shadow-lg"
             >
               配置设置
             </Link>
