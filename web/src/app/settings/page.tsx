@@ -1,29 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { useSettings } from "@/lib/settings-context";
 import {
-  Cog6ToothIcon,
-  KeyIcon,
-  PaintBrushIcon,
-  BellIcon,
-  ShieldCheckIcon,
-  CheckCircleIcon,
+  AcademicCapIcon,
+  SunIcon,
+  MoonIcon,
+  ComputerDesktopIcon,
+  BookOpenIcon,
 } from "@heroicons/react/24/outline";
 
 export default function SettingsPage() {
-  const [settings, setSettings] = useState({
-    apiKey: "",
-    apiProvider: "openai",
-    model: "gpt-3.5-turbo",
-    temperature: "0.7",
-    maxTokens: "2000",
-    language: "zh-CN",
-    autoSave: true,
-    notifications: true,
-    darkMode: "system",
-  });
+  const { theme, setTheme } = useTheme();
+  const { settings, updateSettings } = useSettings();
+  const [mounted, setMounted] = useState(false);
 
-  const [saved, setSaved] = useState(false);
+  // 确保组件已挂载后再渲染主题相关内容
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -31,258 +27,193 @@ export default function SettingsPage() {
     const target = e.target as HTMLInputElement;
     const { name, value, type } = target;
     const checked = target.checked;
-    setSettings((prev) => ({
-      ...prev,
+
+    updateSettings({
       [name]: type === "checkbox" ? checked : value,
-    }));
+    });
   };
 
-  const handleSave = () => {
-    localStorage.setItem("teachai-settings", JSON.stringify(settings));
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+  const handleThemeChange = (newTheme: string) => {
+    setTheme(newTheme);
   };
 
-  const apiProviders = [
-    { value: "openai", label: "OpenAI" },
-    { value: "anthropic", label: "Anthropic" },
-    { value: "google", label: "Google AI" },
-    { value: "local", label: "本地模型" },
+  const gradeLevels = [
+    { value: "小学一年级", label: "小学一年级" },
+    { value: "小学二年级", label: "小学二年级" },
+    { value: "小学三年级", label: "小学三年级" },
+    { value: "小学四年级", label: "小学四年级" },
+    { value: "小学五年级", label: "小学五年级" },
+    { value: "小学六年级", label: "小学六年级" },
+    { value: "初中一年级", label: "初中一年级" },
+    { value: "初中二年级", label: "初中二年级" },
+    { value: "初中三年级", label: "初中三年级" },
   ];
 
-  const models = {
-    openai: ["gpt-4", "gpt-3.5-turbo", "gpt-4-turbo"],
-    anthropic: ["claude-3-opus", "claude-3-sonnet", "claude-3-haiku"],
-    google: ["gemini-pro", "gemini-pro-vision"],
-    local: ["llama2", "chatglm", "baichuan"],
-  };
+  const subjects = [
+    { value: "语文", label: "语文" },
+    { value: "数学", label: "数学" },
+    { value: "英语", label: "英语" },
+    { value: "物理", label: "物理" },
+    { value: "化学", label: "化学" },
+    { value: "生物", label: "生物" },
+    { value: "历史", label: "历史" },
+    { value: "地理", label: "地理" },
+    { value: "政治", label: "政治" },
+    { value: "音乐", label: "音乐" },
+    { value: "美术", label: "美术" },
+    { value: "体育", label: "体育" },
+  ];
+
+  const themeOptions = [
+    { value: "light", label: "浅色模式", icon: SunIcon },
+    { value: "dark", label: "深色模式", icon: MoonIcon },
+    { value: "system", label: "跟随系统", icon: ComputerDesktopIcon },
+  ];
 
   return (
     <div className="min-h-screen py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
-            <div className="p-4 bg-apple-purple/10 rounded-3xl">
-              <Cog6ToothIcon className="w-12 h-12 text-apple-purple" />
+            <div className="p-4 bg-apple-green/10 rounded-3xl">
+              <AcademicCapIcon className="w-12 h-12 text-apple-green" />
             </div>
           </div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">应用设置</h1>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4">教学偏好设置</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            配置AI模型、界面主题和其他应用偏好设置
+            设置您的教学信息，让AI更好地为您服务
           </p>
         </div>
 
         <div className="space-y-8">
-          {/* API Configuration */}
+          {/* Teaching Info */}
           <div className="card p-8">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-              <KeyIcon className="w-6 h-6 text-apple-blue" />
-              AI模型配置
+              <BookOpenIcon className="w-6 h-6 text-apple-blue" />
+              教学信息
             </h2>
 
             <div className="space-y-6">
-              {/* API Provider */}
+              {/* Grade Level */}
               <div>
                 <label className="block text-sm font-medium mb-2">
-                  API提供商
+                  主要教学阶段
                 </label>
                 <select
-                  name="apiProvider"
-                  value={settings.apiProvider}
+                  name="gradeLevel"
+                  value={settings.gradeLevel}
                   onChange={handleInputChange}
-                  className="input"
+                  className="input text-lg"
                 >
-                  {apiProviders.map((provider) => (
-                    <option key={provider.value} value={provider.value}>
-                      {provider.label}
+                  {gradeLevels.map((grade) => (
+                    <option key={grade.value} value={grade.value}>
+                      {grade.label}
                     </option>
                   ))}
                 </select>
               </div>
 
-              {/* API Key */}
+              {/* Subject */}
               <div>
                 <label className="block text-sm font-medium mb-2">
-                  API密钥
+                  主要教学科目
                 </label>
-                <input
-                  type="password"
-                  name="apiKey"
-                  value={settings.apiKey}
+                <select
+                  name="subject"
+                  value={settings.subject}
                   onChange={handleInputChange}
-                  placeholder="请输入您的API密钥"
-                  className="input"
-                />
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  您的API密钥将安全存储在本地，不会上传到服务器
-                </p>
+                  className="input text-lg"
+                >
+                  {subjects.map((subject) => (
+                    <option key={subject.value} value={subject.value}>
+                      {subject.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* App Preferences */}
+          <div className="card p-8">
+            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+              <SunIcon className="w-6 h-6 text-apple-orange" />
+              使用偏好
+            </h2>
+
+            <div className="space-y-6">
+              {/* Theme Selection */}
+              <div>
+                <label className="block text-sm font-medium mb-3">
+                  界面主题
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {themeOptions.map((themeOption) => {
+                    const Icon = themeOption.icon;
+                    const isSelected = mounted && theme === themeOption.value;
+                    return (
+                      <label
+                        key={themeOption.value}
+                        className={`card p-4 cursor-pointer text-center transition-all ${
+                          isSelected
+                            ? "ring-2 ring-apple-blue bg-apple-blue/5"
+                            : "hover:bg-gray-50 dark:hover:bg-gray-800"
+                        }`}
+                        onClick={() => handleThemeChange(themeOption.value)}
+                      >
+                        <Icon className="w-6 h-6 mx-auto mb-2 text-gray-600 dark:text-gray-300" />
+                        <span className="text-sm font-medium">
+                          {themeOption.label}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Model Selection */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    模型选择
-                  </label>
-                  <select
-                    name="model"
-                    value={settings.model}
-                    onChange={handleInputChange}
-                    className="input"
-                  >
-                    {models[settings.apiProvider as keyof typeof models]?.map(
-                      (model) => (
-                        <option key={model} value={model}>
-                          {model}
-                        </option>
-                      ),
-                    )}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    创造性 (Temperature)
-                  </label>
+              {/* Switches */}
+              <div className="space-y-4">
+                <label className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div>
+                    <span className="font-medium">自动保存教案</span>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      生成教案后自动保存到本地
+                    </p>
+                  </div>
                   <input
-                    type="number"
-                    name="temperature"
-                    value={settings.temperature}
+                    type="checkbox"
+                    name="autoSave"
+                    checked={settings.autoSave}
                     onChange={handleInputChange}
-                    min="0"
-                    max="2"
-                    step="0.1"
-                    className="input"
+                    className="w-5 h-5 text-apple-blue rounded focus:ring-apple-blue"
                   />
-                </div>
-              </div>
-
-              {/* Max Tokens */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  最大输出长度 (Tokens)
                 </label>
-                <input
-                  type="number"
-                  name="maxTokens"
-                  value={settings.maxTokens}
-                  onChange={handleInputChange}
-                  min="100"
-                  max="4000"
-                  step="100"
-                  className="input"
-                />
+
+                <label className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div>
+                    <span className="font-medium">简易模式</span>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      使用更简单的界面和更少的选项
+                    </p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    name="easyMode"
+                    checked={settings.easyMode}
+                    onChange={handleInputChange}
+                    className="w-5 h-5 text-apple-blue rounded focus:ring-apple-blue"
+                  />
+                </label>
               </div>
             </div>
           </div>
 
-          {/* Interface Settings */}
-          <div className="card p-8">
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-              <PaintBrushIcon className="w-6 h-6 text-apple-green" />
-              界面设置
-            </h2>
-
-            <div className="space-y-6">
-              {/* Language */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  界面语言
-                </label>
-                <select
-                  name="language"
-                  value={settings.language}
-                  onChange={handleInputChange}
-                  className="input"
-                >
-                  <option value="zh-CN">简体中文</option>
-                  <option value="zh-TW">繁体中文</option>
-                  <option value="en-US">English</option>
-                </select>
-              </div>
-
-              {/* Dark Mode */}
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  主题模式
-                </label>
-                <select
-                  name="darkMode"
-                  value={settings.darkMode}
-                  onChange={handleInputChange}
-                  className="input"
-                >
-                  <option value="light">浅色模式</option>
-                  <option value="dark">深色模式</option>
-                  <option value="system">跟随系统</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* Application Settings */}
-          <div className="card p-8">
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
-              <ShieldCheckIcon className="w-6 h-6 text-apple-orange" />
-              应用偏好
-            </h2>
-
-            <div className="space-y-6">
-              {/* Auto Save */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <label className="text-sm font-medium">自动保存</label>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    自动保存生成的内容到本地
-                  </p>
-                </div>
-                <input
-                  type="checkbox"
-                  name="autoSave"
-                  checked={settings.autoSave}
-                  onChange={handleInputChange}
-                  className="w-4 h-4 text-apple-blue bg-gray-100 border-gray-300 rounded focus:ring-apple-blue dark:focus:ring-apple-blue dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-              </div>
-
-              {/* Notifications */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <label className="text-sm font-medium">桌面通知</label>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    在生成完成时显示桌面通知
-                  </p>
-                </div>
-                <input
-                  type="checkbox"
-                  name="notifications"
-                  checked={settings.notifications}
-                  onChange={handleInputChange}
-                  className="w-4 h-4 text-apple-blue bg-gray-100 border-gray-300 rounded focus:ring-apple-blue dark:focus:ring-apple-blue dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Save Button */}
-          <div className="flex justify-center">
-            <button
-              onClick={handleSave}
-              className="btn btn-primary text-lg px-8 py-4 flex items-center gap-3"
-            >
-              {saved ? (
-                <>
-                  <CheckCircleIcon className="w-5 h-5" />
-                  已保存
-                </>
-              ) : (
-                <>
-                  <Cog6ToothIcon className="w-5 h-5" />
-                  保存设置
-                </>
-              )}
-            </button>
+          {/* Auto-save indicator */}
+          <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>
+              ✅ 设置已自动保存 · 您的设置信息仅保存在本设备上，不会上传到互联网
+            </p>
           </div>
         </div>
       </div>

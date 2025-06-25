@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DocumentTextIcon,
   SparklesIcon,
   AcademicCapIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
+import LessonPlanGenerator from "@/components/lesson-plan-generator";
+import {
+  useSettings,
+  getGradeLevelLabel,
+  getSubjectLabel,
+} from "@/lib/settings-context";
+import yaml from "js-yaml";
 
 const subjects = [
   "语文",
@@ -22,23 +29,52 @@ const subjects = [
   "美术",
   "体育",
 ];
+const durations = [30, 40, 45, 50, 60];
 
-const grades = [
-  "小学一年级",
-  "小学二年级",
-  "小学三年级",
-  "小学四年级",
-  "小学五年级",
-  "小学六年级",
-  "初中一年级",
-  "初中二年级",
-  "初中三年级",
-  "高中一年级",
-  "高中二年级",
-  "高中三年级",
-];
+// 解析带有YAML frontmatter的Markdown内容
+const parseFrontmatter = (
+  content: string,
+): { metadata: any; markdown: string } => {
+  if (!content) return { metadata: null, markdown: "" };
+
+  // 检查是否以YAML frontmatter开始
+  if (!content.trim().startsWith("---")) {
+    return { metadata: null, markdown: content };
+  }
+
+  try {
+    // 分离frontmatter和markdown内容
+    const lines = content.split("\n");
+    let frontmatterEnd = -1;
+
+    // 找到第二个 ---
+    for (let i = 1; i < lines.length; i++) {
+      if (lines[i].trim() === "---") {
+        frontmatterEnd = i;
+        break;
+      }
+    }
+
+    if (frontmatterEnd === -1) {
+      return { metadata: null, markdown: content };
+    }
+
+    // 提取frontmatter和markdown
+    const frontmatterContent = lines.slice(1, frontmatterEnd).join("\n");
+    const markdownContent = lines.slice(frontmatterEnd + 1).join("\n");
+
+    // 解析YAML
+    const metadata = yaml.load(frontmatterContent);
+
+    return { metadata, markdown: markdownContent };
+  } catch (error) {
+    console.warn("解析frontmatter失败:", error);
+    return { metadata: null, markdown: content };
+  }
+};
 
 export default function LessonPlanPage() {
+  const { settings } = useSettings();
   const [formData, setFormData] = useState({
     subject: "",
     grade: "",
@@ -48,8 +84,18 @@ export default function LessonPlanPage() {
     requirements: "",
   });
 
+  // 当设置改变时，更新表单默认值
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      subject: getSubjectLabel(settings.subject),
+      grade: getGradeLevelLabel(settings.gradeLevel),
+    }));
+  }, [settings]);
+
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
+  const [parsedLessonData, setParsedLessonData] = useState<any>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -70,73 +116,103 @@ export default function LessonPlanPage() {
     }
 
     setIsGenerating(true);
+    setGeneratedContent(""); // 清空之前的内容
+    setParsedLessonData(null); // 清空之前的解析数据
 
-    // 模拟API调用
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // 流式调用后端AI API
+      const response = await fetch("http://localhost:3001/api/lesson-plan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token") || "demo-token"}`,
+        },
+        body: JSON.stringify({
+          subject: formData.subject,
+          grade: formData.grade,
+          topic: formData.topic,
+          requirements: formData.requirements,
+        }),
+      });
 
-      const mockContent = `# ${formData.subject} 教案
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `AI服务请求失败: ${response.status} ${response.statusText}\n${errorText}`,
+        );
+      }
 
-## 基本信息
-- **学科**: ${formData.subject}
-- **年级**: ${formData.grade}
-- **课题**: ${formData.topic}
-- **课时**: ${formData.duration}分钟
+      // 检查响应类型
+      const contentType = response.headers.get("content-type") || "";
 
-## 教学目标
-${formData.objectives || "1. 掌握本课重点知识\n2. 培养学生的思维能力\n3. 提高学生的实践技能"}
+      if (contentType.includes("text/plain")) {
+        // 文本格式的流式响应（向后兼容）
+        const reader = response.body?.getReader();
+        const decoder = new TextDecoder();
 
-## 教学重点
-- 理解${formData.topic}的基本概念
-- 掌握相关的解题方法
-- 能够运用所学知识解决实际问题
+        if (!reader) {
+          throw new Error("无法获取响应流");
+        }
 
-## 教学难点
-- ${formData.topic}的深层理解
-- 知识点之间的联系
-- 实际应用能力的培养
+        let content = "";
+        let displayContent = "";
+        let frontmatterParsed = false;
 
-## 教学过程
+        while (true) {
+          const { done, value } = await reader.read();
 
-### 一、导入新课（5分钟）
-1. 复习相关知识点
-2. 引出本课主题
-3. 明确学习目标
+          if (done) break;
 
-### 二、新课讲授（25分钟）
-1. **概念讲解**
-   - 详细解释${formData.topic}的定义
-   - 举例说明相关概念
-   
-2. **方法介绍**
-   - 介绍解决问题的基本方法
-   - 演示具体操作步骤
-   
-3. **练习巩固**
-   - 课堂练习题
-   - 学生互动讨论
+          const chunk = decoder.decode(value, { stream: true });
+          content += chunk;
 
-### 三、课堂小结（10分钟）
-1. 总结本课重点内容
-2. 强调易错点
-3. 布置课后作业
+          // 实时处理内容显示
+          if (!frontmatterParsed) {
+            // 检查是否包含完整的frontmatter
+            if (content.includes("---") && content.split("---").length >= 3) {
+              const { metadata, markdown } = parseFrontmatter(content);
+              if (metadata) {
+                setParsedLessonData(metadata);
+                displayContent = markdown;
+                frontmatterParsed = true;
+                console.log("流式输出中解析frontmatter成功");
+              } else {
+                displayContent = content;
+              }
+            } else if (content.trim() && !content.trim().startsWith("---")) {
+              // 如果不是frontmatter格式，直接显示
+              displayContent = content;
+              frontmatterParsed = true;
+            }
+          } else {
+            // 已经解析过frontmatter，继续追加到markdown内容
+            if (frontmatterParsed && displayContent !== content) {
+              const { metadata, markdown } = parseFrontmatter(content);
+              displayContent = markdown || content;
+            }
+          }
 
-### 四、作业布置（5分钟）
-1. 完成课后练习题
-2. 预习下一课内容
-3. 思考拓展问题
+          // 更新显示内容
+          setGeneratedContent(displayContent);
+        }
 
-## 教学反思
-本课通过理论讲解和实践练习相结合的方式，帮助学生掌握${formData.topic}的相关知识。在今后的教学中，应该：
-1. 加强学生的参与度
-2. 注重知识的实际应用
-3. 及时反馈学生的学习情况
-
-${formData.requirements ? `\n## 特殊要求\n${formData.requirements}` : ""}`;
-
-      setGeneratedContent(mockContent);
+        if (!content.trim()) {
+          throw new Error("AI未返回任何内容");
+        }
+      } else {
+        // 兼容非流式响应
+        const data = await response.json();
+        if (data.success && data.data.content) {
+          setGeneratedContent(data.data.content);
+        } else {
+          throw new Error("AI响应格式错误或未返回内容");
+        }
+      }
     } catch (error) {
-      alert("生成失败，请重试");
+      console.error("生成教案失败:", error);
+      alert(
+        `教案生成失败: ${error instanceof Error ? error.message : "未知错误"}\n\n请检查网络连接或稍后重试。`,
+      );
     } finally {
       setIsGenerating(false);
     }
@@ -170,6 +246,22 @@ ${formData.requirements ? `\n## 特殊要求\n${formData.requirements}` : ""}`;
               <AcademicCapIcon className="w-6 h-6 text-apple-blue" />
               教学信息
             </h2>
+
+            {/* 用户偏好提示 */}
+            <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg border border-blue-200 dark:border-blue-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-blue-600 dark:text-blue-400">💡</span>
+                <span className="text-sm font-medium text-blue-800 dark:text-blue-200">
+                  已根据您的偏好预填表单
+                </span>
+              </div>
+              <div className="text-xs text-blue-700 dark:text-blue-300">
+                默认科目: {getSubjectLabel(settings.subject)} · 默认阶段:{" "}
+                {getGradeLevelLabel(settings.gradeLevel)}
+                {!settings.easyMode && " · 完整模式"}
+                {settings.easyMode && " · 简易模式"}
+              </div>
+            </div>
 
             <div className="space-y-6">
               {/* Subject and Grade */}
@@ -206,11 +298,15 @@ ${formData.requirements ? `\n## 特殊要求\n${formData.requirements}` : ""}`;
                     required
                   >
                     <option value="">请选择年级</option>
-                    {grades.map((grade) => (
-                      <option key={grade} value={grade}>
-                        {grade}
-                      </option>
-                    ))}
+                    <option value="小学一年级">小学一年级</option>
+                    <option value="小学二年级">小学二年级</option>
+                    <option value="小学三年级">小学三年级</option>
+                    <option value="小学四年级">小学四年级</option>
+                    <option value="小学五年级">小学五年级</option>
+                    <option value="小学六年级">小学六年级</option>
+                    <option value="初中一年级">初中一年级</option>
+                    <option value="初中二年级">初中二年级</option>
+                    <option value="初中三年级">初中三年级</option>
                   </select>
                 </div>
               </div>
@@ -314,11 +410,56 @@ ${formData.requirements ? `\n## 特殊要求\n${formData.requirements}` : ""}`;
             </div>
 
             {generatedContent ? (
-              <div className="prose prose-sm max-w-none dark:prose-invert">
-                <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed">
-                  {generatedContent}
-                </pre>
-              </div>
+              <LessonPlanGenerator
+                lessonData={
+                  parsedLessonData
+                    ? {
+                        ...parsedLessonData,
+                        textContent: generatedContent, // 传递完整的Markdown内容用于传统文本显示
+                      }
+                    : {
+                        subject: formData.subject,
+                        grade: formData.grade,
+                        title: formData.topic,
+                        textContent: generatedContent,
+                        detailedObjectives: formData.objectives
+                          .split("\n")
+                          .filter((obj) => obj.trim()),
+                        keyPoints: [
+                          `理解${formData.topic}的基本概念`,
+                          "掌握相关的解题方法",
+                          "能够运用所学知识解决实际问题",
+                        ],
+                        difficulties: [
+                          `${formData.topic}的深层理解`,
+                          "知识点之间的联系",
+                          "实际应用能力的培养",
+                        ],
+                        teachingProcess: [
+                          {
+                            stage: "导入新课",
+                            duration: 5,
+                            content: ["复习相关知识", "引入新课题"],
+                          },
+                          {
+                            stage: "新课讲解",
+                            duration: 25,
+                            content: ["讲解核心概念", "演示实例"],
+                          },
+                          {
+                            stage: "练习巩固",
+                            duration: 10,
+                            content: ["学生练习", "答疑解惑"],
+                          },
+                          {
+                            stage: "课堂小结",
+                            duration: 5,
+                            content: ["总结要点", "布置作业"],
+                          },
+                        ],
+                      }
+                }
+              />
             ) : (
               <div className="text-center py-12 text-gray-500 dark:text-gray-400">
                 <ClockIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />

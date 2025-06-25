@@ -5,6 +5,7 @@
 ## 🚀 快速开始
 
 ### 环境要求
+
 - Node.js >= 18.17.0
 - pnpm >= 8.0.0
 
@@ -24,33 +25,41 @@ corepack prepare pnpm@latest --activate
 ### 🔧 项目安装与运行
 
 1. **克隆项目**
-```bash
-git clone https://github.com/your-username/teachai.git
-cd teachai
-```
+
+   ```bash
+   git clone https://github.com/your-username/teachai.git
+   cd teachai
+   ```
 
 2. **安装所有依赖**
-```bash
+   ```bash
+
+   ```
+
 # 安装根目录、web 和 server 的所有依赖
+
 pnpm run install:all
 
 # 或者分别安装
-pnpm install                    # 根目录依赖
-cd web && pnpm install         # 前端依赖
-cd ../server && pnpm install   # 后端依赖
-```
+
+pnpm install # 根目录依赖
+cd web && pnpm install # 前端依赖
+cd ../server && pnpm install # 后端依赖
+
+````
 
 3. **启动开发服务器**
-```bash
+   ```bash
 # 同时启动前端和后端开发服务器
-pnpm dev
+   pnpm dev
 
 # 或者分别启动
 pnpm run dev:web       # 启动前端开发服务器 (http://localhost:3000)
 pnpm run dev:server    # 启动后端开发服务器 (http://localhost:8080)
-```
+````
 
 4. **构建项目**
+
 ```bash
 # 构建整个项目
 pnpm build
@@ -61,6 +70,7 @@ pnpm run build:server  # 构建后端
 ```
 
 5. **生产环境启动**
+
 ```bash
 # 启动生产环境
 pnpm start
@@ -96,6 +106,7 @@ lesson-plan-generator/
 ## 🛠️ 开发工具
 
 ### 可用脚本
+
 ```bash
 pnpm dev              # 开发模式启动前后端
 pnpm build            # 构建生产版本
@@ -107,7 +118,9 @@ pnpm format           # 代码格式化
 ```
 
 ### Git 忽略规则
+
 项目已配置完整的 `.gitignore` 文件，自动忽略：
+
 - `**/node_modules/` - 所有层级的依赖目录
 - `**/.next/` - Next.js 构建输出
 - `**/*.log` - 日志文件
@@ -136,6 +149,7 @@ PORT=8080
 ## 📖 技术栈
 
 ### 前端 (web/)
+
 - **Next.js 15** - React 全栈框架
 - **React 19** - UI 库
 - **TypeScript** - 类型安全
@@ -144,6 +158,7 @@ PORT=8080
 - **Lucide React** - 图标库
 
 ### 后端 (server/)
+
 - **Node.js** - 运行时环境
 - **Express.js** - Web 框架
 - **MongoDB** - 数据库

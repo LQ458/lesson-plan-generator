@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AcademicCapIcon,
   SparklesIcon,
   DocumentTextIcon,
   ClockIcon,
 } from "@heroicons/react/24/outline";
+import {
+  useSettings,
+  getGradeLevelLabel,
+  getSubjectLabel,
+} from "@/lib/settings-context";
 
 const subjects = [
   "语文",
@@ -33,15 +38,13 @@ const grades = [
   "初中一年级",
   "初中二年级",
   "初中三年级",
-  "高中一年级",
-  "高中二年级",
-  "高中三年级",
 ];
 
 const difficulties = ["简单", "中等", "困难"];
 const questionTypes = ["选择题", "填空题", "简答题", "计算题", "综合题"];
 
 export default function ExercisesPage() {
+  const { settings } = useSettings();
   const [formData, setFormData] = useState({
     subject: "",
     grade: "",
@@ -51,6 +54,15 @@ export default function ExercisesPage() {
     count: "5",
     requirements: "",
   });
+
+  // 当设置改变时，更新表单默认值
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      subject: getSubjectLabel(settings.subject),
+      grade: getGradeLevelLabel(settings.gradeLevel),
+    }));
+  }, [settings]);
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
@@ -74,86 +86,78 @@ export default function ExercisesPage() {
     }
 
     setIsGenerating(true);
+    setGeneratedContent(""); // 清空之前的内容
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // 流式调用后端AI API
+      const response = await fetch("http://localhost:3001/api/exercises", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token") || "demo-token"}`,
+        },
+        body: JSON.stringify({
+          subject: formData.subject,
+          grade: formData.grade,
+          topic: formData.topic,
+          difficulty: formData.difficulty,
+          questionType: formData.questionType,
+          count: parseInt(formData.count),
+          requirements: formData.requirements,
+        }),
+      });
 
-      const mockContent = `# ${formData.subject} 练习题
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `AI服务请求失败: ${response.status} ${response.statusText}\n${errorText}`,
+        );
+      }
 
-## 基本信息
-- **学科**: ${formData.subject}
-- **年级**: ${formData.grade}
-- **课题**: ${formData.topic}
-- **难度**: ${formData.difficulty}
-- **题型**: ${formData.questionType}
-- **题目数量**: ${formData.count}题
+      // 检查是否为流式响应
+      if (response.headers.get("content-type")?.includes("text/plain")) {
+        // 流式读取响应
+        const reader = response.body?.getReader();
+        const decoder = new TextDecoder();
 
-## 练习题目
+        if (!reader) {
+          throw new Error("无法获取响应流");
+        }
 
-${Array.from({ length: parseInt(formData.count) }, (_, i) => {
-  const questionNum = i + 1;
+        let content = "";
 
-  if (formData.questionType === "选择题") {
-    return `### 第${questionNum}题（选择题）
-关于${formData.topic}，下列说法正确的是（）
+        while (true) {
+          const { done, value } = await reader.read();
 
-A. 选项A的内容描述
-B. 选项B的内容描述  
-C. 选项C的内容描述
-D. 选项D的内容描述
+          if (done) break;
 
-**答案**: C
-**解析**: 这里是详细的解题思路和知识点说明。`;
-  } else if (formData.questionType === "填空题") {
-    return `### 第${questionNum}题（填空题）
-请根据${formData.topic}的相关知识，完成下列填空：
+          const chunk = decoder.decode(value, { stream: true });
+          content += chunk;
 
-1. ________是${formData.topic}的重要特征。
-2. 在实际应用中，${formData.topic}主要用于________。
+          // 实时更新显示内容
+          setGeneratedContent(content);
+        }
 
-**答案**: 
-1. [答案1]
-2. [答案2]
-
-**解析**: 这里是详细的解题思路和知识点说明。`;
-  } else if (formData.questionType === "简答题") {
-    return `### 第${questionNum}题（简答题）
-请简要说明${formData.topic}的基本概念和主要特点。
-
-**参考答案**: 
-${formData.topic}是指...（这里是详细的答案内容）
-
-**评分要点**: 
-1. 概念表述准确（3分）
-2. 特点描述完整（4分）
-3. 举例说明恰当（3分）`;
-  } else {
-    return `### 第${questionNum}题（${formData.questionType}）
-结合${formData.topic}的相关知识，解决以下问题：
-
-[这里是具体的题目内容，根据学科特点设计]
-
-**解答过程**: 
-1. 分析题目条件
-2. 运用相关公式或理论
-3. 计算或推理过程
-4. 得出结论
-
-**答案**: [最终答案]`;
-  }
-}).join("\n\n")}
-
-## 教学建议
-1. 建议学生先复习${formData.topic}的基本概念
-2. 逐题完成，注意解题思路的培养
-3. 完成后对照答案，重点理解错题
-4. 可以适当拓展相关知识点
-
-${formData.requirements ? `\n## 特殊要求\n${formData.requirements}` : ""}`;
-
-      setGeneratedContent(mockContent);
+        // 确保最终内容完整
+        if (content.trim()) {
+          setGeneratedContent(content);
+        } else {
+          throw new Error("AI未返回任何内容");
+        }
+      } else {
+        // 兼容非流式响应
+        const data = await response.json();
+        if (data.success && data.data.content) {
+          setGeneratedContent(data.data.content);
+        } else {
+          throw new Error("AI响应格式错误或未返回内容");
+        }
+      }
     } catch (error) {
-      alert("生成失败，请重试");
+      console.error("生成练习题失败:", error);
+      alert(
+        `练习题生成失败: ${error instanceof Error ? error.message : "未知错误"}\n\n请检查网络连接或稍后重试。`,
+      );
     } finally {
       setIsGenerating(false);
     }
@@ -189,6 +193,22 @@ ${formData.requirements ? `\n## 特殊要求\n${formData.requirements}` : ""}`;
               <DocumentTextIcon className="w-6 h-6 text-apple-green" />
               题目设置
             </h2>
+
+            {/* 用户偏好提示 */}
+            <div className="mb-6 p-4 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-green-600 dark:text-green-400">💡</span>
+                <span className="text-sm font-medium text-green-800 dark:text-green-200">
+                  已根据您的偏好预填表单
+                </span>
+              </div>
+              <div className="text-xs text-green-700 dark:text-green-300">
+                默认科目: {getSubjectLabel(settings.subject)} · 默认阶段:{" "}
+                {getGradeLevelLabel(settings.gradeLevel)}
+                {!settings.easyMode && " · 完整模式"}
+                {settings.easyMode && " · 简易模式"}
+              </div>
+            </div>
 
             <div className="space-y-6">
               {/* Subject and Grade */}

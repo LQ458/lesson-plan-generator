@@ -332,3 +332,184 @@ MIT License
 ## 📞 支持
 
 如有问题，请联系开发团队或提交 Issue。
+
+## AI服务配置
+
+### 启用真实AI服务
+
+本项目支持使用阿里云通义千问API来生成真实的AI教案。要启用AI服务，请按以下步骤配置：
+
+#### 1. 获取API密钥
+
+1. 访问 [阿里云DashScope控制台](https://dashscope.console.aliyun.com/)
+2. 注册并登录账号
+3. 创建API Key
+
+#### 2. 配置环境变量
+
+在 `server` 目录下创建 `.env` 文件：
+
+```bash
+# 阿里云通义千问API配置（必填）
+DASHSCOPE_API_KEY=your_api_key_here
+AI_ENABLED=true
+
+# 可选配置
+QWEN_MODEL=qwen-turbo
+AI_MAX_TOKENS=2000
+AI_TEMPERATURE=0.7
+AI_TOP_P=0.8
+DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com
+```
+
+#### 3. 重启服务
+
+配置完成后重启服务器，系统会自动检测并启用AI服务。
+
+### API配置说明
+
+我们现在使用**原生DashScope API**，完全按照官方规范：
+
+- **API端点**: `https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation`
+- **认证方式**: `Authorization: Bearer {YOUR_API_KEY}`
+- **请求格式**:
+  ```json
+  {
+    "model": "qwen-turbo",
+    "input": {
+      "messages": [
+        { "role": "system", "content": "系统提示词" },
+        { "role": "user", "content": "用户提示词" }
+      ]
+    },
+    "parameters": {
+      "result_format": "message",
+      "top_p": 0.8,
+      "temperature": 0.7,
+      "enable_search": false,
+      "max_tokens": 2000
+    }
+  }
+  ```
+
+### 智能模拟模式
+
+如果没有配置API密钥，系统会自动使用智能模拟模式：
+
+- 根据学科、年级、课题动态生成教案内容
+- 比静态模板更灵活，能适应不同的教学需求
+- 内容质量高，可直接用于教学
+
+### 环境变量说明
+
+| 变量名               | 说明           | 默认值                           |
+| -------------------- | -------------- | -------------------------------- |
+| `DASHSCOPE_API_KEY`  | 阿里云API密钥  | 必填                             |
+| `AI_ENABLED`         | 是否启用AI服务 | `true`                           |
+| `QWEN_MODEL`         | 使用的模型     | `qwen-turbo`                     |
+| `AI_MAX_TOKENS`      | 最大生成长度   | `2000`                           |
+| `AI_TEMPERATURE`     | 生成随机性     | `0.7`                            |
+| `AI_TOP_P`           | 核采样参数     | `0.8`                            |
+| `DASHSCOPE_BASE_URL` | API基础URL     | `https://dashscope.aliyuncs.com` |
+
+## 功能特性
+
+### 🤖 AI教案生成
+
+- 支持多学科：语文、数学、英语、物理、化学、生物、历史、地理、政治
+- 多年级适配：小学、初中、高中
+- 个性化定制：根据特殊要求调整教案内容
+
+### 📝 教案内容
+
+- 完整的教学目标（知识技能、过程方法、情感态度）
+- 详细的教学过程设计
+- 清晰的板书设计
+- 分层作业布置
+- 教学反思
+
+### 🎯 智能优化
+
+- 根据学科特点调整术语和方法
+- 适应不同年级的认知水平
+- 支持特殊教学要求
+
+## API接口
+
+### 生成教案
+
+```http
+POST /api/lesson-plan
+Content-Type: application/json
+
+{
+  "subject": "数学",
+  "grade": "初中二年级",
+  "topic": "一元二次方程",
+  "requirements": "重点讲解解题方法"
+}
+```
+
+响应：
+
+```json
+{
+  "success": true,
+  "data": {
+    "content": "# 教案内容...",
+    "metadata": {
+      "aiGenerated": true,
+      "model": "qwen-turbo",
+      "timestamp": "2024-01-01T00:00:00Z"
+    }
+  }
+}
+```
+
+## 开发说明
+
+### 项目结构
+
+```
+server/
+├── server.js          # 主服务器文件
+├── ai-service.js       # AI服务封装
+├── config/            # 配置文件
+├── middleware/        # 中间件
+├── models/           # 数据模型
+├── services/         # 业务服务
+└── utils/            # 工具函数
+```
+
+### 添加新功能
+
+1. 在 `ai-service.js` 中添加新的AI方法
+2. 在 `server.js` 中添加对应的路由
+3. 更新文档说明
+
+## 注意事项
+
+1. **API限制**：请注意阿里云API的调用频率限制
+2. **成本控制**：AI调用会产生费用，建议设置合理的token限制
+3. **内容审核**：生成的内容仅供参考，请教师根据实际情况调整
+4. **数据安全**：请妥善保管API密钥，不要提交到版本控制系统
+
+## 故障排除
+
+### AI服务无法启动
+
+- 检查 `DASHSCOPE_API_KEY` 是否正确设置
+- 确认网络连接正常
+- 查看服务器日志获取详细错误信息
+
+### 生成内容质量不佳
+
+- 调整 `AI_TEMPERATURE` 参数（0.1-1.0）
+- 增加 `AI_MAX_TOKENS` 值
+- 优化提示词内容
+
+### API调用失败
+
+- 检查API密钥是否有效
+- 确认账户余额充足
+- 查看阿里云控制台的调用记录

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
 import {
   HomeIcon,
@@ -9,6 +9,7 @@ import {
   AcademicCapIcon,
   Cog6ToothIcon,
   SparklesIcon,
+  ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 
 const navigation = [
@@ -20,6 +21,17 @@ const navigation = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+      router.push("/login");
+      router.refresh();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   return (
     <nav className="glass sticky top-0 z-50 border-b border-gray-200/50 dark:border-gray-700/50">
@@ -50,8 +62,16 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Theme Toggle */}
-          <div className="flex items-center">
+          {/* Actions */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleLogout}
+              className="hidden md:flex nav-link text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              title="退出登录"
+            >
+              <ArrowRightOnRectangleIcon className="w-5 h-5" />
+              <span className="hidden lg:inline">退出</span>
+            </button>
             <ThemeToggle />
           </div>
         </div>

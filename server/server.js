@@ -31,14 +31,19 @@ let servicesReady = false;
 
 async function initializeServices() {
   try {
-    // 连接数据库
-    await database.connect();
-
-    // 初始化用户服务
-    await userService.initialize();
+    // 暂时注释掉数据库连接，专注于AI API功能
+    // await database.connect();
+    // await userService.initialize();
 
     // 初始化AI服务
-    aiService = new AIService();
+    try {
+      // 尝试初始化真实的AI服务
+      aiService = new AIService();
+      console.log("✅ AI服务初始化成功");
+    } catch (error) {
+      console.warn("⚠️ AI服务初始化失败，将使用模拟数据:", error.message);
+      aiService = { enabled: false };
+    }
 
     servicesReady = true;
     console.log("🚀 所有服务初始化完成");
@@ -202,67 +207,75 @@ app.get(
   }),
 );
 
-// AI功能路由
+// AI功能路由 - 流式输出
 app.post(
   "/api/lesson-plan",
-  authenticate,
-  apiLimiter,
+  // authenticate,  // 暂时注释掉认证
+  // apiLimiter,    // 暂时注释掉限流
   asyncHandler(async (req, res) => {
     const { subject, grade, topic, requirements } = req.body;
 
     if (!subject || !grade || !topic) {
-      throw new UserFriendlyError("请填写学科、年级和主题", 400);
+      res.status(400).write("错误: 请填写学科、年级和主题");
+      res.end();
+      return;
     }
 
-    let content;
-    if (aiService && aiService.isEnabled()) {
-      content = await aiService.generateLessonPlan({
-        subject,
-        grade,
-        topic,
-        requirements,
-      });
-    } else {
-      content = generateMockLessonPlan(subject, grade, topic, requirements);
+    if (!aiService || !aiService.enabled) {
+      res.status(503).write("错误: AI服务未启用");
+      res.end();
+      return;
     }
 
-    res.json({
-      success: true,
-      data: { content },
-      message: "教案生成成功",
-    });
+    // 直接使用AI流式生成，不再有备用模式
+    await aiService.generateLessonPlanStream(
+      subject,
+      grade,
+      topic,
+      requirements,
+      res,
+    );
   }),
 );
 
 app.post(
   "/api/exercises",
-  authenticate,
-  apiLimiter,
+  // authenticate,  // 暂时注释掉认证
+  // apiLimiter,    // 暂时注释掉限流
   asyncHandler(async (req, res) => {
-    const { subject, grade, topic, difficulty, count } = req.body;
+    const {
+      subject,
+      grade,
+      topic,
+      difficulty,
+      count,
+      questionType,
+      requirements,
+    } = req.body;
 
     if (!subject || !grade || !topic || !difficulty || !count) {
-      throw new UserFriendlyError("请填写完整的练习题参数", 400);
+      res.status(400).write("错误: 请填写完整的练习题参数");
+      res.end();
+      return;
     }
 
-    let content;
-    if (aiService && aiService.isEnabled()) {
-      content = await aiService.generateExercises({
-        subject,
-        grade,
-        topic,
-        difficulty,
-        count,
-      });
-    } else {
-      content = generateMockExercises(subject, grade, topic, difficulty, count);
+    if (!aiService || !aiService.enabled) {
+      res.status(503).write("错误: AI服务未启用");
+      res.end();
+      return;
     }
 
-    res.json({
-      success: true,
-      data: { content },
-      message: "练习题生成成功",
-    });
+    // 直接使用AI流式生成，不再有备用模式
+    await aiService.generateExercisesStream(
+      subject,
+      grade,
+      topic,
+      difficulty,
+      count,
+      questionType,
+      requirements,
+      res,
+    );
   }),
 );
 
@@ -278,8 +291,13 @@ app.post(
     }
 
     let result;
-    if (aiService && aiService.isEnabled()) {
-      result = await aiService.analyzeContent({ content, analysisType });
+    if (aiService && aiService.enabled) {
+      try {
+        result = await aiService.analyzeContent(content, analysisType);
+      } catch (error) {
+        console.warn("⚠️ AI服务调用失败，回退到智能模拟模式:", error.message);
+        result = generateMockAnalysis(content, analysisType);
+      }
     } else {
       result = generateMockAnalysis(content, analysisType);
     }
@@ -292,102 +310,7 @@ app.post(
   }),
 );
 
-// 模拟数据生成函数
-function generateMockLessonPlan(subject, grade, topic, requirements) {
-  return `# ${grade} ${subject} 教案：${topic}
-
-## 教学目标
-- 理解${topic}的基本概念
-- 掌握${topic}的核心知识点
-- 能够运用${topic}解决实际问题
-
-## 教学重点
-${topic}的核心概念和应用方法
-
-## 教学难点
-${topic}的深层理解和灵活运用
-
-## 教学过程
-
-### 1. 导入新课（5分钟）
-通过生活实例引入${topic}的概念
-
-### 2. 新课讲授（25分钟）
-详细讲解${topic}的相关知识点
-
-### 3. 课堂练习（10分钟）
-完成相关练习题，巩固所学知识
-
-### 4. 课堂小结（5分钟）
-总结本节课的主要内容
-
-## 作业布置
-完成课后练习题1-5题
-
-## 教学反思
-本节课通过实例教学，学生对${topic}有了初步认识。
-
-${requirements ? `\n## 特殊要求\n${requirements}` : ""}`;
-}
-
-function generateMockExercises(subject, grade, topic, difficulty, count) {
-  const exercises = [];
-  const difficultyMap = {
-    easy: "简单",
-    medium: "中等",
-    hard: "困难",
-  };
-
-  for (let i = 1; i <= count; i++) {
-    exercises.push(`**第${i}题**（${difficultyMap[difficulty]}）
-关于${topic}的问题：请简述${topic}的主要特点。
-
-**答案要点：**
-- 特点一：...
-- 特点二：...
-- 特点三：...`);
-  }
-
-  return `# ${grade} ${subject} 练习题：${topic}
-
-**难度等级：** ${difficultyMap[difficulty]}
-**题目数量：** ${count}题
-
-${exercises.join("\n\n")}
-
----
-*注：以上为模拟生成的练习题，实际使用时请根据具体教学内容调整。*`;
-}
-
-function generateMockAnalysis(content, analysisType) {
-  const analysisMap = {
-    grammar: "语法分析",
-    difficulty: "难度分析",
-    keywords: "关键词提取",
-    summary: "内容摘要",
-    structure: "结构分析",
-  };
-
-  return `## ${analysisMap[analysisType]}结果
-
-**原始内容长度：** ${content.length}字符
-
-**分析结果：**
-根据${analysisMap[analysisType]}的要求，对提供的内容进行了详细分析。
-
-**主要发现：**
-- 内容结构清晰
-- 表达方式恰当
-- 符合预期标准
-
-**建议：**
-- 可适当增加实例说明
-- 建议优化部分表述
-- 整体质量良好
-
----
-*注：这是模拟分析结果，实际使用时会提供更详细的AI分析。*`;
-}
+// 删除了所有模拟生成函数 - 现在只使用真实AI服务
 
 // 404处理
 app.use("*", notFoundHandler);
@@ -397,12 +320,9 @@ app.use(errorHandler);
 
 // 启动服务器
 app.listen(PORT, async () => {
-  try {
-    await initializeServices();
-  } catch (error) {
-    console.error("❌ 服务器启动失败:", error.message);
-    process.exit(1);
-  }
+  console.log(`🚀 服务器启动成功，端口: ${PORT}`);
+  console.log(`📊 健康检查: http://localhost:${PORT}/api/health`);
+  console.log(`📈 服务状态: http://localhost:${PORT}/api/status`);
 });
 
 // 优雅关闭

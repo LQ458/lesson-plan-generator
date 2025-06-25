@@ -193,7 +193,7 @@ export default function HomePage() {
               href="/settings"
               className="btn bg-white/90 text-apple-blue hover:bg-white border-2 border-white/50 dark:bg-white/20 dark:text-white dark:hover:bg-white/30 dark:border-white/30 text-lg px-8 py-4 font-semibold shadow-lg"
             >
-              配置设置
+              应用设置
             </Link>
           </div>
         </div>
