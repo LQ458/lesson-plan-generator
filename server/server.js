@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const database = require("./config/database");
 const userService = require("./services/mongodb-user-service");
 const AIService = require("./ai-service");
@@ -19,6 +20,7 @@ const {
   notFoundHandler,
   UserFriendlyError,
 } = require("./utils/error-handler");
+const authRegisterRouter = require("./routes/auth-register");
 require("dotenv").config();
 
 // 创建Express应用
@@ -31,9 +33,9 @@ let servicesReady = false;
 
 async function initializeServices() {
   try {
-    // 暂时注释掉数据库连接，专注于AI API功能
-    // await database.connect();
-    // await userService.initialize();
+    // 连接数据库和初始化用户服务
+    await database.connect();
+    await userService.initialize();
 
     // 初始化AI服务
     try {
@@ -58,9 +60,19 @@ initializeServices();
 
 // 中间件配置
 app.use(helmet());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3002"], // 允许前端域名
+    credentials: true, // 允许发送cookies
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// 注册路由
+app.use("/api/auth", authRegisterRouter);
 
 // 健康检查端点
 app.get("/api/health", async (req, res) => {
@@ -95,81 +107,14 @@ app.get("/api/status", async (req, res) => {
       "POST /api/auth/login",
       "POST /api/auth/refresh",
       "GET /api/auth/profile",
+      "POST /api/auth/invite-login",
+      "POST /api/auth/verify-invite",
       "POST /api/lesson-plan",
       "POST /api/exercises",
       "POST /api/analyze",
     ],
   });
 });
-
-// 用户认证路由
-app.post(
-  "/api/auth/register",
-  loginLimiter,
-  asyncHandler(async (req, res) => {
-    if (!servicesReady) {
-      throw new UserFriendlyError("服务正在启动中，请稍后重试", 503);
-    }
-
-    const { username, email, password, displayName, profile } = req.body;
-
-    // 只检查必需字段：用户名和密码
-    if (!username || !password) {
-      throw new UserFriendlyError("请填写用户名和密码", 400);
-    }
-
-    // 构建用户数据，只包含提供的字段
-    const userData = {
-      username,
-      password,
-    };
-
-    // 添加可选字段（如果提供）
-    if (email) userData.email = email;
-    if (displayName) userData.displayName = displayName;
-    if (profile) userData.profile = profile;
-
-    const user = await userService.createUser(userData);
-    const token = generateToken(user);
-
-    res.status(201).json({
-      success: true,
-      data: {
-        user: user.toSafeJSON(),
-        token,
-      },
-      message: "注册成功",
-    });
-  }),
-);
-
-app.post(
-  "/api/auth/login",
-  loginLimiter,
-  asyncHandler(async (req, res) => {
-    if (!servicesReady) {
-      throw new UserFriendlyError("服务正在启动中，请稍后重试", 503);
-    }
-
-    const { username, password } = req.body;
-
-    if (!username || !password) {
-      throw new UserFriendlyError("请填写用户名和密码", 400);
-    }
-
-    const user = await userService.validateLogin(username, password);
-    const token = generateToken(user);
-
-    res.json({
-      success: true,
-      data: {
-        user: user.toSafeJSON(),
-        token,
-      },
-      message: "登录成功",
-    });
-  }),
-);
 
 app.post(
   "/api/auth/refresh",
@@ -310,7 +255,94 @@ app.post(
   }),
 );
 
-// 删除了所有模拟生成函数 - 现在只使用真实AI服务
+// 邀请码验证和登录路由
+app.post(
+  "/api/auth/invite-login",
+  loginLimiter,
+  asyncHandler(async (req, res) => {
+    const { inviteCode, userPreferences } = req.body;
+
+    console.log("🔍 邀请码登录请求:", { inviteCode, userPreferences });
+
+    if (!inviteCode) {
+      throw new UserFriendlyError("请输入邀请码", 400);
+    }
+
+    // 简化的邀请码验证：只使用环境变量
+    const envInviteCode = process.env.INVITE_CODE || "TEACHER2024";
+
+    console.log("🔎 验证邀请码:", inviteCode.toUpperCase());
+
+    if (inviteCode.toUpperCase() !== envInviteCode.toUpperCase()) {
+      console.log("❌ 邀请码验证失败");
+      throw new UserFriendlyError("邀请码无效", 401);
+    }
+
+    console.log("✅ 邀请码验证成功，准备生成会话");
+
+    // 生成用户ID和会话token
+    const userId = `user_${inviteCode.toLowerCase()}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+    // 创建会话数据
+    const sessionData = {
+      userId,
+      inviteCode: inviteCode.toUpperCase(),
+      createdAt: new Date(),
+      userPreferences: userPreferences || {
+        subject: "语文",
+        gradeLevel: "小学三年级",
+        easyMode: true,
+      },
+    };
+
+    // 这里可以选择将会话信息存储到数据库中
+    // 目前先直接返回token，让前端处理会话存储
+
+    res.json({
+      success: true,
+      data: {
+        sessionData,
+        message: "邀请码验证成功",
+      },
+      message: "登录成功",
+    });
+  }),
+);
+
+// 邀请码验证路由（只验证不登录）
+app.post(
+  "/api/auth/verify-invite",
+  loginLimiter,
+  asyncHandler(async (req, res) => {
+    const { inviteCode } = req.body;
+
+    console.log("🔍 邀请码验证请求:", { inviteCode });
+
+    if (!inviteCode) {
+      throw new UserFriendlyError("请输入邀请码", 400);
+    }
+
+    // 简化的邀请码验证：只使用环境变量
+    const envInviteCode = process.env.INVITE_CODE || "TEACHER2024";
+
+    console.log("🔎 验证邀请码:", inviteCode.toUpperCase());
+
+    if (inviteCode.toUpperCase() !== envInviteCode.toUpperCase()) {
+      console.log("❌ 邀请码验证失败");
+      throw new UserFriendlyError("邀请码无效", 401);
+    }
+
+    console.log("✅ 邀请码验证成功");
+    res.json({
+      success: true,
+      data: {
+        valid: true,
+        inviteCode: envInviteCode.toUpperCase(),
+      },
+      message: "邀请码有效",
+    });
+  }),
+);
 
 // 404处理
 app.use("*", notFoundHandler);

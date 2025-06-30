@@ -181,6 +181,28 @@ class MongoUserService {
     }
   }
 
+  async validateEmailLogin(email, password) {
+    try {
+      const user = await User.findOne({
+        email: email.toLowerCase(),
+        isActive: true,
+      });
+
+      if (!user) {
+        throw new Error("邮箱不存在或用户未激活");
+      }
+
+      const isValid = await user.validatePassword(password);
+      if (!isValid) {
+        throw new Error("密码错误");
+      }
+
+      return user;
+    } catch (error) {
+      throw new Error(`邮箱登录验证失败: ${error.message}`);
+    }
+  }
+
   async getAllUsers(page = 1, limit = 20) {
     try {
       const skip = (page - 1) * limit;

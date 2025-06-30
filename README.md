@@ -32,6 +32,7 @@ corepack prepare pnpm@latest --activate
    ```
 
 2. **安装所有依赖**
+
    ```bash
 
    ```

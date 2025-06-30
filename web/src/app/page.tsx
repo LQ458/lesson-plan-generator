@@ -76,17 +76,16 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/lesson-plan"
+                href="/login"
                 className="btn btn-primary text-lg px-8 py-4 animate-scale"
               >
-                开始生成教案
+                邀请码登录开始使用
               </Link>
-              <Link
-                href="/exercises"
-                className="btn btn-secondary text-lg px-8 py-4 animate-scale"
-              >
-                创建练习题
-              </Link>
+              <div className="mt-4">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  需要邀请码才能使用完整功能
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -108,24 +107,27 @@ export default function HomePage() {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Link
+                <div
                   key={feature.name}
-                  href={feature.href}
-                  className="card card-hover p-8 text-center group animate-up"
+                  className="card p-8 text-center group animate-up opacity-75 cursor-not-allowed"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div
-                    className={`inline-flex p-4 rounded-2xl ${feature.bgColor} mb-6 group-hover:scale-110 transition-transform duration-200`}
+                    className={`inline-flex p-4 rounded-2xl ${feature.bgColor} mb-6`}
                   >
                     <Icon className={`w-8 h-8 ${feature.color}`} />
                   </div>
 
                   <h3 className="text-xl font-semibold mb-4">{feature.name}</h3>
 
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {feature.description}
                   </p>
-                </Link>
+
+                  <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                    需要登录后使用
+                  </p>
+                </div>
               );
             })}
           </div>
@@ -184,17 +186,16 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/lesson-plan"
+              href="/login"
               className="btn bg-white text-apple-blue hover:bg-gray-50 dark:bg-white dark:text-apple-blue dark:hover:bg-gray-100 text-lg px-8 py-4 font-semibold shadow-lg"
             >
-              生成第一个教案
+              立即登录使用
             </Link>
-            <Link
-              href="/settings"
-              className="btn bg-white/90 text-apple-blue hover:bg-white border-2 border-white/50 dark:bg-white/20 dark:text-white dark:hover:bg-white/30 dark:border-white/30 text-lg px-8 py-4 font-semibold shadow-lg"
-            >
-              应用设置
-            </Link>
+            <div className="flex items-center justify-center mt-2">
+              <p className="text-white/90 text-sm">
+                使用邀请码登录体验完整功能
+              </p>
+            </div>
           </div>
         </div>
       </section>
