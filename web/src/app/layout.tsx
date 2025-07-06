@@ -28,15 +28,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <SettingsProvider>
-            <div className="min-h-screen bg-light-bg dark:bg-dark-bg">
-              <Navbar />
-              <main className="pb-16 md:pb-0">{children}</main>
-            </div>
-            <StagewiseToolbar
-              config={{
-                plugins: [ReactPlugin],
-              }}
-            />
+          <div className="min-h-screen bg-light-bg dark:bg-dark-bg">
+            <Navbar />
+            <main className="pb-16 md:pb-0">{children}</main>
+          </div>
+          <StagewiseToolbar
+            config={{
+              plugins: [ReactPlugin],
+            }}
+          />
           </SettingsProvider>
         </ThemeProvider>
       </body>

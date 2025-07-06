@@ -29,12 +29,11 @@ const subjects = [
   "美术",
   "体育",
 ];
-const durations = [30, 40, 45, 50, 60];
 
 // 解析带有YAML frontmatter的Markdown内容
 const parseFrontmatter = (
   content: string,
-): { metadata: any; markdown: string } => {
+): { metadata: Record<string, unknown> | null; markdown: string } => {
   if (!content) return { metadata: null, markdown: "" };
 
   // 检查是否以YAML frontmatter开始
@@ -64,13 +63,25 @@ const parseFrontmatter = (
     const markdownContent = lines.slice(frontmatterEnd + 1).join("\n");
 
     // 解析YAML
-    const metadata = yaml.load(frontmatterContent);
+    const metadata = yaml.load(frontmatterContent) as Record<string, unknown> | null;
 
     return { metadata, markdown: markdownContent };
   } catch (error) {
     console.warn("解析frontmatter失败:", error);
     return { metadata: null, markdown: content };
   }
+};
+
+// 检查内容是否足够完整可以显示
+const isContentReadyToDisplay = (content: string): boolean => {
+  if (!content || content.length < 20) return false;
+  
+  // 检查是否包含基本的markdown结构
+  const hasHeaders = /^#+\s+.+$/m.test(content);
+  const hasContent = content.split('\n').filter(line => line.trim()).length > 2;
+  const isNotJustFrontmatter = !content.trim().startsWith('---') || content.split('---').length >= 3;
+  
+  return hasContent && isNotJustFrontmatter && (hasHeaders || content.length > 100);
 };
 
 export default function LessonPlanPage() {
@@ -95,7 +106,8 @@ export default function LessonPlanPage() {
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
-  const [parsedLessonData, setParsedLessonData] = useState<any>(null);
+  const [parsedLessonData, setParsedLessonData] = useState<Record<string, unknown> | null>(null);
+  const [isStreaming, setIsStreaming] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -118,6 +130,7 @@ export default function LessonPlanPage() {
     setIsGenerating(true);
     setGeneratedContent(""); // 清空之前的内容
     setParsedLessonData(null); // 清空之前的解析数据
+    setIsStreaming(true); // 开始流式传输
 
     try {
       // 流式调用后端AI API
@@ -146,7 +159,7 @@ export default function LessonPlanPage() {
       const contentType = response.headers.get("content-type") || "";
 
       if (contentType.includes("text/plain")) {
-        // 文本格式的流式响应（向后兼容）
+        // 实时流式处理和渲染
         const reader = response.body?.getReader();
         const decoder = new TextDecoder();
 
@@ -155,8 +168,7 @@ export default function LessonPlanPage() {
         }
 
         let content = "";
-        let displayContent = "";
-        let frontmatterParsed = false;
+        let hasValidContent = false; // 标记是否有有效的格式化内容
 
         while (true) {
           const { done, value } = await reader.read();
@@ -166,37 +178,38 @@ export default function LessonPlanPage() {
           const chunk = decoder.decode(value, { stream: true });
           content += chunk;
 
-          // 实时处理内容显示
-          if (!frontmatterParsed) {
-            // 检查是否包含完整的frontmatter
-            if (content.includes("---") && content.split("---").length >= 3) {
-              const { metadata, markdown } = parseFrontmatter(content);
-              if (metadata) {
+          // 实时处理和格式化内容
+          if (content.includes('---') && content.split('---').length >= 3) {
+            // 包含frontmatter的情况
+            const { metadata, markdown } = parseFrontmatter(content);
+            if (metadata && isContentReadyToDisplay(markdown)) {
+              if (!hasValidContent) {
                 setParsedLessonData(metadata);
-                displayContent = markdown;
-                frontmatterParsed = true;
-                console.log("流式输出中解析frontmatter成功");
-              } else {
-                displayContent = content;
+                hasValidContent = true;
               }
-            } else if (content.trim() && !content.trim().startsWith("---")) {
-              // 如果不是frontmatter格式，直接显示
-              displayContent = content;
-              frontmatterParsed = true;
+              setGeneratedContent(markdown);
             }
-          } else {
-            // 已经解析过frontmatter，继续追加到markdown内容
-            if (frontmatterParsed && displayContent !== content) {
-              const { metadata, markdown } = parseFrontmatter(content);
-              displayContent = markdown || content;
+          } else if (isContentReadyToDisplay(content)) {
+            // 不包含frontmatter但内容足够完整的情况
+            if (!hasValidContent) {
+              hasValidContent = true;
             }
+            setGeneratedContent(content);
           }
-
-          // 更新显示内容
-          setGeneratedContent(displayContent);
+          // 如果内容太短或不完整，不更新UI
         }
 
-        if (!content.trim()) {
+        // 最终处理 - 确保内容完整
+        if (content.trim()) {
+          const { metadata, markdown } = parseFrontmatter(content);
+          if (metadata) {
+            setParsedLessonData(metadata);
+            setGeneratedContent(markdown);
+            console.log("解析frontmatter成功");
+          } else {
+            setGeneratedContent(content);
+          }
+        } else {
           throw new Error("AI未返回任何内容");
         }
       } else {
@@ -215,6 +228,7 @@ export default function LessonPlanPage() {
       );
     } finally {
       setIsGenerating(false);
+      setIsStreaming(false); // 停止流式传输
     }
   };
 
@@ -414,51 +428,38 @@ export default function LessonPlanPage() {
                 lessonData={
                   parsedLessonData
                     ? {
-                        ...parsedLessonData,
+                        subject: (parsedLessonData.subject as string) || formData.subject,
+                        grade: (parsedLessonData.grade as string) || formData.grade,
+                        title: (parsedLessonData.title as string) || formData.topic,
+                        duration: (parsedLessonData.duration as number) || 45,
                         textContent: generatedContent, // 传递完整的Markdown内容用于传统文本显示
+                        detailedObjectives: (parsedLessonData.detailedObjectives as string[]) || [],
+                        keyPoints: (parsedLessonData.keyPoints as string[]) || [],
+                        difficulties: (parsedLessonData.difficulties as string[]) || [],
+                        teachingMethods: (parsedLessonData.teachingMethods as string[]) || [],
+                        teachingProcess: (parsedLessonData.teachingProcess as Array<{
+                          stage: string;
+                          duration: number;
+                          content: string[];
+                        }>) || [],
                       }
                     : {
                         subject: formData.subject,
                         grade: formData.grade,
                         title: formData.topic,
+                        duration: 45,
                         textContent: generatedContent,
+                        // 如果没有解析到AI结构化数据，使用空数组，不使用模板内容
                         detailedObjectives: formData.objectives
                           .split("\n")
                           .filter((obj) => obj.trim()),
-                        keyPoints: [
-                          `理解${formData.topic}的基本概念`,
-                          "掌握相关的解题方法",
-                          "能够运用所学知识解决实际问题",
-                        ],
-                        difficulties: [
-                          `${formData.topic}的深层理解`,
-                          "知识点之间的联系",
-                          "实际应用能力的培养",
-                        ],
-                        teachingProcess: [
-                          {
-                            stage: "导入新课",
-                            duration: 5,
-                            content: ["复习相关知识", "引入新课题"],
-                          },
-                          {
-                            stage: "新课讲解",
-                            duration: 25,
-                            content: ["讲解核心概念", "演示实例"],
-                          },
-                          {
-                            stage: "练习巩固",
-                            duration: 10,
-                            content: ["学生练习", "答疑解惑"],
-                          },
-                          {
-                            stage: "课堂小结",
-                            duration: 5,
-                            content: ["总结要点", "布置作业"],
-                          },
-                        ],
+                        keyPoints: [],
+                        difficulties: [],
+                        teachingMethods: [],
+                        teachingProcess: [],
                       }
                 }
+                isStreaming={isStreaming}
               />
             ) : (
               <div className="text-center py-12 text-gray-500 dark:text-gray-400">

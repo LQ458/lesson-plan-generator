@@ -1,22 +1,53 @@
 const winston = require("winston");
 const OpenAI = require("openai");
 
-// 配置日志
+// 配置增强日志系统，支持AI响应标识
 const logger = winston.createLogger({
   level: "info",
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.errors({ stack: true }),
     winston.format.json(),
+    // 添加AI响应标识格式化
+    winston.format.printf(({ timestamp, level, message, service, isAIResponse, requestId, ...meta }) => {
+      const logData = {
+        timestamp,
+        level,
+        message,
+        service,
+        isAIResponse: isAIResponse || false, // 标识是否为AI响应
+        requestId, // 请求ID
+        ...meta
+      };
+      return JSON.stringify(logData);
+    })
   ),
-  defaultMeta: { service: "ai-service" },
+  defaultMeta: { 
+    service: "ai-service",
+    isAIResponse: true // AI服务的日志默认标记为AI响应
+  },
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize(),
-        winston.format.simple(),
+        winston.format.printf(({ timestamp, level, message, isAIResponse, requestId, ...meta }) => {
+          const aiFlag = isAIResponse ? '🤖[AI]' : '🔧[SYS]';
+          const reqId = requestId ? `[${requestId}]` : '';
+          return `${timestamp} ${level} ${aiFlag}${reqId} ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ''}`;
+        })
       ),
     }),
+    // 可选：添加文件日志
+    new winston.transports.File({
+      filename: 'logs/ai-responses.log',
+      level: 'info',
+      format: winston.format.json()
+    }),
+    new winston.transports.File({
+      filename: 'logs/error.log',
+      level: 'error',
+      format: winston.format.json()
+    })
   ],
 });
 
@@ -26,6 +57,9 @@ class AIService {
     if (!process.env.DASHSCOPE_API_KEY) {
       throw new Error("DASHSCOPE_API_KEY 环境变量未设置");
     }
+
+    // 初始化请求计数器
+    this.requestCounter = 0;
 
     // 配置OpenAI兼容接口
     this.openai = new OpenAI({
@@ -45,7 +79,36 @@ class AIService {
       temperature: this.temperature,
       topP: this.topP,
       enabled: this.enabled,
+      isAIResponse: false, // 初始化日志不是AI响应
     });
+  }
+
+  /**
+   * 生成唯一的请求ID
+   * @returns {string} 格式化的请求ID
+   */
+  generateRequestId() {
+    this.requestCounter++;
+    const timestamp = new Date().toISOString().replace(/[-:]/g, '').slice(0, 15);
+    return `AI-${timestamp}-${this.requestCounter.toString().padStart(4, '0')}`;
+  }
+
+  /**
+   * 创建AI响应日志上下文
+   * @param {string} requestId 请求ID
+   * @param {string} endpoint API端点
+   * @param {Object} params 请求参数
+   * @returns {Object} 日志上下文
+   */
+  createLogContext(requestId, endpoint, params = {}) {
+    return {
+      requestId,
+      endpoint,
+      model: this.model,
+      timestamp: new Date().toISOString(),
+      isAIResponse: true,
+      ...params
+    };
   }
 
   /**
@@ -53,18 +116,25 @@ class AIService {
    * @param {string} systemPrompt 系统提示词
    * @param {string} userPrompt 用户提示词
    * @param {Object} res Express响应对象，用于流式输出
+   * @param {string} endpoint API端点名称
    * @returns {Promise<void>}
    */
-  async generateContentStream(systemPrompt, userPrompt, res) {
+  async generateContentStream(systemPrompt, userPrompt, res, endpoint = 'generateContent') {
     if (!this.enabled) {
       throw new Error("AI服务未启用");
     }
 
+    const requestId = this.generateRequestId();
+    const startTime = Date.now();
+
     try {
-      logger.info("开始AI内容生成", {
+      const logContext = this.createLogContext(requestId, endpoint, {
         systemPromptLength: systemPrompt.length,
         userPromptLength: userPrompt.length,
+        startTime: new Date(startTime).toISOString()
       });
+
+      logger.info("开始AI内容生成", logContext);
 
       // 设置响应头为流式传输
       res.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -109,23 +179,39 @@ class AIService {
         }
       }
 
+      const endTime = Date.now();
+      const duration = endTime - startTime;
+
       // AI现在直接返回带frontmatter的Markdown，无需额外处理
-      logger.info("AI内容生成完成，返回格式化的Markdown");
+      logger.info("AI内容生成完成，返回格式化的Markdown", {
+        ...logContext,
+        phase: "completion",
+        contentLength: fullContent.length
+      });
 
       logger.info("AI内容生成成功", {
-        model: this.model,
+        ...logContext,
+        phase: "success",
         contentLength: fullContent.length,
         inputTokens: tokenUsage?.prompt_tokens,
         outputTokens: tokenUsage?.completion_tokens,
         totalTokens: tokenUsage?.total_tokens,
+        duration: `${duration}ms`,
+        tokensPerSecond: tokenUsage?.total_tokens ? Math.round(tokenUsage.total_tokens / (duration / 1000)) : 0,
+        endTime: new Date(endTime).toISOString()
       });
 
       res.end();
     } catch (error) {
-      logger.error("AI内容生成失败", {
+      const errorContext = {
+        ...logContext,
+        phase: "error",
         error: error.message,
-        model: this.model,
-      });
+        errorStack: error.stack,
+        duration: `${Date.now() - startTime}ms`
+      };
+
+      logger.error("AI内容生成失败", errorContext);
 
       // 直接报错，不使用备用模式
       if (!res.headersSent) {
@@ -140,6 +226,13 @@ class AIService {
    * 生成教案 - 流式输出
    */
   async generateLessonPlanStream(subject, grade, topic, requirements, res) {
+    const requestId = this.generateRequestId();
+    logger.info("收到教案生成请求", this.createLogContext(requestId, 'lesson-plan', {
+      subject,
+      grade,
+      topic,
+      requirementsLength: requirements?.length || 0
+    }));
     // 根据学科特色调整系统提示词
     let subjectSpecific = "";
     const scienceSubjects = ["物理", "化学", "生物"];
@@ -314,14 +407,52 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 
 请生成指定数量的练习题，每道题都要包含题目、选项（如适用）、答案和解析。`;
 
-    return await this.generateContentStream(systemPrompt, userPrompt, res);
+    return await this.generateContentStream(systemPrompt, userPrompt, res, 'exercises');
   }
 
   /**
-   * 内容分析
+   * 内容分析 - 非流式返回
    */
   async analyzeContent(content, analysisType) {
-    const systemPrompt = `你是一位专业的教育内容分析师，擅长对各种教育内容进行深入分析。请根据用户指定的分析类型，对提供的内容进行专业分析。
+    if (!this.enabled) {
+      throw new Error("AI服务未启用");
+    }
+
+    const requestId = this.generateRequestId();
+    const startTime = Date.now();
+
+    try {
+      const logContext = this.createLogContext(requestId, 'analyze', {
+        analysisType,
+        contentLength: content.length,
+        startTime: new Date(startTime).toISOString()
+      });
+
+      logger.info("开始AI内容分析", logContext);
+      let systemPrompt, userPrompt;
+
+      if (analysisType === "概念提取") {
+        systemPrompt = `你是一位专业的教育文本处理专家，擅长从教育内容中提取核心概念。
+
+要求：
+1. 提取最核心、最简洁的概念词汇
+2. 优先保留学科专业术语和数学公式
+3. 特别保护数学表达式的完整性（如 ax²+bx+c=0, E=mc², H₂O 等）
+4. 去除冗余修饰词，但保留重要的学科符号
+5. 确保提取的概念准确且易于理解
+6. 对于数学/科学内容，可以适当放宽长度限制
+7. 直接返回提取的核心概念，无需其他解释`;
+
+        userPrompt = `请从以下教育内容中提取核心概念：
+
+"${content.substring(0, 300)}"
+
+要求：
+- 如果包含数学公式或科学表达式，必须保持完整性（不超过25个字符）
+- 普通文本概念不超过15个字符
+- 直接返回核心概念，不要任何额外的解释或格式`;
+      } else {
+        systemPrompt = `你是一位专业的教育内容分析师，擅长对各种教育内容进行深入分析。请根据用户指定的分析类型，对提供的内容进行专业分析。
 
 要求：
 1. 分析要深入、客观、有建设性
@@ -330,15 +461,52 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 4. 使用中文输出
 5. 格式要求使用Markdown格式，结构清晰`;
 
-    const userPrompt = `请对以下内容进行${analysisType}分析：
+        userPrompt = `请对以下内容进行${analysisType}分析：
 
 ---
 ${content}
 ---
 
 请提供详细的分析报告，包括优点、不足和改进建议。`;
+      }
 
-    return await this.generateContent(systemPrompt, userPrompt);
+      // 调用非流式API
+      const completion = await this.openai.chat.completions.create({
+        model: this.model,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userPrompt },
+        ],
+        max_tokens: analysisType === "概念提取" ? 50 : this.maxTokens,
+        temperature: analysisType === "概念提取" ? 0.1 : this.temperature,
+        top_p: this.topP,
+      });
+
+      const result = completion.choices[0].message.content.trim();
+      const endTime = Date.now();
+      const duration = endTime - startTime;
+
+      logger.info("AI内容分析成功", {
+        ...logContext,
+        phase: "success",
+        resultLength: result.length,
+        duration: `${duration}ms`,
+        endTime: new Date(endTime).toISOString()
+      });
+
+      return result;
+    } catch (error) {
+      const errorContext = {
+        ...logContext,
+        phase: "error",
+        error: error.message,
+        errorStack: error.stack,
+        duration: `${Date.now() - startTime}ms`
+      };
+
+      logger.error("AI内容分析失败", errorContext);
+      throw error;
+    }
   }
 
   /**

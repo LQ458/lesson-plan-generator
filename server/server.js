@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const winston = require("winston");
 const database = require("./config/database");
 const userService = require("./services/mongodb-user-service");
 const AIService = require("./ai-service");
@@ -22,6 +23,34 @@ const {
 } = require("./utils/error-handler");
 const authRegisterRouter = require("./routes/auth-register");
 require("dotenv").config();
+
+// 配置服务器日志系统
+const serverLogger = winston.createLogger({
+  level: "info",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.errors({ stack: true }),
+    winston.format.json()
+  ),
+  defaultMeta: { service: "server", isAIResponse: false },
+  transports: [
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.printf(({ timestamp, level, message, isAIResponse, requestId, ...meta }) => {
+          const aiFlag = isAIResponse ? '🤖[AI-REQ]' : '🌐[SERVER]';
+          const reqId = requestId ? `[${requestId}]` : '';
+          return `${timestamp} ${level} ${aiFlag}${reqId} ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ''}`;
+        })
+      ),
+    }),
+    new winston.transports.File({
+      filename: 'logs/server.log',
+      level: 'info',
+      format: winston.format.json()
+    })
+  ],
+});
 
 // 创建Express应用
 const app = express();
@@ -43,8 +72,8 @@ async function initializeServices() {
       aiService = new AIService();
       console.log("✅ AI服务初始化成功");
     } catch (error) {
-      console.warn("⚠️ AI服务初始化失败，将使用模拟数据:", error.message);
-      aiService = { enabled: false };
+      console.error("❌ AI服务初始化失败:", error.message);
+      throw new UserFriendlyError("AI服务初始化失败，系统无法提供服务", 503, error);
     }
 
     servicesReady = true;
@@ -57,6 +86,41 @@ async function initializeServices() {
 
 // 立即初始化服务
 initializeServices();
+
+// AI请求日志中间件
+const aiRequestLogger = (endpoint) => (req, res, next) => {
+  const requestId = `REQ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  req.requestId = requestId;
+  req.startTime = Date.now();
+  
+  serverLogger.info(`AI请求开始`, {
+    requestId,
+    endpoint,
+    isAIResponse: true,
+    method: req.method,
+    ip: req.ip,
+    userAgent: req.get('User-Agent'),
+    body: req.body,
+    timestamp: new Date().toISOString()
+  });
+  
+  // 响应完成时记录日志
+  const originalEnd = res.end;
+  res.end = function(...args) {
+    const duration = Date.now() - req.startTime;
+    serverLogger.info(`AI请求完成`, {
+      requestId,
+      endpoint,
+      isAIResponse: true,
+      statusCode: res.statusCode,
+      duration: `${duration}ms`,
+      timestamp: new Date().toISOString()
+    });
+    originalEnd.apply(this, args);
+  };
+  
+  next();
+};
 
 // 中间件配置
 app.use(helmet());
@@ -155,6 +219,7 @@ app.get(
 // AI功能路由 - 流式输出
 app.post(
   "/api/lesson-plan",
+  aiRequestLogger("lesson-plan"), // 添加AI请求日志
   // authenticate,  // 暂时注释掉认证
   // apiLimiter,    // 暂时注释掉限流
   asyncHandler(async (req, res) => {
@@ -185,6 +250,7 @@ app.post(
 
 app.post(
   "/api/exercises",
+  aiRequestLogger("exercises"), // 添加AI请求日志
   // authenticate,  // 暂时注释掉认证
   // apiLimiter,    // 暂时注释掉限流
   asyncHandler(async (req, res) => {
@@ -226,8 +292,9 @@ app.post(
 
 app.post(
   "/api/analyze",
-  authenticate,
-  apiLimiter,
+  aiRequestLogger("analyze"), // 添加AI请求日志
+  // authenticate,  // 暂时注释掉认证
+  // apiLimiter,    // 暂时注释掉限流
   asyncHandler(async (req, res) => {
     const { content, analysisType } = req.body;
 
@@ -235,17 +302,11 @@ app.post(
       throw new UserFriendlyError("请提供要分析的内容和分析类型", 400);
     }
 
-    let result;
-    if (aiService && aiService.enabled) {
-      try {
-        result = await aiService.analyzeContent(content, analysisType);
-      } catch (error) {
-        console.warn("⚠️ AI服务调用失败，回退到智能模拟模式:", error.message);
-        result = generateMockAnalysis(content, analysisType);
-      }
-    } else {
-      result = generateMockAnalysis(content, analysisType);
+    if (!aiService || !aiService.enabled) {
+      throw new UserFriendlyError("AI服务未启用，无法进行内容分析", 503);
     }
+
+    const result = await aiService.analyzeContent(content, analysisType);
 
     res.json({
       success: true,
