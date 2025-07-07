@@ -16,11 +16,22 @@
     "install:all": "pnpm install && cd web && pnpm install && cd ../server && pnpm install",
     "clean": "rm -rf web/node_modules web/.next server/node_modules",
     "lint": "cd web && pnpm lint",
-    "test": "cd server && pnpm test",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:server": "cd server && pnpm test",
+    "test:web": "cd web && pnpm test",
+    "test:all": "pnpm run test:server && pnpm run test:web",
     "format": "npx prettier --write ."
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "jest": "^29.7.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.1.0",
+    "@types/jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "supertest": "^6.3.0"
   },
   "engines": {
     "node": ">=18.17.0",

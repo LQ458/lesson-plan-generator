@@ -1,0 +1,22 @@
+{
+  "filename": "二年级上册数学苏教版电子课本.pdf",
+  "totalPages": 106,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "PDFPatcher 0.6.2.3572",
+    "producer": "iTextSharp™ 5.5.14-SNAPSHOT ©2000-2019 iText Group NV (AGPL-version)",
+    "creationDate": "D:20200818161339+08'00'",
+    "fileSize": 67025084,
+    "processingTime": 48,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 212,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:36.096Z"
+  }
+}

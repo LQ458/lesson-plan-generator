@@ -1,0 +1,22 @@
+{
+  "filename": "五年级下册英语北师三起点电子课本.pdf",
+  "totalPages": 91,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe InDesign CS2 (4.0)",
+    "producer": "Adobe PDF Library 7.0",
+    "creationDate": "D:20181023161617+08'00'",
+    "fileSize": 32555492,
+    "processingTime": 1418,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 182,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:37.074Z"
+  }
+}

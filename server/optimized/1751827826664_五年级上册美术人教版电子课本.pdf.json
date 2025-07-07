@@ -1,0 +1,25 @@
+{
+  "filename": "五年级上册美术人教版电子课本.pdf",
+  "totalPages": 42,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 17.6",
+    "creationDate": "D:20180420163626+08'00'",
+    "fileSize": 28835368,
+    "processingTime": 19,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 84,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:26.664Z"
+  }
+}

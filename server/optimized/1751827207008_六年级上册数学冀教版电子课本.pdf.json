@@ -1,0 +1,43 @@
+{
+  "filename": "六年级上册数学冀教版电子课本.pdf",
+  "totalPages": 107,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<BCBDBDCCB0E6D0A1D1A7CAFDD1A7C1F9C4EABCB6C9CFB2E1B5E7D7D3BFCEB1BEA3A8B8DFC7E5B0E6A3A92E706466>",
+    "author": "Administrator",
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200716173617+08'00'",
+    "fileSize": 16522952,
+    "processingTime": 214,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 2546,
+    "cleanedTextLength": 2437,
+    "averageChunkSize": 1414,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:40:07.008Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.344Z",
+    "originalChunks": 2,
+    "filteredChunks": 2,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:25.985Z",
+    "originalChunks": 2,
+    "filteredChunks": 0,
+    "removedChunks": 2,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

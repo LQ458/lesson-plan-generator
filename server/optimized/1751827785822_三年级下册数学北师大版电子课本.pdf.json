@@ -1,0 +1,23 @@
+{
+  "filename": "三年级下册数学北师大版电子课本.pdf",
+  "totalPages": 109,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "author": "007",
+    "creator": "Microsoft® Word 2016",
+    "producer": "Microsoft® Word 2016",
+    "creationDate": "D:20180201181713+08'00'",
+    "fileSize": 8333127,
+    "processingTime": 430,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 444,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:45.822Z"
+  }
+}

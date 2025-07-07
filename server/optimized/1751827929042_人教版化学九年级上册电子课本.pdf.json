@@ -1,0 +1,25 @@
+{
+  "filename": "人教版化学九年级上册电子课本.pdf",
+  "totalPages": 162,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "ACDSee PDF Í¼Ïñ¡£",
+    "author": "<C2EDBAC6EDB5>",
+    "subject": "",
+    "creator": "ACDSee",
+    "producer": "Acrobat Distiller 9.0.0 (Windows)",
+    "creationDate": "D:20130315214024+08'00'",
+    "fileSize": 23518934,
+    "processingTime": 65,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 324,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:52:09.042Z"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "filename": "三年级上册数学北师大版电子课本.pdf",
+  "totalPages": 105,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<C8FDC4EABCB6C9CFB2E1CAFDD1A7B1B1CAA6B4F3B0E6B5E7D7D3BFCEB1BE2E706466>",
+    "author": "Administrator",
+    "creator": "PScript5.dll Version 5.2.2",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200706144349+08'00'",
+    "fileSize": 38008598,
+    "processingTime": 219,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 2520,
+    "cleanedTextLength": 2414,
+    "averageChunkSize": 1403,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:38:57.760Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.244Z",
+    "originalChunks": 2,
+    "filteredChunks": 2,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:25.334Z",
+    "originalChunks": 2,
+    "filteredChunks": 0,
+    "removedChunks": 2,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

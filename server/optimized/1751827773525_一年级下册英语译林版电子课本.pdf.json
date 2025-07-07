@@ -1,0 +1,22 @@
+{
+  "filename": "一年级下册英语译林版电子课本.pdf",
+  "totalPages": 36,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe Acrobat 9.0",
+    "producer": "Adobe Acrobat 9.0 Image Conversion Plug-in",
+    "creationDate": "D:20200207102855+08'00'",
+    "fileSize": 12619600,
+    "processingTime": 35,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 72,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:33.525Z"
+  }
+}

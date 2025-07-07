@@ -1,5 +1,6 @@
 const winston = require("winston");
 const OpenAI = require("openai");
+const vectorStore = require("./rag/services/vector-store");
 
 // 配置增强日志系统，支持AI响应标识
 const logger = winston.createLogger({
@@ -9,45 +10,57 @@ const logger = winston.createLogger({
     winston.format.errors({ stack: true }),
     winston.format.json(),
     // 添加AI响应标识格式化
-    winston.format.printf(({ timestamp, level, message, service, isAIResponse, requestId, ...meta }) => {
-      const logData = {
+    winston.format.printf(
+      ({
         timestamp,
         level,
         message,
         service,
-        isAIResponse: isAIResponse || false, // 标识是否为AI响应
-        requestId, // 请求ID
+        isAIResponse,
+        requestId,
         ...meta
-      };
-      return JSON.stringify(logData);
-    })
+      }) => {
+        const logData = {
+          timestamp,
+          level,
+          message,
+          service,
+          isAIResponse: isAIResponse || false, // 标识是否为AI响应
+          requestId, // 请求ID
+          ...meta,
+        };
+        return JSON.stringify(logData);
+      },
+    ),
   ),
-  defaultMeta: { 
+  defaultMeta: {
     service: "ai-service",
-    isAIResponse: true // AI服务的日志默认标记为AI响应
+    isAIResponse: true, // AI服务的日志默认标记为AI响应
   },
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize(),
-        winston.format.printf(({ timestamp, level, message, isAIResponse, requestId, ...meta }) => {
-          const aiFlag = isAIResponse ? '🤖[AI]' : '🔧[SYS]';
-          const reqId = requestId ? `[${requestId}]` : '';
-          return `${timestamp} ${level} ${aiFlag}${reqId} ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ''}`;
-        })
+        winston.format.printf(
+          ({ timestamp, level, message, isAIResponse, requestId, ...meta }) => {
+            const aiFlag = isAIResponse ? "🤖[AI]" : "🔧[SYS]";
+            const reqId = requestId ? `[${requestId}]` : "";
+            return `${timestamp} ${level} ${aiFlag}${reqId} ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ""}`;
+          },
+        ),
       ),
     }),
     // 可选：添加文件日志
     new winston.transports.File({
-      filename: 'logs/ai-responses.log',
-      level: 'info',
-      format: winston.format.json()
+      filename: "logs/ai-responses.log",
+      level: "info",
+      format: winston.format.json(),
     }),
     new winston.transports.File({
-      filename: 'logs/error.log',
-      level: 'error',
-      format: winston.format.json()
-    })
+      filename: "logs/error.log",
+      level: "error",
+      format: winston.format.json(),
+    }),
   ],
 });
 
@@ -89,8 +102,11 @@ class AIService {
    */
   generateRequestId() {
     this.requestCounter++;
-    const timestamp = new Date().toISOString().replace(/[-:]/g, '').slice(0, 15);
-    return `AI-${timestamp}-${this.requestCounter.toString().padStart(4, '0')}`;
+    const timestamp = new Date()
+      .toISOString()
+      .replace(/[-:]/g, "")
+      .slice(0, 15);
+    return `AI-${timestamp}-${this.requestCounter.toString().padStart(4, "0")}`;
   }
 
   /**
@@ -107,7 +123,7 @@ class AIService {
       model: this.model,
       timestamp: new Date().toISOString(),
       isAIResponse: true,
-      ...params
+      ...params,
     };
   }
 
@@ -119,7 +135,12 @@ class AIService {
    * @param {string} endpoint API端点名称
    * @returns {Promise<void>}
    */
-  async generateContentStream(systemPrompt, userPrompt, res, endpoint = 'generateContent') {
+  async generateContentStream(
+    systemPrompt,
+    userPrompt,
+    res,
+    endpoint = "generateContent",
+  ) {
     if (!this.enabled) {
       throw new Error("AI服务未启用");
     }
@@ -131,7 +152,7 @@ class AIService {
       const logContext = this.createLogContext(requestId, endpoint, {
         systemPromptLength: systemPrompt.length,
         userPromptLength: userPrompt.length,
-        startTime: new Date(startTime).toISOString()
+        startTime: new Date(startTime).toISOString(),
       });
 
       logger.info("开始AI内容生成", logContext);
@@ -186,7 +207,7 @@ class AIService {
       logger.info("AI内容生成完成，返回格式化的Markdown", {
         ...logContext,
         phase: "completion",
-        contentLength: fullContent.length
+        contentLength: fullContent.length,
       });
 
       logger.info("AI内容生成成功", {
@@ -197,8 +218,10 @@ class AIService {
         outputTokens: tokenUsage?.completion_tokens,
         totalTokens: tokenUsage?.total_tokens,
         duration: `${duration}ms`,
-        tokensPerSecond: tokenUsage?.total_tokens ? Math.round(tokenUsage.total_tokens / (duration / 1000)) : 0,
-        endTime: new Date(endTime).toISOString()
+        tokensPerSecond: tokenUsage?.total_tokens
+          ? Math.round(tokenUsage.total_tokens / (duration / 1000))
+          : 0,
+        endTime: new Date(endTime).toISOString(),
       });
 
       res.end();
@@ -208,7 +231,7 @@ class AIService {
         phase: "error",
         error: error.message,
         errorStack: error.stack,
-        duration: `${Date.now() - startTime}ms`
+        duration: `${Date.now() - startTime}ms`,
       };
 
       logger.error("AI内容生成失败", errorContext);
@@ -223,16 +246,74 @@ class AIService {
   }
 
   /**
-   * 生成教案 - 流式输出
+   * 生成教案 - 流式输出 with RAG
    */
   async generateLessonPlanStream(subject, grade, topic, requirements, res) {
     const requestId = this.generateRequestId();
-    logger.info("收到教案生成请求", this.createLogContext(requestId, 'lesson-plan', {
-      subject,
-      grade,
-      topic,
-      requirementsLength: requirements?.length || 0
-    }));
+    logger.info(
+      "收到教案生成请求",
+      this.createLogContext(requestId, "lesson-plan", {
+        subject,
+        grade,
+        topic,
+        requirementsLength: requirements?.length || 0,
+      }),
+    );
+
+    // 获取相关文档上下文
+    let relevantContext = "";
+    let contextSources = [];
+
+    try {
+      const ragQuery = `${subject} ${grade} ${topic}`;
+      logger.info("🔍 [RAG] 开始检索相关教学资料", {
+        requestId,
+        query: ragQuery,
+        subject,
+        grade,
+        topic,
+        service: "ai-service",
+      });
+
+      const contextData = await vectorStore.getRelevantContext(
+        ragQuery,
+        subject,
+        grade,
+        1500, // 限制上下文长度
+      );
+
+      relevantContext = contextData.context;
+      contextSources = contextData.sources;
+
+      if (contextSources.length > 0) {
+        logger.info("✅ [RAG] 成功检索到相关教学资料", {
+          requestId,
+          sourcesCount: contextSources.length,
+          contextLength: relevantContext.length,
+          totalResults: contextData.totalResults,
+          usedResults: contextData.usedResults,
+          sources: contextSources,
+          service: "ai-service",
+        });
+      } else {
+        logger.warn("⚠️ [RAG] 未找到相关教学资料", {
+          requestId,
+          query: ragQuery,
+          subject,
+          grade,
+          totalResults: contextData.totalResults,
+          service: "ai-service",
+        });
+      }
+    } catch (error) {
+      logger.error("❌ [RAG] 系统错误", {
+        requestId,
+        error: error.message,
+        stack: error.stack,
+        service: "ai-service",
+      });
+    }
+
     // 根据学科特色调整系统提示词
     let subjectSpecific = "";
     const scienceSubjects = ["物理", "化学", "生物"];
@@ -262,7 +343,8 @@ class AIService {
 - 培养学生的语言表达和理解能力`;
     }
 
-    const systemPrompt = `你是一位专业的教师，擅长制作详细的教案。请根据用户的要求生成一份完整、实用的教案。
+    // 构建增强的系统提示词
+    let systemPrompt = `你是一位专业的教师，擅长制作详细的教案。请根据用户的要求生成一份完整、实用的教案。
 
 要求：
 1. 必须返回Markdown格式的教案，开头包含YAML frontmatter元数据
@@ -271,7 +353,19 @@ class AIService {
 4. 语言要清晰、准确，便于教师使用
 5. 教学过程要详细，包含具体的教学活动和时间安排
 6. 使用中文输出，格式美观易读
-${subjectSpecific}
+${subjectSpecific}`;
+
+    // 如果有相关文档上下文，添加到提示词中
+    if (relevantContext) {
+      systemPrompt += `
+
+参考教学资料：
+${relevantContext}
+
+请参考以上教学资料，结合其中的教学方法、重点难点分析和教学建议，生成更专业、更贴近教学实际的教案。`;
+    }
+
+    systemPrompt += `
 
 返回格式示例：
 ---
@@ -306,6 +400,7 @@ homework:
   - "作业安排1"
   - "作业安排2"
 reflection: "教学反思内容"
+referenceSources: ${contextSources.length > 0 ? JSON.stringify(contextSources) : "[]"}
 ---
 
 # 课题名称
@@ -351,7 +446,18 @@ reflection: "教学反思内容"
 
 ## 💭 教学反思
 
-教学反思内容`;
+教学反思内容
+
+${
+  contextSources.length > 0
+    ? `
+## 📚 参考资料
+
+本教案参考了以下教学资料：
+${contextSources.map((source) => `- ${source}`).join("\n")}
+`
+    : ""
+}`;
 
     const userPrompt = `请为我生成一份教案：
 - 科目：${subject}
@@ -359,7 +465,7 @@ reflection: "教学反思内容"
 - 主题：${topic}
 ${requirements ? `- 特殊要求：${requirements}` : ""}
 
-请严格按照示例格式返回，包含完整的YAML frontmatter元数据和美观的Markdown正文。`;
+请严格按照示例格式返回，包含完整的YAML frontmatter元数据和美观的Markdown正文。${relevantContext ? "请充分利用提供的参考教学资料，生成更专业的教案。" : ""}`;
 
     return await this.generateContentStream(systemPrompt, userPrompt, res);
   }
@@ -407,7 +513,12 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 
 请生成指定数量的练习题，每道题都要包含题目、选项（如适用）、答案和解析。`;
 
-    return await this.generateContentStream(systemPrompt, userPrompt, res, 'exercises');
+    return await this.generateContentStream(
+      systemPrompt,
+      userPrompt,
+      res,
+      "exercises",
+    );
   }
 
   /**
@@ -422,10 +533,10 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
     const startTime = Date.now();
 
     try {
-      const logContext = this.createLogContext(requestId, 'analyze', {
+      const logContext = this.createLogContext(requestId, "analyze", {
         analysisType,
         contentLength: content.length,
-        startTime: new Date(startTime).toISOString()
+        startTime: new Date(startTime).toISOString(),
       });
 
       logger.info("开始AI内容分析", logContext);
@@ -491,7 +602,7 @@ ${content}
         phase: "success",
         resultLength: result.length,
         duration: `${duration}ms`,
-        endTime: new Date(endTime).toISOString()
+        endTime: new Date(endTime).toISOString(),
       });
 
       return result;
@@ -501,7 +612,7 @@ ${content}
         phase: "error",
         error: error.message,
         errorStack: error.stack,
-        duration: `${Date.now() - startTime}ms`
+        duration: `${Date.now() - startTime}ms`,
       };
 
       logger.error("AI内容分析失败", errorContext);

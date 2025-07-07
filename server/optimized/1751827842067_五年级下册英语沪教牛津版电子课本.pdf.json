@@ -1,0 +1,24 @@
+{
+  "filename": "五年级下册英语沪教牛津版电子课本.pdf",
+  "totalPages": 102,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<D3A2D3EFCEE5C4EABCB6CFC2B2E1A3A8C9BDCEF7A3A92E706466>",
+    "author": "mebiu",
+    "creator": "PScript5.dll Version 5.2.2",
+    "producer": "Acrobat Distiller 11.0 (Windows)",
+    "creationDate": "D:20200204171834+08'00'",
+    "fileSize": 24713182,
+    "processingTime": 105,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 204,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:42.067Z"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "filename": "六年级上册英语广西接力版电子课本.pdf",
+  "totalPages": 73,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601748 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Skia/PDF m63",
+    "creationDate": "D:20200621022027+00'00'",
+    "fileSize": 12117996,
+    "processingTime": 47,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 146,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:57.013Z"
+  }
+}

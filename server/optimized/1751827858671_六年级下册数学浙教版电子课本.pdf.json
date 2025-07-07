@@ -1,0 +1,25 @@
+{
+  "filename": "六年级下册数学浙教版电子课本.pdf",
+  "totalPages": 127,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 17.6",
+    "creationDate": "D:20180502120805+08'00'",
+    "fileSize": 35854436,
+    "processingTime": 1001,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 254,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:58.670Z"
+  }
+}

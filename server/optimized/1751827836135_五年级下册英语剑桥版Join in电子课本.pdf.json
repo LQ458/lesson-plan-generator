@@ -1,0 +1,23 @@
+{
+  "filename": "五年级下册英语剑桥版Join in电子课本.pdf",
+  "totalPages": 80,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 19.12",
+    "producer": "Adobe Acrobat 19.12 Image Conversion Plug-in",
+    "creationDate": "D:20200131001322+08'00'",
+    "fileSize": 20689599,
+    "processingTime": 499,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 160,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:36.135Z"
+  }
+}

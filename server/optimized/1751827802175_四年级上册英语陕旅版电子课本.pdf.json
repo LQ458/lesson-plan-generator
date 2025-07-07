@@ -1,0 +1,43 @@
+{
+  "filename": "四年级上册英语陕旅版电子课本.pdf",
+  "totalPages": 85,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<CBC4C4EABCB6C9CFB2E1D3A2D3EFC9C2C2C3B0E6B5E7D7D3BFCEB1BE2E706466>",
+    "author": "Administrator",
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200723210351+08'00'",
+    "fileSize": 17710876,
+    "processingTime": 141,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 2040,
+    "cleanedTextLength": 1954,
+    "averageChunkSize": 1954,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:02.174Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.599Z",
+    "originalChunks": 1,
+    "filteredChunks": 1,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:27.694Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

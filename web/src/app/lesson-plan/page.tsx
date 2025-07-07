@@ -15,20 +15,43 @@ import {
 } from "@/lib/settings-context";
 import yaml from "js-yaml";
 
-const subjects = [
-  "语文",
-  "数学",
-  "英语",
-  "物理",
-  "化学",
-  "生物",
-  "历史",
-  "地理",
-  "政治",
-  "音乐",
-  "美术",
-  "体育",
-];
+// 科目定义及其适用年级
+const subjectsByGrade = {
+  // 小学科目 - 基础学科
+  elementary: ["语文", "数学", "英语", "音乐", "美术", "体育"],
+  // 初中科目 - 包含所有学科
+  secondary: [
+    "语文",
+    "数学",
+    "英语",
+    "物理",
+    "化学",
+    "生物",
+    "历史",
+    "地理",
+    "政治",
+    "音乐",
+    "美术",
+    "体育",
+  ],
+};
+
+// 获取适用的科目列表
+const getAvailableSubjects = (grade: string) => {
+  if (grade.includes("小学")) {
+    return subjectsByGrade.elementary;
+  } else if (grade.includes("初中")) {
+    return subjectsByGrade.secondary;
+  }
+  // 默认返回所有科目
+  return subjectsByGrade.secondary;
+};
+
+// 检查科目是否适用于选定年级
+const isSubjectValidForGrade = (subject: string, grade: string) => {
+  const availableSubjects = getAvailableSubjects(grade);
+  return availableSubjects.includes(subject);
+};
 
 // 解析带有YAML frontmatter的Markdown内容
 const parseFrontmatter = (
@@ -63,7 +86,10 @@ const parseFrontmatter = (
     const markdownContent = lines.slice(frontmatterEnd + 1).join("\n");
 
     // 解析YAML
-    const metadata = yaml.load(frontmatterContent) as Record<string, unknown> | null;
+    const metadata = yaml.load(frontmatterContent) as Record<
+      string,
+      unknown
+    > | null;
 
     return { metadata, markdown: markdownContent };
   } catch (error) {
@@ -75,13 +101,73 @@ const parseFrontmatter = (
 // 检查内容是否足够完整可以显示
 const isContentReadyToDisplay = (content: string): boolean => {
   if (!content || content.length < 20) return false;
-  
+
   // 检查是否包含基本的markdown结构
   const hasHeaders = /^#+\s+.+$/m.test(content);
-  const hasContent = content.split('\n').filter(line => line.trim()).length > 2;
-  const isNotJustFrontmatter = !content.trim().startsWith('---') || content.split('---').length >= 3;
-  
-  return hasContent && isNotJustFrontmatter && (hasHeaders || content.length > 100);
+  const hasContent =
+    content.split("\n").filter((line) => line.trim()).length > 2;
+  const isNotJustFrontmatter =
+    !content.trim().startsWith("---") || content.split("---").length >= 3;
+
+  return (
+    hasContent && isNotJustFrontmatter && (hasHeaders || content.length > 100)
+  );
+};
+
+// Loading动画组件 - 增强版
+const LoadingAnimation = () => {
+  const [loadingText, setLoadingText] = useState("正在分析课题...");
+
+  useEffect(() => {
+    const messages = [
+      "正在分析课题...",
+      "检索教学资料...",
+      "构建教学大纲...",
+      "优化教学流程...",
+      "完善教案结构...",
+      "即将完成...",
+    ];
+
+    let index = 0;
+    const interval = setInterval(() => {
+      index = (index + 1) % messages.length;
+      setLoadingText(messages[index]);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center gap-3">
+      {/* 主要的旋转圆圈 */}
+      <div className="relative">
+        <div className="w-6 h-6 border-3 border-white/20 border-t-white rounded-full animate-spin" />
+        {/* 内部小点 */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/60 rounded-full animate-pulse" />
+      </div>
+
+      {/* 脉冲点组 */}
+      <div className="flex gap-1">
+        <div
+          className="w-1 h-1 bg-white/80 rounded-full animate-bounce"
+          style={{ animationDelay: "0ms" }}
+        />
+        <div
+          className="w-1 h-1 bg-white/80 rounded-full animate-bounce"
+          style={{ animationDelay: "150ms" }}
+        />
+        <div
+          className="w-1 h-1 bg-white/80 rounded-full animate-bounce"
+          style={{ animationDelay: "300ms" }}
+        />
+      </div>
+
+      {/* 动态文字 */}
+      <span className="text-white/90 font-medium transition-all duration-500">
+        {loadingText}
+      </span>
+    </div>
+  );
 };
 
 export default function LessonPlanPage() {
@@ -106,8 +192,15 @@ export default function LessonPlanPage() {
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
-  const [parsedLessonData, setParsedLessonData] = useState<Record<string, unknown> | null>(null);
+  const [parsedLessonData, setParsedLessonData] = useState<Record<
+    string,
+    unknown
+  > | null>(null);
   const [isStreaming, setIsStreaming] = useState(false);
+  const [referenceSources, setReferenceSources] = useState<string[]>([]);
+
+  // 获取当前可用的科目
+  const availableSubjects = getAvailableSubjects(formData.grade);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -115,15 +208,47 @@ export default function LessonPlanPage() {
     >,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      const newData = {
+        ...prev,
+        [name]: value,
+      };
+
+      // 如果年级改变了，检查当前科目是否还有效
+      if (name === "grade" && prev.subject) {
+        if (!isSubjectValidForGrade(prev.subject, value)) {
+          // 如果当前科目不适用于新年级，清空科目选择
+          newData.subject = "";
+        }
+      }
+
+      return newData;
+    });
+  };
+
+  // 解析生成的教案中的引用来源
+  const extractReferenceSources = (content: string) => {
+    try {
+      const { metadata } = parseFrontmatter(content);
+      if (metadata && metadata.referenceSources) {
+        setReferenceSources(metadata.referenceSources as string[]);
+      } else {
+        setReferenceSources([]);
+      }
+    } catch (error) {
+      setReferenceSources([]);
+    }
   };
 
   const handleGenerate = async () => {
     if (!formData.subject || !formData.grade || !formData.topic) {
       alert("请填写必要信息：学科、年级和课题");
+      return;
+    }
+
+    // 验证科目与年级的匹配性
+    if (!isSubjectValidForGrade(formData.subject, formData.grade)) {
+      alert(`${formData.subject} 不适用于 ${formData.grade}，请重新选择科目`);
       return;
     }
 
@@ -179,7 +304,7 @@ export default function LessonPlanPage() {
           content += chunk;
 
           // 实时处理和格式化内容
-          if (content.includes('---') && content.split('---').length >= 3) {
+          if (content.includes("---") && content.split("---").length >= 3) {
             // 包含frontmatter的情况
             const { metadata, markdown } = parseFrontmatter(content);
             if (metadata && isContentReadyToDisplay(markdown)) {
@@ -206,6 +331,10 @@ export default function LessonPlanPage() {
             setParsedLessonData(metadata);
             setGeneratedContent(markdown);
             console.log("解析frontmatter成功");
+            // 提取引用来源
+            if (metadata.referenceSources) {
+              setReferenceSources(metadata.referenceSources as string[]);
+            }
           } else {
             setGeneratedContent(content);
           }
@@ -282,26 +411,6 @@ export default function LessonPlanPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    学科 <span className="text-apple-red">*</span>
-                  </label>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="input"
-                    required
-                  >
-                    <option value="">请选择学科</option>
-                    {subjects.map((subject) => (
-                      <option key={subject} value={subject}>
-                        {subject}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">
                     年级 <span className="text-apple-red">*</span>
                   </label>
                   <select
@@ -322,6 +431,34 @@ export default function LessonPlanPage() {
                     <option value="初中二年级">初中二年级</option>
                     <option value="初中三年级">初中三年级</option>
                   </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    学科 <span className="text-apple-red">*</span>
+                  </label>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="input"
+                    required
+                    disabled={!formData.grade}
+                  >
+                    <option value="">
+                      {!formData.grade ? "请先选择年级" : "请选择学科"}
+                    </option>
+                    {availableSubjects.map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
+                    ))}
+                  </select>
+                  {formData.grade && formData.grade.includes("小学") && (
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      💡 小学阶段主要开设基础学科课程
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -392,13 +529,10 @@ export default function LessonPlanPage() {
               <button
                 onClick={handleGenerate}
                 disabled={isGenerating}
-                className="btn btn-primary w-full text-lg py-4 flex items-center justify-center gap-3"
+                className="btn btn-primary w-full text-lg py-4 flex items-center justify-center gap-3 relative overflow-hidden"
               >
                 {isGenerating ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    生成中...
-                  </>
+                  <LoadingAnimation />
                 ) : (
                   <>
                     <SparklesIcon className="w-5 h-5" />
@@ -424,43 +558,78 @@ export default function LessonPlanPage() {
             </div>
 
             {generatedContent ? (
-              <LessonPlanGenerator
-                lessonData={
-                  parsedLessonData
-                    ? {
-                        subject: (parsedLessonData.subject as string) || formData.subject,
-                        grade: (parsedLessonData.grade as string) || formData.grade,
-                        title: (parsedLessonData.title as string) || formData.topic,
-                        duration: (parsedLessonData.duration as number) || 45,
-                        textContent: generatedContent, // 传递完整的Markdown内容用于传统文本显示
-                        detailedObjectives: (parsedLessonData.detailedObjectives as string[]) || [],
-                        keyPoints: (parsedLessonData.keyPoints as string[]) || [],
-                        difficulties: (parsedLessonData.difficulties as string[]) || [],
-                        teachingMethods: (parsedLessonData.teachingMethods as string[]) || [],
-                        teachingProcess: (parsedLessonData.teachingProcess as Array<{
-                          stage: string;
-                          duration: number;
-                          content: string[];
-                        }>) || [],
-                      }
-                    : {
-                        subject: formData.subject,
-                        grade: formData.grade,
-                        title: formData.topic,
-                        duration: 45,
-                        textContent: generatedContent,
-                        // 如果没有解析到AI结构化数据，使用空数组，不使用模板内容
-                        detailedObjectives: formData.objectives
-                          .split("\n")
-                          .filter((obj) => obj.trim()),
-                        keyPoints: [],
-                        difficulties: [],
-                        teachingMethods: [],
-                        teachingProcess: [],
-                      }
-                }
-                isStreaming={isStreaming}
-              />
+              <div className="mt-8">
+                {/* 引用来源显示 */}
+                {referenceSources.length > 0 && (
+                  <div className="mb-6 p-4 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg">
+                    <div className="flex items-center gap-2 mb-2">
+                      <DocumentTextIcon className="h-5 w-5 text-green-600" />
+                      <h3 className="font-medium text-green-800 dark:text-green-200">
+                        本教案参考了以下教学资料：
+                      </h3>
+                    </div>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-green-700 dark:text-green-300">
+                      {referenceSources.map((source, index) => (
+                        <li key={index}>{source}</li>
+                      ))}
+                    </ul>
+                    <p className="mt-2 text-xs text-green-600 dark:text-green-400">
+                      💡 RAG技术已自动为您匹配相关教学资料，提升教案专业性
+                    </p>
+                  </div>
+                )}
+
+                <LessonPlanGenerator
+                  lessonData={
+                    parsedLessonData
+                      ? {
+                          subject:
+                            (parsedLessonData.subject as string) ||
+                            formData.subject,
+                          grade:
+                            (parsedLessonData.grade as string) ||
+                            formData.grade,
+                          title:
+                            (parsedLessonData.title as string) ||
+                            formData.topic,
+                          duration: (parsedLessonData.duration as number) || 45,
+                          textContent: generatedContent, // 传递完整的Markdown内容用于传统文本显示
+                          detailedObjectives:
+                            (parsedLessonData.detailedObjectives as string[]) ||
+                            [],
+                          keyPoints:
+                            (parsedLessonData.keyPoints as string[]) || [],
+                          difficulties:
+                            (parsedLessonData.difficulties as string[]) || [],
+                          teachingMethods:
+                            (parsedLessonData.teachingMethods as string[]) ||
+                            [],
+                          teachingProcess:
+                            (parsedLessonData.teachingProcess as Array<{
+                              stage: string;
+                              duration: number;
+                              content: string[];
+                            }>) || [],
+                        }
+                      : {
+                          subject: formData.subject,
+                          grade: formData.grade,
+                          title: formData.topic,
+                          duration: 45,
+                          textContent: generatedContent,
+                          // 如果没有解析到AI结构化数据，使用空数组，不使用模板内容
+                          detailedObjectives: formData.objectives
+                            .split("\n")
+                            .filter((obj) => obj.trim()),
+                          keyPoints: [],
+                          difficulties: [],
+                          teachingMethods: [],
+                          teachingProcess: [],
+                        }
+                  }
+                  isStreaming={isStreaming}
+                />
+              </div>
             ) : (
               <div className="text-center py-12 text-gray-500 dark:text-gray-400">
                 <ClockIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />

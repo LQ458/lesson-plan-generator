@@ -1,0 +1,23 @@
+{
+  "filename": "四年级下册数学人教版教师用书.pdf",
+  "totalPages": 276,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 11.0",
+    "producer": "Adobe Acrobat 11.0 Image Conversion Plug-in",
+    "creationDate": "D:20200208162710+08'00'",
+    "fileSize": 22224285,
+    "processingTime": 85,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 552,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:02.331Z"
+  }
+}

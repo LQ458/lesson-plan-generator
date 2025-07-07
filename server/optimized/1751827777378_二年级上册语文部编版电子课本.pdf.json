@@ -1,0 +1,25 @@
+{
+  "filename": "二年级上册语文部编版电子课本.pdf",
+  "totalPages": 126,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "bingdian001.com",
+    "author": "bingdian001.com",
+    "subject": "bingdian001.com",
+    "creator": "bingdian001.com",
+    "producer": "PDFlib Lite 7.0.5p3 (Win32)",
+    "creationDate": "D:20180715162647+08'00'",
+    "fileSize": 99012598,
+    "processingTime": 76,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 252,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:37.378Z"
+  }
+}

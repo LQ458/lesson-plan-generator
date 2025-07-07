@@ -1,0 +1,23 @@
+{
+  "filename": "三年级下册英语外研版三起点电子课本.pdf",
+  "totalPages": 80,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 15.7",
+    "producer": "Adobe Acrobat 15.7 Image Conversion Plug-in",
+    "creationDate": "D:20200130185612+08'00'",
+    "fileSize": 31141609,
+    "processingTime": 170,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 160,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:48.787Z"
+  }
+}

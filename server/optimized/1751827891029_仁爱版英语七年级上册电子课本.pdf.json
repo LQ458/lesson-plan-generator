@@ -1,0 +1,25 @@
+{
+  "filename": "仁爱版英语七年级上册电子课本.pdf",
+  "totalPages": 159,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.PDF for .NET 19.2",
+    "creationDate": "D:20190423075334+08'00'",
+    "fileSize": 39182698,
+    "processingTime": 336,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 318,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:31.028Z"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "filename": "七年级下册英语外研版电子课本.pdf",
+  "totalPages": 128,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "PDFPatcher 0.6.2.3572",
+    "producer": "iTextSharp™ 5.5.14-SNAPSHOT ©2000-2019 iText Group NV (AGPL-version)",
+    "creationDate": "D:20200808160704+08'00'",
+    "fileSize": 122001720,
+    "processingTime": 63,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 256,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:23.396Z"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "filename": "四年级下册英语外研版一起点电子课本.pdf",
+  "totalPages": 87,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 10.1.0",
+    "creationDate": "D:20190129163310+08'00'",
+    "fileSize": 63484386,
+    "processingTime": 343,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 174,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:12.224Z"
+  }
+}

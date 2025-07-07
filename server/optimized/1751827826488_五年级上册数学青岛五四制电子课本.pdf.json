@@ -1,0 +1,22 @@
+{
+  "filename": "五年级上册数学青岛五四制电子课本.pdf",
+  "totalPages": 144,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "FreePic2Pdf",
+    "producer": "FreePic2Pdf_Lib - v3.02",
+    "creationDate": "D:20150306162521+08'00'",
+    "fileSize": 41701710,
+    "processingTime": 83,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 288,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:26.488Z"
+  }
+}

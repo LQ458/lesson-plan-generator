@@ -1,0 +1,43 @@
+{
+  "filename": "四年级上册英语湘少版电子课本.pdf",
+  "totalPages": 81,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<CBC4C4EABCB6C9CFB2E1D3A2D3EFCFE6C9D9B0E6B5E7D7D3BFCEB1BE2E706466>",
+    "author": "Administrator",
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200723211018+08'00'",
+    "fileSize": 18431565,
+    "processingTime": 131,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 1944,
+    "cleanedTextLength": 1862,
+    "averageChunkSize": 1862,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:01.848Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.598Z",
+    "originalChunks": 1,
+    "filteredChunks": 1,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:27.693Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

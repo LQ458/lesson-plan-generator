@@ -1,0 +1,22 @@
+{
+  "filename": "三年级上册数学沪教版电子课本.pdf",
+  "totalPages": 164,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "TOSHIBA e-STUDIO2040C",
+    "producer": "SECnvtToPDF V1.0",
+    "creationDate": "D:20120217210811Z",
+    "fileSize": 13263453,
+    "processingTime": 57,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 328,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:43.442Z"
+  }
+}

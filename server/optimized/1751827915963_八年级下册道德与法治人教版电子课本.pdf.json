@@ -1,0 +1,23 @@
+{
+  "filename": "八年级下册道德与法治人教版电子课本.pdf",
+  "totalPages": 124,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 11.0",
+    "producer": "Adobe Acrobat 11.0 Image Conversion Plug-in",
+    "creationDate": "D:20200208192453+08'00'",
+    "fileSize": 12415771,
+    "processingTime": 40,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 248,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:55.963Z"
+  }
+}

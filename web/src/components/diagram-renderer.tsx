@@ -40,14 +40,14 @@ export default function DiagramRenderer({
         setSvgContent("");
 
         // 等待组件完全挂载
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise((resolve) => setTimeout(resolve, 100));
 
         // 动态导入并初始化 Mermaid
         const mermaid = (await import("mermaid")).default;
-        
+
         // 重置Mermaid状态
         mermaid.mermaidAPI.reset();
-        
+
         // 重新初始化
         mermaid.initialize({
           startOnLoad: false,
@@ -72,10 +72,9 @@ export default function DiagramRenderer({
 
         // 直接渲染获取SVG字符串，不使用临时DOM节点
         const { svg } = await mermaid.render(id, content);
-        
+
         // 设置SVG内容到状态中
         setSvgContent(svg);
-        
       } catch (error) {
         console.error("Mermaid 渲染错误:", error);
         setError(
@@ -88,10 +87,10 @@ export default function DiagramRenderer({
 
     // 标记effect已执行，防止严格模式下的双重执行
     effectRan.current = true;
-    
+
     // 延迟渲染确保DOM准备就绪
     const timer = setTimeout(renderDiagram, 100);
-    
+
     return () => {
       clearTimeout(timer);
       // 重置标记，为下次内容变化做准备
@@ -103,7 +102,7 @@ export default function DiagramRenderer({
   useEffect(() => {
     return () => {
       if (isFullscreen) {
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }
     };
   }, [isFullscreen]);
@@ -111,7 +110,7 @@ export default function DiagramRenderer({
   const handleSvgClick = (e: React.MouseEvent) => {
     const currentTime = Date.now();
     const timeDiff = currentTime - lastClickTime;
-    
+
     // 检测双击（500ms内的两次点击）
     if (timeDiff < 500 && timeDiff > 50) {
       // 双击处理
@@ -134,19 +133,19 @@ export default function DiagramRenderer({
         }
       }
     }
-    
+
     setLastClickTime(currentTime);
   };
 
   // 处理滚轮缩放（仅在全屏模式下启用）
   const handleWheel = (e: React.WheelEvent) => {
     e.stopPropagation(); // 始终阻止事件冒泡
-    
+
     if (!isFullscreen) {
       e.preventDefault(); // 非全屏时也阻止默认滚动
       return;
     }
-    
+
     e.preventDefault();
     const delta = e.deltaY;
     setZoomScale((prev) => {
@@ -162,10 +161,10 @@ export default function DiagramRenderer({
       // 控制背景页面滚动
       if (newState) {
         // 进入全屏时禁用背景滚动
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
       } else {
         // 退出全屏时恢复背景滚动
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }
       return newState;
     });
@@ -266,7 +265,9 @@ export default function DiagramRenderer({
           }}
         >
           <div style={{ textAlign: "center", color: "#ef4444" }}>
-            <div style={{ fontSize: "14px", marginBottom: "10px" }}>⚠️ {error}</div>
+            <div style={{ fontSize: "14px", marginBottom: "10px" }}>
+              ⚠️ {error}
+            </div>
             <div style={{ fontSize: "12px", color: "#6b7280" }}>
               请检查图表内容或稍后重试
             </div>
@@ -488,4 +489,3 @@ export default function DiagramRenderer({
     </div>
   );
 }
- 

@@ -1,0 +1,24 @@
+{
+  "filename": "五年级下册数学冀教版电子课本.pdf",
+  "totalPages": 118,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "160812095759223505",
+    "author": "Administrator",
+    "creator": "pdfFactory Pro www.pdffactory.com",
+    "producer": "pdfFactory Pro 6.15 (Windows 7 Professional x64 Chinese (Simplified))",
+    "creationDate": "D:20190131183441+08'00'",
+    "fileSize": 10277799,
+    "processingTime": 837,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 236,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:28.760Z"
+  }
+}

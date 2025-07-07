@@ -1,0 +1,43 @@
+{
+  "filename": "二年级上册英语清华版电子课本.pdf",
+  "totalPages": 76,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<B6FEC4EABCB6C9CFB2E1D3A2D3EFC7E5BBAAB0E6B5E7D7D3BFCEB1BE2E706466>",
+    "author": "Administrator",
+    "creator": "Adobe Acrobat 20.6",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200804085013+08'00'",
+    "fileSize": 19354547,
+    "processingTime": 124,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 1824,
+    "cleanedTextLength": 1747,
+    "averageChunkSize": 1747,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:37.301Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.557Z",
+    "originalChunks": 1,
+    "filteredChunks": 1,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:27.484Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

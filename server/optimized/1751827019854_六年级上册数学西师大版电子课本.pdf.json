@@ -1,0 +1,43 @@
+{
+  "filename": "六年级上册数学西师大版电子课本.pdf",
+  "totalPages": 109,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<C1F9C4EABCB6C9CFB2E1CAFDD1A7CEF7CAA6B4F3B0E6B5E7D7D3BFCEB1BE2E706466>",
+    "author": "Zeng, Adams",
+    "creator": "Microsoft® Word 2013",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200706150152+08'00'",
+    "fileSize": 28141072,
+    "processingTime": 132,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 2626,
+    "cleanedTextLength": 2506,
+    "averageChunkSize": 1449,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:36:59.854Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.037Z",
+    "originalChunks": 2,
+    "filteredChunks": 2,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:23.909Z",
+    "originalChunks": 2,
+    "filteredChunks": 0,
+    "removedChunks": 2,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

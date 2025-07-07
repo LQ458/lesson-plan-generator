@@ -1,0 +1,22 @@
+{
+  "filename": "四年级下册英语北师三起点电子课本.pdf",
+  "totalPages": 81,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe InDesign CS2 (4.0)",
+    "producer": "Adobe PDF Library 7.0",
+    "creationDate": "D:20181023160524+08'00'",
+    "fileSize": 27709592,
+    "processingTime": 1234,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 162,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:11.880Z"
+  }
+}

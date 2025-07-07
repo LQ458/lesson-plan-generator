@@ -1,0 +1,21 @@
+{
+  "filename": "人教版英语八年级上册电子课本.pdf",
+  "totalPages": 155,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "producer": "iTextSharp 4.1.6 by 1T3XT",
+    "creationDate": "D:20141002002112+08'00'",
+    "fileSize": 9229136,
+    "processingTime": 323,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 25708,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:54.331Z"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "三年级下册电子课本英语鲁科版电子课本.pdf",
+  "totalPages": 89,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601748 (zh-CN, DDL); Windows/10.0.0 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Skia/PDF m63",
+    "creationDate": "D:20200511090714+00'00'",
+    "fileSize": 11211231,
+    "processingTime": 644,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 193,
+    "cleanedTextLength": 7,
+    "averageChunkSize": 7,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:39:01.025Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.249Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0"
+  }
+}

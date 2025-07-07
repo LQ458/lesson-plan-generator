@@ -1,0 +1,43 @@
+{
+  "filename": "二年级下册美术人教版电子课本.pdf",
+  "totalPages": 49,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "<B6FEC4EABCB6CFC2B2E1C3C0CAF5C8CBBDCCB0E6B5E7D7D3BFCEB1BE2E706466>",
+    "author": "Administrator",
+    "creator": "Adobe Acrobat 11.0",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200526233122+08'00'",
+    "fileSize": 8283231,
+    "processingTime": 314,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 1176,
+    "cleanedTextLength": 1126,
+    "averageChunkSize": 1126,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:35:44.011Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:13.930Z",
+    "originalChunks": 1,
+    "filteredChunks": 1,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:23.239Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

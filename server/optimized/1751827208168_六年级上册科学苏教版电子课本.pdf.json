@@ -1,0 +1,33 @@
+{
+  "filename": "六年级上册科学苏教版电子课本.pdf",
+  "totalPages": 84,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "苏教版小学科学六年级上册",
+    "author": "www.gaohaipeng.com",
+    "creator": "pdfFactory Pro www.fineprint.cn",
+    "producer": "pdfFactory Pro 3.52 (Windows 7 Ultimate Chinese (Simplified))",
+    "creationDate": "D:20130223221403+08'00'",
+    "fileSize": 10246834,
+    "processingTime": 50,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 191,
+    "cleanedTextLength": 8,
+    "averageChunkSize": 8,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:40:08.168Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.349Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0"
+  }
+}

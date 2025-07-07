@@ -1,0 +1,43 @@
+{
+  "filename": "一年级上册数学青岛五四制电子课本.pdf",
+  "totalPages": 137,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "全页传真图片",
+    "author": "Administrator",
+    "creator": "照片打印向导",
+    "producer": "Acrobat Distiller 20.0 (Windows)",
+    "creationDate": "D:20200718210827+08'00'",
+    "fileSize": 53536857,
+    "processingTime": 253,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 3288,
+    "cleanedTextLength": 3150,
+    "averageChunkSize": 1771,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:38:44.503Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.223Z",
+    "originalChunks": 2,
+    "filteredChunks": 2,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:25.246Z",
+    "originalChunks": 2,
+    "filteredChunks": 0,
+    "removedChunks": 2,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

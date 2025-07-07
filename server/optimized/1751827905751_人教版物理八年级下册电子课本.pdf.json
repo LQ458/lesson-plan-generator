@@ -1,0 +1,24 @@
+{
+  "filename": "人教版物理八年级下册电子课本.pdf",
+  "totalPages": 98,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "SnagIt User",
+    "subject": "Screen Capture by SnagIt",
+    "producer": "SnagIt by TechSmith",
+    "creationDate": "",
+    "fileSize": 23695023,
+    "processingTime": 219,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 196,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:45.751Z"
+  }
+}

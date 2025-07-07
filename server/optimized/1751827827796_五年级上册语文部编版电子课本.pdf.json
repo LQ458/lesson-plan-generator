@@ -1,0 +1,24 @@
+{
+  "filename": "五年级上册语文部编版电子课本.pdf",
+  "totalPages": 130,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "新文档 2019-06-03 14.39.19",
+    "author": "CamScanner",
+    "subject": "新文档 2019-06-03 14.39.19",
+    "producer": "IntSig Information Co., Ltd",
+    "creationDate": "D:20200131163357+08'00'",
+    "fileSize": 73397789,
+    "processingTime": 67,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 260,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:27.796Z"
+  }
+}

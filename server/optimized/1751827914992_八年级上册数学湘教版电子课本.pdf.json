@@ -1,0 +1,22 @@
+{
+  "filename": "八年级上册数学湘教版电子课本.pdf",
+  "totalPages": 178,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "PDFPatcher 0.6.2.3572",
+    "producer": "iTextSharp™ 5.5.14-SNAPSHOT ©2000-2019 iText Group NV (AGPL-version)",
+    "creationDate": "D:20200824103954+08'00'",
+    "fileSize": 91965550,
+    "processingTime": 82,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 356,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:54.992Z"
+  }
+}

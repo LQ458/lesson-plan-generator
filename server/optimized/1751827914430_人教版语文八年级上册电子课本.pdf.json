@@ -1,0 +1,22 @@
+{
+  "filename": "人教版语文八年级上册电子课本.pdf",
+  "totalPages": 165,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe Acrobat 10.0",
+    "producer": "Adobe Acrobat 10.0 Image Conversion Plug-in",
+    "creationDate": "D:20170807172244+08'00'",
+    "fileSize": 27299049,
+    "processingTime": 88,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 330,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:54.430Z"
+  }
+}

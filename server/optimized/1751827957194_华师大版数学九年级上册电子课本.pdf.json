@@ -1,0 +1,22 @@
+{
+  "filename": "华师大版数学九年级上册电子课本.pdf",
+  "totalPages": 174,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe Acrobat 9.0",
+    "producer": "Adobe Acrobat 9.0 Image Conversion Plug-in",
+    "creationDate": "D:20130609123216+08'00'",
+    "fileSize": 12620292,
+    "processingTime": 138,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 348,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:52:37.194Z"
+  }
+}

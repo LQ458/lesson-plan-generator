@@ -1,0 +1,22 @@
+{
+  "filename": "七年级下册数学苏科版电子课本.pdf",
+  "totalPages": 173,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "PDFPatcher 0.6.2.3572",
+    "producer": "iTextSharp™ 5.5.14-SNAPSHOT ©2000-2019 iText Group NV (AGPL-version)",
+    "creationDate": "D:20200824180615+08'00'",
+    "fileSize": 88630309,
+    "processingTime": 82,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 346,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:23.217Z"
+  }
+}

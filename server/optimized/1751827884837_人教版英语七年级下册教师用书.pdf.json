@@ -1,0 +1,23 @@
+{
+  "filename": "人教版英语七年级下册教师用书.pdf",
+  "totalPages": 372,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 11.0",
+    "producer": "Adobe Acrobat 11.0 Image Conversion Plug-in",
+    "creationDate": "D:20200208210211+08'00'",
+    "fileSize": 26032018,
+    "processingTime": 1033,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 744,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:24.837Z"
+  }
+}

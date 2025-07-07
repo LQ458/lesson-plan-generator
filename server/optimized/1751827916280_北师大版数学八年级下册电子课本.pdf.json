@@ -1,0 +1,25 @@
+{
+  "filename": "北师大版数学八年级下册电子课本.pdf",
+  "totalPages": 180,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 9.8.0",
+    "creationDate": "D:20180318230623Z",
+    "fileSize": 84810663,
+    "processingTime": 297,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 360,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:56.280Z"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "filename": "六年级上册英语川教版电子课本.pdf",
+  "totalPages": 80,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "author": "Administrator",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 17.6",
+    "creationDate": "D:20141029120800Z",
+    "fileSize": 25120618,
+    "processingTime": 39,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 160,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:56.816Z"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "filename": "二年级下册数学西师版电子课本.pdf",
+  "totalPages": 107,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 17.6",
+    "creationDate": "D:20180502110700+08'00'",
+    "fileSize": 54434782,
+    "processingTime": 404,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 214,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:39.255Z"
+  }
+}

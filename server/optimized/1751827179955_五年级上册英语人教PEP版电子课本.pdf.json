@@ -1,0 +1,31 @@
+{
+  "filename": "五年级上册英语人教PEP版电子课本.pdf",
+  "totalPages": 84,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Skia/PDF m63",
+    "creationDate": "D:20200320150416+00'00'",
+    "fileSize": 6563679,
+    "processingTime": 62,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 308,
+    "cleanedTextLength": 140,
+    "averageChunkSize": 140,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:39:39.955Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.308Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0"
+  }
+}

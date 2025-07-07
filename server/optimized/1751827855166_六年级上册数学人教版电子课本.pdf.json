@@ -1,0 +1,22 @@
+{
+  "filename": "六年级上册数学人教版电子课本.pdf",
+  "totalPages": 121,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe Acrobat 11.0",
+    "producer": "Adobe Acrobat 11.0 Image Conversion Plug-in",
+    "creationDate": "D:20180603192152+08'00'",
+    "fileSize": 30768701,
+    "processingTime": 78,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 242,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:55.166Z"
+  }
+}

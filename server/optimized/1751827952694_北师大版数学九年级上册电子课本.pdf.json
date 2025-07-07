@@ -1,0 +1,25 @@
+{
+  "filename": "北师大版数学九年级上册电子课本.pdf",
+  "totalPages": 187,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 9.8.0",
+    "creationDate": "D:20180318230657Z",
+    "fileSize": 86083673,
+    "processingTime": 104,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 374,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:52:32.694Z"
+  }
+}

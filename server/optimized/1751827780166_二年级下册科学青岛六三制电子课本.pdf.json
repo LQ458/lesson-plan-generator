@@ -1,0 +1,44 @@
+{
+  "filename": "二年级下册科学青岛六三制电子课本.pdf",
+  "totalPages": 50,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "author": "",
+    "subject": "",
+    "creator": "",
+    "producer": "福昕PDF打印机 版本 8.3.0.0331",
+    "creationDate": "D:20180513211314+08'00'",
+    "fileSize": 13198667,
+    "processingTime": 329,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 350,
+    "cleanedTextLength": 299,
+    "averageChunkSize": 299,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:40.166Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.560Z",
+    "originalChunks": 1,
+    "filteredChunks": 1,
+    "removedChunks": 0,
+    "cleanedChunks": 0,
+    "removalRate": "0.0",
+    "cleaningRate": "0.0"
+  },
+  "enhancedFiltering": {
+    "timestamp": "2025-07-06T19:14:27.500Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0",
+    "version": "enhanced"
+  }
+}

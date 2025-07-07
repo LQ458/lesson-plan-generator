@@ -1,0 +1,24 @@
+{
+  "filename": "六年级下册英语陕旅版电子课本.pdf",
+  "totalPages": 86,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "ÁùÄê¼¶ÏÂUnit-001×ªÇú.cdr",
+    "author": "MHT",
+    "creator": "CorelDRAW Version 9.397",
+    "producer": "Corel PDF Engine Version 9.397",
+    "creationDate": "D:20191111162815Z",
+    "fileSize": 22691248,
+    "processingTime": 1572,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 172,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:51:20.374Z"
+  }
+}

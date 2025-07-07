@@ -1,0 +1,23 @@
+{
+  "filename": "三年级上册英语广西接力版电子课本.pdf",
+  "totalPages": 79,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "author": "Administrator",
+    "creator": "Aspose Ltd.",
+    "producer": "Aspose.Pdf for .NET 17.6",
+    "creationDate": "D:20141029120800Z",
+    "fileSize": 12684590,
+    "processingTime": 43,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 158,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:44.655Z"
+  }
+}

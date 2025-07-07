@@ -1,0 +1,23 @@
+{
+  "filename": "三年级下册道德与法治部编版电子课本.pdf",
+  "totalPages": 96,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 11.0",
+    "producer": "Adobe Acrobat 11.0 Image Conversion Plug-in",
+    "creationDate": "D:20200218200811+08'00'",
+    "fileSize": 13834546,
+    "processingTime": 1170,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 192,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:49:55.967Z"
+  }
+}

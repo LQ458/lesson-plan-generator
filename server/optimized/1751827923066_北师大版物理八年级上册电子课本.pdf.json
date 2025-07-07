@@ -1,0 +1,24 @@
+{
+  "filename": "北师大版物理八年级上册电子课本.pdf",
+  "totalPages": 127,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "160726154651645729",
+    "author": "Administrator",
+    "creator": "pdfFactory Pro pdffactory.com",
+    "producer": "pdfFactory Pro 6.37 (Windows 10 x64 Chinese (Simplified))",
+    "creationDate": "D:20190722210222+08'00'",
+    "fileSize": 28381008,
+    "processingTime": 2762,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 254,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:52:03.055Z"
+  }
+}

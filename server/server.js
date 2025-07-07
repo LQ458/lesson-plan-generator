@@ -22,6 +22,7 @@ const {
   UserFriendlyError,
 } = require("./utils/error-handler");
 const authRegisterRouter = require("./routes/auth-register");
+const vectorStore = require("./rag/services/vector-store");
 require("dotenv").config();
 
 // 配置服务器日志系统
@@ -30,25 +31,27 @@ const serverLogger = winston.createLogger({
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.errors({ stack: true }),
-    winston.format.json()
+    winston.format.json(),
   ),
   defaultMeta: { service: "server", isAIResponse: false },
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize(),
-        winston.format.printf(({ timestamp, level, message, isAIResponse, requestId, ...meta }) => {
-          const aiFlag = isAIResponse ? '🤖[AI-REQ]' : '🌐[SERVER]';
-          const reqId = requestId ? `[${requestId}]` : '';
-          return `${timestamp} ${level} ${aiFlag}${reqId} ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ''}`;
-        })
+        winston.format.printf(
+          ({ timestamp, level, message, isAIResponse, requestId, ...meta }) => {
+            const aiFlag = isAIResponse ? "🤖[AI-REQ]" : "🌐[SERVER]";
+            const reqId = requestId ? `[${requestId}]` : "";
+            return `${timestamp} ${level} ${aiFlag}${reqId} ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ""}`;
+          },
+        ),
       ),
     }),
     new winston.transports.File({
-      filename: 'logs/server.log',
-      level: 'info',
-      format: winston.format.json()
-    })
+      filename: "logs/server.log",
+      level: "info",
+      format: winston.format.json(),
+    }),
   ],
 });
 
@@ -73,7 +76,11 @@ async function initializeServices() {
       console.log("✅ AI服务初始化成功");
     } catch (error) {
       console.error("❌ AI服务初始化失败:", error.message);
-      throw new UserFriendlyError("AI服务初始化失败，系统无法提供服务", 503, error);
+      throw new UserFriendlyError(
+        "AI服务初始化失败，系统无法提供服务",
+        503,
+        error,
+      );
     }
 
     servicesReady = true;
@@ -92,21 +99,21 @@ const aiRequestLogger = (endpoint) => (req, res, next) => {
   const requestId = `REQ-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
   req.requestId = requestId;
   req.startTime = Date.now();
-  
+
   serverLogger.info(`AI请求开始`, {
     requestId,
     endpoint,
     isAIResponse: true,
     method: req.method,
     ip: req.ip,
-    userAgent: req.get('User-Agent'),
+    userAgent: req.get("User-Agent"),
     body: req.body,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
-  
+
   // 响应完成时记录日志
   const originalEnd = res.end;
-  res.end = function(...args) {
+  res.end = function (...args) {
     const duration = Date.now() - req.startTime;
     serverLogger.info(`AI请求完成`, {
       requestId,
@@ -114,11 +121,11 @@ const aiRequestLogger = (endpoint) => (req, res, next) => {
       isAIResponse: true,
       statusCode: res.statusCode,
       duration: `${duration}ms`,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
     originalEnd.apply(this, args);
   };
-  
+
   next();
 };
 
@@ -402,6 +409,111 @@ app.post(
       },
       message: "邀请码有效",
     });
+  }),
+);
+
+// RAG功能路由
+app.post(
+  "/api/rag/load-documents",
+  asyncHandler(async (req, res) => {
+    try {
+      const result = await vectorStore.loadDocuments();
+      res.json({
+        success: true,
+        data: result,
+        message: "文档加载完成",
+      });
+    } catch (error) {
+      serverLogger.error("文档加载失败:", error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        message: "文档加载失败",
+      });
+    }
+  }),
+);
+
+app.post(
+  "/api/rag/search",
+  asyncHandler(async (req, res) => {
+    const { query, subject, grade, limit = 5, minQualityScore = 0 } = req.body;
+
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        error: "查询内容不能为空",
+        message: "请提供搜索查询",
+      });
+    }
+
+    try {
+      const results = await vectorStore.search(query, {
+        subject,
+        grade,
+        limit: parseInt(limit),
+        minQualityScore: parseFloat(minQualityScore),
+      });
+
+      res.json({
+        success: true,
+        data: {
+          results,
+          query,
+          filters: { subject, grade, minQualityScore },
+        },
+        message: "搜索完成",
+      });
+    } catch (error) {
+      serverLogger.error("搜索失败:", error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        message: "搜索失败",
+      });
+    }
+  }),
+);
+
+app.get(
+  "/api/rag/stats",
+  asyncHandler(async (req, res) => {
+    try {
+      const stats = await vectorStore.getCollectionStats();
+      res.json({
+        success: true,
+        data: stats,
+        message: "统计信息获取成功",
+      });
+    } catch (error) {
+      serverLogger.error("获取统计信息失败:", error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        message: "获取统计信息失败",
+      });
+    }
+  }),
+);
+
+app.get(
+  "/api/rag/health",
+  asyncHandler(async (req, res) => {
+    try {
+      const health = await vectorStore.healthCheck();
+      res.json({
+        success: true,
+        data: health,
+        message: "健康检查成功",
+      });
+    } catch (error) {
+      serverLogger.error("健康检查失败:", error);
+      res.status(500).json({
+        success: false,
+        error: error.message,
+        message: "健康检查失败",
+      });
+    }
   }),
 );
 

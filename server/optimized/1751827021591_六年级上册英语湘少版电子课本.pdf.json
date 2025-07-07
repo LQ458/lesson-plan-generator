@@ -1,0 +1,31 @@
+{
+  "filename": "六年级上册英语湘少版电子课本.pdf",
+  "totalPages": 81,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Skia/PDF m63",
+    "creationDate": "D:20200320090436Z",
+    "fileSize": 8975197,
+    "processingTime": 125,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 168,
+    "cleanedTextLength": 4,
+    "averageChunkSize": 4,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:37:01.591Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.044Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0"
+  }
+}

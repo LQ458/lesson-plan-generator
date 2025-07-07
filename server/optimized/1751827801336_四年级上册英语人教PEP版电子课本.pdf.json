@@ -1,0 +1,23 @@
+{
+  "filename": "四年级上册英语人教PEP版电子课本.pdf",
+  "totalPages": 78,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "",
+    "creator": "Adobe Acrobat 20.6",
+    "producer": "Adobe Acrobat 20.6 Image Conversion Plug-in",
+    "creationDate": "D:20200804223952+08'00'",
+    "fileSize": 33658670,
+    "processingTime": 34,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 156,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:01.336Z"
+  }
+}

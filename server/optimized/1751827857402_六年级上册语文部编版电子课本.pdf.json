@@ -1,0 +1,24 @@
+{
+  "filename": "六年级上册语文部编版电子课本.pdf",
+  "totalPages": 130,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "title": "新文档 2019-06-03 14.28.29",
+    "author": "CamScanner",
+    "subject": "新文档 2019-06-03 14.28.29",
+    "producer": "intsig.com pdf producer",
+    "creationDate": "D:20200131163301+08'00'",
+    "fileSize": 31592299,
+    "processingTime": 65,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 390,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:57.402Z"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "filename": "五年级下册英语广州教科版电子课本.pdf",
+  "totalPages": 87,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe InDesign CS6 (Windows)",
+    "producer": "Adobe PDF Library 10.0.1",
+    "creationDate": "D:20200202100919+08'00'",
+    "fileSize": 21964320,
+    "processingTime": 2177,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 174,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:50:40.151Z"
+  }
+}

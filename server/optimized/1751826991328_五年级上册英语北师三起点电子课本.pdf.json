@@ -1,0 +1,31 @@
+{
+  "filename": "五年级上册英语北师三起点电子课本.pdf",
+  "totalPages": 90,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Skia/PDF m63",
+    "creationDate": "D:20200320125403+00'00'",
+    "fileSize": 17698985,
+    "processingTime": 84,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 343,
+    "cleanedTextLength": 163,
+    "averageChunkSize": 163,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:36:31.328Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:14.000Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0"
+  }
+}

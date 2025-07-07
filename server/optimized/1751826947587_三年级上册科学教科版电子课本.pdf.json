@@ -1,0 +1,31 @@
+{
+  "filename": "三年级上册科学教科版电子课本.pdf",
+  "totalPages": 62,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) YXBJ Windows/601568 (zh-CN, DDL); Windows/6.1.1 (Win64); EDAMVersion=V2; Safari/537.36",
+    "producer": "Skia/PDF m63",
+    "creationDate": "D:20200321014604+00'00'",
+    "fileSize": 9335666,
+    "processingTime": 220,
+    "needsReview": false,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 283,
+    "cleanedTextLength": 159,
+    "averageChunkSize": 159,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:35:47.587Z"
+  },
+  "smartFiltering": {
+    "timestamp": "2025-07-06T19:07:13.936Z",
+    "originalChunks": 1,
+    "filteredChunks": 0,
+    "removedChunks": 1,
+    "cleanedChunks": 0,
+    "removalRate": "100.0",
+    "cleaningRate": "0.0"
+  }
+}

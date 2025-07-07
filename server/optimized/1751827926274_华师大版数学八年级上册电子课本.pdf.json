@@ -1,0 +1,22 @@
+{
+  "filename": "华师大版数学八年级上册电子课本.pdf",
+  "totalPages": 167,
+  "totalChunks": 0,
+  "chunks": [],
+  "metadata": {
+    "creator": "Adobe Acrobat 19.12",
+    "producer": "Adobe Acrobat 19.12 Image Conversion Plug-in",
+    "creationDate": "D:20200223155324+08'00'",
+    "fileSize": 58756102,
+    "processingTime": 118,
+    "needsReview": true,
+    "cleanedText": true
+  },
+  "processingStats": {
+    "originalTextLength": 334,
+    "cleanedTextLength": 0,
+    "averageChunkSize": null,
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "processingDate": "2025-07-06T18:52:06.274Z"
+  }
+}
