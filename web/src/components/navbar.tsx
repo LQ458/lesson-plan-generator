@@ -12,12 +12,14 @@ import {
   SparklesIcon,
   ArrowRightOnRectangleIcon,
   UserIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 
 // 完整导航项（登录后）
 const protectedNavigation = [
   { name: "教案生成", href: "/lesson-plan", icon: DocumentTextIcon },
   { name: "练习题", href: "/exercises", icon: AcademicCapIcon },
+  { name: "我的内容", href: "/my-content", icon: BookmarkIcon },
   { name: "设置", href: "/settings", icon: Cog6ToothIcon },
 ];
 

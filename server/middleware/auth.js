@@ -37,55 +37,72 @@ function verifyToken(token) {
   }
 }
 
-// 认证中间件
+// 认证中间件 - 支持JWT token和session cookie
 async function authenticate(req, res, next) {
   try {
+    let user = null;
+    let authMethod = null;
+
+    // 方法1：尝试从Authorization header获取JWT token
     const authHeader = req.headers.authorization;
+    if (authHeader) {
+      const token = authHeader.startsWith("Bearer ")
+        ? authHeader.slice(7)
+        : authHeader;
 
-    if (!authHeader) {
-      return res.status(401).json({
-        success: false,
-        error: "缺少认证头",
-        code: "MISSING_TOKEN",
-      });
+      if (token) {
+        try {
+          // 验证JWT令牌
+          const decoded = verifyToken(token);
+
+          // 获取用户信息
+          user = await userService.getUserById(decoded.id);
+          if (user && user.isActive) {
+            authMethod = "JWT";
+            req.user = user;
+            return next();
+          }
+        } catch (error) {
+          console.warn("JWT认证失败，尝试session认证:", error.message);
+        }
+      }
     }
 
-    const token = authHeader.startsWith("Bearer ")
-      ? authHeader.slice(7)
-      : authHeader;
+    // 方法2：尝试从session cookie获取用户信息
+    const sessionCookie = req.cookies?.session;
+    if (sessionCookie) {
+      try {
+        const sessionData = JSON.parse(sessionCookie);
 
-    if (!token) {
-      return res.status(401).json({
-        success: false,
-        error: "缺少认证令牌",
-        code: "MISSING_TOKEN",
-      });
+        if (sessionData.userId) {
+          // 简化的session用户验证
+          // 对于session认证，我们创建一个临时用户对象
+          user = {
+            _id: sessionData.userId,
+            id: sessionData.userId,
+            username: sessionData.username || "session_user",
+            role: "user",
+            isActive: true,
+            preferences:
+              sessionData.userPreferences || sessionData.preferences || {},
+          };
+
+          authMethod = "SESSION";
+          req.user = user;
+          return next();
+        }
+      } catch (error) {
+        console.warn("Session解析失败:", error.message);
+      }
     }
 
-    // 验证令牌
-    const decoded = verifyToken(token);
-
-    // 获取用户信息
-    const user = await userService.getUserById(decoded.id);
-    if (!user) {
-      return res.status(401).json({
-        success: false,
-        error: "用户不存在",
-        code: "USER_NOT_FOUND",
-      });
-    }
-
-    if (!user.isActive) {
-      return res.status(401).json({
-        success: false,
-        error: "用户已被禁用",
-        code: "USER_INACTIVE",
-      });
-    }
-
-    // 将用户信息附加到请求对象
-    req.user = user;
-    next();
+    // 两种认证方式都失败
+    return res.status(401).json({
+      success: false,
+      error: "缺少有效的认证信息",
+      code: "MISSING_AUTH",
+      message: "请先登录后再进行此操作",
+    });
   } catch (error) {
     console.error("认证失败:", error.message);
 
@@ -94,10 +111,10 @@ async function authenticate(req, res, next) {
 
     if (error.name === "TokenExpiredError") {
       errorCode = "TOKEN_EXPIRED";
-      errorMessage = "令牌已过期";
+      errorMessage = "登录已过期，请重新登录";
     } else if (error.name === "JsonWebTokenError") {
       errorCode = "INVALID_TOKEN";
-      errorMessage = "无效的令牌";
+      errorMessage = "无效的认证信息";
     }
 
     return res.status(401).json({

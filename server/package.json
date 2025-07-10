@@ -11,7 +11,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:rag": "node rag/scripts/test-rag-system.js",
-    "test:basic": "node rag/scripts/test-basic-functionality.js"
+    "test:basic": "node rag/scripts/test-basic-functionality.js",
+    "start:cross": "node cross-xvfb.js",
+    "start:macos": "node server.js"
   },
   "keywords": [
     "teachai",
@@ -23,11 +25,13 @@
   "author": "TeachAI Team",
   "license": "MIT",
   "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.6.0",
     "axios": "^1.5.0",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.2",
     "chromadb": "^1.10.5",
     "chromadb-default-embed": "^2.14.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.18.2",
@@ -35,10 +39,16 @@
     "express-validator": "^7.2.1",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.2",
+    "markdown-it": "^14.1.0",
+    "markmap-cli": "^0.18.12",
+    "markmap-lib": "^0.18.12",
+    "mermaid": "^11.8.1",
     "moment": "^2.29.4",
-    "mongoose": "^8.15.2",
+    "mongoose": "^8.16.0",
     "morgan": "^1.10.0",
+    "node-fetch": "2",
     "openai": "^5.7.0",
+    "puppeteer": "^24.12.1",
     "winston": "^3.10.0"
   },
   "devDependencies": {

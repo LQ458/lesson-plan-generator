@@ -12,6 +12,7 @@ import {
   getGradeLevelLabel,
   getSubjectLabel,
 } from "@/lib/settings-context";
+import { Card } from "@/components/ui/card";
 
 const subjects = [
   "语文",
@@ -66,6 +67,8 @@ export default function ExercisesPage() {
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
+  const [savingExercise, setSavingExercise] = useState(false);
+  const [exportDialogOpen, setExportDialogOpen] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -94,8 +97,8 @@ export default function ExercisesPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token") || "demo-token"}`,
         },
+        credentials: "include", // 使用cookie认证
         body: JSON.stringify({
           subject: formData.subject,
           grade: formData.grade,
@@ -168,6 +171,113 @@ export default function ExercisesPage() {
     alert("已复制到剪贴板");
   };
 
+  // 保存练习题
+  const handleSaveExercise = async () => {
+    if (!generatedContent) return;
+
+    setSavingExercise(true);
+    try {
+      const response = await fetch(
+        "http://localhost:3001/api/content/exercises",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // 确保发送cookies
+          body: JSON.stringify({
+            title: `${formData.subject}练习题 - ${formData.topic}`,
+            subject: formData.subject,
+            grade: formData.grade,
+            topic: formData.topic,
+            difficulty: formData.difficulty,
+            questionType: formData.questionType,
+            questionCount: parseInt(formData.count),
+            content: generatedContent,
+            requirements: formData.requirements,
+            tags: [formData.subject, formData.grade, formData.difficulty],
+          }),
+        },
+      );
+
+      if (response.ok) {
+        // 简单的成功提示
+        const successDiv = document.createElement("div");
+        successDiv.className =
+          "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+        successDiv.textContent = "✅ 练习题保存成功";
+        document.body.appendChild(successDiv);
+        setTimeout(() => {
+          document.body.removeChild(successDiv);
+        }, 3000);
+      } else {
+        const errorData = await response
+          .json()
+          .catch(() => ({ error: "保存失败" }));
+        throw new Error(errorData.error || errorData.message || "保存失败");
+      }
+    } catch (error) {
+      console.error("保存练习题失败:", error);
+      // 简单的错误提示
+      const errorDiv = document.createElement("div");
+      errorDiv.className =
+        "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+      errorDiv.textContent = `❌ ${error instanceof Error ? error.message : "保存失败，请重试"}`;
+      document.body.appendChild(errorDiv);
+      setTimeout(() => {
+        document.body.removeChild(errorDiv);
+      }, 3000);
+    } finally {
+      setSavingExercise(false);
+    }
+  };
+
+  // 导出练习题
+  const handleExportExercise = () => {
+    setExportDialogOpen(true);
+  };
+
+  // 执行导出
+  const executeExport = async (format: string) => {
+    if (!generatedContent) return;
+
+    try {
+      // 创建一个临时的导出内容
+      const blob = new Blob([generatedContent], {
+        type: "text/plain;charset=utf-8",
+      });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `练习题_${formData.subject}_${formData.topic}_${Date.now()}.${format === "html" ? "html" : format === "txt" ? "txt" : "md"}`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+
+      // 简单的成功提示
+      const successDiv = document.createElement("div");
+      successDiv.className =
+        "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+      successDiv.textContent = "✅ 导出成功";
+      document.body.appendChild(successDiv);
+      setTimeout(() => {
+        document.body.removeChild(successDiv);
+      }, 3000);
+    } catch (error) {
+      console.error("导出失败:", error);
+      // 简单的错误提示
+      const errorDiv = document.createElement("div");
+      errorDiv.className =
+        "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+      errorDiv.textContent = "❌ 导出失败，请重试";
+      document.body.appendChild(errorDiv);
+      setTimeout(() => {
+        document.body.removeChild(errorDiv);
+      }, 3000);
+    }
+  };
+
   return (
     <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,7 +298,7 @@ export default function ExercisesPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Section */}
-          <div className="card p-8">
+          <Card p-8>
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
               <DocumentTextIcon className="w-6 h-6 text-apple-green" />
               题目设置
@@ -360,19 +470,34 @@ export default function ExercisesPage() {
                 )}
               </button>
             </div>
-          </div>
+          </Card>
 
           {/* Result Section */}
-          <div className="card p-8">
+          <Card p-8>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold flex items-center gap-3">
                 <AcademicCapIcon className="w-6 h-6 text-apple-green" />
                 生成结果
               </h2>
               {generatedContent && (
-                <button onClick={handleCopy} className="btn btn-secondary">
-                  复制内容
-                </button>
+                <div className="flex gap-2">
+                  <button onClick={handleCopy} className="btn btn-secondary">
+                    复制内容
+                  </button>
+                  <button
+                    onClick={handleSaveExercise}
+                    disabled={savingExercise}
+                    className="btn bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white"
+                  >
+                    {savingExercise ? "保存中..." : "💾 保存"}
+                  </button>
+                  <button
+                    onClick={handleExportExercise}
+                    className="btn bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    📤 导出
+                  </button>
+                </div>
               )}
             </div>
 
@@ -388,8 +513,66 @@ export default function ExercisesPage() {
                 <p>填写左侧信息后点击"生成练习题"开始创建</p>
               </div>
             )}
-          </div>
+          </Card>
         </div>
+
+        {/* 导出对话框 */}
+        {exportDialogOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md w-full mx-4">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+                导出练习题
+              </h3>
+              <div className="space-y-4">
+                <div className="export-formats">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    选择导出格式
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <button
+                      onClick={() => {
+                        executeExport("markdown");
+                        setExportDialogOpen(false);
+                      }}
+                      className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
+                    >
+                      <div className="text-sm font-medium">Markdown</div>
+                      <div className="text-xs text-gray-500">.md</div>
+                    </button>
+                    <button
+                      onClick={() => {
+                        executeExport("html");
+                        setExportDialogOpen(false);
+                      }}
+                      className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
+                    >
+                      <div className="text-sm font-medium">HTML</div>
+                      <div className="text-xs text-gray-500">.html</div>
+                    </button>
+                    <button
+                      onClick={() => {
+                        executeExport("txt");
+                        setExportDialogOpen(false);
+                      }}
+                      className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
+                    >
+                      <div className="text-sm font-medium">纯文本</div>
+                      <div className="text-xs text-gray-500">.txt</div>
+                    </button>
+                  </div>
+                </div>
+                <div className="flex justify-end gap-2">
+                  <button
+                    onClick={() => setExportDialogOpen(false)}
+                    className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    取消
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
 // 指定需要保护的路由（登录后才能访问）
-const protectedRoutes = ["/lesson-plan", "/exercises", "/settings"];
+const protectedRoutes = [
+  "/lesson-plan",
+  "/exercises",
+  "/my-content",
+  "/settings",
+];
 // 指定公开路由（无需登录）
 const publicRoutes = ["/login", "/"];
 

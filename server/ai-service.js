@@ -471,7 +471,7 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
   }
 
   /**
-   * 生成练习题 - 流式输出
+   * 生成练习题 - 流式输出，支持年级课程限制
    */
   async generateExercisesStream(
     subject,
@@ -492,6 +492,119 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
       困难: "困难",
     };
 
+    // 年级课程限制映射
+    const gradeSubjectMap = {
+      小学: {
+        一年级: ["语文", "数学", "音乐", "美术", "体育"],
+        二年级: ["语文", "数学", "音乐", "美术", "体育"],
+        三年级: ["语文", "数学", "英语", "音乐", "美术", "体育"],
+        四年级: ["语文", "数学", "英语", "音乐", "美术", "体育"],
+        五年级: ["语文", "数学", "英语", "音乐", "美术", "体育"],
+        六年级: ["语文", "数学", "英语", "音乐", "美术", "体育"],
+      },
+      初中: {
+        七年级: [
+          "语文",
+          "数学",
+          "英语",
+          "物理",
+          "化学",
+          "生物",
+          "历史",
+          "地理",
+          "政治",
+          "音乐",
+          "美术",
+          "体育",
+        ],
+        八年级: [
+          "语文",
+          "数学",
+          "英语",
+          "物理",
+          "化学",
+          "生物",
+          "历史",
+          "地理",
+          "政治",
+          "音乐",
+          "美术",
+          "体育",
+        ],
+        九年级: [
+          "语文",
+          "数学",
+          "英语",
+          "物理",
+          "化学",
+          "生物",
+          "历史",
+          "地理",
+          "政治",
+          "音乐",
+          "美术",
+          "体育",
+        ],
+      },
+      高中: {
+        高一: [
+          "语文",
+          "数学",
+          "英语",
+          "物理",
+          "化学",
+          "生物",
+          "历史",
+          "地理",
+          "政治",
+          "音乐",
+          "美术",
+          "体育",
+        ],
+        高二: [
+          "语文",
+          "数学",
+          "英语",
+          "物理",
+          "化学",
+          "生物",
+          "历史",
+          "地理",
+          "政治",
+          "音乐",
+          "美术",
+          "体育",
+        ],
+        高三: [
+          "语文",
+          "数学",
+          "英语",
+          "物理",
+          "化学",
+          "生物",
+          "历史",
+          "地理",
+          "政治",
+          "音乐",
+          "美术",
+          "体育",
+        ],
+      },
+    };
+
+    // 检查年级科目限制
+    const gradeLevel = this.determineGradeLevel(grade);
+    const allowedSubjects = gradeSubjectMap[gradeLevel]
+      ? gradeSubjectMap[gradeLevel][grade]
+      : null;
+
+    if (allowedSubjects && !allowedSubjects.includes(subject)) {
+      throw new Error(`${grade}暂不支持${subject}科目，请选择其他科目或年级`);
+    }
+
+    // 根据年级调整难度和内容深度
+    const gradeSpecificPrompt = this.getGradeSpecificPrompt(grade, subject);
+
     const systemPrompt = `你是一位专业的教师，擅长出题和命题。请根据用户的要求生成练习题。
 
 要求：
@@ -500,7 +613,13 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 3. 每道题目都要提供正确答案和详细解析
 4. 题目要有一定的教学价值，能够检验学生对知识点的掌握
 5. 使用中文输出
-6. 格式要求使用Markdown格式，结构清晰`;
+6. 格式要求使用Markdown格式，结构清晰
+7. 严格按照年级教学大纲要求，不得超出学生认知水平
+8. 对于小学生，题目描述要简单易懂，避免过于复杂的表达
+9. 对于中学生，可以适当增加推理和分析能力的考察
+10. 对于高中生，可以增加综合应用和批判性思维的考察
+
+${gradeSpecificPrompt}`;
 
     const userPrompt = `请为我生成练习题：
 - 科目：${subject}
@@ -511,7 +630,8 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 - 题目数量：${count}道
 ${requirements ? `- 特殊要求：${requirements}` : ""}
 
-请生成指定数量的练习题，每道题都要包含题目、选项（如适用）、答案和解析。`;
+请生成指定数量的练习题，每道题都要包含题目、选项（如适用）、答案和解析。
+请确保题目符合该年级学生的认知水平和课程标准。`;
 
     return await this.generateContentStream(
       systemPrompt,
@@ -519,6 +639,66 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
       res,
       "exercises",
     );
+  }
+
+  /**
+   * 判断年级所属的教育阶段
+   */
+  determineGradeLevel(grade) {
+    const primaryGrades = [
+      "一年级",
+      "二年级",
+      "三年级",
+      "四年级",
+      "五年级",
+      "六年级",
+    ];
+    const middleGrades = ["七年级", "八年级", "九年级", "初一", "初二", "初三"];
+    const highGrades = ["高一", "高二", "高三"];
+
+    if (primaryGrades.includes(grade)) {
+      return "小学";
+    } else if (middleGrades.includes(grade)) {
+      return "初中";
+    } else if (highGrades.includes(grade)) {
+      return "高中";
+    }
+    return "通用";
+  }
+
+  /**
+   * 获取年级特定的提示词
+   */
+  getGradeSpecificPrompt(grade, subject) {
+    const gradeLevel = this.determineGradeLevel(grade);
+
+    const prompts = {
+      小学: `
+特别注意：
+- 语言要简单明了，避免使用过于复杂的词汇
+- 题目情境要贴近小学生的日常生活
+- 数学题目要从具体到抽象，多使用图形和实物
+- 语文题目要注重基础知识，如拼音、词语、简单的阅读理解
+- 避免出现超纲内容，如复杂的几何证明、高难度的文言文等`,
+
+      初中: `
+特别注意：
+- 可以适当增加推理和分析的成分
+- 题目可以涉及一些综合性的知识点
+- 数学可以包含代数、几何的基础内容
+- 语文可以包含文言文、现代文阅读等
+- 科学类科目要注重实验和观察能力的培养`,
+
+      高中: `
+特别注意：
+- 可以包含较高的综合分析和批判性思维
+- 题目可以跨学科，注重知识的综合运用
+- 数学可以包含高等数学的初步内容
+- 语文可以包含深层次的文学分析
+- 科学类科目要注重理论联系实际的能力`,
+    };
+
+    return prompts[gradeLevel] || "";
   }
 
   /**

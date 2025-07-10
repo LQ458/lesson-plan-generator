@@ -10,6 +10,15 @@ import {
   getGradeLevelLabel,
   getSubjectLabel,
 } from "@/lib/settings-context";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Card, CardContent } from "@/components/ui/card";
+import { showNotification } from "@/app/my-content/utils/notification";
 
 interface LessonPlanFormat {
   id: string;
@@ -67,6 +76,7 @@ const formats: LessonPlanFormat[] = [
 
 interface LessonPlanGeneratorProps {
   lessonData: {
+    _id?: string;
     subject: string;
     grade: string;
     title: string;
@@ -90,18 +100,271 @@ interface LessonPlanGeneratorProps {
     }>;
   } | null;
   isStreaming?: boolean;
+  showSaveButton?: boolean;
 }
 
 export default function LessonPlanGenerator({
   lessonData,
   isStreaming,
+  showSaveButton = true,
 }: LessonPlanGeneratorProps) {
   const { settings } = useSettings();
   const [selectedFormat, setSelectedFormat] = useState("text");
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [savingLessonPlan, setSavingLessonPlan] = useState(false);
+  const [exportDialogOpen, setExportDialogOpen] = useState(false);
+  const [exportLoading, setExportLoading] = useState<{
+    [key: string]: boolean;
+  }>({});
   // 默认使用标准复杂度和AI优化，不再提供用户选择
   const diagramComplexity: "simple" | "standard" | "detailed" = "standard";
   const useAITextProcessing = true;
+
+  // 获取lessonData中的_id字段，如果没有则从URL中获取
+  const lessonId =
+    lessonData?._id ||
+    (typeof window !== "undefined"
+      ? window.location.pathname.split("/").pop()
+      : null);
+
+  // 添加调试日志
+  console.log("🔍 [LessonPlanGenerator] 组件初始化", {
+    lessonData: lessonData
+      ? {
+          _id: lessonData._id,
+          title: lessonData.title,
+          subject: lessonData.subject,
+          grade: lessonData.grade,
+        }
+      : null,
+    lessonId,
+    hasLessonData: !!lessonData,
+  });
+
+  // 通知函数
+  const showNotification = (
+    message: string,
+    type: "success" | "error" = "success",
+  ) => {
+    const notificationDiv = document.createElement("div");
+    notificationDiv.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 text-white ${
+      type === "success" ? "bg-green-500" : "bg-red-500"
+    }`;
+    notificationDiv.textContent = message;
+    document.body.appendChild(notificationDiv);
+
+    setTimeout(() => {
+      if (document.body.contains(notificationDiv)) {
+        document.body.removeChild(notificationDiv);
+      }
+    }, 3000);
+  };
+
+  // 保存教案
+  const handleSaveLessonPlan = async () => {
+    if (!enrichedLessonData?.textContent) return;
+
+    setSavingLessonPlan(true);
+    try {
+      const response = await fetch(
+        "http://localhost:3001/api/content/lesson-plans",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // 确保发送cookies
+          body: JSON.stringify({
+            title: enrichedLessonData.title,
+            subject: enrichedLessonData.subject,
+            grade: enrichedLessonData.grade,
+            topic: enrichedLessonData.title,
+            content: enrichedLessonData.textContent,
+            structuredData: {
+              detailedObjectives: enrichedLessonData.detailedObjectives,
+              keyPoints: enrichedLessonData.keyPoints,
+              difficulties: enrichedLessonData.difficulties,
+              teachingMethods: enrichedLessonData.teachingMethods,
+              teachingProcess: enrichedLessonData.teachingProcess,
+              duration:
+                typeof enrichedLessonData.duration === "number"
+                  ? enrichedLessonData.duration
+                  : 45,
+            },
+            tags: [enrichedLessonData.subject, enrichedLessonData.grade],
+          }),
+        },
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        // 简单的成功提示
+        const successDiv = document.createElement("div");
+        successDiv.className =
+          "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+        successDiv.textContent = "✅ 教案保存成功";
+        document.body.appendChild(successDiv);
+        setTimeout(() => {
+          document.body.removeChild(successDiv);
+        }, 3000);
+      } else if (response.status === 409) {
+        // 处理重复教案情况
+        const warningDiv = document.createElement("div");
+        warningDiv.className =
+          "fixed top-4 right-4 bg-yellow-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+        warningDiv.textContent = "⚠️ 已保存过此教案";
+        document.body.appendChild(warningDiv);
+        setTimeout(() => {
+          document.body.removeChild(warningDiv);
+        }, 3000);
+      } else {
+        const errorData = await response
+          .json()
+          .catch(() => ({ error: "保存失败" }));
+        throw new Error(errorData.error || errorData.message || "保存失败");
+      }
+    } catch (error) {
+      console.error("保存教案失败:", error);
+      // 简单的错误提示
+      const errorDiv = document.createElement("div");
+      errorDiv.className =
+        "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+      errorDiv.textContent = `❌ ${error instanceof Error ? error.message : "保存失败，请重试"}`;
+      document.body.appendChild(errorDiv);
+      setTimeout(() => {
+        document.body.removeChild(errorDiv);
+      }, 3000);
+    } finally {
+      setSavingLessonPlan(false);
+    }
+  };
+
+  // 导出内容 - 修复loading状态管理和添加详细日志
+  const exportContent = async (format: string, ext: string) => {
+    console.log("🚀 [Export] 开始导出", {
+      format,
+      ext,
+      lessonId,
+      lessonDataId: lessonData?._id,
+      hasLessonData: !!lessonData,
+      lessonDataKeys: lessonData ? Object.keys(lessonData) : [],
+    });
+
+    if (!lessonId) {
+      console.error("❌ [Export] lessonId 未找到", {
+        lessonData,
+        hasLessonData: !!lessonData,
+        lessonDataKeys: lessonData ? Object.keys(lessonData) : [],
+        urlPath: window.location.pathname,
+      });
+      showNotification(
+        "无法导出：教案ID缺失，请确保已保存教案后再导出",
+        "error",
+      );
+      return;
+    }
+
+    // 验证lessonId格式
+    if (lessonId.length !== 24) {
+      console.error("❌ [Export] lessonId 格式无效", { lessonId });
+      showNotification("无法导出：教案ID格式无效", "error");
+      return;
+    }
+
+    // 为每个格式单独管理loading状态
+    setExportLoading((prev) => ({ ...prev, [format]: true }));
+
+    try {
+      // 统一使用3001端口作为导出服务
+      const API_BASE_URL = "http://localhost:3001";
+      const exportUrl = `${API_BASE_URL}/api/export/lesson-plans/${lessonId}`;
+
+      console.log("📤 [Export] 发送导出请求", {
+        url: exportUrl,
+        format,
+        lessonId,
+      });
+
+      const response = await fetch(exportUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ format }),
+      });
+
+      console.log("📥 [Export] 收到响应", {
+        status: response.status,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries()),
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        console.log("✅ [Export] 响应解析成功", {
+          blobSize: blob.size,
+          blobType: blob.type,
+        });
+
+        // 验证blob内容
+        if (blob.size === 0) {
+          console.error("❌ [Export] 收到空的blob");
+          showNotification("导出失败：文件内容为空", "error");
+          return;
+        }
+
+        // 简单的文件大小检查
+        console.log("📄 [Export] 文件信息:", {
+          size: `${(blob.size / 1024).toFixed(2)}KB`,
+          type: blob.type,
+          format
+        });
+
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `lesson-plan_${lessonId}_${Date.now()}.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+
+        console.log("🎉 [Export] 导出成功", { format, ext });
+        showNotification("导出成功", "success");
+        setExportDialogOpen(false);
+      } else {
+        const errorText = await response.text().catch(() => "未知错误");
+        console.error("❌ [Export] 导出请求失败", {
+          status: response.status,
+          statusText: response.statusText,
+          errorText,
+        });
+        showNotification(
+          `导出失败: ${response.status} ${response.statusText}`,
+          "error",
+        );
+      }
+    } catch (error) {
+      console.error("💥 [Export] 导出异常", {
+        error: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
+        format,
+        lessonId,
+        errorType: typeof error,
+        errorConstructor: error?.constructor?.name,
+      });
+      showNotification(
+        `导出失败: ${error instanceof Error ? error.message : "网络错误"}`,
+        "error",
+      );
+    } finally {
+      setExportLoading((prev) => ({ ...prev, [format]: false }));
+    }
+  };
+
+  // 临时保存的教案ID (实际应用中应该从保存接口返回)
+  const savedLessonPlanId = null;
 
   useEffect(() => {
     // 检测当前主题模式
@@ -634,27 +897,27 @@ export default function LessonPlanGenerator({
       const { title } = enrichedLessonData;
       const aiParsed = parseAIContent;
 
-      // 优先使用AI解析的内容，如果没有则使用原始数据
+      // 优先使用保存的结构化数据，如果没有或为空则使用AI解析的内容
       const objectives =
-        (aiParsed?.objectives?.length
-          ? aiParsed.objectives
-          : enrichedLessonData.detailedObjectives) || [];
+        (enrichedLessonData.detailedObjectives?.length
+          ? enrichedLessonData.detailedObjectives
+          : aiParsed?.objectives) || [];
       const keyPoints =
-        (aiParsed?.keyPoints?.length
-          ? aiParsed.keyPoints
-          : enrichedLessonData.keyPoints) || [];
+        (enrichedLessonData.keyPoints?.length
+          ? enrichedLessonData.keyPoints
+          : aiParsed?.keyPoints) || [];
       const difficulties =
-        (aiParsed?.difficulties?.length
-          ? aiParsed.difficulties
-          : enrichedLessonData.difficulties) || [];
+        (enrichedLessonData.difficulties?.length
+          ? enrichedLessonData.difficulties
+          : aiParsed?.difficulties) || [];
       const methods =
-        (aiParsed?.methods?.length
-          ? aiParsed.methods
-          : enrichedLessonData.teachingMethods) || [];
+        (enrichedLessonData.teachingMethods?.length
+          ? enrichedLessonData.teachingMethods
+          : aiParsed?.methods) || [];
       const process =
-        (aiParsed?.process?.length
-          ? aiParsed.process
-          : enrichedLessonData.teachingProcess) || [];
+        (enrichedLessonData.teachingProcess?.length
+          ? enrichedLessonData.teachingProcess
+          : aiParsed?.process) || [];
 
       // 如果没有足够的内容，返回提示信息
       if (
@@ -1246,6 +1509,35 @@ ${nodeIds
         </div>
       </div>
 
+      {/* 操作按钮 */}
+      <div className="actions mb-6 flex gap-3">
+        {showSaveButton && (
+          <button
+            onClick={handleSaveLessonPlan}
+            disabled={!enrichedLessonData?.textContent || isStreaming}
+            className="px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors flex items-center gap-2"
+          >
+            {savingLessonPlan ? (
+              <>
+                <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
+                保存中...
+              </>
+            ) : (
+              <>💾 保存教案</>
+            )}
+          </button>
+        )}
+
+        {/* 导出教案按钮 */}
+        <button
+          onClick={() => setExportDialogOpen(true)}
+          disabled={!lessonId}
+          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-colors flex items-center gap-2"
+        >
+          📤 导出教案
+        </button>
+      </div>
+
       {/* 内容展示区域 */}
       <div className="content-display">
         {selectedFormat === "text" && (
@@ -1296,22 +1588,9 @@ ${nodeIds
           </div>
         )}
 
-        {selectedFormat === "flowchart" && (
-          <div className="flowchart-section">
-            <InteractiveFlowchart
-              process={enrichedLessonData.teachingProcess || []}
-              title={enrichedLessonData.title}
-              totalDuration={
-                typeof enrichedLessonData.duration === "number"
-                  ? enrichedLessonData.duration
-                  : 45
-              }
-              className="my-6"
-            />
-          </div>
-        )}
-
-        {(selectedFormat === "mindmap" || selectedFormat === "timeline") && (
+        {(selectedFormat === "mindmap" ||
+          selectedFormat === "flowchart" ||
+          selectedFormat === "timeline") && (
           <div className="diagram-section">
             <DiagramRenderer
               content={diagramContent}
@@ -1333,31 +1612,122 @@ ${nodeIds
                     ? enrichedLessonData.duration
                     : 45,
                 detailedObjectives:
-                  (parseAIContent?.objectives?.length
-                    ? parseAIContent.objectives
-                    : enrichedLessonData.detailedObjectives) || [],
+                  (enrichedLessonData.detailedObjectives?.length
+                    ? enrichedLessonData.detailedObjectives
+                    : parseAIContent?.objectives) || [],
                 keyPoints:
-                  (parseAIContent?.keyPoints?.length
-                    ? parseAIContent.keyPoints
-                    : enrichedLessonData.keyPoints) || [],
+                  (enrichedLessonData.keyPoints?.length
+                    ? enrichedLessonData.keyPoints
+                    : parseAIContent?.keyPoints) || [],
                 difficulties:
-                  (parseAIContent?.difficulties?.length
-                    ? parseAIContent.difficulties
-                    : enrichedLessonData.difficulties) || [],
+                  (enrichedLessonData.difficulties?.length
+                    ? enrichedLessonData.difficulties
+                    : parseAIContent?.difficulties) || [],
                 teachingMethods:
-                  (parseAIContent?.methods?.length
-                    ? parseAIContent.methods
-                    : enrichedLessonData.teachingMethods) || [],
+                  (enrichedLessonData.teachingMethods?.length
+                    ? enrichedLessonData.teachingMethods
+                    : parseAIContent?.methods) || [],
                 teachingProcess:
-                  (parseAIContent?.process?.length
-                    ? parseAIContent.process
-                    : enrichedLessonData.teachingProcess) || [],
+                  (enrichedLessonData.teachingProcess?.length
+                    ? enrichedLessonData.teachingProcess
+                    : parseAIContent?.process) || [],
               }}
               className="my-6"
             />
           </div>
         )}
       </div>
+
+      {/* 导出对话框 */}
+      <Dialog open={exportDialogOpen} onOpenChange={setExportDialogOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              📤 导出教案
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              请选择您需要的导出格式：
+            </p>
+
+            <div className="space-y-3">
+              <Button
+                onClick={() => exportContent("mindmap", "png")}
+                disabled={exportLoading["mindmap"] || !lessonId}
+                className="w-full h-12 justify-start gap-3 text-left"
+                variant="outline"
+              >
+                <span className="text-lg">🧠</span>
+                <div className="flex-1">
+                  <div className="font-medium">思维导图图片</div>
+                  <div className="text-xs text-gray-500">
+                    PNG格式，推荐用于分享
+                  </div>
+                </div>
+                {exportLoading["mindmap"] && (
+                  <div className="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full"></div>
+                )}
+              </Button>
+
+              <Button
+                onClick={() => exportContent("pdf", "pdf")}
+                disabled={exportLoading["pdf"] || !lessonId}
+                className="w-full h-12 justify-start gap-3 text-left"
+                variant="outline"
+              >
+                <span className="text-lg">📄</span>
+                <div className="flex-1">
+                  <div className="font-medium">PDF教案</div>
+                  <div className="text-xs text-gray-500">适合打印和存档</div>
+                </div>
+                {exportLoading["pdf"] && (
+                  <div className="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full"></div>
+                )}
+              </Button>
+
+              <Button
+                onClick={() => exportContent("timeline", "png")}
+                disabled={exportLoading["timeline"] || !lessonId}
+                className="w-full h-12 justify-start gap-3 text-left"
+                variant="outline"
+              >
+                <span className="text-lg">⏰</span>
+                <div className="flex-1">
+                  <div className="font-medium">时间线图片</div>
+                  <div className="text-xs text-gray-500">
+                    PNG格式，显示教学流程
+                  </div>
+                </div>
+                {exportLoading["timeline"] && (
+                  <div className="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full"></div>
+                )}
+              </Button>
+            </div>
+
+            {!lessonId && (
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3">
+                <p className="text-sm text-yellow-800 dark:text-yellow-200">
+                  ⚠️ 请先保存教案才能导出
+                </p>
+              </div>
+            )}
+
+            <Button
+              variant="outline"
+              onClick={() => setExportDialogOpen(false)}
+              className="w-full"
+              disabled={
+                exportLoading["mindmap"] ||
+                exportLoading["pdf"] ||
+                exportLoading["timeline"]
+              }
+            >
+              取消
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
