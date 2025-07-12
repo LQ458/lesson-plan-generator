@@ -176,6 +176,7 @@ const exportFormatters = {
     const os = require("os");
 
     let browser;
+    let page;
     try {
       // 针对不同操作系统优化puppeteer配置
       const puppeteerArgs = ["--no-sandbox", "--disable-setuid-sandbox"];
@@ -219,7 +220,11 @@ const exportFormatters = {
         args: puppeteerArgs,
       });
 
-      const page = await browser.newPage();
+      page = await browser.newPage();
+
+      // 设置页面超时，防止无限等待
+      page.setDefaultTimeout(30000); // 30秒超时
+      page.setDefaultNavigationTimeout(30000);
 
       // 转换Markdown为HTML
       const htmlContent = `
@@ -322,8 +327,13 @@ const exportFormatters = {
 
       await page.setContent(htmlContent, { waitUntil: "networkidle0" });
 
-      // 等待字体加载
-      await page.evaluateHandle("document.fonts.ready");
+      // 等待字体加载，设置超时
+      await Promise.race([
+        page.evaluateHandle("document.fonts.ready"),
+        new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Font loading timeout')), 10000)
+        )
+      ]);
 
       const pdfBuffer = await page.pdf({
         format: "A4",
@@ -373,9 +383,32 @@ const exportFormatters = {
       });
       throw new Error(`PDF导出失败: ${err.message}`);
     } finally {
-      if (browser) {
-        await browser.close();
-        logger.info("🔒 [PDF] 浏览器已关闭");
+      // 确保页面和浏览器都被正确关闭
+      try {
+        if (page) {
+          await page.close();
+          logger.info("📄 [PDF] 页面已关闭");
+        }
+      } catch (pageError) {
+        logger.error("❌ [PDF] 关闭页面时出错", { error: pageError.message });
+      }
+      
+      try {
+        if (browser) {
+          await browser.close();
+          logger.info("🔒 [PDF] 浏览器已关闭");
+        }
+      } catch (browserError) {
+        logger.error("❌ [PDF] 关闭浏览器时出错", { error: browserError.message });
+        // 强制关闭浏览器进程
+        try {
+          if (browser && browser.process()) {
+            browser.process().kill('SIGKILL');
+            logger.info("🔒 [PDF] 浏览器进程已强制终止");
+          }
+        } catch (killError) {
+          logger.error("❌ [PDF] 强制终止浏览器进程失败", { error: killError.message });
+        }
       }
     }
   },

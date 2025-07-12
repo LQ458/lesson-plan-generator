@@ -231,8 +231,8 @@ app.get(
 app.post(
   "/api/lesson-plan",
   aiRequestLogger("lesson-plan"), // 添加AI请求日志
-  // authenticate,  // 暂时注释掉认证
-  // apiLimiter,    // 暂时注释掉限流
+  authenticate,  // 启用认证
+  apiLimiter,    // 启用限流
   asyncHandler(async (req, res) => {
     const { subject, grade, topic, requirements } = req.body;
 
@@ -262,8 +262,8 @@ app.post(
 app.post(
   "/api/exercises",
   aiRequestLogger("exercises"), // 添加AI请求日志
-  // authenticate,  // 暂时注释掉认证
-  // apiLimiter,    // 暂时注释掉限流
+  authenticate,  // 启用认证
+  apiLimiter,    // 启用限流
   asyncHandler(async (req, res) => {
     const {
       subject,
@@ -304,8 +304,8 @@ app.post(
 app.post(
   "/api/analyze",
   aiRequestLogger("analyze"), // 添加AI请求日志
-  // authenticate,  // 暂时注释掉认证
-  // apiLimiter,    // 暂时注释掉限流
+  authenticate,  // 启用认证
+  apiLimiter,    // 启用限流
   asyncHandler(async (req, res) => {
     const { content, analysisType } = req.body;
 
