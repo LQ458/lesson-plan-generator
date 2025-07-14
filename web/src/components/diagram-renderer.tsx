@@ -8,6 +8,27 @@ interface DiagramRendererProps {
   className?: string;
 }
 
+// SVG sanitization function to prevent XSS
+function sanitizeSvg(svgContent: string): string {
+  // Remove script tags and their content
+  let sanitized = svgContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+  
+  // Remove event handlers (onclick, onload, etc.)
+  sanitized = sanitized.replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, '');
+  
+  // Remove javascript: URLs
+  sanitized = sanitized.replace(/javascript:/gi, '');
+  
+  // Remove data: URLs that could contain scripts
+  sanitized = sanitized.replace(/data:text\/html/gi, '');
+  sanitized = sanitized.replace(/data:application\/javascript/gi, '');
+  
+  // Remove external references that could be malicious
+  sanitized = sanitized.replace(/<use[^>]*href\s*=\s*["'][^"']*["'][^>]*>/gi, '');
+  
+  return sanitized;
+}
+
 export default function DiagramRenderer({
   content,
   className,
@@ -73,8 +94,11 @@ export default function DiagramRenderer({
         // 直接渲染获取SVG字符串，不使用临时DOM节点
         const { svg } = await mermaid.render(id, content);
 
+        // 安全处理SVG内容
+        const sanitizedSvg = sanitizeSvg(svg);
+
         // 设置SVG内容到状态中
-        setSvgContent(svg);
+        setSvgContent(sanitizedSvg);
       } catch (error) {
         console.error("Mermaid 渲染错误:", error);
         setError(
