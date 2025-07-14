@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { TabsContent } from "@/components/ui/tabs";
 import {
@@ -24,6 +24,21 @@ export default function MyContentPage() {
   const router = useRouter();
   const params = useParams();
   const selectedId = Array.isArray(params?.id) ? params.id[0] : params?.id;
+
+  // 解析路径类型和ID
+  const pathInfo = useMemo(() => {
+    if (!params?.id) return { type: 'list', id: null };
+    
+    const pathArray = Array.isArray(params.id) ? params.id : [params.id];
+    
+    if (pathArray.length === 2 && pathArray[0] === 'exercise') {
+      return { type: 'exercise', id: pathArray[1] };
+    } else if (pathArray.length === 1) {
+      return { type: 'lesson', id: pathArray[0] };
+    }
+    
+    return { type: 'list', id: null };
+  }, [params?.id]);
 
   // 使用自定义hook
   const {
@@ -55,11 +70,73 @@ export default function MyContentPage() {
   >(null);
   const [previewDialogOpen, setPreviewDialogOpen] = useState(false);
   const [detailLesson, setDetailLesson] = useState<LessonPlan | null>(null);
+  const [detailExercise, setDetailExercise] = useState<Exercise | null>(null);
+  const [exportLoading, setExportLoading] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   // 预览内容
   const previewContent = (content: LessonPlan | Exercise) => {
     setSelectedContent(content);
     setPreviewDialogOpen(true);
+  };
+
+  // 练习题导出功能
+  const exportExercise = async (format: string, ext: string) => {
+    if (!pathInfo.id) {
+      alert("无法导出：练习题ID缺失");
+      return;
+    }
+
+    setExportLoading((prev) => ({ ...prev, [format]: true }));
+
+    try {
+      const API_BASE_URL = "http://localhost:3001";
+      const exportUrl = `${API_BASE_URL}/api/export/exercises/${pathInfo.id}`;
+
+      const response = await fetch(exportUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ format }),
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `exercise_${pathInfo.id}_${Date.now()}.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        
+        // 简单的成功提示
+        const successDiv = document.createElement("div");
+        successDiv.className = "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+        successDiv.textContent = "✅ 导出成功";
+        document.body.appendChild(successDiv);
+        setTimeout(() => {
+          document.body.removeChild(successDiv);
+        }, 3000);
+      } else {
+        throw new Error(`导出失败: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("导出失败:", error);
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+      errorDiv.textContent = `❌ 导出失败: ${error instanceof Error ? error.message : "网络错误"}`;
+      document.body.appendChild(errorDiv);
+      setTimeout(() => {
+        document.body.removeChild(errorDiv);
+      }, 3000);
+    } finally {
+      setExportLoading((prev) => ({ ...prev, [format]: false }));
+    }
   };
 
   // 加载初始数据
@@ -88,9 +165,10 @@ export default function MyContentPage() {
 
   // 获取详细教案数据
   useEffect(() => {
-    if (selectedId) {
+    if (pathInfo.type === 'lesson' && pathInfo.id) {
       setDetailLesson(null);
-      fetch(`http://localhost:3001/api/content/lesson-plans/${selectedId}`, {
+      setDetailExercise(null);
+      fetch(`http://localhost:3001/api/content/lesson-plans/${pathInfo.id}`, {
         credentials: "include",
       })
         .then((res) => (res.ok ? res.json() : Promise.reject(res)))
@@ -108,7 +186,7 @@ export default function MyContentPage() {
 
           const enrichedLesson = {
             ...finalLesson,
-            _id: finalLesson._id || selectedId,
+            _id: finalLesson._id || pathInfo.id,
             content,
             textContent: content,
             title: finalLesson.title || finalLesson.name || "",
@@ -142,8 +220,44 @@ export default function MyContentPage() {
           console.error("获取教案失败:", err);
           setDetailLesson(null);
         });
+    } else if (pathInfo.type === 'exercise' && pathInfo.id) {
+      setDetailLesson(null);
+      setDetailExercise(null);
+      fetch(`http://localhost:3001/api/content/exercises/${pathInfo.id}`, {
+        credentials: "include",
+      })
+        .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+        .then((data) => {
+          const exerciseData = data.data || data;
+          const finalExercise = exerciseData.exercise || exerciseData;
+          
+          const enrichedExercise = {
+            ...finalExercise,
+            _id: finalExercise._id || pathInfo.id,
+            title: finalExercise.title || "未知练习题",
+            subject: finalExercise.subject || "未知科目",
+            grade: finalExercise.grade || "未知年级",
+            topic: finalExercise.topic || "未知主题",
+            difficulty: finalExercise.difficulty || "中等",
+            content: finalExercise.content || finalExercise.textContent || finalExercise.body || "暂无内容",
+            createdAt: finalExercise.createdAt || new Date().toISOString(),
+            updatedAt: finalExercise.updatedAt || new Date().toISOString(),
+            stats: finalExercise.stats || {
+              viewCount: 0,
+              exportCount: 0,
+              shareCount: 0,
+              useCount: 0,
+            },
+            tags: finalExercise.tags || [],
+          };
+          setDetailExercise(enrichedExercise);
+        })
+        .catch((err) => {
+          console.error("获取练习题失败:", err);
+          setDetailExercise(null);
+        });
     }
-  }, [selectedId]);
+  }, [pathInfo]);
 
   // 处理事件的包装函数
   const handlePreview =
@@ -179,31 +293,34 @@ export default function MyContentPage() {
 
   const handleFavoriteView = (favorite: any) => (e: React.MouseEvent) => {
     e.stopPropagation();
+    
+    // 数据完整性检查
+    if (!favorite || !favorite.contentId || !favorite.contentId._id) {
+      console.error("收藏内容数据不完整:", favorite);
+      // 显示错误提示
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+      errorDiv.textContent = "❌ 内容已被删除或不存在";
+      document.body.appendChild(errorDiv);
+      setTimeout(() => {
+        if (document.body.contains(errorDiv)) {
+          document.body.removeChild(errorDiv);
+        }
+      }, 3000);
+      
+      // 重新加载收藏列表，清理无效数据
+      fetchFavorites();
+      return;
+    }
+    
     const content = favorite.contentId;
     const isLessonPlan = favorite.contentType === "lessonPlan";
 
     if (isLessonPlan) {
       router.push(`/my-content/${content._id}`);
     } else {
-      const exercisePreview: Exercise = {
-        _id: content._id,
-        title: content.title || "未知标题",
-        subject: content.subject || "未知科目",
-        grade: content.grade || "未知年级",
-        topic: content.topic || "未知主题",
-        difficulty: content.difficulty || "中等",
-        content: content.content || "",
-        createdAt: content.createdAt || new Date().toISOString(),
-        updatedAt: content.updatedAt || new Date().toISOString(),
-        stats: {
-          viewCount: 0,
-          exportCount: 0,
-          shareCount: 0,
-          useCount: 0,
-        },
-        tags: [],
-      };
-      previewContent(exercisePreview);
+      // 导航到练习题详情页面
+      router.push(`/my-content/exercise/${content._id}`);
     }
   };
 
@@ -225,7 +342,7 @@ export default function MyContentPage() {
   }
 
   // 如果有selectedId，显示详细教案
-  if (selectedId) {
+  if (pathInfo.type === 'lesson' && pathInfo.id) {
     return (
       <div className="container mx-auto px-4 py-8">
         {detailLesson ? (
@@ -233,7 +350,7 @@ export default function MyContentPage() {
             <LessonPlanGenerator
               lessonData={{
                 ...detailLesson,
-                _id: detailLesson._id || selectedId,
+                _id: detailLesson._id || pathInfo.id,
                 duration: (detailLesson as LessonPlan).duration ?? 45,
               }}
               isStreaming={false}
@@ -246,6 +363,96 @@ export default function MyContentPage() {
             >
               返回列表
             </Button>
+          </div>
+        ) : (
+          <div className="mt-8 text-center text-gray-500">加载中...</div>
+        )}
+      </div>
+    );
+  }
+
+  // 如果有练习题ID，显示练习题详情页面
+  if (pathInfo.type === 'exercise' && pathInfo.id) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        {detailExercise ? (
+          <div className="max-w-4xl mx-auto">
+            {/* 头部信息 */}
+            <div className="mb-6">
+              <div className="flex items-center gap-4 mb-4">
+                <Button
+                  variant="outline"
+                  onClick={() => router.push("/my-content")}
+                >
+                  ← 返回
+                </Button>
+                <div className="flex-1">
+                  <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    {detailExercise.title || "未知练习题"}
+                  </h1>
+                  <div className="flex items-center gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    <span>📝 {detailExercise.subject || "未知科目"}</span>
+                    <span>🎓 {detailExercise.grade || "未知年级"}</span>
+                    <span>📊 {detailExercise.difficulty || "未知难度"}</span>
+                    <span>📅 {detailExercise.createdAt ? new Date(detailExercise.createdAt).toLocaleDateString("zh-CN") : "未知时间"}</span>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => exportExercise("pdf", "pdf")}
+                    disabled={exportLoading["pdf"]}
+                    className="bg-green-600 hover:bg-green-700 text-white"
+                  >
+                    {exportLoading["pdf"] ? (
+                      <>
+                        <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                        导出中...
+                      </>
+                    ) : (
+                      "📄 PDF"
+                    )}
+                  </Button>
+                  <Button
+                    onClick={() => exportExercise("word", "docx")}
+                    disabled={exportLoading["word"]}
+                    className="bg-green-600 hover:bg-green-700 text-white"
+                  >
+                    {exportLoading["word"] ? (
+                      <>
+                        <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"></div>
+                        导出中...
+                      </>
+                    ) : (
+                      "📝 Word"
+                    )}
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* 练习题内容 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+              <div 
+                className="text-white p-6"
+                style={{
+                  background: 'linear-gradient(to right, #16a34a, #15803d)',
+                  color: '#ffffff'
+                }}
+              >
+                <h2 className="text-xl font-bold text-white">📝 练习题内容</h2>
+                <p className="text-sm mt-1 text-white opacity-90">
+                  {detailExercise.subject || "未知科目"} · {detailExercise.grade || "未知年级"} · {detailExercise.difficulty || "未知难度"}
+                </p>
+              </div>
+              <div className="p-8">
+                <div className="prose prose-lg max-w-none dark:prose-invert">
+                  <StreamingMarkdown
+                    content={detailExercise.content || "暂无内容"}
+                    isStreaming={false}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="mt-8 text-center text-gray-500">加载中...</div>
@@ -346,27 +553,82 @@ export default function MyContentPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {favorites.map((favorite) => {
-              const favoriteKey = favorite?._id || `favorite-${Math.random()}`;
-              if (!favorite || !favorite.contentId) {
-                return null;
-              }
-
-              return (
-                <FavoriteCard
-                  key={favoriteKey}
-                  favorite={favorite}
-                  onView={handleFavoriteView(favorite)}
-                  onUnfavorite={handleFavoriteUnfavorite(favorite)}
-                  unfavoriteLoading={
-                    favoriteLoading[
-                      `${favorite.contentType === "lessonPlan" ? "lessonPlan" : "exercise"}_${favorite.contentId._id}`
-                    ]
-                  }
-                />
+          <div className="space-y-8">
+            {/* 收藏的教案 */}
+            {(() => {
+              const lessonPlanFavorites = favorites.filter(
+                (favorite) => favorite && favorite.contentType === "lessonPlan" && favorite.contentId
               );
-            })}
+              return lessonPlanFavorites.length > 0 ? (
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    📚 收藏的教案 ({lessonPlanFavorites.length})
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {lessonPlanFavorites.map((favorite) => {
+                      const favoriteKey = favorite?._id || `favorite-${Math.random()}`;
+                      // 双重检查，确保数据完整性
+                      if (!favorite || !favorite.contentId || !favorite.contentId._id) {
+                        console.warn("收藏的教案数据不完整，跳过渲染:", favorite);
+                        return null;
+                      }
+
+                      return (
+                        <FavoriteCard
+                          key={favoriteKey}
+                          favorite={favorite}
+                          onView={handleFavoriteView(favorite)}
+                          onUnfavorite={handleFavoriteUnfavorite(favorite)}
+                          unfavoriteLoading={
+                            favoriteLoading[
+                              `lessonPlan_${favorite.contentId._id}`
+                            ]
+                          }
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null;
+            })()}
+
+            {/* 收藏的练习题 */}
+            {(() => {
+              const exerciseFavorites = favorites.filter(
+                (favorite) => favorite && favorite.contentType === "exercise" && favorite.contentId
+              );
+              return exerciseFavorites.length > 0 ? (
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    📝 收藏的练习题 ({exerciseFavorites.length})
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {exerciseFavorites.map((favorite) => {
+                      const favoriteKey = favorite?._id || `favorite-${Math.random()}`;
+                      // 双重检查，确保数据完整性
+                      if (!favorite || !favorite.contentId || !favorite.contentId._id) {
+                        console.warn("收藏的练习题数据不完整，跳过渲染:", favorite);
+                        return null;
+                      }
+
+                      return (
+                        <FavoriteCard
+                          key={favoriteKey}
+                          favorite={favorite}
+                          onView={handleFavoriteView(favorite)}
+                          onUnfavorite={handleFavoriteUnfavorite(favorite)}
+                          unfavoriteLoading={
+                            favoriteLoading[
+                              `exercise_${favorite.contentId._id}`
+                            ]
+                          }
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null;
+            })()}
           </div>
         )}
       </TabsContent>

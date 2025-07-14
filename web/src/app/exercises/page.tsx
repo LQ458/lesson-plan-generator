@@ -13,6 +13,45 @@ import {
   getSubjectLabel,
 } from "@/lib/settings-context";
 import { Card } from "@/components/ui/card";
+import StreamingMarkdown from "@/components/streaming-markdown";
+
+// 科目定义及其适用年级
+const subjectsByGrade = {
+  // 小学科目 - 基础学科
+  elementary: ["语文", "数学", "英语", "音乐", "美术", "体育"],
+  // 初中科目 - 包含所有学科
+  secondary: [
+    "语文",
+    "数学",
+    "英语",
+    "物理",
+    "化学",
+    "生物",
+    "历史",
+    "地理",
+    "政治",
+    "音乐",
+    "美术",
+    "体育",
+  ],
+};
+
+// 获取适用的科目列表
+const getAvailableSubjects = (grade: string) => {
+  if (grade.includes("小学")) {
+    return subjectsByGrade.elementary;
+  } else if (grade.includes("初中")) {
+    return subjectsByGrade.secondary;
+  }
+  // 默认返回所有科目
+  return subjectsByGrade.secondary;
+};
+
+// 检查科目是否适用于选定年级
+const isSubjectValidForGrade = (subject: string, grade: string) => {
+  const availableSubjects = getAvailableSubjects(grade);
+  return availableSubjects.includes(subject);
+};
 
 const subjects = [
   "语文",
@@ -70,21 +109,42 @@ export default function ExercisesPage() {
   const [savingExercise, setSavingExercise] = useState(false);
   const [exportDialogOpen, setExportDialogOpen] = useState(false);
 
+  // 获取当前可用的科目
+  const availableSubjects = getAvailableSubjects(formData.grade);
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      const newData = {
+        ...prev,
+        [name]: value,
+      };
+
+      // 如果年级改变了，检查当前科目是否还有效
+      if (name === "grade" && prev.subject) {
+        if (!isSubjectValidForGrade(prev.subject, value)) {
+          // 如果当前科目不适用于新年级，清空科目选择
+          newData.subject = "";
+        }
+      }
+
+      return newData;
+    });
   };
 
   const handleGenerate = async () => {
     if (!formData.subject || !formData.grade || !formData.topic) {
       alert("请填写必要信息：学科、年级和课题");
+      return;
+    }
+
+    // 验证科目与年级的匹配性
+    if (!isSubjectValidForGrade(formData.subject, formData.grade)) {
+      alert(`${formData.subject} 不适用于 ${formData.grade}，请重新选择科目`);
       return;
     }
 
@@ -242,14 +302,70 @@ export default function ExercisesPage() {
     if (!generatedContent) return;
 
     try {
-      // 创建一个临时的导出内容
-      const blob = new Blob([generatedContent], {
-        type: "text/plain;charset=utf-8",
-      });
+      // 先保存练习题以获取ID
+      const saveResponse = await fetch(
+        "http://localhost:3001/api/content/exercises",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            title: `${formData.subject}练习题 - ${formData.topic}`,
+            subject: formData.subject,
+            grade: formData.grade,
+            topic: formData.topic,
+            difficulty: formData.difficulty,
+            questionType: formData.questionType,
+            questionCount: parseInt(formData.count),
+            content: generatedContent,
+            requirements: formData.requirements,
+            tags: [formData.subject, formData.grade, formData.difficulty],
+          }),
+        },
+      );
+
+      if (!saveResponse.ok) {
+        throw new Error("保存练习题失败，无法导出");
+      }
+
+      const saveData = await saveResponse.json();
+      const exerciseId = saveData.data?._id || saveData.data?.id;
+
+      if (!exerciseId) {
+        throw new Error("未能获取练习题ID");
+      }
+
+      // 调用后端导出API
+      const exportResponse = await fetch(
+        `http://localhost:3001/api/export/exercises/${exerciseId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ format }),
+        },
+      );
+
+      if (!exportResponse.ok) {
+        const errorText = await exportResponse.text().catch(() => "未知错误");
+        throw new Error(`导出失败: ${exportResponse.status} ${errorText}`);
+      }
+
+      // 下载文件
+      const blob = await exportResponse.blob();
+      
+      if (blob.size === 0) {
+        throw new Error("导出文件为空");
+      }
+
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `练习题_${formData.subject}_${formData.topic}_${Date.now()}.${format === "html" ? "html" : format === "txt" ? "txt" : "md"}`;
+      a.download = `练习题_${formData.subject}_${formData.topic}_${Date.now()}.${format}`;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
@@ -270,7 +386,7 @@ export default function ExercisesPage() {
       const errorDiv = document.createElement("div");
       errorDiv.className =
         "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50";
-      errorDiv.textContent = "❌ 导出失败，请重试";
+      errorDiv.textContent = `❌ ${error instanceof Error ? error.message : "导出失败，请重试"}`;
       document.body.appendChild(errorDiv);
       setTimeout(() => {
         document.body.removeChild(errorDiv);
@@ -321,28 +437,8 @@ export default function ExercisesPage() {
             </div>
 
             <div className="space-y-6">
-              {/* Subject and Grade */}
+              {/* Grade and Subject */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    学科 <span className="text-apple-red">*</span>
-                  </label>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="input"
-                    required
-                  >
-                    <option value="">请选择学科</option>
-                    {subjects.map((subject) => (
-                      <option key={subject} value={subject}>
-                        {subject}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
                 <div>
                   <label className="block text-sm font-medium mb-2">
                     年级 <span className="text-apple-red">*</span>
@@ -361,6 +457,34 @@ export default function ExercisesPage() {
                       </option>
                     ))}
                   </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    学科 <span className="text-apple-red">*</span>
+                  </label>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="input"
+                    required
+                    disabled={!formData.grade}
+                  >
+                    <option value="">
+                      {!formData.grade ? "请先选择年级" : "请选择学科"}
+                    </option>
+                    {availableSubjects.map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
+                    ))}
+                  </select>
+                  {formData.grade && formData.grade.includes("小学") && (
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      💡 小学阶段主要开设基础学科课程
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -493,7 +617,7 @@ export default function ExercisesPage() {
                   </button>
                   <button
                     onClick={handleExportExercise}
-                    className="btn bg-blue-600 hover:bg-blue-700 text-white"
+                    className="btn bg-green-600 hover:bg-green-700 text-white"
                   >
                     📤 导出
                   </button>
@@ -502,11 +626,10 @@ export default function ExercisesPage() {
             </div>
 
             {generatedContent ? (
-              <div className="prose prose-sm max-w-none dark:prose-invert">
-                <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed">
-                  {generatedContent}
-                </pre>
-              </div>
+              <StreamingMarkdown 
+                content={generatedContent} 
+                isStreaming={isGenerating}
+              />
             ) : (
               <div className="text-center py-12 text-gray-500 dark:text-gray-400">
                 <ClockIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />
@@ -528,36 +651,28 @@ export default function ExercisesPage() {
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     选择导出格式
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => {
-                        executeExport("markdown");
+                        executeExport("pdf");
                         setExportDialogOpen(false);
                       }}
-                      className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
+                      className="p-4 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
                     >
-                      <div className="text-sm font-medium">Markdown</div>
-                      <div className="text-xs text-gray-500">.md</div>
+                      <div className="text-lg mb-1">📄</div>
+                      <div className="text-sm font-medium">PDF文档</div>
+                      <div className="text-xs text-gray-500">适合打印使用</div>
                     </button>
                     <button
                       onClick={() => {
-                        executeExport("html");
+                        executeExport("docx");
                         setExportDialogOpen(false);
                       }}
-                      className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
+                      className="p-4 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
                     >
-                      <div className="text-sm font-medium">HTML</div>
-                      <div className="text-xs text-gray-500">.html</div>
-                    </button>
-                    <button
-                      onClick={() => {
-                        executeExport("txt");
-                        setExportDialogOpen(false);
-                      }}
-                      className="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700 text-center"
-                    >
-                      <div className="text-sm font-medium">纯文本</div>
-                      <div className="text-xs text-gray-500">.txt</div>
+                      <div className="text-lg mb-1">📝</div>
+                      <div className="text-sm font-medium">Word文档</div>
+                      <div className="text-xs text-gray-500">可编辑修改</div>
                     </button>
                   </div>
                 </div>

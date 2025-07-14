@@ -1301,21 +1301,17 @@ export default function LessonPlanGenerator({
       <div className="content-display">
         {selectedFormat === "text" && (
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white p-4">
-              <h2
-                className="text-xl font-bold"
-                style={{ color: isDarkMode ? "#ffffff" : "#000000" }}
-              >
+            <div 
+              className="text-white p-4"
+              style={{
+                background: 'linear-gradient(to right, #3b82f6, #2563eb)',
+                color: '#ffffff'
+              }}
+            >
+              <h2 className="text-xl font-bold text-white">
                 📚 {enrichedLessonData.subject} 教案
               </h2>
-              <p
-                className="text-sm mt-1"
-                style={{
-                  color: isDarkMode
-                    ? "rgba(255, 255, 255, 0.8)"
-                    : "rgba(0, 0, 0, 0.7)",
-                }}
-              >
+              <p className="text-sm mt-1 text-white opacity-90">
                 {enrichedLessonData.grade} · {enrichedLessonData.title}
               </p>
             </div>

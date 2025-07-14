@@ -188,7 +188,7 @@ export default function OverviewTab({
               variant="outline"
               size="sm"
               onClick={() => onTabChange("lesson-plans")}
-              className="text-xs"
+              className="text-blue-600 hover:text-blue-800 text-sm font-medium"
             >
               管理全部
             </Button>
@@ -307,28 +307,126 @@ export default function OverviewTab({
         </Card>
 
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>最近的练习题</CardTitle>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onTabChange("exercises")}
+              className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            >
+              管理全部
+            </Button>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {exercises.slice(0, 3).map((exercise) => (
-                <div
-                  key={exercise._id}
-                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  onClick={() => onPreviewContent(exercise)}
-                >
-                  <div className="flex-1">
-                    <h4 className="font-medium text-sm">{exercise.title}</h4>
-                    <p className="text-xs text-gray-500">
-                      {exercise.subject} · {exercise.grade}
-                    </p>
+              {exercises.slice(0, 3).map((exercise) => {
+                if (!exercise._id) {
+                  console.warn("Exercise missing _id:", exercise);
+                }
+                return (
+                  <div
+                    key={exercise._id || Math.random()}
+                    className="group flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <div
+                      className="flex-1 cursor-pointer"
+                      onClick={() => router.push(`/my-content/exercise/${exercise._id}`)}
+                    >
+                      <h4 className="font-medium text-sm">{exercise.title}</h4>
+                      <p className="text-xs text-gray-500">
+                        {exercise.subject} · {exercise.grade}
+                      </p>
+                      <p className="text-xs text-gray-400 mt-1">
+                        {formatDate(exercise.createdAt)}
+                      </p>
+                    </div>
+                    <div
+                      className={`flex items-center gap-2 transition-opacity ${
+                        isFavorited("exercise", exercise._id)
+                          ? "opacity-100"
+                          : "opacity-0 group-hover:opacity-100"
+                      }`}
+                    >
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-10 w-10 p-0"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onPreviewContent(exercise);
+                        }}
+                        title="预览"
+                      >
+                        <EyeIcon />
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className={`h-10 w-10 p-0 ${
+                          isFavorited("exercise", exercise._id)
+                            ? "text-yellow-500 hover:text-yellow-600 border-yellow-300 bg-yellow-50 dark:bg-yellow-900/20"
+                            : "text-gray-400 hover:text-yellow-500"
+                        }`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onToggleFavorite(
+                            "exercise",
+                            exercise._id,
+                            isFavorited("exercise", exercise._id),
+                          );
+                        }}
+                        disabled={favoriteLoading[`exercise_${exercise._id}`]}
+                        title={
+                          isFavorited("exercise", exercise._id)
+                            ? "取消收藏"
+                            : "收藏"
+                        }
+                      >
+                        {favoriteLoading[`exercise_${exercise._id}`] ? (
+                          <div className="animate-spin w-4 h-4 border border-current border-t-transparent rounded-full"></div>
+                        ) : (
+                          <StarIcon
+                            filled={isFavorited("exercise", exercise._id)}
+                          />
+                        )}
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-10 w-10 p-0"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onExportContent(
+                            "exercises",
+                            exercise._id,
+                            "pdf",
+                            "pdf",
+                          );
+                        }}
+                        title="导出PDF"
+                      >
+                        <DownloadIcon />
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-10 w-10 p-0 text-red-500 hover:text-red-700"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onDeleteContent("exercises", exercise._id);
+                        }}
+                        title="删除"
+                      >
+                        <TrashIcon />
+                      </Button>
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-400">
-                    {formatDate(exercise.createdAt)}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
+              {exercises.length === 0 && (
+                <div className="text-center text-gray-500 py-4">暂无练习题</div>
+              )}
             </div>
           </CardContent>
         </Card>

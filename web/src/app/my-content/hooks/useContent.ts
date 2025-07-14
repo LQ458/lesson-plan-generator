@@ -204,6 +204,8 @@ export function useContent() {
             fetchExercises();
           }
           fetchStats();
+          // 重新加载收藏列表，确保删除的内容不再显示在收藏中
+          fetchFavorites();
         } else if (response.status === 401) {
           router.push("/login");
         } else {
@@ -214,7 +216,7 @@ export function useContent() {
         showNotification("删除失败", "error");
       }
     },
-    [router, fetchLessonPlans, fetchExercises, fetchStats],
+    [router, fetchLessonPlans, fetchExercises, fetchStats, fetchFavorites],
   );
 
   // 导出内容

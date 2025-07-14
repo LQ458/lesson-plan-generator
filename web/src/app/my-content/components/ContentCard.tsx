@@ -120,6 +120,8 @@ export default function ContentCard({
   const handleCardClick = () => {
     if (type === "lessonPlan") {
       router.push(`/my-content/${id}`);
+    } else if (type === "exercise") {
+      router.push(`/my-content/exercise/${id}`);
     }
   };
 
