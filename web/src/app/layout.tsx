@@ -15,7 +15,11 @@ export const metadata: Metadata = {
     "基于AI的智能教案和练习题生成工具，帮助教师快速创建高质量的教学内容",
   keywords: ["教案生成", "AI教育", "智能教学", "练习题生成", "教师工具"],
   authors: [{ name: "TeachAI Team" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

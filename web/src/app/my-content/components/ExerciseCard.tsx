@@ -11,10 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { formatDate, getDifficultyColor } from "../utils/format";
+import { Exercise } from "../hooks/useExercises";
 
 interface ExerciseCardProps {
-  exercise: any;
-  onPreview: (exercise: any) => void;
+  exercise: Exercise;
+  onPreview: (exercise: Exercise) => void;
   onExport: (id: string) => void;
   onDelete: (id: string) => void;
 }

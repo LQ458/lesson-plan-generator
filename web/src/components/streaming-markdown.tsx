@@ -68,64 +68,79 @@ export default function StreamingMarkdown({
   // 优化的markdown渲染配置
   const markdownComponents = useMemo(
     () => ({
-      h1: ({ children }: any) => (
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 pb-2 mb-4">
-          {children}
-        </h1>
+      h1: (props: React.ComponentProps<"h1">) => (
+        <h1
+          className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 pb-2 mb-4"
+          {...props}
+        />
       ),
-      h2: ({ children }: any) => (
-        <h2 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mt-8 mb-4">
-          {children}
-        </h2>
+      h2: (props: React.ComponentProps<"h2">) => (
+        <h2
+          className="text-xl font-semibold text-blue-600 dark:text-blue-400 mt-8 mb-4"
+          {...props}
+        />
       ),
-      h3: ({ children }: any) => (
-        <h3 className="text-lg font-semibold text-green-600 dark:text-green-400 mt-6 mb-3">
-          {children}
-        </h3>
+      h3: (props: React.ComponentProps<"h3">) => (
+        <h3
+          className="text-lg font-semibold text-green-600 dark:text-green-400 mt-6 mb-3"
+          {...props}
+        />
       ),
-      p: ({ children }: any) => (
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-          {children}
-        </p>
+      p: (props: React.ComponentProps<"p">) => (
+        <p
+          className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+          {...props}
+        />
       ),
-      ul: ({ children }: any) => <ul className="space-y-2 my-4">{children}</ul>,
-      li: ({ children }: any) => (
-        <li className="text-gray-700 dark:text-gray-300 flex items-start">
+      ul: (props: React.ComponentProps<"ul">) => (
+        <ul className="space-y-2 my-4" {...props} />
+      ),
+      li: (props: React.ComponentProps<"li">) => (
+        <li
+          className="text-gray-700 dark:text-gray-300 flex items-start"
+          {...props}
+        >
           <span className="text-blue-500 mr-2 mt-1">•</span>
-          <span>{children}</span>
+          <div className="flex-1">{props.children}</div>
         </li>
       ),
-      table: ({ children }: any) => (
+      table: (props: React.ComponentProps<"table">) => (
         <div className="overflow-x-auto my-6">
-          <table className="min-w-full border border-gray-200 dark:border-gray-700 rounded-lg">
-            {children}
-          </table>
+          <table
+            className="min-w-full border border-gray-200 dark:border-gray-700 rounded-lg"
+            {...props}
+          />
         </div>
       ),
-      th: ({ children }: any) => (
-        <th className="bg-gray-50 dark:bg-gray-800 p-3 text-left font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700">
-          {children}
-        </th>
+      th: (props: React.ComponentProps<"th">) => (
+        <th
+          className="bg-gray-50 dark:bg-gray-800 p-3 text-left font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700"
+          {...props}
+        />
       ),
-      td: ({ children }: any) => (
-        <td className="p-3 text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-          {children}
-        </td>
+      td: (props: React.ComponentProps<"td">) => (
+        <td
+          className="p-3 text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700"
+          {...props}
+        />
       ),
-      code: ({ children }: any) => (
-        <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono">
-          {children}
-        </code>
+      code: (props: React.ComponentProps<"code">) => (
+        <code
+          className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono"
+          {...props}
+        />
       ),
-      pre: ({ children }: any) => (
-        <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto my-4">
-          {children}
-        </pre>
+      pre: (props: React.ComponentProps<"pre">) => (
+        <pre
+          className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto my-4"
+          {...props}
+        />
       ),
-      blockquote: ({ children }: any) => (
-        <blockquote className="border-l-4 border-blue-500 pl-4 italic my-4 text-gray-600 dark:text-gray-400">
-          {children}
-        </blockquote>
+      blockquote: (props: React.ComponentProps<"blockquote">) => (
+        <blockquote
+          className="border-l-4 border-blue-500 pl-4 italic my-4 text-gray-600 dark:text-gray-400"
+          {...props}
+        />
       ),
     }),
     [],

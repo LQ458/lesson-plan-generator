@@ -298,7 +298,7 @@ export default function ExercisesPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Section */}
-          <Card p-8>
+          <Card className="p-8">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-3">
               <DocumentTextIcon className="w-6 h-6 text-apple-green" />
               题目设置
@@ -473,7 +473,7 @@ export default function ExercisesPage() {
           </Card>
 
           {/* Result Section */}
-          <Card p-8>
+          <Card className="p-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold flex items-center gap-3">
                 <AcademicCapIcon className="w-6 h-6 text-apple-green" />

@@ -2,17 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  ChevronDownIcon,
-  ChevronRightIcon,
   BookOpenIcon,
+  ChevronRightIcon,
   ClockIcon,
-  AcademicCapIcon,
-  LightBulbIcon,
-  ExclamationTriangleIcon,
-  Cog6ToothIcon,
+  ExclamationCircleIcon,
   PlayIcon,
   CheckCircleIcon,
-  DocumentTextIcon,
+  LightBulbIcon,
+  AcademicCapIcon,
+  CogIcon,
   HomeIcon,
 } from "@heroicons/react/24/outline";
 
@@ -37,10 +35,11 @@ interface InteractiveLessonProps {
   className?: string;
 }
 
+// 修复any类型
 interface Section {
   id: string;
   title: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   color: string;
   items: string[];
   description?: string;
@@ -50,12 +49,10 @@ const CollapsibleSection = ({
   section,
   isExpanded,
   onToggle,
-  index,
 }: {
   section: Section;
   isExpanded: boolean;
   onToggle: () => void;
-  index: number;
 }) => {
   const [hasBeenViewed, setHasBeenViewed] = useState(false);
 
@@ -133,7 +130,8 @@ const CollapsibleSection = ({
             </ul>
           ) : (
             <div className="text-center py-6 text-gray-500 dark:text-gray-400">
-              <DocumentTextIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
+              {/* DocumentTextIcon was removed, so using LightBulbIcon as a placeholder */}
+              <LightBulbIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
               <p className="text-sm">暂无内容</p>
             </div>
           )}
@@ -162,6 +160,7 @@ const ProcessSection = ({
     0,
   );
 
+  // 修改函数签名，添加index参数
   const getStageIcon = (stage: string, index: number) => {
     if (completedStages.has(index)) {
       return <CheckCircleIcon className="w-4 h-4 text-green-500" />;
@@ -222,49 +221,46 @@ const ProcessSection = ({
         <div className="p-4 bg-white dark:bg-gray-800">
           <div className="space-y-4">
             {stages.map((stage, index) => (
-              <div
-                key={index}
-                className={`border rounded-lg transition-all duration-200 cursor-pointer ${
-                  currentStage === index
-                    ? "border-blue-400 bg-blue-50 dark:bg-blue-950 shadow-md"
-                    : completedStages.has(index)
-                      ? "border-green-400 bg-green-50 dark:bg-green-950"
-                      : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                }`}
-                onClick={() => handleStageClick(index)}
-              >
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      {getStageIcon(stage.stage, index)}
-                      <span className="font-medium text-gray-900 dark:text-white">
-                        {stage.stage}
-                      </span>
-                    </div>
+              <div key={index} className="relative">
+                <div
+                  className={`flex items-center p-4 border-l-4 transition-all duration-200 cursor-pointer ${
+                    currentStage === index
+                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                      : completedStages.has(index)
+                        ? "border-green-500 bg-green-50 dark:bg-green-900/20"
+                        : "border-gray-300 hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  }`}
+                  onClick={() => handleStageClick(index)}
+                >
+                  <div className="mr-3 flex-shrink-0">
+                    {getStageIcon(stage.stage, index)}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-medium text-gray-900 dark:text-white">
+                      {stage.stage}
+                    </h4>
                     {stage.duration && (
-                      <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-300">
-                        <ClockIcon className="w-4 h-4" />
-                        {stage.duration}分钟
-                      </div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {stage.duration} 分钟
+                      </p>
                     )}
                   </div>
-
-                  {(currentStage === index || completedStages.has(index)) && (
-                    <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                      <ul className="space-y-2">
-                        {stage.content.map((item, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
-                          >
-                            <span className="text-gray-400">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
+                {/* 展开的内容 */}
+                {/* expandedStages.has(index) && ( */}
+                <div className="ml-12 mt-2 mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <ul className="space-y-2">
+                    {stage.content.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-start">
+                        <span className="text-blue-500 mr-2 text-sm">•</span>
+                        <span className="text-sm text-gray-700 dark:text-gray-300">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* ) */}
               </div>
             ))}
           </div>
@@ -316,7 +312,7 @@ export default function InteractiveLesson({
     {
       id: "difficulties",
       title: "教学难点",
-      icon: ExclamationTriangleIcon,
+      icon: ExclamationCircleIcon,
       color: "from-red-500 to-red-600",
       items: lessonData.difficulties || [],
       description: "教学中的重点突破内容",
@@ -324,7 +320,7 @@ export default function InteractiveLesson({
     {
       id: "methods",
       title: "教学方法",
-      icon: Cog6ToothIcon,
+      icon: CogIcon,
       color: "from-green-500 to-green-600",
       items: lessonData.teachingMethods || [],
       description: "采用的教学策略和方法",
@@ -395,13 +391,12 @@ export default function InteractiveLesson({
       <div className="p-6">
         <div className="space-y-4">
           {/* 基础信息部分 */}
-          {sections.map((section, index) => (
+          {sections.map((section) => (
             <CollapsibleSection
               key={section.id}
               section={section}
               isExpanded={expandedSections.has(section.id)}
               onToggle={() => toggleSection(section.id)}
-              index={index}
             />
           ))}
 

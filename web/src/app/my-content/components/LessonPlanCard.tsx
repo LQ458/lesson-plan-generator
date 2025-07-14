@@ -11,10 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "../utils/format";
+import { LessonPlan } from "../hooks/useLessonPlans";
 
 interface LessonPlanCardProps {
-  plan: any;
-  onPreview: (plan: any) => void;
+  plan: LessonPlan;
+  onPreview: (plan: LessonPlan) => void;
   onExport: (id: string) => void;
   onDelete: (id: string) => void;
 }

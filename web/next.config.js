@@ -12,10 +12,6 @@ const nextConfig = {
   output: "standalone",
   // 压缩配置
   compress: true,
-  // 开发模式配置
-  devIndicators: {
-    buildActivity: true,
-  },
   // 忽略构建时的ESLint错误
   eslint: {
     ignoreDuringBuilds: true,

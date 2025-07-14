@@ -31,7 +31,7 @@ const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.printf(({ timestamp, level, message, ...meta }) => {
-            return `${timestamp} ${level} 📤[EXPORT] ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ""}`;
+          return `${timestamp} ${level} 📤[EXPORT] ${message} ${Object.keys(meta).length ? JSON.stringify(meta) : ""}`;
         }),
       ),
     }),
@@ -69,7 +69,7 @@ const exportFormatters = {
   // HTML格式
   html: (content, options = {}) => {
     const { theme = "default", fontSize = 12 } = options;
-    
+
     // 简单的HTML模板
     const htmlTemplate = `
 <!DOCTYPE html>
@@ -336,24 +336,24 @@ const exportFormatters = {
           left: "15mm",
         },
       });
-      
+
       // 验证PDF格式
       const headerBytes = Array.from(pdfBuffer.slice(0, 8));
       const pdfHeader = String.fromCharCode(...headerBytes);
-      logger.info('📄 [PDF] 生成的PDF文件头:', { 
-        header: pdfHeader, 
+      logger.info("📄 [PDF] 生成的PDF文件头:", {
+        header: pdfHeader,
         headerBytes,
-        size: pdfBuffer.length 
+        size: pdfBuffer.length,
       });
-      
-      if (!pdfHeader.startsWith('%PDF-')) {
-        logger.error('❌ [PDF] 生成的PDF格式异常', { 
+
+      if (!pdfHeader.startsWith("%PDF-")) {
+        logger.error("❌ [PDF] 生成的PDF格式异常", {
           header: pdfHeader,
-          headerBytes
+          headerBytes,
         });
-        throw new Error('PDF格式生成异常');
+        throw new Error("PDF格式生成异常");
       } else {
-        logger.info('✅ [PDF] PDF格式验证通过', { header: pdfHeader });
+        logger.info("✅ [PDF] PDF格式验证通过", { header: pdfHeader });
       }
 
       logger.info("✅ [PDF] PDF生成成功", {
@@ -730,7 +730,7 @@ router.post(
   authenticate,
   asyncHandler(async (req, res) => {
     const { format = "markdown", options = {} } = req.body;
-  const lessonPlanId = req.params.id;
+    const lessonPlanId = req.params.id;
 
     logger.info("📤 [EXPORT] 收到导出请求", {
       lessonPlanId,
@@ -740,7 +740,7 @@ router.post(
       origin: req.get("Origin"),
     });
 
-  // 验证导出格式
+    // 验证导出格式
     const allowedFormats = [
       "markdown",
       "html",
@@ -751,28 +751,28 @@ router.post(
     ];
     if (!allowedFormats.includes(format)) {
       logger.warn("❌ [EXPORT] 不支持的导出格式", { format, allowedFormats });
-    throw new UserFriendlyError("不支持的导出格式", 400);
-  }
+      throw new UserFriendlyError("不支持的导出格式", 400);
+    }
 
-  // 获取教案
+    // 获取教案
     logger.info("🔍 [EXPORT] 开始查找教案", {
       lessonPlanId,
       userId: req.user._id,
     });
 
-  const lessonPlan = await LessonPlan.findOne({
-    _id: lessonPlanId,
+    const lessonPlan = await LessonPlan.findOne({
+      _id: lessonPlanId,
       createdBy: req.user._id,
-  });
+    });
 
-  if (!lessonPlan) {
+    if (!lessonPlan) {
       logger.warn("❌ [EXPORT] 教案不存在或无访问权限", {
         lessonPlanId,
         userId: req.user._id,
         requestedBy: req.user.email || req.user.username,
       });
-    throw new UserFriendlyError("教案不存在或无访问权限", 404);
-  }
+      throw new UserFriendlyError("教案不存在或无访问权限", 404);
+    }
 
     logger.info("✅ [EXPORT] 找到教案", {
       lessonPlanId,
@@ -781,41 +781,42 @@ router.post(
       hasContent: !!lessonPlan.content,
     });
 
-  try {
-    // 格式化内容
+    try {
+      // 格式化内容
       const exportResult = await exportFormatters[format](
         lessonPlan.content,
         options,
       );
-    
-    // 记录导出历史
-    const exportRecord = new ExportHistory({
-      userId: req.user._id,
+
+      // 记录导出历史
+      const exportRecord = new ExportHistory({
+        userId: req.user._id,
         contentType: "lessonPlan",
-      contentId: lessonPlanId,
-      exportFormat: format,
-      exportOptions: options,
+        contentId: lessonPlanId,
+        exportFormat: format,
+        exportOptions: options,
         fileSize: Buffer.isBuffer(exportResult.content)
           ? exportResult.content.length
           : Buffer.byteLength(exportResult.content, "utf8"),
-    });
-    await exportRecord.save();
+      });
+      await exportRecord.save();
 
-    // 更新教案的导出计数
-    await LessonPlan.updateOne(
-      { _id: lessonPlanId },
+      // 更新教案的导出计数
+      await LessonPlan.updateOne(
+        { _id: lessonPlanId },
         { $inc: { "stats.exportCount": 1 } },
-    );
+      );
 
-    logger.info("教案导出成功", {
-      lessonPlanId,
-      userId: req.user._id,
-      format,
+      logger.info("教案导出成功", {
+        lessonPlanId,
+        userId: req.user._id,
+        format,
         fileSize: exportRecord.fileSize,
-    });
+      });
 
-    // 设置响应头并发送
-      res.status(200)
+      // 设置响应头并发送
+      res
+        .status(200)
         .set({
           "Content-Type": exportResult.mimeType,
           "Content-Disposition": `attachment; filename="${encodeURIComponent(exportResult.filename)}"`,
@@ -824,16 +825,16 @@ router.post(
             : undefined,
         })
         .end(exportResult.content);
-  } catch (error) {
-    logger.error("教案导出失败", {
-      lessonPlanId,
-      userId: req.user._id,
-      format,
+    } catch (error) {
+      logger.error("教案导出失败", {
+        lessonPlanId,
+        userId: req.user._id,
+        format,
         error: error.message,
         stack: error.stack,
-    });
-    throw new UserFriendlyError("导出失败，请重试", 500);
-  }
+      });
+      throw new UserFriendlyError("导出失败，请重试", 500);
+    }
   }),
 );
 
@@ -844,9 +845,9 @@ router.post(
   authenticate,
   asyncHandler(async (req, res) => {
     const { format = "markdown", options = {} } = req.body;
-  const exerciseId = req.params.id;
+    const exerciseId = req.params.id;
 
-  // 验证导出格式
+    // 验证导出格式
     const allowedFormats = [
       "markdown",
       "html",
@@ -856,68 +857,69 @@ router.post(
       "timeline",
     ];
     if (!allowedFormats.includes(format)) {
-    throw new UserFriendlyError("不支持的导出格式", 400);
-  }
+      throw new UserFriendlyError("不支持的导出格式", 400);
+    }
 
-  // 获取练习题
-  const exercise = await Exercise.findOne({
-    _id: exerciseId,
+    // 获取练习题
+    const exercise = await Exercise.findOne({
+      _id: exerciseId,
       createdBy: req.user._id,
-  }).populate("relatedLessonPlan", "title topic");
+    }).populate("relatedLessonPlan", "title topic");
 
-  if (!exercise) {
-    throw new UserFriendlyError("练习题不存在或无访问权限", 404);
-  }
+    if (!exercise) {
+      throw new UserFriendlyError("练习题不存在或无访问权限", 404);
+    }
 
-  try {
-    let content = exercise.content;
+    try {
+      let content = exercise.content;
 
-    // 根据选项调整内容
-    if (options.includeAnswers === false) {
-      // 移除答案部分
+      // 根据选项调整内容
+      if (options.includeAnswers === false) {
+        // 移除答案部分
         content = content.replace(/## 参考答案[\s\S]*$/m, "");
         content = content.replace(
           /\*\*答案[：:]\*\*[^\n]*/g,
           "**答案:** [此处省略]",
         );
-    }
+      }
 
-    if (options.includeExplanations === false) {
-      // 移除解析部分
+      if (options.includeExplanations === false) {
+        // 移除解析部分
         content = content.replace(/\*\*解析[：:]\*\*[^\n]*/g, "");
-    }
+      }
 
-    // 格式化内容
+      // 格式化内容
       const exportResult = await exportFormatters[format](content, options);
-    
-    // 记录导出历史
-    const exportRecord = new ExportHistory({
-      userId: req.user._id,
+
+      // 记录导出历史
+      const exportRecord = new ExportHistory({
+        userId: req.user._id,
         contentType: "exercise",
-      contentId: exerciseId,
-      exportFormat: format,
-      exportOptions: options,
+        contentId: exerciseId,
+        exportFormat: format,
+        exportOptions: options,
         fileSize: Buffer.isBuffer(exportResult.content)
           ? exportResult.content.length
           : Buffer.byteLength(exportResult.content, "utf8"),
-    });
-    await exportRecord.save();
+      });
+      await exportRecord.save();
 
-    // 更新练习题的导出计数
-    await Exercise.updateOne(
-      { _id: exerciseId },
+      // 更新练习题的导出计数
+      await Exercise.updateOne(
+        { _id: exerciseId },
         { $inc: { "stats.exportCount": 1 } },
-    );
+      );
 
-    logger.info("练习题导出成功", {
-      exerciseId,
-      userId: req.user._id,
-      format,
+      logger.info("练习题导出成功", {
+        exerciseId,
+        userId: req.user._id,
+        format,
         fileSize: exportRecord.fileSize,
-    });
+      });
 
-    // 设置响应头并发送
-      res.status(200)
+      // 设置响应头并发送
+      res
+        .status(200)
         .set({
           "Content-Type": exportResult.mimeType,
           "Content-Disposition": `attachment; filename="${encodeURIComponent(exportResult.filename)}"`,
@@ -926,16 +928,16 @@ router.post(
             : undefined,
         })
         .end(exportResult.content);
-  } catch (error) {
-    logger.error("练习题导出失败", {
-      exerciseId,
-      userId: req.user._id,
-      format,
+    } catch (error) {
+      logger.error("练习题导出失败", {
+        exerciseId,
+        userId: req.user._id,
+        format,
         error: error.message,
         stack: error.stack,
-    });
-    throw new UserFriendlyError("导出失败，请重试", 500);
-  }
+      });
+      throw new UserFriendlyError("导出失败，请重试", 500);
+    }
   }),
 );
 
@@ -947,54 +949,54 @@ router.post(
   asyncHandler(async (req, res) => {
     const { items, format = "markdown", options = {} } = req.body;
 
-  if (!items || !Array.isArray(items) || items.length === 0) {
-    throw new UserFriendlyError("请选择要导出的内容", 400);
-  }
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      throw new UserFriendlyError("请选择要导出的内容", 400);
+    }
 
     const allowedFormats = ["markdown", "html", "txt", "pdf"];
     if (!allowedFormats.includes(format)) {
       throw new UserFriendlyError("批量导出不支持此格式", 400);
-  }
+    }
 
-  try {
+    try {
       let combinedContent = `# 批量导出文档\n\n导出时间: ${new Date().toLocaleString("zh-CN")}\n\n---\n\n`;
 
-    for (const item of items) {
-      const { type, id } = item;
-      let content;
+      for (const item of items) {
+        const { type, id } = item;
+        let content;
 
         if (type === "lessonPlan") {
-        const lessonPlan = await LessonPlan.findOne({
-          _id: id,
+          const lessonPlan = await LessonPlan.findOne({
+            _id: id,
             createdBy: req.user._id,
-        });
-        if (lessonPlan) {
-          content = lessonPlan;
-          combinedContent += `## 教案: ${lessonPlan.title}\n\n${lessonPlan.content}\n\n---\n\n`;
-        }
+          });
+          if (lessonPlan) {
+            content = lessonPlan;
+            combinedContent += `## 教案: ${lessonPlan.title}\n\n${lessonPlan.content}\n\n---\n\n`;
+          }
         } else if (type === "exercise") {
-        const exercise = await Exercise.findOne({
-          _id: id,
+          const exercise = await Exercise.findOne({
+            _id: id,
             createdBy: req.user._id,
-        });
-        if (exercise) {
-          content = exercise;
-          combinedContent += `## 练习题: ${exercise.title}\n\n${exercise.content}\n\n---\n\n`;
+          });
+          if (exercise) {
+            content = exercise;
+            combinedContent += `## 练习题: ${exercise.title}\n\n${exercise.content}\n\n---\n\n`;
+          }
         }
-      }
 
-      // 记录每个项目的导出
-      if (content) {
-        const exportRecord = new ExportHistory({
-          userId: req.user._id,
-          contentType: type,
-          contentId: id,
-          exportFormat: format,
+        // 记录每个项目的导出
+        if (content) {
+          const exportRecord = new ExportHistory({
+            userId: req.user._id,
+            contentType: type,
+            contentId: id,
+            exportFormat: format,
             exportOptions: { ...options, batchExport: true },
-        });
-        await exportRecord.save();
+          });
+          await exportRecord.save();
 
-        // 更新导出计数
+          // 更新导出计数
           if (type === "lessonPlan") {
             await LessonPlan.updateOne(
               { _id: id },
@@ -1005,28 +1007,29 @@ router.post(
               { _id: id },
               { $inc: { "stats.exportCount": 1 } },
             );
+          }
         }
       }
-    }
 
-    // 格式化合并后的内容
+      // 格式化合并后的内容
       const exportResult = await exportFormatters[format](
         combinedContent,
         options,
       );
       exportResult.filename = `批量导出_${Date.now()}.${format === "html" ? "html" : format === "txt" ? "txt" : format === "pdf" ? "pdf" : "md"}`;
 
-    logger.info("批量导出成功", {
-      userId: req.user._id,
-      itemCount: items.length,
-      format,
+      logger.info("批量导出成功", {
+        userId: req.user._id,
+        itemCount: items.length,
+        format,
         fileSize: Buffer.isBuffer(exportResult.content)
           ? exportResult.content.length
           : Buffer.byteLength(exportResult.content, "utf8"),
-    });
+      });
 
-    // 设置响应头并发送
-      res.status(200)
+      // 设置响应头并发送
+      res
+        .status(200)
         .set({
           "Content-Type": exportResult.mimeType,
           "Content-Disposition": `attachment; filename="${encodeURIComponent(exportResult.filename)}"`,
@@ -1035,15 +1038,15 @@ router.post(
             : undefined,
         })
         .end(exportResult.content);
-  } catch (error) {
-    logger.error("批量导出失败", {
-      userId: req.user._id,
-      itemCount: items.length,
-      format,
+    } catch (error) {
+      logger.error("批量导出失败", {
+        userId: req.user._id,
+        itemCount: items.length,
+        format,
         error: error.message,
-    });
-    throw new UserFriendlyError("批量导出失败，请重试", 500);
-  }
+      });
+      throw new UserFriendlyError("批量导出失败，请重试", 500);
+    }
   }),
 );
 
@@ -1066,14 +1069,14 @@ router.get(
       .populate("contentId", "title topic")
       .lean();
 
-  res.json({
-    success: true,
-    data: {
-      exports,
-      pagination: {
+    res.json({
+      success: true,
+      data: {
+        exports,
+        pagination: {
           current: parseInt(page),
           pageSize: parseInt(limit),
-        total,
+          total,
           pages: Math.ceil(total / limit),
         },
       },
@@ -1081,4 +1084,4 @@ router.get(
   }),
 );
 
-module.exports = router; 
+module.exports = router;

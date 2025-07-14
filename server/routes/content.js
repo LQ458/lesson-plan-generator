@@ -614,24 +614,139 @@ router.get(
     const favorites = await Favorite.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
-      .limit(parseInt(limit))
-      .populate({
-        path: "contentId",
-        select: "title topic subject grade createdAt",
+      .limit(parseInt(limit));
+
+    // 手动populate contentId，因为它可能指向不同的模型
+    const populatedFavorites = await Promise.all(
+      favorites.map(async (favorite) => {
+        let content = null;
+        try {
+          if (favorite.contentType === "lessonPlan") {
+            content = await LessonPlan.findById(favorite.contentId).select(
+              "title topic subject grade createdAt",
+            );
+          } else if (favorite.contentType === "exercise") {
+            content = await Exercise.findById(favorite.contentId).select(
+              "title topic subject grade difficulty createdAt",
+            );
+          } else if (favorite.contentType === "analysis") {
+            content = await Analysis.findById(favorite.contentId).select(
+              "analysisType result createdAt",
+            );
+          }
+        } catch (error) {
+          logger.warn("Failed to populate content for favorite", {
+            favoriteId: favorite._id,
+            contentType: favorite.contentType,
+            contentId: favorite.contentId,
+            error: error.message,
+          });
+        }
+
+        return {
+          _id: favorite._id,
+          userId: favorite.userId,
+          contentType: favorite.contentType,
+          contentId: content, // 这里直接赋值为完整的content对象
+          notes: favorite.notes,
+          createdAt: favorite.createdAt,
+          updatedAt: favorite.updatedAt,
+        };
+      }),
+    );
+
+    // 过滤掉内容已被删除的收藏记录
+    const validFavorites = populatedFavorites.filter(
+      (fav) => fav.contentId !== null,
+    );
+
+    // 如果有无效的收藏记录，记录日志
+    const invalidCount = populatedFavorites.length - validFavorites.length;
+    if (invalidCount > 0) {
+      logger.info(`Found ${invalidCount} orphaned favorite records`, {
+        userId: req.user._id,
+        totalFavorites: populatedFavorites.length,
+        validFavorites: validFavorites.length,
       });
+    }
 
     const total = await Favorite.countDocuments(query);
 
     res.json({
       success: true,
       data: {
-        favorites,
+        favorites: validFavorites,
         pagination: {
           page: parseInt(page),
           limit: parseInt(limit),
-          total,
-          pages: Math.ceil(total / parseInt(limit)),
+          total: validFavorites.length, // 使用有效记录的数量
+          pages: Math.ceil(validFavorites.length / parseInt(limit)),
         },
+      },
+    });
+  }),
+);
+
+// 清理孤立的收藏记录
+router.delete(
+  "/favorites/cleanup",
+  authenticate,
+  asyncHandler(async (req, res) => {
+    const userId = req.user._id;
+
+    // 获取用户的所有收藏记录
+    const favorites = await Favorite.find({ userId });
+
+    let cleanedCount = 0;
+    const orphanedIds = [];
+
+    for (const favorite of favorites) {
+      let contentExists = false;
+
+      try {
+        if (favorite.contentType === "lessonPlan") {
+          const content = await LessonPlan.findById(favorite.contentId);
+          contentExists = !!content;
+        } else if (favorite.contentType === "exercise") {
+          const content = await Exercise.findById(favorite.contentId);
+          contentExists = !!content;
+        } else if (favorite.contentType === "analysis") {
+          const content = await Analysis.findById(favorite.contentId);
+          contentExists = !!content;
+        }
+      } catch (error) {
+        logger.warn("Error checking content existence", {
+          favoriteId: favorite._id,
+          contentType: favorite.contentType,
+          contentId: favorite.contentId,
+          error: error.message,
+        });
+      }
+
+      if (!contentExists) {
+        orphanedIds.push(favorite._id);
+      }
+    }
+
+    // 删除孤立的收藏记录
+    if (orphanedIds.length > 0) {
+      await Favorite.deleteMany({ _id: { $in: orphanedIds } });
+      cleanedCount = orphanedIds.length;
+
+      logger.info("Cleaned up orphaned favorite records", {
+        userId,
+        cleanedCount,
+        orphanedIds,
+      });
+    }
+
+    res.json({
+      success: true,
+      message: `清理完成，删除了 ${cleanedCount} 条孤立的收藏记录`,
+      data: {
+        cleanedCount,
+        totalFavorites: favorites.length,
+        remainingFavorites: favorites.length - cleanedCount,
       },
     });
   }),

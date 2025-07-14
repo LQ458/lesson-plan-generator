@@ -55,5 +55,8 @@
   "workspaces": [
     "web",
     "server"
-  ]
+  ],
+  "dependencies": {
+    "next": "^15.3.5"
+  }
 }

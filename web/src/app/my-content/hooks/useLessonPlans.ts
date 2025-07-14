@@ -84,8 +84,8 @@ export function useLessonPlans(options: UseLessonPlansOptions) {
         }
       }
       setLessonPlans(uniqueLessonPlans);
-    } catch (e: any) {
-      setError(e.message || "未知错误");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "未知错误");
     } finally {
       setLoading(false);
     }

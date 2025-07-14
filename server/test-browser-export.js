@@ -1,21 +1,21 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const { LessonPlan } = require('./models/content-model');
-const exportFormatters = require('./routes/export').exportFormatters || {};
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const { LessonPlan } = require("./models/content-model");
+const exportFormatters = require("./routes/export").exportFormatters || {};
 
 // 如果导出格式器不可用，直接导入必要的模块
-const MarkdownIt = require('markdown-it');
-const puppeteer = require('puppeteer');
-const fs = require('fs').promises;
-const path = require('path');
+const MarkdownIt = require("markdown-it");
+const puppeteer = require("puppeteer");
+const fs = require("fs").promises;
+const path = require("path");
 
 // 简化的PDF导出函数
 async function generatePDF(content) {
   const md = new MarkdownIt({
     html: true,
     linkify: true,
-    typographer: true
+    typographer: true,
   });
 
   const htmlTemplate = `<!DOCTYPE html>
@@ -42,50 +42,50 @@ async function generatePDF(content) {
   </style>
 </head>
 <body>
-  <div class="print-date">导出时间: ${new Date().toLocaleString('zh-CN')}</div>
+  <div class="print-date">导出时间: ${new Date().toLocaleString("zh-CN")}</div>
   ${md.render(content)}
 </body>
 </html>`;
 
-  const os = require('os');
-  const puppeteerArgs = ['--no-sandbox', '--disable-setuid-sandbox'];
+  const os = require("os");
+  const puppeteerArgs = ["--no-sandbox", "--disable-setuid-sandbox"];
 
-  if (os.platform() === 'darwin') {
+  if (os.platform() === "darwin") {
     puppeteerArgs.push(
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-      '--no-first-run',
-      '--disable-extensions'
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--no-first-run",
+      "--disable-extensions",
     );
-    
-    if (process.arch === 'arm64') {
+
+    if (process.arch === "arm64") {
       puppeteerArgs.push(
-        '--disable-features=VizDisplayCompositor',
-        '--disable-backgrounding-occluded-windows',
-        '--disable-renderer-backgrounding'
+        "--disable-features=VizDisplayCompositor",
+        "--disable-backgrounding-occluded-windows",
+        "--disable-renderer-backgrounding",
       );
     }
   }
 
   const browser = await puppeteer.launch({
-    headless: 'new',
-    args: puppeteerArgs
+    headless: "new",
+    args: puppeteerArgs,
   });
 
   const page = await browser.newPage();
-  await page.setContent(htmlTemplate, { waitUntil: 'networkidle0' });
-  await page.evaluateHandle('document.fonts.ready');
+  await page.setContent(htmlTemplate, { waitUntil: "networkidle0" });
+  await page.evaluateHandle("document.fonts.ready");
 
   const pdfBuffer = await page.pdf({
-    format: 'A4',
+    format: "A4",
     printBackground: true,
     preferCSSPageSize: false,
     margin: {
-      top: '20mm',
-      right: '15mm',
-      bottom: '20mm',
-      left: '15mm'
-    }
+      top: "20mm",
+      right: "15mm",
+      bottom: "20mm",
+      left: "15mm",
+    },
   });
 
   await browser.close();
@@ -98,10 +98,12 @@ app.use(cors());
 app.use(express.json());
 
 // 连接数据库
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/teachai');
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost:27017/teachai",
+);
 
 // 测试页面
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.send(`
     <!DOCTYPE html>
     <html>
@@ -177,53 +179,55 @@ app.get('/', (req, res) => {
 });
 
 // 测试导出接口
-app.post('/test-export', async (req, res) => {
+app.post("/test-export", async (req, res) => {
   try {
-    console.log('🚀 收到PDF导出测试请求');
-    
+    console.log("🚀 收到PDF导出测试请求");
+
     // 获取最新的教案
     const lessonPlan = await LessonPlan.findOne().sort({ createdAt: -1 });
-    
+
     if (!lessonPlan) {
-      console.log('❌ 未找到教案');
-      return res.status(404).send('未找到教案');
+      console.log("❌ 未找到教案");
+      return res.status(404).send("未找到教案");
     }
-    
-    console.log('📝 找到教案:', {
+
+    console.log("📝 找到教案:", {
       title: lessonPlan.title,
-      contentLength: lessonPlan.content?.length || 0
+      contentLength: lessonPlan.content?.length || 0,
     });
-    
+
     if (!lessonPlan.content) {
-      console.log('❌ 教案内容为空');
-      return res.status(400).send('教案内容为空');
+      console.log("❌ 教案内容为空");
+      return res.status(400).send("教案内容为空");
     }
-    
+
     // 生成PDF
     const pdfBuffer = await generatePDF(lessonPlan.content);
-    
-    console.log('✅ PDF生成成功:', {
+
+    console.log("✅ PDF生成成功:", {
       size: pdfBuffer.length,
-      sizeKB: (pdfBuffer.length / 1024).toFixed(2) + 'KB'
+      sizeKB: (pdfBuffer.length / 1024).toFixed(2) + "KB",
     });
-    
+
     // 设置响应头
-    res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'attachment; filename="test-export.pdf"');
-    
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="test-export.pdf"',
+    );
+
     // 发送PDF
     res.send(pdfBuffer);
-    
   } catch (error) {
-    console.error('❌ PDF导出测试失败:', error);
-    res.status(500).send('PDF导出失败: ' + error.message);
+    console.error("❌ PDF导出测试失败:", error);
+    res.status(500).send("PDF导出失败: " + error.message);
   }
 });
 
 const PORT = 3002;
 app.listen(PORT, () => {
-  console.log('🌐 PDF导出测试服务器启动成功!');
-  console.log('📍 请访问: http://localhost:3002');
+  console.log("🌐 PDF导出测试服务器启动成功!");
+  console.log("📍 请访问: http://localhost:3002");
   console.log('🔧 在浏览器中点击"测试PDF导出"按钮进行测试');
-  console.log('📊 检查下载的PDF文件是否有内容');
-}); 
+  console.log("📊 检查下载的PDF文件是否有内容");
+});

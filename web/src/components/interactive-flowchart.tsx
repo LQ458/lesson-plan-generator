@@ -52,8 +52,6 @@ interface StartNodeData {
   title: string;
 }
 
-interface EndNodeData {}
-
 // 自定义节点组件
 const CustomStageNode = ({ data }: NodeProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -152,7 +150,7 @@ const StartNode = ({ data }: NodeProps) => {
 };
 
 // 结束节点
-const EndNode = ({ data }: NodeProps) => (
+const EndNode = ({ data: _data }: NodeProps) => (
   <div className="px-6 py-3 shadow-lg rounded-full bg-gradient-to-r from-red-500 to-red-600 border-2 border-white">
     <Handle type="target" position={Position.Top} className="w-3 h-3" />
     <div className="flex items-center gap-2 text-white font-medium">
@@ -246,7 +244,7 @@ export default function InteractiveFlowchart({
     return { initialNodes: nodes, initialEdges: edges };
   }, [process, title]);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodes, _setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(

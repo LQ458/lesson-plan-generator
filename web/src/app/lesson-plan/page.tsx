@@ -226,19 +226,18 @@ export default function LessonPlanPage() {
     });
   };
 
-  // 解析生成的教案中的引用来源
-  const extractReferenceSources = (content: string) => {
-    try {
-      const { metadata } = parseFrontmatter(content);
-      if (metadata && metadata.referenceSources) {
-        setReferenceSources(metadata.referenceSources as string[]);
-      } else {
-        setReferenceSources([]);
-      }
-    } catch (error) {
-      setReferenceSources([]);
-    }
-  };
+  // 移除未使用的变量
+  // 修复 230:9 和 238:14 的错误
+  // const extractReferenceSources = (content: string) => {
+  //   // 暂时保留此函数，可能在其他地方使用
+  //   return [];
+  // };
+
+  // 修复错误处理
+  // const handleError = (error: unknown) => {
+  //   console.error("Error:", error);
+  //   // 处理错误逻辑
+  // };
 
   const handleGenerate = async () => {
     if (!formData.subject || !formData.grade || !formData.topic) {

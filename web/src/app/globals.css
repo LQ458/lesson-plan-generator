@@ -528,3 +528,144 @@ p {
   fill: #dbeafe !important;
   stroke: #3b82f6 !important;
 }
+
+/* Lesson Plan Content Styles */
+.lesson-plan-content {
+  /* Headings */
+  --tw-prose-headings: rgb(17 24 39);
+  --tw-prose-h1: rgb(17 24 39);
+  --tw-prose-h2: rgb(37 99 235);
+  --tw-prose-h3: rgb(22 163 74);
+
+  /* Text */
+  --tw-prose-body: rgb(55 65 81);
+  --tw-prose-p: rgb(55 65 81);
+  --tw-prose-li: rgb(55 65 81);
+
+  /* Borders and backgrounds */
+  --tw-prose-borders: rgb(229 231 235);
+  --tw-prose-th-borders: rgb(229 231 235);
+  --tw-prose-td-borders: rgb(229 231 235);
+  --tw-prose-th-bg: rgb(249 250 251);
+  --tw-prose-code-bg: rgb(243 244 246);
+  --tw-prose-blockquote-border: rgb(37 99 235);
+  --tw-prose-hr: rgb(209 213 219);
+}
+
+.dark .lesson-plan-content {
+  /* Dark mode headings */
+  --tw-prose-headings: rgb(255 255 255);
+  --tw-prose-h1: rgb(255 255 255);
+  --tw-prose-h2: rgb(96 165 250);
+  --tw-prose-h3: rgb(74 222 128);
+
+  /* Dark mode text */
+  --tw-prose-body: rgb(209 213 219);
+  --tw-prose-p: rgb(209 213 219);
+  --tw-prose-li: rgb(209 213 219);
+
+  /* Dark mode borders and backgrounds */
+  --tw-prose-borders: rgb(75 85 99);
+  --tw-prose-th-borders: rgb(75 85 99);
+  --tw-prose-td-borders: rgb(75 85 99);
+  --tw-prose-th-bg: rgb(31 41 55);
+  --tw-prose-code-bg: rgb(31 41 55);
+  --tw-prose-blockquote-border: rgb(37 99 235);
+  --tw-prose-hr: rgb(75 85 99);
+}
+
+.lesson-plan-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--tw-prose-h1);
+  border-bottom: 1px solid var(--tw-prose-borders);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-plan-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tw-prose-h2);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-plan-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--tw-prose-h3);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-plan-content p {
+  color: var(--tw-prose-p);
+  line-height: 1.625;
+  margin-bottom: 1rem;
+}
+
+.lesson-plan-content ul {
+  margin: 1rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.lesson-plan-content ul > li {
+  color: var(--tw-prose-li);
+  position: relative;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.lesson-plan-content ul > li::before {
+  content: "•";
+  color: rgb(37 99 235);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.lesson-plan-content table {
+  width: 100%;
+  border: 1px solid var(--tw-prose-borders);
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.lesson-plan-content th {
+  background-color: var(--tw-prose-th-bg);
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--tw-prose-th-borders);
+}
+
+.lesson-plan-content td {
+  padding: 0.75rem;
+  border-top: 1px solid var(--tw-prose-td-borders);
+}
+
+.lesson-plan-content code {
+  background-color: var(--tw-prose-code-bg);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo,
+    monospace;
+}
+
+.lesson-plan-content blockquote {
+  border-left: 4px solid var(--tw-prose-blockquote-border);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+  color: var(--tw-prose-body);
+}
+
+.lesson-plan-content hr {
+  border: none;
+  border-top: 1px solid var(--tw-prose-hr);
+  margin: 2rem 0;
+}

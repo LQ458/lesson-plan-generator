@@ -41,8 +41,8 @@ export function useContentStats() {
       if (!response.ok) throw new Error("获取统计数据失败");
       const data = await response.json();
       setStats(data.data);
-    } catch (e: any) {
-      setError(e.message || "未知错误");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "未知错误");
     } finally {
       setLoading(false);
     }

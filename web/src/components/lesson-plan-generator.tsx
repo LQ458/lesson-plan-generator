@@ -3,7 +3,6 @@
 import { useState, useMemo, useEffect } from "react";
 import DiagramRenderer from "./diagram-renderer";
 import StreamingMarkdown from "./streaming-markdown";
-import InteractiveFlowchart from "./interactive-flowchart";
 import InteractiveLesson from "./interactive-lesson";
 import {
   useSettings,
@@ -17,8 +16,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Card, CardContent } from "@/components/ui/card";
-import { showNotification } from "@/app/my-content/utils/notification";
 
 interface LessonPlanFormat {
   id: string;
@@ -117,7 +114,7 @@ export default function LessonPlanGenerator({
     [key: string]: boolean;
   }>({});
   // 默认使用标准复杂度和AI优化，不再提供用户选择
-  const diagramComplexity: "simple" | "standard" | "detailed" = "standard";
+  // const diagramComplexity: "simple" | "standard" | "detailed" = "standard";
   const useAITextProcessing = true;
 
   // 获取lessonData中的_id字段，如果没有则从URL中获取
@@ -197,7 +194,6 @@ export default function LessonPlanGenerator({
       );
 
       if (response.ok) {
-        const result = await response.json();
         // 简单的成功提示
         const successDiv = document.createElement("div");
         successDiv.className =
@@ -318,7 +314,7 @@ export default function LessonPlanGenerator({
         console.log("📄 [Export] 文件信息:", {
           size: `${(blob.size / 1024).toFixed(2)}KB`,
           type: blob.type,
-          format
+          format,
         });
 
         const url = window.URL.createObjectURL(blob);
@@ -362,9 +358,6 @@ export default function LessonPlanGenerator({
       setExportLoading((prev) => ({ ...prev, [format]: false }));
     }
   };
-
-  // 临时保存的教案ID (实际应用中应该从保存接口返回)
-  const savedLessonPlanId = null;
 
   useEffect(() => {
     // 检测当前主题模式
@@ -640,7 +633,7 @@ export default function LessonPlanGenerator({
         if (concept.length > effectiveMaxLength) {
           if (isMathContent) {
             // 数学内容：在数学符号处截断
-            let truncated = concept.substring(0, effectiveMaxLength);
+            const truncated = concept.substring(0, effectiveMaxLength);
             const mathBreakPoints = ["=", "+", "-", "×", "÷", "，", "、", " "];
             let bestBreakPoint = -1;
 
@@ -677,7 +670,7 @@ export default function LessonPlanGenerator({
                 concept = shortestMeaningful.trim();
               } else {
                 // 智能截断
-                let truncated = concept.substring(0, effectiveMaxLength);
+                const truncated = concept.substring(0, effectiveMaxLength);
                 const lastSpaceIndex = Math.max(
                   truncated.lastIndexOf(" "),
                   truncated.lastIndexOf("，"),
@@ -686,10 +679,10 @@ export default function LessonPlanGenerator({
                 );
 
                 if (lastSpaceIndex > effectiveMaxLength * 0.7) {
-                  truncated = truncated.substring(0, lastSpaceIndex);
+                  concept = truncated.substring(0, lastSpaceIndex);
+                } else {
+                  concept = truncated;
                 }
-
-                concept = truncated.trim();
               }
             }
           }
@@ -947,51 +940,6 @@ export default function LessonPlanGenerator({
       });
     };
 
-    // 简洁思维导图：2-3个主分支，每个分支2-3个子节点
-    const generateSimpleMindMap = (title: string, content: DiagramContent) => {
-      let mindmapContent = `mindmap
-  root((${title}))`;
-
-      // 优先显示核心内容
-      if (content.keyPoints.length > 0) {
-        mindmapContent += `
-    核心内容`;
-        content.keyPoints.slice(0, 3).forEach((point: string) => {
-          const concept = diagramUtils.smartAnalyzeContent(point, 22);
-          if (concept) {
-            mindmapContent += `
-      ${concept}`;
-          }
-        });
-      }
-
-      if (content.objectives.length > 0) {
-        mindmapContent += `
-    学习目标`;
-        content.objectives.slice(0, 3).forEach((obj: string) => {
-          const concept = diagramUtils.smartAnalyzeContent(obj, 22);
-          if (concept) {
-            mindmapContent += `
-      ${concept}`;
-          }
-        });
-      }
-
-      if (content.process.length > 0) {
-        mindmapContent += `
-    教学流程`;
-        content.process.slice(0, 3).forEach((stage: TeachingStage) => {
-          const concept = diagramUtils.extractConcept(stage.stage, 15);
-          if (concept) {
-            mindmapContent += `
-      ${concept}`;
-          }
-        });
-      }
-
-      return mindmapContent;
-    };
-
     // 核心思维导图：3-4个主分支，适度的子节点
     const generateCoreMindMap = (title: string, content: DiagramContent) => {
       let mindmapContent = `mindmap
@@ -1055,59 +1003,6 @@ export default function LessonPlanGenerator({
       return mindmapContent;
     };
 
-    // 层次思维导图：完整结构但简化展示
-    const generateLayeredMindMap = (title: string, content: DiagramContent) => {
-      let mindmapContent = `mindmap
-  root((${title}))`;
-
-      // 教学设计
-      mindmapContent += `
-    教学设计`;
-
-      if (content.objectives.length > 0) {
-        const topObjective = diagramUtils.smartAnalyzeContent(
-          content.objectives[0],
-          18,
-        );
-        if (topObjective) {
-          mindmapContent += `
-      ${topObjective}`;
-        }
-      }
-
-      if (content.methods.length > 0) {
-        const topMethod = diagramUtils.extractConcept(content.methods[0], 15);
-        if (topMethod) {
-          mindmapContent += `
-      ${topMethod}`;
-        }
-      }
-
-      // 核心内容
-      mindmapContent += `
-    核心内容`;
-      content.keyPoints.slice(0, 2).forEach((point: string) => {
-        const concept = diagramUtils.smartAnalyzeContent(point, 18);
-        if (concept) {
-          mindmapContent += `
-      ${concept}`;
-        }
-      });
-
-      // 教学过程
-      mindmapContent += `
-    教学过程`;
-      content.process.slice(0, 4).forEach((stage: TeachingStage) => {
-        const concept = diagramUtils.extractConcept(stage.stage, 12);
-        if (concept) {
-          mindmapContent += `
-      ${concept}`;
-        }
-      });
-
-      return mindmapContent;
-    };
-
     // 智能流程图生成器 - 基于AI生成的教学流程
     const generateFlowchart = () => {
       const aiParsed = parseAIContent;
@@ -1127,30 +1022,6 @@ export default function LessonPlanGenerator({
 
       // 使用标准复杂度生成流程图
       return generateStandardFlowchart(process);
-    };
-
-    // 简单流程图：3个或更少的步骤
-    const generateSimpleFlowchart = (process: TeachingStage[]) => {
-      const steps = [
-        "开始",
-        ...process.map((p) => diagramUtils.extractConcept(p.stage, 12)),
-        "结束",
-      ];
-      const nodeIds = steps.map((_, i) => String.fromCharCode(65 + i));
-
-      const flowchart = `graph LR
-${nodeIds
-  .slice(0, -1)
-  .map(
-    (nodeId, i) =>
-      `    ${nodeId}[${steps[i]}] --> ${nodeIds[i + 1]}[${steps[i + 1]}]`,
-  )
-  .join("")}
-    
-    style A fill:#e1f5fe
-    style ${nodeIds[nodeIds.length - 1]} fill:#e8f5e8`;
-
-      return flowchart;
     };
 
     // 标准流程图：清晰的线性教学流程
@@ -1173,7 +1044,6 @@ ${nodeIds
       }
 
       // 基于AI解析的教学过程生成流程图
-      let flowchart = `graph TD`;
       const maxSteps = Math.min(process.length, 8); // 限制最多8个步骤
       const steps = process.slice(0, maxSteps);
 
@@ -1185,7 +1055,7 @@ ${nodeIds
         steps[0]?.stage || "课程导入",
         12,
       );
-      flowchart += `
+      let flowchartContent = `graph TD
     A[🔔 开始上课] --> B[${firstStage}]`;
 
       // 添加中间教学环节
@@ -1211,18 +1081,18 @@ ${nodeIds
           icon = "📋";
         else icon = "🎯";
 
-        flowchart += `
+        flowchartContent += `
     ${prevNode} --> ${currentNode}[${icon} ${stageName}]`;
       }
 
       // 添加结束节点
       const lastNode = nodeIds[steps.length + 1];
       const prevLastNode = nodeIds[steps.length];
-      flowchart += `
+      flowchartContent += `
     ${prevLastNode} --> ${lastNode}[👋 课程结束]`;
 
       // 添加样式
-      flowchart += `
+      flowchartContent += `
     
     style A fill:#e3f2fd
     style ${lastNode} fill:#e8f5e8`;
@@ -1230,34 +1100,11 @@ ${nodeIds
       // 为主要教学环节添加强调色
       if (steps.length >= 3) {
         const midNode = nodeIds[Math.floor(steps.length / 2) + 1];
-        flowchart += `
+        flowchartContent += `
     style ${midNode} fill:#fff3e0`;
       }
 
-      return flowchart;
-    };
-
-    // 紧凑流程图：多个步骤的简化展示
-    const generateCompactFlowchart = (process: TeachingStage[]) => {
-      const coreSteps = [
-        process[0], // 开始
-        process[Math.floor(process.length * 0.3)], // 前期
-        process[Math.floor(process.length * 0.6)], // 中期
-        process[process.length - 1], // 结束
-      ].filter(Boolean);
-
-      let flowchart = `graph TD
-    A[开始] --> B[${diagramUtils.extractConcept(coreSteps[0]?.stage || "导入", 10)}]
-    B --> C[${diagramUtils.extractConcept(coreSteps[1]?.stage || "学习", 10)}]
-    C --> D[${diagramUtils.extractConcept(coreSteps[2]?.stage || "练习", 10)}]
-    D --> E[${diagramUtils.extractConcept(coreSteps[3]?.stage || "总结", 10)}]
-    E --> F[结束]
-    
-    style A fill:#e1f5fe
-    style F fill:#e8f5e8
-    style C fill:#f3e5f5`;
-
-      return flowchart;
+      return flowchartContent;
     };
 
     // 智能时间线生成器 - 基于AI生成的时间安排
@@ -1289,47 +1136,6 @@ ${nodeIds
 
       // 使用标准复杂度生成时间线
       return generateStandardTimeline(cleanTitle, totalMinutes, process);
-    };
-
-    // 简单时间线：3个或更少的环节
-    const generateSimpleTimeline = (
-      title: string,
-      totalMinutes: number,
-      process: TeachingStage[],
-    ) => {
-      const timePerSection = Math.floor(
-        totalMinutes / Math.max(process.length, 3),
-      );
-
-      let timeline = `timeline
-    title ${title} (${totalMinutes}分钟)`;
-
-      let currentTime = 0;
-      process.forEach((stage) => {
-        const startTime = currentTime;
-        const endTime = Math.min(currentTime + timePerSection, totalMinutes);
-        const stageName = diagramUtils.extractConcept(stage.stage, 15);
-
-        timeline += `
-    
-    section ${stageName}
-        ${startTime}-${endTime}分钟 : ${stageName}核心内容`;
-
-        if (stage.content && stage.content.length > 0) {
-          const mainContent = diagramUtils.analyzeAIContent(
-            stage.content[0],
-            25,
-          );
-          if (mainContent) {
-            timeline += `
-                    : ${mainContent}`;
-          }
-        }
-
-        currentTime = endTime;
-      });
-
-      return timeline;
     };
 
     // 标准时间线：4-5个环节的详细安排
@@ -1385,47 +1191,6 @@ ${nodeIds
       return timeline;
     };
 
-    // 紧凑时间线：多环节的精简展示
-    const generateCompactTimeline = (
-      title: string,
-      totalMinutes: number,
-      process: TeachingStage[],
-    ) => {
-      // 选择关键环节
-      const keyStages = [
-        process[0], // 开始
-        process[Math.floor(process.length * 0.4)], // 前期
-        process[Math.floor(process.length * 0.7)], // 中期
-        process[process.length - 1], // 结束
-      ].filter(Boolean);
-
-      let timeline = `timeline
-    title ${title} 核心环节 (${totalMinutes}分钟)`;
-
-      const sectionTime = Math.floor(totalMinutes / keyStages.length);
-
-      keyStages.forEach((stage, index) => {
-        const startTime = index * sectionTime;
-        const endTime = (index + 1) * sectionTime;
-        const stageName = diagramUtils.extractConcept(stage.stage, 12);
-
-        timeline += `
-    
-    section ${stageName}
-        ${startTime}-${endTime}分钟 : ${stageName}重点内容`;
-
-        if (stage.content && stage.content.length > 0) {
-          const concept = diagramUtils.analyzeAIContent(stage.content[0], 20);
-          if (concept) {
-            timeline += `
-                            : ${concept}`;
-          }
-        }
-      });
-
-      return timeline;
-    };
-
     switch (selectedFormat) {
       case "mindmap":
         return generateMindMap();
@@ -1436,13 +1201,7 @@ ${nodeIds
       default:
         return "";
     }
-  }, [
-    selectedFormat,
-    enrichedLessonData,
-    parseAIContent,
-    diagramComplexity,
-    useAITextProcessing,
-  ]);
+  }, [selectedFormat, enrichedLessonData, parseAIContent, useAITextProcessing]);
 
   const handleFormatChange = (formatId: string) => {
     setSelectedFormat(formatId);
@@ -1561,21 +1320,7 @@ ${nodeIds
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div
-                className="prose prose-lg max-w-none dark:prose-invert 
-                           prose-headings:text-gray-900 dark:prose-headings:text-white
-                           prose-h1:text-2xl prose-h1:font-bold prose-h1:border-b prose-h1:border-gray-200 prose-h1:pb-2 prose-h1:mb-4
-                           prose-h2:text-xl prose-h2:font-semibold prose-h2:text-blue-600 dark:prose-h2:text-blue-400 prose-h2:mt-8 prose-h2:mb-4
-                           prose-h3:text-lg prose-h3:font-semibold prose-h3:text-green-600 dark:prose-h3:text-green-400 prose-h3:mt-6 prose-h3:mb-3
-                           prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-4
-                           prose-ul:space-y-2 prose-li:text-gray-700 dark:prose-li:text-gray-300
-                           prose-table:border prose-table:border-gray-200 dark:prose-table:border-gray-700
-                           prose-th:bg-gray-50 dark:prose-th:bg-gray-800 prose-th:p-3 prose-th:font-semibold
-                           prose-td:p-3 prose-td:border-t prose-td:border-gray-200 dark:prose-td:border-gray-700
-                           prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-2 prose-code:py-1 prose-code:rounded
-                           prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic
-                           prose-hr:border-gray-300 dark:prose-hr:border-gray-600 prose-hr:my-8"
-              >
+              <div className="prose prose-lg max-w-none dark:prose-invert lesson-plan-content">
                 <StreamingMarkdown
                   content={
                     enrichedLessonData.textContent || "教案内容加载中..."

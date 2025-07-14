@@ -1,25 +1,6 @@
 import * as React from "react";
 
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  children: React.ReactNode;
-}
-
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({ className, children, ...props }, ref) => {
-    return (
-      <select
-        className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className || ""}`}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </select>
-    );
-  },
-);
-Select.displayName = "Select";
-
-interface SelectTriggerProps {
+interface SelectProps {
   children: React.ReactNode;
   value?: string;
   onValueChange?: (value: string) => void;
@@ -29,9 +10,9 @@ interface SelectTriggerProps {
   name?: string;
 }
 
-const SelectTrigger = React.forwardRef<HTMLSelectElement, SelectTriggerProps>(
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   (
-    { children, value, onValueChange, className, disabled, required, name },
+    { className, children, value, onValueChange, disabled, required, name },
     ref,
   ) => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -41,24 +22,41 @@ const SelectTrigger = React.forwardRef<HTMLSelectElement, SelectTriggerProps>(
     };
 
     return (
-      <Select
+      <select
+        className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className || ""}`}
+        ref={ref}
         value={value}
         onChange={handleChange}
-        className={className}
         disabled={disabled}
         required={required}
         name={name}
-        ref={ref}
       >
         {children}
-      </Select>
+      </select>
+    );
+  },
+);
+Select.displayName = "Select";
+
+// SelectTrigger 现在只是一个容器，不渲染select元素
+interface SelectTriggerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const SelectTrigger = React.forwardRef<HTMLDivElement, SelectTriggerProps>(
+  ({ children, className }, ref) => {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
     );
   },
 );
 SelectTrigger.displayName = "SelectTrigger";
 
 const SelectValue = ({ placeholder }: { placeholder?: string }) => (
-  <option value="" disabled>
+  <option value="" disabled hidden>
     {placeholder}
   </option>
 );

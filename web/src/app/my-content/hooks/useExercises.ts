@@ -80,8 +80,8 @@ export function useExercises(options: UseExercisesOptions) {
       if (!response.ok) throw new Error("获取练习题失败");
       const data = await response.json();
       setExercises(data.data.exercises);
-    } catch (e: any) {
-      setError(e.message || "未知错误");
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : "未知错误");
     } finally {
       setLoading(false);
     }
