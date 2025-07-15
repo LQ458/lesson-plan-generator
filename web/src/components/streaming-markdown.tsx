@@ -27,6 +27,27 @@ function useDebounce<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
+// 内容预处理函数 - 修复markdown渲染问题
+const preprocessContent = (content: string): string => {
+  if (!content) return "";
+
+  let processedContent = content;
+
+  // 1. 移除可能错误包装的代码块标记
+  // 检查是否整个内容被包装在代码块中
+  const codeBlockPattern = /^```(?:markdown|md)?\s*\n([\s\S]*?)\n```$/;
+  const match = processedContent.trim().match(codeBlockPattern);
+  if (match) {
+    processedContent = match[1];
+    console.log("🔧 [StreamingMarkdown] 移除了错误的代码块包装");
+  }
+
+  // 2. 基本的清理，移除开头的空行
+  processedContent = processedContent.replace(/^\s*\n+/, "");
+
+  return processedContent;
+};
+
 export default function StreamingMarkdown({
   content,
   isStreaming = false,
@@ -43,27 +64,35 @@ export default function StreamingMarkdown({
     if (debouncedContent.length > lastProcessedLength) {
       if (isStreaming) {
         // 流式模式：直接更新显示内容，不需要复杂的行处理
-        setDisplayContent(debouncedContent);
+        const processedContent = preprocessContent(debouncedContent);
+        setDisplayContent(processedContent);
         setLastProcessedLength(debouncedContent.length);
       } else {
         // 非流式模式：处理全部内容
-        setDisplayContent(debouncedContent);
+        const processedContent = preprocessContent(debouncedContent);
+        setDisplayContent(processedContent);
         setLastProcessedLength(debouncedContent.length);
       }
     } else if (debouncedContent.length < lastProcessedLength) {
       // 内容被重置
-      setDisplayContent(debouncedContent);
+      const processedContent = preprocessContent(debouncedContent);
+      setDisplayContent(processedContent);
       setLastProcessedLength(debouncedContent.length);
     }
   }, [debouncedContent, lastProcessedLength, isStreaming]);
 
   // 流式结束时处理剩余内容
   useEffect(() => {
-    if (!isStreaming && content && displayContent !== content) {
-      setDisplayContent(content);
+    if (
+      !isStreaming &&
+      content &&
+      displayContent !== preprocessContent(content)
+    ) {
+      const processedContent = preprocessContent(content);
+      setDisplayContent(processedContent);
       setLastProcessedLength(content.length);
     }
-  }, [isStreaming, content, displayContent]);
+  }, [isStreaming, content]);
 
   // 优化的markdown渲染配置
   const markdownComponents = useMemo(
@@ -93,54 +122,10 @@ export default function StreamingMarkdown({
         />
       ),
       ul: (props: React.ComponentProps<"ul">) => (
-        <ul className="space-y-2 my-4" {...props} />
+        <ul className="list-disc ml-6 space-y-2 my-4" {...props} />
       ),
       li: (props: React.ComponentProps<"li">) => (
-        <li
-          className="text-gray-700 dark:text-gray-300 flex items-start"
-          {...props}
-        >
-          <span className="text-blue-500 mr-2 mt-1">•</span>
-          <div className="flex-1">{props.children}</div>
-        </li>
-      ),
-      table: (props: React.ComponentProps<"table">) => (
-        <div className="overflow-x-auto my-6">
-          <table
-            className="min-w-full border border-gray-200 dark:border-gray-700 rounded-lg"
-            {...props}
-          />
-        </div>
-      ),
-      th: (props: React.ComponentProps<"th">) => (
-        <th
-          className="bg-gray-50 dark:bg-gray-800 p-3 text-left font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700"
-          {...props}
-        />
-      ),
-      td: (props: React.ComponentProps<"td">) => (
-        <td
-          className="p-3 text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700"
-          {...props}
-        />
-      ),
-      code: (props: React.ComponentProps<"code">) => (
-        <code
-          className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono"
-          {...props}
-        />
-      ),
-      pre: (props: React.ComponentProps<"pre">) => (
-        <pre
-          className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto my-4"
-          {...props}
-        />
-      ),
-      blockquote: (props: React.ComponentProps<"blockquote">) => (
-        <blockquote
-          className="border-l-4 border-blue-500 pl-4 italic my-4 text-gray-600 dark:text-gray-400"
-          {...props}
-        />
+        <li className="text-gray-700 dark:text-gray-300" {...props} />
       ),
     }),
     [],

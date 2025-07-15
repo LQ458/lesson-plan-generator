@@ -23,7 +23,8 @@ const {
   UserFriendlyError,
 } = require("./utils/error-handler");
 const authRegisterRouter = require("./routes/auth-register");
-const vectorStore = require("./rag/services/vector-store");
+const VectorStore = require("./rag/services/vector-store");
+const vectorStore = new VectorStore();
 require("dotenv").config();
 
 // 配置服务器日志系统
@@ -231,8 +232,8 @@ app.get(
 app.post(
   "/api/lesson-plan",
   aiRequestLogger("lesson-plan"), // 添加AI请求日志
-  authenticate,  // 启用认证
-  apiLimiter,    // 启用限流
+  authenticate, // 启用认证
+  apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const { subject, grade, topic, requirements } = req.body;
 
@@ -262,8 +263,8 @@ app.post(
 app.post(
   "/api/exercises",
   aiRequestLogger("exercises"), // 添加AI请求日志
-  authenticate,  // 启用认证
-  apiLimiter,    // 启用限流
+  authenticate, // 启用认证
+  apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const {
       subject,
@@ -304,8 +305,8 @@ app.post(
 app.post(
   "/api/analyze",
   aiRequestLogger("analyze"), // 添加AI请求日志
-  authenticate,  // 启用认证
-  apiLimiter,    // 启用限流
+  authenticate, // 启用认证
+  apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const { content, analysisType } = req.body;
 
@@ -527,12 +528,17 @@ app.use("*", notFoundHandler);
 // 全局错误处理中间件（必须放在最后）
 app.use(errorHandler);
 
-// 启动服务器
-app.listen(PORT, async () => {
-  console.log(`🚀 服务器启动成功，端口: ${PORT}`);
-  console.log(`📊 健康检查: http://localhost:${PORT}/api/health`);
-  console.log(`📈 服务状态: http://localhost:${PORT}/api/status`);
-});
+// 导出app用于测试
+module.exports = app;
+
+// 只有在直接运行时才启动服务器
+if (require.main === module) {
+  app.listen(PORT, async () => {
+    console.log(`🚀 服务器启动成功，端口: ${PORT}`);
+    console.log(`📊 健康检查: http://localhost:${PORT}/api/health`);
+    console.log(`📈 服务状态: http://localhost:${PORT}/api/status`);
+  });
+}
 
 // 优雅关闭
 process.on("SIGTERM", async () => {

@@ -182,8 +182,16 @@ class VectorStoreService {
   }
 
   async search(query, options = {}) {
-    if (!this.isInitialized) {
-      await this.initialize();
+    try {
+      if (!this.isInitialized) {
+        await this.initialize();
+      }
+    } catch (error) {
+      logger.error("❌ [RAG] 搜索初始化失败", {
+        error: error.message,
+        service: "vector-store",
+      });
+      return [];
     }
 
     const {
@@ -273,12 +281,23 @@ class VectorStoreService {
       音乐: ["音乐教学", "歌曲教学", "音乐欣赏", "节奏训练"],
       美术: ["美术教学", "绘画技巧", "色彩搭配", "创意表达"],
       体育: ["体育教学", "运动技能", "身体协调", "团队合作"],
-      政治: ["思想教育", "品德培养", "公民素养", "道德教育"],
-      历史: ["历史故事", "文化传承", "时代背景", "历史人物"],
+      政治: ["思想教育", "品德培养", "公民素养", "道德教育", "道德与法治"],
+      历史: [
+        "历史故事",
+        "文化传承",
+        "时代背景",
+        "历史人物",
+        "古代文明",
+        "中国历史",
+        "世界历史",
+      ],
       地理: ["地理知识", "自然环境", "人文地理", "地图使用"],
       物理: ["物理实验", "科学探究", "物理现象", "实验方法"],
       化学: ["化学实验", "化学反应", "实验安全", "观察记录"],
       生物: ["生物观察", "生命科学", "自然现象", "科学实验"],
+      语文: ["语文教学", "阅读理解", "写作技巧", "文学作品"],
+      数学: ["数学教学", "数学思维", "解题方法", "数学概念"],
+      英语: ["英语教学", "语言学习", "口语练习", "听力训练"],
     };
 
     // 添加学科特定查询
@@ -325,9 +344,6 @@ class VectorStoreService {
       "七年级",
       "八年级",
       "九年级",
-      "高一",
-      "高二",
-      "高三",
     ];
     const targetIndex = gradeOrder.indexOf(normalizedTarget);
     const docIndex = gradeOrder.indexOf(normalizedDoc);
@@ -335,21 +351,16 @@ class VectorStoreService {
     if (targetIndex !== -1 && docIndex !== -1) {
       const diff = Math.abs(targetIndex - docIndex);
 
-      // 小学阶段（1-6年级）：允许相差2个年级
+      // 小学阶段（1-6年级）：允许相差1个年级
       if (targetIndex <= 5 || docIndex <= 5) {
-        return diff <= 2;
+        return diff <= 1;
       }
 
-      // 初中阶段（7-9年级）：允许相差2个年级
+      // 初中阶段（7-9年级）：允许相差1个年级
       if (
         (targetIndex >= 6 && targetIndex <= 8) ||
         (docIndex >= 6 && docIndex <= 8)
       ) {
-        return diff <= 2;
-      }
-
-      // 高中阶段（10-12年级）：允许相差1个年级
-      if (targetIndex >= 9 || docIndex >= 9) {
         return diff <= 1;
       }
     }
@@ -374,6 +385,26 @@ class VectorStoreService {
       service: "vector-store",
     });
 
+    // 如果服务未初始化或连接失败，返回空结果
+    try {
+      if (!this.isInitialized) {
+        await this.initialize();
+      }
+    } catch (error) {
+      logger.error("❌ [RAG] 初始化失败，返回空上下文", {
+        error: error.message,
+        service: "vector-store",
+      });
+      return {
+        context: "",
+        sources: [],
+        totalResults: 0,
+        usedResults: 0,
+        tokenCount: 0,
+        averageRelevance: 0,
+      };
+    }
+
     // 尝试多种搜索策略以获得最佳结果
     let results = [];
 
@@ -385,58 +416,100 @@ class VectorStoreService {
         service: "vector-store",
       });
       results = await this.search(query, {
-        limit: 15,
+        limit: 20, // 增加初始搜索数量
         subject: subject,
         grade: normalizedGrade,
-        minQualityScore: 0,
+        minQualityScore: 0.3, // 提高质量要求
       });
       logger.info(`📊 [RAG] 策略1结果: ${results.length}个文档`, {
         service: "vector-store",
       });
+
+      // 如果没有结果，立即尝试仅按学科搜索
+      if (results.length === 0) {
+        logger.info("🎯 [RAG] 策略1.1: 仅学科搜索 (移除年级限制)", {
+          subject,
+          service: "vector-store",
+        });
+        results = await this.search(query, {
+          limit: 15,
+          subject: subject,
+          minQualityScore: 0.2, // 稍微降低质量要求
+        });
+        logger.info(`📊 [RAG] 策略1.1结果: ${results.length}个文档`, {
+          service: "vector-store",
+        });
+      }
     }
 
     // 策略2: 如果结果不足，尝试相邻年级搜索
-    if (results.length < 3 && subject && normalizedGrade) {
+    if (results.length < 5 && subject && normalizedGrade) {
       logger.info("🎯 [RAG] 策略2: 相邻年级搜索", {
         subject,
         normalizedGrade,
         service: "vector-store",
       });
-      const adjacentResults = await this.search(query, {
-        limit: 15,
+
+      // 先获取所有该学科的文档，然后手动过滤年级兼容性
+      const subjectResults = await this.search(query, {
+        limit: 20,
         subject: subject,
-        minQualityScore: 0,
+        minQualityScore: 0.2,
       });
 
       // 过滤出年级兼容的结果
-      const compatibleResults = adjacentResults.filter((result) =>
+      const compatibleResults = subjectResults.filter((result) =>
         this.isGradeCompatible(normalizedGrade, result.metadata?.grade),
       );
 
-      results = [...results, ...compatibleResults];
-      logger.info(
-        `📊 [RAG] 策略2合并后结果: ${results.length}个文档 (兼容年级: ${compatibleResults.length}个)`,
-        {
+      // 如果有兼容的结果，添加到总结果中
+      if (compatibleResults.length > 0) {
+        results = [...results, ...compatibleResults];
+        logger.info(
+          `📊 [RAG] 策略2合并后结果: ${results.length}个文档 (兼容年级: ${compatibleResults.length}个)`,
+          {
+            service: "vector-store",
+          },
+        );
+      } else {
+        logger.info(`📊 [RAG] 策略2无兼容年级结果`, {
           service: "vector-store",
-        },
-      );
+        });
+      }
     }
 
     // 策略3: 如果结果仍不足，使用学科搜索但提高相关性要求
-    if (results.length < 2 && subject) {
+    if (results.length < 3 && subject) {
       logger.info("🎯 [RAG] 策略3: 高相关性学科搜索", {
         subject,
         service: "vector-store",
       });
-      const subjectResults = await this.search(query, {
-        limit: 10,
+
+      // 构建更精确的查询，包含学科关键词
+      const enhancedQuery = `${subject} ${query}`;
+      const subjectResults = await this.search(enhancedQuery, {
+        limit: 12,
         subject: subject,
-        minQualityScore: 0.5, // 提高质量要求
+        minQualityScore: 0.4, // 进一步提高质量要求
       });
-      results = [...results, ...subjectResults];
-      logger.info(`📊 [RAG] 策略3合并后结果: ${results.length}个文档`, {
-        service: "vector-store",
-      });
+
+      // 过滤掉已经存在的结果，避免重复
+      const newResults = subjectResults.filter(
+        (newResult) =>
+          !results.some(
+            (existingResult) =>
+              existingResult.content.substring(0, 100) ===
+              newResult.content.substring(0, 100),
+          ),
+      );
+
+      results = [...results, ...newResults];
+      logger.info(
+        `📊 [RAG] 策略3合并后结果: ${results.length}个文档 (新增: ${newResults.length}个)`,
+        {
+          service: "vector-store",
+        },
+      );
     }
 
     // 策略4: 如果仍然没有结果，使用通用教学方法搜索
@@ -452,7 +525,7 @@ class VectorStoreService {
       for (const generalQuery of generalQueries) {
         const generalResults = await this.search(generalQuery, {
           limit: 5,
-          minQualityScore: 0.3,
+          minQualityScore: 0.1, // 降低质量要求
         });
         results = [...results, ...generalResults];
         if (results.length >= 3) break; // 找到足够的结果就停止
@@ -461,6 +534,21 @@ class VectorStoreService {
       logger.info(`📊 [RAG] 策略4合并后结果: ${results.length}个文档`, {
         service: "vector-store",
       });
+
+      // 策略4.1: 如果通用搜索仍无结果，使用纯语义搜索
+      if (results.length === 0) {
+        logger.info("🎯 [RAG] 策略4.1: 纯语义搜索 (无过滤)", {
+          query,
+          service: "vector-store",
+        });
+        results = await this.search(query, {
+          limit: 8,
+          minQualityScore: 0, // 无质量要求
+        });
+        logger.info(`📊 [RAG] 策略4.1结果: ${results.length}个文档`, {
+          service: "vector-store",
+        });
+      }
     }
 
     // 去重（基于内容）
@@ -670,6 +758,36 @@ class VectorStoreService {
       throw new Error(`删除集合失败: ${error.message}`);
     }
   }
+
+  // 添加文档 - 测试需要的方法
+  async addDocument(document) {
+    if (!this.isInitialized) {
+      await this.initialize();
+    }
+
+    try {
+      const batchData = this.prepareBatchData(
+        document,
+        document.filename || "unknown",
+      );
+      await this.collection.add(batchData);
+      logger.info(`文档添加成功: ${document.filename}`);
+      return true;
+    } catch (error) {
+      logger.error("添加文档失败:", error);
+      throw new Error(`添加文档失败: ${error.message}`);
+    }
+  }
+
+  // 搜索文档 - 测试需要的方法
+  async searchDocuments(query, options = {}) {
+    try {
+      return await this.search(query, options);
+    } catch (error) {
+      logger.error("搜索文档失败:", error);
+      throw new Error(`搜索文档失败: ${error.message}`);
+    }
+  }
 }
 
-module.exports = new VectorStoreService();
+module.exports = VectorStoreService;

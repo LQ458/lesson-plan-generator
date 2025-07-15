@@ -11,21 +11,24 @@ interface DiagramRendererProps {
 // SVG sanitization function to prevent XSS
 function sanitizeSvg(svgContent: string): string {
   // Remove script tags and their content
-  let sanitized = svgContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
-  
+  let sanitized = svgContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
+
   // Remove event handlers (onclick, onload, etc.)
-  sanitized = sanitized.replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, '');
-  
+  sanitized = sanitized.replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, "");
+
   // Remove javascript: URLs
-  sanitized = sanitized.replace(/javascript:/gi, '');
-  
+  sanitized = sanitized.replace(/javascript:/gi, "");
+
   // Remove data: URLs that could contain scripts
-  sanitized = sanitized.replace(/data:text\/html/gi, '');
-  sanitized = sanitized.replace(/data:application\/javascript/gi, '');
-  
+  sanitized = sanitized.replace(/data:text\/html/gi, "");
+  sanitized = sanitized.replace(/data:application\/javascript/gi, "");
+
   // Remove external references that could be malicious
-  sanitized = sanitized.replace(/<use[^>]*href\s*=\s*["'][^"']*["'][^>]*>/gi, '');
-  
+  sanitized = sanitized.replace(
+    /<use[^>]*href\s*=\s*["'][^"']*["'][^>]*>/gi,
+    "",
+  );
+
   return sanitized;
 }
 

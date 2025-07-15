@@ -183,12 +183,21 @@ export default function LessonPlanPage() {
 
   // 当设置改变时，更新表单默认值
   useEffect(() => {
-    setFormData((prev) => ({
-      ...prev,
-      subject: getSubjectLabel(settings.subject),
-      grade: getGradeLevelLabel(settings.gradeLevel),
-    }));
-  }, [settings]);
+    const newSubject = getSubjectLabel(settings.subject);
+    const newGrade = getGradeLevelLabel(settings.gradeLevel);
+
+    setFormData((prev) => {
+      // 只有当值真正改变时才更新，避免无限循环
+      if (prev.subject !== newSubject || prev.grade !== newGrade) {
+        return {
+          ...prev,
+          subject: newSubject,
+          grade: newGrade,
+        };
+      }
+      return prev;
+    });
+  }, [settings.subject, settings.gradeLevel]); // 只依赖具体的字段而不是整个对象
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
@@ -262,8 +271,8 @@ export default function LessonPlanPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token") || "demo-token"}`,
         },
+        credentials: "include", // 使用cookie认证
         body: JSON.stringify({
           subject: formData.subject,
           grade: formData.grade,

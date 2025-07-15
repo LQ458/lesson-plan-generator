@@ -331,7 +331,9 @@ export default function OverviewTab({
                   >
                     <div
                       className="flex-1 cursor-pointer"
-                      onClick={() => router.push(`/my-content/exercise/${exercise._id}`)}
+                      onClick={() =>
+                        router.push(`/my-content/exercise/${exercise._id}`)
+                      }
                     >
                       <h4 className="font-medium text-sm">{exercise.title}</h4>
                       <p className="text-xs text-gray-500">

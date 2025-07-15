@@ -1301,11 +1301,11 @@ export default function LessonPlanGenerator({
       <div className="content-display">
         {selectedFormat === "text" && (
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-            <div 
+            <div
               className="text-white p-4"
               style={{
-                background: 'linear-gradient(to right, #3b82f6, #2563eb)',
-                color: '#ffffff'
+                background: "linear-gradient(to right, #3b82f6, #2563eb)",
+                color: "#ffffff",
               }}
             >
               <h2 className="text-xl font-bold text-white">
@@ -1315,14 +1315,13 @@ export default function LessonPlanGenerator({
                 {enrichedLessonData.grade} · {enrichedLessonData.title}
               </p>
             </div>
-            <div className="p-8 space-y-6">
-              <div className="prose prose-lg max-w-none dark:prose-invert lesson-plan-content">
+            <div className="p-8">
+              <div className="prose prose-lg max-w-none dark:prose-invert">
                 <StreamingMarkdown
                   content={
                     enrichedLessonData.textContent || "教案内容加载中..."
                   }
                   isStreaming={isStreaming || false}
-                  className=""
                 />
               </div>
             </div>

@@ -15,8 +15,12 @@ const config = {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
     "^@/app/(.*)$": "<rootDir>/src/app/$1",
+    // Mock ES modules that Jest can't handle
+    "^react-markdown$": "<rootDir>/src/__mocks__/react-markdown.js",
+    "^remark-gfm$": "<rootDir>/src/__mocks__/remark-gfm.js",
   },
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
+  modulePathIgnorePatterns: ["<rootDir>/.next/"],
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",

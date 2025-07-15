@@ -330,9 +330,9 @@ const exportFormatters = {
       // 等待字体加载，设置超时
       await Promise.race([
         page.evaluateHandle("document.fonts.ready"),
-        new Promise((_, reject) => 
-          setTimeout(() => reject(new Error('Font loading timeout')), 10000)
-        )
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error("Font loading timeout")), 10000),
+        ),
       ]);
 
       const pdfBuffer = await page.pdf({
@@ -392,22 +392,26 @@ const exportFormatters = {
       } catch (pageError) {
         logger.error("❌ [PDF] 关闭页面时出错", { error: pageError.message });
       }
-      
+
       try {
         if (browser) {
           await browser.close();
           logger.info("🔒 [PDF] 浏览器已关闭");
         }
       } catch (browserError) {
-        logger.error("❌ [PDF] 关闭浏览器时出错", { error: browserError.message });
+        logger.error("❌ [PDF] 关闭浏览器时出错", {
+          error: browserError.message,
+        });
         // 强制关闭浏览器进程
         try {
           if (browser && browser.process()) {
-            browser.process().kill('SIGKILL');
+            browser.process().kill("SIGKILL");
             logger.info("🔒 [PDF] 浏览器进程已强制终止");
           }
         } catch (killError) {
-          logger.error("❌ [PDF] 强制终止浏览器进程失败", { error: killError.message });
+          logger.error("❌ [PDF] 强制终止浏览器进程失败", {
+            error: killError.message,
+          });
         }
       }
     }

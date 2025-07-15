@@ -1,6 +1,7 @@
 const winston = require("winston");
 const OpenAI = require("openai");
-const vectorStore = require("./rag/services/vector-store");
+const VectorStore = require("./rag/services/vector-store");
+const vectorStore = new VectorStore();
 
 // 配置增强日志系统，支持AI响应标识
 const logger = winston.createLogger({
@@ -148,13 +149,13 @@ class AIService {
     const requestId = this.generateRequestId();
     const startTime = Date.now();
 
-    try {
-      const logContext = this.createLogContext(requestId, endpoint, {
-        systemPromptLength: systemPrompt.length,
-        userPromptLength: userPrompt.length,
-        startTime: new Date(startTime).toISOString(),
-      });
+    const logContext = this.createLogContext(requestId, endpoint, {
+      systemPromptLength: systemPrompt.length,
+      userPromptLength: userPrompt.length,
+      startTime: new Date(startTime).toISOString(),
+    });
 
+    try {
       logger.info("开始AI内容生成", logContext);
 
       // 设置响应头为流式传输
@@ -282,16 +283,22 @@ class AIService {
         1500, // 限制上下文长度
       );
 
-      relevantContext = contextData.context;
-      contextSources = contextData.sources;
+      // 确保contextData不为undefined
+      if (contextData && contextData.context) {
+        relevantContext = contextData.context;
+        contextSources = contextData.sources || [];
+      } else {
+        relevantContext = "";
+        contextSources = [];
+      }
 
       if (contextSources.length > 0) {
         logger.info("✅ [RAG] 成功检索到相关教学资料", {
           requestId,
           sourcesCount: contextSources.length,
           contextLength: relevantContext.length,
-          totalResults: contextData.totalResults,
-          usedResults: contextData.usedResults,
+          totalResults: contextData.totalResults || 0,
+          usedResults: contextData.usedResults || 0,
           sources: contextSources,
           service: "ai-service",
         });
@@ -301,7 +308,7 @@ class AIService {
           query: ragQuery,
           subject,
           grade,
-          totalResults: contextData.totalResults,
+          totalResults: contextData?.totalResults || 0,
           service: "ai-service",
         });
       }
@@ -483,6 +490,80 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
     requirements,
     res,
   ) {
+    const requestId = this.generateRequestId();
+    logger.info(
+      "收到练习题生成请求",
+      this.createLogContext(requestId, "exercises", {
+        subject,
+        grade,
+        topic,
+        difficulty,
+        count,
+        questionType,
+        requirementsLength: requirements?.length || 0,
+      }),
+    );
+
+    // 获取相关文档上下文
+    let relevantContext = "";
+    let contextSources = [];
+
+    try {
+      const ragQuery = `${subject} ${grade} ${topic} 练习题 习题`;
+      logger.info("🔍 [RAG] 开始检索相关练习题资料", {
+        requestId,
+        query: ragQuery,
+        subject,
+        grade,
+        topic,
+        service: "ai-service",
+      });
+
+      const contextData = await vectorStore.getRelevantContext(
+        ragQuery,
+        subject,
+        grade,
+        1200, // 限制上下文长度，练习题相对简短
+      );
+
+      // 确保contextData不为undefined
+      if (contextData && contextData.context) {
+        relevantContext = contextData.context;
+        contextSources = contextData.sources || [];
+      } else {
+        relevantContext = "";
+        contextSources = [];
+      }
+
+      if (contextSources.length > 0) {
+        logger.info("✅ [RAG] 成功检索到相关练习题资料", {
+          requestId,
+          sourcesCount: contextSources.length,
+          contextLength: relevantContext.length,
+          totalResults: contextData.totalResults || 0,
+          usedResults: contextData.usedResults || 0,
+          sources: contextSources,
+          service: "ai-service",
+        });
+      } else {
+        logger.warn("⚠️ [RAG] 未找到相关练习题资料", {
+          requestId,
+          query: ragQuery,
+          subject,
+          grade,
+          totalResults: contextData?.totalResults || 0,
+          service: "ai-service",
+        });
+      }
+    } catch (error) {
+      logger.error("❌ [RAG] 系统错误", {
+        requestId,
+        error: error.message,
+        stack: error.stack,
+        service: "ai-service",
+      });
+    }
+
     const difficultyMap = {
       easy: "简单",
       medium: "中等",
@@ -546,50 +627,6 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
           "体育",
         ],
       },
-      高中: {
-        高一: [
-          "语文",
-          "数学",
-          "英语",
-          "物理",
-          "化学",
-          "生物",
-          "历史",
-          "地理",
-          "政治",
-          "音乐",
-          "美术",
-          "体育",
-        ],
-        高二: [
-          "语文",
-          "数学",
-          "英语",
-          "物理",
-          "化学",
-          "生物",
-          "历史",
-          "地理",
-          "政治",
-          "音乐",
-          "美术",
-          "体育",
-        ],
-        高三: [
-          "语文",
-          "数学",
-          "英语",
-          "物理",
-          "化学",
-          "生物",
-          "历史",
-          "地理",
-          "政治",
-          "音乐",
-          "美术",
-          "体育",
-        ],
-      },
     };
 
     // 检查年级科目限制
@@ -605,7 +642,8 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
     // 根据年级调整难度和内容深度
     const gradeSpecificPrompt = this.getGradeSpecificPrompt(grade, subject);
 
-    const systemPrompt = `你是一位专业的教师，擅长出题和命题。请根据用户的要求生成练习题。
+    // 构建增强的系统提示词
+    let systemPrompt = `你是一位专业的教师，擅长出题和命题。请根据用户的要求生成练习题。
 
 要求：
 1. 题目要符合指定的难度等级和年级水平
@@ -617,9 +655,18 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 7. 严格按照年级教学大纲要求，不得超出学生认知水平
 8. 对于小学生，题目描述要简单易懂，避免过于复杂的表达
 9. 对于中学生，可以适当增加推理和分析能力的考察
-10. 对于高中生，可以增加综合应用和批判性思维的考察
 
 ${gradeSpecificPrompt}`;
+
+    // 如果有相关文档上下文，添加到提示词中
+    if (relevantContext) {
+      systemPrompt += `
+
+参考练习题资料：
+${relevantContext}
+
+请参考以上练习题资料，结合其中的题目类型、难度设置和解析方式，生成更专业、更符合教学要求的练习题。`;
+    }
 
     const userPrompt = `请为我生成练习题：
 - 科目：${subject}
@@ -631,7 +678,7 @@ ${gradeSpecificPrompt}`;
 ${requirements ? `- 特殊要求：${requirements}` : ""}
 
 请生成指定数量的练习题，每道题都要包含题目、选项（如适用）、答案和解析。
-请确保题目符合该年级学生的认知水平和课程标准。`;
+请确保题目符合该年级学生的认知水平和课程标准。${relevantContext ? "请充分利用提供的参考练习题资料，生成更专业的题目。" : ""}`;
 
     return await this.generateContentStream(
       systemPrompt,
@@ -654,14 +701,11 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
       "六年级",
     ];
     const middleGrades = ["七年级", "八年级", "九年级", "初一", "初二", "初三"];
-    const highGrades = ["高一", "高二", "高三"];
 
     if (primaryGrades.includes(grade)) {
       return "小学";
     } else if (middleGrades.includes(grade)) {
       return "初中";
-    } else if (highGrades.includes(grade)) {
-      return "高中";
     }
     return "通用";
   }
@@ -688,14 +732,6 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
 - 数学可以包含代数、几何的基础内容
 - 语文可以包含文言文、现代文阅读等
 - 科学类科目要注重实验和观察能力的培养`,
-
-      高中: `
-特别注意：
-- 可以包含较高的综合分析和批判性思维
-- 题目可以跨学科，注重知识的综合运用
-- 数学可以包含高等数学的初步内容
-- 语文可以包含深层次的文学分析
-- 科学类科目要注重理论联系实际的能力`,
     };
 
     return prompts[gradeLevel] || "";

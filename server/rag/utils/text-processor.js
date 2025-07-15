@@ -64,9 +64,6 @@ class TextProcessor {
       { pattern: /[第]?七年级|7年级|初一/, grade: "七年级" },
       { pattern: /[第]?八年级|8年级|初二/, grade: "八年级" },
       { pattern: /[第]?九年级|9年级|初三/, grade: "九年级" },
-      { pattern: /高一|高1/, grade: "高一" },
-      { pattern: /高二|高2/, grade: "高二" },
-      { pattern: /高三|高3/, grade: "高三" },
     ];
 
     for (const { pattern, grade } of gradePatterns) {

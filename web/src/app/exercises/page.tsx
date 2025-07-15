@@ -357,7 +357,7 @@ export default function ExercisesPage() {
 
       // 下载文件
       const blob = await exportResponse.blob();
-      
+
       if (blob.size === 0) {
         throw new Error("导出文件为空");
       }
@@ -626,10 +626,26 @@ export default function ExercisesPage() {
             </div>
 
             {generatedContent ? (
-              <StreamingMarkdown 
-                content={generatedContent} 
-                isStreaming={isGenerating}
-              />
+              <div>
+                <div className="prose prose-lg max-w-none dark:prose-invert">
+                  <StreamingMarkdown
+                    content={generatedContent}
+                    isStreaming={isGenerating}
+                  />
+                </div>
+
+                {/* RAG使用提示 */}
+                {!isGenerating && (
+                  <div className="mt-6 p-4 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg">
+                    <div className="flex items-center gap-2 text-green-700 dark:text-green-300">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-medium">
+                        💡 RAG技术已自动为您匹配相关教学资料，提升练习题专业性
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="text-center py-12 text-gray-500 dark:text-gray-400">
                 <ClockIcon className="w-12 h-12 mx-auto mb-4 opacity-50" />
