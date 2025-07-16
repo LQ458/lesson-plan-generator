@@ -579,13 +579,10 @@ export default function ExercisesPage() {
               <button
                 onClick={handleGenerate}
                 disabled={isGenerating}
-                className="btn btn-primary w-full text-lg py-4 flex items-center justify-center gap-3"
+                className="btn btn-primary w-full text-lg py-4 flex items-center justify-center gap-3 relative overflow-hidden"
               >
                 {isGenerating ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    生成中...
-                  </>
+                  <LoadingAnimation />
                 ) : (
                   <>
                     <SparklesIcon className="w-5 h-5" />
@@ -708,3 +705,59 @@ export default function ExercisesPage() {
     </div>
   );
 }
+
+// Loading动画组件 - 与教案页面保持一致
+const LoadingAnimation = () => {
+  const [loadingText, setLoadingText] = useState("正在分析题目要求...");
+
+  useEffect(() => {
+    const messages = [
+      "正在分析题目要求...",
+      "检索相关知识点...",
+      "构建题目结构...",
+      "生成题目内容...",
+      "优化答案解析...",
+      "即将完成...",
+    ];
+
+    let index = 0;
+    const interval = setInterval(() => {
+      index = (index + 1) % messages.length;
+      setLoadingText(messages[index]);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center gap-3">
+      {/* 主要的旋转圆圈 */}
+      <div className="relative">
+        <div className="w-6 h-6 border-3 border-white/20 border-t-white rounded-full animate-spin" />
+        {/* 内部小点 */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/60 rounded-full animate-pulse" />
+      </div>
+
+      {/* 脉冲点组 */}
+      <div className="flex gap-1">
+        <div
+          className="w-1 h-1 bg-white/80 rounded-full animate-bounce"
+          style={{ animationDelay: "0ms" }}
+        />
+        <div
+          className="w-1 h-1 bg-white/80 rounded-full animate-bounce"
+          style={{ animationDelay: "150ms" }}
+        />
+        <div
+          className="w-1 h-1 bg-white/80 rounded-full animate-bounce"
+          style={{ animationDelay: "300ms" }}
+        />
+      </div>
+
+      {/* 动态文字 */}
+      <span className="text-white/90 font-medium transition-all duration-500">
+        {loadingText}
+      </span>
+    </div>
+  );
+};

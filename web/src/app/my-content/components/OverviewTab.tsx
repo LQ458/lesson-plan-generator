@@ -182,18 +182,23 @@ export default function OverviewTab({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>最近的教案</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+            <CardTitle className="text-lg font-semibold">最近的教案</CardTitle>
             <Button
-              variant="outline"
+              variant="secondary"
               size="sm"
               onClick={() => onTabChange("lesson-plans")}
-              className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              className="text-blue-600 hover:text-blue-700 border-0 bg-transparent group"
             >
-              管理全部
+              <span className="flex items-center gap-1">
+                管理全部
+                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
             </Button>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-0">
             <div className="space-y-3">
               {lessonPlans.slice(0, 3).map((plan) => {
                 if (!plan._id) {
@@ -307,19 +312,24 @@ export default function OverviewTab({
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>最近的练习题</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+            <CardTitle className="text-lg font-semibold">最近的练习题</CardTitle>
             <Button
-              variant="outline"
+              variant="secondary"
               size="sm"
               onClick={() => onTabChange("exercises")}
-              className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              className="text-blue-600 hover:text-blue-700 border-0 bg-transparent group"
             >
-              管理全部
+              <span className="flex items-center gap-1">
+                管理全部
+                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
             </Button>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+          <CardContent className="pt-0">
+            <div className="space-y-3">
               {exercises.slice(0, 3).map((exercise) => {
                 if (!exercise._id) {
                   console.warn("Exercise missing _id:", exercise);

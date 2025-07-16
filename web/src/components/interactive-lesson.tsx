@@ -68,36 +68,51 @@ const CollapsibleSection = ({
         isExpanded ? "shadow-lg scale-[1.02]" : "shadow-sm hover:shadow-md"
       }`}
     >
-      <button
-        onClick={onToggle}
-        className={`w-full px-4 py-3 text-left bg-gradient-to-r ${section.color} hover:opacity-90 transition-all duration-200 flex items-center justify-between`}
-      >
-        <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-8 h-8 bg-white/20 rounded-full">
-            <section.icon className="w-4 h-4 text-white" />
-          </div>
-          <div>
-            <span className="text-white font-medium text-sm">
-              {section.title}
-            </span>
-            {section.description && (
-              <div className="text-white/80 text-xs mt-1">
-                {section.description}
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-white/80 text-xs bg-white/20 px-2 py-1 rounded-full">
-            {section.items.length} 项
-          </span>
-          <div
-            className={`transition-transform duration-200 ${isExpanded ? "rotate-90" : ""}`}
+      {(() => {
+        // 在亮色模式下统一使用深色文字，在暗色模式下使用白色文字
+        const textColorClass = "text-gray-900 dark:text-white";
+        const iconBgClass = "bg-black/10 dark:bg-white/20";
+        const badgeBgClass = "bg-black/10 dark:bg-white/20";
+        const descriptionClass = "text-gray-700 dark:text-gray-300";
+        const badgeTextClass = "text-gray-800 dark:text-gray-200";
+
+        return (
+          <button
+            onClick={onToggle}
+            className={`w-full px-4 py-3 text-left bg-gradient-to-r ${section.color} hover:opacity-90 transition-all duration-200 flex items-center justify-between ${textColorClass}`}
           >
-            <ChevronRightIcon className="w-4 h-4 text-white" />
-          </div>
-        </div>
-      </button>
+            <div className="flex items-center gap-3">
+              <div className={`flex items-center justify-center w-8 h-8 ${iconBgClass} rounded-full`}>
+                <section.icon className={`w-4 h-4 ${textColorClass}`} />
+              </div>
+              <div>
+                <span className={`font-medium text-sm ${textColorClass}`}>
+                  {section.title}
+                </span>
+                {section.description && (
+                  <div className={`text-xs mt-1 ${descriptionClass}`}>
+                    {section.description}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <span
+                className={`text-xs px-2 py-1 rounded-full ${badgeTextClass} ${badgeBgClass}`}
+              >
+                {section.items.length} 项
+              </span>
+              <div
+                className={`transition-transform duration-200 ${isExpanded ? "rotate-90" : ""}`}
+              >
+                <ChevronRightIcon
+                  className={`w-4 h-4 ${textColorClass}`}
+                />
+              </div>
+            </div>
+          </button>
+        );
+      })()}
 
       <div
         className={`transition-all duration-300 ease-in-out ${
@@ -110,7 +125,7 @@ const CollapsibleSection = ({
               {section.items.map((item, idx) => (
                 <li
                   key={idx}
-                  className={`flex items-start gap-3 p-3 rounded-lg border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 transition-all duration-200 hover:shadow-sm ${
+                  className={`flex items-start gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 transition-all duration-200 hover:shadow-sm ${
                     hasBeenViewed ? "animate-fadeIn" : ""
                   }`}
                   style={{
@@ -118,18 +133,18 @@ const CollapsibleSection = ({
                   }}
                 >
                   <div
-                    className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${section.color} flex items-center justify-center text-white text-xs font-bold`}
+                    className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${section.color} flex items-center justify-center text-gray-900 dark:text-white text-xs font-bold`}
                   >
                     {idx + 1}
                   </div>
-                  <span className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                  <span className="text-gray-900 dark:text-gray-200 text-sm leading-relaxed">
                     {item}
                   </span>
                 </li>
               ))}
             </ul>
           ) : (
-            <div className="text-center py-6 text-gray-500 dark:text-gray-400">
+            <div className="text-center py-6 text-gray-600 dark:text-gray-400">
               {/* DocumentTextIcon was removed, so using LightBulbIcon as a placeholder */}
               <LightBulbIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
               <p className="text-sm">暂无内容</p>
@@ -193,15 +208,15 @@ const ProcessSection = ({
     <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm">
       <button
         onClick={onToggle}
-        className="w-full px-4 py-3 text-left bg-gradient-to-r from-purple-500 to-purple-600 hover:opacity-90 transition-all duration-200 flex items-center justify-between"
+        className="w-full px-4 py-3 text-left bg-gradient-to-r from-purple-500 to-purple-600 hover:opacity-90 transition-all duration-200 flex items-center justify-between text-gray-900 dark:text-white"
       >
         <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-8 h-8 bg-white/20 rounded-full">
-            <PlayIcon className="w-4 h-4 text-white" />
+          <div className="flex items-center justify-center w-8 h-8 bg-black/10 dark:bg-white/20 rounded-full">
+            <PlayIcon className="w-4 h-4 text-gray-900 dark:text-white" />
           </div>
           <div>
-            <span className="text-white font-medium text-sm">教学过程</span>
-            <div className="text-white/80 text-xs mt-1">
+            <span className="text-gray-900 dark:text-white font-medium text-sm">教学过程</span>
+            <div className="text-gray-700 dark:text-gray-300 text-xs mt-1">
               {stages.length} 个阶段 • 总计 {totalDuration} 分钟
             </div>
           </div>
@@ -209,7 +224,7 @@ const ProcessSection = ({
         <div
           className={`transition-transform duration-200 ${isExpanded ? "rotate-90" : ""}`}
         >
-          <ChevronRightIcon className="w-4 h-4 text-white" />
+          <ChevronRightIcon className="w-4 h-4 text-gray-900 dark:text-white" />
         </div>
       </button>
 
@@ -240,7 +255,7 @@ const ProcessSection = ({
                       {stage.stage}
                     </h4>
                     {stage.duration && (
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <p className="text-sm text-gray-700 dark:text-gray-400">
                         {stage.duration} 分钟
                       </p>
                     )}
@@ -253,7 +268,7 @@ const ProcessSection = ({
                     {stage.content.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start">
                         <span className="text-blue-500 mr-2 text-sm">•</span>
-                        <span className="text-sm text-gray-700 dark:text-gray-300">
+                        <span className="text-sm text-gray-900 dark:text-gray-200">
                           {item}
                         </span>
                       </li>
@@ -266,7 +281,7 @@ const ProcessSection = ({
           </div>
 
           <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-            <div className="text-sm text-gray-600 dark:text-gray-300">
+            <div className="text-sm text-gray-800 dark:text-gray-300">
               <div className="font-medium mb-2">💡 使用提示</div>
               <ul className="space-y-1 text-xs">
                 <li>• 点击阶段卡片开始该教学环节</li>
@@ -357,7 +372,7 @@ export default function InteractiveLesson({
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
               📚 {lessonData.title}
             </h2>
-            <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-4 text-sm text-gray-800 dark:text-gray-300">
               <span>{lessonData.subject}</span>
               <span>•</span>
               <span>{lessonData.grade}</span>
@@ -369,7 +384,7 @@ export default function InteractiveLesson({
             </div>
           </div>
           <div className="text-right">
-            <div className="text-sm text-gray-600 dark:text-gray-300">
+            <div className="text-sm text-gray-800 dark:text-gray-300">
               学习进度
             </div>
             <div className="flex items-center gap-2 mt-1">
@@ -379,7 +394,7 @@ export default function InteractiveLesson({
                   style={{ width: `${progressPercentage}%` }}
                 />
               </div>
-              <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+              <span className="text-xs font-medium text-gray-900 dark:text-gray-300">
                 {Math.round(progressPercentage)}%
               </span>
             </div>
@@ -414,7 +429,7 @@ export default function InteractiveLesson({
         {/* 底部操作区 */}
         <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
           <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-600 dark:text-gray-300">
+            <div className="text-sm text-gray-800 dark:text-gray-300">
               <span className="font-medium">📊 总览: </span>
               已展开 {expandedSections.size} 个部分
             </div>
@@ -431,13 +446,13 @@ export default function InteractiveLesson({
                     ]),
                   )
                 }
-                className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+                className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
               >
                 全部展开
               </button>
               <button
                 onClick={() => setExpandedSections(new Set())}
-                className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 全部折叠
               </button>
