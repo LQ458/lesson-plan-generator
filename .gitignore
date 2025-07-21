@@ -303,4 +303,118 @@ app.*.map.json
 # yarn.lock
 # ==========================================
 
+# ==========================================
+# ChromaDB and Vector Database
+# ==========================================
 chroma_db/
+chroma_db/*
+**/chroma_db/
+**/chroma_db/*
+*.chroma
+*.chroma_db
+
+# ChromaDB specific files
+**/chroma_db/**/*.pickle
+**/chroma_db/**/*.bin
+**/chroma_db/**/index_metadata.pickle
+**/chroma_db/**/link_lists.bin
+**/chroma_db/**/length.bin
+**/chroma_db/**/data_level*.bin
+**/chroma_db/**/header.bin
+**/chroma_db/**/embeddings.parquet
+**/chroma_db/**/documents.parquet
+**/chroma_db/**/metadata.parquet
+**/chroma_db/**/*.uuid
+**/chroma_db/**/chroma.sqlite3
+**/chroma_db/**/chroma.sqlite3-journal
+**/chroma_db/**/chroma.sqlite3-wal
+**/chroma_db/**/chroma.sqlite3-shm
+
+# ==========================================
+# AI/ML Models and Data
+# ==========================================
+models/
+**/models/
+*.model
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.onnx
+*.tflite
+*.pb
+embeddings/
+**/embeddings/
+vector_store/
+**/vector_store/
+
+# ==========================================
+# Cache and Temporary Files
+# ==========================================
+.cache/
+**/.cache/
+*.cache
+temp/
+**/temp/
+tmp/
+**/tmp/
+.tmp/
+**/.tmp/
+
+# ==========================================
+# Local Development Files
+# ==========================================
+.local/
+**/.local/
+local/
+**/local/
+dev/
+**/dev/
+
+# ==========================================
+# Backup Files
+# ==========================================
+*.bak
+*.backup
+*.old
+*.orig
+*~
+
+# ==========================================
+# OS Generated Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# IDE and Editor Files (Extended)
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.atom/
+.sublime-*
+*.sublime-project
+*.sublime-workspace
+
+# ==========================================
+# Additional Database Files
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+**/data/
+dump.rdb
