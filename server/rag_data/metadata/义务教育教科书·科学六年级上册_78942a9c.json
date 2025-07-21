@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学六年级上册_78942a9c",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学六年级上册_78942a9c.pdf",
+  "total_chunks": 35,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T05:32:56.551Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.192Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

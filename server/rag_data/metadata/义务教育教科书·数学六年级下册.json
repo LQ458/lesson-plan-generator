@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/数学/青岛版/义务教育教科书·数学六年级下册.pdf",
+  "extractedAt": "2025-07-18T13:40:50.279Z",
+  "method": "node-poppler",
+  "textLength": 16785,
+  "processingStats": {
+    "chunksCount": 22,
+    "embeddingsCount": 22,
+    "processedAt": "2025-07-18T13:40:57.961Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.179Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

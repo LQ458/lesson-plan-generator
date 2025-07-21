@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文三年级上册.pdf",
+  "extractedAt": "2025-07-18T13:51:18.550Z",
+  "method": "node-poppler",
+  "textLength": 41880,
+  "processingStats": {
+    "chunksCount": 56,
+    "embeddingsCount": 56,
+    "processedAt": "2025-07-18T13:51:37.090Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.215Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

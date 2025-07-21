@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/科学/苏教版/义务教育教科书·科学·学生活动手册二年级下册.pdf",
+  "extractedAt": "2025-07-18T13:43:09.003Z",
+  "method": "node-poppler",
+  "textLength": 7005,
+  "processingStats": {
+    "chunksCount": 10,
+    "embeddingsCount": 10,
+    "processedAt": "2025-07-18T13:43:12.692Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.185Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

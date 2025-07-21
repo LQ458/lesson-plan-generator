@@ -8,7 +8,7 @@ TeachAI is a full-stack AI-powered lesson plan generator with RAG (Retrieval-Aug
 
 - **Frontend**: Next.js 15 with React 19 and TypeScript
 - **Backend**: Node.js Express server with MongoDB
-- **RAG System**: ChromaDB vector database with 6,805+ educational materials
+- **RAG System**: ChromaDB vector database with 95,360+ enhanced educational chunks
 - **AI Service**: Integration with Qwen LLM via OpenAI-compatible API
 
 ## Common Development Commands
@@ -74,14 +74,32 @@ pnpm run chroma:start
 # Stop ChromaDB service
 pnpm run chroma:stop
 
-# Load educational materials into vector database
+# Load enhanced educational materials (optimized with breakpoint resume)
 pnpm run rag:load
 
-# Check RAG system status
+# Monitor loading progress (live updates)
+pnpm run rag:progress:watch
+
+# Check current loading progress
+pnpm run rag:progress
+
+# Verify loaded data integrity and performance
+pnpm run rag:verify
+
+# Check RAG system status and data quality metrics
 pnpm run rag:status
 
-# One-time RAG setup
+# Run comprehensive RAG system tests
+pnpm run rag:test
+
+# Test RAG accuracy with quality scoring
+pnpm run rag:test-accuracy
+
+# One-time RAG setup with enhanced data
 pnpm run setup:rag
+
+# Legacy loader (for compatibility)
+pnpm run rag:load:legacy
 ```
 
 ## Architecture Overview
@@ -91,7 +109,7 @@ pnpm run setup:rag
 - **Root**: Workspace configuration with shared scripts
 - **web/**: Next.js frontend application
 - **server/**: Express.js backend with RAG system
-- **server/optimized/**: Pre-processed educational materials (6,805+ chunks)
+- **server/rag_data/**: Enhanced educational materials with quality scoring (95,360+ chunks)
 - **server/rag/**: RAG system implementation
 
 ### Key Components
@@ -132,8 +150,9 @@ pnpm run setup:rag
 1. Run `pnpm run install:all` to install dependencies
 2. Copy `server/.env.example` to `server/.env` and configure API keys
 3. Start ChromaDB: `pnpm run chroma:start`
-4. Load educational data: `pnpm run rag:load`
-5. Start development: `pnpm run dev:full`
+4. Load enhanced educational data: `pnpm run rag:load` (loads 95,360+ quality-scored chunks)
+5. Verify RAG system: `pnpm run rag:status`
+6. Start development: `pnpm run dev:full`
 
 ### Running Tests
 
@@ -189,12 +208,91 @@ AI_TEMPERATURE=0.7
 
 ## Educational Materials
 
-The RAG system uses 6,805+ pre-processed educational materials in `server/optimized/`:
+The RAG system uses 95,360+ enhanced educational materials in `server/rag_data/chunks/`:
 
-- Format: JSON files with chunked content
-- Coverage: Grades 1-12, multiple subjects
-- Textbook versions: People's Education Press, Beijing Normal University, etc.
-- Automatic loading via `pnpm run rag:load`
+### Data Characteristics
+- **Format**: JSON files with enhanced chunked content and metadata
+- **Volume**: 95,360 chunks from 4,557 processed files  
+- **Coverage**: Comprehensive K-12 curriculum (Grades 1-12), multiple subjects
+- **Publishers**: People's Education Press, Beijing Normal University, Qingdao Press, etc.
+- **Quality Control**: Advanced preprocessing with quality scoring and OCR correction
+
+### Enhancement Features (Version 2.0)
+- **OCR Error Correction**: Improved text accuracy for Chinese educational content
+- **Duplicate Detection**: Advanced algorithms to identify and merge similar content
+- **Quality Scoring**: Each chunk includes reliability metrics and coherence scores
+- **Content Classification**: Semantic features like formulas, experiments, definitions
+- **Boilerplate Removal**: Automatic filtering of non-educational content
+- **Smart Chunking**: Optimized text segmentation for better retrieval
+
+### Data Structure
+Each chunk includes:
+- **content**: Enhanced, corrected educational text
+- **metadata**: Rich metadata including quality metrics, OCR confidence, source info
+- **qualityScore**: Numerical score indicating content reliability (0.3-1.0 scale)
+- **semanticFeatures**: Classification of content type (formulas, questions, definitions)
+- **enhancementVersion**: Version tracking for quality improvements
+
+### Optimized Loading System (v2.0)
+The RAG system now features an advanced loading pipeline with enterprise-grade capabilities:
+
+#### **Breakpoint Resume Functionality**
+- **Progress Tracking**: Automatic progress saving every few batches
+- **Resume Capability**: Interrupted loads can resume from the last checkpoint
+- **Signal Handling**: Graceful shutdown with progress preservation on Ctrl+C
+- **Progress File**: Stored in `server/rag/data/loading-progress.json`
+
+#### **Performance Optimizations**
+- **Optimal Batch Size**: Uses ChromaDB's maximum batch size (166) for fastest insertion
+- **Concurrent Processing**: Processes multiple files simultaneously (3 concurrent files)
+- **Smart Chunking**: Optimized batch processing to minimize database operations
+- **Memory Efficiency**: Processes large datasets without memory overflow
+
+#### **Data Quality & Cleanup**
+- **Quality Filtering**: Automatic filtering of low-quality chunks (< 0.3 threshold)
+- **Old Data Cleanup**: Automatically removes and backs up legacy `optimized/` data
+- **Collection Reset**: Cleans and recreates ChromaDB collection for optimal performance
+- **Metadata Enhancement**: Rich metadata with OCR confidence and semantic features
+
+#### **Monitoring & Verification**
+- **Live Progress Monitoring**: Real-time progress tracking with ETA calculations
+- **Performance Metrics**: Insertion speed tracking and optimization
+- **Data Integrity Verification**: Post-load validation of embeddings and metadata
+- **Search Function Testing**: Automated testing of retrieval functionality
+
+#### **Usage Commands**
+```bash
+# Start optimized loading (with resume support)
+pnpm run rag:load
+
+# Monitor progress in real-time
+pnpm run rag:progress:watch
+
+# Verify data quality after loading
+pnpm run rag:verify
+```
+
+## RAG System Best Practices
+
+### Quality-Driven Retrieval
+The system implements 2024 best practices for production RAG systems:
+
+- **Hybrid Search**: Combines semantic similarity with quality scoring for optimal results
+- **Quality Filtering**: Uses reliability thresholds (minimum 0.3) to ensure content accuracy  
+- **Reranking**: Secondary ranking based on OCR confidence and coherence scores
+- **Semantic Classification**: Content categorization for targeted retrieval
+
+### Production Considerations
+- **Hallucination Mitigation**: Quality scores help identify unreliable content
+- **Dynamic Updates**: Enhancement version tracking enables iterative improvements
+- **Educational Context**: Specialized preprocessing for Chinese educational materials
+- **Scalable Architecture**: Batch processing supports large-scale educational datasets
+
+### Performance Monitoring
+- Track retrieval accuracy through automated testing
+- Monitor quality score distributions across subjects
+- Evaluate OCR confidence levels for content reliability
+- Assess enhancement effectiveness through version comparisons
 
 ## Testing Strategy
 

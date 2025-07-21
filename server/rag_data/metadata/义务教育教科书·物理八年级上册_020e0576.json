@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·物理八年级上册_020e0576",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·物理八年级上册_020e0576.pdf",
+  "total_chunks": 134,
+  "total_pages": 134,
+  "processing_method": "ocr",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T02:31:31.968Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.181Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

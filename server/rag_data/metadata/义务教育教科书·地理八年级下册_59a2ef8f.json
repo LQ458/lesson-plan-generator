@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·地理八年级下册_59a2ef8f",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·地理八年级下册_59a2ef8f.pdf",
+  "total_chunks": 103,
+  "total_pages": 111,
+  "processing_method": "ocr",
+  "worker_id": "worker_9",
+  "processed_at": "2025-07-21T01:08:33.614Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.168Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

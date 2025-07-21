@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·化学九年级下册_62e5616d",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·化学九年级下册_62e5616d.pdf",
+  "total_chunks": 105,
+  "total_pages": 121,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T01:01:04.639Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.168Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

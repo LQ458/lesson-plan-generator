@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学·学生活动手册二年级上册_9210ec4f",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学·学生活动手册二年级上册_9210ec4f.pdf",
+  "total_chunks": 17,
+  "total_pages": 26,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T05:35:47.653Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.185Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

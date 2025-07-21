@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·美术七年级下册_5343ce97",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·美术七年级下册_5343ce97.pdf",
+  "total_chunks": 56,
+  "total_pages": 50,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T03:19:33.232Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.195Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

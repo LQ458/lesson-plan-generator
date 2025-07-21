@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·生物学七年级上册_5cae0f7e",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·生物学七年级上册_5cae0f7e.pdf",
+  "total_chunks": 125,
+  "total_pages": 136,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T02:42:49.570Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.182Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

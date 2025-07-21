@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐（简谱）四年级上册_1b77b58d",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐（简谱）四年级上册_1b77b58d.pdf",
+  "total_chunks": 43,
+  "total_pages": 82,
+  "processing_method": "ocr",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T09:31:01.208Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.228Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

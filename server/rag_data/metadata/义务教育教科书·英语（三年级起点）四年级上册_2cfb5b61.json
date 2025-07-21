@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语（三年级起点）四年级上册_2cfb5b61",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（三年级起点）四年级上册_2cfb5b61.pdf",
+  "total_chunks": 63,
+  "total_pages": 82,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T08:09:05.141Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.213Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/语文/统编版-人民教育出版社/九年级/义务教育教科书·语文九年级上册.pdf",
+  "extractedAt": "2025-07-20T03:47:08.795Z",
+  "method": "node-poppler",
+  "textLength": 109177,
+  "processingStats": {
+    "chunksCount": 150,
+    "embeddingsCount": 150,
+    "processedAt": "2025-07-20T03:48:53.006Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.215Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

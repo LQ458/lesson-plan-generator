@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/英语/外研社版-外语教学与研究出版社/九年级/义务教育教科书·英语九年级下册.pdf",
+  "extractedAt": "2025-07-20T03:47:09.544Z",
+  "method": "node-poppler",
+  "textLength": 177070,
+  "processingStats": {
+    "chunksCount": 251,
+    "embeddingsCount": 251,
+    "processedAt": "2025-07-20T03:48:43.643Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.206Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

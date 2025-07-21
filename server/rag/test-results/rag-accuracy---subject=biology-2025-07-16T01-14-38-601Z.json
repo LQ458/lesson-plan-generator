@@ -1,0 +1,855 @@
+{
+  "testInfo": {
+    "timestamp": "2025-07-16T01:14:38.601Z",
+    "command": "--subject=biology",
+    "type": "full"
+  },
+  "summary": {
+    "overview": {
+      "total": 12,
+      "successful": 2,
+      "failed": 10,
+      "successRate": "16.7%"
+    },
+    "categories": {
+      "精确匹配": {
+        "total": 2,
+        "success": 0
+      },
+      "学科匹配": {
+        "total": 2,
+        "success": 0
+      },
+      "年级兼容性": {
+        "total": 2,
+        "success": 1
+      },
+      "跨学科内容": {
+        "total": 1,
+        "success": 0
+      },
+      "边界情况": {
+        "total": 2,
+        "success": 0
+      },
+      "模糊查询": {
+        "total": 1,
+        "success": 0
+      },
+      "不匹配内容": {
+        "total": 1,
+        "success": 0
+      },
+      "无关内容": {
+        "total": 1,
+        "success": 1
+      }
+    },
+    "quality": {
+      "avgSubjectAccuracy": "66.7%",
+      "avgGradeAccuracy": "43.3%",
+      "avgRelevance": "0.521"
+    }
+  },
+  "detailedResults": [
+    {
+      "testCase": {
+        "category": "精确匹配",
+        "subject": "数学",
+        "grade": "三年级",
+        "topic": "加法运算",
+        "expectedSubjects": [
+          "数学"
+        ],
+        "expectedGrades": [
+          "三年级",
+          "二年级",
+          "四年级"
+        ],
+        "minRelevanceScore": 0.6,
+        "description": "测试精确的学科和年级匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 三年级下册数学人教版电子课本.pdf]\n义务教育教科书 SHUXUE 三年级下册\n\n[来源: 四年级下册数学人教版电子课本.pdf]\n义务教育教科 书 SHUXUE 四年级下册",
+        "sources": [
+          "三年级下册数学人教版电子课本.pdf",
+          "四年级下册数学人教版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 41,
+        "averageRelevance": 0.5509317624568939
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": 0.5509317624568939,
+        "subjectMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "三年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "四年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.551 < 0.6"
+        ],
+        "success": false
+      },
+      "duration": 259,
+      "timestamp": "2025-07-16T01:14:35.311Z"
+    },
+    {
+      "testCase": {
+        "category": "精确匹配",
+        "subject": "语文",
+        "grade": "五年级",
+        "topic": "古诗词鉴赏",
+        "expectedSubjects": [
+          "语文"
+        ],
+        "expectedGrades": [
+          "五年级",
+          "四年级",
+          "六年级"
+        ],
+        "minRelevanceScore": 0.6,
+        "description": "测试语文学科的课题匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 人教版语文七年级上册电子课本.pdf]\n。 65 名著导读 这所谓“书”，是指我开蒙时候所读的《鉴略》 ① ，因为我再没有第二本了。我们那 里上学的岁数是多拣单数的，所以这使我记住我其时是七岁。 我忐忑着，拿了书来了。他使我同坐在堂中央的桌子前，教我一句一句地读下去。 我担着心，一句一句地读下去。 两句一行，大约读了二三十行罢，他说： “给我读熟。背不出，就不准去看会。” 他说完，便站起来，走进房里去了。 我似乎从头上浇了一盆冷水。但是，有什么法子呢？自然是读着，读着，强记 着，——而且要背出来。 粤自盘古，生于太荒， 首出御世，肇开混茫 ② 。 就是这样的书，我现在只记得前四句，别的都忘却了；那时所强记的二三十行，自 然也一齐忘却在里面了。记得那时听人说，读《鉴略》比读《千字文》 ③ ，《百家姓》 ④ 有 用得多，因为可以知道从古到今的大概。知道从古到今的大概，那当然是很好的，然而 我一字也不懂。“粤自盘古”就是“粤自盘古”，读下去，记住它，“粤自盘古”呵！“生 于太荒”呵！...... 应用的物件已 经搬完，家中由忙乱转成静肃了。朝阳照着西墙，天气很清朗。母亲， 工人， 长妈妈即阿长，都无法营救，只默默地静候着我读熟，而且背出来。在百静中， 我似乎头里要伸出许多铁钳，将什么“生于太荒”之流夹住；也听到自己急急诵读的声 音发着抖，仿佛深秋的蟋蟀，在夜中鸣叫似的。 他们都等候着；太阳也升得更高了。 我忽然似乎已经很有把握，便即站了起来，拿书走进父亲的书房，一气背将下去， 梦似的就背完了。 “不错。去罢。”父亲点着头，说。 大家同时活动起来，脸上都露出笑容，向河埠走去。工人将我高高地抱起，仿佛在 祝贺我的成功一般，快步走在最前头。 我却并没有他们那么高兴。开船以后，水路中的风景，盒子里的点心，以及到了东 关的五猖会的热闹，对于我似乎都没有什么大意思。 直到现在，别的完全忘却，不留一点痕迹了，只有背诵《鉴略》这一段，却还分明 如昨日事。 我至今一想起，还诧异我的父亲何以要在那时候叫我来背书。 （选自《朝花夕拾》，《鲁迅全集》第二卷，人民文学出版社2005年版） ①〔《鉴略》〕指《四字鉴略》，旧时书塾所用的 一种初级历史读物，清代王仕云编，形式为四 言韵语，所叙历史上起盘古，下至明代弘光。 ②〔粤自盘古......肇开混茫〕自盘古生于荒远之 地，他首先出来治理天下，开始辟开天地混 沌蒙昧的状态。粤，发语词，用于句首。太 荒，荒远的地方。御世，治理天下。肇，开 始。混茫，形容天地分离前蒙昧混沌的状态。 ③〔《千字文》〕旧时书塾所用的一种蒙学读本， 相传为南朝梁周兴嗣作，用一千个不同的字 编成，四字一句，对偶押韵，便于记诵。 ④〔《百家姓》〕旧时书塾所用的一种蒙学读本， 北宋人作，将姓氏连缀为四言韵语，便于记诵。 66 名著导读 自主阅读推荐 林海音《城南旧事》 冬阳下的骆驼队、缓慢悦耳的铃声、小胡同里的井窝子、穿街绕巷的“唱话匣子 的”......这是上个世纪二三十年代的北京南城，是林海音《城南旧事》中所描绘的旧 日京华。 《城南旧事》是一部带有强烈自传色彩的小说，创作于1960年，由五个既各自独 立，又在时间上具有延续性的短篇组成。作品以一个早熟、聪慧而又童稚未消的小女 孩英子的视角来回忆往事，记录了“我”在爱与离别中懵懂成长的历程。小英子清澈 的双眸，映现出童年的纯真，也深藏着人生的悲欢离合，令人感受到作者“缅怀童年 的心情”。至于主题，有人说是别离，有人说是成长，还有人认为是乡愁........",
+        "sources": [
+          "人教版语文七年级上册电子课本.pdf"
+        ],
+        "totalResults": 5,
+        "usedResults": 1,
+        "tokenCount": 1453,
+        "averageRelevance": 0.4271883177757263
+      },
+      "analysis": {
+        "totalResults": 5,
+        "usedResults": 1,
+        "averageRelevance": 0.4271883177757263,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "人教版语文七年级上册电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "年级匹配度过低: 0.0%",
+          "相关性分数过低: 0.427 < 0.6"
+        ],
+        "success": false
+      },
+      "duration": 167,
+      "timestamp": "2025-07-16T01:14:35.478Z"
+    },
+    {
+      "testCase": {
+        "category": "学科匹配",
+        "subject": "物理",
+        "grade": "八年级",
+        "topic": "力的作用",
+        "expectedSubjects": [
+          "物理"
+        ],
+        "expectedGrades": [
+          "八年级",
+          "七年级",
+          "九年级"
+        ],
+        "minRelevanceScore": 0.5,
+        "description": "测试物理学科的专业术语匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版物理八年级下册电子课本.pdf]\n义务教育教科书 八年级下册 灶京忤范大学出胶社 ．北京．",
+        "sources": [
+          "北师大版物理八年级下册电子课本.pdf"
+        ],
+        "totalResults": 1,
+        "usedResults": 1,
+        "tokenCount": 28,
+        "averageRelevance": 0.4903696286678314
+      },
+      "analysis": {
+        "totalResults": 1,
+        "usedResults": 1,
+        "averageRelevance": 0.4903696286678314,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "北师大版物理八年级下册电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.490 < 0.5"
+        ],
+        "success": false
+      },
+      "duration": 181,
+      "timestamp": "2025-07-16T01:14:35.659Z"
+    },
+    {
+      "testCase": {
+        "category": "学科匹配",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "藻类植物",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级",
+          "六年级",
+          "八年级"
+        ],
+        "minRelevanceScore": 0.5,
+        "description": "测试生物学科特定内容匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": 0.5571963816881179
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": 0.5571963816881179,
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 431,
+      "timestamp": "2025-07-16T01:14:36.090Z"
+    },
+    {
+      "testCase": {
+        "category": "年级兼容性",
+        "subject": "数学",
+        "grade": "一年级",
+        "topic": "数字认识",
+        "expectedSubjects": [
+          "数学"
+        ],
+        "expectedGrades": [
+          "一年级",
+          "二年级"
+        ],
+        "minRelevanceScore": 0.4,
+        "description": "测试低年级内容的年级匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 二年级下册数学人教版电子课本.pdf]\n义务教育教科书 SHUXUE 二年级下册\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 四年级下册数学人教版电子课本.pdf]\n义务教育教科 书 SHUXUE 四年级下册\n\n[来源: 三年级下册数学人教版电子课本.pdf]\n义务教育教科书 SHUXUE 三年级下册\n\n[来源: 六年级下册数学人教版电子课本.pdf]\n义务教育教科书 SHUXUE 六年级下册",
+        "sources": [
+          "二年级下册数学人教版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf",
+          "四年级下册数学人教版电子课本.pdf",
+          "三年级下册数学人教版电子课本.pdf",
+          "六年级下册数学人教版电子课本.pdf"
+        ],
+        "totalResults": 5,
+        "usedResults": 5,
+        "tokenCount": 105,
+        "averageRelevance": 0.5153847281932832
+      },
+      "analysis": {
+        "totalResults": 5,
+        "usedResults": 5,
+        "averageRelevance": 0.5153847281932832,
+        "subjectMatch": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 5,
+          "accuracy": 0.2
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "二年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "四年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "三年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "年级匹配度过低: 20.0%"
+        ],
+        "success": false
+      },
+      "duration": 193,
+      "timestamp": "2025-07-16T01:14:36.283Z"
+    },
+    {
+      "testCase": {
+        "category": "年级兼容性",
+        "subject": "英语",
+        "grade": "九年级",
+        "topic": "语法结构",
+        "expectedSubjects": [
+          "英语"
+        ],
+        "expectedGrades": [
+          "九年级",
+          "八年级"
+        ],
+        "minRelevanceScore": 0.4,
+        "description": "测试高年级内容的年级匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 人教版英语九年级全一册电子课本.PDF]\n。 同学们，继续努力吧！祝你们英语学习取得更大进步\n\n[来源: 人教版英语九年级全一册电子课本.PDF]\n。 在英式和美式发音有区别时，英式发音在前，美式发音在后\n\n[来源: 人教版英语九年级全一册电子课本.PDF]\n。 在英式发音和美式发音有区别时，英式发音在前，美式发音在后\n\n[来源: 人教版英语九年级全一册电子课本.PDF]\n。例如： telephone → phone airplane → plane laboratory → lab mathematics → math advertisement → ad examination → exam influenza → flu 后 缀示 例 -or / -er （从事某种职业的人，名词后 缀 ） actor, visitor, director, singer, runner, worker, driver -ist （人，名词后缀） artist, scientist, tourist, terrorist -ese （民族、语言，名词后缀） Chinese, Japanese -tion （表示动作、状态，名词后缀） invitation, attraction, population, pronunciation -ful （充满，形容词后缀） successful, beautiful, colorful, wonderful -y （表性质，形容词后缀） funny, healthy, cloudy, windy -ing （形容词后缀） boring, exciting, interesting, outstanding -ed （形容词后缀） surprised, balanced, relaxed, talented -al （⋯⋯的，形容词后缀） traditional, international, natural -able （能够，形容词后缀） comfortable, unforgettable -less （没有、无，形容词后缀） homeless, helpless, careless -ly （副词或形容词后缀） really, usually, finally, friendly 前 缀示 例 un- （不、非，表示否定） unfriendly, unpleasant, uncomfortable dis- （不、非，表示否定） disadvantage, dishonest, disagree bi- （两个、双边的） bicycle inter- （相互、交互、在一起） interview, international, Internet re- （又、再、重新） review, return, rewrite tele- （远） telephone, television Grammar 118 另外还有很多缩写词是由各个单词的首字母组成，例如： CD (compact disk) CCTV (China Central Television) kg (kilogram) NBA (National Basketball Association) UFO (unidentified flying object) UN (United Nations) ID (identification) USA (United States of America) WWF (World Wide Fund for Nature or World Wildlife Fund) 119 Page PB Words and Expre...",
+        "sources": [
+          "人教版英语九年级全一册电子课本.PDF"
+        ],
+        "totalResults": 4,
+        "usedResults": 4,
+        "tokenCount": 1453,
+        "averageRelevance": 0.47529647648334505
+      },
+      "analysis": {
+        "totalResults": 4,
+        "usedResults": 4,
+        "averageRelevance": 0.47529647648334505,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "人教版英语九年级全一册电子课本.PDF",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [],
+        "success": true
+      },
+      "duration": 92,
+      "timestamp": "2025-07-16T01:14:36.375Z"
+    },
+    {
+      "testCase": {
+        "category": "跨学科内容",
+        "subject": "科学",
+        "grade": "六年级",
+        "topic": "环境保护",
+        "expectedSubjects": [
+          "生物",
+          "地理",
+          "化学",
+          "科学"
+        ],
+        "expectedGrades": [
+          "六年级",
+          "五年级",
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "测试跨学科主题的匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册数学人教版电子课本.pdf]\n义务教育教科书 SHUXUE 六年级下册\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 六年级下册英语湘鲁版电子课本.pdf]\n。 同学们，让我们一起踏上英语学习的新航程吧！预祝你们成功\n\n[来源: 六年级上册道德与法治部编版电子课本.pdf]\n笔记本：微信 创建时间：2020/6/12 15:54 URL：https://mp.weixin.qq.com/s?src=11&timestamp=1591945867&ver=2395&signature=tMaZFQ9NjNo03kihQsH0yEB4tN ... 【电子书】部编版小学道德与法治六年级上册电子课本\n\n[来源: 六年级下册英语闽教版电子课本.pdf]\n图片来源网络，版权归福建教育出版社，本公众号只作公益性分享，供孩子们预习使用，如有侵权请告知删除。 扬小帆学数学\n\n[来源: 六年级下册英语广东开心版电子课本.pdf]\n；饮 （drink的过去时形式） What a...! 多么......啊\n\n[来源: 六年级下册英语清华版电子课本.pdf]\n。 英语很重要 ！ 英语很有趣 ！ 让我们共同努力 ， 把英语学好",
+        "sources": [
+          "六年级下册数学人教版电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf",
+          "六年级下册英语湘鲁版电子课本.pdf",
+          "六年级上册道德与法治部编版电子课本.pdf",
+          "六年级下册英语闽教版电子课本.pdf",
+          "六年级下册英语广东开心版电子课本.pdf",
+          "六年级下册英语清华版电子课本.pdf"
+        ],
+        "totalResults": 7,
+        "usedResults": 7,
+        "tokenCount": 377,
+        "averageRelevance": 0.5042576772826058
+      },
+      "analysis": {
+        "totalResults": 7,
+        "usedResults": 7,
+        "averageRelevance": 0.5042576772826058,
+        "subjectMatch": {
+          "correct": 0,
+          "total": 7,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 7,
+          "total": 7,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册数学人教版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "六年级下册英语湘鲁版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "六年级上册道德与法治部编版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "六年级下册英语闽教版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 91,
+      "timestamp": "2025-07-16T01:14:36.466Z"
+    },
+    {
+      "testCase": {
+        "category": "边界情况",
+        "subject": "音乐",
+        "grade": "四年级",
+        "topic": "节拍练习",
+        "expectedSubjects": [
+          "音乐"
+        ],
+        "expectedGrades": [
+          "四年级",
+          "三年级",
+          "五年级"
+        ],
+        "minRelevanceScore": 0.2,
+        "description": "测试非主科内容的匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 人教版英语九年级全一册电子课本.PDF]\n。 同学们，继续努力吧！祝你们英语学习取得更大进步\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "人教版英语九年级全一册电子课本.PDF",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 66,
+        "averageRelevance": 0.6483408468961716
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": 0.6483408468961716,
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "人教版英语九年级全一册电子课本.PDF",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 776,
+      "timestamp": "2025-07-16T01:14:37.242Z"
+    },
+    {
+      "testCase": {
+        "category": "边界情况",
+        "subject": "美术",
+        "grade": "二年级",
+        "topic": "色彩搭配",
+        "expectedSubjects": [
+          "美术"
+        ],
+        "expectedGrades": [
+          "二年级",
+          "一年级",
+          "三年级"
+        ],
+        "minRelevanceScore": 0.2,
+        "description": "测试艺术类学科的匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册美术人美版电子课本.pdf]\n。 思考与讨论： 1. 我们学习了解世界自然 遗产有什么意义？ 2.你喜欢哪一处自然遗 产？请把它的自然之美和奇观 特点介绍给同学们。 3. 通过学习了解世界自然 遗产，我们应该如何珍视它们？ 评一评： 我知道了保护世界自然遗产是我 们每一位同学的责任。 看哪个小组壁报办得美观，对世 界自然遗产认识深刻并介绍得全面？ 加兰巴国家公园 (刚果民主共和国 非洲) 科罗拉多大峡谷 (美国 美洲) 维多利亚瀑布 (津巴布韦 非洲) 广袤辽阔的非洲大草原和热带雨林，是许多大型 哺乳类动物繁衍生息的理想家园。 维多利亚瀑 布位于南部非洲 的中部，1855 年 被英国探险家发 现。瀑布最宽处 达 1700 米。看， 在美丽的彩虹映 衬之下，大瀑布 是多么壮观啊！ 世界自然遗产世界自然遗产 欣赏提示： 自然美是一个整体， 天空、大地、山峦、河流、 树木......构成了和谐之美。 自然美不是静止的，而是动 态的，有四季、气候、生命 的变化......我们可以亲身感 受它们的芬芳、声音、冷暖 ......自然美的特征包括以下 几点：1. 自然本身的质地 材料、色彩、形状等；2. 自 然美偏重于形式；3. 自然 美具有联想性等。 科罗拉多河流过美国西部，途 中的褐红色大地被河流切削形成了 有着神奇地貌的大峡谷。大峡谷 全长 350 千米，平均谷深 1600 米，是探险者的乐园。 67 艺术实践： 学习临摹民间艺术作品，总结民 间艺术运用装饰色彩的规律，画一幅 色彩既鲜艳又和谐的装饰画。 学生作品 评一评： 我知道了装饰色彩的用色方法。 看谁的作品运用装饰色彩既对比 强烈，又和谐统一？ 小体验： 请你根据 龙、虎、猴纹样 中用色的多少， 分别总结出它们 的色彩比例，想 想这是为什么？ %%%%%% 色彩比例表 生肖图 盛装的藏族少女 美丽的花孔雀 春天的故事 装饰色彩 耱地 (农民画) 1993 常振芳 老子出关 (漆画) 1986 王和举 彝族服饰 装饰色彩常常和 现实生活中的色彩不 一样。虽然它源于自 然，但不是对自然色 彩的复制。你看《耱地》 里的牛多好看！可是 生活中的牛真有这么 多色彩吗？农民画家 敢于把牛画得这么艳 丽，显示了他们对色 彩的丰富想象力和对 生活的无限热爱。 思考与讨论： ­ 1. 本课美术作品中的物象色彩与生活中的物象色彩有 哪些不同？装饰色彩给了你什么样的感受？ 2. 装饰色彩在画法上有什么特点？ 3. 民间艺术作品中的装饰色彩为什么既鲜艳又和谐？ 小知识： 一切在自然色彩的基础上，经过 概括、提炼、想象、夸张等艺术加工 后的色彩，可被称为装饰色彩。 89 艺术实践： 请你用富于 变化的线条和装 饰性色彩创作一 幅风格别致的装 饰画。 学生作品 小知识： 装饰画与写实绘画不同，它 偏重表现形式的装饰性，不强调 真实光影和透视关系，注重色彩 的象征性及整体的和谐，多以夸 张、变形的手法，给人以简洁、 明快、强烈的艺术美感。 评一评： 我学会了画装饰画。 看谁的作品夸张、变形、概括的手法运 用得好，线条和色彩装饰得富有美感？ 仙鹤 花丛 神鸟 小女孩 闹新春 装饰画 凤 (壁挂) 现代 李永平 乐园之梦 (装饰画) 1988 丁绍光 静谧的蓝色密林中， 洁白的飞鸟与婀娜的少 女相依相戏，引发人们 关于美的无限联想。疏 疏密密地交织在一起的 金色线条，带给画面一 种月色融融的感觉。 思考与讨论： 1. 装饰画和写实性绘画 在表现手法上有什么不同？...",
+        "sources": [
+          "六年级下册美术人美版电子课本.pdf"
+        ],
+        "totalResults": 1,
+        "usedResults": 1,
+        "tokenCount": 1453,
+        "averageRelevance": 0.4277883815765381
+      },
+      "analysis": {
+        "totalResults": 1,
+        "usedResults": 1,
+        "averageRelevance": 0.4277883815765381,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册美术人美版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 365,
+      "timestamp": "2025-07-16T01:14:37.607Z"
+    },
+    {
+      "testCase": {
+        "category": "模糊查询",
+        "subject": "语文",
+        "grade": "三年级",
+        "topic": "写作技巧",
+        "expectedSubjects": [
+          "语文"
+        ],
+        "expectedGrades": [
+          "三年级",
+          "二年级",
+          "四年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "测试模糊主题的匹配能力"
+      },
+      "contextResult": {
+        "context": "[来源: 人教版语文七年级下册电子课本.pdf]\n。试简要说明。 三 “伟大的神力”在文中两次出现。联系上下文，说说其含义的不同。 四 文中一些语句略带夸张。揣摩下列语句，讨论括号里的问题。 1. 但到憎恶她的时候，——例如知道了谋死我那隐鼠的却是她的时候，就叫她阿长。 （为什么要用“憎恶”“谋死”这样的词语呢？） 2. 然而我有一时也对她发 生过空前的敬意。 （这里用“空 前”来修饰“敬意”，给你什么感觉？你怎么理解“敬意”在文中 的具体含义？） 3. 夜间的伸开手脚，占领全床，那当然是情有可原的了，倒应该我退让。 （作者是否真的认为“情有可原”，“应该我退让”？你的理由是什么？） 积累拓展 五 课外翻阅绘图版《山海经》，试着查找关于 “九头的蛇”“三脚的鸟”“一 脚的牛”等的文字或配图，看看这些“怪物”究竟是什么。同时，大体了 解这本书的主要内容，感受其神奇色彩。 56 阅 读 第三单元 读读写写 长妈妈其人 阿长（？—1899），鲁迅称她为“长妈妈”，浙江绍兴东浦大门溇人。她是 鲁迅儿时的保姆。 “长妈妈只是许多旧式女人中的一个，做了一辈子的老妈子（乡下叫作‘做 妈妈’），平时也不回家去，直到临死。”长妈妈患有羊角风，1899年4月“初六 日雨中放舟至大树港看戏，鸿寿堂徽班，长妈妈发病，辰刻身故”。 鲁迅对长妈妈怀有深厚的感情，在《朝花夕拾》中，有好几篇文章回忆到与 长妈妈有关的往事，其中《阿长与〈山海经〉》是专门回忆和纪念她的。 其实，这个来自东浦的长妈妈身材矮小，周家原先的保姆个子高大，按周家 工友王鹤照的说法：章福庆的妻子阮氏——“庆太娘”才是真正的长妈妈，只是 叫惯了，也把东浦的那位叫作长妈妈。不过，笔者曾特地为此函询周建人夫妇，回 答是否定的意见，周作人日记里的“章妈”也是东浦的那位长妈妈死后再雇请的。 （选自《鲁迅生平史料汇编》第一辑，天津人民出版社1981年版） 57 阅 读 10 老 王 ① 选自《杨绛散文》（浙江文艺出版社1994年版）。 有改动。 ② 〔干校〕指“五七干校”，“文化大革命”期间 国家干部集体下放劳动锻炼的场所。 ③ 〔塌败〕塌陷破败。 10 老 王 ① 杨 绛 预 习 ◎ 阅读课文，想一想，在作者眼中，老王是个怎样的人？ ◎ 再读一遍课文，想一想，在老王眼中，杨绛又会是个什么样的人呢？ 我常坐老王的三轮。他蹬，我坐，一路上我们说着闲话。 据老王自己讲：北京解放后，蹬三轮的都组织起来；那时候他“脑袋 慢”，“没绕过来”，“晚了一步”，就“进不去了”。他感叹自己“人老了，没 用了”。老王常有失群落伍的惶恐，因为他是单干户。他靠着活命的只是一 辆破旧的三轮车。有个哥哥，死了，有两个侄儿，“没出息”，此外就没什么 亲人。 老王只有一只眼，另一只是“田螺眼”，瞎的。乘客不愿坐他的车，怕他 看不清，撞了什么。有人说，这老光棍大约年轻时候不老实，害了什么恶病， 瞎掉一只眼。他那只好眼也有病，天黑了就看不见。有一次，他撞在电杆上， 撞得半面肿胀，又青又紫。那时候我们在干校 ② ，我女儿说他是夜盲症，给 他吃了大瓶的鱼肝油，晚上就看得见了。他也许是从小营养不良而瞎了一眼， 也许 是得了恶病，反正同是不幸，而后者该是更深的不幸。 有一天傍晚，我们夫妇散步，经过一个荒僻的小胡同，看见一个破破落 落的大院，里面有几间塌败 ③ 的小屋；老王正蹬着他那辆三轮进大院去。后 来我坐着老王的车和他闲聊的时候，问起那里是不是他的家。他说，住那儿 多年了。 有一年夏天，老王给我们楼下人家送冰，...",
+        "sources": [
+          "人教版语文七年级下册电子课本.pdf"
+        ],
+        "totalResults": 4,
+        "usedResults": 1,
+        "tokenCount": 1453,
+        "averageRelevance": 0.4607918071746826
+      },
+      "analysis": {
+        "totalResults": 4,
+        "usedResults": 1,
+        "averageRelevance": 0.4607918071746826,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "人教版语文七年级下册电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 351,
+      "timestamp": "2025-07-16T01:14:37.958Z"
+    },
+    {
+      "testCase": {
+        "category": "不匹配内容",
+        "subject": "数学",
+        "grade": "一年级",
+        "topic": "微积分原理",
+        "expectedSubjects": [
+          "数学"
+        ],
+        "expectedGrades": [],
+        "minRelevanceScore": 0.1,
+        "description": "测试超出年级范围内容的过滤",
+        "shouldFail": true
+      },
+      "contextResult": {
+        "context": "[来源: 二年级下册数学人教版电子课本.pdf]\n义务教育教科书 SHUXUE 二年级下册",
+        "sources": [
+          "二年级下册数学人教版电子课本.pdf"
+        ],
+        "totalResults": 1,
+        "usedResults": 1,
+        "tokenCount": 20,
+        "averageRelevance": 0.5413833963871002
+      },
+      "analysis": {
+        "totalResults": 1,
+        "usedResults": 1,
+        "averageRelevance": 0.5413833963871002,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "二年级下册数学人教版电子课本.pdf",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [],
+        "success": false
+      },
+      "duration": 208,
+      "timestamp": "2025-07-16T01:14:38.166Z"
+    },
+    {
+      "testCase": {
+        "category": "无关内容",
+        "subject": "体育",
+        "grade": "五年级",
+        "topic": "量子物理",
+        "expectedSubjects": [
+          "体育"
+        ],
+        "expectedGrades": [],
+        "minRelevanceScore": 0.1,
+        "description": "测试完全无关内容的过滤",
+        "shouldFail": true
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 人教版英语九年级全一册电子课本.PDF]\n。 同学们，继续努力吧！祝你们英语学习取得更大进步",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "人教版英语九年级全一册电子课本.PDF"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 66,
+        "averageRelevance": 0.6483408468961716
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": 0.6483408468961716,
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "人教版英语九年级全一册电子课本.PDF",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%"
+        ],
+        "success": true
+      },
+      "duration": 435,
+      "timestamp": "2025-07-16T01:14:38.601Z"
+    }
+  ]
+}

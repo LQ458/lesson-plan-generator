@@ -6,7 +6,7 @@ const { DefaultEmbeddingFunction } = require("chromadb");
 // 配置
 const CHROMA_PATH = "http://localhost:8000";
 const COLLECTION_NAME = "lesson_materials";
-const OPTIMIZED_DATA_PATH = path.join(__dirname, "../../optimized");
+const RAG_DATA_PATH = path.join(__dirname, "../../rag_data/chunks");
 
 class OptimizedDataLoader {
   constructor() {
@@ -62,8 +62,8 @@ class OptimizedDataLoader {
     console.log("🚀 开始加载优化数据...");
 
     try {
-      // 读取optimized文件夹中的所有JSON文件
-      const files = await fs.readdir(OPTIMIZED_DATA_PATH);
+      // 读取rag_data/chunks文件夹中的所有JSON文件
+      const files = await fs.readdir(RAG_DATA_PATH);
       const jsonFiles = files.filter((file) => file.endsWith(".json"));
 
       this.stats.totalFiles = jsonFiles.length;
@@ -83,7 +83,7 @@ class OptimizedDataLoader {
 
   async processFile(filename) {
     try {
-      const filePath = path.join(OPTIMIZED_DATA_PATH, filename);
+      const filePath = path.join(RAG_DATA_PATH, filename);
       const fileContent = await fs.readFile(filePath, "utf-8");
       const data = JSON.parse(fileContent);
 
@@ -92,16 +92,34 @@ class OptimizedDataLoader {
       // 解析文件名获取教材信息
       const materialInfo = this.parseFilename(filename);
 
-      // 处理chunks数据
-      if (data.chunks && Array.isArray(data.chunks)) {
-        await this.processChunks(data.chunks, materialInfo, filename);
+      // 处理chunks数据 - 支持增强格式
+      let chunks;
+      if (Array.isArray(data)) {
+        // 新的增强格式：直接是chunks数组
+        chunks = data;
+      } else if (data.chunks && Array.isArray(data.chunks)) {
+        // 旧格式：包装在chunks属性中
+        chunks = data.chunks;
       } else {
         console.warn(`⚠️ 文件 ${filename} 没有有效的chunks数据`);
+        return;
       }
+
+      // 应用质量过滤
+      const qualityFilteredChunks = chunks.filter(chunk => 
+        !chunk.qualityScore || chunk.qualityScore >= 0.3
+      );
+
+      if (qualityFilteredChunks.length === 0) {
+        console.warn(`⚠️ 文件 ${filename} 所有chunks都被质量过滤器过滤`);
+        return;
+      }
+
+      await this.processChunks(qualityFilteredChunks, materialInfo, filename);
 
       this.stats.processedFiles++;
       console.log(
-        `✅ 完成处理: ${filename} (${data.chunks?.length || 0} chunks)`,
+        `✅ 完成处理: ${filename} (总chunks: ${chunks.length}, 质量过滤后: ${qualityFilteredChunks.length})`,
       );
     } catch (error) {
       console.error(`❌ 处理文件 ${filename} 失败:`, error);
@@ -199,7 +217,7 @@ class OptimizedDataLoader {
         // 准备文档内容
         const content = chunk.content.trim();
 
-        // 准备元数据
+        // 准备增强元数据
         const metadata = {
           source: filename,
           chunk_index: startIndex + i,
@@ -209,9 +227,30 @@ class OptimizedDataLoader {
           material_name: materialInfo.materialName,
           material_type: materialInfo.type,
           content_length: content.length,
-          page_number: chunk.page_number || 0,
           created_at: new Date().toISOString(),
-          ...chunk.metadata, // 包含原始元数据
+          
+          // 增强质量指标
+          qualityScore: chunk.qualityScore || 0.5,
+          reliability: chunk.reliability || "medium",
+          enhancementVersion: chunk.metadata?.enhancementVersion || "2.0",
+          
+          // OCR和处理信息
+          ocrConfidence: chunk.metadata?.qualityMetrics?.ocrConfidence || null,
+          chineseCharRatio: chunk.metadata?.qualityMetrics?.chineseCharRatio || null,
+          lengthScore: chunk.metadata?.qualityMetrics?.lengthScore || null,
+          coherenceScore: chunk.metadata?.qualityMetrics?.coherenceScore || null,
+          
+          // 语义特征
+          hasFormulas: chunk.semanticFeatures?.hasFormulas || false,
+          hasNumbers: chunk.semanticFeatures?.hasNumbers || false,
+          hasExperiment: chunk.semanticFeatures?.hasExperiment || false,
+          hasDefinition: chunk.semanticFeatures?.hasDefinition || false,
+          hasQuestion: chunk.semanticFeatures?.hasQuestion || false,
+          isTableContent: chunk.semanticFeatures?.isTableContent || false,
+          subjectArea: chunk.semanticFeatures?.subjectArea || materialInfo.subject,
+          
+          // 原始元数据
+          ...chunk.metadata,
         };
 
         documents.push(content);

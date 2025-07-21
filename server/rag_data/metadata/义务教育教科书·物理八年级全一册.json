@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/物理/沪科技版-上海科学技术出版社/八年级/义务教育教科书·物理八年级全一册.pdf",
+  "extractedAt": "2025-07-18T13:10:16.283Z",
+  "method": "node-poppler",
+  "textLength": 110918,
+  "processingStats": {
+    "chunksCount": 148,
+    "embeddingsCount": 148,
+    "processedAt": "2025-07-18T13:11:01.648Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.182Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

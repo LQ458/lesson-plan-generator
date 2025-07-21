@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/数学/西南师大版/义务教育教科书·数学二年级下册.pdf",
+  "extractedAt": "2025-07-18T13:39:59.071Z",
+  "method": "node-poppler",
+  "textLength": 31671,
+  "processingStats": {
+    "chunksCount": 43,
+    "embeddingsCount": 43,
+    "processedAt": "2025-07-18T13:40:13.685Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.179Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语（三年级起点）六年级下册_b45ec25b",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（三年级起点）六年级下册_b45ec25b.pdf",
+  "total_chunks": 42,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T07:44:11.616Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.213Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

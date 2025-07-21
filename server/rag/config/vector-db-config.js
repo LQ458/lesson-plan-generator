@@ -37,11 +37,12 @@ const config = {
 
   // 文档处理配置
   documents: {
-    optimizedDir: process.env.OPTIMIZED_DIR || "./optimized",
+    ragDataDir: process.env.RAG_DATA_DIR || "./rag_data/chunks",
     supportedFormats: [".json"],
     batchSize: 100,
     maxDocumentSize: 10 * 1024 * 1024, // 10MB
-    minQualityScore: 0,
+    minQualityScore: 0.3, // Updated for enhanced data quality
+    enhancedFormat: true, // Flag for new enhanced data format
   },
 
   // 学科和年级映射

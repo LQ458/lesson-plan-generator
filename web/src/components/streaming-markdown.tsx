@@ -48,6 +48,40 @@ const preprocessContent = (content: string): string => {
   // 2. 基本的清理，移除开头的空行
   processedContent = processedContent.replace(/^\s*\n+/, "");
 
+  // 3. 修复数学公式格式问题
+  // 处理常见的数学公式转换问题
+  processedContent = processedContent
+    // 修复上标和下标
+    .replace(/(\w+)\^(\d+)/g, '$1^{$2}')
+    .replace(/(\w+)_(\d+)/g, '$1_{$2}')
+    // 修复分数格式
+    .replace(/(\d+)\/(\d+)/g, '\\frac{$1}{$2}')
+    // 修复常见数学符号
+    .replace(/±/g, '\\pm')
+    .replace(/×/g, '\\times')
+    .replace(/÷/g, '\\div')
+    .replace(/≤/g, '\\leq')
+    .replace(/≥/g, '\\geq')
+    .replace(/≠/g, '\\neq')
+    .replace(/∞/g, '\\infty')
+    .replace(/√/g, '\\sqrt')
+    .replace(/∆/g, '\\Delta')
+    // 确保数学公式被正确包围
+    .replace(/\$([^$\n]+)\$/g, (match, formula) => {
+      // 检查是否已经是正确的LaTeX格式
+      if (formula.includes('\\')) {
+        return match;
+      }
+      // 简单的公式修正
+      return `$${formula}$`;
+    })
+    // 处理化学分子式
+    .replace(/([A-Z][a-z]?)(\d+)/g, '$1_{$2}')
+    // 修复块级数学公式
+    .replace(/\$\$([^$]+)\$\$/g, (match, formula) => {
+      return `$$${formula}$$`;
+    });
+
   return processedContent;
 };
 
@@ -95,7 +129,7 @@ export default function StreamingMarkdown({
       setDisplayContent(processedContent);
       setLastProcessedLength(content.length);
     }
-  }, [isStreaming, content]);
+  }, [isStreaming, content, displayContent]);
 
   // 优化的markdown渲染配置
   const markdownComponents = useMemo(

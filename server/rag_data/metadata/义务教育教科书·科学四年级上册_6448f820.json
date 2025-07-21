@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学四年级上册_6448f820",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学四年级上册_6448f820.pdf",
+  "total_chunks": 1,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T05:46:16.399Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.193Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

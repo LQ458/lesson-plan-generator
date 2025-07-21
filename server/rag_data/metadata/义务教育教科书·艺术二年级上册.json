@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/艺术/鄂教版/义务教育教科书·艺术二年级上册.pdf",
+  "extractedAt": "2025-07-18T13:46:02.042Z",
+  "method": "node-poppler",
+  "textLength": 7733,
+  "processingStats": {
+    "chunksCount": 12,
+    "embeddingsCount": 12,
+    "processedAt": "2025-07-18T13:46:05.869Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.204Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

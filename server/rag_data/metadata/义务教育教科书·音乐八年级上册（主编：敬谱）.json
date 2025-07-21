@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/音乐/人音版（主编：敬谱）-人民音乐出版社/八年级/义务教育教科书·音乐八年级上册（主编：敬谱）.pdf",
+  "extractedAt": "2025-07-19T21:19:00.453Z",
+  "method": "node-poppler",
+  "textLength": 12775,
+  "processingStats": {
+    "chunksCount": 18,
+    "embeddingsCount": 18,
+    "processedAt": "2025-07-19T21:19:04.623Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.219Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

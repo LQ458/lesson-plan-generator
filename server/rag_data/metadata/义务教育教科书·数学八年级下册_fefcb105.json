@@ -1,0 +1,20 @@
+{
+  "filename": "义务教育教科书·数学八年级下册_fefcb105",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学八年级下册_fefcb105.pdf",
+  "total_chunks": 1,
+  "total_pages": 1,
+  "processing_method": "ocr_memory_optimized",
+  "worker_id": "large_worker_0",
+  "memory_optimized": true,
+  "processed_at": "2025-07-21T13:17:48.646Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.179Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

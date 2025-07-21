@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/美术/辽海版/义务教育教科书·美术四年级上册.pdf",
+  "extractedAt": "2025-07-18T13:45:37.947Z",
+  "method": "node-poppler",
+  "textLength": 9070,
+  "processingStats": {
+    "chunksCount": 13,
+    "embeddingsCount": 13,
+    "processedAt": "2025-07-18T13:45:41.993Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.202Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

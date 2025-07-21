@@ -1,0 +1,35 @@
+{
+  "fileName": "义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）",
+  "uniqueId": "初中_地理图册_配套晋教版_七年级_义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）",
+  "filePath": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/地理图册/配套晋教版-星球地图出版社/七年级/义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）.pdf",
+  "totalPages": 52,
+  "averageConfidence": 36.23076923076923,
+  "processingTime": 234140,
+  "ocrMethod": "tesseract.js-parallel",
+  "pathInfo": {
+    "originalPath": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/地理图册/配套晋教版-星球地图出版社/七年级/义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）.pdf",
+    "relativePath": "初中/地理图册/配套晋教版-星球地图出版社/七年级/义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）.pdf",
+    "fileName": "义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）",
+    "uniqueId": "初中_地理图册_配套晋教版_七年级_义务教育教科书·地理图册七年级下册（主编：高培英&周瑞祥）",
+    "segment": "初中",
+    "subject": "地理图册",
+    "publisher": "配套晋教版-星球地图出版社",
+    "grade": "七年级"
+  },
+  "sourceType": "ocr",
+  "enhancementDate": "2025-07-20T01:57:22.737Z",
+  "originalChunkCount": 71,
+  "enhancedChunkCount": 0,
+  "rejectionRate": 1,
+  "averageQualityScore": 0,
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.171Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

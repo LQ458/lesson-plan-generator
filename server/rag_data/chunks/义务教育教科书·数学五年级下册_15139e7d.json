@@ -1,0 +1,59 @@
+[
+  {
+    "content": "甲品牌 ⼄乙品牌 110 80 115 130 120 140 44月 55月 66月甲品牌乙品牌甲品牌 ⼄乙品牌 110 80 115 130 120 140 44月 55月 66月甲品牌乙品牌",
+    "metadata": {
+      "filename": "义务教育教科书·数学五年级下册_15139e7d",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学五年级下册_15139e7d.pdf",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_11",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.38461538461538464,
+        "lengthScore": 0.098,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:31.981Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "《义务教育教科书·数学（青岛版）》是经全国中小学教材审定委员会审查通过的教材。 本教材以《义务教育数学课程标准（2011年版）》为依据，以培养学生的创新意识和实践能力为重点，反映教育学、心理学的最新研究成果，致力于改变学生的学习方式，满足学生多样化的学习需求，充分体现义务教育的基础性、普及性与发展性。本教材的主要特点有： ◆由“情境串”引出“问题串”。教材选取密切联系学生生活、生动有趣的素材，构成情境串，引发出一系列的问题，形成问题串，将整个单元的内容串联在一起，使学生在解决一连串现实的、有挑战性问题的过程中融入数学课程，培养学生的问题意识。 ◆把解决问题与数学基础知识及基本技能的学习融为一个过程。 以解决问题为基本框架，在解决问题的过程中学习数学知识，掌握分析问题和解决问题的基本方法，实现知识、技能和解决问题能力的同步发展。 ◆构建开放的、具有一定思维跨度的“板块式”编排结构。拓宽探索空间，体现知识的形成过程，突出基本的数学思想方法，帮助学生积累数学活动经验。 ◆注重培养建模意识。 引导学生发现问题 — 提出问题 — 分析问题 — 解决问题，体现数学建模过程。 ◆倡导独立思考、自主探索、合作交流的学习方式。对此，教材在编写思路、栏目设计、呈现方式等方面均有充分的体现。 ◆注重过程性评价。教材为学生提供自我反思与评价的机会，使学生获得学习数学的良好体验，形成良好的学习习惯。 本教材由众多数学家、教育专家、心理学专家、特级教师、教研员及一线骨干教师编写，体现了新一轮课程改革的理念。尽管我们尽了最大努力， 但是本教材也可能存在瑕疵，恳请使用者批评指正。 本册主要编写人员：宋丽芳、李旭日、李鸣柳、崔萍萍。 作者 后记",
+    "metadata": {
+      "filename": "义务教育教科书·数学五年级下册_15139e7d",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学五年级下册_15139e7d.pdf",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_11",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8737446197991392,
+        "lengthScore": 0.717,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:31.981Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "书名编著者出版本社网址发行责任编辑封面设计美术编辑绘画印刷出版日期开本印张字数书号审图号 义务教育教科书·数学 （五年级下册） 山东省教育科学研究院青岛出版社 （ 青岛市崂山区海尔路182号， 266061 ） http://www.qdpub.com 山东新华书店集团有限公司李星灿吴昊辰于钦平苏 鹏韩 盈 2015年1月第2版 2022年1月第31次印刷 16开 （787mm×1092mm） 7.75 110千 ISBN 978-7-5436-4469-4 GS （2013） 1246号 7.41元编校印装质量、 盗版监督服务电话 400-653-2017 （0532） 68068050 印刷厂服务电话",
+    "metadata": {
+      "filename": "义务教育教科书·数学五年级下册_15139e7d",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学五年级下册_15139e7d.pdf",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_11",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5143884892086331,
+        "lengthScore": 0.306,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:31.981Z",
+      "enhancementVersion": "2.0"
+    }
+  }
+]

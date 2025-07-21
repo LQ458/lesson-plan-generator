@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·数学九年级下册_c70e135c",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_c70e135c.pdf",
+  "total_chunks": 116,
+  "total_pages": 157,
+  "processing_method": "ocr",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T02:01:26.300Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.175Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

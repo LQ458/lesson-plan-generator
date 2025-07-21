@@ -1,0 +1,21 @@
+[
+  {
+    "content": "Ą ԛ!৙ Ą 1 2 3 4 5 6 78",
+    "metadata": {
+      "filename": "义务教育教科书·英语（三年级起点）五年级下册_5996b985",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（三年级起点）五年级下册_5996b985.pdf",
+      "chunk_index": 0,
+      "total_chunks": 1,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_11",
+      "qualityMetrics": {
+        "chineseCharRatio": 0,
+        "lengthScore": 0.022,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:24:33.469Z",
+      "enhancementVersion": "2.0"
+    }
+  }
+]

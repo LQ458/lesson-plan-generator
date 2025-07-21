@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/英语/外研社版（一年级起点）（主编：陈琳）/义务教育教科书·英语（一年级起点）一年级下册.pdf",
+  "extractedAt": "2025-07-18T13:48:00.926Z",
+  "method": "node-poppler",
+  "textLength": 21459,
+  "processingStats": {
+    "chunksCount": 28,
+    "embeddingsCount": 28,
+    "processedAt": "2025-07-18T13:48:06.181Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.206Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

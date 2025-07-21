@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/数学/人教版/义务教育教科书 · 数学一年级上册.pdf",
+  "extractedAt": "2025-07-18T13:36:07.832Z",
+  "method": "node-poppler",
+  "textLength": 19667,
+  "processingStats": {
+    "chunksCount": 28,
+    "embeddingsCount": 28,
+    "processedAt": "2025-07-18T13:36:18.039Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.161Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

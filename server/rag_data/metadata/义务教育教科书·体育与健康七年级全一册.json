@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/体育与健康/人教版-人民教育出版社/七年级/义务教育教科书·体育与健康七年级全一册.pdf",
+  "extractedAt": "2025-07-20T04:01:04.887Z",
+  "method": "node-poppler",
+  "textLength": 36439,
+  "processingStats": {
+    "chunksCount": 48,
+    "embeddingsCount": 48,
+    "processedAt": "2025-07-20T04:02:11.514Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "content": "半透明不透明垫纸板硫酸纸作业本一杯水一袋空气 w i n de xi o sh f n xu n c i li o z i xi n y n de k n zh n d 为你 的小 书房 选材 料，在相 应的 空格 中打。 物品 房门 材透明的半透明的书柜门窗 料帘 玩具收纳盒 13 不透明的 4 单元奇妙的光 w n b li zh 12. 玩玻 璃纸 j l w w q n zi y n s de bi n hu 记录娃娃裙 子颜 色的变 化。 给手电筒蒙上玻璃纸娃娃裙子的颜色蓝色玻璃纸黄色玻璃纸红色玻璃纸 ji u shu m n 结果说 明： j l t u u b li zh k n w i mi n sh ji de f xi n bi n s d 记录 透过 玻璃 纸看 外面 世界 的发 现，变色 打 b bi n s d，不变 色打。 看白色的物体透过红色玻璃纸透过蓝色玻璃纸透过色玻璃纸 14 看与玻璃纸同色的物体看 色的物体专项学习像工程师那样 qu d n y o w n ch n de r n wu sh 确定 要完 成的任务是： hu ch n sh j de f n xi n bi o 画出 你设 计的 风向 标。 p n ji z j zu de f n xi n bi o z i l t sh n y n s 评价 自己 做的 风向 标，在里 涂上 颜色。 活动 设计 测试 展示 评价 我一共得了 15 颗期末测评 n j b n xu q z i k xu hu d n zh n de bi o xi n i z j d",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/科学/苏教版/义务教育教科书·科学·学生活动手册二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:43:07.413Z",
+      "method": "node-poppler",
+      "textLength": 6247,
+      "loc": {
+        "lines": {
+          "from": 485,
+          "to": 630
+        }
+      },
+      "chunkIndex": 6,
+      "chunkSize": 958,
+      "enhancementTimestamp": "2025-07-21T14:23:45.814Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5265392781316348,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "半透明\n\n不透明\n\n垫纸板\n硫酸纸\n作业本\n一杯水\n一袋空气\n\nwèi nǐ de xiǎo shū fánɡ xuǎn cái liào\n\nzài xiānɡ yìnɡ de kònɡ ɡé zhōnɡ dǎ\n\n●\n● 为 你 的 小 书 房 选 材 料 ，在 相 应 的 空 格 中 打“ √ ”。\n物\n\n品\n\n房\n\n门\n\n材\n透明的\n\n半透明的\n\n书柜门\n窗\n\n料\n\n帘\n\n玩具收纳盒\n\n13\n\n不透明的\n\n\f4 单元\n\n奇妙的光\nwán bō li zhǐ\n\n12. 玩 玻 璃 纸\njì\n\nlù wá wɑ qún zi yán s�� de biàn huà\n\n● 记录娃娃 裙 子 颜 色的 变 化 。\n给手电筒蒙上玻璃纸\n\n娃娃裙子的颜色\n\n蓝色玻璃纸\n黄色玻璃纸\n红色玻璃纸\njié ɡuǒ shuō mínɡ\n\n结果 说 明 ：\njì\n\nlù tòu ɡuò bō\n\nli zhǐ kàn wài miàn shì jiè de fā xiàn\n\nbiàn sè dǎ\n\n●● 记 录 透 过 玻 璃 纸 看 外 面 世 界 的 发 现 ，变 色 打\nbú biàn sè dǎ\n\n“ √ ”，不 变 色 打“ × ”。\n看白色的物体\n透过红色玻璃纸\n透过蓝色玻璃纸\n透过\n\n色玻璃纸\n\n14\n\n看与玻璃纸\n同色的物体\n\n看\n\n色的物体\n\n\f专项学习 像工程师那样……\n\nquè dìnɡ yào wán chénɡ de rèn wu shì\n\n● 确 定 要 完 成 的任务是：\nhuà chū nǐ shè jì de fēnɡ xiànɡ biāo\n\n●● 画 出 你 设 计 的 风 向 标 。\n\npínɡ jià zì\n\njǐ zuò de fēnɡ xiànɡ biāo\n\nzài\n\nlǐ tú shànɡ yán sè\n\n评 价 自 己 做 的 风 向 标 ，在“ ☆ ”里 涂 上 颜 色 。\n活\n\n动\n\n设\n\n计\n\n测\n\n试\n\n展\n\n示\n\n评\n\n价\n\n☆☆☆☆☆\n\n☆☆☆☆☆\n\n☆☆☆☆☆\n\n我一共得了\n15\n\n颗☆\n\n\f期末测评\nɡēn jù běn xué qī zài kē xué huó dònɡ zhōnɡ de biǎo xiàn\n\nɡěi zì\n\njǐ dǎ",
+    "qualityScore": 0.3021019108280255,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": true,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "chemistry"
+    }
+  },
+  {
+    "content": "评价 自己 做的 风向 标，在里 涂上 颜色。 活动 设计 测试 展示 评价 我一共得了 15 颗期末测评 n j b n xu q z i k xu hu d n zh n de bi o xi n i z j d 根据 本学 期在 科学 活动 中的 表现，给自 己打。 单元活动关心天气 1. 看今天的天气情况观察了天气情况能设计天气符号 2. 交流天气的影响参与了活动能说出具体事例 3. 说四季特征参与了活动天空中的星体度不同中的原理观察了月相盒里的用望远镜实际观的秘密愿意猜想， 参与探究在探究中发现有规律 7. 推和拉参与了活动能分辨推和拉的动作用力以后生变化参与了活动 9. 让物体运动与停止参与了活动 10. 探究手电筒位置与画出橡皮筋的长度变化奇妙的光知道物品分透明、 半透 12. 透过玻璃纸看世界用一种颜色的玻璃纸看明和不透明认真完成任务： 善于合作： 老师的评价同伴的评价遵守规则： 到星星的原因能说出生活中推和拉的事例知道力与橡皮筋长度变化的关系知道手电筒远近和光知道两者之间的 11. 区分 物品 的透 明能解释白天看不体运动的快慢和方向动或停止光 斑的关系积极思考： 察了月亮发现用力能让物体运发现力会改变物参与了活动程度大家的认可比较出两个瓶子的温通过比较发现其月亮 8. 力使橡皮筋的长度发自己的观点得到特征和动植物的表现征 能画出记忆中的月亮 6. 探究白天看不到星星天气能说出四季的天气特说出四季的天气 4. 做简易太阳能热水器完成制作 5. 看月亮会利用符号记录斑大小有关系关系是什么能区分不同的透明",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/科学/苏教版/义务教育教科书·科学·学生活动手册二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:43:07.413Z",
+      "method": "node-poppler",
+      "textLength": 6247,
+      "loc": {
+        "lines": {
+          "from": 593,
+          "to": 786
+        }
+      },
+      "chunkIndex": 7,
+      "chunkSize": 993,
+      "enhancementTimestamp": "2025-07-21T14:23:45.814Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8809523809523809,
+        "lengthScore": 1,
+        "coherenceScore": 0.6,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "评 价 自 己 做 的 风 向 标 ，在“ ☆ ”里 涂 上 颜 色 。\n活\n\n动\n\n设\n\n计\n\n测\n\n试\n\n展\n\n示\n\n评\n\n价\n\n☆☆☆☆☆\n\n☆☆☆☆☆\n\n☆☆☆☆☆\n\n我一共得了\n15\n\n颗☆\n\n\f期末测评\nɡēn jù běn xué qī zài kē xué huó dònɡ zhōnɡ de biǎo xiàn\n\nɡěi zì\n\njǐ dǎ\n\n根 据 本 学 期 在 科 学 活 动 中 的 表 现 ，给 自 己 打“ ☆ ”。\n\n单元\n\n☆\n\n活动\n\n☆☆\n\n☆☆☆\n\n关心天气\n\n1. 看今天的天气情况\n\n☆观察了天气情况\n\n☆☆能设计天气符号\n\n2. 交流天气的影响\n\n☆参与了活动\n\n☆☆能说出具体事例\n\n3. 说四季特征\n\n☆参与了活动\n\n天空中的星体\n\n度不同\n\n中的原理\n\n☆☆观察了月相盒里的\n\n☆☆☆用望远镜实际观\n\n的秘密\n\n☆愿意猜想，\n参与探究\n\n☆☆在探究中发现有规律\n\n7. 推和拉\n\n☆参与了活动\n\n☆☆能分辨推和拉的动作\n\n用力以后\n\n生变化\n\n☆参与了活动\n\n9. 让物体运动与停止\n\n☆参与了活动\n\n10. 探究手电筒位置与\n\n☆☆画出橡皮筋的长度\n变化\n\n奇妙的光\n\n☆知道物品分透明、\n半透\n\n12. 透过玻璃纸看世界\n\n☆用一种颜色的玻璃纸看\n\n明和不透明\n\n☆ ☆ ☆\n\n☆ ☆ ☆\n认真完成任务： ☆ ☆ ☆\n善于合作：\n\n老师的评价\n\n同伴的评价\n\n遵守规则：\n\n到星星的原因\n\n☆☆☆能说出生活中推\n和拉的事例\n\n☆☆☆知道力与橡皮筋\n长度变化的关系\n\n☆☆知道手电筒远近和光 ☆☆☆知道两者之间的\n\n11. 区 分 物 品 的 透 明\n\n☆ ☆ ☆\n\n☆☆☆能解释白天看不\n\n体运动的快慢和方向\n\n动或停止\n\n光 斑 的关系\n\n积极思考：\n\n察了月亮\n\n☆☆发现用力能让物体运 ☆☆☆发现力会改变物\n\n☆参与了活动\n\n程度\n\n大家的认可\n\n☆☆比较出两个瓶子的温 ☆☆☆通过比较发现其\n\n“月亮”\n\n8. 力使橡皮筋的长度发\n\n☆☆☆自己的观点得到\n\n特征和动植物的表现\n\n征\n\n☆能画出记忆中的月亮\n\n6. 探究白天看不到星星\n\n天气\n\n☆☆能说出四季的天气特 ☆☆☆说出四季的天气\n\n4. 做简易太阳能热水器 ☆完成制作\n5. 看月亮\n\n☆☆☆会利用符号记录\n\n斑大小有关系\n\n关系是什么\n\n☆☆能区分不同的透明",
+    "qualityScore": 0.5737846153846153,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": true,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "physics"
+    }
+  },
+  {
+    "content": "大家的认可比较出两个瓶子的温通过比较发现其月亮 8. 力使橡皮筋的长度发自己的观点得到特征和动植物的表现征 能画出记忆中的月亮 6. 探究白天看不到星星天气能说出四季的天气特说出四季的天气 4. 做简易太阳能热水器完成制作 5. 看月亮会利用符号记录斑大小有关系关系是什么能区分不同的透明知道不同透明程用不同颜色的玻璃发现物体的颜色程度纸看度有不同的效果有变化掌握了该学的知识： 双手很灵巧， 会制作： 能用科学的态度看待事物： 头脑灵活， 善于思考： 我一共得了 16 颗",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/科学/苏教版/义务教育教科书·科学·学生活动手册二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:43:07.413Z",
+      "method": "node-poppler",
+      "textLength": 6247,
+      "loc": {
+        "lines": {
+          "from": 755,
+          "to": 819
+        }
+      },
+      "chunkIndex": 8,
+      "chunkSize": 343,
+      "enhancementTimestamp": "2025-07-21T14:23:45.814Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.9272727272727272,
+        "lengthScore": 1,
+        "coherenceScore": 0.6,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "大家的认可\n\n☆☆比较出两个瓶子的温 ☆☆☆通过比较发现其\n\n“月亮”\n\n8. 力使橡皮筋的长度发\n\n☆☆☆自己的观点得到\n\n特征和动植物的表现\n\n征\n\n☆能画出记忆中的月亮\n\n6. 探究白天看不到星星\n\n天气\n\n☆☆能说出四季的天气特 ☆☆☆说出四季的天气\n\n4. 做简易太阳能热水器 ☆完成制作\n5. 看月亮\n\n☆☆☆会利用符号记录\n\n斑大小有关系\n\n关系是什么\n\n☆☆能区分不同的透明\n\n☆☆☆知道不同透明程\n\n☆☆用不同颜色的玻璃\n\n☆☆☆发现物体的颜色\n\n程度\n\n纸看\n\n度有不同的效果\n\n有变化\n\n掌握了该学的知识：\n双手很灵巧，\n会制作：\n\n☆ ☆ ☆\n\n☆ ☆ ☆\n能用科学的态度看待事物： ☆ ☆ ☆\n头脑灵活，\n善于思考：\n\n我一共得了\n\n16\n\n☆ ☆ ☆\n\n颗☆",
+    "qualityScore": 0.6143269961977186,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": true,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "biology"
+    }
+  }
+]

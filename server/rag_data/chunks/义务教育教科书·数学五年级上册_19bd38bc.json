@@ -1,0 +1,21 @@
+[
+  {
+    "content": "义务教育教科书数学五年级上册 ISBN 978-7-200-10862-0（课）：7.25 元价格依据文件号：京发改规〔2016〕13 号举报电话：12358",
+    "metadata": {
+      "filename": "义务教育教科书·数学五年级上册_19bd38bc",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学五年级上册_19bd38bc.pdf",
+      "chunk_index": 0,
+      "total_chunks": 1,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_4",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4266666666666667,
+        "lengthScore": 0.079,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:31.698Z",
+      "enhancementVersion": "2.0"
+    }
+  }
+]

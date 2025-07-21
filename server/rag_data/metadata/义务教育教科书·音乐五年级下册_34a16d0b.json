@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐五年级下册_34a16d0b",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐五年级下册_34a16d0b.pdf",
+  "total_chunks": 72,
+  "total_pages": 79,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T09:45:45.079Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.219Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·艺术七年级下册_a1b2c0cc",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·艺术七年级下册_a1b2c0cc.pdf",
+  "total_chunks": 112,
+  "total_pages": 105,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T03:34:56.463Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.204Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

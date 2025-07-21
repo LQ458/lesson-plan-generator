@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学·学生活动手册四年级上册_9e00f60d",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学·学生活动手册四年级上册_9e00f60d.pdf",
+  "total_chunks": 7,
+  "total_pages": 22,
+  "processing_method": "ocr",
+  "worker_id": "worker_4",
+  "processed_at": "2025-07-21T05:35:34.521Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.187Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

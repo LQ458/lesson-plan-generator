@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·物理九年级上册_aa8b794a",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·物理九年级上册_aa8b794a.pdf",
+  "total_chunks": 105,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T02:19:05.324Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.181Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

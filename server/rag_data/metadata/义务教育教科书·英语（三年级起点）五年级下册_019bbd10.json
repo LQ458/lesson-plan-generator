@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语（三年级起点）五年级下册_019bbd10",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（三年级起点）五年级下册_019bbd10.pdf",
+  "total_chunks": 111,
+  "total_pages": 92,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T07:13:23.992Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.211Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

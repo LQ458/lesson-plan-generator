@@ -12,6 +12,13 @@
     "test:coverage": "jest --coverage",
     "test:rag": "node rag/scripts/test-rag-system.js",
     "test:basic": "node rag/scripts/test-basic-functionality.js",
+    "test:rag-accuracy": "node rag/scripts/run-accuracy-test.js",
+    "test:rag-accuracy:quick": "node rag/scripts/run-accuracy-test.js quick",
+    "test:rag-accuracy:math": "node rag/scripts/run-accuracy-test.js subject 数学",
+    "test:rag-accuracy:chinese": "node rag/scripts/run-accuracy-test.js subject 语文",
+    "test:rag-accuracy:english": "node rag/scripts/run-accuracy-test.js subject 英语",
+    "test:rag-accuracy:biology": "node rag/scripts/run-accuracy-test.js subject 生物",
+    "test:rag-ci": "node rag/scripts/ci-rag-test.js",
     "start:cross": "node cross-xvfb.js",
     "start:macos": "node server.js"
   },

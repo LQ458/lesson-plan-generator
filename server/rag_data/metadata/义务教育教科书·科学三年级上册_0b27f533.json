@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学三年级上册_0b27f533",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学三年级上册_0b27f533.pdf",
+  "total_chunks": 31,
+  "total_pages": 73,
+  "processing_method": "ocr",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T05:52:47.930Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.187Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

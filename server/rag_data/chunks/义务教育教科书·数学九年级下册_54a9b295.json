@@ -1,0 +1,1940 @@
+[
+  {
+    "content": "am 殉\n STAR\n必m” 有全 “挤\n1 去本， 1 公\ndr一二攻 由\n”A以省24\nAL- 0 lan |\n- 旨 2 义务教育教科书尖 ME久九年级下册新时代数学编写组 ”编著上海科学技术出版社主 编吴之季苏 六副 主编杜先能徐子华本册主编”徐子华策划编辑 “苏德敏责任编辑吴 敏美术编辑陈 草义务教育教科书数 学九年级“下册新时代数学编写组“编著上海世纪出版(集团)有限公司|版上海科学技术出版社\n\n(上海市闵行区号景路 139和弄A座9F-10F 邮政编码 201101)\n新华书店发行安徽新华印刷股份有限公司印刷开本 787 x1092 1/16 印张7.75 字数 128 000\n2014年11月第1版 2022年1月第10次印刷\n\nISBN 978 -7 -5478 -2389 -7/G . 550\n\n : 8.05 元如发现印装质量问题或对内容有意见建议 ,请与本社联系电话: 021 -64848025 ,邮箱 : jc@sstp. cn\n\n审批编号 : 皖费核(2022 年春季)第 0159 号”举报电话 : 12315 目录汪 全> 加\n24.1 旋转阅读与欣赏 ”在平面直角坐标系中对图形进行旋转变换 7\n数学活动”设计图案(一) 8\n24.2 圆的基本性质 pp 12\n24.3 圆周角 27\n24.4 直线与圆的位置关系 0 33\n24.5 三角形的内切圆 pp 42\n24.6 正多边形与圆 47\n24.7 弧长与扇形面积 53\n数学史话圆周率下pp 58\n数学活动”设计图案(二) pp 59\n24.8 综合与实践”进球线路与最佳射门角 …… 62\n小结.评价 65\n复习题 67\n\nwe 2Gz= 投影与视图 0 72\n25.1 投影 3\n25.2 三视图 80\n小结:评价和86\n\n复习题 87\n第吉白。 概率初步 90\n26.1 随机事件 91\n26.2 等可能情形下的概率计算 7 95\n26.3 ”用频率估计概率:pp 104",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 0,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5714285714285714,
+        "lengthScore": 0.84,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 0.95
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "we 2Gz= 投影与视图 0 72\n25.1 投影 3\n25.2 三视图 80\n小结:评价和86\n\n复习题 87\n第吉白。 概率初步 90\n26.1 随机事件 91\n26.2 等可能情形下的概率计算 7 95\n26.3 ”用频率估计概率:pp 104\n\n数学活动”投针实验 107\n26.4 综合与实践”概率在遗传学中的应用…… 110\n\n阅读与思考“几何概率 112\n\n数学史话”概率论的产生与发展……和0 114\n小结.评价 15\n\n复习题和116\n附录部分中英文词汇索引pp 1118\n后记 19\n\n和贺\n241 用二之丰加的基本性质\nz7导e恒圆周角之豆昌直线与贺的位置。 、 生生关系一人 NS 了格/\n之用三角形的内切园“NAN |一|\n已明正多边形与加当必呈之用了长与扇形面积后全之苹骨综合与实践进 一球线路与最佳和门角如何确定一个破残轮的圆心和半径?如何测量一个圆形工件的直径? 这些实际问题的解决都涉及圆的有关知识.\n本章我们将学习圆的一些性质以及它们在实际中的应用.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 1,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7068062827225131,
+        "lengthScore": 0.444,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "生活中,旋转现象普遍存在,如各种车轮子的转动,风力发电机风叶的转动等,如图 24 - 1.\ner 国生\n\n| 加一到|\n一AN 一\n(D 汽车的轮子 C) 风力发电机的风叶图 24--1\n本在平面内,一个图形(如图24- 2 中的A4BC)绕着二 一个定点(如点 0) ,旋转一定的角度(如 9) ,得到另一\n”|轴人、 个图形(如A4'BC)的变换,叫做旋转(rotation).定点\nNA 省NA。 0叫做旋转中心,g 叫做旋转角. 原图形上一点4旋转\n7 后成为点 4',这样的两个点叫做对应点.\nLe\n图 24-2 全 _， 如图24-2,A4BC 绕着旋转中心 O 按逆时针。 方向旋转8 后,得到AA'B'C'\n(1) 连接04,0B,0C,04' ,0B' ,0OC' ,那么 O4\n与 04'的长度有何关系? OB 与 OB'.OC 与 OC'也有这样的关系吗? (2) 404'、人BOB'、人COC(的大小有何关系?\n2 在一个图形和它经过旋转所得到的图形中, 对应点到旋转中心的距离相等;两组对应点分别与旋转中心的连线所成的角相等 ,都等于旋转角;旋转中心是唯一不动的点.\n\n在平面内,一个图形绕着一个定点旋转一定的角度 8\n(0\" <0 <360\")后,能够与原图形重合,这样的图形叫做旋转对称图形 ,这个定点就是旋转中心.图2-3 中的图形绕旋转中心旋转 180\" ,与原图形重合;图24 -4 中的图形绕旋转中心旋转 120?或240\" ,也与原图形重合.图24 -3 和图24一4\n中的图形都是旋转对称图形.\n\n必 C\nPC\n图 24-3 图 24-4\n\n过8。 1 找出下列旋转对称图形的旋转中心,并指出这个图形至少需旋转多大角度才能与原图形重合,\n\n(第1 题)\n2在下列图形中， (第2 题)\n\n 24.1 旋转|",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 2,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.62555720653789,
+        "lengthScore": 0.775,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 0.95
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "必 C\nPC\n图 24-3 图 24-4\n\n过8。 1 找出下列旋转对称图形的旋转中心,并指出这个图形至少需旋转多大角度才能与原图形重合,\n\n(第1 题)\n2在下列图形中， (第2 题)\n\n 24.1 旋转| (1) 指出轴对称图形,并用虚线画出该图形的对称轴;\n(2) 指出旋转对称图形,用”* \"号标出该图形的旋转中心 ,并指出至少需旋转多大角度才能与原图形重合.\n在上述旋转变换中,当8 = 180\" 时 ,是一个特殊的变换.\n如图24-5,将A4BC 绕定点 O 旋转 180\" ,得到A4'B'C' ,这时,图形A4BC 与图形和4'B'C 关于点 0 的对称叫做中心对称,点 O 就是对称中心.\nRS瑟\n\n有 1 四\nDr 学ss\n3 &\n图 24-5\n观察图24- 5 ,两个图形成中心对称,除具有一般旋转的性质外,还有什么特性呢?\n成中心对称的两个图形中,对应点的连线经过对称中心,且被对称中心平分.\n例如图24-6,已知四边形4BCD 和点 O,试画出四边形 4BCD 关于点 O 成中心对称的图形 4'B'C'D-“\nCG_ 订史\n全:<本作 再 ev\n图 24-6\n分析: 要画出四宙形4BCD 关于点 O 成中心对称的图形,只要画出4, B,，C,刀四点关于点 O 的对应点,再顺次连接各对应点即可.\n作法\n1. 连接40 并延长到4' ,使 04' = 0O4 , 得到点4 的对",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 3,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6431372549019608,
+        "lengthScore": 0.603,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 0.95
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "应点 4\n2，同理,可作出点巨，C, 万的对应点及，C'，D'\n3，顺次连接点 4， 有，C'，D/\n则四边形 4' BC2D'即为所作.\n,地@g\n\n1.， 作图: AN\n(1) 求作已知点和关于点 O 成中心对称的对应点;， (2) 求作已知线段 4B 关于点 O 成中心对称的线段， (1) 各\n2. 判断正误: (第1 题)\n(1) 平行四边形的对角顶点关于对角线交点对称. ( )\n(2) 平行四边形的对边关于对角线交点对称. ( )\n把一个图形绕某一个定点旋转 180?” ,如果旋转后的图形能和原来图形重合 ,那么这个图形叫做中心对称图形,这个定点就是对称中心.\n例如 ,一条线段绕它中点旋转 180\"后,它的两个端点互换了位置 ,旋转后的线段与原线段重合,因此,线段是中心对称图形. 又如己4BCD(图24-3) ,把它绕对角线交点 O 旋转\n180\"后,点4与点C\\点于与点也互换了位置,且由于O4 =\nOC, 0OB = 0D, 所以旋转后的图形和原来图形重合,因此， 平行四边形是中心对称图形.\n和抑形 .鞭形 .正方形都是中心对称图形,这些图形同时还是轴对称图形,它们的对称轴交点就是对称中心,如图24-7. 区图 24-7\n\n本24.1 旋转|",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 4,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6823027718550106,
+        "lengthScore": 0.535,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "中心对称图形的形状勺称美观,因而常常被用在图案设计和建筑装饰中,如中央电视台栏目“东方时空”的图标. 此外,具有中心对称的图形 ,能够在平面内绕对称中心平稳地旋转,所以有许多旋转部分被设计成中心对称图形,如飞机的螺旋浆 .切削金属用的铣刀等(图24-8).\n|\n达 UL>e一) -半\n\n\n权 !\n(“东方时空”标志 (2) 曙旋桨 (3) 铣刀图 24-8\n\\步练人习\n1. 下列图形中,哪些是中心对称图形?9 哪些是轴对称图形? 画出它们的对称中心或所有的对称轴，.\n正三角形正五边形正六边形\n(]) (2) (3) (4) (53)\n(第1题)\n2. 画出下列各题中的图形关于点 O 成中心对称的图形.\n[| DT\n面面面面面册出面面面硬硬四国硬面面面国硬而者国面画面国\n[io Do Do DO\n本古国硬面四机面硬国面面册腹面面画面硬面而腹面面国硬国\nPN LN <人|讨十\n[DDoSLUUL\n{1) (2) (3) (4)\n(第2题)",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 5,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6970509383378016,
+        "lengthScore": 0.423,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 0.95
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "一作 阅读与欣赏在平面直角坐标系中对图形进行旋转变换如图24-9,A4BC 的顶点坐标分别是4(2,，1),B(0, 0)， C(2,0).\n卢上上了 甩半二和全权， 站辣， 加负>\nRe直人必 -|\n站 2 工证4 天二 开五 攻熙|二| ,全 “攻人志 过站 人\n(1) (2) (3) (4\n图 24-9\n(1) 分别画出 A4BC 以点0(0, 0) 为旋转中心,在图24-9(1)中族转 90\"、在图24 -9(2)中旋转 180*、在图\n24-9(3)中旋转270\"、 在图24-9(4) 中旋转360?而得到的\nAA'B'C';(按逆时针方向旋转)\n(2) 给出点 4',B',C'的坐标(填在下表中)\n以点 0 为旋转中心旋转9 4( ) BC ) c( )\n按递时针方向旋转以点 O 为旋转中心旋转18\" 4( ) BC ) cc(C )\n后证以点 O 为旋转中心旋转270\" 4( ) BC ) c( )\n坐标以点 O 为旋转中心旋转30\"。 4( ) BC ) c( )\n(3) 分别比较点 A'与点4点有盏与点盏,点 C'与点 C 的坐标， 能得到怎样的结论?\n通过作图、分析能看到,把一个图形以点 O 为旋转中心作几个特殊角度的旋转,可得如下结果:\n(yy) (1 (ti -人 0， -1 (rp功\n\n罗， 24.1 旋转|",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 6,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5052410901467506,
+        "lengthScore": 0.576,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "这里,把(Y，?) 变换成(Y,?y) 的变换叫做恒等变换,即在平面直角坐标系中,一个图形绕点 O 作 360?旋转是一个恒等变换.\n我们已学过平移\\轴对称和旋转,利用这些图形变换中的一种或几种的组合,可进行图案设计. 例如,我们先设计好图案,用厚纸板制成詹花模板(图24-10). 将这个链花模板或作平移,或作轴对称,或作旋转……然后重复,可以得到不同形式的锐边,如图 24 一11.\n必本和 FE ae En\n要|则司|则则也 噶 4 要图 24-10 (D 平移 (2) 轴对称让\n(3) 旋转 180” 人才轴对称并旋转 180”\n图 24-11\n短 、\n性叭\n亿星记 数学活动设计图案(一)\n通过几何变换制作图案:\n(1) 先设计一个基本图形(或花纹) ,然后通过轴对称、旋转\\.平移等变换,设计 1~2个图案;\n(2) 请你为学校设计校徽.运动会的会徽或黑板报的一组花边.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 7,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7057142857142857,
+        "lengthScore": 0.392,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "天1\n人着区数学园地\n1. 连续两次作两条平行对称轴的轴对称变换，， (1) 在纸上先画出如图24-12 中的图形下(小旗子) 和对称轴丰D,且胡人及;然后画出严关于厂的对称图形书 ,再画册局关于已的对称图形古; 人驹\n(2) 比较原图形已与最后对称图形古. 当两条对称轴平行时,什么衬的一次变换可直接使严变成记?\n(3) 如果娘与凡之间距离为8 cm ,图形严上一点4距离1 2\n为3 cm,经上述两次作轴对称变换后,点4 被平移了多远? 如果图形忆上一点甩距离太为2 cm,经上述两次作轴对称变换后,点刀又被平移了多远?\n由此,你能得出什么结论?\n2. 连续两次作两条相交对称轴的轴对称变换\n(1) 在纸上先画出如图24一13 中的图形 F(小旗子) 和对称轴请,有,且及与已相交;然后画出严关于矿的对称图形局 ,再口\n画出媚关于万的对称图形三\n(2) 比较原图形书与最后对称图形太. 当两条对称轴相交时,什么样的一次变换可直接使严变成 F? “ -\n(3) 如果卫与已所夹的锐角为w ,上述(2)中的这个变换结 | 四果与 w 有何关系?\n由此,你能得出什么结论?\n3. 连续两次作两条重合对称轴的轴对称变换如果一个图形关于两条重合的对称轴作两次轴对称变换， 那么结果与原图形有什么关系?\n\n坟24.1 旋转|",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 8,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8063241106719368,
+        "lengthScore": 0.558,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "人习题 24. 1 必\n1. 给下列图形分类:\n(1) 只属轴对称; (2) 只属旋转对称;\n《3) 既属轴对称又属旋转对称; (4) 不属任何对称.\nDA A 一和人会\n帮汉\nYY 2\n{1) (2) (3) (3) (5)\n本 | v SR\n(6) (7) (3) (9) 410)\n(第1题)\n2. 画出上题中轴对称图形的对称轴,用”* ”号标出上题中旋转对称图形的旋转中有\n3. 画出已知线段 48 关于点 O(不在48 上)成中心对称的线段 4 ,再画出 4 关于另一点 O\" (不与 O 重合,也不在4'B 上)成中心对称的线段 4\"B\",并且证明\n4\"B\"48B. 由此你能得出怎样的猜想?\n4. 在方格纸上 ,格点A4BC 的位置如图(1) ,请在图(2) ~ (5)中各画出一个与格点\nA48C 全等但位置不同的格点三角形.\n人\nCN 于浊时二\n{) (2) (3) (由与)\n(第4题)\n10\n人",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 9,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5568862275449101,
+        "lengthScore": 0.408,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "了\n5. 如图,在平面直角坐标系中有点 4(a，D) ,作出点4关于:+\n轴对称的对应点4 ,点4关于y 轴对称的对应点4:. 连接 “4(,且\nO4; 和 04， ,观察点 Ai ,4与点 O 有什么关系? -\n6. 在平面直角坐标系中画出点4( -1,2),B(-3,，1)， C( -2，-1) ,并画出这三点关于原点成中心对称的对应点,写出它们的坐标. 然后画出点4 关于点互成中心对称 (第5 题)\n的对应点并写出其坐标.\n7. 如图,已知己4BCD 的中心在原点 0,顶点4(3，2),D(2，-2) ,求顶点 B,C 的坐标.\n了\n[LETTTETTI3PTTTTI\n画面面国国 3\n? [az， 4 十HH\n5 43 -2-19 邯和二HH和\n< [3\n国国面国本史大国国国国\nC DC [LT 5\n(第7题) (第8题)\n8. 如图,人A4BC 的顶点坐标分别为4(1, 3),B(5, 0) ,C(5, 3) ,将A4BC 绕原点 O\n按闭时针方向旋转 90\" ,得和4;BiCI ,求顶点 4 ,Bi ,Ci的坐标.\n9. A48BC 在方格纸中的位置如图.\n、 在有 位置 . 加罗交国面面国国面国国硬\n(1) 请在方格纸上建立平面直角坐标系,使得4,B 两点十十二+十二二二的坐标分别为4(2，-1),B(1，-4) ,并求出点C\n的坐标， 画面面国面国面面国和 十-HH大寺十栎引全\n中心技人和2 |\n处原点为中心、按逆由吕 一 | 村国面面国面匹硬国国后得到的人42B; C) ,并写出 Ci ,C?>两点的坐标; 岗呈\n(3) 观察人4;BiCI和人42B2C， ,其中的一个三角形能和否人",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 10,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5427631578947368,
+        "lengthScore": 0.711,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "十栎引全\n中心技人和2 |\n处原点为中心、按逆由吕 一 | 村国面面国面匹硬国国后得到的人42B; C) ,并写出 Ci ,C?>两点的坐标; 岗呈\n(3) 观察人4;BiCI和人42B2C， ,其中的一个三角形能和否人\n由另一个三角形经过某种变换而得到? 若能 ,请指出是什么变换?\n10. 在平面直角坐标系中 ,将抛物线y = 4z 绕原点 .按首时针方向旋转 180\",求这时抛物线对应的函数表达式.\n11\n坟24.1 旋转|",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 11,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6861702127659575,
+        "lengthScore": 0.216,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "圆的基本性质如图 24 - 14 ,在平面内,线段 OP 绕着它固定的一个端了。 点0旋转一周,则另一个端点尸所形成的封闭曲线叫做加六 (circle ) . 固定的端点 O 叫做圆心 ( center of a circle ) ,线段\n1 AN OP的长为r叫做半径(radius). 以点 O 为圆心的圆,记作一 “Oo0\"”,读作*圆0”.\n久， 图 24-14 了\n;从图24-14 画图的过程中,你能说出加上的点，， 有什么特性吗?\n(1) 圆上各点到定点(圆心 0) 的距离都等于定长(半径门;\n(2) 平面内到定点(圆心 0) 的距离等于定长(半径 7\n的所有点都在同一个圆上.\n因此,圆可以看成: 平面内到定点(圆心 0) 的距离等于定长(半径门的所有点组成的图形， ;平面上有一个圆,这个平面上的点,除了在国上外，，。 与圆还有几种位置关系,这些关系根据什么来确定?\n12",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 12,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6579710144927536,
+        "lengthScore": 0.396,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "平面上一点已与OO(半径为门的位置关系有以下三种情况(图24- 15):\n(1) 点已在OO 上<e一 OP =7;\n(2) 点己在90 内ce OP <r;\n(3) 点己在90 外ec OP >r\n己妈\n/\n(1 位) (3)\n图 24--15\n圆上任意两点间的部分叫做圆驱(arc) ,简称弧,用符号\n“一\"表示. 如图 24 - 16,以 4,B 为端点的弧记作A,读作\n“听4B7”.\n连接圆上任意两点的线段(图24 - 16 中的 4B8,CD) 叫做弦(chord) ,经过圆心的纺(图 24- 16 中的 CD)叫做直径 B\n(diameter ) . 己姜\n同圆中所有的半径相等圆的任意一条直径的两个端点分圆成两条弧,每一条弧一~ 图 24-16\n都叫做半圆. 大于半圆的弧(图24- 16 中的ACB ,一般用三个字母表示)叫做优弧;小于半圆的弧(图24- 16 中的全， AC或柬)叫做劣弧.\n由琵及其所对的弧组成的图形叫做弓形(图24 - 16 中纺 4B 分别与驴及AC3组成两个不同的弓形)， 能够重合的两个圆叫做等圆,等圆的半径相等在同圆或等圆中 ,能够互相重合的弧叫做等弧. <一例1 已知: 如图24-17,4B8,CD 为DO 的直径. je\n求证: 4DCB.\n证明连接4C ,DB. 图 24-17\n13\nYaamREES3",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 13,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5531062124248497,
+        "lengthScore": 0.581,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "… 4B,CD 为DO 的直径， 0O4 =0B， OC =OD.\n… 四边形 4DBC 为平行四边形.\n4DACRH.\n.86\n1. 举出一些圆形的物体实例.\n2. 以点 O 为圆心,分别以2 cm,3 cm 为半径画两个圆(这两个圆叫做同心圆) ,说出满足下列条件的点书的位置:\n(1) OP >3 cm; (2) OP<2 cm;\n(3) 2 cm <OP <3 cm (4) OP =0 cm.\n3. 和珑形的四个顶点是否一定能在同一个圆上 ,为什么?\n我们知道,等腰三角形平行四边形 .抢形蒙形.正方形等图形都具有对称性. 那么,圆是否具有对称性呢? 根据它的对称性又能推出圆的哪些性质呢?\n1. 垂径分弦二从-\n4 于半生下下-介 1. 在纸上任意画一个DO,以OO的一条直径为折痕,把〇@O 折嫩,如图24-18,你发现了什么?\n圆是轴对称图形,对称轴是圆所在平面内任意一条过圆心的直线.\n14",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 14,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.603448275862069,
+        "lengthScore": 0.404,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "CC\nlo\nA(及) 帮月\nrr\n图 24-18 图 24-19\n2. 在折乔OO 后,用针在半国上刺一个小孔,得两个重合的点 4,B,如图24一18. 把折枉的图撞平， 那么折凑 CD 是直径,点人A,妞是关于直线 CD 的一对对应点. 连接 4B ,得防 4B,如图24一19,这时直径 CD\n与玫 4B 有怎样的位置关系?\n3. 直径 CD 把劣弧ADB分成AD与DB两部分,把优弧ACB分成4C与CDB两部分,这时MD与DB AC与各有怎样的关系?\n由上面的探究,我们可以发现并证明如下定理:\n* 重径定理”垂直于弦的直径平分这条弦,并且平分这条弦所对的两条弧\n“已知: 如图24-20,在OO 中,CD 是直径,4B8 是弦， 站站\n并且 CD 4B ,垂足为瑟.\n求证: 4BE =EB ,4D =DB(或4C =CB)， 相呈证明连接 04,0B,则 O4 =OB,AO4B 为等腰三角形， AS可 4\n所以底边 4B 上的高 OF 所在直线 CD 是 4B 的垂直平分线， 2\n因此点4 与点妃关于直线 CD 对称同理,如果点忆是CO上图 24-20\n任意一点,过点己作直线 CD 的重线,与OO 相交于点 Q,则点忆与点 Q 关于直线 CD 也对称,所以OO 关于直线 CD 对称当把圆沿着直径 CD 折短时,CD 两侧的两个半圆重合,4尼与\n8重合,点4 与点及重合, 4与D8重合,4C与C8重合.\n15\nYEEES3 因此,4E=EB,4D -DB ,4C =C5.\n\n同理,可以证明下面的定理:\n\n定理平分弦(不是直径) 的直径垂直于弦,并且平分弦所对的两条弧.\n\n例2 如图24-21,OO 的半径为5 cm,弱4B 为6 cm， 求圆心 O 到弦 48 的距离.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 15,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5734597156398105,
+        "lengthScore": 0.746,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "因此,4E=EB,4D -DB ,4C =C5.\n\n同理,可以证明下面的定理:\n\n定理平分弦(不是直径) 的直径垂直于弦,并且平分弦所对的两条弧.\n\n例2 如图24-21,OO 的半径为5 cm,弱4B 为6 cm， 求圆心 O 到弦 48 的距离.\n\n1 解连接O4,过圆心2作OFEL4B,垂足为已,则\n\n人CaE 4E = EB =了4B8 =了xx6 =3(cm)， 图 2 21 又 … 04 =5 cm， 在REtAOEA 中,有\nOB =VO42 -4碧\n=V52 -32 = 4(cm).\n\n答: 圆心 O 到弦48 的距离是4 cm.\n\n圆心到弦的距离叫做弦心距.\n\n例3 赵州桥(图24-22) 建于1 400 年前的隋朝 ,是我国石拱桥中的代表性桥梁,桥的下部呈圆弧形,桥的跨度(弧所对的弦长)为37.4 m,拱高(弧的中点到弦的距离) 为7.2 m， 求赵州桥桥拱所在圆的半径. (精确到 0.1 my)\n\n必汪 0\nAAA AN\n图 24-22\n16",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 16,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4818941504178273,
+        "lengthScore": 0.438,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "圆心到弦的距离叫做弦心距.\n\n例3 赵州桥(图24-22) 建于1 400 年前的隋朝 ,是我国石拱桥中的代表性桥梁,桥的下部呈圆弧形,桥的跨度(弧所对的弦长)为37.4 m,拱高(弧的中点到弦的距离) 为7.2 m， 求赵州桥桥拱所在圆的半径. (精确到 0.1 my)\n\n必汪 0\nAAA AN\n图 24-22\n16 解如图24- 23,过桥拱所在圆的圆心 2 作 48 的垂 {音位: m)\n一 5\n线,交4B于点 C,交48 于点也,则 CD =7. 2 m. sa\n广万\n由垂径定理,得二二刘\n] 1 Rs |\n4DD =了了48 =也 x37.4 = 18.7(my). 轴下已\n设@Oo 的半径为Rm,在RIA4OD中,40 = R， 图 24-23\nOD =有-7.2,4D = 18.7.\n由勾股定理,得\n402 = 0D2 + 4D2.\n2 = (R-7.2)2 +18.72.\n解方程,得\nR ~ 27.9.\n答: 赵州桥桥拱所在圆的半径约为 27. 9 m.\n融?。 1. 在半径为4 cm 的OO 中,有长为4 cm 的弦 4B. 计算;\n(1) 点O与4B的距离;\n(2) 人4OB 的度数. 后\n2. 已知: 如图,在以 O 为国心的两个同心国中,大国的纺 4B 交小万 两点.\n圆于CD 两点 [年2|\n求证: 4C =有BD.\n3. 判断正误\n(1) 要直于纺的直径平分这条玫 (\n(2) 平分孩的直径答直于这条弱 ( )\n(3) 蓄的生直平分线必过国心. ( )\n(4) 平分孩所对弧的直径得直于这条蒂. (\n17",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 17,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5018315018315018,
+        "lengthScore": 0.675,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "2. 圆心角、弧、弦、弦心距间关系本 1. 如图 24一24,在两张透明纸上,分别作半径相等的9O 和@O',把两张纸亚在一起,使BO 与OO\n民重合,用图钉钉住圆心. 将上面一个圆旋转任意一个角度 ,两个圆还能重合吗?\n圆是旋转对称图形,旋转中心为圆心.\n本\nCa AN、 本图 24-24 图 24-25\n2. 如图24-25,顶点在圆心的角(人4OB、\n4'0B') 叫做圆心角(central angle). 当人40B =\n人4'OB'时,根据上述圆的性质,你能猜测出,两个贺心角所对的A语与4'B、弦 4B 与驴 4'B/、纹心距 OM， 与纺心距 OM'之间有怎样的关系?\n在图24- 25 中,根据圆的旋转对称性,把上408 连同\n4B绕圆心 O 旋转,使线段 O4 与 04'重合,设4'O4 =a\nLA4OB = 40B\n. L2B'OB = L4'0B +]L42O08B\n= L40B +L4'0B = a.\n… ”线段 O8 与线段 OB 重合.\n18",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 18,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4960212201591512,
+        "lengthScore": 0.439,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "义 '… 0O4=04' ,08 =OB， -。 旋转后点 4 与点 4重合,点轧与点及重合.\n这样,4与4B重合,该48 与弦4B重合,纺心距 OM 与弦心距 OM'也重合,即48 =A4人8 ,4B =4 ,ONM =OHM\n因此有， 定理“在同圆或等圆中,相等的圆心角所对的弧相等， 所对的弦相等,所对弦的弦心距相等.\n同理,可以证明以下推论:\n在同圆或等圆中,如果两个圆心角以及这两个角所对的弧\\所对的弦\\所对弦的纺心距中,有一组量相等,那么其余各组量都分别相等.\n这个推论可简记为:\n在同圆或等圆中,圆心角相等全弧相等汪纺相等一弦心距相等我们知道,把项点在圆心的周角等分成360 份,每一份的加心角是了的角. 因为同贺中相等的圆心角所对的弧相等,所以束个圆周也被等分成360 份我们把每一份这样的弧叫做的弧一般地,me的圆心角对着到的弧,关的弧对着轻的圆心角. 也就是说,圆心角的度数和它所对的弧的度数相等 ON\n]\n例4 已知; 如图 24 - 26,等边三角形 4BC 的三个顶点 CSy\n都在OO 上求证: L408 =上人BOC =人CO4 =120?. 图 24-26\n证明连接 O4 ,0B8 ,0OC.\n… 4B =BC=C4， 矶\n… L40B = LBOC = 人CO4 多\n-了 x 3600”= 120”. 光王和\nec\n例5 已知: 如图M-27,点0 是44 平分线上的一点， 图 24-27\n19\nYITEES39",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 19,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6197440585009141,
+        "lengthScore": 0.626,
+        "coherenceScore": 0.7,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "OO 分别交人4 两边于点 C,D 和点已,严求证: CD = EF\n证明过点O作OK 上LCD.OK' LEF,重足分别为天,天\n… OK=OK'(角平分线性质)， CD =EF\n站例6 如图24-28,4B8,CD 为OO 的两条直径,CE 为你 OO 的弦,且 CE 妨4B, CE为40。,求上LBOD 的度数.\n8 人解 ”连接OF.\n全一。 友为A\nC 人LCOBE = 40\".\n图 24-28 Ooc = OF\n180。- 40。 Ze-加- -70\n\nCE 4B， . 4OD = LC =70\".\n人BOD = 180。-70。 = 110。.\n“和四日\n1. 如图,4B,CD 是DO 的两条纺,OE,OF 分别为 4B,CD 的纺心距， 册全， 及， (1) 如果4B =CD,那么，， ; 愉溯\nP 二儿。 人、\n(2) 和如果 OE=OF ,那么，， ; 渗水\n(3) 如果 4B =CD ,那么，， 8\n(4) 如果人4OB =上人COD ,那么，， . (第1 题)\n2. 如图,在两个同心国中,…… LA40OB =人COD,， 48 =CD”,这种说法对吗? 请说明理由.\n3. 圆的一条弦把圆周分成度数比为1:2 的两条弧 ,如果该圆的半径为\n5.,求这条弦的弦长及劣弧所对的圆心角， 1\n(第2题)\n20",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 20,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.3900862068965517,
+        "lengthScore": 0.572,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.751Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "3. 圆的确定我们已经知道,经过一点可以作直线,目可作无数条直线;而经过两点只可以作一条直线 ,即两点确定一条直线. 那么确定一个贺需要几个已知点呢?\n:1 经过一点4作贺,如图24-29(1) ,能作多少 1\n: 个圆?\n:2. 经过两点4,巨作图,如图24一29(2) ,能作多， 少个圆? 这些加的国心有什么特点? (人 |一 |\n 和 {D {2)， 图 24-29，， 3. 经过三点4,B,C,能不能作国?\n\n当三个点不在同一条直线上时,如图 24 - 30 中的点人\n4.,B,C,要求作一个圆 ,使它经过 4,B,C 三点,可能吗?如 oo A”\n何作? av )c\n分析: 经过不在同一条直线上的三点 A,B,C 能否作图,关键是看能否找到一点 0,使 O04 =OB = OC. 由上述*思图 24-30\n21\nYeamTEESS",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 21,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5900621118012422,
+        "lengthScore": 0.375,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "考\" 内容可知,若圆过4,刀两点,圆心应在线段4B 的垂直平\n:二分线上;同理,若圆过妃,C 两点,圆心也应在线段 BC 的垂直平分线上. 所以4B,BC 两条线段的垂直平分线的交点 O 就是所找的点,就是经过4,,C 三点的圆的圆心.\n作法\n1. 连接4B,BC,如图24-30.\n2. 分别作线段 4B,BC 的垂直平分线,设它们交于点 0.\n3.， 以点 O 为圆心 .O4 为半径作圆.\n则@oO 即为所作.\n由于经过不在同一条直线上的三点4,B,C 的圆,其圆心只能是线段 4B,BC 的垂直平分线的交点 O,所以经过不在同一直线上的三点4,B,C,只可以作一个圆.\n不在同一直线上的三个点确定一个圆.\n在图24-30 中,再连接 C4 ,得入4BC. 经过三角形三个顶点的圆叫做三角形的外接圆(circumcircle of triangle ) ,外接圆的圆心叫做三角形的外心(circumcenter of triangle). 这个三角形叫做圆的内接三角形(inscribed triangle of circle ).\n三角形的外心到三角形的三个顶点距离相等\n、、_- 当三个点在同一条直线1 上时,如图24-31 中的点4， AAA B,C,要求作一个圆,使它经过4,B,C 三点,可能吗?\n与上面情况不同,经过同一条直线上的三点是不能作由 忆圆的.， 假设经过直线1上的三点4,B,C 可以作圆,设这个贺\n4 如 C 的圆心为 0.由04 =O0B 可知,点O在4B的垂直平分线夏图 24-31 上;由0B =OC 可知,点 O 也应在 BC 的垂直平分线记上.\n因为 4B ,BC 都在直线1上,这样,经过点 O 便有两条直线站1 ,D都垂直于直线 1,这与“过一点有且只有一条直线与已\n22\n加四",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 22,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.613905325443787,
+        "lengthScore": 0.762,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "知直线重直”相矛盾.\n所以,经过同一条直线上的三点是不可以作圆的.\n这里的证明不是直接从题设推出结论,而是先假设命题结论不成立,然后经过推理 ,得出矛盾的结果,最后断言结论一定成立 ,这样的证明方法叫做反证法.\n用反证法证明命题一般有以下三个步骤:\n(1) 反设: 假设命题的结论不成立;\n(2) 推理: 从(1)中的“反设\"出发,逐步推理直至出现与已知条件、 定义基本事实定理等中任一个相了矛盾的结果;\n(3) 结论: 由矛盾的结果判定(1)中的“反设”不成立， 从而肯定命题的结论成立.\n关于反证法,本套教科书在七年级下册 6. 2 节\" 实数”\n的“阅读与思考\"中已作了介绍,这里,再用反证法证明前面学过但未作证明的一个定理.\n定理”两条平行直线被第三条直线所截,同位角相等.\n已知: 如图24 - 32 ,直线 4B8作直线 CD ,直线 EF 分别交 9\n4B，CD 于点 0，O,，.\n求证: LEOB = 人 EO)D. 7\n证明假设ZEOB关FEO;D,过点 O 作直线 4'B'， 使EOB' = 人FEO)D. CE 7 翌根据*同位角相等,两直线平行\",得 4B'久CD 由24\n这样,过点 O 就有两条直线 4B, 4'B'平行于直线 CD， 这与“过直线外一点有且只有一条直线与这条直线平行\"相矛盾,即LEOIB关人EO2D 的假设不成立,所以人EOIB =\n人FEO)D.\n23\nETEESS",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 23,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6740331491712708,
+        "lengthScore": 0.61,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "ee\n1. 按图填空: 1\n(1) A4BC 是OO 的三角形;\n(2) OO是和4BC 的圆;\n(3) 点O是A4BC 的心; 有后\n(4) 0O4,OB,OC 三条线段的长度有关系: .\n2. 经过4 个点,是否能作一个国 ,为什么? 责\n3. 分别作出锐角三角形、直角三角形、钝角三角形的外接圆,并比较它们的外心位置有怎样的特点?\n4. 完成下面的证明过程; 、， 已知: 如图,直线中儿2多在同一平面内,且丰世上 AAA\n求证: 1 AD. AS\n证明假设 ,则太与已相交,设三与已交于点已 由已， 知条件， 得知,过点已有两条直线与直线 1重 | |\n直,这与 ”相巴， 盾.所以“假设 \"不成立,故。 (第 4 题)\n忆|\n《2区数学园地从下面两个故事中可以看出,在处理日常事务中,理性思维也是很重要的.\n1. 王戎证明了道旁李苦二时候,一个名叫王式的孩子与伙伴们在大路上玩要,他们看到路过树上结了许多李子,都蜂拥而上摘李子吃,唯有王式没去摘. 王戎断定,李子是苦的,根本不能吃. 伙伴们感到村怪,便问他:“你怎么知道李子是苦的?\"王戎说:“假如李子是甜的,能吃,那么旱就被过路人摘完了,树上怎么还会有李子呢2\"\n24\n加四",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 24,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7217391304347827,
+        "lengthScore": 0.518,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "2.， 伽利略证明了大小不同的两个铁球同时落地古希腊哲学家亚里士多德曾经断言: 质量分别为 10 kg 和\n1 kg的两个铁球 ,在同一高处同时落下,10 kg 的铁球一定先着地,速度是 1 kg 铁球的 10 倍. 伽利略产生了疑问,他做了如下推理: 假如这名话正确,那么两个铁球推在一起,落得慢的就会拖住落得快的,落下的速度应当比 10 kg 的铁球慢. 但是按亚里土多德说法,挫在一起的 11 kg 的铁球落下的速度应该比 10 Kg\n的铁球快. 这不是出现了矛盾吗? 可见亚里士多德说错了.\n在上面两个故事中,推理论证的思想方法就是反证法. 王戎从假设\"李子是甜的能吃\" 出发 ,推出“早就被过路人摘完了”\n的结论 ,与“树上还有许多李子”的事实矛盾,从而证明 “李子是苦的” ,得到“道旁李苦”的结论. 伽利略从假设“按亚里士多德的说法,质量大的铁球落得快”出发 ,推出“挫在一起 11 kg 铁球反而比10 kg 铁球落得慢?”的结论,与假设矛盾,从而证明“两个铁球应该同时落地\"”\n由有\n人as:业\n1. 在和矩形4BCD 中,4B =3 cm ,BC =3 cm,以点4 为圆心.4B 为半径作圆,则屯,C， D 三点分别与O4 有怎样的位置关系? AC 的中点 M 与@4 又有怎样的位置关系?\n2. 证明: 萎形四边的中点在同一个圆上， 3. 已知; 90 的半径为 2 cm,弦 4B 为2V5 cm.求弦 48 中点到它所对劣弧中点的距离\n4. 经过@O 内已知点4 作弦,使所作的纺被点4 平分.\n5. 已知4仿,通过作图,求出A的中点.\n6. 已知; 在半径为尽的@O 中,有三条弦 4B，CD，EF,它们所对的圆心角分别为\n6060” 、90” 、120?.\n(1) 比较纺4B，CD，EF 的长短;\n(2) 比较这三条芯的弦心距长短.\n7. 证明: 圆的两条平行疼所夹的弧相等， 25$\nETEESES",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 25,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6876750700280112,
+        "lengthScore": 0.817,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "8. 已知: OO 的半径为5S cm,弦4B8V 弦CD,4B8 =6cm,CD =8cm,求48 与 CD 之间的距离.\n9. 已知; 48 是@O 的直径,4C,4D 是在 4B 两侧的两条弦,且AC =4D\n求证: 4B 平分人 C4D.\n10. 已知: 如图,04,08,OC 是OO 的半径,4C =BC ,点 M,N 分别是 04,OB 的中点.\n求证: MC =NC.\n了妨\n[一 D\nSB\n\nKJ NA\nC 芝\n(第 10 题) (第11题) (第 12 题)\n11. 如图,OO 与0, 是等圆,M 是 00; 的中点 ,过点 M 的直线交〇OO于4,B 两点,交昌0于 C,D 两点,则人5与CD有怎样的关系,为什么?\n12，如图,在AhBC 中,人C =90*,志有=25*,以点 C 为圆心 4C 为半径的圆交 4B 于点忆,求4方所对圆心角的度数\n13. 求证: 直径是圆中最长的下， 14. 蓉形 4BCD 的四个顶点能否在同一个圆上? 如在同一加上，,它应成为什么图形? 有\n15，一个破残的轮片如图,现要重新翻制一个圆轮,如何确定加心的位置和半径的大小? (第15题)\n16. 用反证法证明;\n(1) A4BC 中至多只能有一个角是直角;\n(2) 在同一个圆中,如果两条弦不等,那么它们的允心距也不等.\n17. 用反证法证明: 如果两条直线都与第三条直线平行,那么这两条直线互相平行.\n20",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 26,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5436893203883495,
+        "lengthScore": 0.612,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "一个三角形,当它内接于一个圆时,它的任一个角都与圆有 4\n着特殊的位置关系. 如图24-33,A4BC 内接于OO,这时Z4 的顶点在圆上, 4 的两边 4B8, 4C 分别与圆还有另一个公共点.\n像这样 ,顶点在圆上,并且两边都与圆还有另一个公共 8 C\n点的角叫做圆周角(angle in a circular segment ) .\n图 24--33\n和证\n晶加 木本 UL 槛-中蚂本在机下Po本正本本|训四， 如图24-34,A4BC是等边三角形,OO 是其外， 接圆. 由人BA4C =60*,人BOC =120。,得出人B4C -了人BOC(人BA4C 对着BC,人BOC 也对着BC)， 观察这个特例,然后再任意画一个OO 及其内 “ “\n接A4BC,用量角器量一量人BA4C 及人BOC 之后,引四 2 34\n发你对圆周角性质有怎样的猜想?\n一个圆周角的大小与它所对弧上的圆心角有关;前者是后者的二分之一.\n下面给出猜想的证明.\n以OO 上任一点4为顶点的圆周角有无数多个， 按圆心与圆周角的位置关系,存在下面三种情况,如图\n24一35(自己画图试试).\n首先,我们从特殊情况着手: 在图24-35(1) 中， 连接OC,则A4OC是等腰三角形,LA =人OC4. 所以， LBOC=L4+LOC4 =2L4,即人4 -村80C\n27",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 27,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.580896686159844,
+        "lengthScore": 0.576,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "三用 信\nc 民” | >\n召召 忆已\n(D 圆心在角的一边上 C) 圆心在作的内部人 图心在角的外帮图 24-35\nSS 对于图24-35(2)(3) 两种情况,你会解决吗?\n在图24-35(2)(3)中,连接4O 并延长,交〇O\n于点也,再连接 OB,OC,则在图24-35(2)中,有\nLB4C = LD4C + /人D4B\n1， 1\n=本4DOC +本人DOB\n= 半志CO8\n避在图24-35(3) 中,有\nZLB4C = LD4C - 人D4B\n1，1\n=本4DOC -本人DOB\n-=工-COF\n=本和CO8.\n综合以上三种情况后可得:\n定理”一条弧所对的圆周角等于它所对圆心角的一半， 由定理可得:\n推论1 在同圆或等圆中, 同绝或等约所对的圆周角相等,相等的圆周角所对的弧也相等(图 24 - 36 ).\n推论2 ”半圆或直径所对的圆周角是直角;90\"的圆周角所对的弦是直径(图24一37).\n28",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 28,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5255681818181818,
+        "lengthScore": 0.408,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "CC C:\n已全\nc 区 Jsss\nUN 个\nsg 号图 24-36 图 24-37\n例1 如图24-38,4B 为OO 的直径,弦 CD 交4B 于点 P, LA4CD =60*,/4DC =70\",求24PC 的度数. 7党分析: L4PC 等于圆周角人BA4D 与LADC 之和. 及有\n解连接BC,则上人A4CB =90\"， NS\nLDCB = LACB - LACD = 90。-60。 = 30。. 2\n图 24-38\n又 … ZLB4D = DCB =30\"， ZL4PC = LB4D + LA4DC =30。+70*\n= 100\".\n黎\n1如图,四边形 ABCD 的四个顶点在DO 上,找出图中分别与1、L2、L3、L4 相等的角， 人\n< 风人 N\n人 MCANN\nNU 二尖-- 5\n(第1 题) (第2 题) (第 3 题)\n2. 如图,在DO 中,人BOC =50\",求LA 的大小.\n3. 已知: 如图,04,0B,OC 都是DO 的半径,人L40B8 =2人BOC.\n求证: L4CB =2人BA4C.\n4. 已知等腰直角三角形 4BC 的一条直角边为V3,求它的外接园的半径， 5. 证明: 如果三角形一边上的中线等于该边的一半,那么这个三角形是直角三角形.\n29",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 29,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.36179775280898874,
+        "lengthScore": 0.548,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "一个多边形的所有顶点都在同一个圆上 ,这个多边形叫做圆的内接多边形 ,这个圆叫做这个多边形的外接圆.， 如图 24 - 39 ,四边形 4BCD 内接于@0,这时,它的每一个角都成为圆周角. 利用圆周角定理 ,我们来研究圆内接四忆 边形的角之间的关系.\n在图24- 39 中,由于B4D与BCD所对的圆心角之和是周角为360\" ,则图 34加 Z4+人BCD = 180?.\n同理,得\nZLB+ZLD=180\".\n延长 BC 到点瓦,有\nBCD +人LDCE = 180\".\nZL4=LDCE.\n由于L4 是DCE 的补角人BCD 的对角(简称为\n2和DCE 的内对角) ,于是我们得到圆内接四边形的性质:\n定理 ”圆内接四边形的对角互补,且任何一个外角都等于它的内对角.\n例2 在圆内接四边形 4BCD 中,人人4、LB、LC 的度数之比是2:3:6,求这个四边形各角的度数.\n解设上4 LB、LC 的度数分别等于2x? 3x? .6x?.\n… 四边形 4BCD 内接于圆， ZL4+LC=LB+ZD=180\".\n2x +6xr = 180， = 22.5.\nLA4 =45。， LB = 67.5。， 人LC = 135。， LD = 180。-67.5。 = 112.5\".\n30",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 30,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4946695095948827,
+        "lengthScore": 0.543,
+        "coherenceScore": 0.7,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "\\步练习\n1. 如图,四边形 4BCD 是OO 的内接四边形, 人BOD = 100。,求人\n人BAD 与LBCD 的度数\n2. 已知: 四边形 4BCD 内接于OO,BC 是DO 的直径,4DNBC,A4C\n与 BD 相交于点已, LAPB =20。,求四边形 ABCD 各个角的度数， 3. 证明: 圆内接平行四边形是矩形. 刀 “\n冯\n(第1题)\n4二\n1. 已知: 三角形的三个顶点在圆上,上且把圆周分成所对圆心角之比为1:2:3 的三个部分,求这个三角形的三个角的大小.\n2. 以半圆的直径为一边作一等边三角形 ,求该等边三角形将半圆截成的三条弧所对的圆心角的度数.\n3. 在A4BC 中,4B =4C =3 cm,上4 =120。,求A4BC 的外接圆直径.\n4. 已知; 如图,4B 和 CD 交于@〇O 内一点书求证: P4. PB =PC . PD.\n了妈 妇\n\n岂妨\n(第4题) (第5题)\n5. 如图,4B 是OO 的纺,忆是4B 上一点,4B =10 cm,P4 =4 cm,OP =5 cm,求OO\n的半径.\n6. 已知: 在A4BC 中,人BA4C 的平分线分别交边 BC.A4BC的外接圆于点也,已求证: (1) A4BDcpA4EC;(2) 4B .4C =4D .4=4D2+BD .DC\n31 7. 已知: 半圆的直径 4B = 13 cm，C 为半圆上一点，CD 1 4B, 垂足为刀, 且\nCD =6cm,求4D 的长.\n\n8. 在圆内接四边形 4BCD 中,人L4:LB:LC:2DD只可能是下不\n列四个选项中的 . 入\n@ 1:2:3:4;0 4:3:2:1;@ 4:1:3:2;Q@ 4:3:1:2. 多)\n由此你发现,圆内接四边形的各角度数之比的规律是什么? NT\n\n9. 已知: 如图 ,四边形 4BCD 内接于OO,人4DC 的平分线交六\n45于点忆,交 CB 延长线于点囊 (\n求证: BP平分上4BE",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 31,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4717800289435601,
+        "lengthScore": 0.828,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "9. 已知: 如图 ,四边形 4BCD 内接于OO,人4DC 的平分线交六\n45于点忆,交 CB 延长线于点囊 (\n求证: BP平分上4BE\n\n10. 已知: 如图,OO 与60, 都经过4,B 两点,经过点4的直 (第9 题)\n线 CD 与OO 交于点 C 与0, 交于点也;经过点互的直线 太与0 交于点巨与口0, 交于点的求证: CEVDF.\n\nci、\n6 世\n(第 10 题) (第11题)\n\n11. 如图,点4在OO内,点B在OO外,点CD在OO上,试比较人C4D 与人CBD\n\n的大小.\n32\n加四 :2 -La_\n直线与圆的位置关系一\n国人， 1.， 日出的一组照片反映了太阳与地平线的位\n' 置变化,将照片中太阳与地平线(图24一40) 分别看作圆与直线,并按它们之间不同的位置关系表示成如图 24 -41.\n(1) (2) (3)\n图 24-40\n2. 在图24-41 中,观察OO 与直线/的公共点的个数,有几种情况?\n(人 ( 一\n() (2) (3)》， 图 24-41， 如果直线与圆有两个公共点,这时直线与圆的位置关系叫做相交 ,如图24-41(1) ,这条直线叫做圆的割线(secant\n33\n二。 24.4 ”直线与加的位置关系 _国罗二 line ) .\n\n如果直线与加只有一个公共点,这时直线与加的位置关系叫做相切,如图 24 - 41(2) ,这条直线叫做圆的切线(tangent\nline) ,这个公共点叫做切点(point of tangency ).\n\n如果直线与圆没有公共点,这时直线与圆的位置关系叫做相离 ,如图24一41(3 ).\n\n设@O 的半径为 ~,圆心 0 到直线 ! 的距离为 ,由上述直线与圆的位置关系可知;\n\n(1) 直线 1与GO0 相交 4 <六如图24-42(1);\n\n(2) 直线与OO 相切c 4 =六如图24一42(2)\n\n(3) 直线 ! 与OO 相离全 4 >,如图24-42(3)，",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 32,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.55,
+        "lengthScore": 0.832,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "如果直线与圆没有公共点,这时直线与圆的位置关系叫做相离 ,如图24一41(3 ).\n\n设@O 的半径为 ~,圆心 0 到直线 ! 的距离为 ,由上述直线与圆的位置关系可知;\n\n(1) 直线 1与GO0 相交 4 <六如图24-42(1);\n\n(2) 直线与OO 相切c 4 =六如图24一42(2)\n\n(3) 直线 ! 与OO 相离全 4 >,如图24-42(3)， Of / 市\n() 12) (3)\n图 24-42\n\n在图24-42(2)中,当直线 ! 与OO 相切时,切点为4,连接 04. 这时,如在直线 /上任取一个不同于点 4 的点已连接\nOP ,因为点己在90 外,所以 OP > 04. 这就是说,O4 是点 O\n到直线7上任一点的连线中最短的,故 O4 J/\n\n于是可得;\n\n切线性质“圆的切线垂直于经过切点的半径.\n\n例1 如图24-43,RtA4BC的和斜边 4B = 10 cm， 人4 =30”.\n\n(1) 以点 C 为圆心作圆,当半径为多少时,4B8 与C\n相切?\n\n(2) 以点 C 为圆心,半径分别为4 cm 和5 cm 作两个\n\n34",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 33,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5345268542199488,
+        "lengthScore": 0.484,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "于是可得;\n\n切线性质“圆的切线垂直于经过切点的半径.\n\n例1 如图24-43,RtA4BC的和斜边 4B = 10 cm， 人4 =30”.\n\n(1) 以点 C 为圆心作圆,当半径为多少时,4B8 与C\n相切?\n\n(2) 以点 C 为圆心,半径分别为4 cm 和5 cm 作两个\n\n34 圆,这两个圆与斜边 4B 分别有怎样的位置关系? -\n解 (1) 过点 C 作边4B 上的高 CD\n… 4-=30\",4B =10 cm， BC-=4B -=-工xl10-5(cm)， 2 2 图 24-43\n在RtABCD 中,有\nCD = BCsinB = sin60。 =i(em)， YI > 存下 5\n当半径为y3 cm 时,48 与OC 相切.\n(2) 由(1) 可知,圆心 C 到48 的距离4= 3 cm\n当上=4cm时,d >r,OC 与4B 相离;\n当r =Scm时,d <r,OC 与4B 相交.\n忆\n:1 如图24-44(1) ,经过国上一点已,作直线与 1\n;已知圆相切,如何作? 能够作几条?\n2. 如图24-44(2) ,经过圆外一点已,作直线与， 已知贺相切,如何作? 能够作几条? (D 四，， 图 24-44， | (<一一一瑟\n旨例2 如图24-45,点尸为OO 上任一点,过点己作直线 与0 相切. 图 24-45\n35\nAREEEITTTES",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 34,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.42436974789915966,
+        "lengthScore": 0.587,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "作法\n1. 连接 OP.\n2. 过点尸作直线 11L OP.\n则直线7! 即为所作.\n为什么直线 !即为所作呢?\n由作图可知 ,直线1! 与OO 有一个公共点忆,若取直线 /\n上除点己之外任一点2 ,连接 O2,则 OC > OP(斜线大于重线) ,所以点2 在圆外. 因此 ,直线17与OO 只有一个公共点， 故直线 /为OO 的切线.\n于是可得:\n切线判定定理”经过半径外端点并且垂直于这条半径的直线是圆的切线.\n有例3 已知: 如图24-46,上4BC =45\",4B 是OO 的直径,4B =4C.\n求证: 4C 是OO 的切线.\n证明 … 4B =4C,人4BC =45。， 4 C 上 LA4CB =人4BC =45\".\n图 24-46 LBAC =180\" -LA4BC - LA4CB =90\"\n… 4B是DO 的直径， … 4C是OO 的切线.\n志o。 1.，@O 的国心到直线 1 的距离为 5 cm ,直线/与OO 有唯一公共点,间@〇O 的半径是多少厘米?\n2. 在人4BC 中,人C =90\",a =3,)=4,以点C 为圆心,下列并为半径的圆与 4B 有怎样的位置关系,为什么?\n(1) =2; (2) =2.4; (3) 六 =2. 8.\n36",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 35,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4819004524886878,
+        "lengthScore": 0.537,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "3. 如图,4B 与OO 相切于点 C,O04 =0B ,OO 的直径为8 cm,4B =6 cm,求 O4 的长.\n作 C 妃上\n必己\n上避\n(第 3 题) (第4题)\n4. 已知: 如图,点乙在人BA4C 的平分线上,PD 1 4B,重足为也.\n求证: 以点书为国心.PD 为半径的加与人BAC 两边相切， 5. 已知: 如图,直线4有过OO 上的点C,且0O4 =0B,C4 =CB.\n求证: 直线 4B 是OO 的切线.\n全全 耳和4 全如\n(第5题) (第6 题)\n6. 已知: 如图,4B 是OO 的直径,点万在4B的延长线上, BD = 0OB, 点C 在国上， 人CA4B = 30?.\n求证: DC 是OO 的切线.\n“例4 如图24-47,点己为0 外一点,过点己作直交\n线与DO 相切. DR\n作法 of\n1. 连接 OP. LT\n2 以 OP 为直径作圆 ,设此圆交@〇oO 于点4,. 人\n3.， 连接 P4 ,PB. 图 24-47\n则直线 P4 ,PB 即为所作.\n过圆外一点能够作圆的两条切线.\n切线上一点到切点之间的线段长叫做这点到圆的切线长.\n37",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 36,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5113924050632911,
+        "lengthScore": 0.492,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "全\n142 恒本\n了 1. 在透明纸上画出图24-48(1) ,设 P4,PB 是\nOO 的两条切线,4,刀是切点. 沿直线 OP 将图形折壹,有什么发现?\n有\nGy>\n召六\n(D 加图 24-48\n2. 学生证明自己的发现.\n如图24-48(2) ,连接 O4 ,0B. 下面如何证明?\n…， P4=PB,L4PO =上BPO.， “切线长定理”过圆外一点作圆的两条切线,两条切线长相等,圆心与这一点的连线平分两条切线的夹角.\n万 “例5 已知: 如图24-49 ,四边形4BCD 的边4B ,BC， 有 S 和 _ CD,D4 和OO 分别相切于点已,忆,G ,也呈 求证: 4B + CD = D4 + BC.\n证明 … 4B,BC,CD,D4 都与OO 相切,已,忆,G,克 2 是切点， 图 24-49 MA4BE =4有,BE = BF,CG = CF,DG = D克\n38\n本2",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 37,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.44753086419753085,
+        "lengthScore": 0.396,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "4PF+BEF+COG+DG=4忆+BF+CF +D万， 即 4B+CD =D4+PFC.\n“ee\n1. 已知: OO 的半径是30 cm ,点书与圆心 O 的距离是60 cm,P4,PB 是DO 的两条切线,4,刀是切点,求人L4PB 的大小与 P4 的长.\n2. 如图,P4,PB 是OO 的两条切线,4,刀是切点,直线 OP 加交〇OO于0O,D两点,交4B 于点 C. A /人心\n(1) 写出图中所有的符直关系; 2 书\nCo) 本由图中所有的全和三角下 \\V 一\n3. 已知: P4,PB 是OO 的切线,4,B 是切点,人4PB =60?， 好点C是OO 上异于4,好的任意一点,求人L4CB 的大小. (第2题)\n| 1\n光习题 24. 4\n1. 以边长为3 cm 的等边三角形 4BC 的顶点 4 为圆心 r 为半径作圆. > 为何值时;\n(1) @O4 与 BC 相交?\n(2) O4 与 BC 相切?\n(3) @O4 与 BC 相离?\n2. 试证: 如果圆的两条切线互相平行,那么连接两个切点的线段是圆的直径.\n3. 如图,可以用游标卡尺测量圆形工件的直径. 当两卡脚贴紧工件,从刻度尺上读出两卡脚之间的距离 4 的数值,即可测出直径的实际值. 说明该测量的原理.\n全娘\n国一\n一一、 必和二 |国国|\n~ 局 PE\n个丝区轧\nee\n提号\n(第3 题) (第4题)\n39",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 38,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5386178861788617,
+        "lengthScore": 0.596,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "4. 已知: 如图,4B8 是@O 的直径,BC 是OO 的切线,切点为 B,OC 平行于弦 4D， 求证: CD 是@O 的切线 c\n5. 已知: 如图,4B8 是@O 的直径, OO 过 BC 的中点 D， DELA4C 于点瑟刀\n求证: DE是OO 的切线.\n6. 已知: 如图,在A4BC中,人B =90\",人4 的平分线交BC 4 8\n于点 D,点在4B8 上,DE=DC,以点万为圆心.DB 为半径作OD\n全A 页求证: 人\n(1) 4C 是@D 的切线;\n(2) 4B +EB =4C.\n从\nNS\n公司总\nNU 过\n(第6题) (第7 题)\n7. 已知: 如图,4B8 是OO 的弦,4C是OoO 的切线,作OK 1L4B ,垂足为天求证: LB4C =人4OK.\n8. 已知: 如图,Ah4BC 内接于OO,48 为非直径的纺,人CAE = 全求证: 4已与OO 相切于点4\n吴从\nAN\n14 6 SR\n人了\n(第8 题) (第9 题)\n9. 如图,P4,PB 是@O 的切线,4,B 是切点,OP 交 4B 于点也,交@0 于点 C， 4D =25,DC =2,求@0 的半径及 PA,PC 的长.\n40 10. 已知: 如图,4B,CD 是@O 的两条平行切线,4,C 是切点,OO 的另一条切线 BD\n与4B,CD 分别相交于 B,D 两点.\n求证; BO1L 0OD.\n戊召\n性凡\n民\nCC 万召\n(第 10 题) (第 11 题)\n11. 已知: 如图,点忆在90 外,Ph4,PB 是@O 的切线,4,B 为切点. BC 是直径,连接 C4.\n求证; C4NOP\n41",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 39,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4151624548736462,
+        "lengthScore": 0.698,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "三角形的内切圆十因一 站-------------- 有一块三角形材料,如何从中剪下一个面积最大的圆?\n(1) 如果最大圆存在,它与三角形的各轴应有怎样的位署关系?\n内内 及及\n今分企心\n() 人2) (9) 二图 24-50\n如图24-50,OO 按其位置与三角形的边是否相切分四种情形: 图只-350(1)的OO 与三边都不相切， ss 图24-50(2)的OO 只与一边相切,图24一350(3)的\n@〇O 与两边相切,图24-50(4)的OO 与三边都相切， 图24-50(1)(2)(3)中的圆面积都不是最大的\n〈《试一试,可作出一个面积更大的圆来),由此猜想:\n要使剪下的圆面积最大,这个圆应与三角形的三边都相切,如图24-S0(4).\n《2) 求作一个圆,使它和已知三角形的各边都相切.\n如图24-51,如果半径为了的O7与A4BC 的三轴都相切,那么其圆心了应与A4BC 的三这距志 离相等,都等于半径,所以圆心7应是三角形的下 三条角平分线的交点.\n42",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 40,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6352357320099256,
+        "lengthScore": 0.436,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "具月 C， 图 24-51， 作法天\n1. 如图24 -52,作A4BC的上有、人LC平分线 BE,CF,设它们交于点工 ZK\n2. 过点了作 ID1L BC 于点 D， 一已\n3 以点了为圆心.万为半径作@7 汉|\n则@7 即为所作:. 避图 24-52\n与三角形三边都相切的圆叫做三角形的内切圆\n(inscribed circle of triangle) ,内切圆的圆心叫做三角形的内心(incenter of triangle ) ,这个三角形叫做圆的外切三角形\n(circumscribed triangle of circle ) .\n三角形的内心到三角形的三边距离相等.\n例如图24-53,在A4BC 中,人B =43。,人C =61?,点 1\n7是A4BC 的内心,求上 B1C 的度数.\n解连接7厂,7C.\n因为点7是A4BC 的内心,所以盏,7C 分别是人B、LC 人的平分线. AT 四在ABC 中,有 “\n图 24-53\n人LBI1C =180\"” -(人1BC + LT7CB)\n= 180? -却 /人有+人C)\n\n= 180\" -本(43\" + 619)\n= 128\"?.\n43",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 41,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.392018779342723,
+        "lengthScore": 0.504,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "秽\n1. 在A4BC 中,4B =AC =4 cm,以点4为圆心、2 cm 为半径的圆与 BC 相切,求人BAC\n的度数， 2. 在A4BC 中,LA =80。,点了是内心,求人BJC 的度数\n3. 在A4BC 中,人C =90。,BC =3,4C =4,求这个三角形的内切圆半径.\n4. 在一块周长为12 cm \\面积为6 cm?的三角形材料中作一个内切圆,问这个圆的半径是多少厘米?\nyy 习题 24.5 \\\n1. 证明: 等边三角形的内心与外心重合 ,并且外接圆半径是内切圆半径的2 倍.\n2. 已知: 如图,在人4BC 中,内切圆了与边 BC,C4 ,4B 分别相切于点也,天,所求证; 人FDE =90。-工24\n2 及让\n克天\n\n天好 孢人 吾效五全\n(第2题) (第3题)\n3. 如图,OO 为A4BC 的内切圆,切点为正, FF, G, 人LC =90\",40 的延长线交 BC 于点D,4C =4,CD =1,求Oo的半径和\n4. 已知:在A4BC中,人C = 90?\",三边长为ap, c, A4BC 的内切圆半径为求证:\n(1) > =过( +一c);\n加\n《27 “二 ad+D 上+cC\n44 5. 已知: 如图,在A4BC 中,点巨是内心,延长 4 交三角形的外接圆于点也,连接\nBD，DC.\n求证: DB = DC = DEFE.\n民有 三妃 C 从陷\n(第5 题) (第6题)\n6. 如图,三条直线六,2 ,两两相交构成三角形. 在这个图中能找出几个到三条直线距离相等的点 ,为什么?\n7. 在A4BC中,BC =a =14cm,4C = =9cm,4B =c =13cm,它的内切圆与 BC, 4C, 4B 分别相切于点也, 已, 亚,求4AF，BD，CE 的长.\n9 1\n人区 数学园地圆与圆的位置关系如图24-54,选择两个大小不一样的圆,放在桌上做相对运动,可以找出平面上两圆之间几种不同的位置关系?\n图 24-54\n如图24-55,设OO OO, 的半径分别为了, 及(有R >7) ,两圆圆心间的距离(简称圆心距)OO， =\n45",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 42,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5113484646194927,
+        "lengthScore": 0.887,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "(D 外离 (2) 外切\nG) 相交仙 内切 G) 内售图 24-55\n当两圆处在不同的位置关系时,d 与尽,r之间有如下的关系:\nJR rw ho hg\n人 he\n(1) 填写上表的空白处;\n(2) 当圆心 O1 与圆心 O。 重合时,两圆是同心圆,此时有:\nd4= ;\n(3) 当两圆相交、外切或内切时,过点 O1，O:; 的直线(连心线)有怎样的性质?\n40 & 4\n正多边形与贺\n1. 正多边形与圆在七年级上册 4. 6 节*用尺规作线段与角\"的“数学活动\"中,曾介绍过画正五角星 ,你还记得是怎么画的吗” 下面就来研究这样画的道理， 各边相等.各角也相等的多边形叫做正多边形.\n正多边形与圆有非常密切的关系,把一个圆分成闵条相等的弧,就可以作出这个圆的内接或外切正站边形.\n如图 24 - 56,点 4,B,C,D,E在OO上,上且有 mm >\n大=瑟==殉=珊,TP,PO，OR, RS 5S7分别是凡点AAANN\n、 及[ki了 1 二\n4, B，C, D, 忆为切点的OO 的切线. 于是有: 人五边形 4BCDE 是OO 的内接正五边形,五边形 PORST EN 吧 ,内人\n是80的外切EFi形 SS\n由 4B -=BC=CD=DPF=HA,得 R\n4BF =BC=CD =DFE =E4. 图 2 59\nBCE =348 = CD4， 人L1=人2.\n同理,得\n22=L人3 =人4 =人5. 顶点4,B,C,D,忆都在OO上， 上。 五边形 4BCDE 是OO 的内接正五边形,\n连接 O4 ,08 ,0OC ,则\nLO4BF = LO0B4 = LOBC = 人OCB.\n47\n二 24.5_正多达形与加 |",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 43,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5124792013311148,
+        "lengthScore": 0.717,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "7TP,PO,OR 分别是以点4,B,C 为切点的OO的切线 9\nLO4P = LOBP = LOBO = 上0C0.\n人LP4B = LPB4 = LOBC = /0OCB.\n又 … 4B8 = BC， 4DB = BC.\nAP4F宇AOBC.\n… LP=L0,PO =2P4.\n同理,得\nLO =LR=LS= 7T， OR = RS =5S7T =TP =2P4.\n… 五边形 PORST 的各边都与OO 相切， … 五边形 PORST 是OO 的外切正五边形.\n由上可知,通过等分圆周的方法能作出正多边形.\n(1) 用量角器等分圆周由在同圆中相等的弦所对的弧相等可知,在一个圆中,先\nNe EN 用量角器作一个等于:5 的圆心角,这个角所对的弧就是国周的二 ,然后在圆周上依次截取这条弧的等弧,就得到加的等份点,从而作出正”边形(正五角星就是这样作出的).\n0 (2) 用尺规等分圆周门 ; -一此特 《 、 以永， -二站3各对于一些特殊的正 ”边形,还可以用直尺和圆规来等分人从呵\n洒一洒一-站 @ 正四边形的作法\nNU 、/ 如图24-57(1) ,用直尺和圆规作@O 的两条互相垂直的\n“SS 直径,就可以把90 分成4等份,从而作出正四边形国 我们再逐次平分各边所对的弧,就可以作出正八边形图 24-57 [图24- 57(2) ] .正十六边形等\n48",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 44,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.556,
+        "lengthScore": 0.585,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "O 正六边形的作法如图24- 58(1) ,设@O 的半径为R,通常先作出OO 的一条直径 4B,然后分别以点 4,B 为圆心.R 为半径作弧,与OO\n交于点 C,D,E,P,从而得到@oO 的6 等份点,作出正六边形.\n如果再逐次等分各边所对的弧,就可作出正十二边形`正二十四边形等我们可以连接 6 等份圆周的相间两个点,得到正三角形,如图24-58(2)， 也一一一六忆\n(巧，(盆\nSC 一人1) (2)\n图 24-58\n.6g9\n1. 求下列正多边形每个内角及其外角的度数:\n(1) 正五边形; (2) 正八边形; (3) 正十二边形.\n2. 在一个半径为2 cm 的圆中,作出它的内接正六边形及内接正三角形.\n3. 用量角器作出一个半径为2 cm 的圆的内接正五边形.\n2. 正多边形的性质将一个圆半等分,就可以作出这个圆的内接或外切正n\n边形. 反过来,是不是每个正多边形都有一个外接圆和一个 “， 乒 SN\n内切圆呢? 六我们仍然以正五边形为例来进行探究疯\n如图 24 - 59 ,过正五边形 4BCDE 的顶点 4,B,C作， A 一太\nO〇OO,连接 04,0B,0OC,O0D ,OFE. 图 24-59\n49 0B = 0C， ZL1 = 2.\n又 … ZL4BC = 上BCD， L3 = 人14.\n\n4B = DC， AAAO4BSAODC， 0O4 = 0D， 即点也p在OO 上.\n\n同理,得点瑟也在OO 上.\n\n所以正五边形 4BCDE 有一个以 0 为圆心的外接圆.\n\n由于正五边形 4BCDE 的各边是OO 中相等的纺,等弦的弦心距相等,所以以点 0 为圆心.弦心距 OF 为半径的圆与正五边形的各边都相切.\n\n所以正五边形 4BCDE 还有一个以 0 为圆心的内切圆.\n\n任何正多边形都有一个外接圆和一个内切圆 ,并且这两个圆是同心圆.\n\n我们把一个正多边形的外接圆和内切圆的公共圆心 ,叫做正多边形的中心 ,外接圆的半径叫做正多边形的半径,内切圆的半径叫做正多边形的边心距,正多边形每一条边所对的圆心角,叫做正多边形的中心角,正蒜边形的每个中心角都等于zc\n\n于",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 45,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6649550706033376,
+        "lengthScore": 0.901,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "所以正五边形 4BCDE 还有一个以 0 为圆心的内切圆.\n\n任何正多边形都有一个外接圆和一个内切圆 ,并且这两个圆是同心圆.\n\n我们把一个正多边形的外接圆和内切圆的公共圆心 ,叫做正多边形的中心 ,外接圆的半径叫做正多边形的半径,内切圆的半径叫做正多边形的边心距,正多边形每一条边所对的圆心角,叫做正多边形的中心角,正蒜边形的每个中心角都等于zc\n\n于正多边形都是轴对称图形 ,一个正二边形一共有寺条对称轴 ,每一条对称轴都通过正多边形的中心 ,如图24 - 60.\n() (2) (3) 了图 24-60\n50\n2二4 如果一个正多边形有偶数条边 ,那么它又是中心对称图形,它的中心就是对称中心.\n例“求边长为 e 的正六边形的周长和面积解 ”如图24-61,过正六边形的中心 0 作 OGL BC,重站\n足是 G,连接 08，OC,设该正六边形的周长和面积分别为 C\n和开 OA 刀\n… 多边形4BCDEF 是正六边形， 省\n. 人BOC = 60\",人BOC 是等边三角形. -\n.。 C = 0BC = 00.\n图 24-61\n在ABOC中,有\nOG -pc\n\n-呈v\n\n=0.一BC OG\n\n.1 .凤\n= 0 74 2 4\n-玫峭 练人习\n1. 一个不等边三角形是否一定有一个外接圆和内切圆? 如果有,它们是不是同心圆?\n2. 有一正六边形 4BCDEF 的内切圆半径为及,求尺与这个正六边形 ABCDEF 的外接圆半径之比.\n3. 证明: 在正几边形中,中心角与正边形的每个外角相等.\n5S1",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 46,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6998223801065719,
+        "lengthScore": 0.654,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "ibm全\n1. 作已知@0 的内接正八边形.\n2. 用等分圆周的方法画出下列图案;\nQoS.\nCA人>\n(第2 题)\n3. 已知: 如图,A4BC是@O 的内接等腰三角形,顶角上4 =36\",弦 BD,CE 分别平分人4BFC 、L4CB.\n求证: 五边形 AEBCD 是正五边形,\nRN 二\n<\nXi 过国S\nBC 一 SU\n(第3 题) (第4题)\n4如图 ,正六边形的螺帽边长 e =12 ,这个扳手的开口 5应是多少?\n5. 要用圆形铁片截出边长为 e 的正方形铁片,问圆形铁片的直径最小要多长?\n6 分别求出半径为 R 的圆内接正三角形 .圆内接正方形的周长和面积\n7. 设正三角形的外接圆半径与内切圆半径之差为 2 em ,求这个正三角形的面积.\n8. 已知: 如图,正五边形的对角线 4C 和 BE 相交于点忆 )\n求证:\n(1) PE = 4B; 歼人\n(2) PE2 = BE .BP.\n答召\n(第8 题)\n52\n加四 了 2 品听长与扇形面积在小学时我们就已知道,圆的周长 C、,圆的面积 $ 与加的半径 R 之间有下面的关系:\nC =2mR， S = TR“-.\n这里的 = 3. 141 59…, 是个无理数,叫做圆周率.\n但在许多情况下 ,我们还需要计算贺的一部分弧长和面积,如图24一62 中的AB长度,以及半径 04,08 与所围权红色部分的面积.我们把两条半径与所夹弧围成的图形叫做扇形(图24 一62 中劣弧 4B 所围橘红色部分或优弧 4B 所图本\n白色部分)， NS\n;如何求一个说形的弧长和面积?\n在圆中,如果圆心角志4OB =me,那么它是周角(360*)\n的52 ,因此,me的圆心角所对的弧长和以 z为国心角的户形面积分别是整个加的周长和面积的:2 所以,在半径为尺的圆中,的圆心角所对的弧长 C, 和以 me为圆心角的肩形面积 8i的计算方法分别是\n- .2TR -DTR\nC 560 4 = 180， 53\nYE",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 47,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6381766381766382,
+        "lengthScore": 0.831,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "7 1 7TR 1\n人 = 53607728 =了 180 =CIA.\n例1 一滑轮装置如图 24 - 63 ,滑轮的半径有R=10 cm， 当重物上升 15.7 cm 时 ,问滑轮的一条半径 O4 绕轴心 O 按逆时针方向旋转的角度? (假设绳索与滑轮之间没有滑动， 磋取3.14)\n区二\n|\n人图 24-63\n解”设半径 O4 绕轴心 O 按逆时针方向旋转普 ,则\n1TR\n180 = 15. 7.\n解方程,得\n1一90.\n答: 滑轮按道时针方向旋转的角度约为 90?.\n例2 古希腊埃拉托塞尼曾给出一个估算地球周长\n(或子午圈长) 的简单方法. 如图 24 -64 ,点3 和点 4分别表示埃及的赛颁尼和亚历山大两地,亚历山大在赛伊尼的北方,两地的经度大致相同 ,两地的实际距离为5 000 希腊里(1 希腊里=158. 5 mm). 当太阳光线在赛伊尼直射时,同一时刻在亚历山大测量太阳光线偏离直射方向的角为 aw， 实际测得 “ 是7.2\" ,由此估算出了地球的周长 ,你能进行计算吗?\n54",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 48,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6473684210526316,
+        "lengthScore": 0.451,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "解 ”因为太阳光线可看作平行的,所以圆心角人人40 =a =7.2”.\n设地球的周长(即@O 的周长)为 C,则， 冰\nC _360\"_ 50 22AwA\n二一了oo一， Ai\n5 7.2\n… C =5048 =50 x5000\n=250 000( 希腊里)\n图 24-64\n~39 625(km ) .\n答: 地球的周长约为39 625 km.\n我们知道,地球周长约为40 000 km. 可见,2 000 多年前,埃拉托塞尼的估算结果已经相当精确了.\nwe 本二可少人三人 [en 0 1\n:1 如图24-65(1) ,底面半径为母线(上下底面 ; ->\n; 圆周上对应两点的连线)为了的圆柱,它的侧面展开图村， 是什么? 这个侧面展开图的面积计算公式是什么2， 2. 如图24-65(2) ,底面半径为母线(顶点与底。 面圆周上一点的连线)为了的国锥,它的侧面展开图又， IN， 是什么?这个侧面展开图的面积计算公式是什么2\nii |\n(2)\n图 24-65\n例3 如图 24 - 66,贺锥形的烟向帽,它的底面直径为\n80 cm ,母线为 50 cm. 在一块大铁皮上剪裁时,如何画出这个烟向帽的侧面展开图求出该侧面展开图的面积解 烟向帽的侧面展开图是扇形,如图 24 - 67,设该记形的面积为8\n535\n二 24.7“红长与房形百积 _且罗二",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 49,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5870445344129555,
+        "lengthScore": 0.577,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "在铁皮上画一个扇形 ,除需知道扇形半径! 外,还需知道扇形圆心角 w. 由刚学过的弧长计算方法 ,可得\nCQ\n2mr = 也和 2如\n\n覆人3\n图 24-66 图 24-67 40\nL = 360。x 二 = 360。x一 = 288。.\naq =360\" x了=360” x50 = 288\n-_a .AP -28 >、507 - ,mn2\n3 = xx50m = 200mr(cm).\n业-\n1. 已知: 扇形4OB 的半径为 12 cm, 人AOB =120。,求4B的长度和扇形 4OB 的面积.\n2. 已知: 扇形的圆心角为 150\",缴长为 20T,求扇形面积,\n3. 如图,圆柱形排水管的截面半径 OC =0.6 mm,水面高 DC = 0.3 m, 求截面中有水部分的面积.\n输 4 2\nEE 也和\nC 忆\n(第3 题) (第4题)\n4. 如图,把国锥的侧面展开得到扇形,其半径 04 = 3, 圆心角人40B = 120。，求4\n的长.\n56",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 50,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4269005847953216,
+        "lengthScore": 0.43,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "上了局， 247L\n1. 火车上主动轮直径为 1.2 m ,主动轮的转速为 400 图/min,间火车的前进速度是多少?\n2. 如图, @0 的半径 04 是@O 的直径,OO 的半径 OC 交\nOO 于点及,问48与AC的长度之间有什么关系? [N\n3. 如图,在 REA4BC 中,人4CB = 90\", 4C = BC =1,将 SN\nRtA4BC 绕点4按递时针方向旋转 30*后得到 RE A4DE ,点 4\n一本乌忌\n8 经过的路径为8 ,求橘红色部分的面积, 本请\n必全 C\n才及 用呈\n(第3 题) (第4题)\n4. 已知: 如图,以REtAA4BC各边为直径的三个半圆求证: 所围成的橘红色部分面积等于Rt A4BC 的面积\n5. 如图,三角形和四边形的边长都大于 2. 现在以它们的顶点为圆心.1 为半径画弧与两邻边相交,在三角形内有三段弧,在四边形内有四段弧,求每个图形中各段弧长之和. 如在”边形内也像上面一样做,这时半边形的各段弧长之和为多少?\n-AITTTTJ友汪 /六\n\nOZ\n(TD (2) |\n(第5题) (第6 题)\n6. 如图,一折扇完全打开后,若外侧两作片 4B8，AC 的夹角为 120\",4B 长为 25 cm， 贴纸部分 6D 长为 14 cm,则贴纸部分的面积(双面)为多少?\n57 7. 如图 ,为测量某个圆形人工湖的半径 ,在湖边4,B,C 三点竖立标杆,并测量出上C4B =7.$\",BC =392.5 m,试求该圆形人工 -2\n湖的半径. C\n从如\n(第7题)\n收CE\n圆周率亚加的周长和直径的比值一圆周率,是一个无限不循环小数,即无理数. 不断地用有理数来逼近它,以求得更精确的圆周率成为古代数学的一个热门课题.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 51,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6265822784810127,
+        "lengthScore": 0.735,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "加的周长和直径的比值一圆周率,是一个无限不循环小数,即无理数. 不断地用有理数来逼近它,以求得更精确的圆周率成为古代数学的一个热门课题.\n\n我国古代有“径一周三\"的说法,实际上,3:1 仅是国内接正六边形的周长与加的直径之比,而非园的周长与直径之比,因此以3 为国周率的误差很大.\n\n我国魏亚时代的数学家刘徽用割国术作为计算国周率的基础,他从圆内接正六边形出发,将边数逐次加倍,并计算逐次得到的正多边形的周长和面积,由此来计算国周率的近似值. 刘徽发现在贺内接正多边形边数加倍的过程中“割之弥细,所失弥少,害之又割,以至于不可割,则与圆周合体,而无所失妆”也就是说,当边数成倍增加地进行分害时,被分割的圆级和所对应的正多边形的边就越来越短(这就是“害之弥细”) ,于是国内接正多边形的面积与圆面积之差也就越来赴小(这就是“所失弥少\"). 按照这种方法,如果分割次数无限增加时,则正多边形趋于与圆重合,而无所失娄”,相应地所算出的圆周率的近似值也越来越接近于五的精确值. 刘徽取半径为1尺(1 尺= 0.3站) ,从国内接正六边形出发,一直计算到国内接正192 边形,得出了圆周率精确到小数点后两位的近似值站= =3.14,并指出这是一个不足近似值,后人通常称\n\n58",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 52,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8640776699029126,
+        "lengthScore": 0.533,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "58\n3 之为“徽率”.\n在刘微之后 200 年,即南北朝时期,伟大的数学家、天文学家祖冲之(429一500) ,也致力于国周率的研究,获得两项成果:\n(1) 圆周率的小数近似值 | 一直\n3. 141 3592 6 <TT <3. 141 592 7; 之党 下\n(2) 圆周率的近似分数元\n密率丰=355 ,约率帮=经 HU/\n113 7 太上述(1) 中的具有8 位准确数字,并由不足与过剩两方面 /\n作了逼近. 这项成果直到 1427 年才被阿拉伯学者卡西(al-Kashi) [\n二二祖冲之密率是严的一个具有特殊性质的近似分数,这一分数在西方 24 8\n是由德国人奥托(V，Otto) 于 1573 年得出的. 可见,祖冲之的这两大成果在世界上均保持领先地位 1 000 年,为了纪念他,现在把\n355，，。 本称为“祖率”\n计算机问世后,国周率的计算有了重大进展. 2002 年底,日本东京大学宣布,他们应用超级计算机计算的下已精确到了小数点后 12 411 亿位.\n计算下数值的计算机竞赛可以看成人类探索站 奥秘的一种智力竞争,它的计算过程本身也成了检验计算机运算性能(包括计算方法)的一种标准.\n< “和加 二盱监数学活动设计图案(二)\n前面 ,我们学习了利用几何变换来设计几何图案. 现在再学习通过等分国周的办法来设计几何图案.\n(1) 以正多边形为基础的图案例子， GD 如图 24 - 69.\n59 一下、 RS\nTRY 全\nCN 全直人人\n人\n1也",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 53,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6960431654676259,
+        "lengthScore": 0.636,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "一下、 RS\nTRY 全\nCN 全直人人\n人\n1也\n\n~、NZL-\n步骂1 步又2 步又3 步驼4\n图 24-69\n@ 如图24-70,在将加6 等分的基础上,作出PR的中点 CQ,再用圆规从点 CO 开始作出圆的6 个等份点,将圆 12 等分. 然后每隔4 点连线得正三角形,这样可作出许多正三角形,即得到一种图案.\nO 及 o 及 9-大、\nP rp\nNAN YY\n启队人帮\n NA 收、 4 <K] NO\n步中1 步又2 步骤3\n图 24-70\n(2) 观察图 24-71 中的图案 ,并仿制其中一个.\n-最用、， YAYA | 让记\n(TOGC Ni\nAS 9\nMOMYYL 人于籽当\n(LU (2)\n图 24-71\n(3) 自己设计并绘制出一个与正多边形有关的图案.\n060 图1\n《2区数学园地某学习小组在探索“各角相等的圆内接多边形一定是正多边形”这个命题是否成立时,进行了一些讨论. 甲同学举出了辆内接和矩形;乙同学举出了如图24-72(1)中的六边形,因为和A4BC是正三角形,4D =B记=C记,这样得到的六边形 4DBECF\n的各内角相等.\n甲乙两同学通过反例 ,说明了当边数是4,6 时,这个命题不成立 ,那么对于哪些边数这个命题成立呢? 丙同学由边数是\n3 时,这个命题成立,进而猜想: 当边数是5 时,这个命题仍成立.\n(1) 你认为两同学猜想的命题成立吗?\n(2) 证明: 各角相等的圆内接五边形一定是正五边形,如图24-72(2) ;\n(3) 根据以上探索过程,提出你的进一步猜想.\n人有4\n和TSN\n罗 N\n四 A |\n关 AN\nBr一-一7\nSS一人 已间1) 《21\n图 24-72\n061",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 54,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6171617161716172,
+        "lengthScore": 0.714,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "LE 4\n综合与实践\n5个便门朋求[1 足球运动员在球场上,常需带球跑动到一定位置后,再 ) 进行射门,这个位置为射门点,射门点与球门边框两端点的夹角就是射门角. 如图 24 - 73 ,如果点 4,B 表示球门边框 (不考虑球门的高度)的两端点,点 C 表示射门点,连接 4C， BC,则二4CB 就是射门角. 在不考虑其他因素的情况下,一\nWay。 般地,射门角越大,射门进球的可能性就越大.\n和图 24 -74 是运动员带球跑动的三种常见线路(用直线表示) ,了解跑动线路中射门角的变化,把握最佳射门点,无疑是有助于提高运动员进球成功率的， | /本本汪汪下信 和本 |\n导 SR |\n| 本 A 民六二\n2 3 忆 0\n一G一全一， 号故\nC 站\n() 展醒跑动 (2) 直古跑动全) 八问由动图 24-74\n下面对运动员横向跑动时的情况进行研究.\n如图 24一75 ,直线 ! 与球门 4B8 平行,点 C 表示运动员的位置,当点 C 在直线/上由左边(或右边)逐渐向球门的中心靠近时,4CB 逐渐增大， 根据对称性可知 ,当点 C 在直线 !上移动到离球门中心最近的位置,即线段 4B 的垂直平分线与直线 ! 的交点 Co\n时, 2A4CB 最大.\n02",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 55,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.73568281938326,
+        "lengthScore": 0.533,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.752Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "， 1 AN\n太7 二有7 |\nLA 一、人wy\n图 24-75 图 24-76\n现在 ,我们来证明点 C 在直线/上移动时,人4CB 的最大值为上4C08.\n如图24-76,过4,，C 三点作@OO,由于4B V 1， 4C = BCu,易知D0 与直线1/ 相切于点 Cu ,在直线 !上另取点 CI(不同于点 Co) ,连接4CI 和 BC，BCI 与OO 交于点忆.则\nL4DB = 人4CIB.\nLA4DB > LA4CIB， LA4CIB > LA4CIB.\n即点 C 在直线! 上移动时,人4CB 的最大值为上4C0B.\n在图24-76 中,当直线 /向上平移到直线了时，Cn 一\nC，Z4CIB LA4CB,日有LA4C)B > LA4CIB.\n由此可知,当运动员沿直线 ! 横向跑动时,他的位置离球门的中心越近,射门角越大,离球门的中心最近(点 Co )\n时 ,射门角最大,我们把点 Co 称为直线1! 上的最佳射门点， 和4CoB 称为直线!上的最佳射门角.\n最佳射门角的大小与直线1!到4B 的距离有关,由图\n24-76知,当直线!与48 的距离越近,最佳射门角就越大,射门进球的可能性也就越大,这与我们踢足球的经验相吻合.\n事实上,在上面的证明过程中,我们还可得到如下的结论:\n如果@〇OO 过点4,B,而直线 48 同侧的三点 C，Co，C\n分别在OO外,OO 上和@O 内,则有\n03\n24。 全与均线过东公直5到全9站儿关国罗",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 56,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5469613259668509,
+        "lengthScore": 0.628,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "ZL4CIB < L4CIB < 2L4C)B.\n简单地说,在约同侧,同弦所对的圆外角 w、圆周角有和圆内角 9 的大小关系为\nww<B <0.\n| 刀有\n,问题@ 如图24 一77,当运动员直向跑动时,球门 48。 | 与直线 1重直,点 C 是运动员的位置\n\\ (1) 作出过4,，B，C 三点的圆 ,猜想当点 C 在直线 1上\n|移动时,直线 ! 与该圆的位置关系;\njc (2) 当直线 ! 与该加有怎样的位置关系时,人ACB 是直图 24-77 线 !上的最佳射门角;\n(3) 已知4B = m, BD = 靖当点 C 是直线!上的最佳射门点时,求 CD 的长;\n(4) 向左平移直线 ! 到直线了,观察直线 !上的最佳射门角与直线 /上的最佳射门角之间的大小关系,写出你的结论\nL 问题@ “如图 24 - 78,当运动员下向跑动时,直线 !算直穿过球门 4B ,点 C 是运动员的位置.\n(1) Z4CB 的大小是怎样变化的?\n(2) 直线!上还有没有最佳射门点? 说明你的理由.\n4 问题@“”对运动员斜向跑动时进行相关探究 ,或自选一个问题进行探究.\n问题@。 与同学合作,将探究的结果写成小论文,并检\n5 验你得到的结论是否与足球运动的实际相符合.\n!\n图 24-78\n04 …。e 小结.评价 e。。….\n一、内容整理\n|放生路， 放生于和图形。 中心对称图玫\nSa\n加的基本必质。 j。 等几朋全和下全等生生下下汪定只 三用扎加， 有5只， 国同性质中， 国内扩P9Mt质\n\n人人\n1只\n”着需癣站大ji\n区疝册二 全。 正多边形的计算， 天与而形面的计算二、主要知识回顾\n1. 在平面内,一个图形叫做旋转. 旋转是由， 和所确定.\n2. 圆是轴对称图形 ,如何根据它得到垂径定理?\n3 旋转对称图形具有怎样的特点 ,举几个实例.\n4. 圆是旋转对称图形,如何根据它得到弧 `弦.弦心距 .圆心角之间的关系?\n5. 根据什么条件可以确定圆?\n6. 与圆有关的角\n(1) 顶点在的角叫做圆心角.\n605",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 57,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6967213114754098,
+        "lengthScore": 0.862,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "(2) 顶点在圆上 ,并且两边都与圆还有另一个公共点的角叫做， 它的度数等于同弧上圆心角的 .\n\n7. 点与圆直线与圆位置关系\n\n(1) 点己与半径为上的DO,设 OP =\n\n点已在DO 外近 4 >7;\n\n点忆在DO 上和一 ;\n\n点己在OO 内和 .\n\n(2) 直线 ! 与半径为的OO,设点 O 到直线7 的距离为忆直线 ! 与口0 相离人全 ;\n\n直线 ! 与OO 相切全 ;\n\n《全 4 <\n\n切线性质圆的切线经过切点的半径.\n\n切线判定定理”经过半径外端点并且垂直于这条半径的直线是圆的切线.\n\n“切线长定理过圆外一点作圆的两条切线 ,两条切线长相等,圆心与这一点的连线平分两条切线的夹角.\n\n8. 三角形与圆的关系三角形有且仅有一个外接圆和 ,它们的圆心分别叫做三角形的和内心.\n\n9. 正多边形与圆圆的内接或外切正多边形.\n\n正多边形的计算.\n\n10.弧长与扇形面积的计算.\n\n三、自评与互评\n\n1，你学过哪些几何变换? 请总结一下它们各自的性质.\n\n2. 平移.旋转、轴对称这三种变换与相似变换有什么不同的地方?\n\n3. 圆的本质特征是什么?\n\n4 圆既是轴对称图形又是旋转对称图形,并且有无数条对称轴 ,旋转角可为任一个角度,它的许多性质都可以由它的对称性推出. 在学习和理解\n“圆\"这一音内容时 ,一定要注意圆的对称性.\n\n5 从本音用反证法证明的例、习题中,你能体会反证法的意义吗? 请举出日常生活中用反证法说理的例子.\n00 | 加\nsy/ 复习题必 -\n1. 仔细观察下列镶边图案:\n《1) 每幅镶边图案具有什么特征?\n《2) 说出每幅镶边图案的变换名称并加以解释.\n于3 -7 至-了. 国一 ET 畏一洒\n”|\n(U)\n9性刁有清关用贡岂让贡局由员忆和\n(2)\n(第1题)\n\n2. 已知: OO 的半径为2,点已在DO 上,该平面上另有一点Q,PC 为2.画出图形,标注点 C 可能的位置，",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 58,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7832369942196532,
+        "lengthScore": 0.811,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "2. 已知: OO 的半径为2,点已在DO 上,该平面上另有一点Q,PC 为2.画出图形,标注点 C 可能的位置， 3. 如图,把 REA4BC 的斜边4B8 放在直线 /上 ,按顺时针方向在! 上转动两次,使它转到A4\"B\"C'的位置. 若 BC =1, 4C =V3 ,则当点 4 转动到点 4的位置时,求点 4\n两次转动所经过的路程.\n\n本\n(人 2\n| 妨了 有如\n(第3题) (第4题)\n及\n\n4. 如图,在DO 中,弦48 所对劣弧为加的， 圆半径为2 cm ,求\n4B8 的长及人4O8 的大小. AN\n\n5. 如图,在DO 中,如果48 =BC,OD,O 是弦心距,且OD =OE，4 \\N2\n那么A4BC是什么三角形 ,为什么?\n\n(第5 题)\n07\n0 6. 已知; OO 的半径为5,点4到圆心 O 的距离 O4 为 3,求过点4 最短的蓄长.\n\n7. 已知: 两纺4B 和 CD 相交于圆内的一点 P,并且两汞夹角被经过点已 的直径平分.\n求证: 4B =CD.\n\n8. 已知:在OO 中,弦48 的长是半径 O4 的3倍,点C 是48的中点,问四边形 O4CB\n是什么图形 ,为什么?\n\n9. 如图,4B,CD,EF 是OO 的三条弦,4BACDVWEF,问 A4CE 与ABDF有什么关系,为什么?\n\nAL 人万\n人， NE 4 8\nAH\n(第9 题) (第 10 题)\n\n10. 如图,4B8 为@O 的直径,C,D 是半圆上两点,且AC = CD = DB,4B = 10 cm.\n(1) 求4C 的长度;\n\n(2) 证明CD V 48.\n\n11. 已知: 如图,4D 是A4BC的高,4已是AA4BC 的外接圆直径.\n求证: 4B . 4C =4巨 .47D.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 59,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.479933110367893,
+        "lengthScore": 0.747,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "10. 如图,4B8 为@O 的直径,C,D 是半圆上两点,且AC = CD = DB,4B = 10 cm.\n(1) 求4C 的长度;\n\n(2) 证明CD V 48.\n\n11. 已知: 如图,4D 是A4BC的高,4已是AA4BC 的外接圆直径.\n求证: 4B . 4C =4巨 .47D.\n\n贞忆 巨妨\n| (从广_必 C 六\n(第11 题) (第 12 题) (第 13 题)\n\n12. 如图 ,花园围墙上有一宽为1m的和矩形门 4BCD ,量得门框对角线 4C 的长为\n2 m. 现准备打掉部分墙体 ,使其变为以4C 为直径的圆弧形门,问要打掉墙体的面积是多少? (站=3.14, 3~1.73)\n\n13. 已知: 如图,4D 是4EAC 的平分线,4D 与A4BC 的外接圆交于点也.\n求证: DB = DC.\n\n68\n加四",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 60,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.46048109965635736,
+        "lengthScore": 0.367,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "12. 如图 ,花园围墙上有一宽为1m的和矩形门 4BCD ,量得门框对角线 4C 的长为\n2 m. 现准备打掉部分墙体 ,使其变为以4C 为直径的圆弧形门,问要打掉墙体的面积是多少? (站=3.14, 3~1.73)\n\n13. 已知: 如图,4D 是4EAC 的平分线,4D 与A4BC 的外接圆交于点也.\n求证: DB = DC.\n\n68\n加四 14. 已知: 如图,4B 为@O 的直径,点 C在OO 上,4D 与过点 C 的切线垂直,垂足为D\n求证: 4C 平分和D4B， 娘四\n|\n本人 1\n必全\n亿\n(第14 题) (第 15 题)\n15. 如图,在A4BC 中, 4 = 90*, 0 是 BC 边上的一点,以点 O 为圆心的半圆分别与边4B, 4C 相切于点也,天,连接 0OD.已知BD =2, 4D =3,求橘红色部分的面积.\n16. 已知: 过OO 外的定点己作@O 的两条切线,分别切OO 于点 4,B. 在劣弧4方上任取一点 C,经过点 C作@O 的切线,分别交 PA ,PB 于点万,到求证;\n(1) APDE 的周长是定值(PA + PB);\n(2) <DOB 的大小是定值二440有|.\n17. 如图是正四边形、正五边形、正六边形,试分别计算其相邻两条对角线的夹角 os、\nas \\a6 ,并探究正边形相邻两条对角线的夹角存在什么规律.\n慷此 已江| 化| ( 示\nN 和 F 7 c\n4 -一8 直刀\n(第 17 题)\n< 和习是几\n1. 如图是4个全等的图形.\n09\nER (1) 将8变换为 9 ,将8 变换为 S; 分别是什么变换?\n如果是旋转,找出旋转中心 ,并量一下旋转角的 =\n度数; 人有\n(2) 8 到 Si .5 到 S; 各是什么变换?如果是旋转 ,找出旋转中心;如果是轴对称 ,找出对称轴;如果是 <\n平移,求平移方向及距离 (第1题)",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 61,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5852534562211982,
+        "lengthScore": 0.796,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "(1) 将8变换为 9 ,将8 变换为 S; 分别是什么变换?\n如果是旋转,找出旋转中心 ,并量一下旋转角的 =\n度数; 人有\n(2) 8 到 Si .5 到 S; 各是什么变换?如果是旋转 ,找出旋转中心;如果是轴对称 ,找出对称轴;如果是 <\n平移,求平移方向及距离 (第1题)\n\n2. 在平面直角坐标系中,有两个正方形 4BCD 和 PORS,顶点分别为4( -3,， 1)， B(1,1),C(1，-3),D(-3，-3)与P(-1,3),0(3,，3),R(3，-1)， S$(-1，-1) ,试在方格纸上面出它们,并完成下列要求:\n\n(1) 找出旋转中心和旋转角度,使正方形 4BCD 变换成正方形 ORSP;正方形\n4BCD 变换成正方形 SPOR ;正方形 4BCD 变换成正方形 RSPO;\n\n(2) 在(1)中,两个正方形是否成轴对称?如是,找出其对称轴;\n\n(3) 什么变换可以使正方形 4BCD 变换成正方形 PORS?\n\n3. 已知: 在两个同心圆中,大圆的蓄 4B,4C 分别与小圆相切于点刀,忆求证: DEVBC,且 DE -了8C\n\n4. 已知: 如图,4B8 是OO 的直径,CD 是弦,4E,BF 垂直于 DC\n的延长线,垂足分别为已,忆 4\n求证: EC =D CC 六下\n\n5. 证明: 以等腰三角形的一腰为直径的圆平分底边. (第4题)\n\n6. 如图,P,C 是以4B 为直径的半圆上的两点,EC所对的圆心角为 90\". 连接 PB,4C\n交于点 M,试分别比较 MC 与 BC WP 与 4P 的大小,问志BMC 为多大?\n\nCC 人\nEt\n及天 及在 已有\n(第6 题) (第7 题)\n\n7. 如图,在A4BC中, 2B = 90\",点0在4B上,以点0为圆心.OB 为半径的圆与\n\n48B 交于点羽,与4C 相切于点D,4D =2,4E =1,求CD的长.\n70\n加四",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 62,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5317577548005908,
+        "lengthScore": 0.808,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "CC 人\nEt\n及天 及在 已有\n(第6 题) (第7 题)\n\n7. 如图,在A4BC中, 2B = 90\",点0在4B上,以点0为圆心.OB 为半径的圆与\n\n48B 交于点羽,与4C 相切于点D,4D =2,4E =1,求CD的长.\n70\n加四 8. 如图,四边形 4BCD 是边长为4 的正方形 ,分别以点 4,B,C,D 为圆心.a 为半径作弧,相互交于点已,P,G ,刀,求橘红色部分的周长.\n凡刀\n:\n全| |全要， -一全 |\n月全 1\n(第8 题) (第9题) (第 10 题)\n9. 如图,一个边长为4 的大正方形被分成4 个全等的小正方形,橘红色部分由 3 段圆弧围成,大圆弧半径是 4,两个小圆弧半径是 2,求橘红色部分的面积.\n10. 如图 ,圆半径为 R,分别以圆上 3 等份点为圆心.R 为半径在圆内作弧,求橘红色部分的面积.\nj 加\n< 复习题业\n1. 已知: 在如图的@O 中,蓄48 是圆内接正六边形的一边,弦 4C\n是圆内接正十边形的一边.\n求证: BC 是圆内接正十五边形的一边.\n2. 求边长为 a 的正五边形对角线的长. 、 A\n3. 已知: 正十边形外接圆的半径为及 加\n|\n求证: 正十边形的边长 wo =了(5 -1)R. (等于)\n4. 已知: 过点尸作一直线与半径为R 的OO 相交于4,B 两点.\n求证: P4 . PB = 1R2 -OP2 1.\n5. 三人各带一根长 100 m 的绳子在荒淮上围地开明 ,甲围成正三角形,乙围成正方形,再围成圆,问三人中谁围的地面积最大?\n71\n人洒\n乒本\n了= 拔影与视和|\n长人必加 - TI 本有朋三视图车二加总昌下7/\n有过一侧 r 全各种机械零件的加工都离不开图纸 ,那么机械零件的立体形状和尺寸大小用平面图形是怎样表示的呢?\n本章我们将学习投影的知识,并根据投影原理认识三视图. 旦/",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 63,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6746987951807228,
+        "lengthScore": 0.793,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "洒乒 本了= 拔影与视和|\n长人必加 - TI 本有朋三视图车二加总昌下7/\n有过一侧 r 全各种机械零件的加工都离不开图纸 ,那么机械零件的立体形状和尺寸大小用平面图形是怎样表示的呢?\n本章我们将学习投影的知识,并根据投影原理认识三视图. 旦/\n\n在七年级上册 4.1 节*几何图形\"中 ,我们已知道几何图形分平面图形与立体图形,初中几何的重点是学习平面图形. 本章我们将学习如何根据投影原理来认识平面图形与立体图形的关系.\n\n1. 平行投影与中心投影一个物体放在阳光下或者灯光前,就会在地面上或者墙面上留下它的影子,这个影子称为物体的投影. 投影从革个侧面反映出这个物体的形状.\n\nAAA\nHA “一全作爷\n< 会并用 二革<丝\n”上LU 7 SN -人力\n9、人各和个 本\nER\n(1) (2)\n图 25--1\n\n如图25- 1(1) ,在阳光下,房屋的影子是房屋在地面上的投影,地面是投影面 ,光线是投射线. 由于太阳的光线可看作是平行的,我们称这种由平行的光线所形成的投影为平行投影(parallel projection ) .\n\n如图25- 1(2) ,在灯光前,将两手交叉握紧,墙面上就会出现影子,它是手的造型在墙面上的投影,墙面是投影面， 光线是投射线. 由于灯光的光线可看作是从一点发出的,我\n\n73 们称这种由一点(点光源) 发出的光线所形成的投影为中心投影(center projection ) .",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 64,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7636363636363637,
+        "lengthScore": 0.612,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "如图25- 1(2) ,在灯光前,将两手交叉握紧,墙面上就会出现影子,它是手的造型在墙面上的投影,墙面是投影面， 光线是投射线. 由于灯光的光线可看作是从一点发出的,我\n\n73 们称这种由一点(点光源) 发出的光线所形成的投影为中心投影(center projection ) .\n\nBe\n:1 如图25-2(1) ,直线让上的三点4,B,C被平， : 行投影到直线已上,对应的点为4,B',C',间对应点， 的连线之间有怎样的位置关系?\n2. 如图25-2(2) ,直线证上的三点4,B,C被中， 心投影到直线已上,对应的点为4.,B',C',间对应点，， 的连线之间又有怎样的位置关系? A 有 6， 全全，， 双! 且: 好风\" 吾\" 人 &\n》 上 (1 (3， 图 25-2\n\n和\n1. 下列两幅图中的投影是平行投影还是中心投影,为什么?\n] 出\n-7 S - 请吉\n区人 |\n(1) (2)\n(第1题)\n74\nES一 2. 如图是在同一时刻的阳光照射下,操场边一棵树 4C， 和淮边一根竹午 AiCI 以及它们的影子 CB,CIBI的示意图. 问人ABC 与人ABC 有什么关系,为什么? 有人避|",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 65,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6178489702517163,
+        "lengthScore": 0.505,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "2. 如图是在同一时刻的阳光照射下,操场边一棵树 4C， 和淮边一根竹午 AiCI 以及它们的影子 CB,CIBI的示意图. 问人ABC 与人ABC 有什么关系,为什么? 有人避|\n\n3. 如图,树4,有B 与一芝路灯位于同一条直线上,并分别届 1 外在该路灯两过. 图中只画出了树 4,B 在路灯照射下 1 ”过的影子,但没有画出路灯. 1 1\n(1) 你能画出路灯吗? 已全-册c 5------册cc\n(2) 两哥树分别与各自影子构成的两个直角三角形 (第2 题)\n\n相似吗?\n(第 3 题)\n4. 举出一些生活中平行投影与中心投影的例子.\n2. 正投影在平行投影中 ,如果投射线垂直于投影面 ,那么这种投影称为正投影.\n在正投影下,图形的投影有什么规律呢?\n(1) 线段的正投影， 如图25-3,用一东平行光线垂直于水平桌面， ' 照射一支铅笔(看作线段 4B) ,改变铝笔的位置,观察它在桌面(看作投影面媚) 上投影的形状与大小， 75 你能发现线段正投影的规律吗?\n平行 B 凤 8 他人重直\n| 4 员生了怀， 学 2 名 8 40B))\n图 25-3\n设线段 48 的端点4,了在投影面刀上的投影为点\n4',B' ,线段 4'B'就是线段 48 在投影面刀上的投影当线段 48 平行于投影面用时,4'B' = 48;\n当线段 48 倾斜于投影面及时,4'B' < 4B;\n当线段 48 垂直于投影面甩时, 4'B' = 0 (此时点 4\"与点妃重合,点 4或点巨就是 4B 在投影面甩上的投影)\n一般地,线段正投影有如下的规律平行长不变,倾斜长缩短,垂直成一点.\n(2) 平面图形的正投影如图25 -4,把一块矩形纸板(矩形 ABCD)\n; 放在正午的阳光下,变换纸板的位置,观察它在水平地面(看作投影面鼠) 上投影的形状与大小 你能根据线段正投影的规律,发现托形\n4BCD正投影的规律吗?\n70\nED一",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 66,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7051282051282052,
+        "lengthScore": 0.81,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "平行倾斜到丰\nnly| |小省六 ,多| 忆人 |\n有 i国| 和人 CC C C(B')\n”4和”人人 8， D'(41)\n图 25-4， 设矩形 4BCD 的顶点 4,B,C,D 在投影面妃上的投影为点 4,有BC',D' 四边形 4'B'C'D'就是矩形 ABCD 在投影面 也上的投影当托形 4BCD 平行于投影面刀时,四边形 4'B'C'D伍矩\n形 4BCD;\n当矩形 4BCD 倾斜于投影面刀时,四边形 4'B'C'D'的大小 形状相对于矩形 ABCD 已有改变;\n当拖形 4BCD 年直于投影面瓦时,四边形 4'B'C'D'变为红 DC (或4B7).\n线民Dic(或460 可一般地,平面图形正投影有如下的规律;\n平行形不变,倾斜形改变,垂直成线段.\n(3) 几何体的正投影如图25 -5 ,你能根据平面图形正投影的规律， ; 说出长方体 ABCD - 4IBICIDI 在投影面百上的正投影是什么图形吗?\n77 中人\n寺和\n陆二前沁\n图 25-5， 由于长方体的两个底面都平行于投影面瑟,因而它们在投影面媚上的正投影都是矩形4 BC D“.\n由于长方体的四个侧面都乖直于投影面媚,因而它们在投影面媚上的正投影分别是线段 4'B\" ,BC， CD ,D74\n由此可知,长方体在投影面媚上的正投影就是矩形\n4 BCD\n一般地 ,一个几何体在一个平面上的正投影是一个平面图形.\n一个几何体在一个平面上的正投影叫做这个几何体的视图(view ).\n\\沙练人习\n1. 把两支铝笔捆在一起成交叉状,再拿一块矩形纸板,在正午的阳光下,查看它们在地面上投影的各种可能情况(分别改变交叉铅笔、和天形纸板与地面的不同倾斜程度).\n2. 如果圆柱、圆锥的底面与投影面平行,那么它们的正投影分别是什么图形? 球的正投影呢?\n78\n和第25 章 “投影与视图“1",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 67,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6758720930232558,
+        "lengthScore": 0.777,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "hd\n人册 习题 25. 1 全\n1. 一块圆形铁片 ,它的正投影一定是圆吗? 什么时候一定是圆?\n2. 如果一个几何体在一个投影面上的正投影是矩形 ,那么这个几何体一定是长方体吗? 举例说明.\n79 S色5\n:只看到几何体的一个视图,就能够准确地刻画， 这个几何体的形状与大小吗? 如果已知一个几何体， 在水平面上的视图是图,你能断定这个几何体是球，， 吗? 为什么?\n要想清楚地刻画一个几何体的形状与大小,通常需要画出它在三个互相垂直的投影面(例如墙角的三个面)上的正投影(视图). 如图 25 - 6(1) ,其中正对着我们的面叫做正面,下方的面叫做水平面,右边的面叫做侧面乙\nSAT， 有 |人败\nHa\nss全三加汪二 一 / 本水平面 A\n如一\n\n《1) {2)\n图 25-6\n自几何体的前方向后投射,在正面投影面 Y上得到的\n80\nET",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 68,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7774390243902439,
+        "lengthScore": 0.374,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "视图称为主视图; 自几何体的上方向下投射,在水平投影面呆上得到的视图称为俯视图; 自几何体的左侧向右投射,在侧面投影面 W 上得到的视图称为左视图. 主视图,俯视图和左视图就组成了三视图如图25-6(2) ,三视图可画在同一个平面上,其位置以主视图为基准,俯视图画在主视图的正下方,左视图画在主视图的正右方一个几何体的三个视图分别从不同方向反映了一个几何体的形状与大小,主视图反映几何体的长与高,俯视图反映几何体的长与宽,左视图反映几何体的高与宽. 因此,三视图能较全面地反映几何体的形状与大小三视图的画法必须符合以下规律， (1) 主视图的长与俯视图的长对正;\n(2) 主视图的高与左视图的高平间;\n(3) 俯视图的宽与左视图的宽相等.\n可简述为; 长对正,高平齐,宽相等例1 夯出图25 -7(1)中几何体的三视图:\n区二[上上人医二加思\n\n(册 (2)\n图 25-7\n作法\n1. 在图25-7(2)中,先画互相垂直的辅助线 XY ,2ZY\n(用铅笔画,图画好后可控去)\n81 2确定主视图的位置,画出主视图\n3. 根据“长对正\"与几何体宽度画出全视图\n4. 根据“高平章\"与*宽相等\"画出左视图(宽相等,可通过点 O 为中心旋转画出)， 5. 控去铺助线.\n要注意看不见的轮廓线应画成虚线.\n吕\n:图生-8(1) 是与图25-8(2)中几何体对应的三视，。 图,根据这个三视图,你能说说这种几何体的特点吗? z 站， 及一Neci\n|画Feaie7， [| oO/ 3 1\n二， () () 图 25-8\n如图 25 -8(2)这样的几何体叫做棱柱,它的上 `下两个面叫做底面(A4BC.AAIBiC; 互相平行且是全等的三角形) ,其余各面叫做侧面,相邻侧面的交线叫做侧棱(各侧村\n441,BBi ,CC平行且相等).\n根据棱柱底面多边形的边数,我们依次称棱柱为三楼柱\\四棱柱、五楼柱……当侧楼垂直于底面时,棱柱称为直棱柱, 直棱柱的各个侧面都是抵形,\n底面是正多边形的直楼柱叫做正楼柱,图25 - 8(2)中几何体叫做正三棱柱\n82\nED",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 69,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7443890274314214,
+        "lengthScore": 0.874,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "例2，某工厂要加工一批正六棱柱形状的 7\n食品盒,甚三视图如图25 - 9(单位: cm). 问制作这样一个食品盒所需要硬纸板的面积至少为多少? (精确到1 cm”)\n解 ”这个正六棱柱形状的食品盒有六个全面(都是矩形 ) 和两个底面(都是正六边形)，因此制作这样一个食品盒所需要硬纸板的面积至 y_ | | | | | | | |， SS =6x10 x36 +2 x6 x旦 x 10 和丈\n=2 1600 +300 V3 图 25-9\n二2 680(cm2 ).\n答: 制作这样一个食品盒所需要硬纸板的面积至少为\n2 680 cm2.\n形?。 1.， 如图是一些几何体的展开图,请在展开图的下方写出几何体的名称:\n人\n1 |\n1 |\n汪呈\n\n《 ) 《 )\n(第1 题)\n2，找出与下列几何体对应的三视图,在三视图的下方填上对应的几何体序号， 83 (1 (2) {3)\n( ) ( { )\n(第2 题)\n3. 添线补全下列三视图.\n(U (2)\n(第3 题)\n4. 画出下列几何体的三视图(单位: mm).\n| R6.3\n[IN | 天-一一一\n\nAN <\n| 由人 上\nO 一\n21 13\n(0) 人\n(第4题)\n84",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 70,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.572463768115942,
+        "lengthScore": 0.514,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "是人 :古数学园地图25--10是两套不同户型的房屋平面图,从中你能得到哪些信息? 请列出2~3\n个数据,并说明你是如何得出数据的.\n建筑面积:72.1一73.65ma 建筑面积:131.58mas\n两房两厅+南向阳台两房两厅+入户花园+空中花园+双阳台\n2 800 1 300 3400\n让一一于 二FRR 8 12450| 2500 2000) Bon 3000 和。 LE FF\nS 5助过 8\n呈 S S 团目呈到\n | 加叶_ 全 EL | 河\n8 电一到\n5 吉 8 sb | |\n号次卧室的 = 在加号\nfg9 癌局 吕亲 可下| ai LuiF一\n2600 3400 4200 3000 艺600\n图 25--10\n|\n治久习题 25.2 NU\n1. 画出下列几何体在箭头指定方向上的视图(单位: mm ).\n忆 es\n-15 于了 5 天虽 | ?\n也一30一一 - 4一\n(1) (2)\n(第1题)\n85 2. 下面是空心圆柱的主视图与俯视图 ,其中正确的是(。).\n也人\n加全中站直\n(A) (B) (C) (D)\n(第2题)\n3. 如图是由?7 个完全一样的小正方体搭成的几何体的俯视图,其中小正方形中的数字表示在该位置上小正方体的个数. 请你画出该几何体的主视图 .左视图.\n(第3题) :ae小结.评价。…\n一、内容整理\nRE\n人\n1 视图， 人 1\n二、主要知识回顾\n1什么是平行投影,什么是中心投影?\n86\nED一",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 71,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.556640625,
+        "lengthScore": 0.623,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "2投射线垂直于投影面的平行投影叫做投影. 一个几何体在一个平面上的投影叫做这个几何体的视图\n\n3. 在画一个几何体的三视图时应该遵循的投影规律是\n\n4 直棱柱的两个底面 ,各个侧面都是 ,各便楼 ,底面是的直棱柱叫做正棱柱三、自评与互评\n\n1 举例说明生活中有哪些投影是平行投影,有哪些投影是中心投影?\n\n2.为什么三视图能够刻画一个几何体的形状与大小? 与同学交流你的看法.\n\n3. 三视图被广泛应用于加工业、建筑业等图纸设计上,你是否见到过有关的图纸? 请到工厂或建筑单位去看一看零件图纸或建筑图纸,以增加实际知识， 本 A组. |\nES 二上\ncj ss业\n1. 找出与下列几何体对应的三视图 ,在三视图的下方填上对应的几何体序号.\n(1) (2) (3) (4\n( ) ( )\n87\nEL.. 4 ) ( )\n(第1题)\n2. 添线补全下列三视图， (0 (2)\n(第2题)\n3. 下列视图有没有错误 ,请改正.\n(1) ()\n(第3 题)\n4. 根据所给的主视图和俯视图 ,画出对应的左视图.\n|\n二人全辐权口| 四本\n() (2)\n(第4题)\n88\n和第25 章 “投影与视图“1",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 72,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7464788732394366,
+        "lengthScore": 0.496,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "号\n< 生习是几， 1. 如图,实线部分是从正方体中切割出来的几何体,画出它的三视图(单位: mm)， 15\n10- 打从》到一才本十翅汪汪 |\n男囊外3\n7 4 30 子\n(第1 题) (第2题)\n2 夯出图中物体的三视图(单位: mm )， CE，|\nsy 复习题灶\n1. 如图是一个长方体 4BCD - AiB; CiDi,它的长.宽、， 高分别为au,b,c,且a > >ec 现有一只晤蛛, 在长方 LA 7才体的表面上从点 4 疏到点 Cl. 问邮蛛应选择怎样的“人 |\n路径可使彩过的路程最短，最短路程是多少? |\n2. 有4,B,C 三个水池, 它们各有一个出水口分别是圆 4\n形(直径为 a) .正方形(边长为 o) 、等腰三角形(底边 (第1题)\n与底边上的高均为 )，你能不能只做一个塞子, 可塞住上述三个水池中的任一个出水口. 请用萝卜(或红暮、黄泥) 做出模型,并画出它的视图\n89\n本卫\n日 7\n轴四章 伺抛皇次数 50 100 200 300 400 500 600 700 800\n其履| 23 52 93 145 195 243 295 345 396\n26.1 随机事件囊劲正面的频一0.500 0.520 0.475 0.483 0.488 0.486 0.492 0.493 0.495\n2二明等可能情形下的。 5\n概率计算 0.550上上也过则用频率估计概率 |\n必沈症综合与实践”概率 “| ”NA 一一在遗传学中的应用 0\n\nf I00 200 300 400 500 60 700 800 次数买一注彩票可能中奖 ,也可能不中奖;抛一枚硬币,可能出现正面 ,也可能出现反面. 像这样的随机事件无处不在,虽然这些事件发生的可能性事先不确定,但是它们发生的可能性是否有一定的规律呢?\n本章我们将学习随机事件的概念,计算等可能情形下随机事件发生的概率以及概率的估计和应用.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 73,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6084425036390102,
+        "lengthScore": 0.807,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "随机事件\n:如图26-1,重复抛搓一要各面上点数分别是\n: 1, 2，3,，4,，5，6 的均匀般子,记录每次抛搓后般子臣\n向上一面的点数,回答以下问题: 一:\n(1) 可能出现哪些点数? 、、\n(2) 出现的点数小于7 吗? 四全\n(3) 出现的点数会是8 吗?\n(4) 抛搓一次,出现的点数会是6 吗?\n从抛掷结果可以发现;\n(1) 每次抛掷的结果不一定相同,可能出现的点数共有\n6 种,分别是1,2,3,4,5,6;\n(2) 出现的点数一定小于7;\n(3) 出现的点数一定不是 8;\n(4) 抛掷一次,出现的点数可能是 6,也可能不是6,无法预先确定.\n在上面的问题中,把抛掷仍子一次看作是一次试验. 在每次试验中,可以事先知道其一定会发生的事件叫做必然事件 (certain event ) ,一定不会发生的事件叫做不可能事件\n(impossible event). 根据仍子的构造,在试验前,我们就可以知道\"点数小于7”,且\"点数一定不是 8\". 因此,点数小于7\n的事件是必然事件,点数是 8 的事件是不可能事件. 必然事\n91\nAT",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 74,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6713947990543735,
+        "lengthScore": 0.473,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "件和不可能事件统称为确定性事件.\n抛掷般子一次,点数是6 可能发生也可能不发生,不能事先确定,像这样无法事先确定在一次试验中会不会发生的事件叫做随机事件(random event). 买一注彩票中大奖折\n一枚均匀硬币时正面向上等都是随机事件确定性事件和随机事件统称为事件,一般用大写字母\n4,下,C,…表示.\n例判断下列事件是必然事件,不可能事件还是随机事件:\n(1) 乘公交车到十字路口,遇到红灯\n(2) 把铁块扔到水中,铁块浮起;\n(3) 任选13 个人,至少有两人的出生月份相同;\n(4) 从上海到北京的 D 314 次动车明天正点到达北京解 〈3)是必然事件;(2) 是不可能事件;(1) (4)是随机事件\n;请你举出一些必然事件\\不可能事件和随机事，。 件的实例对于随机事件,虽然它们发生的可能性( 即机会)事先不确定,但是它们发生的可能性是否有一定的规律呢? 对此人们十分关注. 如在抛硬币的试验中,正面向上和反面向上的机会一样吗”在掷仍子的试验中,点数是偶数的可能性比点数是 1 的可能性大吗?\n抛掷一枚均匀的硬币一次,落地时这枚硬币朝向的结果有两种可能: 正面向上或反面向上. 由于硬币是均匀的,出现正面向上或反面向上的可能性是完全相等的(各占一\n92\nEPEEE3EEEEID天",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 75,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8054474708171206,
+        "lengthScore": 0.548,
+        "coherenceScore": 0.7,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "半) ,所以,我们用六(或0.5)来表示出现正面向上或反面向上的可能性的大小一般地,表示一个随机事件 4 发生的可能性大小的数， 叫做这个事件发生的概率(probability ),记作P(4). 如抛掷一枚均匀的硬币一次,出现正面向上的概率是二,用符号表示就是 P( 正面) =六\n.确8e\n1. 在下列事件中,哪些是必然事件,哪些是不可能事件 ,哪些是随机事件?\n(1) 打开电视,正在播放天气预报;\n(2) 同时抛掷 10 枚均匀的硬币,落地时正面都向上;\n(3) 水在工个标准大气压下、温度为 -1记时结冰;\n(4) 在全是白球的袋中任意摸出 1 个球,结果是黑球.\n2.， 比较下列随机事件发生的可能性的大小:\n(1) 抛搓一枚各面上点数分别是1,2,…,6 的均匀朋子一次,向上一面的点数是奇数或是偶数; 20557\n(2) 从你班上任选 1 名学生,选出的是男生或是女生; |\n(3) 如图,转动转盘,指针落在蓝色区域内或指针落在白色区域内;\n(4) 从一副扑克牌中任意抽取1 张,抽到红桃或抽到方块. [第2(3)题]\n业习题2.1忆.\n1. 在下列事件中,哪些是必然事件 ,哪些是不可能事件,哪些是随机事件?\n(1) 明天是晴天;\n《2) 射击一次,子弹中靶;\n93\nAm (3) 在面值为1元,2元.5元的三张人民币中任取两张 ,面值之和小于 8 元;\n(4) 买一注彩票末位数字是 8.\n\n2. 13 张扑死牌中有4 张红桃7 张黑桃和 2 张方块,从中任意抽取 1张,抽到哪种花色牌的可能性最大 ,哪种花色牌的可能性最小?\n\n3. 在一个不透明的袋子里装有 3 个红球 .4 个绿球和 2 个黄球,这些球除颜色不同外,没有其他任何区别. 现在从袋子里随意摸出 1 个球， 《1) 摸到哪一种颜色球的可能性较大?\n〈2) 可能摸到黑球吗? 摸到黑球的可能性是多少?\n\n94\n第26 章“”构率初步“ 11",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 76,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7277777777777777,
+        "lengthScore": 0.813,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "3. 在一个不透明的袋子里装有 3 个红球 .4 个绿球和 2 个黄球,这些球除颜色不同外,没有其他任何区别. 现在从袋子里随意摸出 1 个球， 《1) 摸到哪一种颜色球的可能性较大?\n〈2) 可能摸到黑球吗? 摸到黑球的可能性是多少?\n\n94\n第26 章“”构率初步“ 11 心攻信 〖Y /7 1\n等可能情形下的概率计算抛掷一枚均匀的硬币一次,向上一面只有正面或反面两种不同的可能结果,而且两种结果出现的可能性相等抛挪一枚均匀的仙子一次,向上一面具有1,2,…,6点6\n种不同的可能结果,而且6 种结果出现的可能性相等在上述抛掷硬币.抛掷仙子的试验中,有如下两个共同的特点\n(1) 所有可能出现的不同结果是有限个;\n(2) 各种不同结果出现的可能性相等对于具有上述特点的试验,我们可以通过列举所有可能的结果,具体分析后得出随机事件的概率.\n下面来看例子.\n例1 袋中有3 个球,2 红1 白,除颜色外,其余如材料、\n大小\\质量等完全相同,随意从中抽出 1 个球,抽到红球的概率是多少?\n解“袋中有3 个球,随意从中抽出1个球,虽然红色白\n色球的个数不等,但每个球被选中的可能性相等. 抽出的球共有3 种结果: 红(1) `红(2) \\白,这3 个结果的发生是“等可能\"的. 3 个结果中有 2 个结果使事件 4( 抽得红球) 发生， 故抽得红球这个事件的概率为了,即\n\nP(4) =子一般地,如果在一次试验中,有半种可能的结果,并且这些结果发生的可能性相等,其中使事件 4 发生的结果有六\n(ms咱种,那么事件 4 发生的概率为\nP(4) =.\n于\n95\nYa",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 77,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7924836601307189,
+        "lengthScore": 0.682,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "在上式中,当人是必然事件时,mm = 六P(A) = 1;当4\n是不可能事件时,me = 0,P(4) = 0. 所以有\n0大P(4) 三1.\n一般地,对任何随机事件 4,它的概率 P(4)满足0 <\nP(4) < 1 必然事件的概率为 1,不可能事件的概率为0\n.二8\n1. 在不透明的袋子里装有 5 个形状与大小完全一样的球 ,其中3 个红球,2 个白球,现从中任取 1 个球.\n(1) 摸到红球的概率大还是摸到白球的概率大?\n(2) 若记摸到红球为事件 4,摸到白球为事件也,则 P(4)与P()的值分别是多少， P(4)与已(有3)有什么大小关系?\n2. 从一副没有大小王的扑克牌(共52 张)中随机地抽1张,问:\n(1) 抽到黑桃玉的概率;\n《2) 抽到红桃的概率;\n(3) 抽到 Q 的概率.\n例2同时抛掷2 枚均匀的硬币一次,求 2 枚硬币都是正面向上的概率.\n解”同时抛掷2 枚硬币一次,可能出现如下 4 种不同的结果， (正, 正) ,(正, 反),(反, 正),(反, 反)\n我们可以用*树状图\"来表示上述所有可能出现的结果第1 枚第2枚结 果正 (正，正)\n一一 (正，反)\n开始正 (反，正)\n二一\n90\nED",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 78,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.654627539503386,
+        "lengthScore": 0.517,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "由于每种结果出现的可能性相等 ,其中 2 枚硬币都是正面向上的结果只有(正,正) 这1种,设2 枚硬币都是正面向上的事件为4,则事件 4 的概率为\n\nP(4) =开.\n上面的解题过程中,我们用*树状图\"列出所有可能出现的结果. 图中从左到右每条路径表示一个结果,每个结果发生的可能性相等.\n例3 某班有1 名男生.2 名女生在校文艺演出中获演唱奖,另有2 名男生.2 名女生获演奏奖. 从获演唱奖和演奏奖的学生中各选 1 名去领奖,求2 名领奖学生都是女生的概率.\n解设2名领奖学生都是女生的事件为4,两种奖项各二/\n选 1 名学生的结果用”*树状图\"来表示.\n开始获演唱奖的男 2\n未演奏奖的男; 男: 妈i 女: 人NN 男， 男: 女i 女:\n由于共有 12 种结果,且每种结果出现的可能性相等， 其中2 名领奖学生都是女生的结果有4 种,所以事件4 发生的概率为\n4 1\nP(4) =五 =下例4 同时抛括 2 枚均匀的蜗子一次,般子各面上的点数分别是 1,2,…,6. 试分别计算如下各随机事件的概率;\n(1) 抛出的点数之和等于 8;\n(2) 抛出的点数之和等于 12.\n97\n26.2 ”等可能情形下的概率计算国生和",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 79,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7743362831858407,
+        "lengthScore": 0.515,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "分析: 为了解决这个问题,我们首先要和弄清楚一共有多少个可能结果. 虽然同时抛搓2 枚均久的般子一次,点数之和可能为2,3,…,12 中的任何一种,但是它们并不是发生的所有可能结果. 所有可能结果有哪些呢? 我们知道:\n第 1 枚仍子可能搓出1,2,…6 中的每一种情况,第2 枚赂子也可能搓出1,2,…;,6 中的每一种情况,而且无论第 1 枚般子掷出1,2,…,'6 中的哪一种情况,第2枚骨子都可能掷出1,2,…,6 中的任一种情况. 所以我们用“列表法”列出所有的可能结果如下:\n1 (1) (2) (3) (4) (5) (1,6)\n2 (2,1) (2,2) (2,3) (2,4) (2,5) (2,6)\n3 (3,， 1) (3, 2) (3, 3) (3，,4) (3, 5) (3,6)\n4 (4,1) (4,2) (4,3) (4,4) (4,5) (4,6)\n5 (5,1) (5,2) (5,3) (5,4) (5,5) (5,6)\n6 (6, 1) (6, 2) (6,3) (6,4) (6,5) (6,6)\n解 ”从上面表格中可以看出,同时抛掷 2 枚仍子一次， 所有可能出现的结果有 36 种. 由于骨子是均匀的,所以每个结果出现的可能性相等.\n(1) 抛出的点数之和等于8 的结果有(2, 6) ,(3, 5)， (4, 4) ,(5, 3)和(6, 2)这5种,所以抛出的点数之和等于8\n这个事件发生的概率为5\n(2) 抛出的点数之和等于 12 的结果仅有(6, 6)这1\n种,所以抛出的点数之和等于 12 这个事件发生的概率\n\nAS 为56:\n98\n第26 章“”构率初步“ 11 由全日\n\n1. 口袋中有3 个红球和 11 个黄球,这两种球除颜色外没有任何区别. 随机从口袋中取\n1 个球,取到红球或黄球的概率分别是多少?\n\n2. 一间宿伟有4 张分上下铺的单人床,可安排8 名同学住宿. 小明和小兵住同一间宿舍， 因为小兵最小,大家一致同意他睡下铺,其余同学通过抽签决定自己的床位,那么小明抽到睡上铺的概率是多少?",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 80,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.568241469816273,
+        "lengthScore": 0.879,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "由全日\n\n1. 口袋中有3 个红球和 11 个黄球,这两种球除颜色外没有任何区别. 随机从口袋中取\n1 个球,取到红球或黄球的概率分别是多少?\n\n2. 一间宿伟有4 张分上下铺的单人床,可安排8 名同学住宿. 小明和小兵住同一间宿舍， 因为小兵最小,大家一致同意他睡下铺,其余同学通过抽签决定自己的床位,那么小明抽到睡上铺的概率是多少?\n\n3. 将分别标有数字 1,2,3 的三张卡片混匀后,背面朝上放在桌面上,随机地抽一张作为十位上的数字(不放回) ,再随机地抽一张作为个位上的数字,能组成哪些两位数? 这两位数恰好是\"32 的概率是多少? 数字之和等于5 的概率是多少?\n\n4.， 如图 ,两个圆盘的指针落在每一个数代表的扇形上的可能性相等,求两个圆盘的指针同时落在偶数代表的扇形上的概率.\n\n(第4题)\n\n下面,再来看几个概率应用方面的例子.\n\n例5 “石头.剪刃\\布\"是民间广为流传的一种游戏 ,游戏的两人每次做\"石头“剪刀“布\"三种手势中的一种,并约定\"石头\"胜\"剪刀” 剪刀\"胜\"“布\",“布\"胜\"石头”,同种手势不分胜负须继续比赛. 现有甲乙两人做这种游戏.\n\n(1) 一次游戏中甲获胜、乙获胜的概率各是多少?\n\n(2) 这种游戏对于两个人来说公平吗?\n\n解 ”若分别用4,B 表示甲乙两人,用1,2,3 表示石头、\n剪刀\\布,则 4表示四出石头.8表示乙出剪刀,依次类推， 于是,游戏的所有结果用“树状图\"来表示:\n\n99",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 81,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8010657193605684,
+        "lengthScore": 0.619,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "(1) 一次游戏中甲获胜、乙获胜的概率各是多少?\n\n(2) 这种游戏对于两个人来说公平吗?\n\n解 ”若分别用4,B 表示甲乙两人,用1,2,3 表示石头、\n剪刀\\布,则 4表示四出石头.8表示乙出剪刀,依次类推， 于是,游戏的所有结果用“树状图\"来表示:\n\n99 开始， -一人人， 二人小人小人小\nZEB PP BR\n所有结果是9 种,且出现的可能性相等. 因此,一次游戏时:\n(1) 甲获胜的结果有(4 ,有 ) ,(42，B3),(43，Bi)这3\n种,故甲获胜的概率是了 = 同理,乙获胜的概率也是二\n《2) 由(1)可知,这种游戏中,两人获胜的概率都是了， 机会均等 ,故游戏对于两人来说是公平的.\n例6 某人的密码箱密码由三个数字组成,每个数字都是从0 ~9 中任选的. 如果他忘记了自己设定的密码,求在一次随机试验中他能打开箱子的概率.\n解”设在一次随机试验中他能打开箱子的事件为 4.\n根据题意,在一次随机试验中选择的号码应是000 ~ 999\n中的任意一个3 位数,所有可能出现的结果共有 1 000 种， 且出现每一种结果的可能性相等. 要能打开箱子,即选择的号码与密码相同的结果只有 1 种,所以\nP(4) =\n1 000-\n答: 在一次随机试验中他能打开箱子的概率为例7 甲乙两人要去风景区游玩,仅知道每天开往风\n100\n第26 章“”构率初步“ 11",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 82,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.734225621414914,
+        "lengthScore": 0.588,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "景区有3 辆汽车,并且舒适程度分别为上等.中等下等3\n种,但不知道怎样区分这些车 ,也不知道它们会以怎样的顺序开来. 于是他们分别采用了不同的乘车办法: 甲乘第 1 辆开来的车. 乙不乘第 1 辆车 ,并且仔细观察第 2 辆车的情况， 如比第 1 辆车好,就乘第 2 辆车;如不比第 1 辆车好 ,就乘第\n3 辆车. 试问申、乙两人的乘车办法 ,哪一种更有利于乘上得适度较好的车?\n解容易知道 3 辆汽车开来的先后顺序有如下 6 种可能情况:\n(上中下) ,上下中) ,(中上下)， (中下上) ,(下上中) ,(下中上).\n假定 6 种顺序出现的可能性相等 ,我们来看一看在各种可能的顺序之下 ,甲乙两人分别会乘到哪一辆汽车:\n(FE中小) 上下\n(ED 上只\n(中ET下) 珊上\n(中下上) 中上\n全的下 上同志刘司) 下路\n于是不难看出:\n甲乘到上等 .中等下等 3 种汽车的概率都是之二二\n6 3-\n而乙乘到上等汽车的概率是=- =了 ,乘到中等汽车的要率是2 =革,乘到下等汽车的概率却只且。 答: 乙的乘车办法更有利于乘上舒适度较好的车.\n101\n26.2 ”等可能情形下的概率计算有交政\n\n1. 举例说明概率在生活中的应用.\n\n2，密码锁的密码有五位,每位上的数字是0 到9 中的任一个. 在开锁时,某人忘了密码的最后两个数字,他随意拨动最后两位号码,问恰好打开锁的概率是多少?\n\n3. 元旦联欢会上,小明设计了一种翻牌游戏: 先在9 张大小相同的正方形纸牌上分别写上数字1, 2, 3，…, 9;再在另一面写上奖品的四加 3\n名称,其中4张写的是“铅笔\",3 张写的是“贺年卡\",2 张写的是四加。 “笔记本”. 如图,将9 张纸牌贴在黑板上.\n\n(1) 小丽第一个翻牌,请问她获得奖品“笔记本\"的概率是多少? 罗加 “\n(2) 若小丽翻到的是“贺年卡\",则第二个翻牌人小勇翻到\"铅笔” (第3题)\n的概率是多少?\n好习题 26.2 冤\n\n1. 假设你们学校有2 500 名学生,其中 1 327 名是女生. 校报记者随机选 1 名同学进行采访. 选中女生的概率是不是大一些,为什么?选中男生的概率是多少?",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 83,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7814070351758794,
+        "lengthScore": 0.911,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "(1) 小丽第一个翻牌,请问她获得奖品“笔记本\"的概率是多少? 罗加 “\n(2) 若小丽翻到的是“贺年卡\",则第二个翻牌人小勇翻到\"铅笔” (第3题)\n的概率是多少?\n好习题 26.2 冤\n\n1. 假设你们学校有2 500 名学生,其中 1 327 名是女生. 校报记者随机选 1 名同学进行采访. 选中女生的概率是不是大一些,为什么?选中男生的概率是多少?\n\n2. 10 月份家电商场售出的彩电中,国外品牌与国内品牌的比例是5:11 ,预计11 月份将售出 200 台彩电. 假设顾客选择品牌是随机的,估计有多少台是国内品牌如\n果有一位顾客来购买彩电,你认为他购买国外品牌的概率是多少?\n\n3. 如图,有两个可以自由转动的均匀转盘 A,B.转盘A被3 等分,分别标上1,2,3 三个数字;转盘B 被4 等分,分别标上 4,5,6,7 四个数字. 有人为甲.乙两人设计了一种游戏,其规则如下:\n\n民心六\n/人四\nKR\n二转竺A 转盘B\n(第3 题)\n102\n第26 章“”构率初步“ 11 同时自由转动转盘 A,B ,转盘停止后,指针各指向一个数字所在的扇形(如果指针恰好指在分格线上 ,那么重转一次,直到指针指向某一数字为止). 将两指针所指的两个扇形中的数相乘 ,如果得到的积是偶数,那么甲胜;如果得到的积是奇数， 那么乙胜.\n\n你认为这样的规则是否公平? 请说明理由;如果不公平,请你设计一个公平的规则 ,并说明理由.\n\n103\n26.2 ”等可能情形下的概率计算有交",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 84,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7601410934744268,
+        "lengthScore": 0.637,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "同时自由转动转盘 A,B ,转盘停止后,指针各指向一个数字所在的扇形(如果指针恰好指在分格线上 ,那么重转一次,直到指针指向某一数字为止). 将两指针所指的两个扇形中的数相乘 ,如果得到的积是偶数,那么甲胜;如果得到的积是奇数， 那么乙胜.\n\n你认为这样的规则是否公平? 请说明理由;如果不公平,请你设计一个公平的规则 ,并说明理由.\n\n103\n26.2 ”等可能情形下的概率计算有交急的族久 1 争扩Y\n用频率估计概率在试验中,当所有可能出现的不同结果不是有限个,或各种不同结果出现的可能性不相等时,我们就要通过大量重复的斌验去探完不同结果出现可能性的大小,并用随机事件发生的频率去估计它的概率.\n下面先观察一个例子\n:一位同学在做“抛硬币\"的试验中,将获得的数\n: 据绘制成下表及折线统计图(图 26 -2) ,其中。 _出现正面次数出现正面的频率 =站型于而关才折搓次数 50 100 200 300 400 500 600 700 800\n出现正面次数 25 52 95 145 195 243 295 345 396\n“出现正面的频率 0.500 0.520 0.475 0.483 0.488 0.486 0.492 0.493 0.495\n频率\n0.550\n0.500 一人\n、 、 一一一人”\n0.450\n0 100 200 300 400 500 600 3700 800 次数图 26-2\n104\nED 观察图26-2,当抛搓次数很多以后,出现正面的频率是否比较稳定?\n\n对于上面这样的抛硬币试验,历史上许多数学家都曾做过,结果如下表:\n\nBuffon( 布丰) 4040 2048 0.5069\n\nDe. Morgan(德.摩根) 4092 2048 0.5005\n\nFeller(费勒) 10 000 4979 0.4979\n\nPearson( 皮尔逊) 12 000 6019 0.5016",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 85,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5681818181818182,
+        "lengthScore": 0.808,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "De. Morgan(德.摩根) 4092 2048 0.5005\n\nFeller(费勒) 10 000 4979 0.4979\n\nPearson( 皮尔逊) 12 000 6019 0.5016\n\nPearson( 皮尔逊) 24 000 12 012 0.5005， 从上面试验中我们可以发现,在重复抛掷一枚硬币时出现正面2和”出现反面”的频率都在0.5 附近波动.\n随着抛掷次数的增加 ,频率在 0. 5 附近波动的幅度会越来越小,呈现出一定的稳定性“出现正面”和”出现反面”的频率都逐渐稳定到常数 0. 5.\n\n这样 ,我们用随机事件发生的频率逐渐稳定到的常数来刻画它发生可能性的大小,0.5 就作为多次抛搓硬币后出现正面(或反面)这个随机事件发生的概率.\n\n下面再看两个例子.， 1. 某农科所通过抽样试验来估计一大批种子\n (总体) 的发菠率,为此,从中抽取 10 批,分别做发芽试验. 记录下每批发芽粒数,并算出发芽的频率\n(发芽粒数与每批试验粒数之比) ,结果如下表 :\n105$\n26.3 “用频率估计极率_国的且",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 86,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6237864077669902,
+        "lengthScore": 0.466,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "下面再看两个例子.， 1. 某农科所通过抽样试验来估计一大批种子\n (总体) 的发菠率,为此,从中抽取 10 批,分别做发芽试验. 记录下每批发芽粒数,并算出发芽的频率\n(发芽粒数与每批试验粒数之比) ,结果如下表 :\n105$\n26.3 “用频率估计极率_国的且每批试验粒数请多 5 10 70 130 310 700 1500 2000 3000\n发基站数育色 4 9 60 116 282 639 1339 1806 2715\n人 1 0.800 0.900 0.857 0.892 0.910 0.913 0.893 0.903 0.905\n从上表中你能发现什么?\n由上面试验所得数据可以看出: 当发芽试验样本容量增大时 ,发芽的频率逐渐稳定到常数 0. 9\n2. 某乒兵球生产厂,从最近生产的一大批乒乓球中,抽取6 批进行质量检测 ,结果如下表:\n每批抽取球数呈 50 100 200 500 1000 2000\noo\n人 0.920 0.970 0.940 0.954 0.951\n从上表中你能发现什么?\n由上面检测所得数据可以看出: 当质量检测样， 本容量增大时,优等品的频率逐渐稳定到常数0.95.， 上面两个例子说明 ,一般随机事件具有一个极为重要的特性一一频率的稳定性,即在大次数重复试验中,随机事件发生的频率总是稳定到一个常数. 我们就用频率所稳定到的这个常数来衡量该随机事件发生可能性的大小. 于是,就认为第 1 个例子中种子发芽的概率为0.9 ,第 2 个例子中乒乓球优等品的概率为 0. 95.\n人\n< 一般地,在大量重复试验下,随机事件 4 发生的频率二\n(这里款是总试验次数,它必须相当大,关是在半次试验中随机事件 4 发生的次数)会稳定到某个常数己于是,我们用忆这个常数表示随机事件4 发生的概率,即\n100\n加第26 章梳率初步 1",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 87,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6686046511627907,
+        "lengthScore": 0.784,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "P(4) =疙这样,求一个随机事件概率的基本方法可以是: 通过大量的重复试验,用这个随机事件发生的频率作为它的概率的估计值.\n本 、\n心大\n/9 一汪5\n个攻 数学活动投 针实验\n18 世纪,法国博物学家布丰(Buffon ) ,在研究随机事件规律时,设计了一个投针实验“在平面上画一组间距为灵的平行线,将一根长度为 a(a <严) 的针任意地投搓在这个平面上,求这根针与平行线中任一条相交的概率”.\n布丰证明了这个概率为\nPP =红五记这个结果写进了他的著作《或然性的算术试验》中， 其后 ,不少学者都先后做过布丰的投针实验,并得出克的一些估计值. 下表记录了他们的实验结果(把平行线间距灵折算为 1).\nWolf(沃尔夫) 1850 5 000 2 532 3.159 .6 0.8\nSmith( 史密斯) 1855 3 204 1 218.5 3.155 4 0.6\nDe Morgan( 德. 摩根) 1860 600 382.5 3. 137 1.0\nFox( 福克斯) 1884 1 030 489 3.159 5 0.75\nReina(赖纳) 1925 2 520 859 3.179 5 0.541 9\n全班同学可根据同一规格(在纸上绘制同一间距的平行线组、一把等长的针)分组进行布丰的投针实验,汇总各组数据,求出相应的克值.\n107 政\n1. 判断下列说法是否正确,并说明理由.\n(1) 在即次随机试验中,事件 4 出现灵次,则事件 4 发生的频率邱就是事件 4 的概率;",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 88,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6149732620320856,
+        "lengthScore": 0.645,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.753Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "政\n1. 判断下列说法是否正确,并说明理由.\n(1) 在即次随机试验中,事件 4 出现灵次,则事件 4 发生的频率邱就是事件 4 的概率;\n\n(2) 设一大批灯泡的次品率为 0.01 ,那么从中随机抽取1 000 只灯泡,一定有 10 只次品.\n2. 多次投掷一枚均匀的骨子,出现向上一面为5 点的概率是-。 小军说,这表示当投掷的次数足够多时,出现5 点的次数就很接近报搬总数的-- 他的说法正确吗,为什么?\n\n3. 某射手在同一条件下进行多次射击,结果如下表:\nII\n上\n(1) 计算表中“击中靶心的频率”;\n(2) 这个射手射击1次,击中靶心的概率约是多少?\n4. 一家商店对进店顾客进行为期一周的调查登记,得到结果如下表:\n男人性 50 150\n女性 60 180\n根据这个结果求:\n(1) 1 名顾客进入该店后购买东西的概率是多少;\n(2) 哪一种性别的顾客在该店买东西的可能性较大.\n5. 用实验的方法估计投掷一枚均匀的朋子2次,2次都出现点数6 的概率.\n108 |\n了局， 26. 人\n1.， 有人说*买彩票中奖的可能性是 2%o,买 1 000 注彩票最多只能有 2 注中奖”,这种说法对吗 ,为什么?\n2. “若一个事件可能发生的结果共有种,则每一种结果发生的可能性是二\"这样说对吗? 试举一例说明， 3. 在水产养殖场进行一种鱼的人工孵化,10 000 个鱼卵能孵化出 8 500 尾鱼苗 ,求下列各题:\n《1) 这种鱼卵团化的概率(孵化率) ;\n《2) 30 000 个鱼卵大概能孵化出多少尾鱼苗;\n《3) 要孵化出 5 000 尾鱼苗,大概要准备多少个鱼卵?\n4. 如图,用实验的方法估计抛掷一枚瓶盖 1 次,盖面朝上的概率.\n盖面朝上盖面朝下\n(第4题)\n昌\n(人2用数闻园地做“石头剪子\\布\"的游戏.\n(1) 在1次游戏中,出现平局的概率是多少?\n(2) 和同学合作做这个游戏 10 次,记录游戏次数与平局的次数;\n(3) 统计 10 组同学的游戏数据,看看平均多少次游戏会出现1 次平局;\n(4) 有同学说j\" 如果出现平局的概率是了,那么每3 次游戏中就有1 次是平局“你认为对吗? 说说你的理由.\n109\nYe",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 89,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7363861386138614,
+        "lengthScore": 0.923,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "La\n售已实趾综合与实践对遗传现象人们早就认识到了 ,那么遗传又是遵循怎样的规律呢? 奥地利人和孟德尔(G.J Mendel,1822一1884 ) 通过认真观察遗传现象.设计实验收集数据、科学分析 ,成为第一个总结出遗传规律的遗传学家. 他选择再豆作杂交试验,并注意到不同品种的豌豆具有区别明显的性状(吾豆的花色 ,种子的形状等都是性状).\n如图26-3 ,备德尔用纯种黄色子叶豌豆与纯种绿色子人 叶苦豆进行杂交 ,产生的子一代子叶全部是黄色的,没有绿色的. 他将子一代表现出来的性状称为显性性状,没有表现出来的性状称为隐性性状,即子叶黄色为显性性状,子叶绿色为隐性性状,黄色显性性状掩盖了绿色隐性性状.\n备德尔又让子一代进行自交,结果在子二代中除了有黄色子叶,还有绿色子叶 ,两者数量上的比例接近 3: 1.\n黄色子叶(纯种) 4 绿色子叶(纯和)\n子一代全是黄色子叶(杂种)\n自交子二代二 儿季自双蜗黄色子叶绿色子叶黄色子叶 : 绿色子叶= 31:1\n图 26-3\n为什么在子二代中隐性性状又出现了呢? 重德尔认为， 生物的遗传性状是由成对基因(遗传因子)决定的,其中控\n110\n26 章怀幸水制显性性状(黄色子叶) 的为显性基因(用 4 表示) ;控制隐性性状(绿色子叶) 的为隐性基因(用 4 表示)\n\n纯种黄色子叶欧豆和纯种绿色子叶项豆分别含有成对基因 44 和 oa,它们杂交产生的子一代的成对基因分别来自父本和母本的各一个基因,因而只能是 4a ,表现为全是黄色子叶.\n\n当子一代自交产生子二代时 ,来自父本和母本的各一个基因有 44 ,4a,a4 ,aa 四种组合. 由于 44 ,4a,a4 均表现为黄色,而 aa 表现为绿色,所以黄色与绿色的数量比例接近\n3:1 ,也就是说,子二代中子叶为黄色和子叶为绿色的概率分别是和- ,图 26-4 显示了这一过程.\n\n于冯 用本\n\n电婚 取\n\nRi\n9 <g>D\n区 : 3是黄色子叶于三检了是绿色子叶图 26-4",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 90,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8007915567282322,
+        "lengthScore": 0.839,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "于冯 用本\n\n电婚 取\n\nRi\n9 <g>D\n区 : 3是黄色子叶于三检了是绿色子叶图 26-4\n\n人类的遗传病是从上一代(父母) 传递给下一代(孩子)\n而发生的疾病,例如白化病红绿色盲和高度近视等.了解传病的传代规律及出现概率,防止遗传病患儿的出生,是全社会都需要共同关注的问题. 下面用和德尔发现的遗传规委\n\n111\nYesemeezeszc 来探讨白化病的遗传情况， 问题白化病是一种隐性性状,如果 4 是正常基因、a\n是白化病基因,那么携带成对基因 4a 的个体的皮肤,头发和眼球的颜色是正常的,而携带成对基因 aa 的个体将患有白化病.\n\n(1) 设母亲和父亲都携带成对基因 4a,求他们有正常孩子的概率;\n\n(2) 设峡亲和父亲分别携带成对基因 44 和 4a,求他们有正常孩子的概率和孩子患有白化病的概率;\n\n(3) 设母亲和父亲分别携带成对基因 aa 和 4a,求他们有正常孩子的概率和孩子患有白化病的概率.\n\n已儿1艺阅读与思考几何概率这里介绍另外一种基于等可能假设的概率模型 ,这种概率模型的基本原理是: 设想每个结果是一个点,所有结果的点组成一个区域 G ,而组成事件4 的结果是 G 中的部分区域8,G,8 可以是直线上的线段,也可以是平面或空间的区域. 因此,这种概率可以表示为两个线段的长度之比 ,或两个平面区域的面积之比,或两个空间区域的体积之比.\n\n例1 某商厦开展\"“幸运一刻钟\" 有奖促销活动,办法如下:\n在营业时间 9:00 ~ 21:00 内随机产生一个 15 min 的时段(如\n10:36 ~10:51) ,该时段内在该商厦购物的顾客可得到与购物款等人额的奖券. 小明妈妈在商厦购买了一双价格为 80 元的运动圣,那么她中奖的概率是多少呢?\n\n商厦一天的营业时间是 12 h,计 720 min ,那么它的时间长度为 720 min, 可用一条线段 4有表示,如图26一5.\n\n112\nEPEEE3EEEEID",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 91,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7655826558265583,
+        "lengthScore": 0.827,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "商厦一天的营业时间是 12 h,计 720 min ,那么它的时间长度为 720 min, 可用一条线段 4有表示,如图26一5.\n\n112\nEPEEE3EEEEID 有 720\n和 (人重凡有\n图 26-5\n设“幸运一刻钟\"的起始时刻为点 C,终止时刻为点万,则线段 CD 的时间长度为 153 min. 因此,小明妈妈中奖的概率应为\nCD的长 -15 -工\n4有的长 720 48-\n例2 在图 26-6 的正方形中有一内切国,随机撒一把芝麻， 假设每一粒芝麻落在正方形内的每一个点的可能性都是相等的， 计算落在国中的芝麻数与落在正方形中的芝麻数之比,并以此人计国周率的值 .\n解随机撤一把芝麻,每粒芝麻落在正方形内任何一点是竺可能的,落在每个区域的芝麻数与这个区域的面积近似成正比， 假设正方形的边长为 24,则落在加中的芝麻数加的面积落在正方形中的芝麻数 ”正方形的面积\n\n2u X 2ua\n- 工.\n\n如果数出落在每个区域的芝麻数,由上式就能得到碍的近似值. 比如,向图 26一6 的正方形中随机撒 400 粒芝麻,如果落在国中的芝麻数是 314 ,那么\n~ 落在国中的芝麻数 14\n落在正方形中的芝麻数图 26-6\n= 和 x4 = 3.14.\n通过多次试验可以看出,随着每次试验所撤的芝麻数的增加,国周率石的近似值精度就越高我们也可以用计算机来模拟上述过程,计算的近似值.\n利用几何概率,并通过计算机模拟方法,还可以计算某些不规则图形(图 26-7 中区域A)的近似面积: 图 26-7\n113\n26.4 ”综合与实践”概率在造传学中的应用国有风二了 又域 勺艺麻屁区域 4 的面积 = 其放后生人二的计订雪 x 正方形的面积.\n收CE\n概率论的产生与发展概率论作为一门学科产生的原因虽然是多方面的,但主要是由于当时保险行业的产生与发展以及赌博的盛行.\n\n赌博的盛行,为研究概率问题提供了一个很好的模型(如幸山子的等可能性较为明显,又可做重复试验). 16 世纪前后,相当多的数学家对赌博中的数学问题有着浓厚的兴趣.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 92,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.775483870967742,
+        "lengthScore": 0.865,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "了又 域勺艺麻屁区域 4 的面积 = 其放后生人二的计订雪 x 正方形的面积.\n收CE\n概率论的产生与发展概率论作为一门学科产生的原因虽然是多方面的,但主要是由于当时保险行业的产生与发展以及赌博的盛行.\n\n赌博的盛行,为研究概率问题提供了一个很好的模型(如幸山子的等可能性较为明显,又可做重复试验). 16 世纪前后,相当多的数学家对赌博中的数学问题有着浓厚的兴趣.\n\n帕斯卡是法国著名数学家,帕斯卡的朋友梅累曾向由斯卡提出这样一个问题: 甲乙两人相约赃若干局,谁先赢* 局谁就是胜者,就可得全部赌金.现在甲赢 d(a <s)局,乙赢DC有 <s)局,赌博中断 ,问两人应按怎样的比例分配赌金? 帕斯卡接到这个问题后,转告了著名数学家费马,此后,他们两人就这个问题开始了频繁的通信研究,在他们的来往信件中,有关于这个问题的不同解法,被认为是概率论最早的几篇论文. 1655 年,荷兰数学家惠更斯来到巴黎,也潜心研究了这个问题,并于 1657 年出版了《论赌博中的计算》一书 ,这本书的出版是概率论产生的标志之一.\n\n18 世纪,有更多的数学家投身概率论的研究. 到了 19 世纪， 概率论朝着完整的理论体系和更广泛的应用方向发展. 在谱多数学家研究的基础上,1933 年苏联数学家柯尔黄哥洛夫,给出了概率论的公理体系,从此概率论成为一完整、严说的数学分支概率论传入我国是在 1896 年,在英国传教士传兰雅的协助下,晚清数学家华薪芳(1833一1902 )译出了名为《决疑数学》一书. 后来“probability\"又被译为“或然率\"““可能率\"“机率\"等\n1935 年,数学词典》定名为“几素\"或“概率\". 1964 年,人数学名记补编开始确定用\"概率”， 我国对概率论的研究是从 20 世纪初开始的. 目前,在概率论研究方面,我国的学者也取得了一系列成果， 114\n加第26 章梳率初步 1 5 “。e 小结.评价 e。 一、内容整理\nEr\n晴略。 ”人着汪二人\n\n要 ] nn\n全的频可估计其要这二、主要知识回顾\n\n1，随机事件 .不可能事件和必然事件.",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 93,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7955665024630542,
+        "lengthScore": 0.88,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "我国对概率论的研究是从 20 世纪初开始的. 目前,在概率论研究方面,我国的学者也取得了一系列成果， 114\n加第26 章梳率初步 1 5 “。e 小结.评价 e。 一、内容整理\nEr\n晴略。 ”人着汪二人\n\n要 ] nn\n全的频可估计其要这二、主要知识回顾\n\n1，随机事件 .不可能事件和必然事件.\n\n2表示一个随机事件4 发生的可能性大小的数,叫做这个事件发生的概率,记作 P(4). 必然事件的概率为1,不可能事件的概率为 0.\n\n3. 在等可能情形下求随机事件 4 发生的概率时,通常利用\"树状图”或\n“列表法\"列出所有可能性相等的结果以及使事件 4 发生的结果,这是解决问题的关键.\n\n4. 一般在大量重复试验中,用随机事件发生的频率作为该随机事件概率的估计值.\n\n三、自评与互评\n\n1， 你能举出生活中的随机事件 ,必然事件和不可能事件吗?\n\n2你和同学进行乒乓球比赛时,采用什么方法决定谁先发球呢? 这个方法对双方公平吗?\n\n3，编一个等可能情形下求概率的问题.\n\n4.， 举出一个日常生活中的例子:在大量重复试验后用随机事件发生的频。 率来估计概率.\n115",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 94,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8120649651972158,
+        "lengthScore": 0.487,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "4. 一般在大量重复试验中,用随机事件发生的频率作为该随机事件概率的估计值.\n\n三、自评与互评\n\n1， 你能举出生活中的随机事件 ,必然事件和不可能事件吗?\n\n2你和同学进行乒乓球比赛时,采用什么方法决定谁先发球呢? 这个方法对双方公平吗?\n\n3，编一个等可能情形下求概率的问题.\n\n4.， 举出一个日常生活中的例子:在大量重复试验后用随机事件发生的频。 率来估计概率.\n115 轨。旺\nsy 复习题省\n1. 一个口袋中有6 个完全一样的球,球上分别标有1,2, 3,4,5 ,6. 小明从口袋中摸出\n1 个球,求:\n《1) 摸到球的号码是奇数的概率;\n《2) 摸到球的号码大于 3 的概率;\n《3) 摸到球的号码不大于6 的概率.\n2. 小明有三件了恤衫 ,颜色分别为红色 .白色 .黄色;有两条长裤 ,颜色分别为蓝色、\n黑色. 现从中随机选一件工恤衫一条长裤,问恰好是红工恤`黑裤子的概率是多少?\n3. 同时抛搓 2 枚均匀的货子一次(货子各面上的点数分别是 1, 2,……,6) ,所得点数之和有多少种可能? 概率最大的点数之和为多少?\n4. 某商场举行有奖销售,发行奖券 5 万张,其中设一等奖2 个.二等奖8个三等奖 40\n个.四等奖 200个五等奖 1 000 个. 有一位顾客购物后得到一张奖券 ,问这位顾客 :\n(1) 获得一等奖的概率是多少?\n(2) 获奖的概率是多少?\n5. 从 HAPPY 这个单词中任选一个字母 ,求选到字母的概率.\n6. 在第1,3,5,6 路汽车都要停靠的一个站上 ,一位乘客等候1 路或3 路汽车. 假定各路汽车首先到站的可能性相等 ,求首先到站的正好是该乘客要乘的汽车的概率.\n7. 同时抛搓 3 枚均匀的硬币一次,求:\n(1) 出现 3 个正面的概率;\n(2) 出现2个正面1 个反面的概率.\n8. 把1,4,3 三个数字随机排成一个 3 位数,求排出的数是偶数的概率.\nJE加 |\ncj ss也\n1. 某种彩票的号码是0 000 000 ~9 999 999 中的任意一个7 位数,摇奖得出一个7 位数为中奖号. 若一注彩票上的 7 位数号码与其完全相同且排列一致,即中特等奖;\n110\n第26 章“”构率初步“ 11 若一注彩票上仅有连续 6 位数号码与中奖号对应位置的连续 6 位数号码相同(如",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 95,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7502944640753828,
+        "lengthScore": 0.975,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "若一注彩票上仅有连续 6 位数号码与中奖号对应位置的连续 6 位数号码相同(如中奖号为4 364 166 ,彩票上的号码为 436416X 或 X364166) ,即中一等奖.问;\n\n(1) 买 1 注彩票中特等奖的概率是多少?\n\n(2) 买 1 注彩票中一等奖的概率是多少?\n\n2. (1) 连续抛掷一枚均匀的蜗子 3 次,将掷得的点数依次作为百位.十位和个位上的数字组成一个3 位数 ,求得到个位上数字为5 的3 位数的概率.\n\n《2) 如果将抛掷仍子换成摸球,即在不透明的袋中放入标有数字 1,2,3,4,5,6 的\n6 个形状与大小完全相同的小球,依次从袋中摸出 3 个球(每次摸出 1 个球， 且摸出的球不再放回袋中) ,将球上所标的数字分别作为百位`十位和个位上的数字组成一个3 位数 ,那么得到个位上数字为5 的3 位数的概率与(1)的结果相同吗?\n\n3. 从长为2 cm,3 cm,4 cm,5 cm 的4条线段中随机取出 3 条线段,问随机取出的3\n条线段能围成一个三角形的概率是多少? 能围成直角三角形的概率又是多少?\n地复 习题 必在对病毒流行规律的研究中,人们需要建立数学模型. 如某个群体中一共有4 个人先后感当了病毒,其中只有 1 个人去过疫区,从而认定他是这个群体的感染源头， 第 2 个发病的人一定是被他传染的;由于不清楚传染机制 ,于是假定第 3 个发病的人\n“等可能\"地被第 1 或第 2 个发病人所传染;同样 ,第4 个发病人“等可能\"地被前3 个发病人中任一个所传染. 问这 4 人中有哪些可能的传染途径? 其中依次(即中一\n@一外一四)传染的概率有多大?\n\n117\n让",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 96,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.775974025974026,
+        "lengthScore": 0.705,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "附录部分中英文词汇索引中 文英 文页 码旋转 rotation 2\n圆 Circle 12\n圆心 center of a circle 12\n半径 radius j\n圆弧 arc 13\n弦 chord 13\n直径 diameter 13\n圆心角 central angle 18\n三角形的外接圆 circumecircle of triangle 22",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 97,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.2765957446808511,
+        "lengthScore": 0.176,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "圆心角 central angle 18\n三角形的外接圆 circumecircle of triangle 22\n三角形的外心 circumcenter of triangle 22\n圆的内接三角形 inscribed triangle of circle 22\n圆周角 angle in a circular Segment 27\n割线 Secant line 33\n切线 tangent line 34\n切点 point of tangency 34\n三角形的内切圆 inscribed circle of triangle 43\n三角形的内心 incenter of triangle 43\n圆的外切三角形 circumscribed triangle of circle 43\n平行投影 parallel projection 73",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 98,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.18006430868167203,
+        "lengthScore": 0.371,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "圆的外切三角形 circumscribed triangle of circle 43\n平行投影 parallel projection 73\n中心投影 center projection 74\n视图 View 78\n必然事件 Certain event 91\n不可能事件 impossible event 91\n随机事件 random event 92\n概率 probability 93\n118\nxs 4",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 99,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.18823529411764706,
+        "lengthScore": 0.204,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "1999 年,我们根据(九年义务教育全日制初级中学数学教学大纲(试用修， 订版)》,编号了一套华东版初中数学教材,经三年实验后,于 2002 年报教育部， 经全国中小学教材审定委员会审查通过， 2001 年,国家颁布了《基础教育课程改革纲要(试行)》及《全日制义务教， 育数学课程标准(实验稿)》,正式启动了新一轮中小学课程教材改革. 本套， ”教科书就是根据课程标准 ,在吸取了华东版教材实验过程中的经验后重新编，。 写的,并于 2004 年经全国中小学教材审定委员会初审通过，现教育部决定全，。 面启动义务教育课程标准实验教材的修订工作 ,我们将切实把(义务教育数学， ”课程标准(2011 年版)》的要求落实到新修订的教材中 ,使教材的质量进一步。 ”得到提升,特色更加鲜明本套教材在送审和实验过程中,得到了许多专家\\学者、教研人员与广大，。 师生的关爱,特别是人民教育出版社的张地达先生与陈宏伯先生直接参所教，。 材的整体设计和章节审稿,他们以实际行动给予我们很大的支持与鼓舞,我们更心地感谢他们为了做好这次的修订工作 ,我们调整并充实了编写队伍,本套教科书编写。 ”组主要人员有: 吴之季苏 淳杜先能徐子华郭要红胡 涛陈先荣王南林胡茂侠“印广东本册主要编写人员， 洪新华刘义杰金 超王 峰贾斌 程立虎任大益李启梅 : 苗兴敏薛 凑韦鹏飞此外,参与本册修改工作的还有; 刘正会徐了宁和朱传良查 刚司武全周 米张满亮高才陈刘送“高成林 “地兆圳教材建设是一项长期任务,需要通过实验\\侈改, 反复锤炼, 这不仅需要全体编号人员的努力,还要有广大师生的积极支持与参与,恩请使用本套教材\n”的师生批评指正. 新时代数学编呈组， 2014 年 10 月 :",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 100,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8514705882352941,
+        "lengthScore": 0.727,
+        "coherenceScore": 0.7999999999999999,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  },
+  {
+    "content": "|\n了二妥间站了县=了一椰部关~字了8吕-了\nee 自在六\nAi\nNACTTRA\nGAY )\n(Eeea\nN 呈夏|] 和 7\n和厚 7 罗了号二了县忆本身闻了灯色印刷”亏 : 8.05 元卫",
+    "metadata": {
+      "filename": "义务教育教科书·数学九年级下册_54a9b295",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学九年级下册_54a9b295.pdf",
+      "chunk_index": 101,
+      "total_chunks": 102,
+      "processing_method": "ocr",
+      "worker_id": "worker_1",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5384615384615384,
+        "lengthScore": 0.096,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:29.754Z",
+      "enhancementVersion": "2.0"
+    }
+  }
+]

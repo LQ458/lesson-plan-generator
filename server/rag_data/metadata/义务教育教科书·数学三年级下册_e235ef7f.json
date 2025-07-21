@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·数学三年级下册_e235ef7f",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学三年级下册_e235ef7f.pdf",
+  "total_chunks": 59,
+  "total_pages": 112,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T04:53:17.366Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.175Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

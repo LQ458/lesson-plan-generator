@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·数学八年级上册_ef4b30bb",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学八年级上册_ef4b30bb.pdf",
+  "total_chunks": 134,
+  "total_pages": 185,
+  "processing_method": "ocr",
+  "worker_id": "worker_4",
+  "processed_at": "2025-07-21T02:02:06.524Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.179Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

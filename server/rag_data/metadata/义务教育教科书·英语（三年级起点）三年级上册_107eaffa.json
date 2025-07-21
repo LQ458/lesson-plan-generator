@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语（三年级起点）三年级上册_107eaffa",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（三年级起点）三年级上册_107eaffa.pdf",
+  "total_chunks": 45,
+  "total_pages": 46,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T08:21:05.988Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.209Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

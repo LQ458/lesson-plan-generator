@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/科学/苏教版/义务教育教科书·科学三年级下册.pdf",
+  "extractedAt": "2025-07-18T13:43:17.692Z",
+  "method": "node-poppler",
+  "textLength": 13158,
+  "processingStats": {
+    "chunksCount": 18,
+    "embeddingsCount": 18,
+    "processedAt": "2025-07-18T13:43:23.236Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.190Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

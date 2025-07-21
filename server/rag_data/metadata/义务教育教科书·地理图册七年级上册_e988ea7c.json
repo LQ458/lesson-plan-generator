@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·地理图册七年级上册_e988ea7c",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·地理图册七年级上册_e988ea7c.pdf",
+  "total_chunks": 83,
+  "total_pages": 50,
+  "processing_method": "ocr",
+  "worker_id": "worker_9",
+  "processed_at": "2025-07-21T01:29:53.701Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.168Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

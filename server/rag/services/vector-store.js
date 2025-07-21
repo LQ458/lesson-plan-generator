@@ -61,8 +61,8 @@ class VectorStoreService {
     }
 
     try {
-      const optimizedDir = path.join(__dirname, "../../optimized");
-      const files = await fs.readdir(optimizedDir);
+      const ragDataDir = path.join(__dirname, "../../rag_data/chunks");
+      const files = await fs.readdir(ragDataDir);
       const jsonFiles = files.filter((file) =>
         config.documents.supportedFormats.some((format) =>
           file.endsWith(format),
@@ -78,7 +78,7 @@ class VectorStoreService {
 
       for (const file of jsonFiles) {
         try {
-          const filePath = path.join(optimizedDir, file);
+          const filePath = path.join(ragDataDir, file);
           const fileStats = await fs.stat(filePath);
 
           // 检查文件大小
@@ -89,28 +89,45 @@ class VectorStoreService {
           }
 
           const content = await fs.readFile(filePath, "utf8");
-          const document = JSON.parse(content);
+          const data = JSON.parse(content);
 
-          // 验证文档格式
-          const validation = textProcessor.validateDocumentFormat(document);
-          if (!validation.isValid) {
-            logger.warn(`文档格式验证失败: ${file}`, validation.errors);
-            loadErrors.push({ file, errors: validation.errors });
+          // Handle enhanced format - data is array of chunks directly
+          let chunks;
+          if (Array.isArray(data)) {
+            chunks = data;
+          } else if (data.chunks && Array.isArray(data.chunks)) {
+            // Legacy format support
+            chunks = data.chunks;
+          } else {
+            logger.warn(`文档格式不正确: ${file} - 未找到有效的chunks数据`);
+            loadErrors.push({ file, errors: ["Invalid chunk format"] });
             continue;
           }
 
-          if (document.chunks && document.chunks.length > 0) {
-            totalChunks += document.chunks.length;
+          if (chunks.length > 0) {
+            totalChunks += chunks.length;
 
-            // 准备批量插入数据
-            const batchData = this.prepareBatchData(document, file);
+            // Filter chunks by quality score if using enhanced format
+            const qualityFilteredChunks = config.documents.enhancedFormat 
+              ? chunks.filter(chunk => 
+                  !chunk.qualityScore || chunk.qualityScore >= config.documents.minQualityScore
+                )
+              : chunks;
+
+            if (qualityFilteredChunks.length === 0) {
+              logger.warn(`所有chunks都被质量过滤器过滤: ${file}`);
+              continue;
+            }
+
+            // 准备批量插入数据 (pass chunks directly)
+            const batchData = this.prepareBatchDataEnhanced(qualityFilteredChunks, file);
 
             // 批量添加到向量数据库
             await this.collection.add(batchData);
 
-            loadedChunks += document.chunks.length;
+            loadedChunks += qualityFilteredChunks.length;
             logger.info(
-              `✓ 加载文档: ${document.filename}, 块数: ${document.chunks.length}`,
+              `✓ 加载文档: ${file}, 总块数: ${chunks.length}, 质量过滤后: ${qualityFilteredChunks.length}`,
             );
           }
         } catch (error) {
@@ -179,6 +196,114 @@ class VectorStoreService {
     }
 
     return { ids, embeddings, documents, metadatas };
+  }
+
+  // New method to handle enhanced data format
+  prepareBatchDataEnhanced(chunks, filename) {
+    const ids = [];
+    const documents = [];
+    const metadatas = [];
+
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+
+      // Skip empty content
+      if (!chunk.content || typeof chunk.content !== "string" || chunk.content.trim().length === 0) {
+        continue;
+      }
+
+      // Generate unique ID using filename and chunk index
+      const chunkId = `${filename}_chunk_${i}`;
+
+      // Extract subject and grade from filename or chunk metadata
+      const subject = this.extractSubjectFromFilename(filename) || 
+                     chunk.metadata?.subject || 
+                     textProcessor.extractSubject(filename);
+      const grade = this.extractGradeFromFilename(filename) || 
+                   chunk.metadata?.grade || 
+                   textProcessor.extractGrade(filename);
+
+      // Prepare enhanced metadata
+      const metadata = {
+        source: filename,
+        chunk_index: i,
+        subject: subject,
+        grade: grade,
+        material_name: this.extractMaterialName(filename),
+        content_length: chunk.content.length,
+        created_at: new Date().toISOString(),
+        
+        // Enhanced quality metrics
+        qualityScore: chunk.qualityScore || 0.5,
+        reliability: chunk.reliability || "medium",
+        enhancementVersion: chunk.metadata?.enhancementVersion || "2.0",
+        
+        // OCR and processing info
+        ocrConfidence: chunk.metadata?.qualityMetrics?.ocrConfidence || null,
+        chineseCharRatio: chunk.metadata?.qualityMetrics?.chineseCharRatio || null,
+        lengthScore: chunk.metadata?.qualityMetrics?.lengthScore || null,
+        coherenceScore: chunk.metadata?.qualityMetrics?.coherenceScore || null,
+        
+        // Semantic features
+        hasFormulas: chunk.semanticFeatures?.hasFormulas || false,
+        hasNumbers: chunk.semanticFeatures?.hasNumbers || false,
+        hasExperiment: chunk.semanticFeatures?.hasExperiment || false,
+        hasDefinition: chunk.semanticFeatures?.hasDefinition || false,
+        hasQuestion: chunk.semanticFeatures?.hasQuestion || false,
+        isTableContent: chunk.semanticFeatures?.isTableContent || false,
+        subjectArea: chunk.semanticFeatures?.subjectArea || subject,
+        
+        // Original metadata from chunk
+        ...(chunk.metadata || {})
+      };
+
+      ids.push(chunkId);
+      documents.push(chunk.content.trim());
+      metadatas.push(metadata);
+    }
+
+    return { ids, documents, metadatas };
+  }
+
+  // Helper methods for filename parsing
+  extractSubjectFromFilename(filename) {
+    const subjects = ["数学", "语文", "英语", "物理", "化学", "生物", "历史", "地理", "政治", "音乐", "美术", "体育", "科学"];
+    return subjects.find(s => filename.includes(s)) || null;
+  }
+
+  extractGradeFromFilename(filename) {
+    const gradeMatch = filename.match(/(一年级|二年级|三年级|四年级|五年级|六年级|七年级|八年级|九年级|高一|高二|高三)/);
+    return gradeMatch ? gradeMatch[1] : null;
+  }
+
+  extractMaterialName(filename) {
+    // Remove .json extension and clean up filename
+    let cleanName = filename.replace('.json', '').replace(/^.*_/, '');
+    
+    // Extract readable book name from filename
+    // Pattern matches: 年级+学科+版本+电子课本
+    const bookPattern = /(一年级|二年级|三年级|四年级|五年级|六年级|七年级|八年级|九年级|高一|高二|高三)[上下]?册(数学|语文|英语|物理|化学|生物|历史|地理|政治|音乐|美术|体育|科学|道德与法治)(.*?)电子课本/;
+    const match = cleanName.match(bookPattern);
+    
+    if (match) {
+      const grade = match[1];
+      const semester = cleanName.includes('上册') ? '上册' : (cleanName.includes('下册') ? '下册' : '');
+      const subject = match[2];
+      const publisher = match[3] ? match[3].replace(/[^\u4e00-\u9fa5a-zA-Z]/g, '') : '';
+      
+      return `${grade}${semester}${subject}${publisher ? '(' + publisher + ')' : ''}`;
+    }
+    
+    // Fallback: try to extract basic info
+    const gradeMatch = cleanName.match(/(一年级|二年级|三年级|四年级|五年级|六年级|七年级|八年级|九年级|高一|高二|高三)/);
+    const subjectMatch = cleanName.match(/(数学|语文|英语|物理|化学|生物|历史|地理|政治|音乐|美术|体育|科学|道德与法治)/);
+    
+    if (gradeMatch && subjectMatch) {
+      const semester = cleanName.includes('上册') ? '上册' : (cleanName.includes('下册') ? '下册' : '');
+      return `${gradeMatch[1]}${semester}${subjectMatch[1]}`;
+    }
+    
+    return cleanName;
   }
 
   async search(query, options = {}) {
@@ -644,10 +769,8 @@ class VectorStoreService {
       tokenCount,
       averageRelevance:
         usedResults.length > 0
-          ? (
-              usedResults.reduce((sum, r) => sum + r.relevanceScore, 0) /
+          ? usedResults.reduce((sum, r) => sum + r.relevanceScore, 0) /
               usedResults.length
-            ).toFixed(3)
           : 0,
     };
 

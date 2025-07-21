@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语（一年级起点）三年级上册_e3926b0e",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（一年级起点）三年级上册_e3926b0e.pdf",
+  "total_chunks": 99,
+  "total_pages": 91,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T07:20:25.886Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.206Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

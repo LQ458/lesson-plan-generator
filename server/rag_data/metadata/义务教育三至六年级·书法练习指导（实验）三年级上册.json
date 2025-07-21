@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文·书法练习指导/西泠印社版/义务教育三至六年级·书法练习指导（实验）三年级上册.pdf",
+  "extractedAt": "2025-07-18T13:53:47.568Z",
+  "method": "node-poppler",
+  "textLength": 7212,
+  "processingStats": {
+    "chunksCount": 10,
+    "embeddingsCount": 10,
+    "processedAt": "2025-07-18T13:53:51.589Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.158Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

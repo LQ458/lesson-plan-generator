@@ -302,3 +302,5 @@ app.*.map.json
 # package-lock.json
 # yarn.lock
 # ==========================================
+
+chroma_db/

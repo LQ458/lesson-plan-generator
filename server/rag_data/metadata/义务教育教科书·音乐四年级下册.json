@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/音乐/辽海版/义务教育教科书·音乐四年级下册.pdf",
+  "extractedAt": "2025-07-18T13:56:11.930Z",
+  "method": "node-poppler",
+  "textLength": 7877,
+  "processingStats": {
+    "chunksCount": 11,
+    "embeddingsCount": 11,
+    "processedAt": "2025-07-18T13:56:14.142Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.221Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}
