@@ -2,6 +2,30 @@
  * 向量存储服务测试
  */
 
+// Mock ChromaDB before importing VectorStoreService
+jest.mock("chromadb", () => ({
+  ChromaClient: jest.fn(() => ({
+    getCollection: jest.fn().mockRejectedValue(new Error("Collection not found")),
+    createCollection: jest.fn().mockResolvedValue({
+      add: jest.fn(),
+      query: jest.fn().mockResolvedValue({
+        documents: [[]],
+        metadatas: [[]],
+        distances: [[]],
+      }),
+      count: jest.fn().mockResolvedValue(0),
+    }),
+  })),
+  DefaultEmbeddingFunction: jest.fn(),
+}));
+
+// Mock logger
+jest.mock("../../utils/logger", () => ({
+  info: jest.fn(),
+  error: jest.fn(),
+  warn: jest.fn(),
+}));
+
 const VectorStoreService = require("../services/vector-store");
 
 describe("VectorStoreService", () => {

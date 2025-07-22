@@ -18,6 +18,8 @@ const config = {
     // Mock ES modules that Jest can't handle
     "^react-markdown$": "<rootDir>/src/__mocks__/react-markdown.js",
     "^remark-gfm$": "<rootDir>/src/__mocks__/remark-gfm.js",
+    "^remark-math$": "<rootDir>/src/__mocks__/remark-math.js",
+    "^rehype-katex$": "<rootDir>/src/__mocks__/rehype-katex.js",
   },
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   modulePathIgnorePatterns: ["<rootDir>/.next/"],
