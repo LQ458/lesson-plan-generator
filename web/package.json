@@ -17,8 +17,8 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
-    "@stagewise-plugins/react": "^0.4.9",
-    "@stagewise/toolbar-next": "^0.4.9",
+    "@stagewise-plugins/react": "^0.6.2",
+    "@stagewise/toolbar-next": "^0.6.2",
     "@types/js-yaml": "^4.0.9",
     "@types/react-svg-pan-zoom": "^3.3.9",
     "@xyflow/react": "^12.8.2",
