@@ -47,6 +47,123 @@ const getAvailableSubjects = (grade: string) => {
   return subjectsByGrade.secondary;
 };
 
+// 清理引用来源名称 - 移除文件扩展名和ID后缀
+const cleanReferenceSourceName = (sourceName: string): string => {
+  if (!sourceName) return "";
+  
+  // 移除 .json 扩展名
+  let cleaned = sourceName.replace(/\.json$/, "");
+  
+  // 移除各种ID模式 - 更全面的清理
+  cleaned = cleaned
+    // 移除下划线和8位十六进制ID (如 _c8702551, _47aa9b66)
+    .replace(/_[a-f0-9]{8}$/i, "")
+    // 移除下划线和6-12位混合ID
+    .replace(/_[a-zA-Z0-9]{6,12}$/, "")
+    // 移除纯数字ID
+    .replace(/_\d+$/, "")
+    // 移除带连字符的ID (如 -abc123)
+    .replace(/-[a-zA-Z0-9]{6,}$/, "")
+    // 移除括号内的ID (如 (12345))
+    .replace(/\s*\([a-zA-Z0-9_-]+\)$/, "")
+    // 移除方括号内的ID (如 [abc123])
+    .replace(/\s*\[[a-zA-Z0-9_-]+\]$/, "");
+  
+  return cleaned.trim();
+};
+
+// 去重引用来源 - 合并相同的教材引用
+const deduplicateReferenceSources = (sources: string[]): string[] => {
+  if (!Array.isArray(sources) || sources.length === 0) {
+    return [];
+  }
+  
+  const uniqueSources = new Set<string>();
+  
+  sources.forEach(source => {
+    if (source && typeof source === 'string') {
+      const cleaned = cleanReferenceSourceName(source);
+      if (cleaned && cleaned.length > 0) {
+        uniqueSources.add(cleaned);
+      }
+    }
+  });
+  
+  const result = Array.from(uniqueSources);
+  console.log('Deduplication results:', {
+    input: sources,
+    output: result,
+    removedDuplicates: sources.length - result.length
+  });
+  
+  return result;
+};
+
+// 清理markdown内容中的引用来源
+const cleanMarkdownReferences = (content: string): string => {
+  if (!content) return "";
+  
+  // 匹配并清理markdown中的引用模式
+  // 匹配列表项中的引用 (如 "- 义务教育教科书·数学七年级下册_c8702551.json")
+  let cleaned = content.replace(
+    /^(\s*[-*+]\s*)([^_\n]+)_[a-zA-Z0-9]{6,}\.json/gm,
+    '$1$2'
+  );
+  
+  // 匹配引用部分的标题下的内容
+  cleaned = cleaned.replace(
+    /(#{1,6}\s*.*?引用.*?[\r\n]+)([\s\S]*?)(?=\n#{1,6}|\n\n|$)/gi,
+    (match, header, content) => {
+      const cleanedContent = content.replace(
+        /([^_\n]+)_[a-zA-Z0-9]{6,}\.json/g,
+        '$1'
+      );
+      return header + cleanedContent;
+    }
+  );
+  
+  // 清理其他可能的引用模式
+  cleaned = cleaned
+    // 清理行内引用
+    .replace(/([《》【】（）]*[^_\n]+)_[a-zA-Z0-9]{6,}\.json/g, '$1')
+    // 清理引号内的引用
+    .replace(/"([^"_]+)_[a-zA-Z0-9]{6,}\.json"/g, '"$1"')
+    // 清理括号内的引用
+    .replace(/\(([^)_]+)_[a-zA-Z0-9]{6,}\.json\)/g, '($1)');
+  
+  return cleaned;
+};
+
+// 移除引用部分和确保frontmatter被移除
+const cleanContentForDisplay = (content: string): string => {
+  if (!content) return content;
+  
+  let cleaned = content;
+  
+  // 1. 移除YAML frontmatter块 - 更严格的匹配
+  cleaned = cleaned.replace(/^---[\s\S]*?---\n*/m, '');
+  
+  // 2. 移除末尾的参考资料部分
+  cleaned = cleaned.replace(/\n\s*##?\s*📚?\s*参考资料[\s\S]*$/i, '');
+  cleaned = cleaned.replace(/\n\s*##?\s*参考文献[\s\S]*$/i, '');
+  cleaned = cleaned.replace(/\n\s*##?\s*引用来源[\s\S]*$/i, '');
+  cleaned = cleaned.replace(/\n\s*##?\s*Reference[\s\S]*$/i, '');
+  
+  // 3. 移除可能的其他参考部分变体
+  cleaned = cleaned.replace(/\n\s*本教案参考了以下教学资料：[\s\S]*$/i, '');
+  
+  // 4. 清理末尾多余的空行
+  cleaned = cleaned.replace(/\n\s*\n\s*$/, '\n');
+  
+  // 5. 确保不显示原始YAML内容
+  if (cleaned.trim().startsWith('title:') || cleaned.trim().startsWith('---')) {
+    console.warn('Content still contains YAML after cleaning, removing completely');
+    return '';
+  }
+  
+  return cleaned;
+};
+
 // 检查科目是否适用于选定年级
 const isSubjectValidForGrade = (subject: string, grade: string) => {
   const availableSubjects = getAvailableSubjects(grade);
@@ -91,10 +208,17 @@ const parseFrontmatter = (
       unknown
     > | null;
 
+    // 清理metadata中的引用来源
+    if (metadata && metadata.referenceSources && Array.isArray(metadata.referenceSources)) {
+      metadata.referenceSources = deduplicateReferenceSources(metadata.referenceSources as string[]);
+    }
+
     return { metadata, markdown: markdownContent };
   } catch (error) {
     console.warn("解析frontmatter失败:", error);
-    return { metadata: null, markdown: content };
+    // 即使解析失败，也要尝试移除可能的frontmatter标记，避免显示给用户
+    const cleanContent = content.replace(/^---[\s\S]*?---\n?/, '');
+    return { metadata: null, markdown: cleanContent.length > 0 ? cleanContent : content };
   }
 };
 
@@ -102,16 +226,25 @@ const parseFrontmatter = (
 const isContentReadyToDisplay = (content: string): boolean => {
   if (!content || content.length < 20) return false;
 
-  // 检查是否包含基本的markdown结构
-  const hasHeaders = /^#+\s+.+$/m.test(content);
-  const hasContent =
-    content.split("\n").filter((line) => line.trim()).length > 2;
-  const isNotJustFrontmatter =
-    !content.trim().startsWith("---") || content.split("---").length >= 3;
+  // 先尝试解析frontmatter，检查实际的markdown内容
+  const { markdown } = parseFrontmatter(content);
+  const actualContent = markdown || content;
 
-  return (
-    hasContent && isNotJustFrontmatter && (hasHeaders || content.length > 100)
-  );
+  // 确保不会显示原始的YAML frontmatter
+  if (content.trim().startsWith("---") && !markdown) {
+    console.log('Content still contains raw frontmatter, not ready to display');
+    return false;
+  }
+
+  // 检查是否包含基本的markdown结构
+  const hasHeaders = /^#+\s+.+$/m.test(actualContent);
+  const hasContent =
+    actualContent.split("\n").filter((line) => line.trim()).length > 2;
+  
+  // 如果有frontmatter，内容长度要求可以更宽松
+  const hasValidLength = content.includes("---") ? actualContent.length > 50 : actualContent.length > 100;
+
+  return hasContent && (hasHeaders || hasValidLength);
 };
 
 // Loading动画组件 - 增强版
@@ -318,16 +451,21 @@ export default function LessonPlanPage() {
             if (metadata && isContentReadyToDisplay(markdown)) {
               if (!hasValidContent) {
                 setParsedLessonData(metadata);
+                // 实时更新引用来源 - 清理并去重
+                if (metadata.referenceSources) {
+                  const deduplicatedSources = deduplicateReferenceSources(metadata.referenceSources as string[]);
+                  setReferenceSources(deduplicatedSources);
+                }
                 hasValidContent = true;
               }
-              setGeneratedContent(markdown);
+              setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(markdown)));
             }
           } else if (isContentReadyToDisplay(content)) {
             // 不包含frontmatter但内容足够完整的情况
             if (!hasValidContent) {
               hasValidContent = true;
             }
-            setGeneratedContent(content);
+            setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(content)));
           }
           // 如果内容太短或不完整，不更新UI
         }
@@ -337,14 +475,15 @@ export default function LessonPlanPage() {
           const { metadata, markdown } = parseFrontmatter(content);
           if (metadata) {
             setParsedLessonData(metadata);
-            setGeneratedContent(markdown);
+            setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(markdown)));
             console.log("解析frontmatter成功");
-            // 提取引用来源
+            // 提取引用来源并清理文件名，去重
             if (metadata.referenceSources) {
-              setReferenceSources(metadata.referenceSources as string[]);
+              const deduplicatedSources = deduplicateReferenceSources(metadata.referenceSources as string[]);
+              setReferenceSources(deduplicatedSources);
             }
           } else {
-            setGeneratedContent(content);
+            setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(content)));
           }
         } else {
           throw new Error("AI未返回任何内容");
@@ -353,7 +492,7 @@ export default function LessonPlanPage() {
         // 兼容非流式响应
         const data = await response.json();
         if (data.success && data.data.content) {
-          setGeneratedContent(data.data.content);
+          setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(data.data.content)));
         } else {
           throw new Error("AI响应格式错误或未返回内容");
         }

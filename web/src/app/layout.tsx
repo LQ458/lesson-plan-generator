@@ -4,8 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SettingsProvider } from "@/lib/settings-context";
 import { Navbar } from "@/components/navbar";
-import { StagewiseToolbar } from "@stagewise/toolbar-next";
-import { ReactPlugin } from "@stagewise-plugins/react";
+// import { StagewiseToolbar } from "@stagewise/toolbar-next";
+// import { ReactPlugin } from "@stagewise-plugins/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,11 +36,11 @@ export default function RootLayout({
               <Navbar />
               <main className="pb-16 md:pb-0">{children}</main>
             </div>
-            <StagewiseToolbar
+            {/* <StagewiseToolbar
               config={{
                 plugins: [ReactPlugin],
               }}
-            />
+            /> */}
           </SettingsProvider>
         </ThemeProvider>
       </body>
