@@ -285,7 +285,7 @@ export default function StreamingMarkdown({
         );
       },
       ul: (props: React.ComponentProps<"ul">) => (
-        <ul className="list-disc ml-6 space-y-2 my-4" {...props} />
+        <ul className="list-none ml-0 space-y-2 my-4" {...props} />
       ),
       li: (props: React.ComponentProps<"li">) => (
         <li className="text-gray-700 dark:text-gray-300" {...props} />
