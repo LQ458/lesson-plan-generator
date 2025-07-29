@@ -492,6 +492,12 @@ export default function ExercisesPage() {
   const handleSaveExercise = async () => {
     if (!generatedContent) return;
 
+    // Validate required fields
+    if (!formData.subject || !formData.grade || !formData.topic || !formData.difficulty) {
+      alert("缺少必要信息：学科、年级、课题或难度等级");
+      return;
+    }
+
     setSavingExercise(true);
     try {
       const response = await fetch(
@@ -509,10 +515,10 @@ export default function ExercisesPage() {
             topic: formData.topic,
             difficulty: formData.difficulty,
             questionType: formData.questionType,
-            questionCount: parseInt(formData.count),
+            questionCount: parseInt(formData.count) || 5,
             content: generatedContent,
-            requirements: formData.requirements,
-            tags: [formData.subject, formData.grade, formData.difficulty],
+            requirements: formData.requirements || "",
+            tags: [formData.subject, formData.grade, formData.difficulty].filter(Boolean),
           }),
         },
       );
@@ -558,6 +564,11 @@ export default function ExercisesPage() {
   const executeExport = async (format: string) => {
     if (!generatedContent) return;
 
+    // Validate required fields before making the request
+    if (!formData.subject || !formData.grade || !formData.topic || !formData.difficulty) {
+      throw new Error("缺少必要信息：学科、年级、课题或难度等级");
+    }
+
     try {
       // 先保存练习题以获取ID
       const saveResponse = await fetch(
@@ -575,16 +586,18 @@ export default function ExercisesPage() {
             topic: formData.topic,
             difficulty: formData.difficulty,
             questionType: formData.questionType,
-            questionCount: parseInt(formData.count),
+            questionCount: parseInt(formData.count) || 5,
             content: generatedContent,
-            requirements: formData.requirements,
-            tags: [formData.subject, formData.grade, formData.difficulty],
+            requirements: formData.requirements || "",
+            tags: [formData.subject, formData.grade, formData.difficulty].filter(Boolean),
           }),
         },
       );
 
       if (!saveResponse.ok) {
-        throw new Error("保存练习题失败，无法导出");
+        const errorData = await saveResponse.json().catch(() => ({}));
+        const errorMessage = errorData.message || errorData.error || "保存练习题失败";
+        throw new Error(`保存失败 (${saveResponse.status}): ${errorMessage}`);
       }
 
       const saveData = await saveResponse.json();
@@ -608,8 +621,12 @@ export default function ExercisesPage() {
       );
 
       if (!exportResponse.ok) {
-        const errorText = await exportResponse.text().catch(() => "未知错误");
-        throw new Error(`导出失败: ${exportResponse.status} ${errorText}`);
+        const errorData = await exportResponse.json().catch(async () => {
+          const text = await exportResponse.text().catch(() => "未知错误");
+          return { message: text };
+        });
+        const errorMessage = errorData.message || errorData.error || "导出失败";
+        throw new Error(`导出失败 (${exportResponse.status}): ${errorMessage}`);
       }
 
       // 下载文件
