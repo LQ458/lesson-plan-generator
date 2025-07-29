@@ -166,6 +166,52 @@ body {
   font-size: 1.1em;
 }
 
+/* Remove bullet points from exercise content specifically */
+.lesson-plan-content ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.lesson-plan-content li {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.lesson-plan-content li::before {
+  content: none !important;
+}
+
+/* However, keep bullets for reference sections where they make sense */
+.lesson-plan-content .references ul,
+.lesson-plan-content .reference-sources ul {
+  list-style: disc !important;
+  padding-left: 1.5rem !important;
+  margin-left: 0 !important;
+}
+
+.lesson-plan-content .references li,
+.lesson-plan-content .reference-sources li {
+  list-style: disc !important;
+  padding-left: 0 !important;
+}
+
+/* Override prose list styles for exercise content only */
+.prose.lesson-plan-content ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.prose.lesson-plan-content li {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.prose.lesson-plan-content li::before {
+  content: none !important;
+}
+
 /* Typography */
 h1,
 h2,
