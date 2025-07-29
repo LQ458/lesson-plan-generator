@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, isValidElement } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -117,17 +117,41 @@ const preprocessContent = (content: string): string => {
     .replace(/([^$])\$\$([^$]+)\$\$([^$])/g, '$1\n\n$$$$2$$\n\n$3')
     // 处理行内数学表达式周围的空格
     .replace(/\$\s+([^$]+)\s+\$/g, '$ $1 $')
-    // 增强练习题格式处理
-    // 为答案段落添加特殊标记
-    .replace(/\*\*答案[：:]\*\*\s*(.+)/g, '<div class="exercise-answer">**答案：** $1</div>')
-    // 为解析段落添加特殊标记
-    .replace(/\*\*解析[：:]\*\*\s*/g, '<div class="exercise-analysis">**解析：**\n')
+    // 增强练习题格式处理 - 使用markdown兼容的方式
     // 处理选择题选项
-    .replace(/\*\*([A-D])\.\*\*/g, '<span class="exercise-option">**$1.**</span>')
+    .replace(/\*\*([A-D])\.\*\*/g, '**$1.**')
     // 确保题目编号突出显示
-    .replace(/^##\s*\*\*题目(\d+)\*\*/gm, '## 🔢 **题目$1**');
+    .replace(/^##\s*\*\*题目(\d+)\*\*/gm, '## 🔢 **题目$1**')
+    // 清理重复的数学表达式显示
+    .replace(/([x-z]\s*[₀-₉]+|[x-z]\s*[0-9]+)\s+\1/g, '$1')
+    // 清理混合的数学渲染（LaTeX + 普通文本重复）
+    .replace(/\$([^$]+)\$\s*\1/g, '$$$1$$')
+    .replace(/([^$\s]+)\s+\$\1\$/g, '$$$1$$')
+    // 修复可能的LaTeX渲染问题
+    .replace(/\$\$\s*\$\s*/g, '$$')
+    .replace(/\s*\$\s*\$\$/g, '$$')
+    // 清理一些常见的重复模式
+    .replace(/(x\s*[₁₂]\s*)\1+/g, '$1')
+    .replace(/([=+\-*/]\s*)\1+/g, '$1');
 
   return processedContent;
+};
+
+// Helper function to extract text content from React elements
+const getTextContent = (element: any): string => {
+  if (typeof element === 'string') {
+    return element;
+  }
+  
+  if (Array.isArray(element)) {
+    return element.map(getTextContent).join('');
+  }
+  
+  if (isValidElement(element) && (element.props as any).children) {
+    return getTextContent((element.props as any).children);
+  }
+  
+  return '';
 };
 
 export default function StreamingMarkdown({
@@ -211,48 +235,54 @@ export default function StreamingMarkdown({
           {...props}
         />
       ),
-      p: (props: React.ComponentProps<"p">) => (
-        <p
-          className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
-          {...props}
-        />
-      ),
-      div: (props: React.ComponentProps<"div">) => {
-        const className = props.className;
+      p: (props: React.ComponentProps<"p">) => {
+        const content = props.children;
         
-        if (className === 'exercise-answer') {
-          return (
-            <div
-              className="text-green-700 dark:text-green-300 font-medium bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4 border-l-4 border-green-500"
-              {...props}
-            />
-          );
+        // Check if this paragraph contains answer or analysis markers
+        if (typeof content === 'string') {
+          if (content.includes('**答案') || content.startsWith('答案')) {
+            return (
+              <div className="text-green-700 dark:text-green-300 font-medium bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4 border-l-4 border-green-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
+          
+          if (content.includes('**解析') || content.startsWith('解析')) {
+            return (
+              <div className="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
         }
         
-        if (className === 'exercise-analysis') {
-          return (
-            <div
-              className="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 p-4 rounded-lg mb-4 border-l-4 border-blue-500"
-              {...props}
-            />
-          );
+        // Check if content includes JSX elements with answer/analysis text
+        if (isValidElement(content) || Array.isArray(content)) {
+          const textContent = getTextContent(content);
+          if (textContent.includes('答案') && textContent.includes('**')) {
+            return (
+              <div className="text-green-700 dark:text-green-300 font-medium bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4 border-l-4 border-green-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
+          
+          if (textContent.includes('解析') && textContent.includes('**')) {
+            return (
+              <div className="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
         }
         
-        return <div {...props} />;
-      },
-      span: (props: React.ComponentProps<"span">) => {
-        const className = props.className;
-        
-        if (className === 'exercise-option') {
-          return (
-            <span
-              className="text-purple-600 dark:text-purple-400 font-bold text-lg"
-              {...props}
-            />
-          );
-        }
-        
-        return <span {...props} />;
+        return (
+          <p
+            className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+            {...props}
+          />
+        );
       },
       ul: (props: React.ComponentProps<"ul">) => (
         <ul className="list-disc ml-6 space-y-2 my-4" {...props} />
