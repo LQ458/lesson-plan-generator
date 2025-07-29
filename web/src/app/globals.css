@@ -13,16 +13,21 @@
   --color-border: 229 229 234;
   --color-separator: 198 198 200;
 
-  /* Apple semantic colors */
-  --color-blue: 0 122 255;
-  --color-green: 52 199 89;
-  --color-indigo: 88 86 214;
-  --color-orange: 255 149 0;
-  --color-pink: 255 45 146;
-  --color-purple: 175 82 222;
-  --color-red: 255 59 48;
-  --color-teal: 90 200 250;
-  --color-yellow: 255 204 0;
+  /* Enhanced Educational Color Palette */
+  --color-blue: 0 122 255;           /* Primary - Lesson Plans */
+  --color-green: 52 199 89;          /* Secondary - Exercises */
+  --color-indigo: 88 86 214;         /* Accent - Advanced Features */
+  --color-orange: 255 149 0;         /* Warning - Important Notices */
+  --color-pink: 255 45 146;          /* Highlight - Special Content */
+  --color-purple: 175 82 222;        /* Creative - Art/Music Subjects */
+  --color-red: 255 59 48;            /* Error - Validation Issues */
+  --color-teal: 90 200 250;          /* Info - Tips and Guidance */
+  --color-yellow: 255 204 0;         /* Attention - Key Information */
+  
+  /* Educational Theme Extensions */
+  --color-sage: 159 168 120;         /* Science/Nature Subjects */
+  --color-coral: 255 127 80;         /* Literature/Language Arts */
+  --color-amber: 245 158 11;         /* History/Social Studies */
 
   /* Background and foreground */
   --background: #ffffff;
@@ -39,16 +44,21 @@
   --color-border: 58 58 60;
   --color-separator: 84 84 88;
 
-  /* Adjusted semantic colors for dark mode */
-  --color-blue: 10 132 255;
-  --color-green: 48 209 88;
-  --color-indigo: 94 92 230;
-  --color-orange: 255 159 10;
-  --color-pink: 255 55 95;
-  --color-purple: 191 90 242;
-  --color-red: 255 69 58;
-  --color-teal: 100 210 255;
-  --color-yellow: 255 214 10;
+  /* Enhanced Dark Mode Educational Colors */
+  --color-blue: 10 132 255;          /* Primary - Lesson Plans (Dark) */
+  --color-green: 48 209 88;          /* Secondary - Exercises (Dark) */
+  --color-indigo: 94 92 230;         /* Accent - Advanced Features (Dark) */
+  --color-orange: 255 159 10;        /* Warning - Important Notices (Dark) */
+  --color-pink: 255 55 95;           /* Highlight - Special Content (Dark) */
+  --color-purple: 191 90 242;        /* Creative - Art/Music Subjects (Dark) */
+  --color-red: 255 69 58;            /* Error - Validation Issues (Dark) */
+  --color-teal: 100 210 255;         /* Info - Tips and Guidance (Dark) */
+  --color-yellow: 255 214 10;        /* Attention - Key Information (Dark) */
+  
+  /* Educational Theme Extensions (Dark) */
+  --color-sage: 179 188 140;         /* Science/Nature Subjects (Dark) */
+  --color-coral: 255 147 100;        /* Literature/Language Arts (Dark) */
+  --color-amber: 251 191 36;         /* History/Social Studies (Dark) */
 
   /* Background and foreground for dark mode */
   --background: #0a0a0a;
@@ -99,6 +109,61 @@ body {
 
 .dark .text-blue-100 {
   color: rgb(219 234 254) !important;
+}
+
+/* Enhanced Educational Color Utilities */
+.text-sage { color: rgb(var(--color-sage)) !important; }
+.text-coral { color: rgb(var(--color-coral)) !important; }
+.text-amber { color: rgb(var(--color-amber)) !important; }
+.bg-sage { background-color: rgb(var(--color-sage)) !important; }
+.bg-coral { background-color: rgb(var(--color-coral)) !important; }
+.bg-amber { background-color: rgb(var(--color-amber)) !important; }
+.bg-sage-10 { background-color: rgb(var(--color-sage) / 0.1) !important; }
+.bg-coral-10 { background-color: rgb(var(--color-coral) / 0.1) !important; }
+.bg-amber-10 { background-color: rgb(var(--color-amber) / 0.1) !important; }
+
+/* Subject-Specific Color Classes */
+.subject-science { color: rgb(var(--color-sage)); }
+.subject-language { color: rgb(var(--color-coral)); }
+.subject-history { color: rgb(var(--color-amber)); }
+.subject-math { color: rgb(var(--color-blue)); }
+.subject-art { color: rgb(var(--color-purple)); }
+.subject-pe { color: rgb(var(--color-green)); }
+
+/* Exercise-Specific Styling */
+.exercise-answer {
+  color: rgb(var(--color-green));
+  background-color: rgb(var(--color-green) / 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid rgb(var(--color-green));
+  font-weight: 500;
+}
+
+.exercise-analysis {
+  color: rgb(var(--color-blue));
+  background-color: rgb(var(--color-blue) / 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid rgb(var(--color-blue));
+}
+
+.exercise-option {
+  color: rgb(var(--color-purple));
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+/* Enhanced Math Display for Exercises */
+.streaming-markdown .katex-display {
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+.streaming-markdown .katex {
+  font-size: 1.1em;
 }
 
 /* Typography */

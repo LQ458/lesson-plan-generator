@@ -89,54 +89,43 @@ const preprocessContent = (content: string): string => {
   // 2. 基本的清理，移除开头的空行
   processedContent = processedContent.replace(/^\s*\n+/, "");
 
-  // 3. 修复数学公式格式问题
-  // 处理常见的数学公式转换问题 - 改进版本
+  // 3. 修复数学公式格式问题 - 专门优化练习题数学表达式
   processedContent = processedContent
-    // 首先处理已经转义的LaTeX序列 - 将带反斜杠的LaTeX转换为正确格式
-    .replace(/\\neq/g, '≠')
-    .replace(/\\leq/g, '≤') 
-    .replace(/\\geq/g, '≥')
-    .replace(/\\pm/g, '±')
-    .replace(/\\times/g, '×')
-    .replace(/\\div/g, '÷')
-    .replace(/\\infty/g, '∞')
-    .replace(/\\sqrt/g, '√')
-    .replace(/\\Delta/g, '∆')
-    // 处理常见的数学表达式 - 自动检测并包装在数学模式中
-    .replace(/(?<!\$)(\b[a-zA-Z]\s*[≠≤≥±×÷]\s*[a-zA-Z0-9]+\b)(?!\$)/g, '$$$1$$')
-    .replace(/(?<!\$)(\b[a-zA-Z0-9]+\s*[≠≤≥±×÷]\s*[a-zA-Z0-9]+\b)(?!\$)/g, '$$$1$$')
-    // 处理包含反斜杠的数学表达式
-    .replace(/(?<!\$)([a-zA-Z]\s*\\[a-zA-Z]+\s*[0-9a-zA-Z]*\b)(?!\$)/g, '$$$1$$')
-    // 修复上标和下标（在非数学模式中）
-    .replace(/(?<!\$)(\w+)\^(\d+)(?!\$)/g, '$$$1^{$2}$$')
-    .replace(/(?<!\$)(\w+)_(\d+)(?!\$)/g, '$$$1_{$2}$$')
-    // 修复分数格式（在非数学模式中）
-    .replace(/(?<!\$)(\d+)\/(\d+)(?!\$)/g, '$$\\frac{$1}{$2}$$')
-    // 现在将符号转换回LaTeX格式（在数学模式内）
-    .replace(/\$\$([^$]*)(≠)([^$]*)\$\$/g, '$$$$1\\neq$3$$')
-    .replace(/\$\$([^$]*)(≤)([^$]*)\$\$/g, '$$$$1\\leq$3$$')
-    .replace(/\$\$([^$]*)(≥)([^$]*)\$\$/g, '$$$$1\\geq$3$$')
-    .replace(/\$\$([^$]*)(±)([^$]*)\$\$/g, '$$$$1\\pm$3$$')
-    .replace(/\$\$([^$]*)(×)([^$]*)\$\$/g, '$$$$1\\times$3$$')
-    .replace(/\$\$([^$]*)(÷)([^$]*)\$\$/g, '$$$$1\\div$3$$')
-    .replace(/\$\$([^$]*)(∞)([^$]*)\$\$/g, '$$$$1\\infty$3$$')
-    .replace(/\$\$([^$]*)(√)([^$]*)\$\$/g, '$$$$1\\sqrt$3$$')
-    .replace(/\$\$([^$]*)(∆)([^$]*)\$\$/g, '$$$$1\\Delta$3$$')
-    // 在内联数学模式中也应用相同的转换
-    .replace(/\$([^$]*)(≠)([^$]*)\$/g, '$$$1\\neq$3$$')
-    .replace(/\$([^$]*)(≤)([^$]*)\$/g, '$$$1\\leq$3$$')
-    .replace(/\$([^$]*)(≥)([^$]*)\$/g, '$$$1\\geq$3$$')
-    .replace(/\$([^$]*)(±)([^$]*)\$/g, '$$$1\\pm$3$$')
-    .replace(/\$([^$]*)(×)([^$]*)\$/g, '$$$1\\times$3$$')
-    .replace(/\$([^$]*)(÷)([^$]*)\$/g, '$$$1\\div$3$$')
-    .replace(/\$([^$]*)(∞)([^$]*)\$/g, '$$$1\\infty$3$$')
-    .replace(/\$([^$]*)(√)([^$]*)\$/g, '$$$1\\sqrt$3$$')
-    .replace(/\$([^$]*)(∆)([^$]*)\$/g, '$$$1\\Delta$3$$')
-    // 处理化学分子式（避免在已有数学模式中重复处理）
-    .replace(/(?<!\$)([A-Z][a-z]?)(\d+)(?!\$)/g, '$$$1_{$2}$$')
-    // 清理多余的嵌套数学标记
-    .replace(/\$\$\$+/g, '$$')
-    .replace(/\$\$\$/g, '$');
+    // 处理已经格式化但可能有问题的数学表达式
+    // 确保下标正确处理 x_1, x_2 等
+    .replace(/\$\s*([a-zA-Z]+)_([0-9]+)\s*\$/g, '$$$1_{$2}$$')
+    // 处理 LaTeX 箭头符号
+    .replace(/\\Rightarrow/g, '\\Rightarrow')
+    // 处理分数
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '\\frac{$1}{$2}')
+    // 处理根号
+    .replace(/\\sqrt\{([^}]+)\}/g, '\\sqrt{$1}')
+    // 处理上标
+    .replace(/\^(\d+)/g, '^{$1}')
+    .replace(/\^([a-zA-Z])/g, '^{$1}')
+    // 处理常见数学运算符
+    .replace(/\\times/g, '\\times')
+    .replace(/\\cdot/g, '\\cdot')
+    .replace(/\\pm/g, '\\pm')
+    .replace(/\\neq/g, '\\neq')
+    .replace(/\\leq/g, '\\leq')
+    .replace(/\\geq/g, '\\geq')
+    // 修复可能的双重美元符号问题
+    .replace(/\$\$\$\$/g, '$$')
+    .replace(/\$\$\$/g, '$')
+    // 确保块级数学公式独占一行
+    .replace(/([^$])\$\$([^$]+)\$\$([^$])/g, '$1\n\n$$$$2$$\n\n$3')
+    // 处理行内数学表达式周围的空格
+    .replace(/\$\s+([^$]+)\s+\$/g, '$ $1 $')
+    // 增强练习题格式处理
+    // 为答案段落添加特殊标记
+    .replace(/\*\*答案[：:]\*\*\s*(.+)/g, '<div class="exercise-answer">**答案：** $1</div>')
+    // 为解析段落添加特殊标记
+    .replace(/\*\*解析[：:]\*\*\s*/g, '<div class="exercise-analysis">**解析：**\n')
+    // 处理选择题选项
+    .replace(/\*\*([A-D])\.\*\*/g, '<span class="exercise-option">**$1.**</span>')
+    // 确保题目编号突出显示
+    .replace(/^##\s*\*\*题目(\d+)\*\*/gm, '## 🔢 **题目$1**');
 
   return processedContent;
 };
@@ -201,18 +190,18 @@ export default function StreamingMarkdown({
     }
   }, [isStreaming, content, displayContent]);
 
-  // 优化的markdown渲染配置
+  // 优化的markdown渲染配置 - 增强练习题格式支持
   const markdownComponents = useMemo(
     () => ({
       h1: (props: React.ComponentProps<"h1">) => (
         <h1
-          className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 pb-2 mb-4"
+          className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3 mb-6"
           {...props}
         />
       ),
       h2: (props: React.ComponentProps<"h2">) => (
         <h2
-          className="text-xl font-semibold text-blue-600 dark:text-blue-400 mt-8 mb-4"
+          className="text-xl font-semibold text-blue-600 dark:text-blue-400 mt-8 mb-4 flex items-center"
           {...props}
         />
       ),
@@ -228,12 +217,67 @@ export default function StreamingMarkdown({
           {...props}
         />
       ),
+      div: (props: React.ComponentProps<"div">) => {
+        const className = props.className;
+        
+        if (className === 'exercise-answer') {
+          return (
+            <div
+              className="text-green-700 dark:text-green-300 font-medium bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4 border-l-4 border-green-500"
+              {...props}
+            />
+          );
+        }
+        
+        if (className === 'exercise-analysis') {
+          return (
+            <div
+              className="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 p-4 rounded-lg mb-4 border-l-4 border-blue-500"
+              {...props}
+            />
+          );
+        }
+        
+        return <div {...props} />;
+      },
+      span: (props: React.ComponentProps<"span">) => {
+        const className = props.className;
+        
+        if (className === 'exercise-option') {
+          return (
+            <span
+              className="text-purple-600 dark:text-purple-400 font-bold text-lg"
+              {...props}
+            />
+          );
+        }
+        
+        return <span {...props} />;
+      },
       ul: (props: React.ComponentProps<"ul">) => (
         <ul className="list-disc ml-6 space-y-2 my-4" {...props} />
       ),
       li: (props: React.ComponentProps<"li">) => (
         <li className="text-gray-700 dark:text-gray-300" {...props} />
       ),
+      hr: (props: React.ComponentProps<"hr">) => (
+        <hr className="my-8 border-gray-300 dark:border-gray-600 border-t-2" {...props} />
+      ),
+      strong: (props: React.ComponentProps<"strong">) => {
+        const content = props.children;
+        if (typeof content === 'string') {
+          if (content.includes('答案')) {
+            return <strong className="text-green-600 dark:text-green-400 font-bold" {...props} />;
+          }
+          if (content.includes('解析')) {
+            return <strong className="text-blue-600 dark:text-blue-400 font-bold" {...props} />;
+          }
+          if (/^[A-D]\.?$/.test(content)) {
+            return <strong className="text-purple-600 dark:text-purple-400 font-bold" {...props} />;
+          }
+        }
+        return <strong className="font-bold text-gray-900 dark:text-white" {...props} />;
+      },
     }),
     [],
   );

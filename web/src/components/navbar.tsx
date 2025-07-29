@@ -89,12 +89,21 @@ export function Navbar() {
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
+              const isExercises = item.href === "/exercises";
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                  className={`nav-link ${
+                    isActive 
+                      ? isExercises 
+                        ? "text-apple-green bg-apple-green/10" 
+                        : "nav-link-active"
+                      : isExercises 
+                        ? "hover:text-apple-green" 
+                        : ""
+                  }`}
                 >
                   <Icon className="w-5 h-5" />
                   {item.name}
@@ -141,6 +150,7 @@ export function Navbar() {
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
+              const isExercises = item.href === "/exercises";
 
               return (
                 <Link
@@ -148,8 +158,12 @@ export function Navbar() {
                   href={item.href}
                   className={`flex flex-col items-center gap-1 p-2 rounded-lg text-xs font-medium transition-all duration-200 ${
                     isActive
-                      ? "text-apple-blue bg-apple-blue/10"
-                      : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                      ? isExercises
+                        ? "text-apple-green bg-apple-green/10"
+                        : "text-apple-blue bg-apple-blue/10"
+                      : isExercises
+                        ? "text-gray-600 dark:text-gray-400 hover:text-apple-green dark:hover:text-apple-green"
+                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
