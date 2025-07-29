@@ -321,7 +321,7 @@ export default function StreamingMarkdown({
           transition: isStreaming ? 'none' : 'min-height 0.3s ease'
         }}
       >
-        {displayContent ? (
+        {displayContent && !displayContent.includes('---') && !displayContent.startsWith('title:') ? (
           <div className="markdown-content">
             {/* 只在非流式模式下显示处理指示器，避免频繁闪烁 */}
             {isProcessing && !isStreaming && (
@@ -343,13 +343,13 @@ export default function StreamingMarkdown({
           </div>
         ) : isStreaming ? (
           <div className="space-y-6">
-            {/* 改进的加载指示器 */}
+            {/* 改进的加载指示器 - 针对练习题生成 */}
             <div className="flex items-center justify-center py-8 text-gray-500 dark:text-gray-400">
               <div className="text-center">
-                <div className="w-8 h-8 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-sm font-medium">AI正在生成教案内容...</p>
+                <div className="w-8 h-8 border-2 border-green-500/30 border-t-green-500 rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-sm font-medium">AI正在生成练习题内容...</p>
                 <p className="text-xs mt-2 text-gray-400">
-                  请稍候，内容将实时显示
+                  正在处理数学公式和题目格式，请稍候...
                 </p>
               </div>
             </div>

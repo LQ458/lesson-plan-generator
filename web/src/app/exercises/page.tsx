@@ -403,7 +403,7 @@ export default function ExercisesPage() {
           const chunk = decoder.decode(value, { stream: true });
           content += chunk;
 
-          // 实时处理和格式化内容
+          // 实时处理和格式化内容 - 只在内容足够完整时更新UI
           if (content.includes("---") && content.split("---").length >= 3) {
             // 包含frontmatter的情况
             const { metadata, markdown } = parseFrontmatter(content);
@@ -417,32 +417,48 @@ export default function ExercisesPage() {
                 }
                 hasValidContent = true;
               }
-              setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(markdown)));
+              // 只有当内容有意义时才更新显示
+              const cleanedContent = cleanContentForDisplay(cleanMarkdownReferences(markdown));
+              if (cleanedContent.length > 50 && !cleanedContent.trim().startsWith('---')) {
+                setGeneratedContent(cleanedContent);
+              }
             }
           } else if (isContentReadyToDisplay(content)) {
             // 不包含frontmatter但内容足够完整的情况
             if (!hasValidContent) {
               hasValidContent = true;
             }
-            setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(content)));
+            const cleanedContent = cleanContentForDisplay(cleanMarkdownReferences(content));
+            // 确保不显示原始markdown或不完整内容
+            if (cleanedContent.length > 50 && !cleanedContent.includes('---') && !cleanedContent.startsWith('title:')) {
+              setGeneratedContent(cleanedContent);
+            }
           }
           // 如果内容太短或不完整，不更新UI
         }
 
-        // 最终处理 - 确保内容完整
+        // 最终处理 - 确保内容完整且格式正确
         if (content.trim()) {
           const { metadata, markdown } = parseFrontmatter(content);
           if (metadata) {
             setParsedExerciseData(metadata);
-            setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(markdown)));
-            console.log("解析frontmatter成功");
+            const finalContent = cleanContentForDisplay(cleanMarkdownReferences(markdown));
+            // 确保最终内容是有效的，不包含原始YAML
+            if (finalContent.length > 50 && !finalContent.includes('---') && !finalContent.startsWith('title:')) {
+              setGeneratedContent(finalContent);
+              console.log("解析frontmatter成功");
+            }
             // 提取引用来源并清理文件名，去重
             if (metadata.referenceSources) {
               const deduplicatedSources = deduplicateReferenceSources(metadata.referenceSources as string[]);
               setReferenceSources(deduplicatedSources);
             }
           } else {
-            setGeneratedContent(cleanContentForDisplay(cleanMarkdownReferences(content)));
+            const finalContent = cleanContentForDisplay(cleanMarkdownReferences(content));
+            // 同样确保非frontmatter内容也是有效的
+            if (finalContent.length > 50 && !finalContent.includes('---') && !finalContent.startsWith('title:')) {
+              setGeneratedContent(finalContent);
+            }
           }
         } else {
           throw new Error("AI未返回任何内容");
@@ -841,21 +857,22 @@ export default function ExercisesPage() {
                 <AcademicCapIcon className="w-6 h-6 text-apple-green" />
                 生成结果
               </h2>
-              {generatedContent && (
+              {generatedContent && !isStreaming && (
                 <div className="flex gap-2">
                   <button onClick={handleCopy} className="btn btn-secondary">
                     复制内容
                   </button>
                   <button
                     onClick={handleSaveExercise}
-                    disabled={savingExercise}
+                    disabled={savingExercise || isGenerating}
                     className="btn bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white"
                   >
                     {savingExercise ? "保存中..." : "💾 保存"}
                   </button>
                   <button
                     onClick={handleExportExercise}
-                    className="btn bg-green-600 hover:bg-green-700 text-white"
+                    disabled={isGenerating}
+                    className="btn bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white"
                   >
                     📤 导出
                   </button>
