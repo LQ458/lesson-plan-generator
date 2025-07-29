@@ -160,10 +160,42 @@ body {
 .streaming-markdown .katex-display {
   margin: 1.5em 0;
   text-align: center;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .streaming-markdown .katex {
   font-size: 1.1em;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Prevent content overflow in markdown */
+.streaming-markdown {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.streaming-markdown * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Handle long mathematical expressions */
+.streaming-markdown .katex-html {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Lesson plan content container - prevent overflow */
+.lesson-plan-content {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-x: hidden;
 }
 
 /* Remove bullet points from exercise content specifically */

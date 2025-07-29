@@ -219,19 +219,37 @@ export default function StreamingMarkdown({
     () => ({
       h1: (props: React.ComponentProps<"h1">) => (
         <h1
-          className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3 mb-6"
+          className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3 mb-6 break-words max-w-full overflow-wrap-anywhere"
           {...props}
         />
       ),
       h2: (props: React.ComponentProps<"h2">) => (
         <h2
-          className="text-xl font-semibold text-blue-600 dark:text-blue-400 mt-8 mb-4 flex items-center"
+          className="text-xl font-bold text-blue-600 dark:text-blue-400 mt-8 mb-4 break-words max-w-full bg-blue-50 dark:bg-blue-950 px-4 py-2 rounded-lg border-l-4 border-blue-500"
           {...props}
         />
       ),
       h3: (props: React.ComponentProps<"h3">) => (
         <h3
-          className="text-lg font-semibold text-green-600 dark:text-green-400 mt-6 mb-3"
+          className="text-lg font-bold text-green-600 dark:text-green-400 mt-6 mb-3 break-words max-w-full bg-green-50 dark:bg-green-950 px-3 py-1.5 rounded border-l-3 border-green-500"
+          {...props}
+        />
+      ),
+      h4: (props: React.ComponentProps<"h4">) => (
+        <h4
+          className="text-base font-bold text-purple-600 dark:text-purple-400 mt-4 mb-2 break-words max-w-full bg-purple-50 dark:bg-purple-950 px-2 py-1 rounded text-sm border-l-2 border-purple-500"
+          {...props}
+        />
+      ),
+      h5: (props: React.ComponentProps<"h5">) => (
+        <h5
+          className="text-sm font-bold text-orange-600 dark:text-orange-400 mt-3 mb-2 break-words max-w-full uppercase tracking-wide"
+          {...props}
+        />
+      ),
+      h6: (props: React.ComponentProps<"h6">) => (
+        <h6
+          className="text-xs font-bold text-gray-600 dark:text-gray-400 mt-2 mb-1 break-words max-w-full uppercase tracking-wide"
           {...props}
         />
       ),
@@ -279,19 +297,45 @@ export default function StreamingMarkdown({
         
         return (
           <p
-            className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+            className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 break-words max-w-full overflow-wrap-anywhere"
             {...props}
           />
         );
       },
       ul: (props: React.ComponentProps<"ul">) => (
-        <ul className="list-none ml-0 space-y-2 my-4" {...props} />
+        <ul className="list-none ml-0 space-y-2 my-4 max-w-full" {...props} />
       ),
       li: (props: React.ComponentProps<"li">) => (
-        <li className="text-gray-700 dark:text-gray-300" {...props} />
+        <li className="text-gray-700 dark:text-gray-300 break-words max-w-full overflow-wrap-anywhere" {...props} />
       ),
       hr: (props: React.ComponentProps<"hr">) => (
-        <hr className="my-8 border-gray-300 dark:border-gray-600 border-t-2" {...props} />
+        <hr className="my-8 border-gray-300 dark:border-gray-600 border-t-2 w-full" {...props} />
+      ),
+      code: (props: React.ComponentProps<"code">) => (
+        <code 
+          className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono break-all max-w-full"
+          {...props} 
+        />
+      ),
+      pre: (props: React.ComponentProps<"pre">) => (
+        <pre 
+          className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto max-w-full"
+          {...props} 
+        />
+      ),
+      blockquote: (props: React.ComponentProps<"blockquote">) => (
+        <blockquote 
+          className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400 my-4 max-w-full"
+          {...props} 
+        />
+      ),
+      table: (props: React.ComponentProps<"table">) => (
+        <div className="overflow-x-auto max-w-full">
+          <table 
+            className="min-w-full border-collapse border border-gray-300 dark:border-gray-600 my-4"
+            {...props} 
+          />
+        </div>
       ),
       strong: (props: React.ComponentProps<"strong">) => {
         const content = props.children;
