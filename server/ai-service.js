@@ -1,6 +1,7 @@
 const winston = require("winston");
 const OpenAI = require("openai");
 const VectorStore = require("./rag/services/vector-store");
+const PerformanceOptimizer = require("./performance-optimization");
 const vectorStore = new VectorStore();
 
 // 配置增强日志系统，支持AI响应标识
@@ -74,6 +75,9 @@ class AIService {
 
     // 初始化请求计数器
     this.requestCounter = 0;
+    
+    // 初始化性能优化器
+    this.performanceOptimizer = new PerformanceOptimizer();
 
     // 配置OpenAI兼容接口
     this.openai = new OpenAI({

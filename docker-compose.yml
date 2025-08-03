@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  teachai:
+    build: .
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./chroma_db:/app/chroma_db
+      - ./server/logs:/app/server/logs
+    restart: unless-stopped
+
+  # 如果需要数据库
+  # mongodb:
+  #   image: mongo:latest
+  #   ports:
+  #   - "27017:27017"
+  #   volumes:
+  #   - mongodb_data:/data/db
+  #   restart: unless-stopped
+
+# volumes:
+#   mongodb_data: 

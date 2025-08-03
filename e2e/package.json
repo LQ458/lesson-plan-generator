@@ -1,8 +1,7 @@
 {
   "name": "teachai-e2e",
   "version": "1.0.0",
-  "description": "TeachAI E2E 测试",
-  "private": true,
+  "description": "TeachAI E2E测试",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",

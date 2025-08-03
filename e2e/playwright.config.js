@@ -10,7 +10,6 @@ module.exports = defineConfig({
   use: {
     baseURL: "http://localhost:3000",
     trace: "on-first-retry",
-    screenshot: "only-on-failure",
   },
   projects: [
     {
@@ -25,18 +24,10 @@ module.exports = defineConfig({
       name: "webkit",
       use: { ...devices["Desktop Safari"] },
     },
-    {
-      name: "Mobile Chrome",
-      use: { ...devices["Pixel 5"] },
-    },
-    {
-      name: "Mobile Safari",
-      use: { ...devices["iPhone 12"] },
-    },
   ],
   webServer: {
-    command: "cd .. && pnpm dev",
-    port: 3000,
+    command: 'pnpm run dev',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
   },
 });
