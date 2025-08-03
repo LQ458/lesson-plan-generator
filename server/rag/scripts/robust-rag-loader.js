@@ -8,14 +8,19 @@ const CHROMA_PATH = process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST
 const COLLECTION_NAME = "lesson_materials";
 const RAG_DATA_PATH = path.join(__dirname, "../../rag_data/chunks");
 const PROGRESS_FILE = path.join(__dirname, "../data/loading-progress.json");
-const OLD_OPTIMIZED_PATH = path.join(__dirname, "../../optimized");
 
 // 性能优化配置
 const OPTIMAL_BATCH_SIZE = 166; // ChromaDB maximum batch size
-const CONCURRENT_FILES = 3; // 同时处理的文件数
+const CONCURRENT_FILES = 2; // 减少并发以提高稳定性
 const MIN_QUALITY_SCORE = 0.3; // 质量分数阈值
 
-class OptimizedRAGLoader {
+// 错误处理和重试配置
+const MAX_RETRIES = 3;
+const RETRY_DELAY_BASE = 1000; // 1秒基础延迟
+const MAX_RETRY_DELAY = 30000; // 最大30秒延迟
+const BATCH_TIMEOUT = 60000; // 60秒批次超时
+
+class RobustRAGLoader {
   constructor() {
     this.client = null;
     this.collection = null;
@@ -27,6 +32,7 @@ class OptimizedRAGLoader {
       totalChunks: 0,
       processedChunks: 0,
       skippedChunks: 0,
+      retryCount: 0,
       startTime: null,
       lastSaveTime: null,
       currentBatch: 0,
@@ -35,169 +41,145 @@ class OptimizedRAGLoader {
     this.stats = {
       insertionTimes: [],
       avgInsertionTime: 0,
-      totalInsertionTime: 0
+      totalInsertionTime: 0,
+      successfulBatches: 0,
+      failedBatches: 0,
+      retriedBatches: 0
     };
   }
 
   async initialize() {
     try {
-      console.log("🚀 初始化优化RAG加载器...");
+      console.log("🚀 初始化健壮RAG加载器...");
       
       // 初始化ChromaDB客户端
       this.client = new ChromaClient({ path: CHROMA_PATH });
       console.log(`📡 连接到ChromaDB: ${CHROMA_PATH}`);
 
+      // 测试连接
+      await this.testConnection();
+
       // 删除并重新创建集合以清理旧数据
       await this.cleanupOldData();
-
-      // 创建新集合，使用优化配置
+      
+      // 创建新集合
       this.collection = await this.client.createCollection({
         name: COLLECTION_NAME,
-        metadata: {
-          "hnsw:space": "cosine", // 使用余弦相似度
-          "hnsw:batch_size": 200, // 增大批次大小提升插入性能
-          "hnsw:M": 16, // HNSW参数优化
-          description: "优化的教学资料向量数据库 v2.0",
-          version: "2.0.0",
-          created_at: new Date().toISOString(),
-          data_source: "enhanced_rag_data",
-          quality_threshold: MIN_QUALITY_SCORE
-        },
         embeddingFunction: this.embeddingFunction,
+        metadata: {
+          "hnsw:space": "cosine",
+          description: "Enhanced educational materials with quality scoring"
+        }
       });
       
       console.log(`✅ 创建优化集合: ${COLLECTION_NAME}`);
       
-      // 加载进度文件
-      await this.loadProgress();
+      // 初始化进度跟踪
+      await this.initializeProgress();
       
       return true;
+      
     } catch (error) {
       console.error("❌ 初始化失败:", error);
       return false;
     }
   }
 
-  async cleanupOldData() {
+  async testConnection() {
     try {
-      // 删除旧的集合
-      try {
-        await this.client.deleteCollection({ name: COLLECTION_NAME });
-        console.log("🧹 已删除旧的数据库集合");
-      } catch (error) {
-        // 集合不存在，忽略错误
-        console.log("ℹ️ 没有找到旧集合，跳过清理");
-      }
-
-      // 清理旧的优化数据目录
-      try {
-        const oldDataExists = await fs.access(OLD_OPTIMIZED_PATH).then(() => true).catch(() => false);
-        if (oldDataExists) {
-          const files = await fs.readdir(OLD_OPTIMIZED_PATH);
-          console.log(`🗑️ 发现 ${files.length} 个旧数据文件，开始清理...`);
-          
-          // 移动到备份目录而不是直接删除
-          const backupDir = path.join(OLD_OPTIMIZED_PATH, "../optimized_backup_" + Date.now());
-          await fs.mkdir(backupDir, { recursive: true });
-          await fs.rename(OLD_OPTIMIZED_PATH, backupDir);
-          
-          console.log(`✅ 旧数据已备份到: ${backupDir}`);
-        }
-      } catch (error) {
-        console.log("ℹ️ 旧数据目录不存在或已清理");
-      }
-
-      // 清理进度文件
-      try {
-        await fs.unlink(PROGRESS_FILE);
-        console.log("🧹 已清理旧的进度文件");
-      } catch (error) {
-        // 进度文件不存在，忽略
-      }
-
+      const heartbeat = await this.client.heartbeat();
+      console.log("✅ ChromaDB连接测试成功");
+      return true;
     } catch (error) {
-      console.warn("⚠️ 清理旧数据时出现警告:", error.message);
+      console.error("❌ ChromaDB连接测试失败:", error);
+      throw new Error(`ChromaDB连接失败: ${error.message}`);
     }
   }
 
-  async loadProgress() {
+  async cleanupOldData() {
     try {
-      const progressData = await fs.readFile(PROGRESS_FILE, 'utf-8');
-      const savedProgress = JSON.parse(progressData);
+      const collections = await this.client.listCollections();
+      const existingCollection = collections.find(c => c.name === COLLECTION_NAME);
       
-      // 验证进度文件的有效性
-      if (savedProgress.startTime && savedProgress.totalFiles > 0) {
-        this.progress = { ...this.progress, ...savedProgress };
-        console.log(`📋 恢复进度: ${this.progress.processedFiles.length}/${this.progress.totalFiles} 文件已处理`);
-        console.log(`📊 已处理 ${this.progress.processedChunks} chunks`);
-        return true;
+      if (existingCollection) {
+        await this.client.deleteCollection({ name: COLLECTION_NAME });
+        console.log("🧹 已删除旧的数据库集合");
+      } else {
+        console.log("ℹ️ 没有找到旧集合，跳过清理");
       }
     } catch (error) {
-      console.log("ℹ️ 没有找到有效的进度文件，将从头开始加载");
+      console.log("ℹ️ 清理旧数据时出现错误，继续...", error.message);
     }
-    
-    // 重置进度
-    this.progress.startTime = new Date().toISOString();
-    this.progress.processedFiles = [];
-    this.progress.failedFiles = [];
-    return false;
+  }
+
+  async initializeProgress() {
+    try {
+      const progressData = await fs.readFile(PROGRESS_FILE, 'utf-8');
+      this.progress = { ...this.progress, ...JSON.parse(progressData) };
+      console.log(`📋 恢复进度: ${this.progress.processedFiles.length} 文件已处理`);
+    } catch (error) {
+      console.log("ℹ️ 没有找到有效的进度文件，将从头开始加载");
+      this.progress.startTime = new Date().toISOString();
+      
+      // 清理旧的进度文件
+      try {
+        await fs.unlink(PROGRESS_FILE);
+        console.log("🧹 已清理旧的进度文件");
+      } catch (err) {
+        // 忽略删除错误
+      }
+    }
   }
 
   async saveProgress() {
     try {
-      // 确保目录存在
-      await fs.mkdir(path.dirname(PROGRESS_FILE), { recursive: true });
-      
-      // 添加统计信息
       this.progress.lastSaveTime = new Date().toISOString();
-      this.progress.avgInsertionTime = this.stats.avgInsertionTime;
-      this.progress.totalInsertionTime = this.stats.totalInsertionTime;
-      
-      // 计算预估剩余时间
-      if (this.stats.avgInsertionTime > 0) {
-        const remainingChunks = this.progress.totalChunks - this.progress.processedChunks;
-        const remainingBatches = Math.ceil(remainingChunks / OPTIMAL_BATCH_SIZE);
-        this.progress.estimatedTimeRemaining = remainingBatches * this.stats.avgInsertionTime;
-      }
-      
       await fs.writeFile(PROGRESS_FILE, JSON.stringify(this.progress, null, 2));
     } catch (error) {
-      console.warn("⚠️ 保存进度失败:", error.message);
+      console.error("保存进度失败:", error);
     }
   }
 
   async scanAllFiles() {
-    const files = await fs.readdir(RAG_DATA_PATH);
-    const jsonFiles = files.filter(file => file.endsWith('.json'));
-    
-    this.progress.totalFiles = jsonFiles.length;
-    console.log(`📁 扫描到 ${jsonFiles.length} 个数据文件`);
-    
-    // 预扫描计算总chunks数量（用于进度显示）
+    try {
+      const allFiles = await fs.readdir(RAG_DATA_PATH);
+      const jsonFiles = allFiles.filter(file => file.endsWith('.json'));
+      
+      this.progress.totalFiles = jsonFiles.length;
+      this.progress.totalChunks = await this.estimateChunkCount(jsonFiles);
+      
+      console.log(`📁 扫描到 ${jsonFiles.length} 个数据文件`);
+      console.log(`📊 估算总chunks数量: ${this.progress.totalChunks}`);
+      
+      return jsonFiles;
+    } catch (error) {
+      console.error("扫描文件失败:", error);
+      throw error;
+    }
+  }
+
+  async estimateChunkCount(files) {
     let totalChunks = 0;
-    const sampleFiles = jsonFiles.slice(0, Math.min(5, jsonFiles.length));
+    
+    // 采样估算
+    const sampleSize = Math.min(50, files.length);
+    const sampleFiles = files.slice(0, sampleSize);
     
     for (const file of sampleFiles) {
       try {
         const filePath = path.join(RAG_DATA_PATH, file);
         const content = await fs.readFile(filePath, 'utf-8');
         const data = JSON.parse(content);
-        
         const chunks = Array.isArray(data) ? data : (data.chunks || []);
         totalChunks += chunks.length;
       } catch (error) {
-        console.warn(`⚠️ 预扫描文件 ${file} 失败:`, error.message);
+        // 忽略采样错误
       }
     }
     
-    // 估算总chunks数量
-    if (sampleFiles.length > 0) {
-      const avgChunksPerFile = totalChunks / sampleFiles.length;
-      this.progress.totalChunks = Math.ceil(avgChunksPerFile * jsonFiles.length);
-      console.log(`📊 估算总chunks数量: ${this.progress.totalChunks}`);
-    }
-    
-    return jsonFiles;
+    // 根据采样估算总数
+    const avgChunksPerFile = totalChunks / sampleSize;
+    return Math.round(avgChunksPerFile * files.length);
   }
 
   async processFileConcurrently(files) {
@@ -208,17 +190,53 @@ class OptimizedRAGLoader {
     
     console.log(`🔄 待处理文件数量: ${unprocessedFiles.length}`);
     
-    // 分批并发处理文件
+    // 分批并发处理文件，减少并发数提高稳定性
     for (let i = 0; i < unprocessedFiles.length; i += CONCURRENT_FILES) {
       const batch = unprocessedFiles.slice(i, i + CONCURRENT_FILES);
-      const promises = batch.map(file => this.processFile(file));
       
-      await Promise.allSettled(promises);
+      // 使用Promise.allSettled确保所有文件都被处理
+      const results = await Promise.allSettled(
+        batch.map(file => this.processFileWithRetry(file))
+      );
       
-      // 定期保存进度
+      // 统计结果
+      results.forEach((result, index) => {
+        if (result.status === 'rejected') {
+          console.error(`❌ 文件 ${batch[index]} 最终失败:`, result.reason);
+        }
+      });
+      
+      // 定期保存进度和打印状态
       if (i % (CONCURRENT_FILES * 2) === 0) {
         await this.saveProgress();
         this.printProgress();
+      }
+    }
+  }
+
+  async processFileWithRetry(filename, retryCount = 0) {
+    try {
+      await this.processFile(filename);
+      return true;
+    } catch (error) {
+      if (retryCount < MAX_RETRIES) {
+        const delay = Math.min(
+          RETRY_DELAY_BASE * Math.pow(2, retryCount),
+          MAX_RETRY_DELAY
+        );
+        
+        console.log(`🔄 重试文件 ${filename} (${retryCount + 1}/${MAX_RETRIES}) 延迟 ${delay}ms`);
+        this.progress.retryCount++;
+        
+        await this.sleep(delay);
+        return this.processFileWithRetry(filename, retryCount + 1);
+      } else {
+        console.error(`❌ 文件 ${filename} 重试次数已达上限`);
+        this.progress.failedFiles.push({ 
+          file: filename, 
+          reason: `Max retries exceeded: ${error.message}` 
+        });
+        throw error;
       }
     }
   }
@@ -235,9 +253,7 @@ class OptimizedRAGLoader {
       let chunks = Array.isArray(data) ? data : (data.chunks || []);
       
       if (chunks.length === 0) {
-        console.warn(`⚠️ 文件 ${filename} 没有有效数据`);
-        this.progress.failedFiles.push({ file: filename, reason: "No valid chunks" });
-        return;
+        throw new Error("No valid chunks found");
       }
 
       // 质量过滤
@@ -248,9 +264,7 @@ class OptimizedRAGLoader {
       );
 
       if (qualityFilteredChunks.length === 0) {
-        console.warn(`⚠️ 文件 ${filename} 所有chunks都被质量过滤`);
-        this.progress.failedFiles.push({ file: filename, reason: "All chunks filtered by quality" });
-        return;
+        throw new Error("All chunks filtered by quality threshold");
       }
 
       // 批量处理chunks
@@ -264,7 +278,7 @@ class OptimizedRAGLoader {
       
     } catch (error) {
       console.error(`❌ 处理文件 ${filename} 失败:`, error.message);
-      this.progress.failedFiles.push({ file: filename, reason: error.message });
+      throw error;
     }
   }
 
@@ -272,10 +286,41 @@ class OptimizedRAGLoader {
     // 使用最优批次大小
     for (let i = 0; i < chunks.length; i += OPTIMAL_BATCH_SIZE) {
       const batch = chunks.slice(i, i + OPTIMAL_BATCH_SIZE);
-      await this.insertBatch(batch, filename, i);
+      await this.insertBatchWithRetry(batch, filename, i);
       
       this.progress.processedChunks += batch.length;
       this.progress.currentBatch++;
+    }
+  }
+
+  async insertBatchWithRetry(chunks, filename, startIndex, retryCount = 0) {
+    try {
+      await Promise.race([
+        this.insertBatch(chunks, filename, startIndex),
+        this.timeout(BATCH_TIMEOUT)
+      ]);
+      
+      this.stats.successfulBatches++;
+      
+    } catch (error) {
+      this.stats.failedBatches++;
+      
+      if (retryCount < MAX_RETRIES) {
+        const delay = Math.min(
+          RETRY_DELAY_BASE * Math.pow(2, retryCount),
+          MAX_RETRY_DELAY
+        );
+        
+        console.log(`🔄 重试批次 ${filename}:${startIndex} (${retryCount + 1}/${MAX_RETRIES})`);
+        this.stats.retriedBatches++;
+        
+        await this.sleep(delay);
+        return this.insertBatchWithRetry(chunks, filename, startIndex, retryCount + 1);
+      } else {
+        console.error(`❌ 批次 ${filename}:${startIndex} 重试失败，跳过 ${chunks.length} chunks`);
+        this.progress.skippedChunks += chunks.length;
+        throw error;
+      }
     }
   }
 
@@ -306,7 +351,6 @@ class OptimizedRAGLoader {
         ids: ids,
         documents: documents,
         metadatas: metadatas
-        // 不传入embeddings，让ChromaDB自动生成
       });
 
       const insertionTime = Date.now() - batchStartTime;
@@ -317,8 +361,7 @@ class OptimizedRAGLoader {
       this.stats.avgInsertionTime = this.stats.totalInsertionTime / this.stats.insertionTimes.length;
       
     } catch (error) {
-      console.error(`❌ 批次插入失败:`, error);
-      this.progress.skippedChunks += chunks.length;
+      console.error(`❌ 批次插入失败:`, error.message);
       throw error;
     }
   }
@@ -330,77 +373,59 @@ class OptimizedRAGLoader {
   }
 
   extractEnhancedMetadata(chunk, filename, index) {
-    // 从文件名提取基本信息
-    const subject = this.extractSubjectFromFilename(filename);
-    const grade = this.extractGradeFromFilename(filename);
-    const materialName = this.extractMaterialName(filename);
-    
-    return {
-      // 基本信息
+    const metadata = {
       source: filename,
       chunk_index: index,
-      subject: subject,
-      grade: grade,
-      material_name: materialName,
       content_length: chunk.content.length,
-      created_at: new Date().toISOString(),
-      loader_version: "2.0.0",
+      processing_timestamp: new Date().toISOString(),
       
-      // 增强质量指标
-      qualityScore: chunk.qualityScore || 0.5,
-      reliability: chunk.reliability || "medium",
-      enhancementVersion: chunk.metadata?.enhancementVersion || "2.0",
+      // 基础元数据
+      grade: chunk.metadata?.grade || "未知",
+      subject: chunk.metadata?.subject || "其他",
+      publisher: chunk.metadata?.publisher || "未知",
       
-      // OCR和处理信息
-      ocrConfidence: chunk.metadata?.qualityMetrics?.ocrConfidence,
-      chineseCharRatio: chunk.metadata?.qualityMetrics?.chineseCharRatio,
-      lengthScore: chunk.metadata?.qualityMetrics?.lengthScore,
-      coherenceScore: chunk.metadata?.qualityMetrics?.coherenceScore,
+      // 增强元数据 (v2.0)
+      qualityScore: chunk.qualityScore || 1.0,
+      ocrConfidence: chunk.ocrConfidence || 1.0,
+      enhancementVersion: chunk.enhancementVersion || "1.0",
       
       // 语义特征
       hasFormulas: chunk.semanticFeatures?.hasFormulas || false,
-      hasNumbers: chunk.semanticFeatures?.hasNumbers || false,
-      hasExperiment: chunk.semanticFeatures?.hasExperiment || false,
-      hasDefinition: chunk.semanticFeatures?.hasDefinition || false,
-      hasQuestion: chunk.semanticFeatures?.hasQuestion || false,
-      isTableContent: chunk.semanticFeatures?.isTableContent || false,
-      subjectArea: chunk.semanticFeatures?.subjectArea || subject,
-      
-      // 性能统计
-      batchNumber: this.progress.currentBatch,
-      processingTimestamp: Date.now()
+      hasQuestions: chunk.semanticFeatures?.hasQuestions || false,
+      hasDefinitions: chunk.semanticFeatures?.hasDefinitions || false,
+      contentType: chunk.semanticFeatures?.contentType || "text"
     };
+
+    return metadata;
   }
 
-  extractSubjectFromFilename(filename) {
-    const subjects = ["数学", "语文", "英语", "物理", "化学", "生物", "历史", "地理", "政治", "音乐", "美术", "体育", "科学", "道德与法治"];
-    return subjects.find(s => filename.includes(s)) || "通用";
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  extractGradeFromFilename(filename) {
-    const gradeMatch = filename.match(/(一年级|二年级|三年级|四年级|五年级|六年级|七年级|八年级|九年级|高一|高二|高三)/);
-    return gradeMatch ? gradeMatch[1] : "通用";
-  }
-
-  extractMaterialName(filename) {
-    return filename.replace('.json', '').replace(/^.*_/, '');
+  timeout(ms) {
+    return new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('Operation timeout')), ms)
+    );
   }
 
   printProgress() {
     const processedFiles = this.progress.processedFiles.length;
-    const failedFiles = this.progress.failedFiles.length;
     const totalFiles = this.progress.totalFiles;
     const processedChunks = this.progress.processedChunks;
     const totalChunks = this.progress.totalChunks;
+    const failedFiles = this.progress.failedFiles.length;
     
-    const fileProgress = totalFiles > 0 ? ((processedFiles / totalFiles) * 100).toFixed(1) : 0;
-    const chunkProgress = totalChunks > 0 ? ((processedChunks / totalChunks) * 100).toFixed(1) : 0;
+    const fileProgress = ((processedFiles / totalFiles) * 100).toFixed(1);
+    const chunkProgress = ((processedChunks / totalChunks) * 100).toFixed(1);
     
-    console.log(`\n📊 加载进度报告:`);
+    console.log("\n📊 加载进度报告:");
     console.log(`📁 文件进度: ${processedFiles}/${totalFiles} (${fileProgress}%)`);
     console.log(`📝 Chunks进度: ${processedChunks}/${totalChunks} (${chunkProgress}%)`);
     console.log(`❌ 失败文件: ${failedFiles}`);
+    console.log(`🔄 重试次数: ${this.progress.retryCount}`);
     console.log(`⚡ 平均插入时间: ${this.stats.avgInsertionTime.toFixed(0)}ms/批次`);
+    console.log(`📊 批次统计: 成功 ${this.stats.successfulBatches}, 失败 ${this.stats.failedBatches}, 重试 ${this.stats.retriedBatches}`);
     
     if (this.progress.estimatedTimeRemaining) {
       const eta = new Date(Date.now() + this.progress.estimatedTimeRemaining);
@@ -428,7 +453,7 @@ class OptimizedRAGLoader {
   }
 
   async run() {
-    console.log("🚀 开始优化RAG数据加载...");
+    console.log("🚀 开始健壮RAG数据加载...");
     console.log("=" + "=".repeat(60));
     
     try {
@@ -456,16 +481,24 @@ class OptimizedRAGLoader {
       console.log("=" + "=".repeat(60));
       console.log(`✅ 成功处理: ${this.progress.processedFiles.length} 文件`);
       console.log(`❌ 失败文件: ${this.progress.failedFiles.length}`);
-      console.log(`📝 总chunks: ${this.progress.processedChunks}`);
+      console.log(`📝 成功chunks: ${this.progress.processedChunks}`);
+      console.log(`⏭️ 跳过chunks: ${this.progress.skippedChunks}`);
+      console.log(`🔄 总重试次数: ${this.progress.retryCount}`);
       console.log(`⏱️ 总耗时: ${((Date.now() - new Date(this.progress.startTime).getTime()) / 1000).toFixed(1)}秒`);
       console.log(`📊 最终集合大小: ${finalStats?.totalDocuments || 'N/A'}`);
       console.log(`⚡ 平均插入性能: ${this.stats.avgInsertionTime.toFixed(0)}ms/批次`);
+      console.log(`📈 成功率: ${((this.stats.successfulBatches / (this.stats.successfulBatches + this.stats.failedBatches)) * 100).toFixed(1)}%`);
       
       if (this.progress.failedFiles.length > 0) {
         console.log("\n❌ 失败文件列表:");
         this.progress.failedFiles.forEach(f => {
           console.log(`   - ${f.file}: ${f.reason}`);
         });
+        
+        console.log("\n💡 建议:");
+        console.log("   - 检查失败文件的数据格式");
+        console.log("   - 运行此脚本将重试失败的文件");
+        console.log("   - 考虑降低质量阈值或增加重试次数");
       }
       
       // 清理进度文件
@@ -488,7 +521,7 @@ class OptimizedRAGLoader {
 
 // 主函数
 async function main() {
-  const loader = new OptimizedRAGLoader();
+  const loader = new RobustRAGLoader();
   
   // 处理中断信号
   process.on('SIGINT', async () => {
@@ -503,10 +536,7 @@ async function main() {
 }
 
 if (require.main === module) {
-  main().catch(error => {
-    console.error("❌ 程序执行失败:", error);
-    process.exit(1);
-  });
+  main();
 }
 
-module.exports = OptimizedRAGLoader;
+module.exports = RobustRAGLoader;

@@ -5,11 +5,11 @@
  */
 
 const winston = require("winston");
-const VectorStore = require("./rag/services/vector-store");
+const SimpleRAGService = require("./rag/services/simple-rag-service");
 const ChineseAIProviders = require("./providers/chinese-ai-providers");
 const PerformanceOptimizer = require("./performance-optimization");
 
-const vectorStore = new VectorStore();
+const simpleRAG = new SimpleRAGService();
 
 // Enhanced logging for direct streaming
 const logger = winston.createLogger({
@@ -189,8 +189,11 @@ class DirectAIService {
       
       const ragStartTime = Date.now();
       try {
+        // Initialize simple RAG if needed
+        await simpleRAG.initialize();
+        
         const ragResult = await Promise.race([
-          vectorStore.getRelevantContext(topic, subject, grade, 1200), // Reduced context
+          this.getRelevantContextSimple(topic, subject, grade, 1200),
           new Promise((_, reject) => 
             setTimeout(() => reject(new Error("RAG timeout")), 3000) // 3s timeout
           )
@@ -547,13 +550,58 @@ objectives: ["目标1", "目标2"]
   }
 
   /**
+   * Get relevant context using simple RAG service
+   */
+  async getRelevantContextSimple(topic, subject, grade, maxLength = 1200) {
+    try {
+      const searchQuery = `${topic} ${subject} ${grade}`;
+      const results = await simpleRAG.searchRelevantContent(searchQuery, {
+        maxResults: 3,
+        subjects: [subject],
+        grades: [grade]
+      });
+
+      if (!results || results.length === 0) {
+        return { context: "", sources: [] };
+      }
+
+      let context = "";
+      const sources = [];
+
+      for (const result of results) {
+        if (context.length + result.content.length > maxLength) {
+          break;
+        }
+        
+        context += result.content + "\n\n";
+        sources.push({
+          source: result.metadata.source,
+          grade: result.metadata.grade,
+          subject: result.metadata.subject,
+          score: result.score
+        });
+      }
+
+      return {
+        context: context.trim(),
+        sources: sources
+      };
+
+    } catch (error) {
+      console.warn('Simple RAG search failed:', error.message);
+      return { context: "", sources: [] };
+    }
+  }
+
+  /**
    * Test direct streaming performance
    */
   async testDirectStreaming() {
     const testResults = {
       providers: await this.aiProviders.testAllProviders(),
       performance: this.performanceOptimizer.getPerformanceReport(),
-      streaming: "DIRECT_NATIVE"
+      streaming: "DIRECT_NATIVE",
+      rag: await simpleRAG.getStatus()
     };
 
     return testResults;

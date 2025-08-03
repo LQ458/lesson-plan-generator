@@ -1,26 +1,84 @@
-version: '3.8'
-
 services:
   teachai:
     build: .
     ports:
-      - "3000:3000"
-      - "5000:5000"
+      - "3001:3001"  # 服务器端口
+      - "3002:3002"  # 前端端口
     environment:
       - NODE_ENV=production
+      - PORT=3001
+      - WEB_PORT=3002
+      # AI服务配置 - 中国AI提供商
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - QWEN_MODEL=qwen-turbo
+      - AI_MAX_TOKENS=1500
+      - AI_TEMPERATURE=0.7
+      - AI_ENABLED=true
+      # 直接流式传输配置
+      - ENABLE_DIRECT_STREAMING=true
+      - ENABLE_SMART_CACHING=true
+      - ENABLE_PROVIDER_FALLBACK=true
+      - STREAM_TIMEOUT_MS=30000
+      # 数据库配置
+      - MONGODB_URI=mongodb://mongodb:27017/teachai
+      - JWT_SECRET=${JWT_SECRET:-your_jwt_secret_here}
+      # 可选的额外AI提供商
+      - BAIDU_API_KEY=${BAIDU_API_KEY:-}
+      - BAIDU_SECRET_KEY=${BAIDU_SECRET_KEY:-}
+      - ZHIPU_API_KEY=${ZHIPU_API_KEY:-}
+      - MOONSHOT_API_KEY=${MOONSHOT_API_KEY:-}
     volumes:
       - ./chroma_db:/app/chroma_db
       - ./server/logs:/app/server/logs
+      - ./server/rag/data:/app/server/rag/data
+    depends_on:
+      - mongodb
+      - chroma
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
-  # 如果需要数据库
-  # mongodb:
-  #   image: mongo:latest
-  #   ports:
-  #   - "27017:27017"
-  #   volumes:
-  #   - mongodb_data:/data/db
-  #   restart: unless-stopped
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=teachai
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
-# volumes:
-#   mongodb_data: 
+  chroma:
+    image: chromadb/chroma:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
+    volumes:
+      - chroma_data:/chroma/chroma
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  mongodb_data:
+  chroma_data:
+
+networks:
+  default:
+    name: teachai-network 

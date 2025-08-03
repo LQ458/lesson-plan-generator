@@ -7,7 +7,7 @@ const config = {
   chroma: {
     host: process.env.CHROMA_HOST || "localhost",
     port: process.env.CHROMA_PORT || 8000,
-    path: process.env.CHROMA_PATH || "http://localhost:8000",
+    path: process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST || "localhost"}:${process.env.CHROMA_PORT || 8000}`,
     collection: {
       name: process.env.CHROMA_COLLECTION || "lesson_materials",
       metadata: {
