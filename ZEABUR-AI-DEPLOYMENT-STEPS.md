@@ -43,7 +43,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 
 ### 步骤 1.2: 准备代码仓库
 1. 确保代码已推送到 GitHub
-2. 分支: `web` (或你的主分支)
+2. 分支: `web`
 3. 仓库地址: `https://github.com/LQ458/lesson-plan-generator`
 
 ### 步骤 1.3: 检查项目结构
