@@ -149,6 +149,7 @@ app.use(cookieParser()); // 添加cookie解析中间件
 app.use("/api/auth", authRegisterRouter);
 app.use("/api/content", require("./routes/content"));
 app.use("/api/export", require("./routes/export"));
+app.use("/api/admin", require("./routes/admin"));
 
 // 健康检查端点
 app.get("/api/health", async (req, res) => {

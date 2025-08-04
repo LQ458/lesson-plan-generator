@@ -1,0 +1,31 @@
+{
+  "build_command": "pnpm run install:all && pnpm build",
+  "start_command": "pnpm start",
+  "install_command": "pnpm install --frozen-lockfile",
+  "app_dir": "./",
+  "output_dir": "./web/.next",
+  "framework": "nextjs",
+  "node_version": "18",
+  "environment": "production",
+  "build_env": {
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "NODE_ENV": "production"
+  },
+  "monorepo": {
+    "enabled": true,
+    "package_manager": "pnpm",
+    "web_service": {
+      "directory": "./web",
+      "build_command": "pnpm build",
+      "start_command": "pnpm start"
+    },
+    "api_service": {
+      "directory": "./server",
+      "build_command": "echo 'No build needed for server'",
+      "start_command": "node server.js"
+    }
+  },
+  "serverless": false,
+  "regions": ["us-west-1", "ap-east-1"],
+  "plan": "pro"
+}

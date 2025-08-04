@@ -41,7 +41,12 @@
     "test:rag-accuracy:english": "cd server && node rag/scripts/run-accuracy-test.js --subject=english",
     "test:rag-ci": "cd server && node rag/scripts/ci-rag-test.js",
     "dev:full": "concurrently \"pnpm run chroma:start\" \"pnpm run dev:server\" \"pnpm run dev:web\"",
-    "setup:rag": "pnpm run chroma:start && sleep 5 && pnpm run rag:load"
+    "setup:rag": "pnpm run chroma:start && sleep 5 && pnpm run rag:load",
+    "deploy:zeabur": "bash deploy-zeabur.sh",
+    "start:zeabur": "concurrently \"pnpm run start:server\" \"pnpm run start:web\"",
+    "build:zeabur": "pnpm run install:all && pnpm run build",
+    "postinstall": "echo 'Installation completed. Run pnpm start for production or pnpm dev for development.'",
+    "health-check": "curl -f http://localhost:3001/api/health || exit 1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.28.0",
