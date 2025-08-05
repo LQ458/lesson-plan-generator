@@ -29,6 +29,11 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [passwordValidation, setPasswordValidation] = useState({
+    length: false,
+    hasLetter: false,
+    hasNumber: false,
+  });
 
   // 认证表单数据
   const [authForm, setAuthForm] = useState({
@@ -45,6 +50,25 @@ export default function LoginPage() {
   });
 
   const router = useRouter();
+
+  // 密码验证函数
+  const validatePassword = (password: string) => {
+    const validation = {
+      length: password.length >= 6,
+      hasLetter: /[a-zA-Z]/.test(password),
+      hasNumber: /\d/.test(password),
+    };
+    setPasswordValidation(validation);
+    return validation.length && validation.hasLetter && validation.hasNumber;
+  };
+
+  // 处理密码输入变化
+  const handlePasswordChange = (value: string) => {
+    setAuthForm((prev) => ({ ...prev, password: value }));
+    if (isRegistering) {
+      validatePassword(value);
+    }
+  };
 
   // 验证邀请码
   const handleInviteSubmit = async (e: React.FormEvent) => {
@@ -140,8 +164,8 @@ export default function LoginPage() {
       return;
     }
 
-    if (authForm.password.length < 6) {
-      setError("密码至少6个字符");
+    if (!validatePassword(authForm.password)) {
+      setError("密码必须至少6个字符，并包含字母和数字");
       return;
     }
 
@@ -171,7 +195,13 @@ export default function LoginPage() {
         router.push("/lesson-plan");
         router.refresh();
       } else {
-        setError(data.message || "注册失败");
+        // Handle validation errors from backend
+        if (data.errors && Array.isArray(data.errors)) {
+          const errorMessages = data.errors.map((err: any) => err.msg).join("; ");
+          setError(errorMessages);
+        } else {
+          setError(data.message || "注册失败");
+        }
       }
     } catch (error) {
       console.error("Register error:", error);
@@ -282,15 +312,18 @@ export default function LoginPage() {
         <div>
           <label htmlFor="password" className="block text-sm font-medium mb-2">
             密码
+            {isRegistering && (
+              <span className="text-xs text-gray-500 ml-2">
+                (至少6位，包含字母和数字)
+              </span>
+            )}
           </label>
           <div className="relative">
             <input
               id="password"
               type={showPassword ? "text" : "password"}
               value={authForm.password}
-              onChange={(e) =>
-                setAuthForm((prev) => ({ ...prev, password: e.target.value }))
-              }
+              onChange={(e) => handlePasswordChange(e.target.value)}
               placeholder="请输入密码"
               className="input w-full pr-10"
               disabled={loading}
@@ -308,6 +341,30 @@ export default function LoginPage() {
               )}
             </button>
           </div>
+          
+          {/* 密码强度指示器（仅注册时显示） */}
+          {isRegistering && authForm.password && (
+            <div className="mt-2 space-y-1">
+              <div className="flex items-center text-xs">
+                <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.length ? 'bg-green-500' : 'bg-gray-300'}`} />
+                <span className={passwordValidation.length ? 'text-green-600' : 'text-gray-500'}>
+                  至少6个字符
+                </span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.hasLetter ? 'bg-green-500' : 'bg-gray-300'}`} />
+                <span className={passwordValidation.hasLetter ? 'text-green-600' : 'text-gray-500'}>
+                  包含字母
+                </span>
+              </div>
+              <div className="flex items-center text-xs">
+                <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.hasNumber ? 'bg-green-500' : 'bg-gray-300'}`} />
+                <span className={passwordValidation.hasNumber ? 'text-green-600' : 'text-gray-500'}>
+                  包含数字
+                </span>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 确认密码（仅注册时） */}
@@ -331,7 +388,13 @@ export default function LoginPage() {
                   }))
                 }
                 placeholder="请再次输入密码"
-                className="input w-full pr-10"
+                className={`input w-full pr-10 ${
+                  authForm.confirmPassword && authForm.password !== authForm.confirmPassword
+                    ? 'border-red-300 focus:border-red-500'
+                    : authForm.confirmPassword && authForm.password === authForm.confirmPassword
+                    ? 'border-green-300 focus:border-green-500'
+                    : ''
+                }`}
                 disabled={loading}
                 required
               />
@@ -347,6 +410,23 @@ export default function LoginPage() {
                 )}
               </button>
             </div>
+            
+            {/* 密码匹配提示 */}
+            {authForm.confirmPassword && (
+              <div className="mt-1 flex items-center text-xs">
+                {authForm.password === authForm.confirmPassword ? (
+                  <>
+                    <div className="w-2 h-2 rounded-full mr-2 bg-green-500" />
+                    <span className="text-green-600">密码匹配</span>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-2 h-2 rounded-full mr-2 bg-red-500" />
+                    <span className="text-red-600">密码不匹配</span>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         )}
 
