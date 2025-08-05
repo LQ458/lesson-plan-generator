@@ -1,6 +1,7 @@
 // useLessonPlans.ts
 // 用于获取和管理教案列表的自定义hook
 import { useState, useEffect } from "react";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 export interface LessonPlan {
   _id: string;
@@ -66,7 +67,7 @@ export function useLessonPlans(options: UseLessonPlansOptions) {
       if (filterGrade && filterGrade !== "all")
         params.append("grade", filterGrade);
       const response = await fetch(
-        `http://localhost:3001/api/content/lesson-plans?${params.toString()}`,
+        getApiUrl(`${API_ENDPOINTS.CONTENT.LESSON_PLANS}?${params.toString()}`),
         {
           credentials: "include",
         },

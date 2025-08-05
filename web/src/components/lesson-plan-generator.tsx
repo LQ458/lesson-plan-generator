@@ -16,6 +16,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 interface LessonPlanFormat {
   id: string;
@@ -164,7 +165,7 @@ export default function LessonPlanGenerator({
     setSavingLessonPlan(true);
     try {
       const response = await fetch(
-        "http://localhost:3001/api/content/lesson-plans",
+        getApiUrl(API_ENDPOINTS.CONTENT.LESSON_PLANS),
         {
           method: "POST",
           headers: {
@@ -272,7 +273,7 @@ export default function LessonPlanGenerator({
 
     try {
       // 统一使用3001端口作为导出服务
-      const API_BASE_URL = "http://localhost:3001";
+      const API_BASE_URL = getApiUrl();
       const exportUrl = `${API_BASE_URL}/api/export/lesson-plans/${lessonId}`;
 
       console.log("📤 [Export] 发送导出请求", {
@@ -720,7 +721,7 @@ export default function LessonPlanGenerator({
         fallback: string = "",
       ): Promise<void> => {
         try {
-          const response = await fetch("http://localhost:3001/api/analyze", {
+          const response = await fetch(getApiUrl(API_ENDPOINTS.AI.ANALYZE), {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

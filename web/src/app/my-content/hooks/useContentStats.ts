@@ -1,6 +1,7 @@
 // useContentStats.ts
 // 用于获取内容统计信息的自定义hook
 import { useState, useEffect } from "react";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 export interface ContentStats {
   lessonPlans: {
@@ -35,7 +36,7 @@ export function useContentStats() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("http://localhost:3001/api/content/stats", {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.CONTENT.STATS), {
         credentials: "include",
       });
       if (!response.ok) throw new Error("获取统计数据失败");

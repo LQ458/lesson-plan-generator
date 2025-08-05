@@ -14,6 +14,7 @@ import {
   getSubjectLabel,
 } from "@/lib/settings-context";
 import yaml from "js-yaml";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 // 科目定义及其适用年级
 const subjectsByGrade = {
@@ -400,7 +401,7 @@ export default function LessonPlanPage() {
 
     try {
       // 流式调用后端AI API
-      const response = await fetch("http://localhost:3001/api/lesson-plan", {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.AI.LESSON_PLAN), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

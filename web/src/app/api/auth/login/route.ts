@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getApiUrl } from "@/lib/api-config";
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,8 +10,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 调用后端验证邀请码
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
-    const backendResponse = await fetch(`${apiUrl}/api/auth/invite-login`, {
+    const backendResponse = await fetch(getApiUrl("/api/auth/invite-login"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

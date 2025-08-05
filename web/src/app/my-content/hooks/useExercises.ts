@@ -1,6 +1,7 @@
 // useExercises.ts
 // 用于获取和管理练习题列表的自定义hook
 import { useState, useEffect } from "react";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 export interface Exercise {
   _id: string;
@@ -72,7 +73,7 @@ export function useExercises(options: UseExercisesOptions) {
       if (filterGrade && filterGrade !== "all")
         params.append("grade", filterGrade);
       const response = await fetch(
-        `http://localhost:3001/api/content/exercises?${params.toString()}`,
+        getApiUrl(`${API_ENDPOINTS.CONTENT.EXERCISES}?${params.toString()}`),
         {
           credentials: "include",
         },

@@ -19,6 +19,7 @@ import ContentCard from "../components/ContentCard";
 import FavoriteCard from "../components/FavoriteCard";
 import { useContent } from "../hooks/useContent";
 import type { LessonPlan, Exercise } from "../types";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 export default function MyContentPage() {
   const router = useRouter();
@@ -91,7 +92,7 @@ export default function MyContentPage() {
     setExportLoading((prev) => ({ ...prev, [format]: true }));
 
     try {
-      const API_BASE_URL = "http://localhost:3001";
+      const API_BASE_URL = getApiUrl();
       const exportUrl = `${API_BASE_URL}/api/export/exercises/${pathInfo.id}`;
 
       const response = await fetch(exportUrl, {
@@ -170,7 +171,7 @@ export default function MyContentPage() {
     if (pathInfo.type === "lesson" && pathInfo.id) {
       setDetailLesson(null);
       setDetailExercise(null);
-      fetch(`http://localhost:3001/api/content/lesson-plans/${pathInfo.id}`, {
+      fetch(getApiUrl(`${API_ENDPOINTS.CONTENT.LESSON_PLANS}/${pathInfo.id}`), {
         credentials: "include",
       })
         .then((res) => (res.ok ? res.json() : Promise.reject(res)))
@@ -225,7 +226,7 @@ export default function MyContentPage() {
     } else if (pathInfo.type === "exercise" && pathInfo.id) {
       setDetailLesson(null);
       setDetailExercise(null);
-      fetch(`http://localhost:3001/api/content/exercises/${pathInfo.id}`, {
+      fetch(getApiUrl(`${API_ENDPOINTS.CONTENT.EXERCISES}/${pathInfo.id}`), {
         credentials: "include",
       })
         .then((res) => (res.ok ? res.json() : Promise.reject(res)))

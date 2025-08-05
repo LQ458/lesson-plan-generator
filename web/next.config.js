@@ -2,11 +2,12 @@
 const nextConfig = {
   // 优化图片处理
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "bijielearn.com", "api.bijielearn.com"],
   },
   // 环境变量配置
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
   // 输出配置
   output: "standalone",

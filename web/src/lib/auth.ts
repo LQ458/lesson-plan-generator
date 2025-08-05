@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { getApiUrl, API_ENDPOINTS } from "./api-config";
 
 export interface SessionData {
   userId: string;
@@ -24,7 +25,7 @@ export async function verifySession(
   try {
     // 调用后端验证API
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001"}/api/auth/verify-token`,
+      getApiUrl(API_ENDPOINTS.AUTH.VERIFY_TOKEN),
       {
         method: "POST",
         headers: {

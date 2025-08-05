@@ -11,6 +11,7 @@ import {
   EyeIcon,
   EyeSlashIcon,
 } from "@heroicons/react/24/outline";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 type Step = "invite" | "auth" | "direct-login";
 
@@ -58,7 +59,7 @@ export default function LoginPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:3001/api/auth/verify-invite",
+        getApiUrl(API_ENDPOINTS.AUTH.VERIFY_INVITE),
         {
           method: "POST",
           headers: {
@@ -95,7 +96,7 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:3001/api/auth/login", {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.LOGIN), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,7 +149,7 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:3001/api/auth/register", {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.REGISTER), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

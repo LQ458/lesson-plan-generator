@@ -6,6 +6,7 @@ import type {
   ContentStats,
   FavoriteItem,
 } from "../types";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 // 通知函数
 const showNotification = (
@@ -41,7 +42,7 @@ export function useContent() {
   // 获取统计数据
   const fetchStats = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/content/stats", {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.CONTENT.STATS), {
         credentials: "include",
       });
 
@@ -69,7 +70,7 @@ export function useContent() {
     ) => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/content/lesson-plans?page=${currentPage}&limit=${pageSize}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
+          getApiUrl(`${API_ENDPOINTS.CONTENT.LESSON_PLANS}?page=${currentPage}&limit=${pageSize}&sortBy=${sortBy}&sortOrder=${sortOrder}`),
           {
             credentials: "include",
           },
@@ -111,7 +112,7 @@ export function useContent() {
     ) => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/content/exercises?page=${currentPage}&limit=${pageSize}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
+          getApiUrl(`${API_ENDPOINTS.CONTENT.EXERCISES}?page=${currentPage}&limit=${pageSize}&sortBy=${sortBy}&sortOrder=${sortOrder}`),
           {
             credentials: "include",
           },
@@ -137,7 +138,7 @@ export function useContent() {
   const fetchFavorites = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:3001/api/content/favorites",
+        getApiUrl(API_ENDPOINTS.CONTENT.FAVORITES),
         {
           credentials: "include",
         },
@@ -188,7 +189,7 @@ export function useContent() {
 
       try {
         const response = await fetch(
-          `http://localhost:3001/api/content/${type}/${id}`,
+          getApiUrl(`/api/content/${type}/${id}`),
           {
             method: "DELETE",
             credentials: "include",
@@ -231,7 +232,7 @@ export function useContent() {
       setExporting((prev) => ({ ...prev, [key]: true }));
 
       try {
-        const API_BASE_URL = "http://localhost:3001";
+        const API_BASE_URL = getApiUrl();
         const response = await fetch(
           `${API_BASE_URL}/api/export/${type}/${id}`,
           {
@@ -300,7 +301,7 @@ export function useContent() {
         if (isFavorited) {
           // 取消收藏
           const response = await fetch(
-            `http://localhost:3001/api/content/favorites/${contentType}/${contentId}`,
+            getApiUrl(`${API_ENDPOINTS.CONTENT.FAVORITES}/${contentType}/${contentId}`),
             {
               method: "DELETE",
               credentials: "include",
@@ -319,7 +320,7 @@ export function useContent() {
         } else {
           // 添加收藏
           const response = await fetch(
-            "http://localhost:3001/api/content/favorites",
+            getApiUrl(API_ENDPOINTS.CONTENT.FAVORITES),
             {
               method: "POST",
               headers: {

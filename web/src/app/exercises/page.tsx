@@ -14,6 +14,7 @@ import {
 } from "@/lib/settings-context";
 import StreamingMarkdown from "@/components/streaming-markdown";
 import yaml from "js-yaml";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
 // 清理引用来源名称 - 移除文件扩展名和ID后缀
 const cleanReferenceSourceName = (sourceName: string): string => {
@@ -356,7 +357,7 @@ export default function ExercisesPage() {
 
     try {
       // 流式调用后端AI API
-      const response = await fetch("http://localhost:3001/api/exercises", {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.AI.EXERCISES), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -535,7 +536,7 @@ export default function ExercisesPage() {
     setSavingExercise(true);
     try {
       const response = await fetch(
-        "http://localhost:3001/api/content/exercises",
+        "https://api.bijielearn.com/api/content/exercises",
         {
           method: "POST",
           headers: {
@@ -606,7 +607,7 @@ export default function ExercisesPage() {
     try {
       // 先保存练习题以获取ID
       const saveResponse = await fetch(
-        "http://localhost:3001/api/content/exercises",
+        "https://api.bijielearn.com/api/content/exercises",
         {
           method: "POST",
           headers: {
@@ -643,7 +644,7 @@ export default function ExercisesPage() {
 
       // 调用后端导出API
       const exportResponse = await fetch(
-        `http://localhost:3001/api/export/exercises/${exerciseId}`,
+        getApiUrl(`${API_ENDPOINTS.EXPORT.EXERCISES}/${exerciseId}`),
         {
           method: "POST",
           headers: {
