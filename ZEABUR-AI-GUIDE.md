@@ -65,7 +65,7 @@ Type: Git Repository
 Repository: https://github.com/LQ458/lesson-plan-generator
 Branch: web
 Root Directory: ./server
-Build Command: pnpm install --frozen-lockfile
+Build Command: pnpm install --frozen-lockfile && node install-missing-deps.js && node check-deps.js
 Start Command: node server.js
 Port: 3001
 Dependencies: [mongodb, chromadb]

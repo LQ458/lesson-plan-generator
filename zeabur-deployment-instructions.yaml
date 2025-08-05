@@ -54,7 +54,7 @@ services:
       branch: "web"
       directory: "./server"
     build:
-      command: "pnpm install --frozen-lockfile"
+      command: "pnpm install --frozen-lockfile && node install-missing-deps.js && node check-deps.js"
     start:
       command: "node server.js"
       port: 3001
