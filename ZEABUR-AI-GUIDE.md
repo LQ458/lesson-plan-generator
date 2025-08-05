@@ -77,6 +77,7 @@ Environment Variables:
   CHROMA_PORT: "8000"
   DASHSCOPE_API_KEY: [REQUIRED - User must provide Qwen API key]
   JWT_SECRET: [REQUIRED - User must provide secure random string]
+  ALLOWED_ORIGINS: https://bijielearn.com,https://www.bijielearn.com,https://api.bijielearn.com
   QWEN_MODEL: qwen-plus
   AI_MAX_TOKENS: "2000"
   AI_TEMPERATURE: "0.7"
@@ -167,7 +168,13 @@ GET https://[FRONTEND_SERVICE_URL]
 - Purpose: User authentication security
 - Length: Minimum 32 characters
 
-### 3. MONGO_PASSWORD (Auto-generated)
+### 3. ALLOWED_ORIGINS (Required)
+- Purpose: CORS configuration for cross-origin requests
+- Format: Comma-separated list of allowed domains
+- Example: `https://bijielearn.com,https://www.bijielearn.com`
+- Note: Must match your frontend domain exactly
+
+### 4. MONGO_PASSWORD (Auto-generated)
 - Zeabur auto-generates secure password
 - Used in MONGODB_URI connection string
 

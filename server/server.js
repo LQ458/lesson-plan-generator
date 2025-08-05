@@ -133,9 +133,32 @@ const aiRequestLogger = (endpoint) => (req, res, next) => {
 
 // 中间件配置
 app.use(helmet());
+// CORS 配置 - 支持环境变量自定义
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
+  : [
+      "http://localhost:3000", 
+      "http://localhost:3002",
+      "https://bijielearn.com",
+      "https://www.bijielearn.com",
+      "https://api.bijielearn.com"
+    ];
+
+console.log('🔒 CORS允许的域名:', allowedOrigins);
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3002"], // 允许前端域名
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        console.warn(`🚫 CORS blocked request from origin: ${origin}`);
+        return callback(new Error('Not allowed by CORS'), false);
+      }
+    },
     credentials: true, // 允许发送cookies
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
