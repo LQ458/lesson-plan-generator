@@ -78,6 +78,8 @@ Environment Variables:
   DASHSCOPE_API_KEY: [REQUIRED - User must provide Qwen API key]
   JWT_SECRET: [REQUIRED - User must provide secure random string]
   ALLOWED_ORIGINS: https://bijielearn.com,https://www.bijielearn.com,https://api.bijielearn.com
+  COOKIE_DOMAIN: .bijielearn.com
+  NODE_ENV: production
   QWEN_MODEL: qwen-plus
   AI_MAX_TOKENS: "2000"
   AI_TEMPERATURE: "0.7"

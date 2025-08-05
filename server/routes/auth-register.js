@@ -162,14 +162,26 @@ router.post("/register", registerValidation, async (req, res) => {
       createdAt: new Date().toISOString(),
     };
 
-    // 设置cookie
-    res.cookie("session", JSON.stringify(sessionData), {
+    // 设置cookie - 生产环境优化配置
+    const cookieOptions = {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "lax" : "strict", // 生产环境使用 lax
       maxAge: 60 * 60 * 24 * 7 * 1000, // 7天
       path: "/",
+    };
+
+    // 生产环境域名配置
+    if (process.env.NODE_ENV === "production" && process.env.COOKIE_DOMAIN) {
+      cookieOptions.domain = process.env.COOKIE_DOMAIN;
+    }
+
+    console.log('Setting register session cookie with options:', {
+      ...cookieOptions,
+      sessionData: { userId: sessionData.userId, username: sessionData.username }
     });
+
+    res.cookie("session", JSON.stringify(sessionData), cookieOptions);
 
     res.json({
       success: true,
@@ -229,14 +241,26 @@ router.post("/login", loginLimiter, async (req, res) => {
       createdAt: new Date().toISOString(),
     };
 
-    // 设置cookie
-    res.cookie("session", JSON.stringify(sessionData), {
+    // 设置cookie - 生产环境优化配置
+    const cookieOptions = {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "lax" : "strict", // 生产环境使用 lax
       maxAge: 60 * 60 * 24 * 7 * 1000, // 7天
       path: "/",
+    };
+
+    // 生产环境域名配置
+    if (process.env.NODE_ENV === "production" && process.env.COOKIE_DOMAIN) {
+      cookieOptions.domain = process.env.COOKIE_DOMAIN;
+    }
+
+    console.log('Setting login session cookie with options:', {
+      ...cookieOptions,
+      sessionData: { userId: sessionData.userId, username: sessionData.username }
     });
+
+    res.cookie("session", JSON.stringify(sessionData), cookieOptions);
 
     res.json({
       success: true,
@@ -297,6 +321,87 @@ router.post("/verify-token", async (req, res) => {
     res.status(401).json({
       success: false,
       message: "Token无效或已过期",
+    });
+  }
+});
+
+// POST /api/auth/verify-invite - 验证邀请码
+router.post("/verify-invite", async (req, res) => {
+  try {
+    const { inviteCode } = req.body;
+
+    if (!inviteCode) {
+      return res.status(400).json({
+        success: false,
+        message: "请输入邀请码",
+      });
+    }
+
+    // 简化的邀请码验证：只使用环境变量
+    const envInviteCode = process.env.INVITE_CODE || "TEACHER2024";
+
+    if (inviteCode.toUpperCase() !== envInviteCode.toUpperCase()) {
+      return res.status(400).json({
+        success: false,
+        message: "邀请码无效",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "邀请码验证成功",
+    });
+  } catch (error) {
+    console.error("邀请码验证失败:", error);
+    res.status(500).json({
+      success: false,
+      message: "服务器内部错误",
+    });
+  }
+});
+
+// GET /api/auth/debug-session - 调试会话状态
+router.get("/debug-session", async (req, res) => {
+  try {
+    const sessionCookie = req.cookies.session;
+    
+    const debugInfo = {
+      hasSessionCookie: Boolean(sessionCookie),
+      cookieValue: sessionCookie ? "***存在***" : null,
+      allCookies: Object.keys(req.cookies),
+      headers: {
+        host: req.headers.host,
+        origin: req.headers.origin,
+        referer: req.headers.referer,
+        userAgent: req.headers['user-agent']?.substring(0, 50) + '...',
+      },
+      environment: {
+        nodeEnv: process.env.NODE_ENV,
+        cookieDomain: process.env.COOKIE_DOMAIN,
+      }
+    };
+
+    if (sessionCookie) {
+      try {
+        const parsed = JSON.parse(sessionCookie);
+        debugInfo.sessionData = {
+          userId: parsed.userId,
+          username: parsed.username,
+          createdAt: parsed.createdAt
+        };
+      } catch (error) {
+        debugInfo.parseError = error.message;
+      }
+    }
+
+    res.json({
+      success: true,
+      debug: debugInfo
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message
     });
   }
 });

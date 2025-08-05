@@ -13,23 +13,56 @@ const publicRoutes = ["/login", "/"];
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Skip middleware for API routes and static files
+  if (pathname.startsWith('/api/') || pathname.startsWith('/_next/')) {
+    return NextResponse.next();
+  }
+
   // 如果不在受保护或公开路由列表中，则直接放行（例如静态资源）
   const isProtected = protectedRoutes.some((route) =>
     pathname.startsWith(route),
   );
   const isPublic = publicRoutes.includes(pathname);
 
+  // If it's neither protected nor public, allow access
+  if (!isProtected && !isPublic) {
+    return NextResponse.next();
+  }
+
   // 读取 session cookie（仅做乐观检查，避免远程请求）
-  const token = request.cookies.get("session")?.value;
-  const isAuthenticated = Boolean(token); // 若需要进一步验证可在后端接口进行
+  const sessionCookie = request.cookies.get("session")?.value;
+  let isAuthenticated = false;
+
+  if (sessionCookie) {
+    try {
+      // Try to parse the session cookie to validate it's a valid JSON
+      const sessionData = JSON.parse(sessionCookie);
+      isAuthenticated = Boolean(sessionData && sessionData.userId);
+    } catch (error) {
+      // If parsing fails, consider as not authenticated
+      console.warn('Failed to parse session cookie:', error);
+      isAuthenticated = false;
+    }
+  }
+
+  // Debug logging for production troubleshooting
+  console.log('Middleware check:', {
+    pathname,
+    isProtected,
+    isPublic,
+    isAuthenticated,
+    hasSessionCookie: Boolean(sessionCookie),
+  });
 
   // 未登录访问受保护路由 -> 重定向到登录页
   if (isProtected && !isAuthenticated) {
+    console.log('Redirecting to login - protected route without auth');
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // 已登录访问公开路由 -> 重定向到默认页（/lesson-plan）
-  if (isPublic && isAuthenticated && pathname !== "/lesson-plan") {
+  // 已登录访问登录页 -> 重定向到默认页（/lesson-plan）
+  if (pathname === "/login" && isAuthenticated) {
+    console.log('Redirecting to lesson-plan - authenticated user on login page');
     return NextResponse.redirect(new URL("/lesson-plan", request.url));
   }
 

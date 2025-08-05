@@ -136,8 +136,12 @@ export default function LoginPage() {
 
       if (response.ok) {
         // 登录成功，后端已经设置了session cookie
-        router.push("/lesson-plan");
-        router.refresh();
+        console.log('Login successful, redirecting to lesson-plan');
+        
+        // 给cookie一点时间设置，然后使用硬重定向避免middleware竞争
+        setTimeout(() => {
+          window.location.href = "/lesson-plan";
+        }, 100);
       } else {
         setError(data.message || "登录失败");
       }
@@ -192,8 +196,12 @@ export default function LoginPage() {
 
       if (response.ok) {
         // 注册成功，后端已经设置了session cookie
-        router.push("/lesson-plan");
-        router.refresh();
+        console.log('Registration successful, redirecting to lesson-plan');
+        
+        // 给cookie一点时间设置，然后使用硬重定向避免middleware竞争
+        setTimeout(() => {
+          window.location.href = "/lesson-plan";
+        }, 100);
       } else {
         // Handle validation errors from backend
         if (data.errors && Array.isArray(data.errors)) {
