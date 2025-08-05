@@ -52,6 +52,8 @@ export function middleware(request: NextRequest) {
     isPublic,
     isAuthenticated,
     hasSessionCookie: Boolean(sessionCookie),
+    cookieContent: sessionCookie ? 'EXISTS' : 'MISSING',
+    allCookies: Array.from(request.cookies.entries()).map(([name]) => name),
   });
 
   // 未登录访问受保护路由 -> 重定向到登录页
