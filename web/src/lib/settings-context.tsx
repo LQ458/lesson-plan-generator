@@ -7,6 +7,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import { getApiUrl, API_ENDPOINTS } from "./api-config";
 
 export interface UserSettings {
   gradeLevel: string;
@@ -42,14 +43,14 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
 
       try {
         // 首先尝试从用户会话获取偏好
-        const sessionResponse = await fetch("/api/auth/verify", {
+        const sessionResponse = await fetch(getApiUrl(API_ENDPOINTS.AUTH.VERIFY), {
           credentials: "include",
         });
 
         if (sessionResponse.ok) {
           const sessionData = await sessionResponse.json();
-          if (sessionData.success && sessionData.session?.preferences) {
-            const preferences = sessionData.session.preferences;
+          if (sessionData.success && sessionData.data?.preferences) {
+            const preferences = sessionData.data.preferences;
             sessionPreferences = {
               subject: preferences.subject,
               gradeLevel: preferences.gradeLevel,

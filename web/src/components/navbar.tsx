@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
+import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 import {
   HomeIcon,
   DocumentTextIcon,
@@ -36,14 +37,14 @@ export function Navbar() {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const response = await fetch("/api/auth/verify", {
+        const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.VERIFY), {
           credentials: "include",
         });
 
         if (response.ok) {
           const data = await response.json();
           setIsLoggedIn(true);
-          setUserInfo({ username: data.session?.username || "用户" });
+          setUserInfo({ username: data.data?.username || "用户" });
         } else {
           setIsLoggedIn(false);
           setUserInfo(null);

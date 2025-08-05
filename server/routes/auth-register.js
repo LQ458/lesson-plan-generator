@@ -360,6 +360,62 @@ router.post("/verify-invite", async (req, res) => {
   }
 });
 
+// GET /api/auth/verify - 验证当前会话状态
+router.get("/verify", async (req, res) => {
+  try {
+    const sessionCookie = req.cookies.session;
+
+    if (!sessionCookie) {
+      return res.status(401).json({
+        success: false,
+        message: "未找到会话信息",
+      });
+    }
+
+    let sessionData;
+    try {
+      sessionData = JSON.parse(sessionCookie);
+    } catch (error) {
+      return res.status(401).json({
+        success: false,
+        message: "会话数据格式错误",
+      });
+    }
+
+    if (!sessionData.userId) {
+      return res.status(401).json({
+        success: false,
+        message: "会话数据无效",
+      });
+    }
+
+    // 验证用户是否存在
+    const user = await User.findById(sessionData.userId);
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "用户不存在",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "会话验证成功",
+      data: {
+        userId: user._id,
+        username: user.username,
+        preferences: user.preferences,
+      },
+    });
+  } catch (error) {
+    console.error("会话验证失败:", error);
+    res.status(500).json({
+      success: false,
+      message: "服务器内部错误",
+    });
+  }
+});
+
 // GET /api/auth/debug-session - 调试会话状态
 router.get("/debug-session", async (req, res) => {
   try {

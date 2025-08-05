@@ -16,6 +16,7 @@ export const API_ENDPOINTS = {
     REGISTER: '/api/auth/register',
     VERIFY_INVITE: '/api/auth/verify-invite',
     VERIFY_TOKEN: '/api/auth/verify-token',
+    VERIFY: '/api/auth/verify',
   },
   
   // Content endpoints

@@ -80,6 +80,7 @@ Environment Variables:
   ALLOWED_ORIGINS: https://bijielearn.com,https://www.bijielearn.com,https://api.bijielearn.com
   COOKIE_DOMAIN: .bijielearn.com
   NODE_ENV: production
+  INVITE_CODE: TEACHER2024
   QWEN_MODEL: qwen-plus
   AI_MAX_TOKENS: "2000"
   AI_TEMPERATURE: "0.7"
