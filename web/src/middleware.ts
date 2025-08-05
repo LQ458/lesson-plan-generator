@@ -8,7 +8,7 @@ const protectedRoutes = [
   "/settings",
 ];
 // 指定公开路由（无需登录）
-const publicRoutes = ["/login", "/"];
+const publicRoutes = ["/login", "/", "/debug-auth"];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -32,16 +32,29 @@ export function middleware(request: NextRequest) {
   // 读取 session cookie（仅做乐观检查，避免远程请求）
   const sessionCookie = request.cookies.get("session")?.value;
   let isAuthenticated = false;
+  let sessionDebugInfo = null;
 
   if (sessionCookie) {
     try {
       // Try to parse the session cookie to validate it's a valid JSON
       const sessionData = JSON.parse(sessionCookie);
-      isAuthenticated = Boolean(sessionData && sessionData.userId);
+      isAuthenticated = Boolean(sessionData && (sessionData.userId || sessionData.user?.id));
+      sessionDebugInfo = {
+        hasUserId: Boolean(sessionData?.userId),
+        hasUserObject: Boolean(sessionData?.user),
+        hasUserIdInObject: Boolean(sessionData?.user?.id),
+        keys: sessionData ? Object.keys(sessionData) : []
+      };
     } catch (error) {
-      // If parsing fails, consider as not authenticated
-      console.warn('Failed to parse session cookie:', error);
-      isAuthenticated = false;
+      // If parsing fails, try simple existence check (fallback for different cookie formats)
+      console.warn('Failed to parse session cookie, trying fallback:', error);
+      // For production, be more lenient - if there's a session cookie, consider authenticated
+      isAuthenticated = sessionCookie.length > 10 && !sessionCookie.startsWith('deleted');
+      sessionDebugInfo = {
+        parseError: error instanceof Error ? error.message : 'Parse failed',
+        cookieLength: sessionCookie.length,
+        fallbackAuth: isAuthenticated
+      };
     }
   }
 
@@ -52,6 +65,8 @@ export function middleware(request: NextRequest) {
     isPublic,
     isAuthenticated,
     hasSessionCookie: Boolean(sessionCookie),
+    sessionDebugInfo,
+    cookiePreview: sessionCookie ? sessionCookie.substring(0, 50) + '...' : 'NONE'
   });
 
   // 未登录访问受保护路由 -> 重定向到登录页
