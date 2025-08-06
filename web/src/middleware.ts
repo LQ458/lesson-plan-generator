@@ -83,7 +83,10 @@ export function middleware(request: NextRequest) {
   });
 
   console.log('Cookie Analysis:', {
-    allCookies: Object.fromEntries(request.cookies.entries()),
+    allCookies: Array.from(request.cookies).reduce((acc: any, [name, cookie]) => {
+      acc[name] = cookie.value;
+      return acc;
+    }, {}),
     sessionCookieExists: Boolean(sessionCookie),
     sessionCookieLength: sessionCookie?.length || 0,
     sessionCookieStart: sessionCookie?.substring(0, 100) || 'NONE',
