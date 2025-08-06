@@ -58,16 +58,52 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Debug logging for production troubleshooting
-  console.log('Middleware check:', {
+  // Extremely detailed logging for production troubleshooting
+  console.log('=== MIDDLEWARE DETAILED DEBUG ===');
+  console.log('Request Info:', {
+    pathname,
+    url: request.url,
+    method: request.method,
+    headers: {
+      origin: request.headers.get('origin'),
+      referer: request.headers.get('referer'),
+      userAgent: request.headers.get('user-agent')?.substring(0, 100),
+      cookie: request.headers.get('cookie')?.substring(0, 200) + '...'
+    }
+  });
+  
+  console.log('Route Classification:', {
     pathname,
     isProtected,
     isPublic,
-    isAuthenticated,
-    hasSessionCookie: Boolean(sessionCookie),
-    sessionDebugInfo,
-    cookiePreview: sessionCookie ? sessionCookie.substring(0, 50) + '...' : 'NONE'
+    protectedRoutes,
+    publicRoutes,
+    matchesProtected: protectedRoutes.filter(route => pathname.startsWith(route)),
+    isInPublicList: publicRoutes.includes(pathname)
   });
+
+  console.log('Cookie Analysis:', {
+    allCookies: Object.fromEntries(request.cookies.entries()),
+    sessionCookieExists: Boolean(sessionCookie),
+    sessionCookieLength: sessionCookie?.length || 0,
+    sessionCookieStart: sessionCookie?.substring(0, 100) || 'NONE',
+    sessionCookieEnd: sessionCookie?.length > 100 ? '...' + sessionCookie.substring(sessionCookie.length - 50) : '',
+    rawCookieHeader: request.headers.get('cookie')
+  });
+
+  console.log('Authentication Analysis:', {
+    isAuthenticated,
+    sessionDebugInfo,
+    authenticationMethod: sessionDebugInfo?.parseError ? 'fallback' : 'json-parse'
+  });
+
+  console.log('Final Decision:', {
+    willRedirectToLogin: isProtected && !isAuthenticated,
+    willRedirectToLessonPlan: pathname === "/login" && isAuthenticated,
+    willPassThrough: !isProtected || isAuthenticated
+  });
+  
+  console.log('=== END MIDDLEWARE DEBUG ===');
 
   // 未登录访问受保护路由 -> 重定向到登录页
   if (isProtected && !isAuthenticated) {
