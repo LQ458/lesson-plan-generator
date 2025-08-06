@@ -90,7 +90,7 @@ export function middleware(request: NextRequest) {
     sessionCookieExists: Boolean(sessionCookie),
     sessionCookieLength: sessionCookie?.length || 0,
     sessionCookieStart: sessionCookie?.substring(0, 100) || 'NONE',
-    sessionCookieEnd: sessionCookie?.length > 100 ? '...' + sessionCookie.substring(sessionCookie.length - 50) : '',
+    sessionCookieEnd: sessionCookie && sessionCookie.length > 100 ? '...' + sessionCookie.substring(sessionCookie.length - 50) : '',
     rawCookieHeader: request.headers.get('cookie')
   });
 
