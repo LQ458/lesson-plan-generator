@@ -1,76 +1,102 @@
-import { cookies } from "next/headers";
-import { getApiUrl, API_ENDPOINTS } from "./api-config";
+import { NextAuthOptions } from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
-export interface SessionData {
-  userId: string;
-  username: string;
-  preferences: {
-    theme: string;
-    language: string;
-    notifications: boolean;
-    subject: string;
-    gradeLevel: string;
-    easyMode: boolean;
-  };
-  inviteCode?: string;
-  iat?: number;
-  exp?: number;
-  [key: string]: string | Date | number | object | undefined;
+interface User {
+  id: string
+  username: string
+  preferences: any
 }
 
-// 简化：不在前端验证JWT，直接调用后端验证
-export async function verifySession(
-  token: string,
-): Promise<SessionData | null> {
-  try {
-    // 调用后端验证API
-    const response = await fetch(
-      getApiUrl(API_ENDPOINTS.AUTH.VERIFY_TOKEN),
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+export const authOptions: NextAuthOptions = {
+  providers: [
+    CredentialsProvider({
+      name: 'credentials',
+      credentials: {
+        username: { label: 'Username', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+        inviteCode: { label: 'Invite Code', type: 'text' }
       },
-    );
+      async authorize(credentials): Promise<User | null> {
+        if (!credentials?.username || !credentials?.password) {
+          console.log('[NextAuth] Missing credentials')
+          return null
+        }
 
-    if (response.ok) {
-      const data = await response.json();
-      return data.user;
+        try {
+          console.log('[NextAuth] Attempting login for username:', credentials.username)
+          
+          // Call backend API to verify credentials
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username: credentials.username,
+              password: credentials.password,
+            }),
+          })
+
+          console.log('[NextAuth] Backend response status:', response.status)
+
+          if (!response.ok) {
+            const errorText = await response.text()
+            console.log('[NextAuth] Backend error response:', errorText)
+            return null
+          }
+
+          const data = await response.json()
+          console.log('[NextAuth] Backend response data:', {
+            success: data.success,
+            hasUser: !!data.data?.user,
+            userId: data.data?.user?._id,
+            username: data.data?.user?.username
+          })
+
+          if (data.success && data.data?.user) {
+            const user = {
+              id: data.data.user._id,
+              username: data.data.user.username,
+              preferences: data.data.user.preferences,
+            }
+            console.log('[NextAuth] Returning user:', user)
+            return user
+          }
+
+          console.log('[NextAuth] Invalid response structure, returning null')
+          return null
+        } catch (error) {
+          console.error('[NextAuth] Auth error:', error)
+          return null
+        }
+      }
+    })
+  ],
+  session: {
+    strategy: 'jwt',
+    maxAge: 7 * 24 * 60 * 60, // 7 days
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.username = user.username
+        token.preferences = user.preferences
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.sub as string
+        session.user.username = token.username as string
+        session.user.preferences = token.preferences
+      }
+      return session
     }
-    return null;
-  } catch (error) {
-    console.error("Token verification failed:", error);
-    return null;
-  }
-}
-
-// 获取当前会话
-export async function getSession(): Promise<SessionData | null> {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("session")?.value;
-
-  if (!token) return null;
-
-  return await verifySession(token);
-}
-
-// 设置会话cookie
-export async function setSessionCookie(token: string) {
-  const cookieStore = await cookies();
-
-  cookieStore.set("session", token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: 60 * 60 * 24 * 7, // 7天
-    path: "/",
-  });
-}
-
-// 清除会话
-export async function clearSession() {
-  const cookieStore = await cookies();
-  cookieStore.delete("session");
+  },
+  pages: {
+    signIn: '/login',
+    error: '/login',
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development',
 }

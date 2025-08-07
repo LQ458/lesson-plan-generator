@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import {
   KeyIcon,
@@ -12,9 +13,8 @@ import {
   EyeSlashIcon,
 } from "@heroicons/react/24/outline";
 import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
-import { storeAuthState, navigateWithAuth } from "@/lib/auth-helper";
 
-type Step = "invite" | "auth" | "direct-login";
+type Step = "invite" | "auth" | "login";
 
 interface UserPreferences {
   subject: string;
@@ -36,14 +36,12 @@ export default function LoginPage() {
     hasNumber: false,
   });
 
-  // 认证表单数据
   const [authForm, setAuthForm] = useState({
     username: "",
     password: "",
     confirmPassword: "",
   });
 
-  // 用户偏好
   const [userPreferences, setUserPreferences] = useState<UserPreferences>({
     subject: "math",
     gradeLevel: "primary_1",
@@ -52,7 +50,7 @@ export default function LoginPage() {
 
   const router = useRouter();
 
-  // 密码验证函数
+  // Password validation
   const validatePassword = (password: string) => {
     const validation = {
       length: password.length >= 6,
@@ -63,7 +61,6 @@ export default function LoginPage() {
     return validation.length && validation.hasLetter && validation.hasNumber;
   };
 
-  // 处理密码输入变化
   const handlePasswordChange = (value: string) => {
     setAuthForm((prev) => ({ ...prev, password: value }));
     if (isRegistering) {
@@ -71,7 +68,7 @@ export default function LoginPage() {
     }
   };
 
-  // 验证邀请码
+  // Verify invite code
   const handleInviteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inviteCode.trim()) {
@@ -109,7 +106,7 @@ export default function LoginPage() {
     }
   };
 
-  // 登录
+  // Login with NextAuth
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!authForm.username || !authForm.password) {
@@ -121,37 +118,18 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.LOGIN), {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // 包含cookies
-        body: JSON.stringify({
-          username: authForm.username,
-          password: authForm.password,
-        }),
+      const result = await signIn("credentials", {
+        username: authForm.username,
+        password: authForm.password,
+        redirect: false,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        // 登录成功，后端已经设置了session cookie
-        console.log('Login successful, storing auth state and redirecting');
-        
-        // Store auth state for client-side navigation
-        storeAuthState({
-          userId: data.userId || data.user?.id,
-          username: data.username || data.user?.username || authForm.username,
-          token: data.token || data.accessToken
-        });
-        
-        // Use enhanced navigation that includes auth headers
-        setTimeout(() => {
-          navigateWithAuth("/lesson-plan");
-        }, 100);
-      } else {
-        setError(data.message || "登录失败");
+      if (result?.error) {
+        setError("用户名或密码错误");
+      } else if (result?.ok) {
+        // Login successful, redirect to main page
+        router.push("/lesson-plan");
+        router.refresh();
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -161,11 +139,10 @@ export default function LoginPage() {
     }
   };
 
-  // 注册
+  // Register user (still uses backend API, then signs in with NextAuth)
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 验证表单
     if (!authForm.username || !authForm.password || !authForm.confirmPassword) {
       setError("请填写所有必填字段");
       return;
@@ -185,12 +162,12 @@ export default function LoginPage() {
     setError("");
 
     try {
+      // First register with backend
       const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.REGISTER), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include", // 包含cookies
         body: JSON.stringify({
           inviteCode: inviteCode.trim(),
           username: authForm.username,
@@ -203,22 +180,20 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (response.ok) {
-        // 注册成功，后端已经设置了session cookie
-        console.log('Registration successful, storing auth state and redirecting');
-        
-        // Store auth state for client-side navigation
-        storeAuthState({
-          userId: data.userId || data.user?.id,
-          username: data.username || data.user?.username || authForm.username,
-          token: data.token || data.accessToken
+        // Registration successful, now sign in with NextAuth
+        const result = await signIn("credentials", {
+          username: authForm.username,
+          password: authForm.password,
+          redirect: false,
         });
-        
-        // Use enhanced navigation that includes auth headers
-        setTimeout(() => {
-          navigateWithAuth("/lesson-plan");
-        }, 100);
+
+        if (result?.ok) {
+          router.push("/lesson-plan");
+          router.refresh();
+        } else {
+          setError("注册成功但登录失败，请手动登录");
+        }
       } else {
-        // Handle validation errors from backend
         if (data.errors && Array.isArray(data.errors)) {
           const errorMessages = data.errors.map((err: any) => err.msg).join("; ");
           setError(errorMessages);
@@ -234,7 +209,39 @@ export default function LoginPage() {
     }
   };
 
-  // 渲染邀请码验证步骤
+  // Direct login (skip invite code)
+  const handleDirectLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!authForm.username || !authForm.password) {
+      setError("请填写用户名和密码");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const result = await signIn("credentials", {
+        username: authForm.username,
+        password: authForm.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError("用户名或密码错误");
+      } else if (result?.ok) {
+        router.push("/lesson-plan");
+        router.refresh();
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("登录失败，请重试");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Render invite step
   const renderInviteStep = () => (
     <form onSubmit={handleInviteSubmit} className="space-y-6">
       <div className="text-left">
@@ -273,7 +280,7 @@ export default function LoginPage() {
     </form>
   );
 
-  // 渲染认证步骤（登录/注册选择）
+  // Render auth step (login/register choice)
   const renderAuthStep = () => (
     <div className="space-y-6">
       <div className="text-center">
@@ -312,7 +319,7 @@ export default function LoginPage() {
         onSubmit={isRegistering ? handleRegister : handleLogin}
         className="space-y-4"
       >
-        {/* 用户名 */}
+        {/* Username */}
         <div>
           <label htmlFor="username" className="block text-sm font-medium mb-2">
             用户名
@@ -331,7 +338,7 @@ export default function LoginPage() {
           />
         </div>
 
-        {/* 密码 */}
+        {/* Password */}
         <div>
           <label htmlFor="password" className="block text-sm font-medium mb-2">
             密码
@@ -365,7 +372,7 @@ export default function LoginPage() {
             </button>
           </div>
           
-          {/* 密码强度指示器（仅注册时显示） */}
+          {/* Password strength indicators (registration only) */}
           {isRegistering && authForm.password && (
             <div className="mt-2 space-y-1">
               <div className="flex items-center text-xs">
@@ -390,7 +397,7 @@ export default function LoginPage() {
           )}
         </div>
 
-        {/* 确认密码（仅注册时） */}
+        {/* Confirm password (registration only) */}
         {isRegistering && (
           <div>
             <label
@@ -434,7 +441,7 @@ export default function LoginPage() {
               </button>
             </div>
             
-            {/* 密码匹配提示 */}
+            {/* Password match indicator */}
             {authForm.confirmPassword && (
               <div className="mt-1 flex items-center text-xs">
                 {authForm.password === authForm.confirmPassword ? (
@@ -453,7 +460,7 @@ export default function LoginPage() {
           </div>
         )}
 
-        {/* 教学偏好（仅注册时） */}
+        {/* Teaching preferences (registration only) */}
         {isRegistering && (
           <div className="space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700">
             <h4 className="font-semibold">教学偏好设置</h4>
@@ -565,11 +572,10 @@ export default function LoginPage() {
     </div>
   );
 
-  // 渲染直接登录步骤
-  const renderDirectLoginStep = () => (
+  // Render direct login
+  const renderLoginStep = () => (
     <div className="space-y-6">
-      <form onSubmit={handleLogin} className="space-y-4">
-        {/* 用户名 */}
+      <form onSubmit={handleDirectLogin} className="space-y-4">
         <div>
           <label htmlFor="username" className="block text-sm font-medium mb-2">
             用户名
@@ -589,7 +595,6 @@ export default function LoginPage() {
           />
         </div>
 
-        {/* 密码 */}
         <div>
           <label htmlFor="password" className="block text-sm font-medium mb-2">
             密码
@@ -669,7 +674,7 @@ export default function LoginPage() {
           <p className="text-gray-600 dark:text-gray-300 mb-8">
             {step === "invite" && "请输入您的邀请码以开始使用智能教案生成工具"}
             {step === "auth" && "请登录或注册您的账号"}
-            {step === "direct-login" && "请使用您的用户名和密码登录"}
+            {step === "login" && "请使用您的用户名和密码登录"}
           </p>
 
           {/* Error Message */}
@@ -683,22 +688,24 @@ export default function LoginPage() {
           {/* Form Content */}
           {step === "invite" && renderInviteStep()}
           {step === "auth" && renderAuthStep()}
-          {step === "direct-login" && renderDirectLoginStep()}
+          {step === "login" && renderLoginStep()}
 
           {/* Help Text */}
           <div className="mt-8 text-sm text-gray-500 dark:text-gray-400">
             <p>邀请码由管理员提供</p>
             <p className="mt-1">如有问题请联系技术支持</p>
 
-            {/* 直接登录选项 */}
-            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <button
-                onClick={() => setStep("direct-login")}
-                className="text-apple-blue hover:text-apple-blue/80 font-medium"
-              >
-                已有账号？直接登录 →
-              </button>
-            </div>
+            {/* Direct login option */}
+            {step === "invite" && (
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <button
+                  onClick={() => setStep("login")}
+                  className="text-apple-blue hover:text-apple-blue/80 font-medium"
+                >
+                  已有账号？直接登录 →
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

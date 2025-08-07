@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 import { ThemeToggle } from "./theme-toggle";
-import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
-import { clearAuthState } from "@/lib/auth-helper";
 import {
   HomeIcon,
   DocumentTextIcon,
@@ -17,7 +15,7 @@ import {
   BookmarkIcon,
 } from "@heroicons/react/24/outline";
 
-// 完整导航项（登录后）
+// Navigation items for authenticated users
 const protectedNavigation = [
   { name: "教案生成", href: "/lesson-plan", icon: DocumentTextIcon },
   { name: "练习题", href: "/exercises", icon: AcademicCapIcon },
@@ -25,66 +23,18 @@ const protectedNavigation = [
   { name: "设置", href: "/settings", icon: Cog6ToothIcon },
 ];
 
-// 公开导航项（未登录）
+// Navigation items for public users
 const publicNavigation = [{ name: "首页", href: "/", icon: HomeIcon }];
 
 export function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState<{ username: string } | null>(null);
-
-  // 检查登录状态和用户信息
-  useEffect(() => {
-    const checkAuthStatus = async () => {
-      try {
-        const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.VERIFY), {
-          credentials: "include",
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setIsLoggedIn(true);
-          setUserInfo({ username: data.data?.username || "用户" });
-        } else {
-          setIsLoggedIn(false);
-          setUserInfo(null);
-        }
-      } catch {
-        setIsLoggedIn(false);
-        setUserInfo(null);
-      }
-    };
-
-    checkAuthStatus();
-  }, [pathname]);
+  const { data: session, status } = useSession();
+  
+  const isLoggedIn = status === "authenticated";
+  const isLoading = status === "loading";
 
   const handleLogout = async () => {
-    try {
-      await fetch("/api/auth/logout", { 
-        method: "POST",
-        credentials: "include" // Make sure cookies are included
-      });
-      
-      // Clear all auth state
-      clearAuthState();
-      setIsLoggedIn(false);
-      setUserInfo(null);
-      
-      // Force clear cookie (backup)
-      document.cookie =
-        "session=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-      
-      // Hard redirect to ensure complete logout
-      window.location.href = "/login";
-    } catch (error) {
-      console.error("Logout failed:", error);
-      // Even if logout fails, clear local state
-      clearAuthState();
-      setIsLoggedIn(false);
-      setUserInfo(null);
-      window.location.href = "/login";
-    }
+    await signOut({ callbackUrl: "/login" });
   };
 
   const navigation = isLoggedIn ? protectedNavigation : publicNavigation;
@@ -129,10 +79,12 @@ export function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            {isLoggedIn ? (
+            {isLoading ? (
+              <div className="w-5 h-5 border-2 border-gray-300 border-t-transparent rounded-full animate-spin" />
+            ) : isLoggedIn ? (
               <div className="hidden md:flex items-center gap-2">
                 <span className="text-sm text-gray-600 dark:text-gray-300">
-                  {userInfo?.username}
+                  {session?.user?.username}
                 </span>
                 <button
                   onClick={handleLogout}
