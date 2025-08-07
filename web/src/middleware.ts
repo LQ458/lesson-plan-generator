@@ -8,7 +8,7 @@ const protectedRoutes = [
   "/settings",
 ];
 // 指定公开路由（无需登录）
-const publicRoutes = ["/login", "/", "/debug-auth"];
+const publicRoutes = ["/login", "/", "/debug-auth", "/debug-auth-live"];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -34,8 +34,18 @@ export function middleware(request: NextRequest) {
   let authMethod = 'none';
   let sessionDebugInfo: any = {};
 
-  // METHOD 1: Try session cookie (original method)
-  const sessionCookie = request.cookies.get("session")?.value;
+  // METHOD 1: Try session cookie (multiple ways)
+  let sessionCookie = request.cookies.get("session")?.value;
+  
+  // Also try to get cookie from raw header as backup
+  if (!sessionCookie) {
+    const rawCookies = request.headers.get('cookie') || '';
+    const sessionMatch = rawCookies.match(/session=([^;]+)/);
+    if (sessionMatch) {
+      sessionCookie = sessionMatch[1];
+    }
+  }
+  
   if (sessionCookie) {
     try {
       // URL decode the cookie first (common production issue)
@@ -52,11 +62,21 @@ export function middleware(request: NextRequest) {
         sessionDebugInfo = {
           method: 'session-cookie',
           hasUserId: Boolean(sessionData?.userId),
-          wasUrlEncoded: sessionCookie.includes('%')
+          wasUrlEncoded: sessionCookie.includes('%'),
+          userId: sessionData.userId,
+          username: sessionData.username
         };
       }
     } catch (error) {
       sessionDebugInfo.cookieParseError = error instanceof Error ? error.message : 'Parse failed';
+      sessionDebugInfo.rawCookie = sessionCookie?.substring(0, 100);
+      
+      // Even if JSON parsing fails, check if it contains userId (backup method)
+      if (sessionCookie && sessionCookie.includes('userId')) {
+        isAuthenticated = true;
+        authMethod = 'session-cookie-fallback';
+        sessionDebugInfo.method = 'session-cookie-fallback';
+      }
     }
   }
 
