@@ -172,8 +172,8 @@ router.post("/register", registerValidation, async (req, res) => {
     };
 
     // 生产环境域名配置
-    if (process.env.NODE_ENV === "production" && process.env.COOKIE_DOMAIN) {
-      cookieOptions.domain = process.env.COOKIE_DOMAIN;
+    if (process.env.NODE_ENV === "production") {
+      cookieOptions.domain = process.env.COOKIE_DOMAIN || ".bijielearn.com";
     }
 
     console.log('Setting register session cookie with options:', {
@@ -251,8 +251,8 @@ router.post("/login", loginLimiter, async (req, res) => {
     };
 
     // 生产环境域名配置
-    if (process.env.NODE_ENV === "production" && process.env.COOKIE_DOMAIN) {
-      cookieOptions.domain = process.env.COOKIE_DOMAIN;
+    if (process.env.NODE_ENV === "production") {
+      cookieOptions.domain = process.env.COOKIE_DOMAIN || ".bijielearn.com";
     }
 
     console.log('Setting login session cookie with options:', {

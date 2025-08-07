@@ -8,7 +8,7 @@ const protectedRoutes = [
   "/settings",
 ];
 // 指定公开路由（无需登录）
-const publicRoutes = ["/login", "/", "/debug-auth", "/debug-auth-live"];
+const publicRoutes = ["/login", "/", "/debug-auth"];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
