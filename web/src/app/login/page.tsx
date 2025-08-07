@@ -12,6 +12,7 @@ import {
   EyeSlashIcon,
 } from "@heroicons/react/24/outline";
 import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
+import { storeAuthState, navigateWithAuth } from "@/lib/auth-helper";
 
 type Step = "invite" | "auth" | "direct-login";
 
@@ -136,11 +137,18 @@ export default function LoginPage() {
 
       if (response.ok) {
         // 登录成功，后端已经设置了session cookie
-        console.log('Login successful, redirecting to lesson-plan');
+        console.log('Login successful, storing auth state and redirecting');
         
-        // 给cookie一点时间设置，然后使用硬重定向避免middleware竞争
+        // Store auth state for client-side navigation
+        storeAuthState({
+          userId: data.userId || data.user?.id,
+          username: data.username || data.user?.username || authForm.username,
+          token: data.token || data.accessToken
+        });
+        
+        // Use enhanced navigation that includes auth headers
         setTimeout(() => {
-          window.location.href = "/lesson-plan";
+          navigateWithAuth("/lesson-plan");
         }, 100);
       } else {
         setError(data.message || "登录失败");
@@ -196,11 +204,18 @@ export default function LoginPage() {
 
       if (response.ok) {
         // 注册成功，后端已经设置了session cookie
-        console.log('Registration successful, redirecting to lesson-plan');
+        console.log('Registration successful, storing auth state and redirecting');
         
-        // 给cookie一点时间设置，然后使用硬重定向避免middleware竞争
+        // Store auth state for client-side navigation
+        storeAuthState({
+          userId: data.userId || data.user?.id,
+          username: data.username || data.user?.username || authForm.username,
+          token: data.token || data.accessToken
+        });
+        
+        // Use enhanced navigation that includes auth headers
         setTimeout(() => {
-          window.location.href = "/lesson-plan";
+          navigateWithAuth("/lesson-plan");
         }, 100);
       } else {
         // Handle validation errors from backend

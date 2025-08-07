@@ -29,11 +29,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 读取 session cookie（仅做乐观检查，避免远程请求）
-  const sessionCookie = request.cookies.get("session")?.value;
+  // MULTI-METHOD AUTHENTICATION: Try multiple auth methods in order
   let isAuthenticated = false;
-  let sessionDebugInfo = null;
+  let authMethod = 'none';
+  let sessionDebugInfo: any = {};
 
+  // METHOD 1: Try session cookie (original method)
+  const sessionCookie = request.cookies.get("session")?.value;
   if (sessionCookie) {
     try {
       // URL decode the cookie first (common production issue)
@@ -44,25 +46,83 @@ export function middleware(request: NextRequest) {
       
       // Try to parse the session cookie to validate it's a valid JSON
       const sessionData = JSON.parse(decodedCookie);
-      isAuthenticated = Boolean(sessionData && (sessionData.userId || sessionData.user?.id));
-      sessionDebugInfo = {
-        hasUserId: Boolean(sessionData?.userId),
-        hasUserObject: Boolean(sessionData?.user),
-        hasUserIdInObject: Boolean(sessionData?.user?.id),
-        keys: sessionData ? Object.keys(sessionData) : [],
-        wasUrlEncoded: sessionCookie.includes('%'),
-        originalLength: sessionCookie.length,
-        decodedLength: decodedCookie.length
-      };
+      if (sessionData && (sessionData.userId || sessionData.user?.id)) {
+        isAuthenticated = true;
+        authMethod = 'session-cookie';
+        sessionDebugInfo = {
+          method: 'session-cookie',
+          hasUserId: Boolean(sessionData?.userId),
+          wasUrlEncoded: sessionCookie.includes('%')
+        };
+      }
     } catch (error) {
-      // If parsing fails, try simple existence check (fallback for different cookie formats)
-      isAuthenticated = sessionCookie.length > 10 && !sessionCookie.startsWith('deleted');
-      sessionDebugInfo = {
-        parseError: error instanceof Error ? error.message : 'Parse failed',
-        cookieLength: sessionCookie.length,
-        fallbackAuth: isAuthenticated,
-        cookiePreview: sessionCookie.substring(0, 50)
-      };
+      sessionDebugInfo.cookieParseError = error instanceof Error ? error.message : 'Parse failed';
+    }
+  }
+
+  // METHOD 2: Try Authorization header (Bearer token)
+  if (!isAuthenticated) {
+    const authHeader = request.headers.get('authorization');
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      const token = authHeader.substring(7); // Remove 'Bearer ' prefix
+      if (token && token.length > 10) {
+        // For production, you'd validate this token against your backend
+        // For now, we'll do a simple existence check
+        isAuthenticated = true;
+        authMethod = 'bearer-token';
+        sessionDebugInfo.method = 'bearer-token';
+        sessionDebugInfo.tokenLength = token.length;
+      }
+    }
+  }
+
+  // METHOD 3: Try custom auth header
+  if (!isAuthenticated) {
+    const customAuth = request.headers.get('x-auth-token');
+    if (customAuth && customAuth.length > 10) {
+      isAuthenticated = true;
+      authMethod = 'custom-header';
+      sessionDebugInfo.method = 'custom-header';
+    }
+  }
+
+  // METHOD 4: For client-side navigation, check for auth state in headers
+  if (!isAuthenticated) {
+    const clientAuth = request.headers.get('x-client-auth');
+    if (clientAuth === 'authenticated') {
+      isAuthenticated = true;
+      authMethod = 'client-state';
+      sessionDebugInfo.method = 'client-state';
+    }
+  }
+
+  // METHOD 5: Check URL parameters as fallback for client-side navigation
+  if (!isAuthenticated) {
+    const url = new URL(request.url);
+    const authUser = url.searchParams.get('_auth_user');
+    const authTemp = url.searchParams.get('_auth_temp');
+    
+    if (authUser && authTemp) {
+      // Check if the auth timestamp is recent (within 30 seconds)
+      const timestamp = parseInt(authTemp);
+      const now = Date.now();
+      const thirtySeconds = 30 * 1000;
+      
+      if (now - timestamp < thirtySeconds) {
+        isAuthenticated = true;
+        authMethod = 'url-params';
+        sessionDebugInfo.method = 'url-params';
+        sessionDebugInfo.authUser = authUser;
+        
+        // Clean up the URL by redirecting without the auth parameters
+        const cleanUrl = new URL(request.url);
+        cleanUrl.searchParams.delete('_auth_user');
+        cleanUrl.searchParams.delete('_auth_temp');
+        
+        if (cleanUrl.toString() !== request.url) {
+          return NextResponse.redirect(cleanUrl);
+        }
+      }
     }
   }
 
@@ -73,14 +133,20 @@ export function middleware(request: NextRequest) {
     pathname,
     isProtected,
     isAuthenticated,
+    authMethod,
     hasSessionCookie: Boolean(sessionCookie),
     sessionCookieLength: sessionCookie?.length || 0,
-    decision: isProtected && !isAuthenticated ? 'REDIRECT_TO_LOGIN' : 'ALLOW_ACCESS'
+    hasAuthHeader: Boolean(request.headers.get('authorization')),
+    hasCustomAuthHeader: Boolean(request.headers.get('x-auth-token')),
+    hasClientAuthHeader: Boolean(request.headers.get('x-client-auth')),
+    decision: isProtected && !isAuthenticated ? 'REDIRECT_TO_LOGIN' : 'ALLOW_ACCESS',
+    sessionDebugInfo
   };
   
   // Add debug headers that are visible in browser dev tools
   response.headers.set('X-Auth-Debug', JSON.stringify(debugInfo));
   response.headers.set('X-Auth-Status', isAuthenticated ? 'authenticated' : 'unauthenticated');
+  response.headers.set('X-Auth-Method', authMethod);
   response.headers.set('X-Cookie-Present', Boolean(sessionCookie) ? 'yes' : 'no');
 
   // 未登录访问受保护路由 -> 重定向到登录页

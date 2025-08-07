@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SettingsProvider } from "@/lib/settings-context";
 import { Navbar } from "@/components/navbar";
+import AuthNavigation from "@/components/auth-navigation";
 // import { StagewiseToolbar } from "@stagewise/toolbar-next";
 // import { ReactPlugin } from "@stagewise-plugins/react";
 
@@ -32,15 +33,17 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <SettingsProvider>
-            <div className="min-h-screen bg-light-bg dark:bg-dark-bg">
-              <Navbar />
-              <main className="pb-16 md:pb-0">{children}</main>
-            </div>
-            {/* <StagewiseToolbar
-              config={{
-                plugins: [ReactPlugin],
-              }}
-            /> */}
+            <AuthNavigation>
+              <div className="min-h-screen bg-light-bg dark:bg-dark-bg">
+                <Navbar />
+                <main className="pb-16 md:pb-0">{children}</main>
+              </div>
+              {/* <StagewiseToolbar
+                config={{
+                  plugins: [ReactPlugin],
+                }}
+              /> */}
+            </AuthNavigation>
           </SettingsProvider>
         </ThemeProvider>
       </body>

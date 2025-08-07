@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
+import { clearAuthState } from "@/lib/auth-helper";
 import {
   HomeIcon,
   DocumentTextIcon,
@@ -60,16 +61,29 @@ export function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await fetch("/api/auth/logout", { method: "POST" });
+      await fetch("/api/auth/logout", { 
+        method: "POST",
+        credentials: "include" // Make sure cookies are included
+      });
+      
+      // Clear all auth state
+      clearAuthState();
       setIsLoggedIn(false);
       setUserInfo(null);
-      // 清除cookie
+      
+      // Force clear cookie (backup)
       document.cookie =
         "session=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-      router.push("/login");
-      router.refresh();
+      
+      // Hard redirect to ensure complete logout
+      window.location.href = "/login";
     } catch (error) {
       console.error("Logout failed:", error);
+      // Even if logout fails, clear local state
+      clearAuthState();
+      setIsLoggedIn(false);
+      setUserInfo(null);
+      window.location.href = "/login";
     }
   };
 
