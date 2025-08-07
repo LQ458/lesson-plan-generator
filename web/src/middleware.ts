@@ -58,55 +58,37 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Extremely detailed logging for production troubleshooting
-  console.log('=== MIDDLEWARE DETAILED DEBUG ===');
-  console.log('Request Info:', {
+  // Force logging to multiple channels for production debugging
+  const debugInfo = {
+    timestamp: new Date().toISOString(),
     pathname,
     url: request.url,
-    method: request.method,
-    headers: {
-      origin: request.headers.get('origin'),
-      referer: request.headers.get('referer'),
-      userAgent: request.headers.get('user-agent')?.substring(0, 100),
-      cookie: request.headers.get('cookie')?.substring(0, 200) + '...'
-    }
-  });
-  
-  console.log('Route Classification:', {
-    pathname,
     isProtected,
     isPublic,
-    protectedRoutes,
-    publicRoutes,
-    matchesProtected: protectedRoutes.filter(route => pathname.startsWith(route)),
-    isInPublicList: publicRoutes.includes(pathname)
-  });
-
-  console.log('Cookie Analysis:', {
-    allCookies: Array.from(request.cookies).reduce((acc: any, [name, cookie]) => {
-      acc[name] = cookie.value;
-      return acc;
-    }, {}),
-    sessionCookieExists: Boolean(sessionCookie),
+    hasSessionCookie: Boolean(sessionCookie),
     sessionCookieLength: sessionCookie?.length || 0,
-    sessionCookieStart: sessionCookie?.substring(0, 100) || 'NONE',
-    sessionCookieEnd: sessionCookie && sessionCookie.length > 100 ? '...' + sessionCookie.substring(sessionCookie.length - 50) : '',
-    rawCookieHeader: request.headers.get('cookie')
-  });
-
-  console.log('Authentication Analysis:', {
     isAuthenticated,
     sessionDebugInfo,
-    authenticationMethod: sessionDebugInfo?.parseError ? 'fallback' : 'json-parse'
-  });
+    decision: isProtected && !isAuthenticated ? 'REDIRECT_TO_LOGIN' : 'ALLOW_ACCESS',
+    sessionData: sessionCookie ? 'EXISTS' : 'MISSING',
+    cookieValue: sessionCookie?.substring(0, 100) || 'NONE'
+  };
 
-  console.log('Final Decision:', {
-    willRedirectToLogin: isProtected && !isAuthenticated,
-    willRedirectToLessonPlan: pathname === "/login" && isAuthenticated,
-    willPassThrough: !isProtected || isAuthenticated
-  });
-  
-  console.log('=== END MIDDLEWARE DEBUG ===');
+  // Use multiple console methods to ensure visibility in production
+  console.error('🔴 MIDDLEWARE:', JSON.stringify(debugInfo, null, 2));
+  console.warn('🟡 MIDDLEWARE:', JSON.stringify(debugInfo, null, 2));
+  console.log('🟢 MIDDLEWARE:', JSON.stringify(debugInfo, null, 2));
+  console.info('ℹ️ MIDDLEWARE:', JSON.stringify(debugInfo, null, 2));
+
+  // Manual decode test - the session cookie from your API call
+  const testSessionCookie = '%7B%22userId%22%3A%226891db29feb0a40a2d2b1a31%22%2C%22username%22%3A%22test%22%2C%22userPreferences%22%3A%7B%22theme%22%3A%22system%22%2C%22language%22%3A%22zh_CN%22%2C%22notifications%22%3Atrue%2C%22subject%22%3A%22math%22%2C%22gradeLevel%22%3A%22junior_1%22%2C%22easyMode%22%3Afalse%7D%2C%22createdAt%22%3A%222025-08-07T04%3A46%3A25.543Z%22%7D';
+  try {
+    const decoded = decodeURIComponent(testSessionCookie);
+    const parsed = JSON.parse(decoded);
+    console.error('🧪 MANUAL DECODE TEST:', { decoded, parsed, hasUserId: Boolean(parsed.userId) });
+  } catch (error) {
+    console.error('🧪 MANUAL DECODE FAILED:', error);
+  }
 
   // 未登录访问受保护路由 -> 重定向到登录页
   if (isProtected && !isAuthenticated) {
