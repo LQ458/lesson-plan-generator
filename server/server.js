@@ -570,6 +570,29 @@ app.get(
   }),
 );
 
+// Zeabur-specific health check endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "healthy",
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    version: "1.0.0",
+    cors_origins: process.env.ALLOWED_ORIGINS?.split(',') || 'using defaults',
+    port: process.env.PORT || 3001
+  });
+});
+
+// Root endpoint for Zeabur
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "TeachAI API Server",
+    status: "running",
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString(),
+    cors_configured: !!process.env.ALLOWED_ORIGINS
+  });
+});
+
 // 404处理
 app.use("*", notFoundHandler);
 
@@ -579,12 +602,18 @@ app.use(errorHandler);
 // 导出app用于测试
 module.exports = app;
 
+// PORT configuration for Zeabur
+const PORT = process.env.PORT || 3001;
+
 // 只有在直接运行时才启动服务器
 if (require.main === module) {
-  app.listen(PORT, async () => {
+  app.listen(PORT, '0.0.0.0', async () => {
     console.log(`🚀 服务器启动成功，端口: ${PORT}`);
+    console.log(`🌐 环境: ${process.env.NODE_ENV}`);
+    console.log(`🔒 CORS Origins: ${process.env.ALLOWED_ORIGINS || 'using defaults'}`);
     console.log(`📊 健康检查: http://localhost:${PORT}/api/health`);
     console.log(`📈 服务状态: http://localhost:${PORT}/api/status`);
+    console.log(`🌍 外部访问: https://api.bijielearn.com`);
   });
 }
 

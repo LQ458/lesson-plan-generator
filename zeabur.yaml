@@ -1,0 +1,29 @@
+# Zeabur Configuration
+services:
+  backend:
+    # Build configuration
+    build:
+      buildCommand: "cd server && npm install"
+    # Runtime configuration  
+    start: "cd server && node server.js"
+    # Environment variables
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+    # Health check
+    healthCheck:
+      path: "/api/health"
+      port: 3001
+    # Domain configuration
+    domains:
+      - api.bijielearn.com
+  
+  frontend:
+    build:
+      buildCommand: "cd web && npm install && npm run build"
+    start: "cd web && npm start"
+    environment:
+      NODE_ENV: production
+    domains:
+      - bijielearn.com
+      - www.bijielearn.com
