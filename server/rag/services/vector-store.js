@@ -1,5 +1,4 @@
-const { ChromaClient } = require("chromadb");
-const { DefaultEmbeddingFunction } = require("chromadb");
+const { ChromaClient, CloudClient, DefaultEmbeddingFunction } = require("chromadb");
 const fs = require("fs").promises;
 const path = require("path");
 const logger = require("../../utils/logger");
@@ -23,12 +22,22 @@ class VectorStoreService {
 
   async initialize() {
     try {
-      // 初始化ChromaDB客户端
-      this.client = new ChromaClient({
-        path: config.chroma.path,
-      });
-
-      logger.info(`连接到ChromaDB: ${config.chroma.path}`);
+      // 初始化ChromaDB客户端 - 支持本地和云端部署
+      if (config.chroma.cloud.enabled) {
+        // 云端部署
+        this.client = new CloudClient({
+          apiKey: config.chroma.cloud.apiKey,
+          tenant: config.chroma.cloud.tenant,
+          database: config.chroma.cloud.database
+        });
+        logger.info(`连接到ChromaDB Cloud: ${config.chroma.cloud.database}`);
+      } else {
+        // 本地部署
+        this.client = new ChromaClient({
+          path: config.chroma.path,
+        });
+        logger.info(`连接到ChromaDB: ${config.chroma.path}`);
+      }
 
       // 检查集合是否存在
       try {

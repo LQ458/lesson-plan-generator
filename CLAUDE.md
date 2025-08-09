@@ -67,6 +67,8 @@ pnpm format
 
 ### RAG System Management
 
+#### Local Development (ChromaDB)
+
 ```bash
 # Start ChromaDB service
 pnpm run chroma:start
@@ -100,6 +102,32 @@ pnpm run setup:rag
 
 # Legacy loader (for compatibility)
 pnpm run rag:load:legacy
+```
+
+#### ChromaDB Cloud Production
+
+```bash
+# Upload all RAG data to ChromaDB Cloud
+node server/rag/scripts/cloud-uploader.js
+
+# Upload specific file to cloud
+node server/rag/scripts/cloud-uploader.js "server/rag_data/chunks/specific-file.json"
+
+# Test environment configuration
+node test-env-config.js
+
+# Retry failed uploads
+node simple-retry.js
+
+# Clean up unnecessary cloud collections
+node server/rag/scripts/upload-to-cloud.js --cleanup
+
+# List cloud collections
+node -e "
+const uploader = require('./server/rag/scripts/cloud-uploader');
+const u = new uploader();
+u.initialize().then(() => u.listCloudCollections()).then(console.log);
+"
 ```
 
 ## Architecture Overview
@@ -204,6 +232,26 @@ PORT=3001
 QWEN_MODEL=qwen-plus
 AI_MAX_TOKENS=2000
 AI_TEMPERATURE=0.7
+```
+
+### ChromaDB Cloud Production Configuration
+
+```bash
+# ChromaDB Cloud Configuration (Production)
+CHROMA_CLOUD_ENABLED=true
+CHROMADB_API_KEY=your_chromadb_cloud_api_key
+CHROMADB_TENANT=your_tenant_id
+CHROMADB_DATABASE=teachai
+CHROMADB_COLLECTION=teachai_main
+
+# Production Environment
+NODE_ENV=production
+
+# Optional ChromaDB Cloud Settings
+CHROMADB_BATCH_SIZE=50
+CHROMADB_TIMEOUT=30000
+RAG_MIN_QUALITY_SCORE=0.3
+RAG_MAX_CONTEXT_TOKENS=4000
 ```
 
 ## Educational Materials
@@ -317,16 +365,46 @@ pnpm test -- --testPathPattern=ai-service
 pnpm test -- --testPathPattern=components
 ```
 
-## Deployment Considerations
+## Deployment
 
-### Production Build
+### Local Development Deployment
 
 ```bash
 pnpm build
 pnpm start
 ```
 
-### ChromaDB Production
+### ChromaDB Cloud Production Deployment
+
+For production deployment with ChromaDB Cloud, see the comprehensive [Production Deployment Guide](PRODUCTION-DEPLOYMENT.md).
+
+#### Quick Start for ChromaDB Cloud
+
+1. **Set Environment Variables:**
+```bash
+export CHROMA_CLOUD_ENABLED=true
+export CHROMADB_API_KEY=your_chromadb_api_key
+export CHROMADB_TENANT=your_tenant_id
+export CHROMADB_DATABASE=teachai
+export CHROMADB_COLLECTION=teachai_main
+```
+
+2. **Test Configuration:**
+```bash
+node test-env-config.js
+```
+
+3. **Upload RAG Data to Cloud:**
+```bash
+node server/rag/scripts/cloud-uploader.js
+```
+
+4. **Deploy Application:**
+```bash
+NODE_ENV=production pnpm build && pnpm start
+```
+
+### Local ChromaDB Production
 
 - Ensure ChromaDB service is running
 - Educational materials must be loaded before first use
@@ -335,5 +413,6 @@ pnpm start
 ### Environment Setup
 
 - Configure production environment variables
-- Set up MongoDB connection
+- Set up MongoDB connection (local or cloud)
 - Configure reverse proxy for frontend/backend
+- For ChromaDB Cloud: Set cloud-specific environment variables

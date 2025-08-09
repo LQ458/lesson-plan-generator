@@ -7,6 +7,7 @@ const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
 const SimpleRAGService = require('../rag/services/simple-rag-service');
+const ChromaDBCloudUploader = require('../rag/scripts/cloud-uploader');
 
 const router = express.Router();
 const simpleRAG = new SimpleRAGService();
@@ -357,5 +358,220 @@ function removeDuplicateContent(index) {
     
     return unique;
 }
+
+/**
+ * POST /api/admin/upload-to-cloud
+ * Upload local RAG data to ChromaDB Cloud
+ */
+router.post('/upload-to-cloud', adminAuth, async (req, res) => {
+    const startTime = Date.now();
+    
+    try {
+        console.log('🌐 Starting ChromaDB Cloud upload...');
+        
+        // Set headers for streaming response
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+        res.setHeader('Transfer-Encoding', 'chunked');
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        
+        const log = (message) => {
+            console.log(message);
+            res.write(message + '\n');
+        };
+        
+        log('🚀 [ChromaDB Cloud] 开始上传本地RAG数据到云端...');
+        log('📊 目标: 将95,360+增强教学材料上传到ChromaDB Cloud');
+        log('⏳ 预计时间: 10-20分钟 (取决于网络速度)');
+        
+        const uploader = new ChromaDBCloudUploader();
+        await uploader.initialize();
+        
+        log('✅ ChromaDB Cloud连接成功');
+        log('📁 开始批量上传文件...');
+        
+        // Override uploader's logger to use our streaming log
+        const originalLogInfo = console.log;
+        console.log = log;
+        
+        const result = await uploader.uploadAllFiles();
+        
+        // Restore original logger
+        console.log = originalLogInfo;
+        
+        const finalTime = ((Date.now() - startTime) / 1000 / 60).toFixed(1);
+        
+        log(`🎉 云端上传完成! 用时 ${finalTime} 分钟`);
+        log(`📊 上传统计:`);
+        log(`  - 总文件数: ${result.totalFiles}`);
+        log(`  - 成功上传: ${result.successfulUploads}`);
+        log(`  - 上传文档数: ${result.totalDocumentsUploaded}`);
+        log(`  - 成功率: ${result.successRate}`);
+        
+        if (result.failedUploads > 0) {
+            log(`⚠️ 失败文件数: ${result.failedUploads}`);
+        }
+        
+        log('✅ RAG数据已成功同步到ChromaDB Cloud!');
+        log('🔗 可通过云端API访问教学内容检索功能');
+        
+        res.end('\n🎉 ChromaDB Cloud upload completed successfully!');
+        
+    } catch (error) {
+        console.error('❌ ChromaDB Cloud upload failed:', error);
+        res.status(500).end(`❌ Cloud upload failed: ${error.message}`);
+    }
+});
+
+/**
+ * POST /api/admin/upload-file-to-cloud
+ * Upload specific file to ChromaDB Cloud
+ */
+router.post('/upload-file-to-cloud', adminAuth, async (req, res) => {
+    try {
+        const { filePath } = req.body;
+        
+        if (!filePath) {
+            return res.status(400).json({
+                success: false,
+                message: '请提供文件路径'
+            });
+        }
+        
+        console.log(`🌐 上传单个文件到ChromaDB Cloud: ${filePath}`);
+        
+        const uploader = new ChromaDBCloudUploader();
+        await uploader.initialize();
+        const result = await uploader.uploadFile(filePath);
+        
+        if (result.success) {
+            console.log('✅ 单文件云端上传成功', result);
+            res.json({
+                success: true,
+                message: '文件上传到云端成功',
+                data: result
+            });
+        } else {
+            console.log('❌ 单文件云端上传失败', result);
+            res.status(500).json({
+                success: false,
+                message: '文件上传到云端失败',
+                error: result.error || result.reason
+            });
+        }
+        
+    } catch (error) {
+        console.error('❌ 单文件云端上传异常:', error);
+        
+        res.status(500).json({
+            success: false,
+            message: '文件上传到云端失败',
+            error: error.message
+        });
+    }
+});
+
+/**
+ * GET /api/admin/cloud-collections
+ * List all collections in ChromaDB Cloud
+ */
+router.get('/cloud-collections', adminAuth, async (req, res) => {
+    try {
+        console.log('📊 获取ChromaDB Cloud集合列表');
+        
+        const uploader = new ChromaDBCloudUploader();
+        await uploader.initialize();
+        const collections = await uploader.listCloudCollections();
+        
+        res.json({
+            success: true,
+            message: '获取云端集合列表成功',
+            data: collections
+        });
+        
+    } catch (error) {
+        console.error('❌ 获取云端集合列表失败:', error);
+        
+        res.status(500).json({
+            success: false,
+            message: '获取云端集合列表失败',
+            error: error.message
+        });
+    }
+});
+
+/**
+ * POST /api/admin/cleanup-collections
+ * Clean up unnecessary collections in ChromaDB Cloud
+ */
+router.post('/cleanup-collections', adminAuth, async (req, res) => {
+    try {
+        console.log('🧹 开始清理ChromaDB Cloud集合');
+        
+        const uploader = new ChromaDBCloudUploader();
+        await uploader.initialize();
+        const result = await uploader.cleanupUnnecessaryCollections();
+        
+        console.log('✅ 集合清理完成', result);
+        
+        res.json({
+            success: true,
+            message: '集合清理完成',
+            data: result
+        });
+        
+    } catch (error) {
+        console.error('❌ 集合清理失败:', error);
+        
+        res.status(500).json({
+            success: false,
+            message: '集合清理失败',
+            error: error.message
+        });
+    }
+});
+
+/**
+ * DELETE /api/admin/delete-collection/:name
+ * Delete a specific collection
+ */
+router.delete('/delete-collection/:name', adminAuth, async (req, res) => {
+    try {
+        const { name } = req.params;
+        
+        if (name === 'teachai_main') {
+            return res.status(400).json({
+                success: false,
+                message: '不能删除主集合 teachai_main'
+            });
+        }
+        
+        console.log(`🗑️ 删除指定集合: ${name}`);
+        
+        const uploader = new ChromaDBCloudUploader();
+        await uploader.initialize();
+        const success = await uploader.deleteCollection(name);
+        
+        if (success) {
+            res.json({
+                success: true,
+                message: `集合 ${name} 删除成功`
+            });
+        } else {
+            res.status(500).json({
+                success: false,
+                message: `集合 ${name} 删除失败`
+            });
+        }
+        
+    } catch (error) {
+        console.error('❌ 删除集合失败:', error);
+        
+        res.status(500).json({
+            success: false,
+            message: '删除集合失败',
+            error: error.message
+        });
+    }
+});
 
 module.exports = router;

@@ -153,17 +153,41 @@ app.use(
       if (!origin) return callback(null, true);
       
       if (allowedOrigins.includes(origin)) {
+        console.log(`✅ CORS allowed request from origin: ${origin}`);
         return callback(null, true);
       } else {
         console.warn(`🚫 CORS blocked request from origin: ${origin}`);
+        console.warn(`🔧 Allowed origins: ${allowedOrigins.join(', ')}`);
         return callback(new Error('Not allowed by CORS'), false);
       }
     },
     credentials: true, // 允许发送cookies
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "PATCH"],
+    allowedHeaders: [
+      "Content-Type", 
+      "Authorization", 
+      "X-Requested-With",
+      "Accept",
+      "Origin",
+      "Cache-Control",
+      "X-File-Name"
+    ],
+    exposedHeaders: ["Set-Cookie"],
+    preflightContinue: false,
+    optionsSuccessStatus: 200
   }),
 );
+// Explicit preflight handler for complex CORS requests
+app.options('*', (req, res) => {
+  console.log(`🔄 OPTIONS preflight request from: ${req.get('Origin')}`);
+  res.header('Access-Control-Allow-Origin', req.get('Origin'));
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin, Cache-Control, X-File-Name');
+  res.header('Access-Control-Max-Age', '86400'); // 24 hours
+  res.sendStatus(200);
+});
+
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser()); // 添加cookie解析中间件

@@ -3,16 +3,28 @@
  */
 
 const config = {
-  // ChromaDB配置
+  // ChromaDB配置 - 支持本地和云端部署
   chroma: {
+    // 云端配置
+    cloud: {
+      enabled: process.env.CHROMA_CLOUD_ENABLED === 'true',
+      apiKey: process.env.CHROMADB_API_KEY,
+      tenant: process.env.CHROMADB_TENANT,
+      database: process.env.CHROMADB_DATABASE || 'teachai',
+    },
+    
+    // 本地配置
     host: process.env.CHROMA_HOST || "localhost",
     port: process.env.CHROMA_PORT || 8000,
     path: process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST || "localhost"}:${process.env.CHROMA_PORT || 8000}`,
+    
     collection: {
-      name: process.env.CHROMA_COLLECTION || "lesson_materials",
+      name: process.env.CHROMA_COLLECTION || "teachai_main",
       metadata: {
         "hnsw:space": "cosine",
-        description: "教学资料向量数据库",
+        description: "TeachAI统一教学资料向量数据库",
+        version: "3.0",
+        enhanced: true,
       },
     },
   },
