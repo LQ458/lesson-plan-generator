@@ -602,9 +602,6 @@ app.use(errorHandler);
 // 导出app用于测试
 module.exports = app;
 
-// PORT configuration for Zeabur
-const PORT = process.env.PORT || 3001;
-
 // 只有在直接运行时才启动服务器
 if (require.main === module) {
   app.listen(PORT, '0.0.0.0', async () => {
