@@ -23,7 +23,7 @@ class VectorStoreService {
   async initialize() {
     try {
       // DEBUG: Log environment variables and config
-      logger.info(`🔍 [DEBUG] ChromaDB配置检查:`, {
+      const debugInfo = {
         CHROMA_CLOUD_ENABLED: process.env.CHROMA_CLOUD_ENABLED,
         CHROMADB_API_KEY: process.env.CHROMADB_API_KEY ? `${process.env.CHROMADB_API_KEY.substring(0, 10)}...` : 'NOT_SET',
         CHROMADB_TENANT: process.env.CHROMADB_TENANT,
@@ -32,10 +32,25 @@ class VectorStoreService {
         configApiKey: config.chroma.cloud.apiKey ? `${config.chroma.cloud.apiKey.substring(0, 10)}...` : 'NOT_SET',
         configTenant: config.chroma.cloud.tenant,
         configDatabase: config.chroma.cloud.database
+      };
+      
+      console.log('🔍 [DEBUG] ChromaDB配置检查:', JSON.stringify(debugInfo, null, 2));
+      logger.info(`🔍 [DEBUG] ChromaDB配置检查:`, debugInfo);
+
+      // 强制使用云端如果设置了API密钥
+      const forceCloud = process.env.CHROMADB_API_KEY && process.env.CHROMADB_TENANT;
+      const useCloud = config.chroma.cloud.enabled || forceCloud;
+      
+      console.log('🔍 [DEBUG] 客户端选择:', {
+        configEnabled: config.chroma.cloud.enabled,
+        forceCloud,
+        useCloud,
+        hasApiKey: !!process.env.CHROMADB_API_KEY,
+        hasTenant: !!process.env.CHROMADB_TENANT
       });
 
       // 初始化ChromaDB客户端 - 支持本地和云端部署
-      if (config.chroma.cloud.enabled) {
+      if (useCloud) {
         // 云端部署
         logger.info(`🌐 [DEBUG] 尝试连接ChromaDB Cloud...`);
         this.client = new CloudClient({
