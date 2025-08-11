@@ -22,38 +22,55 @@ class VectorStoreService {
 
   async initialize() {
     try {
+      // DEBUG: Log environment variables and config
+      logger.info(`🔍 [DEBUG] ChromaDB配置检查:`, {
+        CHROMA_CLOUD_ENABLED: process.env.CHROMA_CLOUD_ENABLED,
+        CHROMADB_API_KEY: process.env.CHROMADB_API_KEY ? `${process.env.CHROMADB_API_KEY.substring(0, 10)}...` : 'NOT_SET',
+        CHROMADB_TENANT: process.env.CHROMADB_TENANT,
+        CHROMADB_DATABASE: process.env.CHROMADB_DATABASE,
+        configCloudEnabled: config.chroma.cloud.enabled,
+        configApiKey: config.chroma.cloud.apiKey ? `${config.chroma.cloud.apiKey.substring(0, 10)}...` : 'NOT_SET',
+        configTenant: config.chroma.cloud.tenant,
+        configDatabase: config.chroma.cloud.database
+      });
+
       // 初始化ChromaDB客户端 - 支持本地和云端部署
       if (config.chroma.cloud.enabled) {
         // 云端部署
+        logger.info(`🌐 [DEBUG] 尝试连接ChromaDB Cloud...`);
         this.client = new CloudClient({
           apiKey: config.chroma.cloud.apiKey,
           tenant: config.chroma.cloud.tenant,
           database: config.chroma.cloud.database
         });
-        logger.info(`连接到ChromaDB Cloud: ${config.chroma.cloud.database}`);
+        logger.info(`✅ [DEBUG] CloudClient已创建，连接到ChromaDB Cloud: ${config.chroma.cloud.database}`);
       } else {
         // 本地部署
+        logger.info(`🏠 [DEBUG] 尝试连接本地ChromaDB: ${config.chroma.path}`);
         this.client = new ChromaClient({
           path: config.chroma.path,
         });
-        logger.info(`连接到ChromaDB: ${config.chroma.path}`);
+        logger.info(`✅ [DEBUG] ChromaClient已创建，连接到ChromaDB: ${config.chroma.path}`);
       }
 
       // 检查集合是否存在
       try {
+        logger.info(`🔍 [DEBUG] 尝试获取现有集合: ${this.collectionName}`);
         this.collection = await this.client.getCollection({
           name: this.collectionName,
           embeddingFunction: new DefaultEmbeddingFunction(),
         });
-        logger.info(`使用现有集合: ${this.collectionName}`);
+        logger.info(`✅ [DEBUG] 使用现有集合: ${this.collectionName}`);
       } catch (error) {
+        logger.info(`⚠️ [DEBUG] 集合不存在，尝试创建: ${this.collectionName}`);
+        logger.error(`🔍 [DEBUG] getCollection错误详情:`, error);
         // 集合不存在，创建新集合
         this.collection = await this.client.createCollection({
           name: this.collectionName,
           metadata: config.chroma.collection.metadata,
           embeddingFunction: new DefaultEmbeddingFunction(),
         });
-        logger.info(`创建新集合: ${this.collectionName}`);
+        logger.info(`✅ [DEBUG] 创建新集合成功: ${this.collectionName}`);
       }
 
       this.isInitialized = true;
