@@ -1,4 +1,4 @@
-const { ChromaClient, CloudClient, DefaultEmbeddingFunction } = require("chromadb");
+const { ChromaClient, CloudClient } = require("chromadb");
 const fs = require("fs").promises;
 const path = require("path");
 const logger = require("../../utils/logger");
@@ -73,7 +73,6 @@ class VectorStoreService {
         logger.info(`🔍 [DEBUG] 尝试获取现有集合: ${this.collectionName}`);
         this.collection = await this.client.getCollection({
           name: this.collectionName,
-          embeddingFunction: new DefaultEmbeddingFunction(),
         });
         logger.info(`✅ [DEBUG] 使用现有集合: ${this.collectionName}`);
       } catch (error) {
@@ -83,7 +82,6 @@ class VectorStoreService {
         this.collection = await this.client.createCollection({
           name: this.collectionName,
           metadata: config.chroma.collection.metadata,
-          embeddingFunction: new DefaultEmbeddingFunction(),
         });
         logger.info(`✅ [DEBUG] 创建新集合成功: ${this.collectionName}`);
       }
