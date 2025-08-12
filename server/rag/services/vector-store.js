@@ -96,10 +96,79 @@ class VectorStoreService {
           }
         }
         
+        // Check what collections exist
+        try {
+          const collections = await this.client.listCollections();
+          logger.info(`📋 [DEBUG] 可用集合列表:`, collections.map(c => ({
+            name: c.name,
+            metadata: c.metadata
+          })));
+          
+          const targetCollection = collections.find(c => c.name === this.collectionName);
+          if (targetCollection) {
+            logger.info(`✅ [DEBUG] 找到目标集合:`, {
+              name: targetCollection.name,
+              metadata: targetCollection.metadata
+            });
+          } else {
+            logger.info(`⚠️ [DEBUG] 目标集合${this.collectionName}不存在`);
+          }
+        } catch (listError) {
+          logger.error(`❌ [DEBUG] 无法列出集合:`, listError.message);
+        }
+        
         logger.info(`🔍 [DEBUG] 尝试获取现有集合: ${this.collectionName}`);
+        
+        // Try to get existing collection
         this.collection = await this.client.getCollection({
           name: this.collectionName,
         });
+        
+        // Test if the collection has data and can be queried
+        try {
+          const count = await this.collection.count();
+          logger.info(`📊 [DEBUG] 集合${this.collectionName}包含${count}个文档`);
+          
+          if (count === 0) {
+            logger.warn(`⚠️ [DEBUG] 集合为空，这可能导致嵌入函数问题`);
+            logger.info(`💡 [DEBUG] 诊断: 集合存在但为空，可能需要上传数据或配置默认嵌入函数`);
+          } else {
+            // Test a simple query to verify embedding function works
+            logger.info(`🔍 [DEBUG] 测试集合查询功能...`);
+            try {
+              const testResult = await this.collection.query({
+                queryTexts: ["test"],
+                nResults: Math.min(1, count),
+                include: ["documents"]
+              });
+              logger.info(`✅ [DEBUG] 集合查询测试成功，返回${testResult.documents?.[0]?.length || 0}个结果`);
+              logger.info(`🎯 [DEBUG] 诊断: 集合有数据且查询正常，嵌入函数配置正确`);
+            } catch (queryTestError) {
+              logger.error(`❌ [DEBUG] 查询测试失败:`, {
+                message: queryTestError.message,
+                stack: queryTestError.stack?.substring(0, 200)
+              });
+              
+              if (queryTestError.message.includes('generate')) {
+                logger.error(`🔧 [DEBUG] 诊断: 嵌入函数未定义，需要在ChromaDB Cloud配置默认嵌入模型`);
+                throw new Error(`ChromaDB Cloud集合缺少嵌入函数配置。请在ChromaDB Cloud控制台为数据库配置默认嵌入模型，然后重新创建集合。`);
+              } else if (queryTestError.message.includes('embedding')) {
+                logger.error(`🔧 [DEBUG] 诊断: 嵌入相关错误，可能是模型配置问题`);
+                throw new Error(`ChromaDB嵌入模型配置错误: ${queryTestError.message}`);
+              } else {
+                logger.error(`🔧 [DEBUG] 诊断: 未知查询错误`);
+                throw queryTestError;
+              }
+            }
+          }
+        } catch (countError) {
+          logger.error(`❌ [DEBUG] 无法获取集合计数:`, {
+            message: countError.message,
+            name: countError.name
+          });
+          logger.error(`🔧 [DEBUG] 诊断: 集合存在但无法访问，可能是权限或配置问题`);
+          throw countError;
+        }
         logger.info(`✅ [DEBUG] 使用现有集合: ${this.collectionName}`);
       } catch (error) {
         logger.info(`⚠️ [DEBUG] 集合不存在或连接失败，尝试创建: ${this.collectionName}`);
@@ -431,14 +500,24 @@ class VectorStoreService {
         whereClause = conditions[0];
       }
 
-      const results = await this.collection.query({
+      // ChromaDB Cloud collections may need embedding function for query
+      const queryOptions = {
         queryTexts: [query],
         nResults: validatedLimit,
         where: whereClause,
         include: includeMetadata
           ? ["documents", "metadatas", "distances"]
           : ["documents", "distances"],
+      };
+      
+      logger.info(`🔍 [DEBUG] 执行查询:`, {
+        queryTexts: queryOptions.queryTexts,
+        nResults: queryOptions.nResults,
+        where: queryOptions.where,
+        include: queryOptions.include
       });
+      
+      const results = await this.collection.query(queryOptions);
 
       // 格式化结果
       const formattedResults = [];
