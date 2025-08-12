@@ -53,12 +53,25 @@ class VectorStoreService {
       if (useCloud) {
         // 云端部署
         logger.info(`🌐 [DEBUG] 尝试连接ChromaDB Cloud...`);
+        
+        // Check required parameters
+        if (!config.chroma.cloud.tenant || !config.chroma.cloud.database) {
+          throw new Error(`ChromaDB Cloud配置缺失: tenant=${config.chroma.cloud.tenant}, database=${config.chroma.cloud.database}`);
+        }
+        
+        // Create CloudClient with correct parameter structure
         this.client = new CloudClient({
-          apiKey: config.chroma.cloud.apiKey,
           tenant: config.chroma.cloud.tenant,
-          database: config.chroma.cloud.database
+          database: config.chroma.cloud.database,
+          apiKey: config.chroma.cloud.apiKey,
+          settings: undefined
         });
-        logger.info(`✅ [DEBUG] CloudClient已创建，连接到ChromaDB Cloud: ${config.chroma.cloud.database}`);
+        
+        logger.info(`✅ [DEBUG] CloudClient已创建`, {
+          tenant: config.chroma.cloud.tenant,
+          database: config.chroma.cloud.database,
+          hasApiKey: !!config.chroma.cloud.apiKey
+        });
       } else {
         // 本地部署
         logger.info(`🏠 [DEBUG] 尝试连接本地ChromaDB: ${config.chroma.path}`);
@@ -68,22 +81,50 @@ class VectorStoreService {
         logger.info(`✅ [DEBUG] ChromaClient已创建，连接到ChromaDB: ${config.chroma.path}`);
       }
 
-      // 检查集合是否存在
+      // 测试连接并检查集合是否存在
       try {
+        logger.info(`🔍 [DEBUG] 测试ChromaDB连接...`);
+        
+        // First test the connection with heartbeat if available
+        if (this.client.heartbeat) {
+          try {
+            await this.client.heartbeat();
+            logger.info(`✅ [DEBUG] ChromaDB连接测试成功`);
+          } catch (heartbeatError) {
+            logger.error(`❌ [DEBUG] ChromaDB连接测试失败:`, heartbeatError);
+            throw new Error(`ChromaDB连接失败: ${heartbeatError.message}`);
+          }
+        }
+        
         logger.info(`🔍 [DEBUG] 尝试获取现有集合: ${this.collectionName}`);
         this.collection = await this.client.getCollection({
           name: this.collectionName,
         });
         logger.info(`✅ [DEBUG] 使用现有集合: ${this.collectionName}`);
       } catch (error) {
-        logger.info(`⚠️ [DEBUG] 集合不存在，尝试创建: ${this.collectionName}`);
-        logger.error(`🔍 [DEBUG] getCollection错误详情:`, error);
-        // 集合不存在，创建新集合
-        this.collection = await this.client.createCollection({
-          name: this.collectionName,
-          metadata: config.chroma.collection.metadata,
+        logger.info(`⚠️ [DEBUG] 集合不存在或连接失败，尝试创建: ${this.collectionName}`);
+        logger.error(`🔍 [DEBUG] getCollection错误详情:`, {
+          message: error.message,
+          name: error.name,
+          cause: error.cause
         });
-        logger.info(`✅ [DEBUG] 创建新集合成功: ${this.collectionName}`);
+        
+        try {
+          // 集合不存在，创建新集合
+          logger.info(`🔧 [DEBUG] 创建新集合: ${this.collectionName}`);
+          this.collection = await this.client.createCollection({
+            name: this.collectionName,
+            metadata: config.chroma.collection.metadata,
+          });
+          logger.info(`✅ [DEBUG] 创建新集合成功: ${this.collectionName}`);
+        } catch (createError) {
+          logger.error(`❌ [DEBUG] 创建集合失败:`, {
+            message: createError.message,
+            name: createError.name,
+            cause: createError.cause
+          });
+          throw new Error(`ChromaDB集合操作失败: ${createError.message}`);
+        }
       }
 
       this.isInitialized = true;
@@ -548,6 +589,7 @@ class VectorStoreService {
       maxTokens,
       service: "vector-store",
     });
+
 
     // 如果服务未初始化或连接失败，返回空结果
     try {
