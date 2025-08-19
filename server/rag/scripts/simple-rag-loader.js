@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
-const { ChromaClient } = require("chromadb");
+const { ChromaClient, DefaultEmbeddingFunction } = require("chromadb");
 
 // 配置
 const CHROMA_PATH = process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST || "localhost"}:${process.env.CHROMA_PORT || 8000}`;
@@ -34,9 +34,10 @@ class SimpleRAGLoader {
         // Ignore errors
       }
       
-      // Create collection without embedding function (let ChromaDB use default)
+      // Create collection with embedding function
       this.collection = await this.client.createCollection({
-        name: COLLECTION_NAME
+        name: COLLECTION_NAME,
+        embeddingFunction: new DefaultEmbeddingFunction()
       });
       console.log(`✅ 创建集合: ${COLLECTION_NAME}`);
       
