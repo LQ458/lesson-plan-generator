@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
-const { ChromaClient, DefaultEmbeddingFunction } = require("chromadb");
+const { ChromaClient } = require("chromadb");
 const crypto = require("crypto");
 
 // 配置
@@ -24,7 +24,7 @@ class RobustRAGLoader {
   constructor() {
     this.client = null;
     this.collection = null;
-    this.embeddingFunction = new DefaultEmbeddingFunction();
+    this.embeddingFunction = null; // Use ChromaDB's default embedding
     this.progress = {
       totalFiles: 0,
       processedFiles: [],
@@ -65,7 +65,6 @@ class RobustRAGLoader {
       // 创建新集合
       this.collection = await this.client.createCollection({
         name: COLLECTION_NAME,
-        embeddingFunction: this.embeddingFunction,
         metadata: {
           "hnsw:space": "cosine",
           description: "Enhanced educational materials with quality scoring"
