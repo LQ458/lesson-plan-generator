@@ -35,6 +35,8 @@
     "rag:status": "cd server && node rag/scripts/check-collection.js",
     "rag:test": "cd server && node rag/scripts/test-enhanced-rag.js",
     "rag:verify": "cd server && node rag/scripts/verify-optimized-loading.js",
+    "rag:reset": "cd server && node rag/scripts/reset-chromadb.js",
+    "rag:load:simple": "cd server && node rag/scripts/simple-rag-loader.js",
     "test:rag-accuracy": "cd server && node rag/scripts/run-accuracy-test.js",
     "test:rag-accuracy:quick": "cd server && node rag/scripts/run-accuracy-test.js --mode=quick",
     "test:rag-accuracy:biology": "cd server && node rag/scripts/run-accuracy-test.js --subject=biology",
