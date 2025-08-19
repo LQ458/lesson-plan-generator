@@ -41,6 +41,7 @@
     "test:rag-accuracy:english": "cd server && node rag/scripts/run-accuracy-test.js --subject=english",
     "test:rag-ci": "cd server && node rag/scripts/ci-rag-test.js",
     "dev:full": "concurrently \"pnpm run chroma:start\" \"pnpm run dev:server\" \"pnpm run dev:web\"",
+    "start:full": "concurrently \"pnpm run chroma:start\" \"pnpm run start:server\" \"pnpm run start:web\"",
     "setup:rag": "pnpm run chroma:start && sleep 5 && pnpm run rag:load",
     "deploy:zeabur": "bash deploy-zeabur.sh",
     "start:zeabur": "concurrently \"pnpm run start:server\" \"pnpm run start:web\"",
