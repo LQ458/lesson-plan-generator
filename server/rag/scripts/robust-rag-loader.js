@@ -62,16 +62,24 @@ class RobustRAGLoader {
       // 删除并重新创建集合以清理旧数据
       await this.cleanupOldData();
       
-      // 创建新集合
-      this.collection = await this.client.createCollection({
-        name: COLLECTION_NAME,
-        metadata: {
-          "hnsw:space": "cosine",
-          description: "Enhanced educational materials with quality scoring"
+      // 创建或获取集合
+      try {
+        this.collection = await this.client.createCollection({
+          name: COLLECTION_NAME,
+          metadata: {
+            "hnsw:space": "cosine",
+            description: "Enhanced educational materials with quality scoring"
+          }
+        });
+        console.log(`✅ 创建新集合: ${COLLECTION_NAME}`);
+      } catch (error) {
+        if (error.message.includes("already exists")) {
+          console.log(`📋 使用现有集合: ${COLLECTION_NAME}`);
+          this.collection = await this.client.getCollection({ name: COLLECTION_NAME });
+        } else {
+          throw error;
         }
-      });
-      
-      console.log(`✅ 创建优化集合: ${COLLECTION_NAME}`);
+      }
       
       // 初始化进度跟踪
       await this.initializeProgress();
@@ -112,6 +120,10 @@ class RobustRAGLoader {
   }
 
   async initializeProgress() {
+    // 确保数据目录存在
+    const progressDir = path.dirname(PROGRESS_FILE);
+    await fs.mkdir(progressDir, { recursive: true });
+    
     try {
       const progressData = await fs.readFile(PROGRESS_FILE, 'utf-8');
       this.progress = { ...this.progress, ...JSON.parse(progressData) };
