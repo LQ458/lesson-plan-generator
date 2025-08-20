@@ -4,7 +4,7 @@ const { ChromaClient, DefaultEmbeddingFunction } = require("chromadb");
 
 // 配置
 const CHROMA_PATH = process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST || "localhost"}:${process.env.CHROMA_PORT || 8000}`;
-const COLLECTION_NAME = "teachai_simple";
+const COLLECTION_NAME = "teachai_test_" + Date.now();
 const RAG_DATA_PATH = path.join(__dirname, "../../rag_data/chunks");
 
 class SimpleRAGLoader {
@@ -25,13 +25,18 @@ class SimpleRAGLoader {
       // Delete existing collection if exists
       try {
         const collections = await this.client.listCollections();
-        const existing = collections.find(c => c.name === COLLECTION_NAME);
-        if (existing) {
-          await this.client.deleteCollection({ name: COLLECTION_NAME });
-          console.log("🗑️ 删除旧集合");
+        console.log(`📋 找到现有集合: ${collections.map(c => c.name).join(', ')}`);
+        
+        for (const collection of collections) {
+          if (collection.name === COLLECTION_NAME) {
+            console.log(`🗑️ 删除现有集合: ${COLLECTION_NAME}`);
+            await this.client.deleteCollection({ name: COLLECTION_NAME });
+            console.log("✅ 删除成功");
+            break;
+          }
         }
       } catch (e) {
-        // Ignore errors
+        console.log("⚠️ 删除集合时出错:", e.message);
       }
       
       // Create collection with embedding function
