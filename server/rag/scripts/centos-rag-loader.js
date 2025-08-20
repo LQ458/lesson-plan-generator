@@ -2,6 +2,10 @@ const fs = require("fs").promises;
 const path = require("path");
 const ChromaDBHTTPClient = require("../services/chromadb-http-client");
 
+// Production embedding optimization for CentOS 8
+const ENABLE_REAL_EMBEDDINGS = process.env.ENABLE_REAL_EMBEDDINGS === 'true';
+const USE_CLOUD_EMBEDDINGS = process.env.USE_CLOUD_EMBEDDINGS === 'true';
+
 // 配置 - CentOS 8 优化
 const CHROMA_URL = process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST || "localhost"}:${process.env.CHROMA_PORT || 8000}`;
 const COLLECTION_NAME = "teachai_centos";
