@@ -15,24 +15,18 @@ class ChromaDBHTTPClient {
     this.collectionsEndpoint = `${this.apiBase}/tenants/${this.tenant}/databases/${this.database}/collections`;
   }
 
-  // Health check - try v2 API (modern ChromaDB)
+  // Force v1 API usage to avoid embedding requirements
   async heartbeat() {
     try {
+      console.log('🔧 Forcing ChromaDB API v1 usage (avoids embedding requirements)');
+      this.apiBase = this.apiV1Base; // Force v1 usage
+      this.collectionsEndpoint = `${this.apiBase}/collections`; // Update collections endpoint
+      
       const response = await axios.get(`${this.apiBase}/heartbeat`);
-      console.log('✅ Using ChromaDB API v2');
+      console.log('✅ Using ChromaDB API v1');
       return response.data;
     } catch (error) {
-      // Try v1 as fallback
-      try {
-        console.log('⚠️ API v2 failed, falling back to v1...');
-        const response = await axios.get(`${this.apiV1Base}/heartbeat`);
-        this.apiBase = this.apiV1Base; // Switch to v1 for future requests
-        this.collectionsEndpoint = `${this.apiBase}/collections`; // Update collections endpoint
-        console.log('✅ Using ChromaDB API v1');
-        return response.data;
-      } catch (fallbackError) {
-        throw new Error(`ChromaDB heartbeat failed: ${error.message}`);
-      }
+      throw new Error(`ChromaDB v1 heartbeat failed: ${error.message}`);
     }
   }
 
