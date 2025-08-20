@@ -49,11 +49,15 @@ class CentOSRAGLoader {
       // 清理现有集合
       await this.cleanupCollection();
       
-      // 创建新集合
+      // 创建新集合 - 配置自动embedding生成
       await this.client.createCollection(COLLECTION_NAME, {
         "hnsw:space": "cosine",
         description: "TeachAI CentOS 8 教学资料",
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
+        embedding_function: {
+          "name": "default",
+          "model": "sentence-transformers/all-MiniLM-L6-v2"
+        }
       });
       console.log(`✅ 创建集合: ${COLLECTION_NAME}`);
       
