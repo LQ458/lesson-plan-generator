@@ -16,7 +16,7 @@ const MAX_RETRIES = 3;
 
 class CentOSRAGLoader {
   constructor() {
-    this.client = new ChromaDBHTTPClient(CHROMA_URL);
+    this.client = new ChromaDBHTTPClient(CHROMA_URL, 'default_tenant', 'default_database');
     this.progress = {
       totalFiles: 0,
       processedFiles: [],
@@ -277,7 +277,7 @@ class CentOSRAGLoader {
       const count = await this.client.countCollection(COLLECTION_NAME);
       
       console.log("\n🎉 RAG数据加载完成!");
-      console.log("=" * 50);
+      console.log("=".repeat(50));
       console.log(`📊 总文件数: ${this.progress.totalFiles}`);
       console.log(`✅ 成功文件: ${this.progress.processedFiles.length}`);
       console.log(`❌ 失败文件: ${this.progress.failedFiles.length}`);

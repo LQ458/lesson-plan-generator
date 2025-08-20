@@ -1,14 +1,18 @@
 const axios = require('axios');
 
 /**
- * ChromaDB HTTP API Client
+ * ChromaDB HTTP API Client v2
  * Bypasses Node.js client dependencies by using direct HTTP requests
+ * v2 API uses tenant/database/collection hierarchy
  */
 class ChromaDBHTTPClient {
-  constructor(baseURL = 'http://localhost:8000') {
+  constructor(baseURL = 'http://localhost:8000', tenant = 'default_tenant', database = 'default_database') {
     this.baseURL = baseURL;
-    this.apiBase = `${baseURL}/api/v2`; // Start with v2 API
+    this.apiBase = `${baseURL}/api/v2`;
     this.apiV1Base = `${baseURL}/api/v1`;
+    this.tenant = tenant;
+    this.database = database;
+    this.collectionsEndpoint = `${this.apiBase}/tenants/${this.tenant}/databases/${this.database}/collections`;
   }
 
   // Health check - try v2 API (modern ChromaDB)
@@ -31,7 +35,7 @@ class ChromaDBHTTPClient {
   // List all collections
   async listCollections() {
     try {
-      const response = await axios.get(`${this.apiBase}/collections`);
+      const response = await axios.get(this.collectionsEndpoint);
       return response.data || [];
     } catch (error) {
       // v2 API might return empty array instead of 404
@@ -52,7 +56,7 @@ class ChromaDBHTTPClient {
       };
       
       console.log(`🔧 Creating collection with payload:`, JSON.stringify(payload, null, 2));
-      const response = await axios.post(`${this.apiBase}/collections`, payload, {
+      const response = await axios.post(this.collectionsEndpoint, payload, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -70,7 +74,7 @@ class ChromaDBHTTPClient {
   // Delete collection
   async deleteCollection(name) {
     try {
-      await axios.delete(`${this.apiBase}/collections/${name}`);
+      await axios.delete(`${this.collectionsEndpoint}/${name}`);
       return true;
     } catch (error) {
       if (error.response?.status === 404) {
@@ -83,7 +87,7 @@ class ChromaDBHTTPClient {
   // Get collection
   async getCollection(name) {
     try {
-      const response = await axios.get(`${this.apiBase}/collections/${name}`);
+      const response = await axios.get(`${this.collectionsEndpoint}/${name}`);
       return response.data;
     } catch (error) {
       if (error.response?.status === 404) {
@@ -108,7 +112,7 @@ class ChromaDBHTTPClient {
       }
 
       const response = await axios.post(
-        `${this.apiBase}/collections/${collectionName}/add`,
+        `${this.collectionsEndpoint}/${collectionName}/add`,
         payload
       );
       return response.data;
@@ -131,7 +135,7 @@ class ChromaDBHTTPClient {
       }
 
       const response = await axios.post(
-        `${this.apiBase}/collections/${collectionName}/query`,
+        `${this.collectionsEndpoint}/${collectionName}/query`,
         payload
       );
       return response.data;
@@ -143,7 +147,7 @@ class ChromaDBHTTPClient {
   // Count documents in collection
   async countCollection(collectionName) {
     try {
-      const response = await axios.get(`${this.apiBase}/collections/${collectionName}/count`);
+      const response = await axios.get(`${this.collectionsEndpoint}/${collectionName}/count`);
       return response.data;
     } catch (error) {
       throw new Error(`Failed to count collection: ${error.message}`);
@@ -163,7 +167,7 @@ class ChromaDBHTTPClient {
       if (offset) payload.offset = offset;
 
       const response = await axios.post(
-        `${this.apiBase}/collections/${collectionName}/get`,
+        `${this.collectionsEndpoint}/${collectionName}/get`,
         payload
       );
       return response.data;
