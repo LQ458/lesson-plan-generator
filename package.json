@@ -27,6 +27,8 @@
     "chroma:stop": "pkill -f \"python3.*chromadb\" || pkill -f \"uvicorn\" || true",
     "chroma:start:docker": "docker run --rm -d --name chromadb -p 8000:8000 -v $(pwd)/chroma_db:/chroma/chroma chromadb/chroma:latest",
     "chroma:stop:docker": "docker stop chromadb || true",
+    "chroma:start:centos": "./start-chromadb-docker.sh",
+    "chroma:stop:centos": "docker stop chromadb-teachai || true",
     "rag:load": "cd server && node rag/scripts/robust-rag-loader.js",
     "rag:load:optimized": "cd server && node rag/scripts/optimized-rag-loader.js",
     "rag:load:legacy": "cd server && node rag/scripts/load-optimized-data.js",

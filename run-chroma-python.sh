@@ -12,7 +12,13 @@ fi
 # Install ChromaDB if not present
 if ! python3 -c "import chromadb" 2>/dev/null; then
     echo "📦 Installing ChromaDB Python package..."
-    pip3 install chromadb --user
+    # Use official PyPI instead of Aliyun mirror for ChromaDB
+    pip3 install chromadb --user -i https://pypi.org/simple/
+    # Fallback to conda if pip fails
+    if ! python3 -c "import chromadb" 2>/dev/null; then
+        echo "📦 Trying conda installation..."
+        conda install -c conda-forge chromadb -y || true
+    fi
 fi
 
 # Start ChromaDB server

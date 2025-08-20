@@ -8,13 +8,21 @@ class ChromaDBHTTPClient {
   constructor(baseURL = 'http://localhost:8000') {
     this.baseURL = baseURL;
     this.apiBase = `${baseURL}/api/v1`;
+    this.apiV2Base = `${baseURL}/api/v2`;
   }
 
-  // Health check
+  // Health check - try both v1 and v2 APIs
   async heartbeat() {
     try {
-      const response = await axios.get(`${this.apiBase}/heartbeat`);
-      return response.data;
+      // Try v2 first, fallback to v1
+      try {
+        const response = await axios.get(`${this.apiV2Base}/heartbeat`);
+        this.apiBase = this.apiV2Base; // Use v2 for future requests
+        return response.data;
+      } catch (v2Error) {
+        const response = await axios.get(`${this.apiBase}/heartbeat`);
+        return response.data;
+      }
     } catch (error) {
       throw new Error(`ChromaDB heartbeat failed: ${error.message}`);
     }
