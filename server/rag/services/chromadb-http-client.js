@@ -7,24 +7,24 @@ const axios = require('axios');
 class ChromaDBHTTPClient {
   constructor(baseURL = 'http://localhost:8000') {
     this.baseURL = baseURL;
-    this.apiBase = `${baseURL}/api/v1`;
-    this.apiV2Base = `${baseURL}/api/v2`;
+    this.apiBase = `${baseURL}/api/v2`; // Start with v2 API
+    this.apiV1Base = `${baseURL}/api/v1`;
   }
 
-  // Health check - try both v1 and v2 APIs
+  // Health check - try v2 API (modern ChromaDB)
   async heartbeat() {
     try {
-      // Try v2 first, fallback to v1
-      try {
-        const response = await axios.get(`${this.apiV2Base}/heartbeat`);
-        this.apiBase = this.apiV2Base; // Use v2 for future requests
-        return response.data;
-      } catch (v2Error) {
-        const response = await axios.get(`${this.apiBase}/heartbeat`);
-        return response.data;
-      }
+      const response = await axios.get(`${this.apiBase}/heartbeat`);
+      return response.data;
     } catch (error) {
-      throw new Error(`ChromaDB heartbeat failed: ${error.message}`);
+      // Try v1 as fallback
+      try {
+        const response = await axios.get(`${this.apiV1Base}/heartbeat`);
+        this.apiBase = this.apiV1Base; // Switch to v1 for future requests
+        return response.data;
+      } catch (fallbackError) {
+        throw new Error(`ChromaDB heartbeat failed: ${error.message}`);
+      }
     }
   }
 

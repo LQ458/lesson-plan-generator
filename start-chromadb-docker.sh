@@ -16,9 +16,16 @@ if ! command -v docker &> /dev/null; then
     echo "✅ Docker installed and started"
 fi
 
-# Stop any existing ChromaDB container
-docker stop chromadb-teachai 2>/dev/null || true
-docker rm chromadb-teachai 2>/dev/null || true
+# Stop any existing ChromaDB containers and processes
+docker stop chromadb-teachai chromadb 2>/dev/null || true
+docker rm chromadb-teachai chromadb 2>/dev/null || true
+
+# Kill any processes using port 8000
+sudo lsof -ti:8000 | xargs -r sudo kill -9 2>/dev/null || true
+pkill -f "python3.*chromadb" 2>/dev/null || true
+pkill -f "uvicorn" 2>/dev/null || true
+
+echo "🧹 Cleaned up existing ChromaDB processes"
 
 # Create data directory
 mkdir -p /www/wwwroot/lesson-plan-generator/chroma_docker_data
