@@ -34,6 +34,10 @@ class ChromaDBHTTPClient {
       const response = await axios.get(`${this.apiBase}/collections`);
       return response.data || [];
     } catch (error) {
+      // v2 API might return empty array instead of 404
+      if (error.response?.status === 404) {
+        return []; // No collections exist yet
+      }
       throw new Error(`Failed to list collections: ${error.message}`);
     }
   }
@@ -43,16 +47,23 @@ class ChromaDBHTTPClient {
     try {
       const payload = {
         name: name,
-        metadata: metadata
+        metadata: metadata,
+        get_or_create: false
       };
       
-      const response = await axios.post(`${this.apiBase}/collections`, payload);
+      console.log(`🔧 Creating collection with payload:`, JSON.stringify(payload, null, 2));
+      const response = await axios.post(`${this.apiBase}/collections`, payload, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       return response.data;
     } catch (error) {
+      console.log(`❌ Collection creation error:`, error.response?.status, error.response?.data);
       if (error.response?.status === 409) {
         throw new Error(`Collection '${name}' already exists`);
       }
-      throw new Error(`Failed to create collection: ${error.message}`);
+      throw new Error(`Failed to create collection: ${error.response?.data?.detail || error.message}`);
     }
   }
 
