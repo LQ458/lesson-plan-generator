@@ -19,12 +19,16 @@ class ChromaDBHTTPClient {
   async heartbeat() {
     try {
       const response = await axios.get(`${this.apiBase}/heartbeat`);
+      console.log('✅ Using ChromaDB API v2');
       return response.data;
     } catch (error) {
       // Try v1 as fallback
       try {
+        console.log('⚠️ API v2 failed, falling back to v1...');
         const response = await axios.get(`${this.apiV1Base}/heartbeat`);
         this.apiBase = this.apiV1Base; // Switch to v1 for future requests
+        this.collectionsEndpoint = `${this.apiBase}/collections`; // Update collections endpoint
+        console.log('✅ Using ChromaDB API v1');
         return response.data;
       } catch (fallbackError) {
         throw new Error(`ChromaDB heartbeat failed: ${error.message}`);
@@ -46,26 +50,32 @@ class ChromaDBHTTPClient {
     }
   }
 
-  // Create collection
+  // Create collection with embedding function
   async createCollection(name, metadata = {}) {
     try {
       const payload = {
         name: name,
         metadata: metadata,
-        get_or_create: false
+        get_or_create: true // Allow getting existing collection
       };
       
-      console.log(`🔧 Creating collection with payload:`, JSON.stringify(payload, null, 2));
+      console.log(`🔧 Creating/getting collection: ${name}`);
       const response = await axios.post(this.collectionsEndpoint, payload, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
+      console.log(`✅ Collection ready: ${name}`);
       return response.data;
     } catch (error) {
       console.log(`❌ Collection creation error:`, error.response?.status, error.response?.data);
       if (error.response?.status === 409) {
-        throw new Error(`Collection '${name}' already exists`);
+        // Collection exists, try to get it
+        try {
+          return await this.getCollection(name);
+        } catch (getError) {
+          throw new Error(`Collection '${name}' exists but cannot access it`);
+        }
       }
       throw new Error(`Failed to create collection: ${error.response?.data?.detail || error.message}`);
     }
@@ -111,13 +121,24 @@ class ChromaDBHTTPClient {
         payload.embeddings = embeddings;
       }
 
-      const response = await axios.post(
-        `${this.collectionsEndpoint}/${collectionName}/add`,
-        payload
-      );
+      const endpoint = `${this.collectionsEndpoint}/${collectionName}/add`;
+      
+      const response = await axios.post(endpoint, payload, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       return response.data;
     } catch (error) {
-      throw new Error(`Failed to add documents: ${error.message}`);
+      console.error(`❌ Add documents error details:`);
+      console.error(`   Endpoint: ${this.collectionsEndpoint}/${collectionName}/add`);
+      console.error(`   Status: ${error.response?.status}`);
+      console.error(`   Data: ${JSON.stringify(error.response?.data, null, 2)}`);
+      console.error(`   Sample IDs: ${ids.slice(0, 3)}`);
+      console.error(`   Documents count: ${documents.length}`);
+      console.error(`   Metadatas count: ${metadatas.length}`);
+      
+      throw new Error(`Failed to add documents: ${error.response?.data?.detail || error.message}`);
     }
   }
 
