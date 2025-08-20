@@ -46,20 +46,27 @@ class CentOSRAGLoader {
       const progressDir = path.dirname(PROGRESS_FILE);
       await fs.mkdir(progressDir, { recursive: true });
       
-      // 清理现有集合
+      // 清理现有集合并重新创建（使用默认embedding函数）
       await this.cleanupCollection();
       
-      // 创建新集合 - 配置自动embedding生成
-      await this.client.createCollection(COLLECTION_NAME, {
-        "hnsw:space": "cosine",
-        description: "TeachAI CentOS 8 教学资料",
-        created_at: new Date().toISOString(),
-        embedding_function: {
-          "name": "default",
-          "model": "sentence-transformers/all-MiniLM-L6-v2"
+      // 创建新集合 - 让ChromaDB自动生成embeddings
+      try {
+        // 使用简单的集合创建，让ChromaDB使用默认embedding函数
+        await this.client.createCollection(COLLECTION_NAME, {
+          description: "TeachAI CentOS 8 教学资料 - 自动embedding",
+          created_at: new Date().toISOString()
+        });
+        console.log(`✅ 创建集合: ${COLLECTION_NAME} (使用默认embedding函数)`);
+      } catch (error) {
+        console.log(`❌ 创建集合失败: ${error.message}`);
+        // 如果集合已存在，尝试获取它
+        try {
+          const existing = await this.client.getCollection(COLLECTION_NAME);
+          console.log(`ℹ️ 使用现有集合: ${COLLECTION_NAME}`);
+        } catch (getError) {
+          throw new Error(`无法创建或获取集合: ${error.message}`);
         }
-      });
-      console.log(`✅ 创建集合: ${COLLECTION_NAME}`);
+      }
       
       // 加载或初始化进度
       await this.loadProgress();
