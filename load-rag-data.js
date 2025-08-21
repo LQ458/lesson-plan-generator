@@ -30,6 +30,7 @@ async function loadRAGData() {
   
   // Load previous progress
   const progress = await loadProgress();
+  globalProgress = progress; // Set global for SIGINT handler
   console.log(`🚀 Loading RAG data... (${progress.processedFiles.length} files already done)`);
   
   try {
@@ -83,15 +84,11 @@ async function loadRAGData() {
           console.log(`  ✅ ${batch.length} chunks (total: ${total})`);
         }
         
-        // Mark file as processed and save progress
+        // Mark file as processed and save progress immediately
         progress.processedFiles.push(file);
         progress.totalProcessed = total;
-        
-        // Save progress every 10 files
-        if (progress.processedFiles.length % 10 === 0) {
-          await saveProgress(progress);
-          console.log(`💾 Progress saved (${progress.processedFiles.length}/${jsonFiles.length})`);
-        }
+        await saveProgress(progress);
+        console.log(`💾 Progress saved: ${file} (${progress.processedFiles.length}/${jsonFiles.length})`);}
         
       } catch (error) {
         console.error(`❌ Error processing ${file}:`, error.message);
@@ -120,9 +117,20 @@ async function loadRAGData() {
   }
 }
 
+// Global progress variable for SIGINT handler
+let globalProgress = null;
+
 // Handle Ctrl+C gracefully
 process.on('SIGINT', async () => {
-  console.log('\n⚠️ Interrupted! Progress has been saved.');
+  console.log('\n⚠️ Interrupted! Saving progress...');
+  if (globalProgress) {
+    try {
+      await saveProgress(globalProgress);
+      console.log(`💾 Progress saved! Processed ${globalProgress.processedFiles.length} files so far.`);
+    } catch (error) {
+      console.log('❌ Failed to save progress:', error.message);
+    }
+  }
   console.log('Run "node load-rag-data.js" again to continue...');
   process.exit(0);
 });
