@@ -20,7 +20,7 @@ class ChromaDBHTTPClient {
   constructor(baseURL = 'http://localhost:8000') {
     this.baseURL = baseURL;
     this.apiBase = `${baseURL}/api/v2`;
-    this.collectionsEndpoint = `${this.apiBase}/tenants/default_tenant/databases/chroma/collections`;
+    this.collectionsEndpoint = `${this.apiBase}/tenants/default_tenant/databases/default_database/collections`;
   }
 
   async heartbeat() {
