@@ -192,8 +192,6 @@ app.use(cookieParser()); // 添加cookie解析中间件
 
 // 注册路由
 app.use("/api/auth", authRegisterRouter);
-app.use("/api/lesson-plan", require("./routes/lesson-plan"));
-app.use("/api/exercises", require("./routes/exercises"));
 app.use("/api/content", require("./routes/content"));
 app.use("/api/export", require("./routes/export"));
 app.use("/api/admin", require("./routes/admin"));
