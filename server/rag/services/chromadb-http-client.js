@@ -45,9 +45,14 @@ class ChromaDBHTTPClient {
   // Create collection with embedding function
   async createCollection(name, metadata = {}) {
     try {
+      // ChromaDB requires non-empty metadata
+      const finalMetadata = Object.keys(metadata).length === 0 
+        ? { description: "TeachAI RAG Collection", created: new Date().toISOString() }
+        : metadata;
+        
       const payload = {
         name: name,
-        metadata: metadata,
+        metadata: finalMetadata,
         get_or_create: true // Allow getting existing collection
       };
       
