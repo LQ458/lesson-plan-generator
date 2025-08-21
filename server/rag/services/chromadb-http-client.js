@@ -18,20 +18,40 @@ function generateEmbedding(text) {
  */
 class ChromaDBHTTPClient {
   constructor(baseURL = 'http://localhost:8000') {
-    this.baseURL = baseURL;
-    this.apiBase = `${baseURL}/api/v2`;
-    this.collectionsEndpoint = `${this.apiBase}/tenants/default_tenant/databases/default_database/collections`;
+    // Check for cloud configuration
+    const isCloud = process.env.CHROMA_CLOUD_ENABLED === 'true';
+    
+    if (isCloud) {
+      this.baseURL = 'https://api.trychroma.com';
+      this.apiKey = process.env.CHROMADB_API_KEY;
+      this.tenant = process.env.CHROMADB_TENANT || 'default_tenant';
+      this.database = process.env.CHROMADB_DATABASE || 'default_database';
+      this.headers = {
+        'Authorization': `Bearer ${this.apiKey}`,
+        'Content-Type': 'application/json'
+      };
+    } else {
+      this.baseURL = baseURL;
+      this.tenant = 'default_tenant';
+      this.database = 'default_database';
+      this.headers = {
+        'Content-Type': 'application/json'
+      };
+    }
+    
+    this.apiBase = `${this.baseURL}/api/v1`;
+    this.collectionsEndpoint = `${this.apiBase}/tenants/${this.tenant}/databases/${this.database}/collections`;
   }
 
   async heartbeat() {
-    const response = await axios.get(`${this.apiBase}/heartbeat`);
+    const response = await axios.get(`${this.apiBase}/heartbeat`, { headers: this.headers });
     return response.data;
   }
 
   // List all collections
   async listCollections() {
     try {
-      const response = await axios.get(this.collectionsEndpoint);
+      const response = await axios.get(this.collectionsEndpoint, { headers: this.headers });
       return response.data || [];
     } catch (error) {
       // v2 API might return empty array instead of 404
@@ -58,9 +78,7 @@ class ChromaDBHTTPClient {
       
       console.log(`🔧 Creating/getting collection: ${name}`);
       const response = await axios.post(this.collectionsEndpoint, payload, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        headers: this.headers
       });
       console.log(`✅ Collection ready: ${name}`);
       return response.data;
@@ -81,7 +99,7 @@ class ChromaDBHTTPClient {
   // Delete collection
   async deleteCollection(name) {
     try {
-      await axios.delete(`${this.collectionsEndpoint}/${name}`);
+      await axios.delete(`${this.collectionsEndpoint}/${name}`, { headers: this.headers });
       return true;
     } catch (error) {
       if (error.response?.status === 404) {
@@ -94,7 +112,7 @@ class ChromaDBHTTPClient {
   // Get collection
   async getCollection(name) {
     try {
-      const response = await axios.get(`${this.collectionsEndpoint}/${name}`);
+      const response = await axios.get(`${this.collectionsEndpoint}/${name}`, { headers: this.headers });
       return response.data;
     } catch (error) {
       if (error.response?.status === 404) {
@@ -115,7 +133,7 @@ class ChromaDBHTTPClient {
       documents,
       metadatas,
       embeddings: finalEmbeddings
-    });
+    }, { headers: this.headers });
     
     return response.data;
   }
@@ -134,7 +152,7 @@ class ChromaDBHTTPClient {
 
     if (where) payload.where = where;
 
-    const response = await axios.post(`${this.collectionsEndpoint}/${collectionId}/query`, payload);
+    const response = await axios.post(`${this.collectionsEndpoint}/${collectionId}/query`, payload, { headers: this.headers });
     return response.data;
   }
 
@@ -145,7 +163,7 @@ class ChromaDBHTTPClient {
       const collectionInfo = await this.getCollection(collectionName);
       const collectionId = collectionInfo.id || collectionName;
       
-      const response = await axios.get(`${this.collectionsEndpoint}/${collectionId}/count`);
+      const response = await axios.get(`${this.collectionsEndpoint}/${collectionId}/count`, { headers: this.headers });
       return response.data;
     } catch (error) {
       throw new Error(`Failed to count collection: ${error.message}`);
@@ -166,7 +184,8 @@ class ChromaDBHTTPClient {
 
       const response = await axios.post(
         `${this.collectionsEndpoint}/${collectionName}/get`,
-        payload
+        payload,
+        { headers: this.headers }
       );
       return response.data;
     } catch (error) {

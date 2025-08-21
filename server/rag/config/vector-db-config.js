@@ -19,7 +19,7 @@ const config = {
     path: process.env.CHROMA_PATH || `http://${process.env.CHROMA_HOST || "localhost"}:${process.env.CHROMA_PORT || 8000}`,
     
     collection: {
-      name: process.env.CHROMADB_COLLECTION || process.env.CHROMA_COLLECTION || "teachai_centos",
+      name: process.env.CHROMADB_COLLECTION || process.env.CHROMA_COLLECTION || "teachai_main",
       metadata: {
         "hnsw:space": "cosine",
         description: "TeachAI统一教学资料向量数据库",

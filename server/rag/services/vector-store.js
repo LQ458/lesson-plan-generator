@@ -1,4 +1,5 @@
-const { ChromaClient, CloudClient } = require("chromadb");
+// Use custom HTTP client instead of official chromadb client to avoid dependency issues
+const ChromaDBHTTPClient = require("./chromadb-http-client");
 const fs = require("fs").promises;
 const path = require("path");
 const logger = require("../../utils/logger");
@@ -49,37 +50,10 @@ class VectorStoreService {
         hasTenant: !!process.env.CHROMADB_TENANT
       });
 
-      // 初始化ChromaDB客户端 - 支持本地和云端部署
-      if (useCloud) {
-        // 云端部署
-        logger.info(`🌐 [DEBUG] 尝试连接ChromaDB Cloud...`);
-        
-        // Check required parameters
-        if (!config.chroma.cloud.tenant || !config.chroma.cloud.database) {
-          throw new Error(`ChromaDB Cloud配置缺失: tenant=${config.chroma.cloud.tenant}, database=${config.chroma.cloud.database}`);
-        }
-        
-        // Create CloudClient with correct parameter structure
-        this.client = new CloudClient({
-          tenant: config.chroma.cloud.tenant,
-          database: config.chroma.cloud.database,
-          apiKey: config.chroma.cloud.apiKey,
-          settings: undefined
-        });
-        
-        logger.info(`✅ [DEBUG] CloudClient已创建`, {
-          tenant: config.chroma.cloud.tenant,
-          database: config.chroma.cloud.database,
-          hasApiKey: !!config.chroma.cloud.apiKey
-        });
-      } else {
-        // 本地部署
-        logger.info(`🏠 [DEBUG] 尝试连接本地ChromaDB: ${config.chroma.path}`);
-        this.client = new ChromaClient({
-          path: config.chroma.path,
-        });
-        logger.info(`✅ [DEBUG] ChromaClient已创建，连接到ChromaDB: ${config.chroma.path}`);
-      }
+      // 初始化ChromaDB客户端 - 使用HTTP客户端避免依赖问题
+      logger.info(`🏠 [DEBUG] 使用HTTP客户端连接ChromaDB: ${config.chroma.path}`);
+      this.client = new ChromaDBHTTPClient(config.chroma.path);
+      logger.info(`✅ [DEBUG] ChromaDB HTTP客户端已创建，连接到: ${config.chroma.path}`);
 
       // 测试连接并检查集合是否存在
       try {
@@ -99,12 +73,12 @@ class VectorStoreService {
         // Check what collections exist
         try {
           const collections = await this.client.listCollections();
-          logger.info(`📋 [DEBUG] 可用集合列表:`, collections.map(c => ({
+          logger.info(`📋 [DEBUG] 可用集合列表:`, collections.map ? collections.map(c => ({
             name: c.name,
             metadata: c.metadata
-          })));
+          })) : collections);
           
-          const targetCollection = collections.find(c => c.name === this.collectionName);
+          const targetCollection = collections.find ? collections.find(c => c.name === this.collectionName) : null;
           if (targetCollection) {
             logger.info(`✅ [DEBUG] 找到目标集合:`, {
               name: targetCollection.name,
@@ -120,13 +94,13 @@ class VectorStoreService {
         logger.info(`🔍 [DEBUG] 尝试获取现有集合: ${this.collectionName}`);
         
         // Try to get existing collection
-        this.collection = await this.client.getCollection({
-          name: this.collectionName,
-        });
+        await this.client.getCollection(this.collectionName);
+        this.collection = this.collectionName; // Store collection name for HTTP client
         
         // Test if the collection has data and can be queried
         try {
-          const count = await this.collection.count();
+          const countResult = await this.client.countCollection(this.collectionName);
+          const count = countResult;
           logger.info(`📊 [DEBUG] 集合${this.collectionName}包含${count}个文档`);
           
           if (count === 0) {
@@ -136,7 +110,7 @@ class VectorStoreService {
             // Test a simple query to verify embedding function works
             logger.info(`🔍 [DEBUG] 测试集合查询功能...`);
             try {
-              const testResult = await this.collection.query({
+              const testResult = await this.client.queryCollection(this.collectionName, {
                 queryTexts: ["test"],
                 nResults: Math.min(1, count),
                 include: ["documents"]
@@ -181,10 +155,8 @@ class VectorStoreService {
         try {
           // 集合不存在，创建新集合
           logger.info(`🔧 [DEBUG] 创建新集合: ${this.collectionName}`);
-          this.collection = await this.client.createCollection({
-            name: this.collectionName,
-            metadata: config.chroma.collection.metadata,
-          });
+          await this.client.createCollection(this.collectionName, config.chroma.collection.metadata);
+          this.collection = this.collectionName; // Store collection name for HTTP client
           logger.info(`✅ [DEBUG] 创建新集合成功: ${this.collectionName}`);
         } catch (createError) {
           logger.error(`❌ [DEBUG] 创建集合失败:`, {
@@ -272,7 +244,7 @@ class VectorStoreService {
             const batchData = this.prepareBatchDataEnhanced(qualityFilteredChunks, file);
 
             // 批量添加到向量数据库
-            await this.collection.add(batchData);
+            await this.client.addDocuments(this.collection, batchData);
 
             loadedChunks += qualityFilteredChunks.length;
             logger.info(
@@ -517,7 +489,7 @@ class VectorStoreService {
         include: queryOptions.include
       });
       
-      const results = await this.collection.query(queryOptions);
+      const results = await this.client.queryCollection(this.collection, queryOptions);
 
       // 格式化结果
       const formattedResults = [];
@@ -954,10 +926,10 @@ class VectorStoreService {
     }
 
     try {
-      const count = await this.collection.count();
+      const count = await this.client.countCollection(this.collection);
 
       // 获取样本数据以分析分布
-      const sampleResults = await this.collection.get({
+      const sampleResults = await this.client.getDocuments(this.collection, {
         limit: Math.min(1000, count),
         include: ["metadatas"],
       });
@@ -1031,7 +1003,7 @@ class VectorStoreService {
     }
 
     try {
-      await this.client.deleteCollection({ name: this.collectionName });
+      await this.client.deleteCollection(this.collectionName);
       this.collection = null;
       this.isInitialized = false;
       logger.info(`集合 ${this.collectionName} 已删除`);
@@ -1053,7 +1025,7 @@ class VectorStoreService {
         document,
         document.filename || "unknown",
       );
-      await this.collection.add(batchData);
+      await this.client.addDocuments(this.collection, batchData);
       logger.info(`文档添加成功: ${document.filename}`);
       return true;
     } catch (error) {

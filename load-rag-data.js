@@ -4,6 +4,7 @@
  * Simple RAG Loader with Resume - Just run: node load-rag-data.js
  */
 
+require('dotenv').config({ path: './server/.env' });
 const ChromaDBHTTPClient = require('./server/rag/services/chromadb-http-client');
 const fs = require('fs').promises;
 const path = require('path');
@@ -26,7 +27,7 @@ async function saveProgress(progress) {
 async function loadRAGData() {
   const client = new ChromaDBHTTPClient();
   const ragDataPath = './server/rag_data/chunks';
-  const collectionName = 'teachai';
+  const collectionName = process.env.CHROMADB_COLLECTION || 'teachai_main';
   
   // Load previous progress
   const progress = await loadProgress();
