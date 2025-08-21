@@ -88,7 +88,7 @@ async function loadRAGData() {
         progress.processedFiles.push(file);
         progress.totalProcessed = total;
         await saveProgress(progress);
-        console.log(`💾 Progress saved: ${file} (${progress.processedFiles.length}/${jsonFiles.length})`);}
+        console.log(`💾 Progress saved: ${file} (${progress.processedFiles.length}/${jsonFiles.length})`);
         
       } catch (error) {
         console.error(`❌ Error processing ${file}:`, error.message);
