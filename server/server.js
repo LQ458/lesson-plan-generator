@@ -138,10 +138,8 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
   : [
       "http://localhost:3000", 
-      "http://localhost:3002",
-      "https://bijielearn.com",
-      "https://www.bijielearn.com",
-      "https://api.bijielearn.com"
+      "http://localhost:3001",
+      "http://localhost:3002"
     ];
 
 console.log('🔒 CORS允许的域名:', allowedOrigins);
@@ -610,7 +608,7 @@ if (require.main === module) {
     console.log(`🔒 CORS Origins: ${process.env.ALLOWED_ORIGINS || 'using defaults'}`);
     console.log(`📊 健康检查: http://localhost:${PORT}/api/health`);
     console.log(`📈 服务状态: http://localhost:${PORT}/api/status`);
-    console.log(`🌍 外部访问: https://api.bijielearn.com`);
+    console.log(`🌍 本地访问: http://localhost:${PORT}`);
   });
 }
 

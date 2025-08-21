@@ -1,5 +1,6 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import { getApiUrl, API_ENDPOINTS } from './api-config'
 
 interface User {
   id: string
@@ -26,7 +27,7 @@ export const authOptions: NextAuthOptions = {
           console.log('[NextAuth] Attempting login for username:', credentials.username)
           
           // Call backend API to verify credentials
-          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
+          const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.LOGIN), {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
