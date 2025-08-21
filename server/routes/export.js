@@ -8,7 +8,14 @@ const {
 const { authenticate } = require("../middleware/auth");
 const { asyncHandler, UserFriendlyError } = require("../utils/error-handler");
 const winston = require("winston");
-const puppeteer = require("puppeteer");
+// Handle Puppeteer permission issues on CentOS
+let puppeteer;
+try {
+  puppeteer = require("puppeteer");
+} catch (error) {
+  console.warn("⚠️ Puppeteer不可用，PDF导出功能将被禁用:", error.message);
+  puppeteer = null;
+}
 const { exec } = require("child_process");
 const { promisify } = require("util");
 const fs = require("fs").promises;
