@@ -536,7 +536,7 @@ export default function ExercisesPage() {
     setSavingExercise(true);
     try {
       const response = await fetch(
-        "https://api.bijielearn.com/api/content/exercises",
+        getApiUrl(API_ENDPOINTS.CONTENT.EXERCISES),
         {
           method: "POST",
           headers: {
@@ -607,7 +607,7 @@ export default function ExercisesPage() {
     try {
       // 先保存练习题以获取ID
       const saveResponse = await fetch(
-        "https://api.bijielearn.com/api/content/exercises",
+        getApiUrl(API_ENDPOINTS.CONTENT.EXERCISES),
         {
           method: "POST",
           headers: {

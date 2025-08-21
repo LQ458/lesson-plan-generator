@@ -13,10 +13,9 @@ console.log('=========================\n');
 
 // Test endpoints to check
 const endpoints = [
-  'https://api.bijielearn.com/api/auth/verify',
-  'https://api.bijielearn.com/api/auth/verify-invite',
-  'https://api.bijielearn.com',
-  'http://localhost:3001/api/auth/verify' // Local fallback
+  'http://localhost:3001/api/auth/verify',
+  'http://localhost:3001/api/health',
+  'http://localhost:3001/api/status'
 ];
 
 function testEndpoint(url) {
@@ -91,35 +90,21 @@ async function checkAllEndpoints() {
   
   // Diagnosis
   console.log('\n🔧 Diagnosis:');
-  const productionFailing = failing.filter(r => r.url.includes('api.bijielearn.com'));
   const localWorking = working.filter(r => r.url.includes('localhost'));
   
-  if (productionFailing.length > 0 && localWorking.length > 0) {
-    console.log('❌ Production server is down, but local server works');
-    console.log('💡 Actions needed:');
-    console.log('  1. Start your production server');
-    console.log('  2. Check server deployment status');
-    console.log('  3. Verify DNS settings for api.bijielearn.com');
-    console.log('  4. Check reverse proxy/load balancer configuration');
-  } else if (productionFailing.length > 0) {
-    console.log('❌ Production server is not accessible');
-    console.log('💡 Actions needed:');
-    console.log('  1. Deploy your backend to production');
-    console.log('  2. Configure DNS for api.bijielearn.com');
-    console.log('  3. Set up reverse proxy/load balancer');
-    console.log('  4. Ensure firewall allows traffic on the correct port');
-  } else if (working.length === 0) {
-    console.log('❌ No servers are responding');
+  if (working.length === 0) {
+    console.log('❌ Local server is not responding');
     console.log('💡 Actions needed:');
     console.log('  1. Start your backend server locally: npm start or pnpm start');
     console.log('  2. Check if the server process is running');
-    console.log('  3. Verify the server is listening on the correct port');
+    console.log('  3. Verify the server is listening on port 3001');
+    console.log('  4. Check server logs for errors');
   } else {
-    console.log('✅ Servers appear to be working');
-    console.log('💡 If you still see CORS errors:');
-    console.log('  1. Check browser cache/hard refresh');
-    console.log('  2. Verify environment variables are loaded correctly');
-    console.log('  3. Check server logs for CORS messages');
+    console.log('✅ Local server appears to be working');
+    console.log('💡 Server is ready for nginx proxy configuration');
+    console.log('  1. Configure nginx to proxy /api/* to http://localhost:3001');
+    console.log('  2. Frontend will access API via relative URLs (/api/*)');
+    console.log('  3. Check server logs for any errors');
   }
 }
 

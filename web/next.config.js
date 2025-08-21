@@ -2,7 +2,7 @@
 const nextConfig = {
   // 优化图片处理
   images: {
-    domains: ["localhost", "bijielearn.com", "api.bijielearn.com"],
+    domains: ["localhost"],
   },
   // 环境变量配置
   env: {

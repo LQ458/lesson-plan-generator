@@ -4,7 +4,7 @@
  */
 
 export const getApiUrl = (endpoint: string = ''): string => {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.bijielearn.com';
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
   return endpoint ? `${baseUrl}${endpoint}` : baseUrl;
 };
 
@@ -12,32 +12,31 @@ export const getApiUrl = (endpoint: string = ''): string => {
 export const API_ENDPOINTS = {
   // Auth endpoints
   AUTH: {
-    LOGIN: '/api/auth/login',
-    REGISTER: '/api/auth/register',
-    VERIFY_INVITE: '/api/auth/verify-invite',
-    VERIFY_TOKEN: '/api/auth/verify-token',
-    VERIFY: '/api/auth/verify',
+    LOGIN: '/auth/login',
+    REGISTER: '/auth/register',
+    VERIFY_TOKEN: '/auth/verify-token',
+    VERIFY: '/auth/verify',
   },
   
   // Content endpoints
   CONTENT: {
-    STATS: '/api/content/stats',
-    LESSON_PLANS: '/api/content/lesson-plans',
-    EXERCISES: '/api/content/exercises',
-    FAVORITES: '/api/content/favorites',
+    STATS: '/content/stats',
+    LESSON_PLANS: '/content/lesson-plans',
+    EXERCISES: '/content/exercises',
+    FAVORITES: '/content/favorites',
   },
   
   // AI endpoints
   AI: {
-    LESSON_PLAN: '/api/lesson-plan',
-    EXERCISES: '/api/exercises',
-    ANALYZE: '/api/analyze',
+    LESSON_PLAN: '/lesson-plan',
+    EXERCISES: '/exercises',
+    ANALYZE: '/analyze',
   },
   
   // Export endpoints
   EXPORT: {
-    LESSON_PLANS: '/api/export/lesson-plans',
-    EXERCISES: '/api/export/exercises',
+    LESSON_PLANS: '/export/lesson-plans',
+    EXERCISES: '/export/exercises',
   },
 } as const;
 

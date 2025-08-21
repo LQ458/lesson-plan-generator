@@ -15,10 +15,8 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
   : [
       "http://localhost:3000", 
-      "http://localhost:3002",
-      "https://bijielearn.com",
-      "https://www.bijielearn.com",
-      "https://api.bijielearn.com"
+      "http://localhost:3001",
+      "http://localhost:3002"
     ];
 
 console.log('📋 Current Configuration:');
