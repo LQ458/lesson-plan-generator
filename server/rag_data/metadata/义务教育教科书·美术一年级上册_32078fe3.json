@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·美术一年级上册_32078fe3",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·美术一年级上册_32078fe3.pdf",
+  "total_chunks": 65,
+  "total_pages": 52,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T06:31:16.097Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.193Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

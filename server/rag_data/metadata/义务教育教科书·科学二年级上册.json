@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/科学/苏教版/义务教育教科书·科学二年级上册.pdf",
+  "extractedAt": "2025-07-18T13:43:22.348Z",
+  "method": "node-poppler",
+  "textLength": 18661,
+  "processingStats": {
+    "chunksCount": 25,
+    "embeddingsCount": 25,
+    "processedAt": "2025-07-18T13:43:31.057Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.190Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

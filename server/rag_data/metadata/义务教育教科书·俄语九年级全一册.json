@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/俄语/人教版-人民教育出版社/九年级/义务教育教科书·俄语九年级全一册.pdf",
+  "extractedAt": "2025-07-20T04:01:05.868Z",
+  "method": "node-poppler",
+  "textLength": 304659,
+  "processingStats": {
+    "chunksCount": 422,
+    "embeddingsCount": 422,
+    "processedAt": "2025-07-20T04:03:01.790Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

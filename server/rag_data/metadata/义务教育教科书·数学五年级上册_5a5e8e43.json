@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·数学五年级上册_5a5e8e43",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学五年级上册_5a5e8e43.pdf",
+  "total_chunks": 87,
+  "total_pages": 125,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T05:09:07.242Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.179Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

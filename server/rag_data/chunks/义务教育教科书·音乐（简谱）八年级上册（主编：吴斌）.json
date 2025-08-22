@@ -1,0 +1,40 @@
+[
+  {
+    "content": "北京新华印刷有限公司印刷 2019 年 7 月北京第 8 次印刷：8.76 元价格依据：京发改规［2016］13号八年级上册简线封面印刷.indd 1 17 5 6 下午12:34 北京新华印刷有限公司印刷 2019 年 7 月北京第 8 次印刷定价：8.76 元价格依据：京发改规［2016］13号八年级上册简线封面印刷.indd 1 17 5 6 下午12:34",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/音乐/人音版（简谱）（主编：吴斌）-人民音乐出版社/八年级/义务教育教科书·音乐（简谱）八年级上册（主编：吴斌）.pdf",
+      "extractedAt": "2025-07-19T21:34:01.202Z",
+      "method": "node-poppler",
+      "textLength": 239,
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 21
+        }
+      },
+      "chunkIndex": 0,
+      "chunkSize": 327,
+      "enhancementTimestamp": "2025-07-21T14:24:43.154Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5625,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "北京新华印刷有限公司印刷\n\n2019 年 7 月北京第 8 次印刷\n定价：8.76 元\n价格依据：京发改规［2016］13号\nࡖ۴၏औĻ࣠‫݇ۇه‬Ŝ\u0019\u0017\u0018\u001dŞ\u0018\u001a ‫ބ‬\n\n八年级上册简线封面印刷.indd 1\n\n17-5-6 下午12:34\n\n\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f北京新华印刷有限公司印刷\n\n2019 年 7 月北京第 8 次印刷\n定价：8.76 元\n价格依据：京发改规［2016］13号\nࡖ۴၏औĻ࣠‫݇ۇه‬Ŝ\u0019\u0017\u0018\u001dŞ\u0018\u001a ‫ބ‬\n\n八年级上册简线封面印刷.indd 1\n\n17-5-6 下午12:34",
+    "qualityScore": 0.3310096153846154,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  }
+]

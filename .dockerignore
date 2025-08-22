@@ -1,0 +1,62 @@
+node_modules
+npm-debug.log
+.npm
+.nyc_output
+.coverage
+.next
+.cache
+dist
+build
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+coverage
+*.md
+*.log
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# AI service backups
+server/ai-service.backup.js
+server/migration-report.json
+
+# RAG data included in container for one-command deployment
+# Comment out the line below if you want to exclude RAG data (for smaller images)
+server/rag_data/
+server/rag/data/loading-progress.json
+
+# Test and development files
+e2e/
+**/__tests__/
+**/*.test.js
+**/*.spec.js
+jest.config.js
+cypress/
+.github/
+
+# Logs and temporary files
+logs/
+*.log
+tmp/
+temp/
+.tmp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

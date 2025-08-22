@@ -1,8 +1,0 @@
-#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
-#include "Generated.xcconfig"
-
-// Disable code signing for all builds
-CODE_SIGN_IDENTITY = 
-CODE_SIGN_STYLE = Manual
-DEVELOPMENT_TEAM = 
-PROVISIONING_PROFILE_SPECIFIER = 

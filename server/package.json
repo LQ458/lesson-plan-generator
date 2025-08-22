@@ -1,0 +1,72 @@
+{
+  "name": "teachai-server",
+  "version": "1.0.0",
+  "description": "TeachAI Web服务器 - 教案生成后端服务",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo \"No build step required for Node.js server\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:rag": "node rag/scripts/test-rag-system.js",
+    "test:basic": "node rag/scripts/test-basic-functionality.js",
+    "test:rag-accuracy": "node rag/scripts/run-accuracy-test.js",
+    "test:rag-accuracy:quick": "node rag/scripts/run-accuracy-test.js quick",
+    "test:rag-accuracy:math": "node rag/scripts/run-accuracy-test.js subject 数学",
+    "test:rag-accuracy:chinese": "node rag/scripts/run-accuracy-test.js subject 语文",
+    "test:rag-accuracy:english": "node rag/scripts/run-accuracy-test.js subject 英语",
+    "test:rag-accuracy:biology": "node rag/scripts/run-accuracy-test.js subject 生物",
+    "test:rag-ci": "node rag/scripts/ci-rag-test.js",
+    "start:cross": "node cross-xvfb.js",
+    "start:macos": "node server.js"
+  },
+  "keywords": [
+    "teachai",
+    "education",
+    "ai",
+    "lesson-plan",
+    "exercises"
+  ],
+  "author": "TeachAI Team",
+  "license": "MIT",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.6.0",
+    "axios": "^1.5.0",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.2",
+    "chromadb": "^1.10.5",
+    "chromadb-default-embed": "^2.14.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "markdown-it": "^14.1.0",
+    "markmap-cli": "^0.18.12",
+    "markmap-lib": "^0.18.12",
+    "mermaid": "^11.8.1",
+    "moment": "^2.29.4",
+    "mongoose": "^8.16.0",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "node-fetch": "2",
+    "openai": "^4.67.3",
+    "puppeteer": "^23.11.1",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/体育与健康/科学社版/义务教育教科书·体育与健康教师用书二年级全一册.pdf",
+  "extractedAt": "2025-07-18T13:34:45.986Z",
+  "method": "node-poppler",
+  "textLength": 187810,
+  "processingStats": {
+    "chunksCount": 247,
+    "embeddingsCount": 247,
+    "processedAt": "2025-07-18T13:36:14.655Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

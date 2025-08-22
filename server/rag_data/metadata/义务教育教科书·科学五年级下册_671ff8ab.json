@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学五年级下册_671ff8ab",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学五年级下册_671ff8ab.pdf",
+  "total_chunks": 40,
+  "total_pages": 66,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T05:30:06.895Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.191Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐（简谱）九年级下册_4ca5269b",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐（简谱）九年级下册_4ca5269b.pdf",
+  "total_chunks": 72,
+  "total_pages": 70,
+  "processing_method": "ocr",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T04:18:21.966Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.226Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

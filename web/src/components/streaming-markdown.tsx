@@ -1,0 +1,426 @@
+"use client";
+
+import React, { useState, useEffect, useMemo, isValidElement } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
+
+interface StreamingMarkdownProps {
+  content: string;
+  isStreaming?: boolean;
+  className?: string;
+}
+
+// 防抖函数
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
+// 骨架屏加载组件
+const MarkdownSkeleton = () => {
+  return (
+    <div className="animate-pulse space-y-4">
+      {/* 标题骨架 */}
+      <div className="space-y-3">
+        <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded-lg w-3/4"></div>
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
+      </div>
+      
+      {/* 段落骨架 */}
+      <div className="space-y-3">
+        <div className="space-y-2">
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/6"></div>
+        </div>
+      </div>
+      
+      {/* 列表骨架 */}
+      <div className="space-y-2">
+        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-lg w-2/3"></div>
+        <div className="space-y-2 ml-4">
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/6"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+        </div>
+      </div>
+      
+      {/* 更多段落骨架 */}
+      <div className="space-y-3">
+        <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-lg w-1/2"></div>
+        <div className="space-y-2">
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/5"></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 内容预处理函数 - 修复markdown渲染问题
+const preprocessContent = (content: string): string => {
+  if (!content) return "";
+
+  let processedContent = content;
+
+  // 1. 移除可能错误包装的代码块标记
+  // 检查是否整个内容被包装在代码块中
+  const codeBlockPattern = /^```(?:markdown|md)?\s*\n([\s\S]*?)\n```$/;
+  const match = processedContent.trim().match(codeBlockPattern);
+  if (match) {
+    processedContent = match[1];
+    console.log("🔧 [StreamingMarkdown] 移除了错误的代码块包装");
+  }
+
+  // 2. 基本的清理，移除开头的空行
+  processedContent = processedContent.replace(/^\s*\n+/, "");
+
+  // 3. 修复数学公式格式问题 - 专门优化练习题数学表达式
+  processedContent = processedContent
+    // 处理已经格式化但可能有问题的数学表达式
+    // 确保下标正确处理 x_1, x_2 等
+    .replace(/\$\s*([a-zA-Z]+)_([0-9]+)\s*\$/g, '$$$1_{$2}$$')
+    // 处理 LaTeX 箭头符号
+    .replace(/\\Rightarrow/g, '\\Rightarrow')
+    // 处理分数
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '\\frac{$1}{$2}')
+    // 处理根号
+    .replace(/\\sqrt\{([^}]+)\}/g, '\\sqrt{$1}')
+    // 处理上标
+    .replace(/\^(\d+)/g, '^{$1}')
+    .replace(/\^([a-zA-Z])/g, '^{$1}')
+    // 处理常见数学运算符
+    .replace(/\\times/g, '\\times')
+    .replace(/\\cdot/g, '\\cdot')
+    .replace(/\\pm/g, '\\pm')
+    .replace(/\\neq/g, '\\neq')
+    .replace(/\\leq/g, '\\leq')
+    .replace(/\\geq/g, '\\geq')
+    // 修复可能的双重美元符号问题
+    .replace(/\$\$\$\$/g, '$$')
+    .replace(/\$\$\$/g, '$')
+    // 确保块级数学公式独占一行
+    .replace(/([^$])\$\$([^$]+)\$\$([^$])/g, '$1\n\n$$$$2$$\n\n$3')
+    // 处理行内数学表达式周围的空格
+    .replace(/\$\s+([^$]+)\s+\$/g, '$ $1 $')
+    // 增强练习题格式处理 - 使用markdown兼容的方式
+    // 处理选择题选项
+    .replace(/\*\*([A-D])\.\*\*/g, '**$1.**')
+    // 确保题目编号突出显示
+    .replace(/^##\s*\*\*题目(\d+)\*\*/gm, '## 🔢 **题目$1**')
+    // 清理重复的数学表达式显示
+    .replace(/([x-z]\s*[₀-₉]+|[x-z]\s*[0-9]+)\s+\1/g, '$1')
+    // 清理混合的数学渲染（LaTeX + 普通文本重复）
+    .replace(/\$([^$]+)\$\s*\1/g, '$$$1$$')
+    .replace(/([^$\s]+)\s+\$\1\$/g, '$$$1$$')
+    // 修复可能的LaTeX渲染问题
+    .replace(/\$\$\s*\$\s*/g, '$$')
+    .replace(/\s*\$\s*\$\$/g, '$$')
+    // 清理一些常见的重复模式
+    .replace(/(x\s*[₁₂]\s*)\1+/g, '$1')
+    .replace(/([=+\-*/]\s*)\1+/g, '$1');
+
+  return processedContent;
+};
+
+// Helper function to extract text content from React elements
+const getTextContent = (element: any): string => {
+  if (typeof element === 'string') {
+    return element;
+  }
+  
+  if (Array.isArray(element)) {
+    return element.map(getTextContent).join('');
+  }
+  
+  if (isValidElement(element) && (element.props as any).children) {
+    return getTextContent((element.props as any).children);
+  }
+  
+  return '';
+};
+
+export default function StreamingMarkdown({
+  content,
+  isStreaming = false,
+  className = "",
+}: StreamingMarkdownProps) {
+  const [displayContent, setDisplayContent] = useState("");
+  const [lastProcessedLength, setLastProcessedLength] = useState(0);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [containerHeight, setContainerHeight] = useState<number | null>(null);
+
+  // 对流式内容使用轻微的防抖，非流式内容立即更新
+  const debouncedContent = useDebounce(content, isStreaming ? 100 : 0);
+
+  // 实时处理新增内容 - 减少频繁更新避免抖动
+  useEffect(() => {
+    if (debouncedContent.length > lastProcessedLength) {
+      // 只在内容有显著变化时才处理，避免频繁更新
+      const contentDiff = debouncedContent.length - lastProcessedLength;
+      if (contentDiff < 5 && isStreaming && displayContent) {
+        // 对于小的增量更新，只更新长度，不重新渲染
+        setLastProcessedLength(debouncedContent.length);
+        return;
+      }
+
+      setIsProcessing(true);
+      
+      // 使用 requestAnimationFrame 确保在下一个渲染帧更新，减少抖动
+      requestAnimationFrame(() => {
+        const processedContent = preprocessContent(debouncedContent);
+        
+        // 批量更新状态，减少重渲染次数
+        setDisplayContent(processedContent);
+        setLastProcessedLength(debouncedContent.length);
+        setIsProcessing(false);
+      });
+    } else if (debouncedContent.length < lastProcessedLength) {
+      // 内容被重置
+      setIsProcessing(true);
+      requestAnimationFrame(() => {
+        const processedContent = preprocessContent(debouncedContent);
+        setDisplayContent(processedContent);
+        setLastProcessedLength(debouncedContent.length);
+        setIsProcessing(false);
+      });
+    }
+  }, [debouncedContent, lastProcessedLength, isStreaming, displayContent]);
+
+  // 流式结束时处理剩余内容
+  useEffect(() => {
+    if (
+      !isStreaming &&
+      content &&
+      displayContent !== preprocessContent(content)
+    ) {
+      const processedContent = preprocessContent(content);
+      setDisplayContent(processedContent);
+      setLastProcessedLength(content.length);
+    }
+  }, [isStreaming, content, displayContent]);
+
+  // 优化的markdown渲染配置 - 增强练习题格式支持
+  const markdownComponents = useMemo(
+    () => ({
+      h1: (props: React.ComponentProps<"h1">) => (
+        <h1
+          className="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3 mb-6 break-words max-w-full overflow-wrap-anywhere"
+          {...props}
+        />
+      ),
+      h2: (props: React.ComponentProps<"h2">) => (
+        <h2
+          className="text-xl font-bold text-blue-600 dark:text-blue-400 mt-8 mb-4 break-words max-w-full bg-blue-50 dark:bg-blue-950 px-4 py-2 rounded-lg border-l-4 border-blue-500"
+          {...props}
+        />
+      ),
+      h3: (props: React.ComponentProps<"h3">) => (
+        <h3
+          className="text-lg font-bold text-green-600 dark:text-green-400 mt-6 mb-3 break-words max-w-full bg-green-50 dark:bg-green-950 px-3 py-1.5 rounded border-l-3 border-green-500"
+          {...props}
+        />
+      ),
+      h4: (props: React.ComponentProps<"h4">) => (
+        <h4
+          className="text-base font-bold text-purple-600 dark:text-purple-400 mt-4 mb-2 break-words max-w-full bg-purple-50 dark:bg-purple-950 px-2 py-1 rounded text-sm border-l-2 border-purple-500"
+          {...props}
+        />
+      ),
+      h5: (props: React.ComponentProps<"h5">) => (
+        <h5
+          className="text-sm font-bold text-orange-600 dark:text-orange-400 mt-3 mb-2 break-words max-w-full uppercase tracking-wide"
+          {...props}
+        />
+      ),
+      h6: (props: React.ComponentProps<"h6">) => (
+        <h6
+          className="text-xs font-bold text-gray-600 dark:text-gray-400 mt-2 mb-1 break-words max-w-full uppercase tracking-wide"
+          {...props}
+        />
+      ),
+      p: (props: React.ComponentProps<"p">) => {
+        const content = props.children;
+        
+        // Check if this paragraph contains answer or analysis markers
+        if (typeof content === 'string') {
+          if (content.includes('**答案') || content.startsWith('答案')) {
+            return (
+              <div className="text-green-700 dark:text-green-300 font-medium bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4 border-l-4 border-green-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
+          
+          if (content.includes('**解析') || content.startsWith('解析')) {
+            return (
+              <div className="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
+        }
+        
+        // Check if content includes JSX elements with answer/analysis text
+        if (isValidElement(content) || Array.isArray(content)) {
+          const textContent = getTextContent(content);
+          if (textContent.includes('答案') && textContent.includes('**')) {
+            return (
+              <div className="text-green-700 dark:text-green-300 font-medium bg-green-50 dark:bg-green-950 p-4 rounded-lg mb-4 border-l-4 border-green-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
+          
+          if (textContent.includes('解析') && textContent.includes('**')) {
+            return (
+              <div className="text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 p-4 rounded-lg mb-4 border-l-4 border-blue-500">
+                <p className="m-0" {...props} />
+              </div>
+            );
+          }
+        }
+        
+        return (
+          <p
+            className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 break-words max-w-full overflow-wrap-anywhere"
+            {...props}
+          />
+        );
+      },
+      ul: (props: React.ComponentProps<"ul">) => (
+        <ul className="list-none ml-0 space-y-2 my-4 max-w-full" {...props} />
+      ),
+      li: (props: React.ComponentProps<"li">) => (
+        <li className="text-gray-700 dark:text-gray-300 break-words max-w-full overflow-wrap-anywhere" {...props} />
+      ),
+      hr: (props: React.ComponentProps<"hr">) => (
+        <hr className="my-8 border-gray-300 dark:border-gray-600 border-t-2 w-full" {...props} />
+      ),
+      code: (props: React.ComponentProps<"code">) => (
+        <code 
+          className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono break-all max-w-full"
+          {...props} 
+        />
+      ),
+      pre: (props: React.ComponentProps<"pre">) => (
+        <pre 
+          className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto max-w-full"
+          {...props} 
+        />
+      ),
+      blockquote: (props: React.ComponentProps<"blockquote">) => (
+        <blockquote 
+          className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400 my-4 max-w-full"
+          {...props} 
+        />
+      ),
+      table: (props: React.ComponentProps<"table">) => (
+        <div className="overflow-x-auto max-w-full">
+          <table 
+            className="min-w-full border-collapse border border-gray-300 dark:border-gray-600 my-4"
+            {...props} 
+          />
+        </div>
+      ),
+      strong: (props: React.ComponentProps<"strong">) => {
+        const content = props.children;
+        if (typeof content === 'string') {
+          if (content.includes('答案')) {
+            return <strong className="text-green-600 dark:text-green-400 font-bold" {...props} />;
+          }
+          if (content.includes('解析')) {
+            return <strong className="text-blue-600 dark:text-blue-400 font-bold" {...props} />;
+          }
+          if (/^[A-D]\.?$/.test(content)) {
+            return <strong className="text-purple-600 dark:text-purple-400 font-bold" {...props} />;
+          }
+        }
+        return <strong className="font-bold text-gray-900 dark:text-white" {...props} />;
+      },
+    }),
+    [],
+  );
+
+  return (
+    <div className={`streaming-markdown ${className}`}>
+      <div 
+        className="prose prose-lg max-w-none dark:prose-invert"
+        style={{ 
+          minHeight: containerHeight || 'auto',
+          transition: isStreaming ? 'none' : 'min-height 0.3s ease'
+        }}
+      >
+        {displayContent && !displayContent.includes('---') && !displayContent.startsWith('title:') ? (
+          <div className="markdown-content">
+            {/* 只在非流式模式下显示处理指示器，避免频繁闪烁 */}
+            {isProcessing && !isStreaming && (
+              <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <div className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400">
+                  <div className="w-4 h-4 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+                  <span>正在处理数学公式和格式...</span>
+                </div>
+              </div>
+            )}
+            
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+              components={markdownComponents}
+            >
+              {displayContent}
+            </ReactMarkdown>
+          </div>
+        ) : isStreaming ? (
+          <div className="space-y-6">
+            {/* 改进的加载指示器 - 针对练习题生成 */}
+            <div className="flex items-center justify-center py-8 text-gray-500 dark:text-gray-400">
+              <div className="text-center">
+                <div className="w-8 h-8 border-2 border-green-500/30 border-t-green-500 rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-sm font-medium">AI正在生成练习题内容...</p>
+                <p className="text-xs mt-2 text-gray-400">
+                  正在处理数学公式和题目格式，请稍候...
+                </p>
+              </div>
+            </div>
+            
+            {/* 骨架屏预览 - 固定高度避免抖动 */}
+            <div className="opacity-40" style={{ minHeight: '400px' }}>
+              <MarkdownSkeleton />
+            </div>
+          </div>
+        ) : (
+          <div style={{ minHeight: '400px' }}>
+            <MarkdownSkeleton />
+          </div>
+        )}
+
+        {/* 简化的流式指示器，减少视觉干扰 */}
+        {isStreaming && displayContent && (
+          <div className="mt-4 text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-full">
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-xs text-green-700 dark:text-green-300">
+                生成中
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

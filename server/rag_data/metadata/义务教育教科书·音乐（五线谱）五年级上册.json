@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/音乐/人教版（五线谱）/义务教育教科书·音乐（五线谱）五年级上册.pdf",
+  "extractedAt": "2025-07-18T13:54:38.570Z",
+  "method": "node-poppler",
+  "textLength": 8431,
+  "processingStats": {
+    "chunksCount": 12,
+    "embeddingsCount": 12,
+    "processedAt": "2025-07-18T13:54:43.085Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.224Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

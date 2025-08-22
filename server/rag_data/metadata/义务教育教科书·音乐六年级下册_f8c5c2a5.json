@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐六年级下册_f8c5c2a5",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐六年级下册_f8c5c2a5.pdf",
+  "total_chunks": 73,
+  "total_pages": 79,
+  "processing_method": "ocr",
+  "worker_id": "worker_4",
+  "processed_at": "2025-07-21T09:48:24.321Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.221Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

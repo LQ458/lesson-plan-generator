@@ -1,0 +1,911 @@
+{
+  "testInfo": {
+    "timestamp": "2025-07-21T19:23:51.384Z",
+    "command": "--mode=quick",
+    "type": "full"
+  },
+  "summary": {
+    "overview": {
+      "total": 12,
+      "successful": 2,
+      "failed": 10,
+      "successRate": "16.7%"
+    },
+    "categories": {
+      "精确匹配": {
+        "total": 2,
+        "success": 0
+      },
+      "学科匹配": {
+        "total": 2,
+        "success": 0
+      },
+      "年级兼容性": {
+        "total": 2,
+        "success": 0
+      },
+      "跨学科内容": {
+        "total": 1,
+        "success": 0
+      },
+      "边界情况": {
+        "total": 2,
+        "success": 2
+      },
+      "模糊查询": {
+        "total": 1,
+        "success": 0
+      },
+      "不匹配内容": {
+        "total": 1,
+        "success": 0
+      },
+      "无关内容": {
+        "total": 1,
+        "success": 0
+      }
+    },
+    "quality": {
+      "avgSubjectAccuracy": "91.7%",
+      "avgGradeAccuracy": "76.2%",
+      "avgRelevance": "0.318"
+    }
+  },
+  "detailedResults": [
+    {
+      "testCase": {
+        "category": "精确匹配",
+        "subject": "数学",
+        "grade": "三年级",
+        "topic": "加法运算",
+        "expectedSubjects": [
+          "数学"
+        ],
+        "expectedGrades": [
+          "三年级",
+          "二年级",
+          "四年级"
+        ],
+        "minRelevanceScore": 0.6,
+        "description": "测试精确的学科和年级匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·数学三年级下册_ad2bfa37.json]\n先估算， 我知道了很多美] (再计算”\n丽的图集都是币， | 我的诬活对称的。 少多足! 我喜欢用点子图\nER全3 计算乘法。它让和 我明白了坚式每方法来解决问题， 人因为图很具体。 二和过县\n\nVE NS\n平行四边形这八冯类》契， 除了平移和旋转，还有\nCA Wi 哪些图形的运动呢?\n有有人 的过一国\nDe\n有 Eye\n二六这\nss\nSN\n三位数乘两位数也能用这种方法条 为什么除法坚式和计算吗? X[ao[2o[ 3 加、减、来法的形\n2 式不一样呢?3\nFr\n和民\n41\n\n[来源: 义务教育教科书·数学三年级下册_ccacc61d.json]\n一年、月、日太阳地球月球地球绕太阳转一周的时间是 365 天 5 小时 48 分 46 秒月球绕地球转一周的时间是 27 天 7 小时 43 分 11 秒关于年、 月、 日， 你们已经知道了什么？还想了解什么？ 日月食演示模型 1 一年、月、日\n\n[来源: 义务教育教科书·数学三年级上册_93d3bbae.json]\n本套教材顾问为曹侠、康庆德。教材实验稿主编为赵查梅，副主编为邓明立、洽海江、张增福、朱齐忠。本灿教材实验稿作者为刘永昌、马增福、\n底梅艳、杨亚伶、刘连启、杨小玲、刘再平。 本套教材在编写、修订的过程中，得到许多专家的支持、帮助和指导， 吸纳了广大一线教师的宝贵意见与建议。在此，对所有为这套教材提供过帮助和支持的人士表示真诚的感谢。 本套教材编写组\n2012 年 12 月\n\n[来源: 义务教育教科书·数学三年级下册_ad2bfa37.json]\n把这些书平3 sa\n| 太一 全\n=一一一只长颈鹿的身| 一只小青蛙的身三二一三旭 高是 584 厘米。 | 高只有4厘米。 685 本 RE 2\n\n4. 笑笑折了 375 颗幸运星，询气折了 309 颗幸运星，他们要把这些幸运星平均装在 6 个爱心盒里，送给幼儿园的 6 个班，每个盒子放多少里?\n\nES ,0\n\n[来源: 义务教育教科书·数学三年级上册_5f59ad95.json]\n下拉而声业加呈二全生攻\n>届区 (二和经 汪\nER 人误从发去名 s\n号人玉 4 下公转,地球自转1周是1 天,绕大人\n阳公转1周是1年。 na\n30] 全了|\n是. 和卉\n一一回国国罩因回加一 国国国加加本四固回加回回加四 =\n回国四因因因一一过关国一加四四亲生上\n| 这样，4 年就多了23时15分蔷 为了方便,1年定为365天， 计生 《人二四\n叫做平年。 0\n里,这一年就有366天,叫做头年。 二月半月\nFE 图但是,每4年又多算了44分56\nFE 丰生全ee\n、交 20 秒,所以每400 年应少增加3天。 ET RA埠就作了“四年一间,百年不辣,四百年有光又同\"的规定。 人\n73 和从",
+        "sources": [
+          "义务教育教科书·数学三年级下册_ad2bfa37.json",
+          "义务教育教科书·数学三年级下册_ccacc61d.json",
+          "义务教育教科书·数学三年级上册_93d3bbae.json",
+          "义务教育教科书·数学三年级上册_5f59ad95.json"
+        ],
+        "totalResults": 5,
+        "usedResults": 5,
+        "tokenCount": 1003,
+        "averageRelevance": 0.2987928926944733
+      },
+      "analysis": {
+        "totalResults": 5,
+        "usedResults": 5,
+        "averageRelevance": 0.2987928926944733,
+        "subjectMatch": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·数学三年级下册_ad2bfa37.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·数学三年级下册_ccacc61d.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·数学三年级上册_93d3bbae.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·数学三年级上册_5f59ad95.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.299 < 0.6"
+        ],
+        "success": false
+      },
+      "duration": 1659,
+      "timestamp": "2025-07-21T19:23:47.484Z"
+    },
+    {
+      "testCase": {
+        "category": "精确匹配",
+        "subject": "语文",
+        "grade": "五年级",
+        "topic": "古诗词鉴赏",
+        "expectedSubjects": [
+          "语文"
+        ],
+        "expectedGrades": [
+          "五年级",
+          "四年级",
+          "六年级"
+        ],
+        "minRelevanceScore": 0.6,
+        "description": "测试语文学科的课题匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·语文五年级下册.json]\n统编 版编 者 2019 年 12 月 YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书五年级下册语 文五年级下册五年级统 编版 下册 产品小学封面语文5下贴标 1 定价：00.00 元 2021 11 8 15:35\n\n[来源: 义务教育教科书·语文五年级下册.json]\n2 门内添活 字传说东汉时的杨修是猜谜高手。有一次，曹操命人造一座花园，花园造好之后，曹操去看，也没说好坏，随手在花园的门上写了一个活 字。众人不解其意，于是去请教杨修。杨修心领神会，对众人说： 门内添活 字，乃阔 字也，丞相是嫌你们把花园的门造得太宽大了。 众人听后便把花园的门重修了，曹操见后非常高兴。 3 有意思的谐音外甥打灯笼照旧（舅） 梁山泊的军师无（吴）用四月的冰河开动（冻）了咸菜烧豆腐有言（盐）在先隔着门缝吹喇叭名（鸣）声在外 4 枇杷和 琵琶古时候，有人送枇杷给一个县官，可他在礼单上把枇杷错写成了琵琶。县官笑道： 枇杷不是此琵琶，只恨当年识字差！ 有个客人统 编版 应声道： 若使琵琶能结果，满城箫管尽开花。 45\n\n[来源: 义务教育教科书·语文五年级上册.json]\n不可估量象征举世闻名仿照众星拱月诗情画意风景名胜建筑金碧辉煌境界漫游天南海北饱览宏伟奇珍异宝博物馆统统搬运销毁罪证摄氏度繁殖粮食煤炭飘浮警觉奉命 16 寸草不生地区杀菌治疗 17 松鼠乖巧清秀玲珑歇凉追逐触动光滑狭窄勉强脱落梳理 18 长篇连续广播铁路辞退挣钱压抑潮湿忙碌阴暗酷暑炎夏噪声瘦弱脊背口罩忍心机械数落权利 125 19 渔船报考教训心疼席子庙会彩排糖果抽象启迪毕业寄宿师范路费轮换领略意境磨灭精致 22 黎明红晕漆黑萤火虫大雁心旷神怡炭火 23 陆续白茫茫涨潮树梢 26 舅父榕树荒唐质朴刊物闲逸降临未免纠正不可计数照耀应接不暇画眉津津有味厌烦 126 火盆走廊夜幕辛酸英雄无限访问书刊一知半解烦琐述说真情实感后 记 《义务教育教科书语文》 （一〜六年级）由教育部组织编写，北京大学中",
+        "sources": [
+          "义务教育教科书·语文五年级下册.json",
+          "义务教育教科书·语文五年级上册.json"
+        ],
+        "totalResults": 3,
+        "usedResults": 3,
+        "tokenCount": 807,
+        "averageRelevance": 0.3228897749088646
+      },
+      "analysis": {
+        "totalResults": 3,
+        "usedResults": 3,
+        "averageRelevance": 0.3228897749088646,
+        "subjectMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·语文五年级下册.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·语文五年级上册.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.323 < 0.6"
+        ],
+        "success": false
+      },
+      "duration": 314,
+      "timestamp": "2025-07-21T19:23:47.798Z"
+    },
+    {
+      "testCase": {
+        "category": "学科匹配",
+        "subject": "物理",
+        "grade": "八年级",
+        "topic": "力的作用",
+        "expectedSubjects": [
+          "物理"
+        ],
+        "expectedGrades": [
+          "八年级",
+          "七年级",
+          "九年级"
+        ],
+        "minRelevanceScore": 0.5,
+        "description": "测试物理学科的专业术语匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 人教版_八年级_义务教育教科书·物理八年级下册.json]\n大教师 、 学生 及家 长在 使用 本册 教科 书的 过程 中提出宝 贵意见， 并将 这些 意见和 建议及 时反馈给 我们。 让我 们携 起手 来， 共同 完成义 务教 育教材建设工作 ! 联系方式电 话 : 010 58758392 电子邮箱 : liuhy pep.com.cn 人民 教育 出版 社课程教材研究所 物理课程教材研究开发中 心 2012 年 5 月 A Se pR A Se pR\n\n[来源: 义务教育教科书·物理八年级下册_52b68a40.json]\nN\\ 1 5\n\\ |\n| | 有由 请汪\nCa b) 9) (d)\n图6-19\n\n(1) 能说明力的作用效果跟力的大小有关的是图和图。 (2) 能说明力的作用效果跟力的方向有关的是图和图。 (3) 能说明力的作用效果跟力的作用点有关的是图和图。 有 )---------， | 1. 探究弹簧测力计的原理。 |\n| 参照如图6一20所示的装置，将价簧旺挂起来，下面挂上不同的钩码， |\n| 分别量出弹痪各次的伸长量(图6一21)。 |\n\n11\n\n[来源: 义务教育教科书·物理八年级下册_de1f60f6.json]\n2 1.在流体中运动 ………………… 54 2.认识浮力 ……………………… 58 3.科学探究：浮力的大小 ……… 61 4.沉与浮 ………………………… 66 1.杠杆 ………………………… 72 2.滑轮 ………………………… 78 3.功功率 ……………………… 82 4.机械效率 ……………………… 86 5.改变世界的机械 ……………… 90 1.机械能 ………………………… 98 2.机械能的转化 ……………… 101 3.水能和风能 ………………… 104 第十章流体的力现象 53 第十二章机械能 97 第十一章机械与功 71 常用物理量及其单位中英文索引 1 08 1 09\n\n[来源: 北师大版（主编：郭玉英）_八年级_义务教育教科书·物理八年级全一册.json]\n最大 ? 哪只 鞋子向 前滑动的 摩擦力 最大 ? 哪只 鞭也 侧疝 滑动的 摩擦力 最大 ? 你能 总结 出摩擦力 大小 与运动土 类型 的关系吗 ? 六 、 进一 步探索 1. 取一 只没有测试过 的运动土， 根据 你得 出的 结论， 预测 该运动畦 所受 摩擦 力的 情况， 并通过实验加 以验证。 2. 穿上 运动鞋 到不 同的 路面 上 (如操场的 塑胶跑道 、 小区 里面 的铺 砖路 面 、 柏油 路 、 刚刚 下过 雨的 路面 、 有积 雪的 路面 等 ) 跑一 跑。 想一 想， 运动 鞋所 受的 摩擦力 还可 能与 哪些因素有 关 ? E 本 a 和 .9 二\n\n[来源: 义务教育教科书·物理八年级下册_de1f60f6.json]\n3 观察动手做实验探究用弹簧测力计测量力的大小 …… 11 重力与质量的关系 ……………… 14 滑动摩擦力的大小与什么有关 … 19 推断物体不受力时的运动 ……… 24 二力平衡的条件 ………………… 31 改变物体的运动状态 …………… 33 压力的作用效果 ………………… 36 液体内部的压强 ………………… 41 液体内部的压强有多大 ………… 42 连通器中的液体有什么特点 …… 45 估测大气压强的值 ……………… 49 鸟翼的升力 ……………………… 54 测量浮力 ………………………… 59 影响浮力大小的因素 …………… 62 浮力大小与排开液体的关系 …… 63 杠杆的平衡条件 ………………… 74 使用动滑轮 ……………………… 79 测量滑轮组的机械效率 ………… 88 摆球动能和势能的转化 ……… 101 做一个潜艇 ……………………… 67 做一个热气球 …………………… 68 生产、 生活中的力 ……………… 2 力的作用效果 …………...",
+        "sources": [
+          "人教版_八年级_义务教育教科书·物理八年级下册.json",
+          "义务教育教科书·物理八年级下册_52b68a40.json",
+          "义务教育教科书·物理八年级下册_de1f60f6.json",
+          "北师大版（主编：郭玉英）_八年级_义务教育教科书·物理八年级全一册.json"
+        ],
+        "totalResults": 10,
+        "usedResults": 5,
+        "tokenCount": 1453,
+        "averageRelevance": 0.3116277738516023
+      },
+      "analysis": {
+        "totalResults": 10,
+        "usedResults": 5,
+        "averageRelevance": 0.3116277738516023,
+        "subjectMatch": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "人教版_八年级_义务教育教科书·物理八年级下册.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·物理八年级下册_52b68a40.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·物理八年级下册_de1f60f6.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "北师大版（主编：郭玉英）_八年级_义务教育教科书·物理八年级全一册.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.312 < 0.5"
+        ],
+        "success": false
+      },
+      "duration": 299,
+      "timestamp": "2025-07-21T19:23:48.097Z"
+    },
+    {
+      "testCase": {
+        "category": "学科匹配",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "藻类植物",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级",
+          "六年级",
+          "八年级"
+        ],
+        "minRelevanceScore": 0.5,
+        "description": "测试生物学科特定内容匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·生物学七年级下册_e50edd5d.json]\n各部 分产 生运 动。 输导 组织 机械 组织 结缔 组织 其细 胞之 间间 隙比 较大， 具有 支持 、 营养 、 连接 和保 护等 功能。 结缔 组织 种类 多， 在人 体内 分布 广泛， 血液 、 骨组 织 、 脂肪 以及 连接 骨骼 和肌 肉的 韧带 和肌 腱都 是结 缔组 织。 结缔 组织\n\n[来源: 义务教育教科书·生物学七年级上册_b6e6356c.json]\n分比， 用 R H 表示。 ▲ ▲ P r o t e c t i v e C o l o r a t i o n （ 保护 色 ） S o m e a n i m a l s h a v e s p e c i a l （ 特殊 的 ） b o d y c o l o u r s . T h e s e c o l o u r s c a n h e l p t h e m s u r v i v e i n t h e i r h a b i t a t s （ 栖息 地 ） . 寄居蟹\n\n[来源: 义务教育教科书·生物学七年级下册_e50edd5d.json]\n组织 能进 行细 胞分 裂产 生细 胞 （ 2 ） 在下 列几 种高 等动 物的 组织 中， 能够 产生 兴奋 并传 导兴 奋的 是 （ ）； 具有 保护 作用， 可以 防止 外物 损伤 和病 菌侵 入人 体的 是 （ ）。 A . 上皮 组织 B . 神经 组织 C . 结缔 组织 D . 肌肉 组织\n\n[来源: 义务教育教科书·生物学七年级下册_e50edd5d.json]\n。 （ 2 ） 细胞 的遗 传物 质主 要存 在于 中， 图中 的 ② ⑨ 对细 胞具 有作 用。 （ 3 ） 图中 两细 胞哪 一个 是植 物细 胞？ 你判 断的 理由 是。 ① ⑦ ⑧ ⑨ ② ③ ④ ⑤ ⑥\n\n[来源: 义务教育教科书·生物学七年级上册_b6e6356c.json]\nʸࣱጞ ʼб ⩌➖႓ ˧Ҭஔᐲஔሙ˺ ʸࣱጞʼб ⏅㨵ॊॖㄷዌ᧦ẕॠ⦮イ ⩌➖႓ ⩌➖႓ ˧Ҭஔᐲஔሙ˺ ⏅㨵ॊॖㄷዌ᧦ẕॠ⦮イ ⏅㨵ॊॖㄷዌ᧦ẕॠ⦮イ： 8 . 51 元审批号： 苏费核 （ 2021 年 ） 0100 号举报电话： 12315 \n˧Ҭஔᐲஔሙ˺ ʸࣱጞ ʼб ⩌➖႓ ⩌➖႓ 㿄ਲ⢾⣈ॠ؆܉ߐӟ࣍॑ 㿄ਲ⢾⣈ॠ؆܉ߐӟ࣍॑ e ԧ澜ч e e ԧ澜ч e\n\n[来源: 义务教育教科书·生物学七年级下册_e50edd5d.json]\n后翅 很薄， 适于 飞翔 前翅 坚韧， 覆盖 在后 翅上 腹部 单眼 只能 感光 图 1 2 - 9 蝗虫 1 . 通过 观察， 你能 说出 蝗虫 有哪 些适 应环 境的 特征 吗？ 2 . 如果 给你 一只 不知 名的 小动 物， 你能 快速 准确 地判 断它 是不 是昆 虫吗？ 说出 你的 判断 依据。 讨论",
+        "sources": [
+          "义务教育教科书·生物学七年级下册_e50edd5d.json",
+          "义务教育教科书·生物学七年级上册_b6e6356c.json"
+        ],
+        "totalResults": 6,
+        "usedResults": 6,
+        "tokenCount": 1000,
+        "averageRelevance": 0.2931641507148743
+      },
+      "analysis": {
+        "totalResults": 6,
+        "usedResults": 6,
+        "averageRelevance": 0.2931641507148743,
+        "subjectMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·生物学七年级下册_e50edd5d.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·生物学七年级上册_b6e6356c.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.293 < 0.5"
+        ],
+        "success": false
+      },
+      "duration": 320,
+      "timestamp": "2025-07-21T19:23:48.417Z"
+    },
+    {
+      "testCase": {
+        "category": "年级兼容性",
+        "subject": "数学",
+        "grade": "一年级",
+        "topic": "数字认识",
+        "expectedSubjects": [
+          "数学"
+        ],
+        "expectedGrades": [
+          "一年级",
+          "二年级"
+        ],
+        "minRelevanceScore": 0.4,
+        "description": "测试低年级内容的年级匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·数学一年级上册_dd5fcd5d.json]\n现下SS 1 证了\nAP 个 | 全 9 时 :9 他辆 日 SA\n1 3 :5 4\n只 |\n国人站\nUSELE3NNRLEEE3\nar KCCrrparrrrrrnorrrprooprrEPDCTCCCRUFCPCCECDFTTCTOCDCCTTEEODPPOPCEDrEOrPCPrprrrrrrrrrrrrrrrorIECPFTECCOCE",
+        "sources": [
+          "义务教育教科书·数学一年级上册_dd5fcd5d.json"
+        ],
+        "totalResults": 1,
+        "usedResults": 1,
+        "tokenCount": 173,
+        "averageRelevance": 0.2983433830738067
+      },
+      "analysis": {
+        "totalResults": 1,
+        "usedResults": 1,
+        "averageRelevance": 0.2983433830738067,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·数学一年级上册_dd5fcd5d.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.298 < 0.4"
+        ],
+        "success": false
+      },
+      "duration": 733,
+      "timestamp": "2025-07-21T19:23:49.150Z"
+    },
+    {
+      "testCase": {
+        "category": "年级兼容性",
+        "subject": "英语",
+        "grade": "九年级",
+        "topic": "语法结构",
+        "expectedSubjects": [
+          "英语"
+        ],
+        "expectedGrades": [
+          "九年级",
+          "八年级"
+        ],
+        "minRelevanceScore": 0.4,
+        "description": "测试高年级内容的年级匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·英语九年级全一册.json]\n联系方式电\n话：010-58758266, 010-58758279\n电子邮箱：jcfk@pep.com.cn\n\n人民教育出版社课程教材研究所英语课程教材研究开发中心\n2014年3月 YIWU JIAOYU JIAOKESHU\n\nYINGYU\n\n英语九年级义 务教 育教 科书\n\n®\n\n语九年级全一册未命名-11 1\n\n全一册全一册英\n\n 产品九年级义务教育教科书\n\n\nfor\nit!\n\n英语\n\n19-12-12 上午10:23\n\n[来源: 义务教育教科书·英语九年级下册_3cba0d41.json]\n全全多、 8 上孙\n\n昌风 N\n/ Manias father ond mother\n| Xiang 儿 jane* feihen and mcthenr Zhou Weilun\n全。外。 号记 “六避\n一汪 j TV 2 大入\n但由 全\nSS\n\n[来源: 义务教育教科书·英语九年级上册_9a05cbe6.json]\nTa11a8e Jay jie We11. 我把自己的时间安排得很好。 全 Now was my chancel 现在，我的机会来了!\n这个句子表现出作者兴奋而愉快的心情，强调父母外出后自己独自生活是他盼望已久的事情。 Module 5 | NAuseums\n人@ No shouting, please! 请勿喧哗!\nDon”t cross that ropel 不要越过那条绳子!\nNo photos. 请勿拍照。 115\n\n[来源: 义务教育教科书·英语九年级上册_8211e101.json]\n཮ກሞӲՊణ ! (CIP) ! ຕ਍ ᆈᇕ/!৵౎प/!ฉ֩ǋᄊࣀ႗ዷՊ/! Ċฉ࡛ǖฉ࡛ྔᇕঞᇣ؜Ӳมǈ 2018 ᅭခঞᇣঞ੔ກ ISBN 978-7-5446-4969-8 I. Ɨᆈč II. Ɨᄊč III. ƗᆈᇕੜĊ؛ዐĊঞ֌ IV. Ɨ G634.411 ዐࡔӲԨ཮ກ࠷ CIP ຕ਍ࢃጴǄ 2017 ǅڼ 138137 ࡽ 6.58 7 ISBN 978-7-5446-4969-8 \u0003*\u0003 1618 2017 8 1 2018 8 2 165 ᒪ㑶䲕 䰩㽓ѨѠϝ᭛࣪Ӵ᪁᳝䰤݀ৌ\n\n[来源: 义务教育教科书·英语九年级下册_3cba0d41.json]\nat least 至少,起但 come back ”回来,回想起\nat once 立刻,马上 come back to life 复活,苏醒\nat the end of ..， 在……的结尾/末端 come down 落下\nat the same time 同时 come from 出生(于) ,来自\nat times 有时 come in ”进来\n\n[来源: 义务教育教科书·英语九年级上册_8211e101.json]\n޲\u0007\u0007\u0007ࡂ ഐݢປნࢥცԣϹന{ၴ༈ࢥცࢥज़ඈ\u0007ႏნ|ĩఆ୕࠱ഐҰeࣼ୕࠱༷ҰĪ൦ЯനԣϹ֭{ႏნĩಎ ݛປݛნ࿘ྲྀ༪ਡࢥғĪቀގࢥӹ|ĩ\u0018p\u001dĪ֭ྱװЯĭۼऔݛࡍࢥცҎቓྕϷҋ֭{ၴ༈ࢥცႏნॣӹ ћሡ|ĩ\u0019\u0017\u0018\u0018୕ϹĪྱװؿӶh ЯࢥғႶಎݛປݛნ࿘ྲྀ܅ቜခࣶ߾gഐݢປݛნվ࿘቎ᆶё྇ĭࣤࢥცҎࠖԬࢥცॣӹࢥғልࡍ܅ ቜໆჼ߾ഴҸ๡ݞሡვ൘Ⴐh ЯҰࢥғ܊ࣼ୕ၴ༈ࢥცࣼ୕࠱׃၊࿘ఁ൘ႰhЯҰࢥғ֭ё྇ಮჼႽĻ ቁᇾёĻ໹Ⴞھ\u0007\u0007\u0007\u0007 ᇾ\u0007\u0007\u0007\u0007ёĻထ߇ྞ\u0007\u0007\u0007\u0007\u0007 ڴᇾёĻᅽर୩\u0007\u0007\u0007\u0007ܽ\u0007\u0007\u0007\u0007᧝ ё\u0007\u0007\u0007\u0007ᆈĻĩχྨ൮лߊஎਡĪ \u0007\u0007੆\u0007\u0007\u0007\u0007႞\u0007\u0007\u0007\u0007෋ආड\u0007\u0007\u0007\u0007ᅮ\u0007\u0007\u0007\u0007ᄈ\u0007\u0007\u0007\u0007ᇎ࣫ၹ\u0007\u0007\u0007\u0007ܽ\u0007\u0007\u0007\u0007᧝\u0007 ЯҰඈ׃၊Ϲё྇ಮჼແĻ ቁᇾёĻւ᧕׷\u0007\u0007\u0007\u0007໹Ⴞھ\u0007\u0007\u0007\u0007\u0007 ᇾ\u0007\u0007\u0007\u0007ёĻထ߇ྞ\u0007\u0007\u0007\u0007\u0007 ڴᇾёĻ಼ྕ૾ ё\u0007\u0007\u0007\u0007ᆈĻĩχྨ൮лߊஎਡĪ \u0007\u0007ຮྶѤ\u0007\u0007\u0007\u0007ಱ઩ޫ\u0007\u0007\u0007\u0007੆\u0007\u0007\u0007\u0007႞\u0007\u0007\u0007\u0007෋ආड\u0007\u0007\u0007\u0007ᅮ\u0007\u0007\u0007\u0007ᄈ\u0007\u0007\u0007\u0007಼ྕ૾\u0007\u0007 \u0007\u0007କݛౚ\u0007\u0007\u0007\u0007ஶུ৷\u0007\u0007\u0007\u0007״ቖཞ\u0007\u0007\u0007\u0007ܽ\u0007\u0007\u0007\u0007᧝\u0007\u0007\u0007\u0007ထ߇ྞ...",
+        "sources": [
+          "义务教育教科书·英语九年级全一册.json",
+          "义务教育教科书·英语九年级下册_3cba0d41.json",
+          "义务教育教科书·英语九年级上册_9a05cbe6.json",
+          "义务教育教科书·英语九年级上册_8211e101.json"
+        ],
+        "totalResults": 20,
+        "usedResults": 6,
+        "tokenCount": 1453,
+        "averageRelevance": 0.34908477445443475
+      },
+      "analysis": {
+        "totalResults": 20,
+        "usedResults": 6,
+        "averageRelevance": 0.34908477445443475,
+        "subjectMatch": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·英语九年级全一册.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·英语九年级下册_3cba0d41.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·英语九年级上册_9a05cbe6.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·英语九年级上册_8211e101.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "相关性分数过低: 0.349 < 0.4"
+        ],
+        "success": false
+      },
+      "duration": 306,
+      "timestamp": "2025-07-21T19:23:49.457Z"
+    },
+    {
+      "testCase": {
+        "category": "跨学科内容",
+        "subject": "科学",
+        "grade": "六年级",
+        "topic": "环境保护",
+        "expectedSubjects": [
+          "生物",
+          "地理",
+          "化学",
+          "科学"
+        ],
+        "expectedGrades": [
+          "六年级",
+          "五年级",
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "测试跨学科主题的匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育三至六年级·书法练习指导（实验）六年级上册_7fe388a0.json]\nLe ] 和 |四局 EPERRRRRRRRRRRRRRRRRRRR\n观 B\n家生 代3指导， 向左侧部件下方穿揪， | 注意笔画的错让。 临比\n写对\n一调 i ||。 束洁 |\n“请注\n意保 玫观 临家 写练习指导中间的部件用笔较轻， |外部笔画用笔并 |顶重。 临比\n写对\n一调\n束\n43\n\n[来源: 义务教育三至六年级·书法练习指导（实验）四年级下册_26553221.json]\n|慰, Vi 1\n\n了4 人下 加邮性 1\n\n5 扣 0 迪本 只、现 、 内二 WA\npa 1 型和 7\n\n[来源: 义务教育三至六年级·书法练习指导（实验）四年级下册_ba3fd16f.json]\n|保， ES 业让学 一清尖斌在百相时找出可以组成词话的字怀 革 ( )\n图起未，再\n[认]区了询《(刀上宰条多》 (局部)\n大， At 攻玫二人交 | 吉庆和朋北- 1 州| 上 CT\n1 我到的主旨人的 他\n] 蛤六\nmA 有国站加 | 由本各二上 :处由:池\n1， 于耻 让、 及从东一一人 fi 站|二证由 汕鸭政制你宣风党 , 国-\nCa LA\n人中\n二网全寺记直系于人执， | Ne\n mA 忱，[\n定站下有六可级 几\n\n[来源: 义务教育三至六年级·书法练习指导（实验）五年级下册_a2d7707a.json]\n昌了 昌忆\n次 7 ! 上机 和四\n人上 忆于 习号 1 汪 、、 机 1 、、\n\n[来源: 义务教育三至六年级·书法练习指导（实验）三年级上册_62a2a3a6.json]\n书法练习指导活动记录单我们小组负责的展览准备工作。 我们收集到的展品有： 我们对展品进行了整理， 决定按种类进行介绍。 关于各种的特点： 关于的正确使用及保养： 关于： 第三类第一类第二类图片实物我们对布展和展览会当天的工作进行了分工： 通过布展与观摩， 我对文房四宝有了很多了解： 组员任务 32\n\n[来源: 义务教育三至六年级·书法练习指导（实验）四年级下册_96a52304.json]\n导练习实践介届 上夭习指导罕 与笔画少到 下的字，笔画可以写得略粗。下部撤、\n\n攻二离横勿远。 临比\n写对\n宣调\n整观 临练习指导 |\n案 5 下笔出钩处与首点对正。 临比\n写对\n 调整\n27\n\n[来源: 义务教育三至六年级·书法练习指导（实验）四年级上册_adc19cf8.json]\n叶练习实践人\n观临 练习指导 |\n到也 要把所两个笔画的交点，横折多转折处裕 |有朋分明。 |\n临比\n写对\n一调\n整观 临练习指导 |\n察写 注意与时 <二入 出平撩的波折。整个字要左收右展。 临比\n写对\n一调\n整上 27\n\n[来源: 义务教育三至六年级·书法练习指导（实验）六年级上册_5baa52cc.json]\n下昌 全下 是 A， 加上 四， 1 、， 4 、 的 | 、 、 _ 加所 | \\\n\n[来源: 义务教育三至六年级·书法练习指导（实验）六年级下册_9e1db457.json]\n自评： 一般□  良好□  优秀□ 互评： 一般□  良好□  优秀□ 年月　　日 35 在方格中临写。 练习页第1课左上包右下的字，两部件重心在同一垂线上，上部撇画宜左展，下部主笔宜右伸。\n\n[来源: 义务教育三至六年级·书法练习指导（实验）六年级上册_5baa52cc.json]\n下和 全下 是外 加上 四， 1 、， 和 、 把 | 、 下 、 _ 加所 ! \\\n\n[来源: 义务教育三至六年级·书法练习指导（实验）四年级上册_9578e6d8.json]\n6 第-单元娄体字的书写二欠和利用北恬第看课得形字入 池人的括竹本 0\n4 本人 人人和， CE | 了\nAi 机避 个斤夯入\nUL WO 人和\n全靖国人\n| 基本在坚中线上,保持 0 可了居中,字形格定。 #-了 -=\n迷 0 网 | 6 中 | 和\n,1，\n\n[来源: 义务教育三至六年级·书法练习指导（实验）五年级下册_a2d7707a.json]\n局提 四 ! 四和 把 “ A\\ 四沁 、 人\nA s 1 昌 、 四\n、 1， 网吕 轴 !\n< r 、\\ 四四 这四 [ 四 、 2\n1 了 “ 、 四区 CE所 em We\n他) 二吧保\n\n[来源: 义务教育教科书·体育与健康教师用书六年级全一册_2f25cbf1.json]\n体育与健康教师用书仿四四本\nET 机病夫”的年代，显得异常的悲壮与高昂。\n\n[来源: 义务教育三至六年级·书法练习指导（实验）五年级上册_746456f7.json]\n、\\、 | 阳 、 ! 虽 、、 | 虽忆 四 、\\ -一 \\、 | 7\n\n中罗 va 上站 、、 上的\n\n[来源: 义务教育三至六年级·书法练习指导（实验）四年级下册_96a52304.json]\n观临 练习指导 |\n\n家 -了一写 下部横让 人面| 与各撤收化， 索钓与首点对正，捧笔伸展。 临比\n写对\n一调\n整观 临练习指导 |\n\n家写 注意上、\n\n和困 中、下三部分的宽度， -对- 0 向笔画分布引 均匀。 临比\n写对\n-- 调整\n31",
+        "sources": [
+          "义务教育三至六年级·书法练习指导（实验）六年级上册_7fe388a0.json",
+          "义务教育三至六年级·书法练习指导（实验）四年级下册_26553221.json",
+          "义务教育三至六年级·书法练习指导（实验）四年级下册_ba3fd16f.json",
+          "义务教育三至六年级·书法练习指导（实验）五年级下册_a2d7707a.json",
+          "义务教育三至六年级·书法练习指导（实验）三年级上册_62a2a3a6.json",
+          "义务教育三至六年级·书法练习指导（实验）四年级下册_96a52304.json",
+          "义务教育三至六年级·书法练习指导（实验）四年级上册_adc19cf8.json",
+          "义务教育三至六年级·书法练习指导（实验）六年级上册_5baa52cc.json",
+          "义务教育三至六年级·书法练习指导（实验）六年级下册_9e1db457.json",
+          "义务教育三至六年级·书法练习指导（实验）四年级上册_9578e6d8.json",
+          "义务教育教科书·体育与健康教师用书六年级全一册_2f25cbf1.json",
+          "义务教育三至六年级·书法练习指导（实验）五年级上册_746456f7.json"
+        ],
+        "totalResults": 20,
+        "usedResults": 15,
+        "tokenCount": 1426,
+        "averageRelevance": 0.3945082676410675
+      },
+      "analysis": {
+        "totalResults": 20,
+        "usedResults": 15,
+        "averageRelevance": 0.3945082676410675,
+        "subjectMatch": {
+          "correct": 0,
+          "total": 12,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 12,
+          "total": 12,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "义务教育三至六年级·书法练习指导（实验）六年级上册_7fe388a0.json",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育三至六年级·书法练习指导（实验）四年级下册_26553221.json",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育三至六年级·书法练习指导（实验）四年级下册_ba3fd16f.json",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育三至六年级·书法练习指导（实验）五年级下册_a2d7707a.json",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育三至六年级·书法练习指导（实验）三年级上册_62a2a3a6.json",
+            "subjectMatch": false,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 310,
+      "timestamp": "2025-07-21T19:23:49.767Z"
+    },
+    {
+      "testCase": {
+        "category": "边界情况",
+        "subject": "音乐",
+        "grade": "四年级",
+        "topic": "节拍练习",
+        "expectedSubjects": [
+          "音乐"
+        ],
+        "expectedGrades": [
+          "四年级",
+          "三年级",
+          "五年级"
+        ],
+        "minRelevanceScore": 0.2,
+        "description": "测试非主科内容的匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·音乐四年级下册_4c511d1b.json]\n遗忘在乡 间的 小路 上。 上\n\n\n\n|\n| |。 0 加 |\n关56 ee\nNT省TTOPETPIPPSEFSESCOICEFESRE9了PS",
+        "sources": [
+          "义务教育教科书·音乐四年级下册_4c511d1b.json"
+        ],
+        "totalResults": 1,
+        "usedResults": 1,
+        "tokenCount": 72,
+        "averageRelevance": 0.2874589133262634
+      },
+      "analysis": {
+        "totalResults": 1,
+        "usedResults": 1,
+        "averageRelevance": 0.2874589133262634,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·音乐四年级下册_4c511d1b.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [],
+        "success": true
+      },
+      "duration": 264,
+      "timestamp": "2025-07-21T19:23:50.031Z"
+    },
+    {
+      "testCase": {
+        "category": "边界情况",
+        "subject": "美术",
+        "grade": "二年级",
+        "topic": "色彩搭配",
+        "expectedSubjects": [
+          "美术"
+        ],
+        "expectedGrades": [
+          "二年级",
+          "一年级",
+          "三年级"
+        ],
+        "minRelevanceScore": 0.2,
+        "description": "测试艺术类学科的匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·美术二年级上册_70d10d7a.json]\n好) 《aa 5 人个 付 EL 0\n1 少走 SS\n7 让让 1 上四 四 | 1 人人 业总人 4\n30，",
+        "sources": [
+          "义务教育教科书·美术二年级上册_70d10d7a.json"
+        ],
+        "totalResults": 1,
+        "usedResults": 1,
+        "tokenCount": 55,
+        "averageRelevance": 0.2822406697273254
+      },
+      "analysis": {
+        "totalResults": 1,
+        "usedResults": 1,
+        "averageRelevance": 0.2822406697273254,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·美术二年级上册_70d10d7a.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [],
+        "success": true
+      },
+      "duration": 257,
+      "timestamp": "2025-07-21T19:23:50.288Z"
+    },
+    {
+      "testCase": {
+        "category": "模糊查询",
+        "subject": "语文",
+        "grade": "三年级",
+        "topic": "写作技巧",
+        "expectedSubjects": [
+          "语文"
+        ],
+        "expectedGrades": [
+          "三年级",
+          "二年级",
+          "四年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "测试模糊主题的匹配能力"
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·语文四年级下册.json]\n者统 编版 2019年12月 YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书四年级下册语 文四年级下册四年级统 编版 下册 产品小学封面语文4下六三贴标 1 定价：元 2021 11 8 15:34\n\n[来源: 义务教育教科书·语文一年级上册.json]\n话：010 58758606 电子邮箱：jcfk pep.com.cn 编者 2016年7月 YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书一年级上册语 文一年级上册一年级上册 产品定价：7.75元小学封面语文1上.indd 1 2022 7 8 10:09\n\n[来源: 义务教育教科书·语文五年级下册.json]\n统编 版编 者 2019 年 12 月 YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书五年级下册语 文五年级下册五年级统 编版 下册 产品小学封面语文5下贴标 1 定价：00.00 元 2021 11 8 15:35\n\n[来源: 义务教育教科书·语文六年级下册.json]\n者统 编版 2019 年 12 月 YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书六年级下册语 文六年级下册六年级统 编版 下册 产品小学封面语文6下贴标 1 定价：7.45 元 2021 11 8 15:36\n\n[来源: 义务教育教科书·语文九年级上册.json]\n话：010-58758631\n\n电子邮箱：jcfk@pep.com.cn\n编者\n2018 年 6 月 ®\n\n义务 教育 教科 书\n\nYIWU JIAOYU JIAOKESHU\n\nYUWEN\n\n语文九年级全国优秀教材特等奖义务教育教科书九年级上册上册语\n文九年级上册 产品定价： 初中封面语文9上 1\n\n元\n\n2022/5/5 16:17\n\n[来源: 义务教育教科书·语文七年级下册.json]\n版带出与世无争，而自有专长的神气。因为拉着洋人，他们可以不穿号坎，而一律的是长袖小白褂，白的或黑的裤子，裤筒特别肥，脚腕上系着细带；脚上是宽双脸千层底青布 82 名著导读编 〔专拉洋买卖的〕专做外国人生意的。从前外国驻华使馆都在东交民巷。 统 〔拉晚儿〕指下午四点以后出车，拉到天亮以前。 〔嚼谷〕指吃用。\n\n[来源: 义务教育教科书·语文八年级上册.json]\nc〔娄蒙路〕巴黎工业物理化学学校所在的街道。 比埃尔·居里当时在该校任教。 d〔下霜〕巴黎的气候属温带海洋性气候，冬季多雨，有时也会下霜。 〔炽（chì）热〕温度高，极热。炽， （火）旺。 e\nf〔猝（cù）〕突然。 g〔窒（zhì）息〕因缺氧或呼吸系统障碍，导致呼吸困难，甚至停止呼吸。 h〔吹嘘（xū）〕夸张地宣扬。 美丽的颜色阅 读\n\n43",
+        "sources": [
+          "义务教育教科书·语文四年级下册.json",
+          "义务教育教科书·语文一年级上册.json",
+          "义务教育教科书·语文五年级下册.json",
+          "义务教育教科书·语文六年级下册.json",
+          "义务教育教科书·语文九年级上册.json",
+          "义务教育教科书·语文七年级下册.json",
+          "义务教育教科书·语文八年级上册.json"
+        ],
+        "totalResults": 7,
+        "usedResults": 7,
+        "tokenCount": 1071,
+        "averageRelevance": 0.25397056544103425
+      },
+      "analysis": {
+        "totalResults": 7,
+        "usedResults": 7,
+        "averageRelevance": 0.25397056544103425,
+        "subjectMatch": {
+          "correct": 7,
+          "total": 7,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 1,
+          "total": 7,
+          "accuracy": 0.14285714285714285
+        },
+        "relevanceScore": {
+          "above_threshold": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·语文四年级下册.json",
+            "subjectMatch": true,
+            "gradeMatch": true
+          },
+          {
+            "source": "义务教育教科书·语文一年级上册.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "义务教育教科书·语文五年级下册.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "义务教育教科书·语文六年级下册.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "义务教育教科书·语文九年级上册.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "年级匹配度过低: 14.3%",
+          "相关性分数过低: 0.254 < 0.3"
+        ],
+        "success": false
+      },
+      "duration": 562,
+      "timestamp": "2025-07-21T19:23:50.850Z"
+    },
+    {
+      "testCase": {
+        "category": "不匹配内容",
+        "subject": "数学",
+        "grade": "一年级",
+        "topic": "微积分原理",
+        "expectedSubjects": [
+          "数学"
+        ],
+        "expectedGrades": [],
+        "minRelevanceScore": 0.1,
+        "description": "测试超出年级范围内容的过滤",
+        "shouldFail": true
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·数学一年级上册_dd5fcd5d.json]\n现下SS 1 证了\nAP 个 | 全 9 时 :9 他辆 日 SA\n1 3 :5 4\n只 |\n国人站\nUSELE3NNRLEEE3\nar KCCrrparrrrrrnorrrprooprrEPDCTCCCRUFCPCCECDFTTCTOCDCCTTEEODPPOPCEDrEOrPCPrprrrrrrrrrrrrrrrorIECPFTECCOCE\n\n[来源: 义务教育教科书·数学一年级上册_1139e269.json]\n七 “认识11~20名数\n8、按顺序连线。 ,.\nAN 4\n19。 .18 四 1 3。。 14。 17” \"16\n“15\n“13 .5\n12。。 .10 6.\n11 8 .7\n9。 9，先猜一猜大约有多少个，再很快地数出一共有多少个。 儿调查隐有9\nNS 用到了 11~20 的数。 风NN\n人的， gg 中\n9 本\n[5元/个| 有g有口上人 品总 |\n本 6日本 STR\n人ES\nPR 日口|所已\n日日| 昌霹 让面| 口|喇 | 成。 展开可蕊大= os\nCE人全2\n我家住第17 层J]|\n以1 总\n\n[来源: 义务教育教科书·数学一年级上册_1139e269.json]\n<\nS3 YA。 ? 人Terr cefe\nam 本八_学看钟表\n2.，认一认。 富 CC\n一 ev\nFT TS Ms\n了 SN 1 1 风 SN =\n1， 训后 : 5 j 下\n1 | |疏， 亲 1 :\nN 8 4 AN 是 Yi 9 了人 5 Mg N全莒此 4\nSR 弛旦 要\n3，连一连。 区人\nii 12 这\n10 2 1 1 和引 上节 全 f 3 :讽 2& 了 | C、\n9 可和 由所\n 光六.交 4 本: 攻才 、; 抽， 2\n计起与训本 12 1 2\n忆_“一< \\ ERASA 10 1 Z 和间\nFS 7 9 3\n\n[来源: 义务教育教科书·数学一年级上册_1139e269.json]\n。 >- E “2\n加 > 0 |\nAN 吕四 > 让人 Y 、]、、 立年见影日县 〈gui ) 沙漏内 、， INRLLEKGTRELAEASLLRKAFIGLAOARLEGFNECAGTARALOEGFMELRAGTAALEGFREELE\n\n[来源: 义务教育教科书·数学一年级上册_1139e269.json]\n、\n< 1 1\n三”认识10以内的数久 7\n SO ai CC 如这 人一 志本 总和 二 SA\n四人怕 色局\n0 达加 ER :\n人自 习 = 广沼专雪、 7\nSS 2\nse 全\n<\n3 SS 人下 @ se 绽克汉外 员\nVS 忆m:\n上工交全关广\n\n[来源: 义务教育教科书·数学一年级下册_00e450e1.json]\n一器多， zl TY |\n把一理画二 -全通与证 必 |\n全 : ”和\n3 帮站汪全和5 (我们要爱护人民币。 Er 0 m)\nE 让人 一王虹上 SEE\n1 让有 = -QIAN 人了 rr < a 5 后|\n52\n\n[来源: 义务教育教科书·数学一年级上册_1139e269.json]\nEC-一\nSr 一八_学看钟表局\nEee\n10 4 |\n9 本 JJ\n8 4 ER\n中吉 NS\n这是 10 时半。 至 ,国友\nSe\n二 PE c 二=:=\n说一说。 >\n8 | 沿 4 一全> :办有一 6-己 6 号只 | 区他 > 岗 SN 和 < 机个了儿上7\n现在是 10 时，时针现在是 10 时半，时针和分针指在哪儿? 洒 1 和分针指在哪儿?\n10 2\n梧司人动画时针或分针。 4， 和的 二沾了 于机 9 1 4 由出\n8 /， SS 8 | 凡 |\n和总 = | 人 |\n\n早上 7:00 下午 1:30 1】 SS",
+        "sources": [
+          "义务教育教科书·数学一年级上册_dd5fcd5d.json",
+          "义务教育教科书·数学一年级上册_1139e269.json",
+          "义务教育教科书·数学一年级下册_00e450e1.json"
+        ],
+        "totalResults": 11,
+        "usedResults": 7,
+        "tokenCount": 1321,
+        "averageRelevance": 0.3213938760757446
+      },
+      "analysis": {
+        "totalResults": 11,
+        "usedResults": 7,
+        "averageRelevance": 0.3213938760757446,
+        "subjectMatch": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 3,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·数学一年级上册_dd5fcd5d.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "义务教育教科书·数学一年级上册_1139e269.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          },
+          {
+            "source": "义务教育教科书·数学一年级下册_00e450e1.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [],
+        "success": false
+      },
+      "duration": 256,
+      "timestamp": "2025-07-21T19:23:51.106Z"
+    },
+    {
+      "testCase": {
+        "category": "无关内容",
+        "subject": "体育",
+        "grade": "五年级",
+        "topic": "量子物理",
+        "expectedSubjects": [
+          "体育"
+        ],
+        "expectedGrades": [],
+        "minRelevanceScore": 0.1,
+        "description": "测试完全无关内容的过滤",
+        "shouldFail": true
+      },
+      "contextResult": {
+        "context": "[来源: 义务教育教科书·体育与健康教师用书五年级全一册_fa5b34d1.json]\n人站\n\n[来源: 义务教育教科书·体育与健康教师用书五年级全一册_fa5b34d1.json]\n的 ge 和续表",
+        "sources": [
+          "义务教育教科书·体育与健康教师用书五年级全一册_fa5b34d1.json"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 10,
+        "averageRelevance": 0.40084635496139526
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": 0.40084635496139526,
+        "subjectMatch": {
+          "correct": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 1,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "义务教育教科书·体育与健康教师用书五年级全一册_fa5b34d1.json",
+            "subjectMatch": true,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [],
+        "success": false
+      },
+      "duration": 277,
+      "timestamp": "2025-07-21T19:23:51.384Z"
+    }
+  ]
+}

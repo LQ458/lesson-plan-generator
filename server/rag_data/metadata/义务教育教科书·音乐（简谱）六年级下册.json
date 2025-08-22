@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/音乐/苏少版（简谱）/义务教育教科书·音乐（简谱）六年级下册.pdf",
+  "extractedAt": "2025-07-18T13:55:51.232Z",
+  "method": "node-poppler",
+  "textLength": 9016,
+  "processingStats": {
+    "chunksCount": 12,
+    "embeddingsCount": 12,
+    "processedAt": "2025-07-18T13:55:54.809Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.226Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

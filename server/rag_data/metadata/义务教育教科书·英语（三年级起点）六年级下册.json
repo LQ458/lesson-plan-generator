@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/英语/鲁教湘教版/义务教育教科书·英语（三年级起点）六年级下册.pdf",
+  "extractedAt": "2025-07-18T13:50:57.189Z",
+  "method": "node-poppler",
+  "textLength": 44505,
+  "processingStats": {
+    "chunksCount": 63,
+    "embeddingsCount": 63,
+    "processedAt": "2025-07-18T13:51:08.869Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.213Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

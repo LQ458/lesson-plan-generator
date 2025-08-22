@@ -1,0 +1,21 @@
+[
+  {
+    "content": "织锦义务教育教科书美术六年级上册义务教育教科书美术六年级上册 产品 MEISHU 织锦义务教育教科书美术六年级上册义务教育教科书美术六年级上册绿色印刷产品 MEISHU",
+    "metadata": {
+      "filename": "义务教育教科书·美术六年级上册_7cf1b062",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·美术六年级上册_7cf1b062.pdf",
+      "chunk_index": 0,
+      "total_chunks": 1,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_0",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.85,
+        "lengthScore": 0.084,
+        "coherenceScore": 0.5,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:56.072Z",
+      "enhancementVersion": "2.0"
+    }
+  }
+]

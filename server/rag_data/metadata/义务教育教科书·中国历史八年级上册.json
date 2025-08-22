@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/历史/统编版-人民教育出版社/八年级/义务教育教科书·中国历史八年级上册.pdf",
+  "extractedAt": "2025-07-20T03:22:08.316Z",
+  "method": "node-poppler",
+  "textLength": 79363,
+  "processingStats": {
+    "chunksCount": 105,
+    "embeddingsCount": 105,
+    "processedAt": "2025-07-20T03:23:00.580Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

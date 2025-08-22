@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语（一年级起点）六年级上册_d0a48d9d",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语（一年级起点）六年级上册_d0a48d9d.pdf",
+  "total_chunks": 115,
+  "total_pages": 94,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T07:05:49.851Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.209Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

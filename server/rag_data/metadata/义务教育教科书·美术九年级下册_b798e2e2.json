@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·美术九年级下册_b798e2e2",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·美术九年级下册_b798e2e2.pdf",
+  "total_chunks": 53,
+  "total_pages": 23,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T03:16:52.944Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.197Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

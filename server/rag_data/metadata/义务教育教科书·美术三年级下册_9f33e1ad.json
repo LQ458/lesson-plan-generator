@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·美术三年级下册_9f33e1ad",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·美术三年级下册_9f33e1ad.pdf",
+  "total_chunks": 15,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T06:34:06.417Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.197Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

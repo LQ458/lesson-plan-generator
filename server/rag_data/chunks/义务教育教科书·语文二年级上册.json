@@ -1,0 +1,1066 @@
+[
+  {
+    "content": "YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书二年级上册语 文二年级上册二年级上册 产品定价：7.95 元小学封面语文2上.indd 1 2022 7 8 10:19 义务教育教科书二年级上册教育部组织编写总主编温儒敏北 京总 主编：温儒敏小学主编：陈先云（执行） 曹文轩崔 峦李吉林编写人员：（以姓氏笔画为序） 张沛 张一清郑 聂鸿飞熊宁宁滕春友责任编辑：郑宇 魏宇 段宗平魏 航航 美术编辑：李宏庆插图绘制：查加伍王晓鹏封面设计：吕旻 李宏庆龙 淼雨青工作室封面绘图：景绍宗义务教育教科书语文二年级上册教育部组织编写出 版网 址 （北京市海淀区中关村南大街 17 号院 1 号楼邮编：100081） http: www.pep.com.cn 版权所有未经许可不得采用任何方式擅自复制或使用本产品任何部分违者必究如发现内容质量问题，请登录中小学教材意见反馈平台：jcyjfk.pep.com.cn 如发现印、装质量问题，影响阅读，请与联系调换。电话： 目录课文课文 1 小蝌蚪找妈妈.................. 1 4 曹冲称象......................... 28 2 我是什么.......................... 5 5 玲玲的画......................... 31 3 植物妈妈有办法 ............. 8 6 一封信............................. 33 口语交际：有趣的动物.... 11 7 妈妈睡了......................... 36 语文园地一..................... 12 口语交际：做手工 ........... 38 快乐读书吧： 语文园地三..................... 39",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 166
+        }
+      },
+      "chunkIndex": 0,
+      "chunkSize": 988,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5115020297699594,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "YIWU JIAOYU JIAOKESHU\n\nYUWEN\n\n语文\n\n义 务 教 育 教 科 书\n\n®\n\n全国优秀教材特等奖\n\n义务教育教科书\n\n二年级 上册\n\n语\n文\n\n二年级\n上册\n\n二年级\n上册\n\n绿色印刷产品\n\n定价：7.95 元\n\n小学封面语文2上.indd 1\n\n2022/7/8 10:19\n\n\f义务教育教科书\n\n二年级\n上册\n教育部组织编写\n总主编\n\n温儒敏\n\n·北 京·\n\n\f总 主 编：温儒敏\n小学主编：陈先云（执行）\n\n曹文轩\n\n崔\n\n峦\n\n李吉林\n\n编写人员：（以姓氏笔画为序）\n张\n\n沛\n\n张一清\n\n郑\n\n      聂鸿飞\n\n熊宁宁\n\n滕春友\n\n责任编辑：郑\n\n宇\n\n魏\n\n宇\n\n段宗平\n魏\n\n航\n\n航\n\n美术编辑：李宏庆\n插图绘制：查加伍\n\n王晓鹏\n\n封面设计：吕 旻\n\n李宏庆\n\n龙\n\n淼\n\n雨青工作室\n\n封面绘图：景绍宗\n\n义务教育教科书\n\n语文\n\n二年级 上册\n\n教育部组织编写\n出  \n\n版\n\n网  \n\n址\n\n（北京市海淀区中关村南大街 17 号院 1 号楼 邮编：100081）\nhttp://www.pep.com.cn\n\n版权所有·未经许可不得采用任何方式擅自复制或使用本产品任何部分·违者必究\n如发现内容质量问题，请登录中小学教材意见反馈平台：jcyjfk.pep.com.cn\n如发现印、装质量问题，影响阅读，请与 ××× 联系调换。电话：×××-××××××××\n\n\f目录\n课文\n\n课文\n\n1\n\n小蝌蚪找妈妈.................. 1\n\n4\n\n曹冲称象......................... 28\n\n2\n\n我是什么.......................... 5\n\n5\n\n玲玲的画......................... 31\n\n3\n\n植物妈妈有办法 ............. 8\n\n6\n\n一封信............................. 33\n\n◎ 口语交际：有趣的动物.... 11\n\n7\n\n妈妈睡了......................... 36\n\n◎ 语文园地一..................... 12\n\n◎ 口语交际：做手工 ........... 38\n\n◎ 快乐读书吧：\n\n◎ 语文园地三..................... 39",
+    "qualityScore": 0.3765234375,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "physics"
+    }
+  },
+  {
+    "content": "kQi mQ ma 孩子们就蹦着跳着离开妈妈。 zhI wM mQ ma de bSn fA hDn duT hDn duT 植物妈妈的办法很多很多， bP xKn nJ jiM zJ xK guQn chW nS lJ yGu xL cO xUn de xiAo pRng you quF dR 不信你就仔细观察。 xL duT duT de zhU shi 那里有许许多多的知识， bP dSo tQ 粗心的小朋友却得不到它。 9 zhI rP wRi lV bFi fEn cK dJ pQ zhS lI shI cO dR 植如 为旅 备纷 刺底 啪炸 离识 粗得 法法 公公 娃娃 毛毛 知知 如如 它它 她她 更更 识识 朗读课文。背诵课文。 课文介绍了哪几种植物？在课文中画出来，再说说它们是怎么传播种子的。 选做：你还知道哪些植物传播种子的方法？可以选用下面的词语，仿照课文说一说。 chRng 10 乘着风蹦着跳着纷纷出发炸开口语交际有趣的动物 yUng wL yIng shL 鹦鹉会学人说话，萤火虫能发出亮光，松鼠的尾巴好像降落伞动物真有趣！ 和同学交流：你喜欢哪种动物？它有趣在哪儿？先想 bL chTng 好要讲的内容，再讲给同学听。听的同学可以提问或补充。 吐字要清楚。 有不 明白 的地 方， 要有礼貌地提问。 11 语文园地一识字加油站去野外观察大自然， 你会准备些什么？ tSo mSo dEng xiR kM 手套帽子登山鞋运动裤 tP hP zhSng pRng zhJ zhEn 地图水壶帐篷指南针 tSo mSo dEng xiR kM tP hP zhSng pRng zhJ zhEn 套帽 登鞋 裤图 壶帐 篷指 针字词句运用体会每组加点词的不同意思，选一组演一演。 shang 迎上去穿衣裳甩甩头 3 3 3 3 pWo 追上去披红袍摇摇头 3 3 3 3",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 1155,
+          "to": 1340
+        }
+      },
+      "chunkIndex": 10,
+      "chunkSize": 976,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5577507598784195,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "kQi mQ ma\n\n孩子们就蹦着跳着离开妈妈。\n\nzhI wM mQ ma de bSn fA hDn duT hDn duT\n\n植物妈妈的办法很多很多，\nbP\n\nxKn\n\nnJ\n\njiM\n\nzJ\n\nxK guQn chW\n\nnS\n\nlJ\n\nyGu xL\n\ncO\n\nxUn\n\nde xiAo pRng you quF dR\n\n不信你就仔细观察。\nxL duT duT de\n\nzhU\n\nshi\n\n那里有许许多多的知识，\nbP dSo tQ\n\n粗心的小朋友却得不到它。\n\n9\n\n\fzhI\n\nrP\n\nwRi\n\nlV\n\nbFi\n\nfEn\n\ncK\n\ndJ\n\npQ\n\nzhS\n\nlI\n\nshI\n\ncO\n\ndR\n\n植 如 为 旅 备 纷 刺 底 啪 炸 离 识 粗 得\n\n法 法\n公 公\n娃 娃\n毛 毛\n知 知\n\n如 如\n它 它\n她 她\n更 更\n识 识\n\n朗读课文。背诵课文。\n课文介绍了哪几种植物？在课文中画出来，再说说它们\n是怎么传播种子的。\n选做：你还知道哪些植物传播种子的方法？可以选用下\n面的词语，仿照课文说一说。\n\nchRng\n\n10\n\n乘着风\n\n蹦着跳着\n\n纷纷出发\n\n炸开\n\n\f口语交际\n\n有趣的动物\nyUng wL\n\nyIng\n\nshL\n\n   鹦鹉会学人说话，萤火虫能发出亮光，松鼠的尾巴好\n像降落伞……动物真有趣！\n   和同学交流：你喜欢哪种动物？它有趣在哪儿？先想\nbL chTng\n\n好要讲的内容，再讲给同学听。听的同学可以提问或补充。\n\n◎ 吐字要清楚。\n◎ 有 不 明 白 的 地 方， 要\n有礼貌地提问。\n11\n\n\f语文园地一\n\n识字加油站\n   去野外观察大自然，\n你会准备些什么？\ntSo\n\nmSo\n\ndEng\n\nxiR\n\nkM\n\n手套   帽子   登山鞋   运动裤  \ntP\n\nhP\n\nzhSng pRng\n\nzhJ\n\nzhEn\n\n地图   水壶   帐篷    指南针   \n\ntSo mSo dEng xiR\n\nkM\n\ntP\n\nhP zhSng pRng zhJ zhEn\n\n套 帽 登 鞋 裤 图 壶 帐 篷 指 针\n字词句运用\n体会每组加点词的不同意思，选一组演一演。\nshang\n\n迎上去    穿衣裳    甩甩头\n3\n\n3\n\n3\n\n3\n\npWo\n\n追上去    披红袍    摇摇头\n3\n\n3\n\n3\n\n3",
+    "qualityScore": 0.4241012084592145,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": true,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "physics"
+    }
+  },
+  {
+    "content": "地图水壶帐篷指南针 tSo mSo dEng xiR kM tP hP zhSng pRng zhJ zhEn 套帽 登鞋 裤图 壶帐 篷指 针字词句运用体会每组加点词的不同意思，选一组演一演。 shang 迎上去穿衣裳甩甩头 3 3 3 3 pWo 追上去披红袍摇摇头 3 3 3 3 读一读，用加点的词语说说你的日常生活。 pI 我的脾气可怪了，有时候我很温和，有时候我却 3 bSo zSo 很暴躁。 12 3 3 3 3 3 平常我在池子里睡觉，在小溪里散步，在江河里奔跑， 3 wL 3 3 在海洋里跳舞，唱歌，开大会。 3 书写提示有的字左边窄， 右边宽；有的字左边宽，右边窄。 作作 法法 都都 别别 写字时要保持正确的坐姿和执笔姿势。 日积月累 mRi huQ 梅花 sHng wWng Qn shI 宋王 安石 qiWng jiAo shM zhU mRi lIng hWn dP zK kQi yWo bP shK xuD 墙角数枝梅， 凌寒独自开。 zhU 遥知不是雪， wFi yGu Sn xiQng lWi 为有暗香来。 13 我爱阅读 qJ R jK 企鹅寄冰 shU yWn zhTu 狮子大王住在炎热的非洲。 a 夏天来了，狮子大王不停地叫着： 热啊，热啊。 河 lDng 马说： 听说在南极有一种很冷很冷的东西，叫作冰。 kF fEng 狮子大王听了，立刻给南极的企鹅写了一封信，请他寄一块冰来。 shTu Q 好多天以后，企鹅收到了信。他说： 啊，狮子大王想 rYng yK 要一块冰，太容易了，我这里可是冰天雪地啊。 企鹅挑了 zhuQng 一块冰，装在袋子里，给狮子大王寄去。 xiQng xiQn lPn 装冰的箱子先上了轮船，又上了飞机。 过了很多天，狮子大王收到了箱子。他打开一看，觉 guSi yQ 得好奇怪： 呀，怎么是一袋水？ tuK",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 1307,
+          "to": 1490
+        }
+      },
+      "chunkIndex": 11,
+      "chunkSize": 957,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5918674698795181,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "地图   水壶   帐篷    指南针   \n\ntSo mSo dEng xiR\n\nkM\n\ntP\n\nhP zhSng pRng zhJ zhEn\n\n套 帽 登 鞋 裤 图 壶 帐 篷 指 针\n字词句运用\n体会每组加点词的不同意思，选一组演一演。\nshang\n\n迎上去    穿衣裳    甩甩头\n3\n\n3\n\n3\n\n3\n\npWo\n\n追上去    披红袍    摇摇头\n3\n\n3\n\n3\n\n3\n\n读一读，用加点的词语说说你的日常生活。\npI\n\n◇ 我 的脾 气可怪了，有时候 我很温和，有时候 我却\n3\n\nbSo zSo\n\n很暴 躁 。\n12\n\n3\n\n3\n\n3\n\n3\n\n3\n\n\f◇ 平常我在池子里睡觉，在小溪里散步，在江河里奔跑，\n3\n\nwL\n\n3\n\n3\n\n在海洋里跳舞，唱歌，开大会。\n3\n\n书写提示\n   有的字左边窄，\n右边宽；有的字左\n边宽，右边窄。\n\n作 作\n法 法\n都 都\n别 别\n\n   写字时要保持正\n确的坐姿和执笔姿势。\n\n日积月累\nmRi\n\nhuQ\n\n梅 花\nsHng\n\nwWng Qn shI\n\n[宋] 王 安 石\nqiWng jiAo shM\n\nzhU\n\nmRi\n\nlIng hWn\n\ndP\n\nzK\n\nkQi\n\nyWo\n\nbP\n\nshK\n\nxuD\n\n墙角数枝梅，\n\n凌寒独自开。\nzhU\n\n遥知不是雪，\nwFi yGu\n\nSn xiQng lWi\n\n为有暗香来。\n13\n\n\f我爱阅读\nqJ\n\nR\n\njK\n\n企鹅寄冰\nshU\n\nyWn\n\nzhTu\n\n   狮子大王住在炎热的非洲。\n\na\n\n   夏天来了，狮子大王不停地叫着：\n“热啊，热啊。”河\nlDng\n\n马说：“听说在南极有一种很冷很冷的东西，叫作冰。”\nkF\n\nfEng\n\n   狮子大王听了，立刻给南极的企鹅写了一封信，请他\n寄一块冰来。\n\nshTu\n\nQ\n\n   好多天以后，企鹅收到了信。他说：\n“啊，狮子大王想\nrYng yK\n\n要一块冰，太容易了，我这里可是冰天雪地啊。”企鹅挑了\nzhuQng\n\n一块冰，装在袋子里，给狮子大王寄去。\nxiQng\n\nxiQn\n\nlPn\n\n   装冰的箱子先上了轮船，又上了飞机。\n   过了很多天，狮子大王收到了箱子。他打开一看，觉\nguSi\n\nyQ\n\n得好奇怪：\n“呀，怎么是一袋水？”\ntuK",
+    "qualityScore": 0.44474112426035506,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "geography"
+    }
+  },
+  {
+    "content": "shTu Q 好多天以后，企鹅收到了信。他说： 啊，狮子大王想 rYng yK 要一块冰，太容易了，我这里可是冰天雪地啊。 企鹅挑了 zhuQng 一块冰，装在袋子里，给狮子大王寄去。 xiQng xiQn lPn 装冰的箱子先上了轮船，又上了飞机。 过了很多天，狮子大王收到了箱子。他打开一看，觉 guSi yQ 得好奇怪： 呀，怎么是一袋水？ tuK 狮子大王生气地把箱子退回去了，还给企鹅写了一封信。 又过了很多天，企鹅收到了箱子和信。 狮子大王的信上写着： 我请你寄块冰来，你为什么寄 ma 来一袋水？ 企鹅连忙把箱子打开： 这明明是冰嘛，怎么 hP tP 说是水呢？ 看着袋子里的冰块，企鹅也糊涂了。 本文作者冰波，选作课文时有改动。 14 快乐读书吧 dP tYng 读读童话故事 chQ dQ liF 来吧，插上想象的翅膀，搭上童话王国的列车， 看看那里发生了什么。 lJ lYng wQi zhuQng 《小鲤鱼跳龙门》 《 歪脑袋木头桩》 《孤独的小螃蟹》 《小狗的小房子》 pWng xiF 《一只想飞的猫》 mIng 看到这些书名，你想知道故事中的主人公有怎样 xiQn 的奇遇吗？先猜猜看，再打开童话故事书，我们一起来读一读。 每次拿到书，我都要看看书的封面，找找书名和作者。 每次读完书，我都小心地把书收好， 不把书弄脏。 15 识字 chAng jJng 1 gE 场景歌 yK zhU hAi Tu yK tiWo fQn chuWn yK sTu jOn jiSn yI 一只海鸥，一条帆船。 chM gAng wQn 一艘军舰，一处港湾。 yK fQng yP tWng yI kuSi dSo tiWn yK hWng chuI liL yI zuH huQ yuWn yI dSo xiAo xU yI zuH shI qiWo yK cYng cuK zhP yK qPn fEi niAo yI miSn duK qI yK bA tYng hSo yI hYng lJng jUn",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 1464,
+          "to": 1619
+        }
+      },
+      "chunkIndex": 12,
+      "chunkSize": 984,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5286885245901639,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "shTu\n\nQ\n\n   好多天以后，企鹅收到了信。他说：\n“啊，狮子大王想\nrYng yK\n\n要一块冰，太容易了，我这里可是冰天雪地啊。”企鹅挑了\nzhuQng\n\n一块冰，装在袋子里，给狮子大王寄去。\nxiQng\n\nxiQn\n\nlPn\n\n   装冰的箱子先上了轮船，又上了飞机。\n   过了很多天，狮子大王收到了箱子。他打开一看，觉\nguSi\n\nyQ\n\n得好奇怪：\n“呀，怎么是一袋水？”\ntuK\n\n   狮子大王生气地把箱子退 回去了，还给企鹅写了一\n封信。\n   又过了很多天，企鹅收到了箱子和信。\n   狮子大王的信上写着：\n“我请你寄块冰来，你为什么寄\nma\n\n来一袋水？”企鹅连忙把箱子打开：\n“这明明是冰嘛，怎么\nhP tP\n\n说是水呢？”看着袋子里的冰块，企鹅也糊涂了。\n本文作者冰波，选作课文时有改动。\n\n14\n\n\f快乐读书吧\ndP\n\ntYng\n\n读读童话故事\nchQ\n\ndQ\n\nliF\n\n   来吧，插上想象的翅膀，搭上童话王国的列车，\n看看那里发生了什么。\nlJ\n\nlYng\n\nwQi\n\nzhuQng\n\n   ◇《小鲤鱼跳龙门》\n\n◇《“歪脑袋”木头桩》\n\n   ◇《孤独的小螃蟹》\n\n◇《小狗的小房子》\n\npWng xiF\n\n   ◇《一只想飞的猫》\nmIng\n\n   看到这些书名，你想知道故事中的主人公有怎样\nxiQn\n\n的奇遇吗？先猜猜看，再打开童话故事书，我们一起\n来读一读。\n\n   每次拿到书，我都\n要看看书的封面，找找\n书名和作者。\n\n   每次读完书，我\n都小心地把书收好，\n不把书弄脏。\n\n15\n\n\f识\n\n字\nchAng jJng\n\n1\n\ngE\n\n场景歌\n\nyK\n\nzhU hAi Tu\n\nyK tiWo fQn chuWn\n\nyK\n\nsTu jOn jiSn\n\nyI\n\n一只海鸥，一条帆船。\nchM gAng wQn\n\n一艘军舰，一处港湾。\n\nyK fQng yP tWng\n\nyI kuSi dSo tiWn\n\nyK hWng chuI liL\n\nyI\n\nzuH huQ yuWn\n\nyI dSo xiAo xU\n\nyI\n\nzuH shI qiWo\n\nyK cYng cuK zhP\n\nyK\n\nqPn fEi niAo\n\nyI miSn duK\n\nqI\n\nyK\n\nbA tYng hSo\n\nyI\n\nhYng lJng jUn",
+    "qualityScore": 0.3963253012048193,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "yIn xKng shuJ shQn huY huS jUn guK 杨树高，榕树壮， 梧桐树叶像手掌。 hYng 枫树秋天叶儿红， 松柏四季披绿装。 木棉喜暖在南 方， 桦树耐寒守北疆。 shI 银杏水杉活 化石， kQi huQ mAn yuSn xiQng 金桂开花满院香。 本文由人民教育出版社小学语文室编写。 18 wP tYng zhAng fEng sTng bAi zhuQng huS nSi shGu jiQng yIn shQn huS guK 梧桐 掌枫 松柏 装桦 耐守 疆银 杉化 桂杨 杨桐 桐松 松棉 棉化 化壮 壮枫 枫柏 柏杉 杉桂 桂朗读课文。背诵课文。 读一读，记一记。 pQo 泡桐白桦云杉翠柏桂花枫叶松子白果读一读，想想下面几句话的意思。 十年树木，百年树人。 gEn 树高百尺，叶落归根。 zhK 树无根不长，人无志不立。 19 pQi 3 nJ pQi shGu gE 拍手歌 yU wG pQi yU dHng wM shK jiF hDn xUn qI wG pQi Fr 你拍一，我拍一， 动物世界很新奇。 nJ pQi Fr 你拍二，我拍二， kGng quF jJn jU shK huG bSn 孔雀锦鸡是伙伴。 nJ pQi sQn wG pQi sQn 你拍三，我拍三， xiYng yUng fEi xiWng yPn cai jiQn 雄鹰飞翔云彩间。 nJ pQi sK wG pQi sK tiQn kTng ySn qPn huK xiD zK 你拍四，我拍四， 天空雁群会写字。 本文由人民教育出版社小学语文室编写。 20 nJ pQi wL wG pQi wL 你拍五，我拍五， cYng lIn shEn chM yGu mDng hL 丛林深处有猛虎。 nJ pQi liM wG pQi liM bAi lIng chSng bM xiO qU qU 你拍六，我拍六， huWng lI 黄鹂百灵唱不休。 nJ pQi wG pQi",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 1736,
+          "to": 1919
+        }
+      },
+      "chunkIndex": 14,
+      "chunkSize": 995,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.3988355167394469,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "yIn\n\nxKng shuJ shQn huY huS\n\njUn\n\nguK\n\n杨树 高，榕 树壮，\n梧 桐树叶像 手掌。\nhYng\n\n枫 树秋天叶 儿红，\n松 柏四 季披 绿装。\n木棉喜暖在 南 方，\n桦树耐寒守 北疆。\nshI\n\n银杏水杉 活 化石，\nkQi\n\nhuQ mAn yuSn xiQng\n\n金 桂开花满 院香。\n\n本文由人民教育出版社小学语文室编写。\n\n18\n\n\fwP\n\ntYng zhAng fEng sTng bAi zhuQng huS\n\nnSi shGu jiQng yIn\n\nshQn huS\n\nguK\n\n梧 桐 掌 枫 松 柏 装 桦 耐 守 疆 银 杉 化 桂\n\n杨 杨\n桐 桐\n松 松\n棉 棉\n化 化\n\n壮 壮\n枫 枫\n柏 柏\n杉 杉\n桂 桂\n\n朗读课文。背诵课文。\n读一读，记一记。\npQo\n\n泡桐   白桦   云杉   翠柏\n\n桂花   枫叶   松子   白果\n读一读，想想下面几句话的意思。\n◇ 十年树木，百年树人。\ngEn\n\n◇ 树高百尺，叶落归根。\nzhK\n\n◇ 树无根不长，人无志不立。\n\n19\n\n\fpQi\n\n3\n\nnJ\n\npQi\n\nshGu\n\ngE\n\n拍手歌\nyU\n\nwG pQi\n\nyU\n\ndHng wM shK\n\njiF hDn xUn\n\nqI\n\nwG pQi\n\nFr\n\n你拍一，我拍一，\n动物世界很新奇。\nnJ\n\npQi\n\nFr\n\n你拍二，我拍二，\nkGng quF jJn\n\njU\n\nshK huG bSn\n\n孔雀锦鸡是伙伴。\nnJ\n\npQi sQn\n\nwG pQi sQn\n\n你拍三，我拍三，\nxiYng yUng fEi xiWng yPn cai jiQn\n\n雄 鹰飞翔云彩间。\nnJ\n\npQi\n\nsK\n\nwG pQi\n\nsK\n\ntiQn kTng ySn qPn huK xiD\n\nzK\n\n你拍四，我拍四，\n天空雁群会写字。\n\n本文由人民教育出版社小学语文室编写。\n\n20\n\n\fnJ\n\npQi wL\n\nwG pQi wL\n\n你拍五，我拍五，\ncYng lIn shEn chM yGu mDng hL\n\n丛林深处有猛虎。\nnJ\n\npQi\n\nliM\n\nwG pQi\n\nliM\n\nbAi lIng chSng bM\n\nxiO\n\nqU\n\nqU\n\n你拍六，我拍六，\nhuWng lI\n\n黄鹂百灵唱不休。\nnJ\n\npQi\n\nwG pQi",
+    "qualityScore": 0.3037826086956522,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "biology"
+    }
+  },
+  {
+    "content": "花开草长蝴蝶飞。 mSi miWo Rr duT nFn sQng yF Rr zhFng fRi 麦苗儿多嫩，桑叶儿正肥。 xiS jK lJ nYng shK mWng 夏季 里，农事忙， cAi sQng yAng cWn yHu chQ yQng qIn gEng zuH guU 采桑 养蚕又插秧。 zAo qJ lWi dSi yuF guQng 早起 勤耕作，归来戴月光。 qiO jK lJ dSo shSng chWng 秋季里，稻上场， gL xiSng huWng jUn lK shEn kL lK xiQng 谷像黄金 粒粒香。 tJ suU xUn xUn lJ xJ yWng yWng 身体虽辛苦，心里喜洋洋。 本文选自中华书局《一年短期小学用国语读本第三册》，编者朱文叔，有改动。 23 dTng jK lJ xuD xUn zhK miWn yK niWn nYng shK chO qIng 冬季里，雪初晴， yU nuAn yHu qUng 新制棉衣暖又轻。 liAo dS jiQ xiSo yIng yIng 一年农事 了，大家笑盈盈。 jK hP diR mSi miWo sQng fRi nYng guU 季蝴 蝶麦 苗桑 肥农 归 dSi chWng gL lK suU xUn kL liAo 戴场 谷粒 虽辛 苦了 季季 肥肥 事事 归归 辛辛 朗读课文。背诵课文。 吹吹 农农 忙忙 戴戴 苦苦 我知道四个季节的主要农事活动。 读一读，记一记。 bT 播种 24 chQ yQng gEng 插秧耕田采桑 chP 除草 gE 割麦打谷 jU 积肥语文园地二查字典读书的时候，遇到了不认识的字，该怎么办？ 遇到不认识的字，可以用部首查字法查字典， 如狐 字。 葡萄架，高又高，上边挂着紫葡萄。 狐狸看见往上跳，跳哇跳，够不着。 够不着，心不甘，不说自己笨，倒说葡萄酸。 dP quF bM",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 2057,
+          "to": 2259
+        }
+      },
+      "chunkIndex": 16,
+      "chunkSize": 978,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.42857142857142855,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "花 开草 长蝴蝶飞 。\nmSi miWo\n\nRr\n\nduT nFn\n\nsQng\n\nyF\n\nRr zhFng fRi\n\n麦苗儿 多嫩，桑 叶儿正肥。\nxiS\n\njK\n\nlJ\n\nnYng shK mWng\n\n夏 季 里 ，农 事忙，\ncAi sQng yAng cWn\n\nyHu\n\nchQ yQng\n\nqIn gEng zuH\n\nguU\n\n采 桑 养 蚕又 插秧。\nzAo\n\nqJ\n\nlWi\n\ndSi\n\nyuF guQng\n\n早 起 勤 耕作 ，归来戴 月光。\nqiO\n\njK\n\nlJ\n\ndSo shSng chWng\n\n秋 季里 ，稻上场 ，\ngL xiSng huWng jUn\n\nlK\n\nshEn\n\nkL\n\nlK\n\nxiQng\n\n谷像黄 金 粒粒香 。\ntJ\n\nsuU\n\nxUn\n\nxUn\n\nlJ\n\nxJ\n\nyWng yWng\n\n身 体虽辛苦，心 里喜洋洋。\n\n本文选自中华书局《一年短期小学用国语读本第三册》，编者朱文叔，有改动。\n\n23\n\n\fdTng\n\njK\n\nlJ\n\nxuD\n\nxUn\n\nzhK miWn\n\nyK\n\nniWn nYng shK\n\nchO qIng\n\n冬季里，雪 初晴，\nyU\n\nnuAn yHu qUng\n\n新 制棉衣 暖又轻。\nliAo\n\ndS\n\njiQ\n\nxiSo yIng yIng\n\n一 年农 事 了，大家笑 盈盈 。\njK\n\nhP\n\ndiR\n\nmSi miWo sQng\n\nfRi nYng guU\n\n季 蝴 蝶 麦 苗 桑 肥 农 归\ndSi chWng gL\n\nlK\n\nsuU\n\nxUn\n\nkL\n\nliAo\n\n戴 场 谷 粒 虽 辛 苦 了\n\n季 季\n肥 肥\n事 事\n归 归\n辛 辛\n朗读课文。背诵课文。\n\n吹 吹\n农 农\n忙 忙\n戴 戴\n苦 苦\n   我知道四个季节的\n主要农事活动。\n\n读一读，记一记。\nbT\n\n播种\n24\n\nchQ yQng gEng\n\n插秧\n\n耕田    采桑\n\nchP\n\n除草\n\ngE\n\n割麦\n\n打谷\n\njU\n\n积肥\n\n\f语文园地二\n查字典\n   读书的时候，遇到了不\n认识的字，该怎么办？\n\n   遇到不认识的字，可\n以用部首查字法查字典，\n如“狐”字。\n\n葡萄架，高又高，上边挂着紫葡萄。\n狐狸看见往上跳，跳哇跳，够不着。\n够不着，心不甘，不说自己笨，倒说葡萄酸。\ndP\n\nquF\n\nbM",
+    "qualityScore": 0.3268740629685158,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "chemistry"
+    }
+  },
+  {
+    "content": "chQ yQng gEng 插秧耕田采桑 chP 除草 gE 割麦打谷 jU 积肥语文园地二查字典读书的时候，遇到了不认识的字，该怎么办？ 遇到不认识的字，可以用部首查字法查字典， 如狐 字。 葡萄架，高又高，上边挂着紫葡萄。 狐狸看见往上跳，跳哇跳，够不着。 够不着，心不甘，不说自己笨，倒说葡萄酸。 dP quF bM 第一步： 要查 狐的读音，先要确定这个字的部首是 shL 犭，再数数犭 的笔画，共三画。 第二步： 在部首目录里的三画中找到部首犭 和它所在 yF mA 的页码。 Sn 第三步： 按照页码，在检字表中 找犭 部。再数数狐 字 chP 除去部首还有几画，然后在 yKng wFi zhK 相应 位置 找到狐 字和它在正文中的页码。 第四步： 按照页码，在正文中就可以查到狐 字了。 25 查一查下面的部首在检字表的哪一页。 艹（ ） 糸（ ） 犭（ ） （ ） 酉（ ） ） 酸（ ） 数一数下面的字除去部首还有几画。 葡（ ） 紫（ ） 狸（ ） 笨（ 用部首查字法，查查儿歌中不认识的字。 要查的字除去部首有几画部首字的页码读音葡 紫狸 笨酸 葡萄 紫狐 狸笨 酸用部首查字法查字典，我认识了这些字。 日积月累 jJ suG bP yM wM shU yP rRn 己所 不欲， 勿施 于人。 yL pRng yGu jiQo yWn Rr yGu xKn 与朋 友交， 言而 有信。 bM yJ guU jL bM nRng chRng fQng yuWn lPn yL 《 论语 》 lPn yL 《 论语 》 mFng zJ 不以 规矩， 不能 成方 圆。 《 孟子 》 26 我爱阅读 mIng 十二 月花名歌 zhEng 正月山茶满盆开， 二月迎春初开放。 三月桃花红十里， mL dQn 四月牡丹国色香。 liP sK 五月石榴红似火， 六月荷花满池塘。 mH lK",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 2223,
+          "to": 2402
+        }
+      },
+      "chunkIndex": 17,
+      "chunkSize": 985,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6374807987711214,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "chQ yQng gEng\n\n插秧\n\n耕田    采桑\n\nchP\n\n除草\n\ngE\n\n割麦\n\n打谷\n\njU\n\n积肥\n\n\f语文园地二\n查字典\n   读书的时候，遇到了不\n认识的字，该怎么办？\n\n   遇到不认识的字，可\n以用部首查字法查字典，\n如“狐”字。\n\n葡萄架，高又高，上边挂着紫葡萄。\n狐狸看见往上跳，跳哇跳，够不着。\n够不着，心不甘，不说自己笨，倒说葡萄酸。\ndP\n\nquF\n\nbM\n\n第一步： 要 查“ 狐 ”的读 音，先要确 定这个字的部 首是\nshL\n\n“犭”，再数数“犭”的笔画，共三画。\n第二步： 在“部首目录”里的“三画”\n中找到部首“犭”和它所在\nyF mA\n\n的页码。\nSn\n\n第三步： 按 照页码，在“检字表”中\n找“犭”部。再数数“狐”字\nchP\n\n除去部首还有几画，然后在\nyKng wFi zhK\n\n相 应 位 置 找到“狐”字和它\n在正文中的页码。\n第四步： 按照页码，在正文中就可以\n查到“狐”字了。\n25\n\n\f查一查下面的部首在“检字表”的哪一页。\n艹（\n\n）   糸（ ）   犭（ ）  \n\n（\n\n）   酉（\n\n）\n\n）   酸（\n\n）\n\n数一数下面的字除去部首还有几画。\n葡（\n\n）   紫（\n\n）   狸（\n\n）   笨（\n\n用部首查字法，查查儿歌中不认识的字。\n要查的字\n\n除去部首\n有几画\n\n部首\n\n字的页码\n\n读音\n\n葡\n紫\n狸\n笨\n酸\n\n葡 萄 紫 狐 狸 笨 酸\n   用部首查字法查字\n典，我认识了这些字。\n\n日积月累\njJ\n\nsuG\n\nbP\n\nyM\n\nwM\n\nshU\n\nyP\n\nrRn\n\n◎ 己 所 不 欲 ， 勿 施 于 人 。\nyL pRng yGu jiQo\n\nyWn\n\nRr\n\nyGu\n\nxKn\n\n◎ 与 朋 友 交 ， 言 而 有 信 。\nbM\n\nyJ\n\nguU\n\njL\n\nbM nRng chRng fQng yuWn\n\nlPn yL\n\n—《 论 语 》\nlPn yL\n\n—《 论 语 》\nmFng zJ\n\n◎ 不 以 规 矩 ， 不 能 成 方 圆 。 —《 孟 子 》\n\n26\n\n\f我爱阅读\nmIng\n\n十 二 月 花名 歌\nzhEng\n\n正月山茶满盆开，\n二月迎春初开放。\n三月桃花红十里，\nmL dQn\n\n四月牡丹国色香。\nliP\n\nsK\n\n五月石榴红似火，\n六月荷花满池塘。\nmH\n\nlK",
+    "qualityScore": 0.4648243045387994,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "chemistry"
+    }
+  },
+  {
+    "content": "R tYu 睡梦 中的 妈妈 好累。 妈妈 的呼 吸那 么 chRn tQ wO hEi de tYu 沉。她乌黑的头发粘在微微渗出汗珠的额头本文作者张秋生，选作课文时有改动。 36 shSng chuQng wSi xiAo niAo zSi chSng zhe gE fEng Rr zSi shM yF jiQn 上。 窗外， 小鸟 在唱 着歌， 风儿 在树 叶间 sSn bM fQ chO shQ shQ de xiAng shEng kD shK mQ ma quWn tUng bP 散步， 发出 沙沙 的响 声， 可是 妈妈 全听 不 dSo tQ gSn le hAo duT huYr lFi le fW le xU fS zhQn hSn tQ zhEn gQi 到。 她干 了好 多活 儿， 累了， 乏了， 她真 该 hAo hAo shuK yI jiSo 好好睡一觉。 hGng xiQn mFng bK jJn rMn dDng lFi R shQ fW 哄先 梦闭 紧润 等累 吸发 粘汗 额沙 乏哄 哄闭 闭沉 沉窗 窗先 先脸 脸发 发沙 沙朗读课文。说说睡梦中的妈妈是什么样子的。 读一读，照样子说一说，看谁说得多。 wQng 明亮的眼睛水汪汪的眼睛 （ ）的眼睛 bT lSng shK 乌黑的头发波浪似的头发 （ ）的头发你看过家人睡觉的样子吗？说一说。 37 口语交际做手工你喜欢做手工吗？把你的一件手工作品带到学校，告诉同学你做的是什么，是怎么做的。 按照顺序说。 注意听，记住主要信息。 38 语文园地三识字加油站 tWn gQng qIn 弹钢琴 liSn wL dAo 练舞蹈唱京戏 niE nI wRi 画图画捏泥人下围棋 gLn tiD huWn dSng huW 滚铁环 tWn gQng qIn liSn 荡秋千 niE nI 我会踢足球， 还会拉二胡。 tU 滑滑梯 gLn tiD",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 3761,
+          "to": 3946
+        }
+      },
+      "chunkIndex": 28,
+      "chunkSize": 990,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.47303543913713403,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "R\n\ntYu\n\n  \n\n睡 梦 中 的 妈 妈 好 累。 妈 妈 的 呼 吸 那 么\n\nchRn\n\ntQ\n\nwO hEi\n\nde tYu\n\n沉。她乌黑的头发粘在微微渗出汗珠的额头\n本文作者张秋生，选作课文时有改动。\n\n36\n\n\fshSng\n\nchuQng wSi\n\nxiAo niAo zSi chSng zhe\n\ngE\n\nfEng Rr\n\nzSi shM\n\nyF\n\njiQn\n\n上。 窗 外， 小 鸟 在 唱 着 歌， 风 儿 在 树 叶 间\nsSn\n\nbM\n\nfQ\n\nchO shQ shQ\n\nde xiAng shEng\n\nkD\n\nshK\n\nmQ ma quWn tUng bP\n\n散 步， 发 出 沙 沙 的 响 声， 可 是 妈 妈 全 听 不\ndSo\n\ntQ gSn\n\nle\n\nhAo duT huYr\n\nlFi\n\nle\n\nfW\n\nle\n\nxU\n\nfS\n\nzhQn hSn\n\ntQ zhEn gQi\n\n到 。 她 干 了 好 多 活 儿 ， 累 了， 乏 了， 她 真 该\nhAo hAo shuK\n\nyI jiSo\n\n好好睡一觉。\nhGng xiQn mFng\n\nbK\n\njJn\n\nrMn dDng\n\nlFi\n\nR\n\nshQ\n\nfW\n\n哄 先 梦 闭 紧 润 等 累 吸 发 粘 汗 额 沙 乏\n\n哄 哄\n闭 闭\n沉 沉\n窗 窗\n\n先 先\n脸 脸\n发 发\n沙 沙\n\n朗读课文。说说“睡梦中的妈妈”是什么样子的。\n读一读，照样子说一说，看谁说得多。\nwQng\n\n明亮的眼睛   水汪汪的眼睛   （   ）的眼睛\nbT lSng shK\n\n乌黑的头发   波浪似的头发   （   ）的头发\n你看过家人睡觉的样子吗？说一说。\n37\n\n\f口语交际\n\n做手工\n   你喜欢做手工吗？把你的一件手工作品带到学校，告\n诉同学你做的是什么，是怎么做的。\n\n◎ 按照顺序说。\n◎ 注意听，记住主要信息。\n\n38\n\n\f语文园地三\n\n识字加油站\ntWn gQng qIn\n\n弹钢琴\n\nliSn wL dAo\n\n练舞蹈\n\n唱京戏\n\nniE nI\n\nwRi\n\n画图画\n\n捏泥人\n\n下围棋\n\ngLn tiD huWn\n\ndSng\n\nhuW\n\n滚铁环\n\ntWn gQng qIn\n\nliSn\n\n荡秋千\n\nniE\n\nnI\n\n   我会踢足球，\n还会拉二胡。\n\ntU\n\n滑滑梯\n\ngLn\n\ntiD",
+    "qualityScore": 0.35965543644716697,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "general"
+    }
+  },
+  {
+    "content": "38 语文园地三识字加油站 tWn gQng qIn 弹钢琴 liSn wL dAo 练舞蹈唱京戏 niE nI wRi 画图画捏泥人下围棋 gLn tiD huWn dSng huW 滚铁环 tWn gQng qIn liSn 荡秋千 niE nI 我会踢足球， 还会拉二胡。 tU 滑滑梯 gLn tiD huWn dSng huW tU 弹钢 琴练 捏泥 滚铁 环荡 滑梯 字词句运用比一比，填一填。 园圆 花桌 进远 只支 近出 一笔 一带 戴领 爱鸭 39 读一读，想一想，用加点的词语说一句话。 官员们一边看一边议论。 3 3 3 3 dHu 爸爸一边刮胡子，一边逗露西玩。 3 3 3 3 3 老师一边说，一边拿着笔在纸上写。 3 3 3 3 3 写话每个人都有自己喜爱的玩具。你最喜爱的玩具是什么？它是什么样子的？它好玩在哪里？先和同学交流， 再写下来。 我会写在方格纸上。 40 我知道标点符号也要占一格。 展示台白云乌云朝霞晚霞雨点霜冻雪花冰雹小溪河流湖泊海洋这是我课内外积累的词句。 含苞欲放百花争艳你 积累 了哪 些词 句？ 我们 来交 流一下吧。 花红柳绿春色满园书籍是人类进步的阶梯。 高尔基日积月累 xiAo Rr chuI diSo 小儿垂钓 tWng hP lKng nRng 唐胡 令能 pRng tYu zhK zJ xuR chuI lPn cF zuH mRi tWi cAo yKng shEn lM rRn jiF wFn yWo zhQo shGu pS dR yP jUng 蓬头稚子学垂纶， 侧坐莓苔草映身。 路人借问遥招手， bP yKng rRn 怕得鱼惊不应人。 41 我爱阅读王二小 tYng tK 王二小是儿童团员。他常常一边放牛，一边替八路军 shSo 放哨。 kHu sAo dI",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 3894,
+          "to": 4144
+        }
+      },
+      "chunkIndex": 29,
+      "chunkSize": 984,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5712025316455697,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "38\n\n\f语文园地三\n\n识字加油站\ntWn gQng qIn\n\n弹钢琴\n\nliSn wL dAo\n\n练舞蹈\n\n唱京戏\n\nniE nI\n\nwRi\n\n画图画\n\n捏泥人\n\n下围棋\n\ngLn tiD huWn\n\ndSng\n\nhuW\n\n滚铁环\n\ntWn gQng qIn\n\nliSn\n\n荡秋千\n\nniE\n\nnI\n\n   我会踢足球，\n还会拉二胡。\n\ntU\n\n滑滑梯\n\ngLn\n\ntiD\n\nhuWn dSng huW\n\ntU\n\n弹 钢 琴 练 捏 泥 滚 铁 环 荡 滑 梯\n字词句运用\n比一比，填一填。\n园\n\n圆\n\n花\n\n桌\n\n进\n远\n\n只 支\n\n近\n出\n\n一\n\n笔\n\n一\n\n带\n\n戴\n\n领\n\n爱\n\n鸭\n\n39\n\n\f读一读，想一想，用加点的词语说一句话。\n◇ 官员们一边看一边议论。\n3\n\n3\n\n3\n\n3\n\ndHu\n\n◇ 爸爸一边刮胡子，一边逗露西玩。\n3\n\n3\n\n3\n\n3\n\n3\n\n◇ 老师一边说，一边拿着笔在纸上写。\n3\n\n3\n\n3\n\n3\n\n3\n\n写话\n   每个人都有自己喜爱的玩具。你最喜爱的玩具是什\n么？它是什么样子的？它好玩在哪里？先和同学交流，\n再写下来。\n\n   我会写在\n方格纸上。\n\n40\n\n   我知道标点符\n号也要占一格。\n\n\f展示台\n白云\n\n乌云\n\n朝霞\n\n晚霞\n\n雨点 霜冻\n\n雪花\n\n冰雹\n\n小溪 河流\n\n湖泊\n\n海洋\n\n   这是我课内外\n积累的词句。\n\n含苞欲放   百花争艳\n   你 积 累 了 哪 些\n词 句？ 我 们 来 交 流\n一下吧。\n\n花红柳绿   春色满园\n   书籍是人类进步的阶梯。\n        —高尔基\n\n日积月累\nxiAo\n\nRr\n\nchuI diSo\n\n小儿垂钓\ntWng\n\nhP lKng nRng\n\n[唐] 胡 令 能\npRng tYu\n\nzhK\n\nzJ\n\nxuR chuI\n\nlPn\n\ncF\n\nzuH mRi\n\ntWi\n\ncAo yKng shEn\n\nlM\n\nrRn\n\njiF\n\nwFn yWo zhQo shGu\n\npS\n\ndR\n\nyP\n\njUng\n\n蓬头稚子学垂纶，\n\n侧坐莓苔草映身。\n路人借问遥招手，\nbP\n\nyKng rRn\n\n怕得鱼惊不应人。\n\n41\n\n\f我爱阅读\n\n王二小\ntYng\n\ntK\n\n   王二小是儿童团员。他常常一边放牛，一边替八路军\nshSo\n\n放哨。\n\nkHu\n\nsAo\n\ndI",
+    "qualityScore": 0.43286050156739814,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "mathematics"
+    }
+  },
+  {
+    "content": "tWi cAo yKng shEn lM rRn jiF wFn yWo zhQo shGu pS dR yP jUng 蓬头稚子学垂纶， 侧坐莓苔草映身。 路人借问遥招手， bP yKng rRn 怕得鱼惊不应人。 41 我爱阅读王二小 tYng tK 王二小是儿童团员。他常常一边放牛，一边替八路军 shSo 放哨。 kHu sAo dI 有一天，日寇来扫荡，走到山口迷了路。敌人看见王二小在山坡上放牛，就叫他带路。 shMn 王二小装着顺从的样子走在前面，把敌人带进了八路 mWi fP quQn 军的埋伏圈。 tO qiQng dSng shQ 突然，四面八方响起了枪声。敌人知道上了当，就杀 yUng 害了小英雄王二小。 miF bM 这时候，八路军从山上冲下来，消灭了全部敌人。 本文根据方冰的《歌唱二小放牛郎》改写。 42 gL 8 shU Fr shGu 古诗二首 dEng guSn quF lYu 登鹳雀楼 tWng wWng zhU huSn 唐王 之涣 bWi rK yU shQn jKn huWng hR rM hAi liP yM qiYng qiQn lJ mM 白日依山尽 , 黄河入海流。 欲穷千里目， gFng shSng yK cRng lYu 更上一层楼。 43 wSng lP shQn pM bM 望庐山瀑布 tWng lJ bWi 唐李 白 rK zhSo xiQng lP shEng zJ yQn 日照香炉生紫烟， yWo kSn pM bM guS qiWn chuQn fEi liP zhI xiS sQn qiQn chJ yI shK yIn hR luH 遥看瀑布挂前川。 飞流直下三千尺， jiL tiQn 疑是银河落九天。 44 yU jKn yM qiYng cRng pM bM lP yQn yWo chuQn 依尽 欲穷 层瀑 布炉 烟遥 川依 依黄 黄照 照烟 烟川 川尽 尽层 层炉 炉挂 挂",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 4096,
+          "to": 4319
+        }
+      },
+      "chunkIndex": 30,
+      "chunkSize": 977,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.413075780089153,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "tWi\n\ncAo yKng shEn\n\nlM\n\nrRn\n\njiF\n\nwFn yWo zhQo shGu\n\npS\n\ndR\n\nyP\n\njUng\n\n蓬头稚子学垂纶，\n\n侧坐莓苔草映身。\n路人借问遥招手，\nbP\n\nyKng rRn\n\n怕得鱼惊不应人。\n\n41\n\n\f我爱阅读\n\n王二小\ntYng\n\ntK\n\n   王二小是儿童团员。他常常一边放牛，一边替八路军\nshSo\n\n放哨。\n\nkHu\n\nsAo\n\ndI\n\n   有一天，日寇来扫荡，走到山口迷了路。敌人看见王\n二小在山坡上放牛，就叫他带路。\nshMn\n\n   王二小装着顺从的样子走在前面，把敌人带进了八路\nmWi fP quQn\n\n军的埋伏圈。\ntO\n\nqiQng\n\ndSng\n\nshQ\n\n   突然，四面八方响起了枪声。敌人知道上了当，就杀\nyUng\n\n害了小英雄王二小。\n\nmiF\n\nbM\n\n   这时候，八路军从山上冲下来，消灭了全部敌人。\n\n本文根据方冰的《歌唱二小放牛郎》改写。\n\n42\n\n\fgL\n\n8\n\nshU\n\nFr\n\nshGu\n\n古诗二首\ndEng guSn quF\n\nlYu\n\n登鹳雀楼\ntWng\n\nwWng zhU huSn\n\n[唐] 王 之 涣\n\nbWi\n\nrK\n\nyU\n\nshQn\n\njKn\n\nhuWng hR\n\nrM\n\nhAi\n\nliP\n\nyM qiYng qiQn\n\nlJ\n\nmM\n\n白日依山尽 ,\n黄河入海流。\n欲穷千里目，\ngFng shSng yK\n\ncRng lYu\n\n更上一层楼。\n\n43\n\n\fwSng lP\n\nshQn pM\n\nbM\n\n望庐山瀑布\ntWng\n\nlJ bWi\n\n[唐] 李 白\n\nrK\n\nzhSo xiQng lP shEng zJ\n\nyQn\n\n日照香炉生紫烟，\nyWo kSn\n\npM\n\nbM\n\nguS qiWn chuQn\n\nfEi\n\nliP\n\nzhI\n\nxiS\n\nsQn qiQn chJ\n\nyI\n\nshK\n\nyIn\n\nhR\n\nluH\n\n遥看瀑布挂前川。\n飞流直下三千尺，\njiL\n\ntiQn\n\n疑是银河落九天。\n\n44\n\n\fyU\n\njKn\n\nyM qiYng cRng\n\npM\n\nbM\n\nlP\n\nyQn\n\nyWo chuQn\n\n依 尽 欲 穷 层 瀑 布 炉 烟 遥 川\n\n依 依\n黄 黄\n照 照\n烟 烟\n川 川\n\n尽 尽\n层 层\n炉 炉\n挂 挂",
+    "qualityScore": 0.31413589364844907,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "zi duK zhe tiQn dO fEng bP zhM de jiM shK zhM mIng de tI jiSo bP yHng shuT zhF 脖子，对着天都峰不住地啼叫。不用说，这 jUn jU jiSo tiQn dO le 就是著名的金鸡叫天都了。 huWng shQn de qI shI hWi yGu hDn duT rP tiQn gGu wSng 黄山 的奇 石还 有很 多， 如天 狗望 yuF shU zi qiAng qiP xiQn nV tWn qIn nS xiE jiSo bM chO nJ qM 月狮 子抢 球仙 女弹 琴。 那些 叫不 出 mIng zi de qI qJ mIng zi ne xIng guSi zhuSng de yWn shI zhFng dDng gDi tQ men 名字 的奇 形怪 状的 岩石， 正等 你去 给它 们起名字呢！ wRn mIng jJng qO qI wFi shDng bM xiM yYu 闻名 景区 省部 秀尤 xiQn jM dO zhM xIng zhuSng 其仙 巨位 都著 形状 47 南南 些些 位位 每每 闪闪 部部 巨巨 向向 升升 狗狗 朗读课文。 读句子，用加点的词语说说图片里的石头，再选一张图片写下来。 它好像从天上飞下来的一个大桃子，落在山顶的石 3 3 pWn 盘上。 那巨石真像一位仙人站在高高的山峰上，伸着手臂 3 3 指向前方。 读一读，选几个词语说说某处景物。 风景景色风景如画 xO chuWn 著名名字名不虚传 48 zhU 秀丽秀美一枝独秀闻名新闻百闻不如一见 rK 10 rK yuF tWn 日月潭 yuF tWn shK wG guY tWi wQn shDng zuK dS de yI gF hP tQ qPn shQn huWn rSo shM 日月 潭是 我国 台湾 省最 大的 一个 湖。 它 zSi",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 4537,
+          "to": 4726
+        }
+      },
+      "chunkIndex": 33,
+      "chunkSize": 994,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.3987538940809969,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "zi\n\nduK zhe tiQn dO fEng bP zhM de\n\njiM\n\nshK zhM mIng de\n\ntI\n\njiSo\n\nbP yHng shuT\n\nzhF\n\n脖子，对着天都峰不住地啼叫。不用说，这\njUn\n\njU\n\njiSo tiQn dO\n\nle\n\n就是著名的“金鸡叫天都”了。\nhuWng shQn\n\n  \n\nde\n\nqI\n\nshI\n\nhWi\n\nyGu\n\nhDn duT\n\nrP\n\ntiQn gGu wSng\n\n黄 山 的 奇 石 还 有 很 多， 如“ 天 狗 望\n\nyuF\n\nshU\n\nzi qiAng qiP\n\nxiQn nV\n\ntWn qIn\n\nnS\n\nxiE jiSo bM chO\n\nnJ\n\nqM\n\n月 ”“ 狮 子 抢 球 ”“ 仙 女 弹 琴 ”。 那 些 叫 不 出\nmIng zi\n\nde\n\nqI\n\nqJ mIng zi\n\nne\n\nxIng guSi zhuSng de yWn shI\n\nzhFng dDng\n\ngDi\n\ntQ men\n\n名 字 的 奇 形 怪 状 的 岩 石， 正 等 你 去 给 它 们\n\n起名字呢！\nwRn mIng jJng\n\nqO\n\nqI\n\nwFi\n\nshDng bM\n\nxiM\n\nyYu\n\n闻 名 景 区 省 部 秀 尤\nxiQn\n\njM\n\ndO\n\nzhM\n\nxIng zhuSng\n\n其 仙 巨 位 都 著 形 状\n\n47\n\n\f南 南\n些 些\n位 位\n每 每\n闪 闪\n\n部 部\n巨 巨\n向 向\n升 升\n狗 狗\n\n朗读课文。\n读句子，用加点的词语说说图片里的石头，再选一张图\n片写下来。\n◇ 它好像从天上飞下来的一个大桃子，落在山顶的石\n3\n\n3\n\npWn\n\n盘上。\n◇ 那巨石真像 一位仙人站在高高的山峰上，伸着手臂\n3\n\n3\n\n指向前方。\n\n读一读，选几个词语说说某处景物。\n风景 景色 风景如画\nxO chuWn\n\n著名 名字 名不虚传\n48\n\nzhU\n\n秀丽 秀美 一枝独秀\n闻名 新闻 百闻不如一见\n\n\frK\n\n10\nrK\n\nyuF\n\ntWn\n\n日月潭\n\nyuF tWn shK wG guY tWi wQn shDng zuK\n\ndS\n\nde\n\nyI\n\ngF\n\nhP\n\ntQ\n\nqPn shQn huWn rSo\n\nshM\n\n   日 月 潭 是 我 国 台 湾 省 最 大 的 一 个 湖 。 它\nzSi",
+    "qualityScore": 0.3003680981595092,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "生产的葡萄干颜色鲜，味道甜，非常有名。 pP tao gTu zhEn shK gF hAo dK fang 葡萄 沟真 是个 好地 方。 gTu chAn fFn zhU dQ dSn hSo gHu shTu 沟产 份枝 搭淡 好够 收 chRng shK gQn liP dKng lK fFn wFi 城市 干留 钉利 分味 52 产产 坡坡 起起 老老 城城 份份 枝枝 客客 收收 市市 朗读课文，注意下面加点字的读音。 种葡萄好客 3 3 葡萄干 3 水分 3 你喜欢葡萄沟吗？说说理由。 读读下面的句子，照样子写一写。 葡萄一大串一大串地挂在绿叶底下，有红的、白的、紫的、淡绿的，五光十色，美丽极了。 公园里的花都开了，有桃花、杏花、迎春花，。 下课了，同学们在操场上活动，，处处欢声笑语，热闹极了。 53 语文园地四识字加油站我从火车票上也能认识很多字。 chQng pM tiWo yKng wH xiSn chRng shHu 昌铺 调硬 卧限 乘售 字词句运用下面的事物像什么？看谁想得妙，说得多。 liL 柳条云朵枫叶椅子路灯胡子鞋 弟弟的鞋像鸟窝。 54 爸爸的鞋像小船。 你能说出加点词语在句中的意思吗？ yJn bK 八路军隐蔽在山，敌人很难发现。 3 3 33 fWn nAo 去还是不去？小明拿不定主意，感到很烦恼。 3 3 fAn 那美丽如画的山水，怎能不令人流连忘返？ 3 3 3 3 写话学写留言条。 留言条先写留言条的标题。 妈妈： 再写是留给谁的。 外婆打来电话说她做了我爱吃的红烧鱼，我就不在家吃午然后写有什么事。 饭了。外婆还让我给你们带些好吃的，晚饭您可以少做点儿菜。 小新最后写自己的名字和时间。 11 月 4 日上午从下面选择一种情况，写一张留言条。 shK 去办公室还书，老师不在。 去小红家里，通知她明天上午九点到学校参加书法小组的活动，但是她家里没有人。 55",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 5186,
+          "to": 5339
+        }
+      },
+      "chunkIndex": 38,
+      "chunkSize": 975,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6930835734870316,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "生 产的葡萄干颜色鲜，味道甜，非常 有名。\npP tao gTu zhEn shK\n\ngF hAo dK fang\n\n   葡 萄 沟 真 是 个 好 地 方 。\ngTu chAn fFn\n\nzhU\n\ndQ\n\ndSn hSo gHu shTu\n\n沟 产 份 枝 搭 淡 好 够 收\nchRng shK\n\ngQn\n\nliP\n\ndKng\n\nlK\n\nfFn\n\nwFi\n\n城 市 干 留 钉 利 分 味\n\n52\n\n\f产 产\n坡 坡\n起 起\n老 老\n城 城\n\n份 份\n枝 枝\n客 客\n收 收\n市 市\n\n朗读课文，注意下面加点字的读音。\n种葡萄 好客\n3\n\n3\n\n葡萄干\n3\n\n水分\n3\n\n你喜欢葡萄沟吗？说说理由。\n读读下面的句子，照样子写一写。\n   葡萄一大串一大串地挂在绿叶底下，有红的、白\n的、紫的、淡绿的，五光十色，美丽极了。\n   公园里的花都开了，有桃花、杏花、迎春花，\n。\n   下课了，同学们在操场上活动，\n，处处欢声笑语，热闹极了。\n\n53\n\n\f语文园地四\n识字加油站\n\n   我从火车票上\n也能认识很多字。\n\nchQng pM\n\ntiWo yKng\n\nwH\n\nxiSn chRng shHu\n\n昌 铺 调 硬 卧 限 乘 售\n\n字词句运用\n下面的事物像什么？看谁想得妙，说得多。\nliL\n\n柳条   云朵   枫叶\n椅子   路灯   胡子   鞋\n弟弟的鞋像鸟窝。\n\n54\n\n爸爸的鞋像小船。\n\n\f你能说出加点词语在句中的意思吗？\nyJn bK\n\n◇ 八路军隐蔽在山��，敌人很难发现。\n3\n\n3\n\n33\n\nfWn nAo\n\n◇ 去还是不去？小明拿不定主意，感到很烦恼。\n3\n\n3\n\nfAn\n\n◇ 那美丽如画的山水，怎能不令人流连忘返？\n3\n\n3\n\n3\n\n3\n\n写话\n学写留言条。\n留言条\n\n先写留言条的标题。\n\n妈妈：\n\n再写是留给谁的。\n\n   外婆打来电话说她做了我\n爱吃的红烧鱼，我就不在家吃午\n然后写有什么事。\n\n饭了。外婆还让我给你们带些好\n吃的，晚饭您可以少做点儿菜。\n           小新\n\n   最后写自己的\n名字和时间。\n\n11 月 4 日上午\n\n从下面选择一种情况，写一张留言条。\nshK\n\n◇ 去办公室还书，老师不在。\n◇ 去小红家里，通知她明天上午九点到学校参加书法\n小组的活动，但是她家里没有人。\n55",
+    "qualityScore": 0.5249144079885877,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "general"
+    }
+  },
+  {
+    "content": "外婆打来电话说她做了我爱吃的红烧鱼，我就不在家吃午然后写有什么事。 饭了。外婆还让我给你们带些好吃的，晚饭您可以少做点儿菜。 小新最后写自己的名字和时间。 11 月 4 日上午从下面选择一种情况，写一张留言条。 shK 去办公室还书，老师不在。 去小红家里，通知她明天上午九点到学校参加书法小组的活动，但是她家里没有人。 55 我的发现白色雪白红色火红黄色土黄绿色草绿米白桃红 R 鹅黄翠绿奶白我发现在白 字前面加上 雪米 奶，可以用来形容不同的白色。 zAo 枣红金黄 mH 墨绿日积月累 yGu shQn jiE tP huS wP shuJ bM wRn zhQng 有山皆图画，无水不文章。 bWi mA xU fEng sSi shSng xKng huQ yQn yL jiQng nWn 白马西风塞上，杏花烟雨江南。 qUng fEng mIng yuF bDn wP jiS jKn shuJ yuAn shQn jiE yGu qIng wM suG shQn tYu shQn suG wM tiQn liWn shuJ wDi shuJ liWn tiQn 清风明月本无价，近水远山皆有情。 雾锁山头山锁雾，天连水尾水连天。 我爱阅读画家乡孩子们爱家乡，也爱画自己美丽的家乡。 tQo 涛涛的家乡在海边。他画的海那么蓝，那么宽。一艘艘 xiQ jiAn kR 船上装满了鱼和虾。那个在海边捡贝壳的孩子，就是涛涛。 本文作者冯寿鹤，选作课文时有改动。 56 山山的家乡在山里。她画的山那么高，水那么清。房前屋后都是又高 kuS 又大的树。画上的山山，挎着小竹篮， mY gO 正要到树林里去采蘑菇呢。 平平的家乡在平原。她画的平原 tAn 那么平坦，那么宽广。有金黄的稻子， yYu 雪白的棉花，还有一大片一大片绿油 cSi 油的菜地。屋前有鸡、鸭，屋后有几丛青翠的竹子。那个正在田野上奔跑的小女孩，就是平平。 青青的家乡在草原。他画的草原一眼望不到边。草长 mK jMn",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 5320,
+          "to": 5439
+        }
+      },
+      "chunkIndex": 39,
+      "chunkSize": 971,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6412315930388219,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "外婆打来电话说她做了我\n爱吃的红烧鱼，我就不在家吃午\n然后写有什么事。\n\n饭了。外婆还让我给你们带些好\n吃的，晚饭您可以少做点儿菜。\n           小新\n\n   最后写自己的\n名字和时间。\n\n11 月 4 日上午\n\n从下面选择一种情况，写一张留言条。\nshK\n\n◇ 去办公室还书，老师不在。\n◇ 去小红家里，通知她明天上午九点到学校参加书法\n小组的活动，但是她家里没有人。\n55\n\n\f我的发现\n白色 —雪白\n红色 —火红\n黄色 —土黄\n绿色 —草绿\n\n米白\n桃红\nR\n\n鹅黄\n翠绿\n\n奶白\n\n   我发现在“白”字前面加\n上“雪”\n“米”\n“奶”，可以用\n来形容不同的白色。\n\nzAo\n\n枣红\n金黄\nmH\n\n墨绿\n\n日积月累\nyGu shQn jiE\n\ntP\n\nhuS\n\nwP shuJ bM wRn zhQng\n\n◎ 有山皆图画，无水不文章。\nbWi mA\n\nxU fEng sSi shSng\n\nxKng huQ yQn yL jiQng nWn\n\n◎ 白马西风塞上，杏花烟雨江南。\nqUng fEng mIng yuF bDn wP jiS\n\njKn shuJ yuAn shQn jiE yGu qIng\n\nwM suG shQn tYu shQn suG wM\n\ntiQn liWn shuJ wDi shuJ liWn tiQn\n\n◎ 清风明月本无价，近水远山皆有情。\n◎ 雾锁山头山锁雾，天连水尾水连天。\n\n我爱阅读\n\n画家乡\n\n   孩子们爱家乡，也爱画自己美丽的家乡。\ntQo\n\n   涛涛的家乡在海边。他画的海那么蓝，那么宽。一艘艘\nxiQ\n\njiAn\n\nkR\n\n船上装满了鱼和虾。那个在海边捡贝壳的孩子，就是涛涛。\n本文作者冯寿鹤，选作课文时有改动。\n\n56\n\n\f   山山的家乡在山里。她画的山那\n么高，水那么清。房前屋后都是又高\nkuS\n\n又大的树。画上的山山，挎着小竹篮，\nmY gO\n\n正要到树林里去采蘑菇呢。\n   平平的家乡在平原。她画的平原\ntAn\n\n那么平坦，那么宽广。有金黄的稻子，\nyYu\n\n雪白的棉花，还有一大片一大片绿油\ncSi\n\n油的菜地。屋前有鸡、鸭，屋后有几丛青翠的竹子。那个\n正在田野上奔跑的小女孩，就是平平。\n   青青的家乡在草原。他画的草原一眼望不到边。草长\nmK\n\njMn",
+    "qualityScore": 0.47900000000000004,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "general"
+    }
+  },
+  {
+    "content": "又大的树。画上的山山，挎着小竹篮， mY gO 正要到树林里去采蘑菇呢。 平平的家乡在平原。她画的平原 tAn 那么平坦，那么宽广。有金黄的稻子， yYu 雪白的棉花，还有一大片一大片绿油 cSi 油的菜地。屋前有鸡、鸭，屋后有几丛青翠的竹子。那个正在田野上奔跑的小女孩，就是平平。 青青的家乡在草原。他画的草原一眼望不到边。草长 mK jMn 得又绿又密，羊群在草原上走来走去。一匹骏马从远处奔 qI 来，青青正骑在马上赶着羊群。 jiE 京京的家乡在城市。他画的城市那么美。宽宽的街道， lYu guAn 高高的楼房，还有好几个街心公园。那个正跑向图书馆的小男孩，就是京京。 小朋友，你的家乡一定也很美，请你画出来吧！ 57 zuH 12 jJng guQn tiQn 坐井观天 qUng wQ zuH zSi jJng lJ xiAo niAo fEi lWi luH zSi jJng yWn shSng 青蛙 坐在 井里。 小鸟 飞来， 落在 井沿 上。 qUng wQ wFn xiAo niAo nJ cYng nAr lWi ya xiAo niAo huI wG cYng tiQn shSng lWi 青蛙 问小 鸟： 你从 哪儿 来呀？ dW shuT fEi le yK bAi 小鸟 回答 说： 我从 天上 来， 飞了 一百 duT lJ kGu kD le xiS lWi zhAo diAnr shuJ hE 多里， 口渴 了，下来 找点 儿水 喝。 qUng wQ shuT pRng you biR shuT dS huS le tiQn bP guH 青蛙 说： 朋友， 别说 大话 了！ 天不 过 jJng kGu nS me dS hWi yHng fEi nS me yuAn ma 井口 那么 大， 还用 飞那 么远 吗？ xiAo niAo shuT nJ nHng cuH le tiQn wP biQn wP jK dS",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 5421,
+          "to": 5551
+        }
+      },
+      "chunkIndex": 40,
+      "chunkSize": 970,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.4577777777777778,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "又大的树。画上的山山，挎着小竹篮，\nmY gO\n\n正要到树林里去采蘑菇呢。\n   平平的家乡在平原。她画的平原\ntAn\n\n那么平坦，那么宽广。有金黄的稻子，\nyYu\n\n雪白的棉花，还有一大片一大片绿油\ncSi\n\n油的菜地。屋前有鸡、鸭，屋后有几丛青翠的竹子。那个\n正在田野上奔跑的小女孩，就是平平。\n   青青的家乡在草原。他画的草原一眼望不到边。草长\nmK\n\njMn\n\n得又绿又密，羊群在草原上走来走去。一匹骏马从远处奔\nqI\n\n来，青青正骑在马上赶着羊群。\n\njiE\n\n   京京的家乡在城市。他画的城市那么美。宽宽的街道，\nlYu\n\nguAn\n\n高高的楼房，还有好几个街心公园。那个正跑向图书馆的\n小男孩，就是京京。\n   小朋友，你的家乡一定也很美，请你画出来吧！\n57\n\n\fzuH\n\n12\n\njJng guQn tiQn\n\n坐井观天\n\nqUng wQ zuH zSi jJng\n\nlJ\n\nxiAo niAo fEi\n\nlWi\n\nluH zSi jJng yWn shSng\n\n   青 蛙 坐 在 井 里 。 小 鸟 飞 来 ， 落 在 井 沿 上 。\nqUng wQ wFn xiAo niAo\n\nnJ cYng nAr\n\nlWi\n\nya\n\nxiAo niAo huI\n\nwG cYng tiQn shSng lWi\n\n   青 蛙 问 小 鸟 ：\n“ 你 从 哪 儿 来 呀 ？”\ndW shuT\n\nfEi\n\nle\n\nyK\n\nbAi\n\n   小 鸟 回 答 说 ：\n“ 我 从 天 上 来， 飞 了 一 百\nduT\n\nlJ\n\nkGu kD\n\nle\n\nxiS\n\nlWi zhAo diAnr\n\nshuJ hE\n\n多 里 ， 口 渴 了 ，下 来 找 点 儿 水 喝 。”\nqUng wQ shuT\n\npRng you\n\nbiR shuT dS huS\n\nle\n\ntiQn bP guH\n\n   青 蛙 说 ：\n“ 朋 友， 别 说 大 话 了！ 天 不 过\njJng kGu nS\n\nme dS\n\nhWi yHng fEi\n\nnS\n\nme yuAn ma\n\n井 口 那 么 大 ， 还 用 飞 那 么 远 吗 ？”\nxiAo niAo shuT\n\nnJ nHng cuH\n\nle\n\ntiQn wP biQn wP\n\njK\n\ndS",
+    "qualityScore": 0.3471145374449339,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "geography"
+    }
+  },
+  {
+    "content": "吧！ 那个 人感 到很 奇怪， 说： 什么？叶子 shSng de chYng hWi yHng zhK wG ySo de shK hP lu 上的 虫还 用治？ 我要 的是 葫芦。 65 mRi guH jJ tiQn yF zi shSng de yW chYng gFng duT yI gF dTu luH le xiAo hP 没过 几天， 叶子 上的 蚜虫 更多 了。 小葫 lu mSn mSn de biSn huWng le gF yI yW dUng le 芦慢慢地变黄了，一个一个都落了。 hP lP tRng xiF a sSi gAn guSi mSn 葫芦 藤谢 啊蚜 盯赛 感怪 慢棵 棵想 想言 言治 治谢 谢盯 盯邻 邻怪 怪朗读课文。想一想：种葫芦的人想要葫芦，为什么最后却一个也没得到？ 读一读，注意句子不同的语气。 有几个虫子怕什么！ 叶子上的虫还用治？ 有几个虫子不可怕。 叶子上的虫不用治。 66 口语交际 shQng 商量 xO 在生活中，有时候我们需要跟别人商量事情。比如， diSo huSn zhI 你想和小丽调换一下值日的时间，该怎样跟她商量呢？ 我想和你调换一下值日的时间，因为今天是我的生日，想早一点儿回家，你看行吗？ 小丽，我想跟你商量一件事情。 没关系，那我再问问别人能不能和我调换吧！ kuSng 遇到下面的情况，你会怎样跟别人商量？和同学说一说。 jiF 向同学借的书没有看完，想再多借几天。 最爱看的电视节目就要开始了，但爸爸正在看足球比赛。 要用商量的语气。 把自己的想法说清楚。 67 语文园地五识字加油站 fEng 山（峰） mK 我能根据字形特点判断怎么连。 锋 fEng 蜜（峰） 峰 fEng 刀（峰） 蜂 mM 爱（峰） sAo mM 扫（峰） mM 开（峰） 幕墓 慕 chAo （峰）饭吵 chAo 抄 （峰）闹 chQo 炒 （峰）写",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 6304,
+          "to": 6486
+        }
+      },
+      "chunkIndex": 47,
+      "chunkSize": 993,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.585949177877429,
+        "lengthScore": 1,
+        "coherenceScore": 0.6,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "吧 ！” 那 个 人 感 到 很 奇 怪 ， 说 ：\n“什么？叶子\nshSng de chYng hWi yHng zhK\n\nwG ySo de\n\nshK\n\nhP\n\nlu\n\n上 的 虫 还 用 治 ？ 我 要 的 是 葫 芦 。”\n\n65\n\n\fmRi guH\n\njJ\n\ntiQn\n\nyF\n\nzi shSng de\n\nyW chYng gFng duT\n\nyI\n\ngF dTu luH\n\nle\n\nxiAo hP\n\n   没 过 几 天 ， 叶 子 上 的 蚜 虫 更 多 了 。 小 葫\nlu mSn mSn de biSn huWng le\n\ngF\n\nyI\n\nyW\n\ndUng\n\nle\n\n芦慢慢地变 黄了，一个一个都落了。\nhP\n\nlP\n\ntRng\n\nxiF\n\na\n\nsSi\n\ngAn guSi mSn\n\n葫 芦 藤 谢 啊 蚜 盯 赛 感 怪 慢\n\n棵 棵\n想 想\n言 言\n治 治\n\n谢 谢\n盯 盯\n邻 邻\n怪 怪\n\n朗读课文。想一想：种葫芦的人想要葫芦，为什么最后\n却一个也没得到？\n读一读，注意句子不同的语气。\n  有几个虫子怕什么！     叶子上的虫还用治？\n  有几个虫子不可怕。     叶子上的虫不用治。\n\n66\n\n\f口语交际\nshQng\n\n商\n\n量\nxO\n\n   在生活中，有时候我们需 要跟别人商量事情。比如，\ndiSo huSn\n\nzhI\n\n你想和小丽调换一下值日的时间，该怎样跟她商量呢？\n\n   我想和你调换一下\n值日的时间，因为今天\n是我的生日，想早一点\n儿回家，你看行吗？\n\n   小丽，我想跟\n你商量一件事情。\n\n   没关系，那我再问问\n别人能不能和我调换吧！\n\nkuSng\n\n   遇到下面的情况 ，你会怎样跟别人商量？和同学说\n一说。\n\njiF\n\n   ◇ 向同学借的书没有看完，想再多借几天。\n   ◇ 最爱看的电视节目就要开始了，但爸爸正在看足球\n比赛。\n\n◎ 要用商量的语气。\n◎ 把自己的想法说清楚。\n\n67\n\n\f语文园地五\n\n识字加油站\nfEng\n\n山（峰）\nmK\n\n   我能根据字形特\n点判断怎么连。\n\n锋\n\nfEng\n\n蜜（峰）\n\n峰\n\nfEng\n\n刀（峰）\n\n蜂\n\nmM\n\n爱（峰）\nsAo\n\nmM\n\n扫（峰）\nmM\n\n开（峰）\n\n幕\n墓\n慕\n\nchAo\n\n（峰）饭\n\n吵\n\nchAo\n\n抄\n\n（峰）闹\nchQo\n\n炒\n\n（峰）写",
+    "qualityScore": 0.459266272189349,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "要用商量的语气。 把自己的想法说清楚。 67 语文园地五识字加油站 fEng 山（峰） mK 我能根据字形特点判断怎么连。 锋 fEng 蜜（峰） 峰 fEng 刀（峰） 蜂 mM 爱（峰） sAo mM 扫（峰） mM 开（峰） 幕墓 慕 chAo （峰）饭吵 chAo 抄 （峰）闹 chQo 炒 （峰）写锋 蜜蜂 幕扫 墓慕 抄炒 字词句运用读一读，猜一猜词语的意思。 不言不语只言片语三言两语千言万语 hWo guA 豪言壮语少言寡语自言自语甜言蜜语注意下面句子中加点的词语，仿照例子在括号中加上合适的词语，再读一读。 细长的葫芦藤上长满了绿叶，开出了几朵雪白的小花。 3 3 mK 3 3 3 3 茂密的枝叶向四面展开，就像搭起了一个个绿色的 3 3 pRng 3 凉棚。 68 3 3 3 （ ）天空飘着（ ）气球。 （ ）池塘开满（ ）荷花。 书写提示观 观呼 呼有的字左边短， 右边长；有的字左边长，右边短。 忙忙 如如 日积月累 jiQng xuD 江雪 tWng liL zTng yuWn 唐柳 宗元 qiQn shQn niAo fEi juR 千山鸟飞绝， wSn jKng rRn zTng miF 万径人踪灭。 gO zhTu suT lK wEng 孤舟蓑笠翁， dP diSo hWn jiQng xuD 独钓寒江雪。 69 我爱阅读 kF zhTu qiP jiSn 刻舟求剑 bAo 从前，有个人坐船过江。一不小心，挂在他身上的宝 xiWn 剑掉进江里去了。那个人马上拿出小刀在船舷上刻了一个 jK 记号。 lQo 旁边的人催他： 还不赶快捞！在船舷上刻记号有什么用啊？ huQng 那个人不慌不忙地指了指刻的记号，说： 不用着急， kSo Sn 宝剑是从这儿掉下去的，等船靠了岸，我就从这儿跳下去， 准能把宝剑捞上来。 本文根据《吕氏春秋察今》相关内容改写。 70 bQ 15 jiAo lYu shSng",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 6425,
+          "to": 6625
+        }
+      },
+      "chunkIndex": 48,
+      "chunkSize": 995,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.602322206095791,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "◎ 要用商量的语气。\n◎ 把自己的想法说清楚。\n\n67\n\n\f语文园地五\n\n识字加油站\nfEng\n\n山（峰）\nmK\n\n   我能根据字形特\n点判断怎么连。\n\n锋\n\nfEng\n\n蜜（峰）\n\n峰\n\nfEng\n\n刀（峰）\n\n蜂\n\nmM\n\n爱（峰）\nsAo\n\nmM\n\n扫（峰）\nmM\n\n开（峰）\n\n幕\n墓\n慕\n\nchAo\n\n（峰）饭\n\n吵\n\nchAo\n\n抄\n\n（峰）闹\nchQo\n\n炒\n\n（峰）写\n\n锋 蜜 蜂 幕 扫 墓 慕 抄 炒\n\n字词句运用\n读一读，猜一猜词语的意思。\n不言不语   只言片语   三言两语   千言万语\n\nhWo\n\nguA\n\n豪言壮语   少言寡语   自言自语   甜言蜜语\n\n注意下面句子中加点的词语，仿照例子在括号中加上合\n适的词语，再读一读。\n◇ 细长的葫芦藤上长满了绿叶，开出了几朵雪白的小花。\n3\n\n3\n\nmK\n\n3\n\n3\n\n3\n\n3\n\n◇ 茂密的枝叶向四面展开，就像搭起了一个个绿色的\n3\n\n3\n\npRng\n\n3\n\n凉棚。\n68\n\n3\n\n3\n\n3\n\n\f（     ）天空飘着（     ）气球。\n（     ）池塘开满（     ）荷花。\n书写提示\n\n观 观\n呼 呼\n\n   有的字左边短，\n右边长；有的字左\n边长，右边短。\n\n忙 忙\n如 如\n日积月累\njiQng\n\nxuD\n\n江 雪\n\ntWng\n\nliL zTng yuWn\n\n[唐] 柳 宗 元\nqiQn shQn niAo fEi\n\njuR\n\n千山鸟飞绝，\nwSn jKng\n\nrRn zTng miF\n\n万径人踪灭。\ngO\n\nzhTu suT\n\nlK\n\nwEng\n\n孤舟蓑笠翁，\ndP diSo hWn jiQng xuD\n\n独钓寒江雪。\n69\n\n\f我爱阅读\nkF zhTu qiP jiSn\n\n刻舟求剑\nbAo\n\n   从前，有个人坐船过江。一不小心，挂在他身上的宝\nxiWn\n\n剑掉进江里去了。那个人马上拿出小刀在船舷上刻了一个\njK\n\n记号。\n\nlQo\n\n   旁边的人催他：\n“还不赶快捞！在船舷上刻记号有什么\n用啊？”\n\nhuQng\n\n   那个人不慌 不忙地指了指刻的记号，说：\n“不用着急，\nkSo\n\nSn\n\n宝剑是从这儿掉下去的，等船靠了岸，我就从这儿跳下去，\n准能把宝剑捞上来。”\n\n本文根据《吕氏春秋·察今》相关内容改写。\n\n70\n\n\fbQ\n\n15\n\njiAo\n\nlYu shSng",
+    "qualityScore": 0.45353571428571426,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "zhW sJ nJ liP kAn yYu nJ men hO de bDi fEng qiWn liP hP xU shEng le hP lWn tJng qJ xiTng tWng shuT ySo shQ ySo tQ yIng zhe 也铡 死你！ 刘胡 兰挺 起胸 膛说： 要杀要 pS sJ bP shK gHng chAn dAng yuWn tS zhe liF 砍由 你们， 怕死 不是 共产 党员！ 她迎 着 hO shK de xiQn xuF zGu dSo zhW dQo 呼呼 的北 风， 踏着 烈士 的鲜 血， 走到 铡刀 lWn guQng rYng de 前。 刘胡 兰光 荣地 nS niWn tQ cWi xI tUng dSo zhF qUn bJ 牺牲 了， 那年 她才 shI wL suK 十五岁。 ge xiQo mWo zhL 毛主 席听 到这 xi xiD le 个消 息， 亲笔 写了 wAn cI 挽词。 79 liP lWn pSi bFi xuF lQ bUng xiD tJng shQ liF 刘兰 派被 血拉 兵血 挺杀 烈刘 刘反 反被 被道 道民 民村 村关 关兵 兵朗读课文。说说从哪些地方可以看出刘胡兰在敌人面前毫不屈服。 联系上下文，说说加点词语在句中的意思。 mAi 敌人想收买刘胡兰。 3 3 wEi xiR qiQng bK 敌人又威胁她说： 不说就枪毙你！ 3 3 rYng xU shEng 刘胡兰光荣地牺牲了，那年她才十五岁。 3 80 3 口语交际看图讲故事 （图）德国埃 奥卜劳恩 jiD 看图，先了解每幅图 nFi 的内容，再把这些图画的内容连起来，讲一讲这个故事。 按顺序讲清楚图意。 想一想，这个故事接认真听，知道别人讲下来会怎么样？ 的是哪幅图的内容。 81 语文园地六识字加油站 jiSo jiM mY tuT fWng",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 7731,
+          "to": 7944
+        }
+      },
+      "chunkIndex": 58,
+      "chunkSize": 998,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.44462025316455694,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "zhW\n\nsJ\n\nnJ\n\nliP\n\nkAn yYu\n\nnJ\n\nmen\n\nhO\n\nde\n\nbDi fEng\n\nqiWn\n\nliP\n\nhP\n\nxU\n\nshEng le\n\nhP\n\nlWn tJng\n\nqJ xiTng tWng shuT\n\nySo shQ ySo\n\ntQ yIng zhe\n\n也 铡 死 你 ！” 刘 胡 兰 挺 起 胸 膛 说 ：\n“要杀要\npS\n\nsJ\n\nbP\n\nshK gHng chAn dAng yuWn\n\ntS\n\nzhe\n\nliF\n\n砍 由 你 们 ， 怕 死 不 是 共 产 党 员 ！” 她 迎 着\nhO\n\nshK\n\nde xiQn xuF\n\nzGu dSo zhW dQo\n\n呼 呼 的 北 风， 踏 着 烈 士 的 鲜 血， 走 到 铡 刀\nlWn guQng rYng de\n\n前。 刘 胡 兰 光 荣 地\nnS\n\nniWn\n\ntQ\n\ncWi\n\nxI\n\ntUng dSo zhF\n\nqUn\n\nbJ\n\n牺 牲 了， 那 年 她 才\nshI wL\n\nsuK\n\n十五岁。\n  \nge\n\nxiQo\n\nmWo zhL\n\n毛 主 席 听 到 这\nxi\n\nxiD\n\nle\n\n个 消 息， 亲 笔 写 了\nwAn cI\n\n挽词。\n\n79\n\n\fliP\n\nlWn\n\npSi\n\nbFi\n\nxuF\n\nlQ\n\nbUng\n\nxiD\n\ntJng\n\nshQ\n\nliF\n\n刘 兰 派 被 血 拉 兵 血 挺 杀 烈\n\n刘 刘\n反 反\n被 被\n道 道\n\n民 民\n村 村\n关 关\n兵 兵\n\n朗读课文。说说从哪些地方可以看出刘胡兰在敌人面前\n毫不屈服。\n联系上下文，说说加点词语在句中的意思。\nmAi\n\n◇ 敌人想收买刘胡兰。\n3\n\n3\n\nwEi xiR\n\nqiQng bK\n\n◇ 敌人又威胁她说：“不说就枪毙你！”\n3\n\n3\n\nrYng\n\nxU shEng\n\n◇ 刘胡兰光荣地牺牲了，那年她才十五岁。\n3\n\n80\n\n3\n\n\f口语交际\n\n看图讲故事\n\n（图）德国\n\n埃 ·奥 ·卜劳恩\n\njiD\n\n   ◇ 看图，先了解 每幅图\nnFi\n\n的内 容，再把这些图画的内\n容连起来，讲一讲这个故事。\n\n◎ 按顺序讲清楚图意。\n\n   ◇ 想一想，这个故事接\n\n◎ 认真听，知道别人讲\n\n下来会怎么样？\n\n的是哪幅图的内容。\n\n81\n\n\f语文园地六\n\n识字加油站\njiSo\n\njiM\n\nmY tuT\n\nfWng",
+    "qualityScore": 0.33276315789473687,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "80 3 口语交际看图讲故事 （图）德国埃 奥卜劳恩 jiD 看图，先了解每幅图 nFi 的内容，再把这些图画的内容连起来，讲一讲这个故事。 按顺序讲清楚图意。 想一想，这个故事接认真听，知道别人讲下来会怎么样？ 的是哪幅图的内容。 81 语文园地六识字加油站 jiSo jiM mY tuT fWng yP huH lPn kE tuT fWng yP 轿车救护车摩托车消防车 kAo 渔船货船油轮科学考察船 jiSo jiM mY huH lPn kE kAo 轿救 摩托 防渔 货轮 科考 字词句运用读一读，注意加点的字，看谁读得准。 3 3 3 3 82 我会根据词语的意思来判断多音字的读音。 盛开床铺种子好人分别 3 3 3 3 3 盛饭铺路种地好客水分 3 3 3 3 3 重新教室口号干净每当 3 3 3 3 3 重点教书号叫干活当作 3 3 3 3 3 给下面的句子加上标点，再读一读。 一阵秋风吹过树叶像蝴蝶一样飘落下来我们去公园玩公园里花真多呀这棵树的叶子真奇怪是什么树呢我的发现巴 把爸 吧包 饱抱 炮方 放防 房青 清晴 情马 妈蚂 吗我发现放、 防、房的读音和方 很接近。 日积月累 yGu zhK zhD shK jKng chRng 有志 者事 竟成。 hHu hSn shO 《 后汉 书 》 zhK dQng cPn gQo yuAn zhO gD liSng 志当 存高 远。 qiYng qiD yK jiQn bP 诸葛 亮 zhuK qUng yPn zhU zhK 穷且 益坚， 不坠 青云 之志。 wWng bY 王勃 83 我爱阅读 yL 大禹治水 hYng fSn lSn",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 7903,
+          "to": 8128
+        }
+      },
+      "chunkIndex": 59,
+      "chunkSize": 996,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5961538461538461,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "80\n\n3\n\n\f口语交际\n\n看图讲故事\n\n（图）德国\n\n埃 ·奥 ·卜劳恩\n\njiD\n\n   ◇ 看图，先了解 每幅图\nnFi\n\n的内 容，再把这些图画的内\n容连起来，讲一讲这个故事。\n\n◎ 按顺序讲清楚图意。\n\n   ◇ 想一想，这个故事接\n\n◎ 认真听，知道别人讲\n\n下来会怎么样？\n\n的是哪幅图的内容。\n\n81\n\n\f语文园地六\n\n识字加油站\njiSo\n\njiM\n\nmY tuT\n\nfWng\n\nyP\n\nhuH\n\nlPn\n\nkE\n\ntuT fWng\n\nyP\n\n轿车   救护车   摩托车   消防车\nkAo\n\n渔船   货船   油轮   科学考察船\n\njiSo\n\njiM\n\nmY\n\nhuH\n\nlPn\n\nkE\n\nkAo\n\n轿 救 摩 托 防 渔 货 轮 科 考\n\n字词句运用\n读一读，注意加点的字，看谁读得准。\n3\n\n3\n\n3\n\n3\n\n82\n\n   我会根据词语的意\n思来判断多音字的读音。\n\n盛开    床铺    种子    好人    分别\n3\n\n3\n\n3\n\n3\n\n3\n\n盛饭    铺路    种地    好客    水分\n3\n\n3\n\n3\n\n3\n\n3\n\n重新    教室    口号    干净    每当\n3\n\n3\n\n3\n\n3\n\n3\n\n重点    教书    号叫    干活    当作\n3\n\n3\n\n3\n\n3\n\n3\n\n\f给下面的句子加上标点，再读一读。\n◇ 一阵秋风吹过 树叶像蝴蝶一样飘落下来\n◇ 我们去公园玩\n\n公园里花真多呀\n\n◇ 这棵树的叶子真奇怪\n\n是什么树呢\n\n我的发现\n巴 —把 爸\n\n吧\n\n包 —饱\n\n抱\n\n炮\n\n方 —放 防\n\n房\n\n青 —清\n\n晴\n\n情\n\n马 —妈 蚂\n\n吗\n   我发现“放、\n防、房”的读音和\n“方”很接近。\n\n日积月累\n\nyGu\n\nzhK\n\nzhD\n\nshK\n\njKng chRng\n\n◎ 有 志 者 事 竟 成 。\n\nhHu hSn shO\n\n—《 后 汉 书 》\n\nzhK dQng cPn gQo yuAn\n\nzhO gD liSng\n\n◎ 志 当 存 高 远 。\nqiYng qiD\n\nyK\n\njiQn\n\nbP\n\n—诸 葛 亮\nzhuK qUng yPn\n\nzhU\n\nzhK\n\n◎ 穷 且 益 坚 ， 不 坠 青 云 之 志 。\nwWng bY\n\n—王 勃\n\n83\n\n\f我爱阅读\n\nyL\n\n大禹治水\nhYng\n\nfSn lSn",
+    "qualityScore": 0.4376929530201342,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "《 后汉 书 》 zhK dQng cPn gQo yuAn zhO gD liSng 志当 存高 远。 qiYng qiD yK jiQn bP 诸葛 亮 zhuK qUng yPn zhU zhK 穷且 益坚， 不坠 青云 之志。 wWng bY 王勃 83 我爱阅读 yL 大禹治水 hYng fSn lSn 很久很久以前，洪水经常泛滥。大水淹没了田地，冲 dP shR shHu shEng chM tHng 毁了房屋，毒蛇猛兽到处伤害百姓和牲畜，人们的生活痛苦极了。 nSn bK xO 洪水给百姓带来了无数的灾难，必须 治好它。当时， gLn zhM bS dAng 一个名叫鲧的人领着大家治水。他只知道筑坝挡水，九年 rRng tuK jK xM 过去了，洪水仍然没有消退。他的儿子禹继续治水。 禹离开了家乡，一去就是十三年。这十三年里，他到 cRng rFn 处奔走，曾经多次路过自己家门口。可是他认为治水要紧， 一次也没有走进家门看一看。 qL shU bSi xMn shO dAo 禹吸取了鲧治水失败 的教训，采用疏导 的办法治水。 他和大家一起，疏通了很多河道，让洪水通过河道，最 zhTng yP qO 后流到大海里去。洪水终于 退了，毒蛇猛兽被驱赶走了， gEng 人们把家搬了回来。大家在被水淹过的土地上耕种，农 jiSn huU xKng 业生产渐渐恢复了，百姓安居乐业，重新过上了幸福的生活。 本文根据《史记五帝本纪》和《史记夏本纪》相关内容改写。 84 gL 19 shU Fr shGu 古诗二首 yF sM shQn sK 夜宿山寺 tWng lJ bWi 唐李 白 wEi lYu gQo bAi chJ shGu kD zhQi xUng chRn bM gAn gQo shEng yL 危楼高百尺， 手可摘星辰。 不敢高声语， kGng jUng tiQn shSng rRn 恐惊天上人。 85 chK lF gE 敕勒歌 bDi chWo mIn gE 北朝民歌 chK",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 8092,
+          "to": 8265
+        }
+      },
+      "chunkIndex": 60,
+      "chunkSize": 989,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5083565459610028,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "—《 后 汉 书 》\n\nzhK dQng cPn gQo yuAn\n\nzhO gD liSng\n\n◎ 志 当 存 高 远 。\nqiYng qiD\n\nyK\n\njiQn\n\nbP\n\n—诸 葛 亮\nzhuK qUng yPn\n\nzhU\n\nzhK\n\n◎ 穷 且 益 坚 ， 不 坠 青 云 之 志 。\nwWng bY\n\n—王 勃\n\n83\n\n\f我爱阅读\n\nyL\n\n大禹治水\nhYng\n\nfSn lSn\n\n   很久很久以前，洪水经常泛滥。大水淹没了田地，冲\ndP shR\n\nshHu\n\nshEng chM\n\ntHng\n\n毁了房屋，毒蛇猛兽到处伤害百姓和牲 畜，人们的生活痛\n苦极了。\n\nnSn\n\nbK\n\nxO\n\n   洪水给百姓带来了无数的灾难，必 须 治好它。当时，\ngLn\n\nzhM bS dAng\n\n一个名叫鲧的人领着大家治水。他只知道筑坝挡水，九年\nrRng\n\ntuK\n\njK\n\nxM\n\n过去了，洪水仍然没有消退。他的儿子禹继续治水。\n   禹离开了家乡，一去就是十三年。这十三年里，他到\ncRng\n\nrFn\n\n处奔走，曾经多次路过自己家门口。可是他认为治水要紧，\n一次也没有走进家门看一看。\nqL\n\nshU bSi\n\nxMn\n\nshO dAo\n\n   禹吸取 了鲧治水失 败 的教训，采用疏 导 的办法治水。\n他和大家一起，疏通了很多河道，让洪水通过河道，最\nzhTng yP\n\nqO\n\n后流到大海里去。洪水终 于 退了，毒蛇猛兽被驱 赶走了，\ngEng\n\n人们把家搬了回来。大家在被水淹过的土地上耕 种，农\njiSn\n\nhuU\n\nxKng\n\n业生产渐 渐恢 复了，百姓安居乐业，重新过上了幸 福的\n生活。\n\n本文根据《史记·五帝本纪》和《史记·夏本纪》相关内容改写。\n\n84\n\n\fgL\n\n19\n\nshU\n\nFr\n\nshGu\n\n古诗二首\nyF\n\nsM\n\nshQn\n\nsK\n\n夜宿山寺\ntWng\n\nlJ bWi\n\n[唐] 李 白\n\nwEi\n\nlYu\n\ngQo bAi\n\nchJ\n\nshGu\n\nkD\n\nzhQi xUng chRn\n\nbM\n\ngAn gQo shEng yL\n\n危楼高百尺，\n手可摘星辰。\n不敢高声语，\nkGng jUng tiQn shSng rRn\n\n恐惊天上人。\n\n85\n\n\fchK\n\nlF\n\ngE\n\n敕勒歌\nbDi chWo mIn gE\n\n北朝民歌\n\nchK",
+    "qualityScore": 0.3840784044016507,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "ya fEi yK duG mDi 着， 他变 成了 很轻 很轻 的水 汽。 飞呀， 飞 yK duG bWi yPn 呀， 飞上 天空， 变成 了一 朵白 云， 一朵 美 lK de bWi yPn 丽的白云。 看着雪孩子变成了白云， 小白兔心里会想些什么呢？ 93 tiQn chWi shQo wSng jiSn Qi yQ mSo miF jU qiWo 添柴 烧旺 渐哎 呀冒 qiSng tSng zhTng hPn lIn 呛烫 终浑 淋灭 激瞧 唱唱 旺旺 浑浑 谁谁 赶赶 旁旁 候候 汽汽 默读课文，试着不出声。 读一读，抄写每组的第 2 个句子。 雪孩子变成了一朵白云。 雪孩子变成了一朵白云，一朵美丽的白云。 雪孩子变成了水汽。 雪孩子变成了水汽，很轻很轻的水汽。 94 语文园地七识字加油站 tQn 海滩 mH 沙漠高原 xuWn yW 悬崖 tQn yE kR mH luH tuY yE kR 椰树贝壳 luH tuY 胡杨骆驼 jMn 雪莲骏马青松雄鹰 jMn xuWn yW 滩椰 壳漠 骆驼 骏悬 崖字词句运用用部首查字法查出下面的字，再填一填。 要查的字部首部首页码除去部首字的页码有几画读音组词亏 申丹 95 你见过下面这些词语描写的景象吗？选一两个，跟同学说一说当时的情景。 云开雾散微风习习冰天雪地风雨交加 liWo gL R mIng 云雾缭绕寒风刺骨鹅毛大雪电闪雷鸣读读下面的句子，说说有趣在哪里。 我要把大海藏起来。 于是，雾把大海藏了起来。 juSn 调皮的风拿了我的手绢，擦过了汗，扔到地上；又拿了妹妹的圆帽子，当作铁环滚走了。 写话看看下面这幅图，小老鼠在干什么？电脑屏幕上突然出现了谁？接下来会怎样？ 快把你想到的写下来吧！ 96 展示台加点的字我曾经写错过，我把正确的写在改错本上，经常看一看。 棉被我把容易混淆的字作了比较。 泼水 3 纸巾 3 带领展现 3 3 战士 3",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 9179,
+          "to": 9376
+        }
+      },
+      "chunkIndex": 68,
+      "chunkSize": 998,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6929824561403509,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "ya\n\nfEi\n\nyK\n\nduG mDi\n\n着， 他 变 成 了 很 轻 很 轻 的 水 汽。 飞 呀， 飞\nyK\n\nduG bWi yPn\n\n呀， 飞 上 天 空， 变 成 了 一 朵 白 云， 一 朵 美\nlK\n\nde bWi yPn\n\n丽的白云。\n\n   看着雪孩子变成了白云，\n小白兔心里会想些什么呢？\n\n93\n\n\ftiQn\n\nchWi shQo wSng jiSn\n\nQi\n\nyQ\n\nmSo\n\nmiF\n\njU\n\nqiWo\n\n添 柴 烧 旺 渐 哎 呀 冒\nqiSng tSng zhTng hPn\n\nlIn\n\n呛 烫 终 浑 淋 灭 激 瞧\n\n唱 唱\n旺 旺\n浑 浑\n谁 谁\n\n赶 赶\n旁 旁\n候 候\n汽 汽\n\n默读课文，试着不出声。\n读一读，抄写每组的第 2 个句子。\n雪孩子变成了一朵白云。\n雪孩子变成了一朵白云，一朵美丽的白云。\n雪孩子变成了水汽。\n雪孩子变成了水汽，很轻很轻的水汽。\n\n94\n\n\f语文园地七\n\n识字加油站\n\ntQn\n\n海滩\nmH\n\n沙漠\n高原\nxuWn yW\n\n悬崖\n\ntQn\n\nyE\n\nkR\n\nmH\n\nluH\n\ntuY\n\nyE\n\nkR\n\n椰树\n\n贝壳\nluH tuY\n\n胡杨\n\n骆驼\njMn\n\n雪莲\n\n骏马\n\n青松\n\n雄鹰\n\njMn xuWn\n\nyW\n\n滩 椰 壳 漠 骆 驼 骏 悬 崖\n字词句运用\n用部首查字法查出下面的字，再填一填。\n要查的字\n\n部首\n\n部首页码\n\n除去部首\n字的页码\n有几画\n\n读音\n\n组词\n\n亏\n申\n丹\n95\n\n\f你见过下面这些词语描写的景象吗？选一两个，跟同学\n说一说当时的情景。\n云开雾散   微风习习   冰天雪地   风雨交加\nliWo\n\ngL\n\nR\n\nmIng\n\n云雾缭绕   寒风刺骨   鹅毛大雪   电闪雷鸣\n读读下面的句子，说说有趣在哪里。\n\n◇ “我要把大海藏起来。”于是，雾把大海藏了起来。\njuSn\n\n◇ 调皮的风拿了我的手绢，擦过了汗，扔到地上；又\n拿了妹妹的圆帽子，当作铁环滚走了。\n写话\n   看看下面这幅图，小老鼠在干什么？电脑屏幕上突\n然出现了谁？接下来会怎样？\n   快把你想到的写下来吧！\n\n96\n\n\f展示台\n\n   加点的字我曾经写错\n过，我把正确的写在改错\n本上，经常看一看。\n\n棉被\n\n   我把容易混淆\n的字作了比较。\n\n泼水\n\n3\n\n纸巾\n\n3\n\n带领\n\n展现\n\n3\n\n3\n\n战士\n\n3",
+    "qualityScore": 0.5270494186046512,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "mathematics"
+    }
+  },
+  {
+    "content": "96 展示台加点的字我曾经写错过，我把正确的写在改错本上，经常看一看。 棉被我把容易混淆的字作了比较。 泼水 3 纸巾 3 带领展现 3 3 战士 3 散步南瓜今天 33 果园圆心 3 已经汽水 3 再见口令 33 3 3 3 3 穿戴 3 以后土地 3 3 带领低头 3 3 气体 3 正在 3 3 心情 33 晴天 3 3 日积月累 shL jiL gE 数九歌 yU jiL Fr jiL bM chO shGu sQn jiL sK jiL bUng shSng zGu wL jiL liM jiL yWn hR kSn liL qU jiL hR kQi bQ jiL ySn lWi jiL jiL jiQ yK 一九二九不出手， 三九四九冰上走， 五九六九，沿河看柳， 七九河开，八九雁来， jiL gEng niP biSn dK zGu 九九加一九，耕牛遍地走。 97 我爱阅读分不清是鸭还是霞天空飘着一片霞， 水上游来一群鸭。 霞是五彩霞， mW 鸭是麻花鸭。 麻花 鸭游 进五 彩霞， 五彩 霞网 住麻 花鸭。 乐坏了鸭， suK 拍碎了霞， 分不 清是 鸭还 是霞。 本文作者阮居平，选作课文时有改动。 98 hP 22 zSi mSo mK de sEn jiA hL wEi 狐假虎威 lIn lJ yGu yK zhU lAo hL zhFng zSi xPn zhAo 在茂 密的 森林 里， 有一 只老 虎正 在寻 找 shI wM yK zhU hP li cYng lAo bA hP li dAi zhM hP li yAn zhO hL shEn biQn cuSn guH lAo hL pO guH 食物。一只狐狸从老虎身边窜过。老虎扑过 qM le 去，把狐狸逮住了。 zi gO lO lO yI zhuSn chD zhe sAng zi wFn lAo",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 9345,
+          "to": 9634
+        }
+      },
+      "chunkIndex": 69,
+      "chunkSize": 983,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.42625607779578606,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "96\n\n\f展示台\n\n   加点的字我曾经写错\n过，我把正确的写在改错\n本上，经常看一看。\n\n棉被\n\n   我把容易混淆\n的字作了比较。\n\n泼水\n\n3\n\n纸巾\n\n3\n\n带领\n\n展现\n\n3\n\n3\n\n战士\n\n3\n\n散步\n\n南瓜\n\n今天\n\n33\n\n果园\n\n圆心\n\n3\n\n已经\n\n汽水\n\n3\n\n再见\n\n口令\n33\n\n3\n\n3\n\n3\n\n3\n\n穿戴\n\n3\n\n以后\n\n土地\n\n3\n\n3\n\n带领\n\n低头\n\n3\n\n3\n\n气体\n\n3\n\n正在\n\n3\n\n3\n\n心情\n\n33\n\n晴天\n\n3\n\n3\n\n日积月累\nshL\n\njiL\n\ngE\n\n数九歌\nyU\n\njiL\n\nFr\n\njiL\n\nbM\n\nchO shGu\n\nsQn\n\njiL\n\nsK\n\njiL\n\nbUng shSng zGu\n\nwL\n\njiL\n\nliM\n\njiL\n\nyWn\n\nhR\n\nkSn\n\nliL\n\nqU\n\njiL\n\nhR\n\nkQi\n\nbQ\n\njiL\n\nySn\n\nlWi\n\njiL\n\njiL\n\njiQ\n\nyK\n\n一九二九不出手，\n三九四九冰上走，\n五九六九，沿河看柳，\n七九河开，八九雁来，\njiL\n\ngEng niP biSn\n\ndK\n\nzGu\n\n九九加一九，耕牛遍地走。\n97\n\n\f我爱阅读\n\n分不清是鸭还是霞\n天空飘着一片霞，\n水上游来一群鸭。\n霞是五彩霞，\nmW\n\n鸭是麻花鸭。\n麻 花 鸭 游 进 五 彩霞 ，\n五 彩 霞 网 住 麻 花鸭 。\n乐坏了鸭，\nsuK\n\n拍碎了霞，\n分 不 清 是 鸭 还 是霞 。\n\n本文作者阮居平，选作课文时有改动。\n\n98\n\n\fhP\n\n22\nzSi mSo mK\n\nde sEn\n\njiA\n\nhL\n\nwEi\n\n狐假虎威\nlIn\n\nlJ\n\nyGu\n\nyK\n\nzhU lAo\n\nhL zhFng zSi xPn zhAo\n\n   在 茂 密 的 森 林 里 ， 有 一 只 老 虎 正 在 寻 找\nshI\n\nwM\n\nyK\n\nzhU\n\nhP\n\nli cYng lAo\n\nbA\n\nhP\n\nli\n\ndAi zhM\n\nhP\n\nli\n\nyAn zhO\n\nhL shEn biQn cuSn guH\n\nlAo\n\nhL\n\npO guH\n\n食物。一只狐狸从老虎身边窜过。老虎扑过\nqM\n\nle\n\n去，把狐狸逮住了。\nzi\n\ngO\n\nlO\n\nlO\n\nyI zhuSn\n\nchD zhe sAng zi wFn lAo",
+    "qualityScore": 0.32608589951377637,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "mathematics"
+    }
+  },
+  {
+    "content": "狐狸是借着老虎的威风把百兽吓跑的。 jiA wEi zhuSn chD sAng shHu wRi kSng zhuA 假威 转扯 嗓兽 违抗 爪 tSng shRn zhO nS mFn shHu piSn jiF 趟神 猪纳 闷受 骗借 食食 爷爷 爪爪活 活物 物就 就神 神猪 猪朗读课文。说说狐假虎威这个成语的意思。 下面的词语哪些是写狐狸的，哪些是写老虎的？分角色演一演这个故事，试着把这些词语的意思表现出来。 bAi 神气活现摇头摆尾半信半疑东张西望大摇大摆 101 23 纸船和风筝松鼠和小熊住在一座山上。松鼠住在山顶，小熊住在山脚。山上的小溪往下流，正好从小熊的家门口流过。 松鼠折了一只纸船，放在小溪里。纸船漂哇漂， 漂到了小熊家门口。 小熊拿起纸船一看，乐坏了。纸船里放着一个小松果，松果上挂着一张纸条，上面写着： 祝你快乐！ 小熊也想折一只纸船送给松鼠，可是纸船不能漂到山上去。怎么办呢？他想了想，就扎了一只风筝。风筝乘着风，飘哇飘，飘到了松鼠家门口。 松鼠一把抓住风筝的线一看，也乐坏了。风筝上挂着一个草莓，风筝的翅膀上写着： 祝你幸福！ 纸船和风筝让他们俩成了好朋友。 本文作者刘保法，选作课文时有改动。 102 可是有一天，他们俩为了一点儿小事吵了一架。 山顶上再也看不到飘荡的风筝，小溪里再也看不到漂流的纸船了。 小熊很难过。他还是每天扎一只风筝，但是不好意思把风筝放起来，就把风筝挂在高高的树枝上。 松鼠也很难过。他还是每天折一只纸船，他也不好意思把纸船放进小溪，就把纸船放到屋顶上。 过了几天，松鼠再也受不了啦。他在一只折好的纸船上写了一句话： 如果你愿意和好，就放一只风筝吧！ 他把这只纸船放进了小溪。 傍晚，松鼠看见一只美丽的风筝朝他飞来，高兴得哭了。他连忙爬上屋顶，取下纸船，把一只只纸船放到了小溪里。 筝鼠 折漂 扎抓 幸俩 但愿 哭取 103 折折 祝祝 抓抓 但但 张张 扎扎 吵吵 哭哭",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 9912,
+          "to": 9997
+        }
+      },
+      "chunkIndex": 72,
+      "chunkSize": 924,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8174496644295302,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "狐狸是借着老虎的威风把百兽吓跑的。\njiA\n\nwEi zhuSn chD sAng shHu wRi kSng zhuA\n\n假 威 转 扯 嗓 兽 违 抗 爪\ntSng shRn zhO\n\nnS\n\nmFn shHu piSn\n\njiF\n\n趟 神 猪 纳 闷 受 骗 借\n\n食 食\n爷 爷\n爪爪\n活 活\n\n物 物\n就 就\n神 神\n猪 猪\n\n朗读课文。说说“狐假虎威”这个成语的意思。\n下面的词语哪些是写狐狸的，哪些是写老虎的？分角色\n演一演这个故事，试着把这些词语的意思表现出来。\nbAi\n\n神气活现      摇头摆尾      半信半疑\n东张西望\n\n大摇大摆\n101\n\n\f23 纸船和风筝\n   松鼠和小熊住在一座山上。松鼠住在山顶，小\n熊住在山脚。山上的小溪往下流，正好从小熊的家\n门口流过。\n   松鼠折了一只纸船，放在小溪里。纸船漂哇漂，\n漂到了小熊家门口。\n   小熊拿起纸船一看，乐坏了。纸船里放着一个小\n松果，松果上挂着一张纸条，上面写着：\n“祝你快乐！”\n小熊也想折一只纸船送给松鼠，可是纸船不能\n漂到山上去。怎么办呢？他想了想，就扎了一只风\n筝。风筝乘着风，飘哇飘，飘到了松鼠家门口。\n   松鼠一把抓住风筝的线一看，也乐坏了。风筝上\n挂着一个草莓，风筝的翅\n膀上写着：\n“祝你幸福！”\n纸船和风筝让他们俩\n成了好朋友。\n\n本文作者刘保法，选作课文时有改动。\n\n102\n\n\f可是有一天，他们俩为了一点儿小事吵了一架。\n山顶上再也看不到飘荡的风筝，小溪里再也看不到\n漂流的纸船了。\n小熊很难过。他还是每天扎一只风筝，但是不\n好意思把风筝放起来，就把风筝挂在高高的树枝上。\n   松鼠也很难过。他还是每天折一只纸船，他也\n不好意思把纸船放进小溪，就把纸船放到屋顶上。\n过了几天，松鼠再也受不了啦。他在一只折好\n的纸船上写了一句话：\n“如果你愿意和好，就放一只\n风筝吧！”他把这只纸船放进了小溪。\n   傍晚，松鼠看见一只美丽的风筝朝他飞来，高\n兴得哭了。他连忙爬上屋顶，取下纸船，把一只只\n纸船放到了小溪里。\n筝 鼠 折 漂 扎 抓 幸 俩 但 愿 哭 取\n103\n\n\f折 折\n祝 祝\n抓 抓\n但 但\n\n张 张\n扎 扎\n吵 吵\n哭 哭",
+    "qualityScore": 0.6187051792828685,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "折折 祝祝 抓抓 但但 张张 扎扎 吵吵 哭哭 默读课文，试着不出声。 猜猜下面加点字的读音，和同学交流你是怎么猜出来的。说说你用这些方法还认识了哪些字。 风筝松鼠抓住 3 3 3 祝你幸福愿意哭 3 3 3 读一读，比一比。 纸船漂到了小熊家门口。 纸船漂哇漂，漂到了小熊家门口。 风筝飘到了松鼠家门口。 风筝飘哇飘，飘到了松鼠家门口。 选做：小熊也想写一张卡片，挂在风筝上送给松鼠，请你替他写一写吧。 104 24 风娃娃风妈妈有个可爱的风娃娃。风娃娃长大了，他想像妈妈一样去帮助人。风妈妈说： 到田野里去吧，在那里，你可以帮人们做很多事情。 风娃娃来到田野，看见一架大风车正在慢慢转动，抽上来的水断断续续地流着。他深深地吸了一口气，鼓起腮使劲向风车吹去。风车一下子转得飞快！抽上来的水奔跑着，哗啦哗啦地向田里流去。 秧苗喝足了水，笑着不住地点头。风娃娃高兴极了。 风娃娃又来到河边，看见许多船工正拉着一艘大船。他们弯着腰，流着汗， 嗨哟，嗨哟喊着号子，可是船却走得很慢很慢。他急忙跑过去，对着船帆用力吹了口气，船飞快地跑了起来。船工们笑了，一边收起纤绳，一边向风娃娃表示感谢。 本文作者常瑞，选作课文时有改动。 105 风娃娃想：帮助人们做好事，真容易，只要有力气就行。 他这么想着，来到一个广场上。那里有几个孩子正在放风筝。风娃娃看见了，赶紧过去用力吹。 风筝在空中摇摇摆摆，有的还翻起了跟头。不一会儿，风筝被吹得无影无踪，孩子们伤心极了。 风娃娃却一点儿也不知道，他仍然东吹吹，西吹吹。就这样，风娃娃吹跑了人们晾晒的衣服，折断了路边新栽的小树人们都生气了，纷纷责怪他。 风娃娃不敢再去帮忙了，他委屈地在天上转着， 想着：我帮人们做事情，为什么他们还责怪我呢？ 风娃娃回家去问妈妈。妈妈说： 孩子，做事情光有好的愿望还不行，还要看是不是真的对别人有用。 106 帮助 抽续 使劲 秧表 示摆 翻仍 栽责 车车 秧秧 汗汗 场场 路路 得得 苗苗 急急 伤伤",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 9989,
+          "to": 10073
+        }
+      },
+      "chunkIndex": 73,
+      "chunkSize": 938,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8733850129198967,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "折 折\n祝 祝\n抓 抓\n但 但\n\n张 张\n扎 扎\n吵 吵\n哭 哭\n\n默读课文，试着不出声。\n猜猜下面加点字的读音，和同学交流你是怎么猜出来\n的。说说你用这些方法还认识了哪些字。\n   风筝      松鼠     抓住\n3\n\n3\n\n3\n\n祝你幸福     愿意     哭\n3\n\n3\n\n3\n\n读一读，比一比。\n纸船漂到了小熊家门口。\n纸船漂哇漂，漂到了小熊家门口。\n风筝飘到了松鼠家门口。\n风筝飘哇飘，飘到了松鼠家门口。\n选做：小熊也想写一张卡片，挂在风筝上送给松鼠，请\n你替他写一写吧。\n104\n\n\f24\n\n风娃娃\n\n   风妈妈有个可爱的风娃娃。风娃娃长大了，他\n想像妈妈一样去帮助人。风妈妈说：“到田野里去\n吧，在那里，你可以帮人们做很多事情。”\n   风娃娃来到田野，看见一架大风车正在慢慢转\n动，抽上来的水断断续续地流着。他深深地吸了一\n口气，鼓起腮使劲向风车吹去。风车一下子转得飞\n快！抽上来的水奔跑着，哗啦哗啦地向田里流去。\n秧苗喝足了水，笑着不住地点头。风娃娃高兴极了。\n   风娃娃又来到河边，看见许多船工正拉着一艘\n大船。他们弯着腰，流着汗，“嗨哟，嗨哟”喊着号\n子，可是船却走得很慢很慢。他急忙跑过去，对着\n船帆用力吹了口气，船飞快地跑了起来。船工们笑\n了，一边收起纤绳，一边向风娃娃表示感谢。\n本文作者常瑞，选作课文时有改动。\n\n105\n\n\f   风娃娃想：帮助人们做好事，真容易，只要有\n力气就行。\n他这么想着，来到一个广场上。那里有几个孩\n子正在放风筝。风娃娃看见了，赶紧过去用力吹。\n风筝在空中摇摇摆摆，有的还翻起了跟头。不一会\n儿，风筝被吹得无影无踪，孩子们伤心极了。\n风娃娃却一点儿也不知道，他仍然东吹吹，西吹\n吹。就这样，风娃娃吹跑了人们晾晒的衣服，折断了\n路边新栽的小树……人们都生气了，纷纷责怪他。\n   风娃娃不敢再去帮忙了，他委屈地在天上转着，\n想着：我帮人们做事情，为什么他们还责怪我呢？\n风娃娃回家去问妈妈。妈妈说：“孩子，做事情光有\n好的愿望还不行，还要看是不是真的对别人有用。”\n\n106\n\n\f帮 助 抽 续 使 劲 秧 表 示 摆 翻 仍 栽 责\n\n车 车\n秧 秧\n汗 汗\n场 场\n路 路\n\n得 得\n苗 苗\n急 急\n伤 伤",
+    "qualityScore": 0.6613043478260869,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "106 帮助 抽续 使劲 秧表 示摆 翻仍 栽责 车车 秧秧 汗汗 场场 路路 得得 苗苗 急急 伤伤 朗读课文。不认识的字先猜一猜，再和同学交流。 根据下面的提示讲讲这个故事。 风娃娃来到田野。 风娃娃来到河边。 风娃娃来到广场。 读一读，想一想：生活中风还能做些什么？ 寒风凉风狂风台风暖风和风细雨 bSo lSng 暴风风平浪静风和日丽 shMn 风调雨顺 107 语文园地八识字加油站试着给下面的动物分类，看看谁的分法多。 lWng xUng shR lIng qiO yJn pWng xiF hF gE 狼猩猩蛇 白鹤鸽子 xiQ cWn 羚羊蚯蚓螃 蟹虾 蚕 lWng xUng shR hF gE lIng qiO yJn pWng xiF xiQ cWn 狼猩 蛇鹤 鸽羚 蚯蚓 螃蟹 虾蚕 字词句运用猜猜下面词语的读音，再选择合适的放在句子里读一读。 叭唰 吱呀叮当嘟嘟嘟哗啦哗啦叽叽喳喳窗外响起小鸟 108 的叫声。，雨不停地下着。 书写提示领 领群 群船 船朗 朗先看后写，才能减少修改次数， 保持页面整洁。 有的字左右两边宽窄大致相等。 日积月累 lWng tOn hL ySn jUng gTng zhU niAo dAn xiAo rP shL 狼吞虎咽惊弓之鸟胆小如鼠 lYng fEi fFng wL 龙飞凤舞 lHu wAng zhU yP 漏网之鱼 rP hL tiQn yK 如虎添翼 jU mIng gGu hSi mA rP yP dR shuJ fFi 鸡鸣狗吠 qPn zhU 害群之马如鱼得水我爱阅读称 zSn 赞 wFi 清晨，小刺猬去森林里采果子。 huQn 在小路边，他看见一只小獾在学做木工。小獾已经做本文作者张秋生，选作课文时有改动。 109 bAn dFng cQo",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 10060,
+          "to": 10263
+        }
+      },
+      "chunkIndex": 74,
+      "chunkSize": 978,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.6009463722397477,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "106\n\n\f帮 助 抽 续 使 劲 秧 表 示 摆 翻 仍 栽 责\n\n车 车\n秧 秧\n汗 汗\n场 场\n路 路\n\n得 得\n苗 苗\n急 急\n伤 伤\n\n朗读课文。不认识的字先猜一猜，再和同学交流。\n根据下面的提示讲讲这个故事。\n风娃娃来到田野。\n风娃娃来到河边。\n风娃娃来到广场。\n读一读，想一想：生活中风还能做些什么？\n寒风 凉风\n狂风 台风\n\n暖风     和风细雨\nbSo\n\nlSng\n\n暴风     风平浪静\n\n风和日丽\nshMn\n\n风调雨顺\n\n107\n\n\f语文园地八\n\n识字加油站\n试着给下面的动物分类，看看谁的分法多。\nlWng\n\nxUng\n\nshR\n\nlIng\n\nqiO yJn\n\npWng xiF\n\nhF\n\ngE\n\n狼    猩猩   蛇    白鹤   鸽子\nxiQ\n\ncWn\n\n羚羊   蚯蚓   螃 蟹   虾    蚕  \n\nlWng xUng\n\nshR\n\nhF\n\ngE\n\nlIng\n\nqiO\n\nyJn pWng xiF\n\nxiQ\n\ncWn\n\n狼 猩 蛇 鹤 鸽 羚 蚯 蚓 螃 蟹 虾 蚕\n\n字词句运用\n猜猜下面词语的读音，再选择合适的放在句子里读一读。\n叭      唰       吱呀      叮当\n嘟嘟嘟    哗啦哗啦    叽叽喳喳\n◇ 窗外响起小鸟\n◇\n\n108\n\n的叫声。\n\n，雨不停地下着。\n\n\f书写提示\n\n领 领\n群 群\n船 船\n朗 朗\n\n   先看后写，才\n能减少修改次数，\n保持页面整洁。\n\n   有的字左右两\n边宽窄大致相等。\n\n日积月累\nlWng tOn\n\nhL\n\nySn\n\njUng gTng zhU niAo\n\ndAn xiAo\n\nrP\n\nshL\n\n狼吞虎咽\n\n惊弓之鸟\n\n胆小如鼠\n\nlYng\n\nfEi fFng wL\n\n龙飞凤舞\n\nlHu wAng zhU\n\nyP\n\n漏网之鱼\n\nrP\n\nhL\n\ntiQn\n\nyK\n\n如虎添翼\n\njU\n\nmIng gGu\n\nhSi\n\nmA\n\nrP\n\nyP\n\ndR\n\nshuJ\n\nfFi\n\n鸡鸣狗吠\n\nqPn\n\nzhU\n\n害群之马\n\n如鱼得水\n\n我爱阅读\n\n称\n\nzSn\n\n赞\n\nwFi\n\n   清晨，小刺猬去森林里采果子。\nhuQn\n\n   在小路边，他看见一只小獾在学做木工。小獾已经做\n本文作者张秋生，选作课文时有改动。\n\n109\n\n\fbAn dFng\n\ncQo",
+    "qualityScore": 0.4582783018867925,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "biology"
+    }
+  },
+  {
+    "content": "yK 如虎添翼 jU mIng gGu hSi mA rP yP dR shuJ fFi 鸡鸣狗吠 qPn zhU 害群之马如鱼得水我爱阅读称 zSn 赞 wFi 清晨，小刺猬去森林里采果子。 huQn 在小路边，他看见一只小獾在学做木工。小獾已经做本文作者张秋生，选作课文时有改动。 109 bAn dFng cQo 成了三个小板凳。板凳做得很粗糙。但是看得出，他做得 rFn 很认真。 小刺猬走到小獾身边，拿起板凳仔细地看了看。他对小獾说： 你真能干，小板凳做得一个比一个好！ 真的吗？ 小獾高兴极了。 傍晚，小刺猬抱着几个红红的大苹果，往家里走。 小獾见小刺猬来了，高兴地迎上去。他送给小刺猬一把椅子。小刺猬不好意思地说： 我怎么能要你的椅子呢？ 我可没干什么呀！ xiF 小獾拉着小刺猬的手，说： 在我有点儿泄气的时候， 是你称赞了我，让我有了自信。瞧，我已经会做椅子了。 这是我的一点儿心意，收下吧。 小刺猬连忙拿出两个大苹果，对小獾说： 留下吧，这也是我的一点儿心意！ 小獾接过苹果闻了闻，说： 你的苹果香极了，我从来没有见过这么好的苹果。 小刺猬也高兴极了，说： 谢谢你，你的称赞 chP 消除了我一天的 pI lWo 疲劳！ 110 识字 表课文 1 tWng nAo dSi huU wa jiQo bL yIng Q yI kuQn guU dJng dU xU bEn yWng huSi yQn mH chTng huJ bFi fEn cK dJ pQ lI tSo mSo dEng xiR kM tP hP zhSng pRng zhJ zhEn 塘脑 袋灰 哇教 捕迎 阿姨 宽龟 顶 pU gL shSi jI bSng yuF wO zQi cQi zhI rP wRi 披鼓 2 晒极 傍越 滴溪 奔洋 坏淹 没冲 毁屋 灾猜 3 lV zhS shI cO 植如 为旅 备纷 刺底 啪炸 离识 粗 dR 得语文园地一",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 10211,
+          "to": 10401
+        }
+      },
+      "chunkIndex": 75,
+      "chunkSize": 987,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.5855072463768116,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "yK\n\n如虎添翼\n\njU\n\nmIng gGu\n\nhSi\n\nmA\n\nrP\n\nyP\n\ndR\n\nshuJ\n\nfFi\n\n鸡鸣狗吠\n\nqPn\n\nzhU\n\n害群之马\n\n如鱼得水\n\n我爱阅读\n\n称\n\nzSn\n\n赞\n\nwFi\n\n   清晨，小刺猬去森林里采果子。\nhuQn\n\n   在小路边，他看见一只小獾在学做木工。小獾已经做\n本文作者张秋生，选作课文时有改动。\n\n109\n\n\fbAn dFng\n\ncQo\n\n成了三个小板凳。板凳做得很粗糙。但是看得出，他做得\nrFn\n\n很认真。\n   小刺猬走到小獾身边，拿起板凳仔细地看了看。他对\n小獾说：\n“你真能干，小板凳做得一个比一个好！”\n   “真的吗？”小獾高兴极了。\n   傍晚，小刺猬抱着几个红红的大苹果，往家里走。\n   小獾见小刺猬来了，高兴地迎上去。他送给小刺猬一\n把椅子。小刺猬不好意思地说：\n“我怎么能要你的椅子呢？\n我可没干什么呀！”\n\nxiF\n\n   小獾拉着小刺猬的手，说：\n“在我有点儿泄 气的时候，\n是你称赞了我，让我有了自信。瞧，我已经会做椅子了。\n这是我的一点儿心意，收下吧。”\n   小刺猬连忙拿出两个大苹果，对小獾说：\n“留下吧，这\n也是我的一点儿心意！”\n   小獾接过苹果闻了闻，说：\n“你的苹果香极了，我从来\n没有见过这么好的苹果。”\n   小刺猬也高\n兴极了，说：\n“谢\n谢你，你的称赞\nchP\n\n消除 了我一天的\npI lWo\n\n疲劳！”\n110\n\n\f识 字 表\n\n课文\n1\n\ntWng nAo\n\ndSi\n\nhuU\n\nwa\n\njiQo\n\nbL\n\nyIng\n\nQ\n\nyI\n\nkuQn guU\n\ndJng\n\ndU\n\nxU\n\nbEn yWng huSi yQn\n\nmH chTng huJ\n\nbFi\n\nfEn\n\ncK\n\ndJ\n\npQ\n\nlI\n\ntSo mSo dEng xiR\n\nkM\n\ntP\n\nhP zhSng pRng zhJ zhEn\n\n塘 脑 袋 灰 哇 教 捕 迎 阿 姨 宽 龟 顶\npU\n\ngL\n\nshSi\n\njI\n\nbSng yuF\n\nwO\n\nzQi\n\ncQi\n\nzhI\n\nrP\n\nwRi\n\n披 鼓\n2\n\n晒 极 傍 越 滴 溪 奔 洋 坏 淹 没 冲 毁\n\n屋 灾 猜\n3\n\nlV\n\nzhS\n\nshI\n\ncO\n\n植 如 为 旅 备 纷 刺 底 啪 炸 离 识 粗\ndR\n\n得\n语文园地一",
+    "qualityScore": 0.4390056818181818,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "unknown"
+    }
+  },
+  {
+    "content": "bM chSng gAn wSng pWng hPn hHu shuI qK 刘民 反村 被关 道兵 危敢 惊阴 似野 苍茫 Sn 于论 岸屋 切久 散步 唱赶 旺旁 浑候 谁汽 22 23 24 shI wM yR jiM zhuA shRn huY zhO zhR zhQng zhM zQ zhuQ chAo dSn kO 食物 爷就 爪神 活猪 折张 祝扎 抓吵 但哭 chE de yQng miWo hSn jI chAng shQng lM 车得 秧苗 汗急 场伤 路 （共 250 个字） 117 词语 表课文 1 看见哪里那边头顶眼睛雪白肚皮 2 天空傍晚人们冬天花朵平常江河海洋田地工作孩子 3 办法如果长大四海为家娃娃只要皮毛那里知识识字 1 花园石桥队旗铜号红领巾欢笑 2 杨树树叶枫树松柏木棉水杉 3 写字丛林深处竹林熊猫朋友农事月光辛苦棉衣子 一边到底秤杆船身石头地方果然来不及事情化石金桂 4 四季课文 4 一同 5 评奖时间报纸 6 出国今天圆珠笔开心 118 以前力气出来坏事好事还有台灯这时阳光电影 7 明亮故事头发窗外 9 黄山南部那些山顶前方每当金光闪闪它们 10 群山树木名胜古迹中央展现风光 11 出产水果月份山坡枝叶好客老乡城市空气水分 12 坐井观天井沿回答一动不动巨石灯光中午美丽云海口渴展开大话五光十色井口无边无际 13 山脚当作前面晴朗枯草现在将来难过大雪纷飞 14 从前细长可爱每天正好清早枝头自言自语南瓜邻居奇怪 15 八角楼深夜军衣 16 扁担同志带领战士白天起来 17 难忘泼水节",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 11343,
+          "to": 11666
+        }
+      },
+      "chunkIndex": 82,
+      "chunkSize": 991,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7176258992805755,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "bM\n\nchSng gAn wSng pWng hPn\n\nhHu\n\nshuI\n\nqK\n\n刘 民 反 村 被 关 道 兵\n危 敢 惊 阴 似 野 苍 茫\nSn\n\n于 论 岸 屋 切 久 散 步\n唱 赶 旺 旁 浑 候 谁 汽\n\n\f22\n23\n24\n\nshI\n\nwM\n\nyR\n\njiM\n\nzhuA shRn huY\n\nzhO\n\nzhR zhQng zhM\n\nzQ\n\nzhuQ chAo dSn\n\nkO\n\n食 物 爷 就 爪 神 活 猪\n折 张 祝 扎 抓 吵 但 哭\nchE\n\nde yQng miWo hSn\n\njI chAng shQng lM\n\n车 得 秧 苗 汗 急 场 伤 路\n（共 250 个字）\n\n117\n\n\f词 语 表\n课文\n1 看见\n\n哪里\n\n那边\n\n头顶 眼睛\n\n雪白\n\n肚皮\n\n2 天空 傍晚\n\n人们\n\n冬天 花朵\n\n平常\n\n江河\n\n海洋 田地\n\n工作\n\n孩子\n\n3 办法\n\n如果\n\n长大\n\n四海为家 娃娃\n\n只要\n\n皮毛\n\n那里 知识\n识字\n1 花园\n\n石桥\n\n队旗\n\n铜号 红领巾\n\n欢笑\n\n2 杨树\n\n树叶\n\n枫树\n\n松柏 木棉\n\n水杉\n\n3 写字 丛林\n\n深处\n\n竹林 熊猫\n\n朋友\n\n农事\n\n月光\n\n辛苦 棉衣\n\n��子\n\n一边\n\n到底 秤杆\n\n船身 石头\n\n地方\n\n果然\n来不及 事情\n\n化石\n\n金桂\n4 四季\n课文\n4 一同\n5 评奖\n\n时间\n\n报纸\n\n6 出国\n\n今天\n\n圆珠笔 开心\n\n118\n\n以前\n\n力气\n\n出来\n\n坏事\n\n好事\n\n还有\n\n台灯\n\n\f这时\n\n阳光\n\n电影\n\n7 明亮\n\n故事\n\n头发\n\n窗外\n\n9 黄山\n\n南部\n\n那些\n\n山顶\n\n前方\n\n每当\n\n金光闪闪\n\n它们\n\n10 群山\n\n树木\n\n名胜古迹\n\n中央\n\n展现\n\n风光\n\n11 出产\n\n水果\n\n月份\n\n山坡\n\n枝叶\n\n好客\n\n老乡\n\n城市\n\n空气\n\n水分\n\n12 坐井观天\n\n井沿\n\n回答\n\n一动不动\n\n巨石\n\n灯光\n\n中午\n\n美丽\n\n云海\n\n口渴\n\n展开\n大话\n\n五光十色\n井口\n\n无边无际\n13 山脚 当作\n\n前面\n\n晴朗\n\n枯草\n\n现在\n\n将来\n\n难过\n\n大雪纷飞\n\n14 从前\n\n细长\n\n可爱\n\n每天\n\n正好\n\n清早\n\n枝头\n\n自言自语\n\n南瓜\n\n邻居\n\n奇怪\n15 八角楼 深夜\n\n军衣\n\n16 扁担\n\n同志\n\n带领\n\n战士\n\n白天\n\n起来\n\n17 难忘\n\n泼水节",
+    "qualityScore": 0.547016129032258,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": false,
+      "isTableContent": false,
+      "subjectArea": "mathematics"
+    }
+  },
+  {
+    "content": "回答一动不动巨石灯光中午美丽云海口渴展开大话五光十色井口无边无际 13 山脚当作前面晴朗枯草现在将来难过大雪纷飞 14 从前细长可爱每天正好清早枝头自言自语南瓜邻居奇怪 15 八角楼深夜军衣 16 扁担同志带领战士白天起来 17 难忘泼水节星星之火队伍一年一度胜利红军来回会师沉思四面八方欢呼人群欢乐开始柏树枝 18 年轻村子知道广场民兵龙船花炮多么 119 20 于是无论船只连同岸边一切不久出现散步 21 空地唱歌回家赶快旁边浑身时候谢谢水汽 22 食物身边为什么爪子房屋火星连忙面前同时神气活现野猪往常身后信以为真 23 纸船松果纸条可是但是屋顶和好 24 田野风车飞快秧苗不住点头急忙伤心路边生气 120 后记 《义务教育教科书语文》（一〜六年级）由教育部组织编写，北京大学中",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 11588,
+          "to": 11790
+        }
+      },
+      "chunkIndex": 83,
+      "chunkSize": 547,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.8924050632911392,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "回答\n\n一动不动\n\n巨石\n\n灯光\n\n中午\n\n美丽\n\n云海\n\n口渴\n\n展开\n大话\n\n五光十色\n井口\n\n无边无际\n13 山脚 当作\n\n前面\n\n晴朗\n\n枯草\n\n现在\n\n将来\n\n难过\n\n大雪纷飞\n\n14 从前\n\n细长\n\n可爱\n\n每天\n\n正好\n\n清早\n\n枝头\n\n自言自语\n\n南瓜\n\n邻居\n\n奇怪\n15 八角楼 深夜\n\n军衣\n\n16 扁担\n\n同志\n\n带领\n\n战士\n\n白天\n\n起来\n\n17 难忘\n\n泼水节\n\n星星之火\n队伍\n\n一年一度\n\n胜利\n\n红军\n\n来回\n\n会师\n\n沉思\n\n四面八方\n\n欢呼\n\n人群\n\n欢乐\n\n开始\n\n柏树枝\n\n18 年轻\n\n村子\n\n知道\n\n广场\n\n民兵\n\n龙船\n\n花炮\n\n多么\n\n119\n\n\f20 于是\n\n无论\n\n船只\n\n连同 岸边\n\n一切 不久\n\n出现\n\n散步\n\n21 空地 唱歌\n\n回家\n\n赶快 旁边\n\n浑身 时候\n\n谢谢\n\n水汽\n\n22 食物 身边\n\n为什么 爪子\n\n房屋\n\n火星\n\n连忙\n\n面前\n\n同时\n\n神气活现\n\n野猪 往常\n\n身后\n\n信以为真\n\n23 纸船 松果\n\n纸条\n\n可是 但是\n\n屋顶\n\n和好\n\n24 田野 风车\n\n飞快\n\n秧苗 不住\n\n点头\n\n急忙\n\n伤心 路边\n\n生气\n\n120\n\n\f后 记\n《义务教育教科书\n\n语文》（一〜六年级）由教育部组织编写，北京大学中",
+    "qualityScore": 0.6826898734177215,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "general"
+    }
+  },
+  {
+    "content": "赶快旁边浑身时候谢谢水汽 22 食物身边为什么爪子房屋火星连忙面前同时神气活现野猪往常身后信以为真 23 纸船松果纸条可是但是屋顶和好 24 田野风车飞快秧苗不住点头急忙伤心路边生气 120 后记 《义务教育教科书语文》（一〜六年级）由教育部组织编写，北京大学中文系温儒敏教授担任总主编。 王宁、张联荣、柳士镇、张健、翟京华、郑桂华、陈秀玲、武琼等审查专家对教科书的修改完善给予了悉心指导；金波、伍新春、李明新、沈大安、柳琏、施建平等多次审阅教科书内容，提出了修改建议；在教育部的组织下，广大一线优秀教师通读教科书，保证了教学的适切性；在试教试用过程中，浙江省、江西省、陕西省等地教研部门及部分学校给予了大力支持，为教科书质量的进一步提升提供了保障。 人民教育出版社承担了教科书的编辑出版工作，在组织编写、试教试用等方面给予了全方位的协助。人民教育出版社小学语文室全体同仁始终是教科书编写的中坚力量。查加伍、王晓鹏、龙淼、胡荣环为本书绘制插图，景绍宗为本书封面绘制插图。 对教科书的编写、出版提供过帮助的同仁和社会各界朋友还有很多，在此一并表示诚挚的谢意。期盼使用本套教科书的广大师生、家长提出宝贵意见， 我们将集思广益，不断修订，使教科书趋于完善。 联系方式电 话：010 58758689 电子邮箱：jcfk pep.com.cn 编者 2017年7月 YIWU JIAOYU JIAOKESHU YUWEN 语文义 务教 育教 科书 全国优秀教材特等奖义务教育教科书二年级上册语 文二年级上册二年级上册 产品定价：7.95 元小学封面语文2上.indd 1 2022 7 8 10:19",
+    "metadata": {
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/语文/统编版/义务教育教科书·语文二年级上册.pdf",
+      "extractedAt": "2025-07-18T13:51:27.006Z",
+      "method": "node-poppler",
+      "textLength": 61277,
+      "loc": {
+        "lines": {
+          "from": 11731,
+          "to": 11846
+        }
+      },
+      "chunkIndex": 84,
+      "chunkSize": 814,
+      "enhancementTimestamp": "2025-07-21T14:24:38.931Z",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.7963800904977375,
+        "lengthScore": 1,
+        "coherenceScore": 0.5,
+        "ocrConfidence": null
+      },
+      "enhancementVersion": "2.0"
+    },
+    "originalContent": "赶快 旁边\n\n浑身 时候\n\n谢谢\n\n水汽\n\n22 食物 身边\n\n为什么 爪子\n\n房屋\n\n火星\n\n连忙\n\n面前\n\n同时\n\n神气活现\n\n野猪 往常\n\n身后\n\n信以为真\n\n23 纸船 松果\n\n纸条\n\n可是 但是\n\n屋顶\n\n和好\n\n24 田野 风车\n\n飞快\n\n秧苗 不住\n\n点头\n\n急忙\n\n伤心 路边\n\n生气\n\n120\n\n\f后 记\n《义务教育教科书\n\n语文》（一〜六年级）由教育部组织编写，北京大学中\n\n文系温儒敏教授担任总主编。\n王宁、张联荣、柳士镇、张健、翟京华、郑桂华、陈秀玲、武琼等审查专\n家对教科书的修改完善给予了悉心指导；金波、伍新春、李明新、沈大安、柳\n琏、施建平等多次审阅教科书内容，提出了修改建议；在教育部的组织下，广\n大一线优秀教师通读教科书，保证了教学的适切性；在试教试用过程中，浙江\n省、江西省、陕西省等地教研部门及部分学校给予了大力支持，为教科书质量\n的进一步提升提供了保障。\n人民教育出版社承担了教科书的编辑出版工作，在组织编写、试教试用\n等方面给予了全方位的协助。人民教育出版社小学语文室全体同仁始终是教\n科书编写的中坚力量。查加伍、王晓鹏、龙淼、胡荣环为本书绘制插图，景\n绍宗为本书封面绘制插图。\n对教科书的编写、出版提供过帮助的同仁和社会各界朋友还有很多，在此\n一并表示诚挚的谢意。期盼使用本套教科书的广大师生、家长提出宝贵意见，\n我们将集思广益，不断修订，使教科书趋于完善。\n联系方式\n电   话：010-58758689\n电子邮箱：jcfk@pep.com.cn\n编\n\n者\n\n2017年7月\n\n\fYIWU JIAOYU JIAOKESHU\n\nYUWEN\n\n语文\n\n义 务 教 育 教 科 书\n\n®\n\n全国优秀教材特等奖\n\n义务教育教科书\n\n二年级 上册\n\n语\n文\n\n二年级\n上册\n\n二年级\n上册\n\n绿色印刷产品\n\n定价：7.95 元\n\n小学封面语文2上.indd 1\n\n2022/7/8 10:19",
+    "qualityScore": 0.6046706586826347,
+    "reliability": "medium",
+    "sourceType": "text-extracted",
+    "semanticFeatures": {
+      "hasFormulas": false,
+      "hasNumbers": true,
+      "hasExperiment": false,
+      "hasDefinition": false,
+      "hasQuestion": true,
+      "isTableContent": false,
+      "subjectArea": "physics"
+    }
+  }
+]

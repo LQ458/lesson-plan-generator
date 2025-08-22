@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·英语七年级上册_0479e796",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·英语七年级上册_0479e796.pdf",
+  "total_chunks": 332,
+  "total_pages": 170,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T03:56:30.178Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.204Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

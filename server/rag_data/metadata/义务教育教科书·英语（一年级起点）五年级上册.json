@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/英语/清华大学版/义务教育教科书·英语（一年级起点）五年级上册.pdf",
+  "extractedAt": "2025-07-18T13:49:17.627Z",
+  "method": "node-poppler",
+  "textLength": 45801,
+  "processingStats": {
+    "chunksCount": 62,
+    "embeddingsCount": 62,
+    "processedAt": "2025-07-18T13:49:26.792Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.208Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: lesson-plan-chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./rag/data/chroma:/chroma/chroma
+    environment:
+      - CHROMA_SERVER_CORS_ALLOW_ORIGINS=["http://localhost:3000","http://localhost:3001"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 可选：MongoDB（如果需要）
+  # mongodb:
+  #   image: mongo:6.0
+  #   container_name: lesson-plan-mongo
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb_data:/data/db
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: admin
+  #     MONGO_INITDB_ROOT_PASSWORD: password
+  #   restart: unless-stopped
+
+volumes:
+  chroma_data:
+    driver: local
+  # mongodb_data:
+  #   driver: local
+
+networks:
+  default:
+    name: lesson-plan-network

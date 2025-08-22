@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·地理图册七年级上册_701b1572",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·地理图册七年级上册_701b1572.pdf",
+  "total_chunks": 128,
+  "total_pages": 52,
+  "processing_method": "ocr",
+  "worker_id": "worker_8",
+  "processed_at": "2025-07-21T01:30:50.432Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.168Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

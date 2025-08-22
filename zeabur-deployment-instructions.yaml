@@ -1,0 +1,232 @@
+# Zeabur AI Deployment Configuration
+# Structured instructions for automated deployment
+
+project:
+  name: "ai-lesson-plan-generator"
+  description: "AI-powered lesson plan generator with RAG system"
+  repository: "https://github.com/LQ458/lesson-plan-generator"
+  branch: "web"
+  
+services:
+  - name: "mongodb"
+    type: "prebuilt"
+    image: "mongo:7.0"
+    port: 27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_PASSWORD}"  # Auto-generated
+      MONGO_INITDB_DATABASE: "teachai"
+    resources:
+      cpu: "0.5"
+      memory: "512Mi"
+      storage: "1Gi"
+    healthCheck:
+      enabled: true
+      port: 27017
+      initialDelay: 30
+      interval: 10
+
+  - name: "chromadb"
+    type: "docker"
+    image: "ghcr.io/chroma-core/chroma:latest"
+    port: 8000
+    environment:
+      IS_PERSISTENT: "TRUE"
+      ALLOW_RESET: "TRUE"
+      ANONYMIZED_TELEMETRY: "FALSE"
+      CHROMA_SERVER_HOST: "0.0.0.0"
+      CHROMA_SERVER_HTTP_PORT: "8000"
+    resources:
+      cpu: "0.5"
+      memory: "1Gi"
+      storage: "2Gi"
+    healthCheck:
+      enabled: true
+      path: "/api/v1/heartbeat"
+      port: 8000
+      initialDelay: 30
+      interval: 10
+
+  - name: "teachai-backend"
+    type: "git"
+    source:
+      repository: "https://github.com/LQ458/lesson-plan-generator"
+      branch: "web"
+      directory: "./server"
+    build:
+      command: "pnpm install --frozen-lockfile && node install-missing-deps.js && node check-deps.js"
+    start:
+      command: "node server.js"
+      port: 3001
+    dependencies:
+      - "mongodb"
+      - "chromadb"
+    environment:
+      NODE_ENV: "production"
+      PORT: "3001"
+      MONGODB_URI: "mongodb://admin:${MONGO_PASSWORD}@mongodb:27017/teachai?authSource=admin"
+      CHROMA_HOST: "chromadb"
+      CHROMA_PORT: "8000"
+      DASHSCOPE_API_KEY: "${DASHSCOPE_API_KEY}"  # User required
+      JWT_SECRET: "${JWT_SECRET}"  # User required
+      QWEN_MODEL: "qwen-plus"
+      AI_MAX_TOKENS: "2000"
+      AI_TEMPERATURE: "0.7"
+      ADMIN_KEY: "admin-key-2024"
+    resources:
+      cpu: "0.5-1.0"
+      memory: "512Mi-1Gi"
+    healthCheck:
+      enabled: true
+      path: "/api/health"
+      port: 3001
+      initialDelay: 60
+      interval: 30
+
+  - name: "teachai-frontend"
+    type: "git"
+    source:
+      repository: "https://github.com/LQ458/lesson-plan-generator"
+      branch: "web"
+      directory: "./web"
+    build:
+      command: "pnpm install --frozen-lockfile && pnpm build"
+    start:
+      command: "pnpm start"
+      port: 3000
+    dependencies:
+      - "teachai-backend"
+    environment:
+      NODE_ENV: "production"
+      PORT: "3000"
+      NEXT_PUBLIC_API_URL: "https://${BACKEND_URL}/api"
+      NEXT_TELEMETRY_DISABLED: "1"
+    resources:
+      cpu: "0.5"
+      memory: "512Mi"
+
+requiredVariables:
+  - name: "DASHSCOPE_API_KEY"
+    description: "Qwen API key from https://dashscope.aliyun.com/"
+    type: "secret"
+    required: true
+    format: "sk-xxxxxxxxxxxxxxxxxx"
+    
+  - name: "JWT_SECRET"
+    description: "Secure random string for JWT authentication"
+    type: "secret"  
+    required: true
+    minLength: 32
+    generateCommand: "openssl rand -base64 32"
+
+postDeployment:
+  - step: 1
+    name: "Wait for Services"
+    description: "Wait for all services to show 'Running' status"
+    duration: "2-3 minutes"
+    
+  - step: 2
+    name: "Load RAG Data"
+    description: "Execute RAG data loading"
+    endpoint: "POST ${BACKEND_URL}/api/admin/load-rag-data?adminKey=admin-key-2024"
+    duration: "5-10 minutes"
+    expectedOutput: "87,240 high-quality educational chunks loaded"
+    
+  - step: 3
+    name: "Verify System"
+    description: "Check all system components"
+    checks:
+      - endpoint: "${BACKEND_URL}/api/health"
+        expected: "status: healthy"
+      - endpoint: "${BACKEND_URL}/api/admin/rag-status?adminKey=admin-key-2024"
+        expected: "totalChunks: 87240+"
+      - endpoint: "${FRONTEND_URL}"
+        expected: "Frontend loads successfully"
+
+testing:
+  userRegistration:
+    endpoint: "POST ${BACKEND_URL}/api/auth/register"
+    testData:
+      email: "test@example.com"
+      password: "TestPassword123"
+      name: "Test User"
+    
+  aiGeneration:
+    endpoint: "POST ${BACKEND_URL}/api/lesson-plan"
+    headers:
+      Authorization: "Bearer ${JWT_TOKEN}"
+    testData:
+      subject: "数学"
+      grade: "五年级"
+      topic: "分数的基本概念"
+      requirements: "包含实际例子和练习题"
+    expectedTime: "3-5 seconds"
+    expectedResponse: "Structured lesson plan with RAG context"
+
+monitoring:
+  healthChecks:
+    - service: "mongodb"
+      endpoint: "mongodb://mongodb:27017"
+      interval: 30
+    - service: "chromadb"  
+      endpoint: "http://chromadb:8000/api/v1/heartbeat"
+      interval: 10
+    - service: "backend"
+      endpoint: "http://teachai-backend:3001/api/health"
+      interval: 30
+    - service: "frontend"
+      endpoint: "http://teachai-frontend:3000"
+      interval: 60
+
+performance:
+  expectations:
+    deploymentTime: "10-15 minutes"
+    apiResponseTime: "<200ms"
+    aiGenerationTime: "3-5 seconds"
+    frontendLoadTime: "<2 seconds"
+    ragSearchTime: "<1 second"
+    
+  resources:
+    total:
+      cpu: "1.5-3.0 cores"
+      memory: "2.5-4.5GB"
+      storage: "3-5GB"
+
+troubleshooting:
+  common:
+    - issue: "Service startup failures"
+      solutions:
+        - "Check environment variables"
+        - "Verify service dependencies"
+        - "Increase memory limits"
+        
+    - issue: "RAG data loading fails"
+      solutions:
+        - "Verify ChromaDB is healthy"
+        - "Check ADMIN_KEY environment variable"
+        - "Ensure sufficient memory for ChromaDB"
+        - "Retry with clear and reload sequence"
+        
+    - issue: "AI generation errors"
+      solutions:
+        - "Verify DASHSCOPE_API_KEY validity"
+        - "Check API quota and rate limits"
+        - "Confirm network connectivity"
+        - "Review backend logs"
+
+automation:
+  scripts:
+    setup: "./deploy-zeabur.sh"
+    healthCheck: "curl ${BACKEND_URL}/api/health"
+    loadRAG: "curl -X POST '${BACKEND_URL}/api/admin/load-rag-data?adminKey=admin-key-2024'"
+    testAI: "curl -X POST ${BACKEND_URL}/api/lesson-plan -H 'Authorization: Bearer ${JWT_TOKEN}' -d '{\"subject\":\"数学\",\"grade\":\"五年级\",\"topic\":\"测试\"}'"
+
+success:
+  criteria:
+    - "All 4 services show 'Running' status"
+    - "Health checks pass for all services"
+    - "RAG system loaded 85,000+ chunks"
+    - "User registration and login work"
+    - "AI generation responds in 3-5 seconds"
+    - "Frontend displays without errors"
+    - "All test scenarios pass"

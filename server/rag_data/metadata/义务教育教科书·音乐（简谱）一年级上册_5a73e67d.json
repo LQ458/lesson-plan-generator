@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐（简谱）一年级上册_5a73e67d",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐（简谱）一年级上册_5a73e67d.pdf",
+  "total_chunks": 25,
+  "total_pages": 67,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T08:56:19.637Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.224Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

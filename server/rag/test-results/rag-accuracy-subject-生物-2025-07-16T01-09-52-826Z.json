@@ -1,0 +1,1821 @@
+{
+  "testInfo": {
+    "timestamp": "2025-07-16T01:09:52.826Z",
+    "command": "subject",
+    "parameter": "生物",
+    "type": "subject"
+  },
+  "summary": {
+    "overview": {
+      "total": 42,
+      "successful": 0,
+      "failed": 42,
+      "successRate": "0.0%"
+    },
+    "categories": {
+      "学科匹配": {
+        "total": 2,
+        "success": 0
+      },
+      "深度测试": {
+        "total": 40,
+        "success": 0
+      }
+    },
+    "quality": {
+      "avgSubjectAccuracy": "0.0%",
+      "avgGradeAccuracy": "4.8%",
+      "avgRelevance": "NaN"
+    }
+  },
+  "detailedResults": [
+    {
+      "testCase": {
+        "category": "学科匹配",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "藻类植物",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级",
+          "六年级",
+          "八年级"
+        ],
+        "minRelevanceScore": 0.5,
+        "description": "测试生物学科特定内容匹配"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": true
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 781,
+      "timestamp": "2025-07-16T01:09:44.496Z"
+    },
+    {
+      "testCase": {
+        "category": "学科匹配",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "藻类植物",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级",
+          "六年级",
+          "八年级"
+        ],
+        "minRelevanceScore": 0.5,
+        "description": "测试生物学科特定内容匹配"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 781
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-动物分类"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 424,
+      "timestamp": "2025-07-16T01:09:44.920Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-动物分类"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 424
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-植物生长"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 392,
+      "timestamp": "2025-07-16T01:09:45.312Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-植物生长"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 392
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-人体结构"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 406,
+      "timestamp": "2025-07-16T01:09:45.718Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-人体结构"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 406
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-生态环境"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 398,
+      "timestamp": "2025-07-16T01:09:46.116Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "一年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "一年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-一年级-生态环境"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 399
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-动物分类"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 402,
+      "timestamp": "2025-07-16T01:09:46.519Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-动物分类"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 402
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-植物生长"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 397,
+      "timestamp": "2025-07-16T01:09:46.916Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-植物生长"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 397
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-人体结构"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 401,
+      "timestamp": "2025-07-16T01:09:47.317Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-人体结构"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 401
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-生态环境"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 404,
+      "timestamp": "2025-07-16T01:09:47.721Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "三年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "三年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-三年级-生态环境"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 404
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-动物分类"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 407,
+      "timestamp": "2025-07-16T01:09:48.128Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-动物分类"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 407
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-植物生长"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 408,
+      "timestamp": "2025-07-16T01:09:48.536Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-植物生长"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 408
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-人体结构"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 404,
+      "timestamp": "2025-07-16T01:09:48.940Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-人体结构"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 404
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-生态环境"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 404,
+      "timestamp": "2025-07-16T01:09:49.344Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "五年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "五年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-五年级-生态环境"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 405
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-动物分类"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 400,
+      "timestamp": "2025-07-16T01:09:49.745Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-动物分类"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 400
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-植物生长"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 401,
+      "timestamp": "2025-07-16T01:09:50.146Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-植物生长"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 401
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-人体结构"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 682,
+      "timestamp": "2025-07-16T01:09:50.828Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-人体结构"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 682
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-生态环境"
+      },
+      "contextResult": {
+        "context": "[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求\n\n[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢",
+        "sources": [
+          "六年级下册英语重大版电子课本.pdf",
+          "北师大版数学八年级上册电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 398,
+      "timestamp": "2025-07-16T01:09:51.226Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "七年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "七年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-七年级-生态环境"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 398
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-动物分类"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 402,
+      "timestamp": "2025-07-16T01:09:51.628Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "动物分类",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-动物分类"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 402
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-植物生长"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 403,
+      "timestamp": "2025-07-16T01:09:52.031Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "植物生长",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-植物生长"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 403
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-人体结构"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 395,
+      "timestamp": "2025-07-16T01:09:52.426Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "人体结构",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-人体结构"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 395
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-生态环境"
+      },
+      "contextResult": {
+        "context": "[来源: 北师大版数学八年级上册电子课本.pdf]\n！ 选择不同的材料，也许你会创造出新的艺术形式呢\n\n[来源: 六年级下册英语重大版电子课本.pdf]\n。 词汇表 （注：黑体单词要求学生能听、说、读、写； 其他单词只作听、说、认读要求",
+        "sources": [
+          "北师大版数学八年级上册电子课本.pdf",
+          "六年级下册英语重大版电子课本.pdf"
+        ],
+        "totalResults": 2,
+        "usedResults": 2,
+        "tokenCount": 65,
+        "averageRelevance": "0.557"
+      },
+      "analysis": {
+        "totalResults": 2,
+        "usedResults": 2,
+        "averageRelevance": "0.557",
+        "subjectMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "gradeMatch": {
+          "correct": 0,
+          "total": 2,
+          "accuracy": 0
+        },
+        "relevanceScore": {
+          "above_threshold": 1,
+          "total": 1,
+          "accuracy": 1
+        },
+        "topSources": [
+          {
+            "source": "北师大版数学八年级上册电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          },
+          {
+            "source": "六年级下册英语重大版电子课本.pdf",
+            "subjectMatch": false,
+            "gradeMatch": false
+          }
+        ],
+        "issues": [
+          "学科匹配度过低: 0.0%",
+          "年级匹配度过低: 0.0%"
+        ],
+        "success": false
+      },
+      "duration": 400,
+      "timestamp": "2025-07-16T01:09:52.826Z"
+    },
+    {
+      "testCase": {
+        "category": "深度测试",
+        "subject": "生物",
+        "grade": "九年级",
+        "topic": "生态环境",
+        "expectedSubjects": [
+          "生物"
+        ],
+        "expectedGrades": [
+          "九年级"
+        ],
+        "minRelevanceScore": 0.3,
+        "description": "生物-九年级-生态环境"
+      },
+      "error": "analysis.averageRelevance?.toFixed is not a function",
+      "success": false,
+      "duration": 400
+    }
+  ]
+}

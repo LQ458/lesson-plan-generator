@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·数学二年级下册_6cea9cae",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学二年级下册_6cea9cae.pdf",
+  "total_chunks": 66,
+  "total_pages": 127,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T05:26:13.136Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.179Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

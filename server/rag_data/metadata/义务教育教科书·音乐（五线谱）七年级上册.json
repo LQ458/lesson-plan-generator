@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/音乐/人教版（五线谱）-人民教育出版社/七年级/义务教育教科书·音乐（五线谱）七年级上册.pdf",
+  "extractedAt": "2025-07-19T20:59:00.636Z",
+  "method": "node-poppler",
+  "textLength": 13780,
+  "processingStats": {
+    "chunksCount": 19,
+    "embeddingsCount": 19,
+    "processedAt": "2025-07-19T20:59:05.409Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.222Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

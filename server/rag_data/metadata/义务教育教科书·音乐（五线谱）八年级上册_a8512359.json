@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐（五线谱）八年级上册_a8512359",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐（五线谱）八年级上册_a8512359.pdf",
+  "total_chunks": 71,
+  "total_pages": 68,
+  "processing_method": "ocr",
+  "worker_id": "worker_7",
+  "processed_at": "2025-07-21T04:23:16.492Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.224Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

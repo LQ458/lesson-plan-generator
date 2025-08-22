@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·数学四年级下册_deef3c7a",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·数学四年级下册_deef3c7a.pdf",
+  "total_chunks": 63,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_4",
+  "processed_at": "2025-07-21T05:13:51.289Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.181Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

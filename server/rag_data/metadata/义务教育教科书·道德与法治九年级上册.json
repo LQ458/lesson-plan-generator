@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/道德与法治/统编版-人民教育出版社/九年级/义务教育教科书·道德与法治九年级上册.pdf",
+  "extractedAt": "2025-07-20T03:47:09.300Z",
+  "method": "node-poppler",
+  "textLength": 65532,
+  "processingStats": {
+    "chunksCount": 87,
+    "embeddingsCount": 87,
+    "processedAt": "2025-07-20T03:48:25.745Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.217Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

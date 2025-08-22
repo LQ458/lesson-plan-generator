@@ -1,0 +1,21 @@
+[
+  {
+    "content": "主编 郑守仪执行主编韩绪金本册主编付国华褚宏民作 者 （以姓名笔画为序） 马玉道孔令强田 明刘德义关春霞李健梅",
+    "metadata": {
+      "filename": "义务教育教科书·科学二年级上册_1ac34eb2",
+      "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学二年级上册_1ac34eb2.pdf",
+      "chunk_index": 0,
+      "total_chunks": 1,
+      "processing_method": "text_extraction",
+      "worker_id": "worker_7",
+      "qualityMetrics": {
+        "chineseCharRatio": 0.96,
+        "lengthScore": 0.055,
+        "coherenceScore": 0.6,
+        "ocrConfidence": 1
+      },
+      "enhancementTimestamp": "2025-07-21T14:23:49.827Z",
+      "enhancementVersion": "2.0"
+    }
+  }
+]

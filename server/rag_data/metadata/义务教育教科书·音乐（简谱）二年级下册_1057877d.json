@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐（简谱）二年级下册_1057877d",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐（简谱）二年级下册_1057877d.pdf",
+  "total_chunks": 6,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T09:31:27.299Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.226Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/小学/体育与健康/科学社版/义务教育教科书·体育与健康教师用书三年级全一册.pdf",
+  "extractedAt": "2025-07-18T13:34:29.743Z",
+  "method": "node-poppler",
+  "textLength": 141212,
+  "processingStats": {
+    "chunksCount": 187,
+    "embeddingsCount": 187,
+    "processedAt": "2025-07-18T13:35:29.982Z"
+  },
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

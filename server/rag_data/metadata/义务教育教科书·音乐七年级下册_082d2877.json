@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·音乐七年级下册_082d2877",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·音乐七年级下册_082d2877.pdf",
+  "total_chunks": 53,
+  "total_pages": 68,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T04:26:19.580Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.217Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

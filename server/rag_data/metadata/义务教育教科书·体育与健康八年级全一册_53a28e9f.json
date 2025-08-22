@@ -1,0 +1,18 @@
+{
+  "filename": "义务教育教科书·体育与健康八年级全一册_53a28e9f",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/training_data/初中/体育与健康/华东师大版-华东师范大学出版社/八年级/义务教育教科书·体育与健康八年级全一册.pdf",
+  "total_chunks": 95,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "processed_at": "2025-07-21T00:10:36.533Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

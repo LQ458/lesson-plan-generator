@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育三至六年级·书法练习指导（实验）六年级下册_cbd2e8a7",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育三至六年级·书法练习指导（实验）六年级下册_cbd2e8a7.pdf",
+  "total_chunks": 19,
+  "total_pages": 82,
+  "processing_method": "ocr",
+  "worker_id": "worker_1",
+  "processed_at": "2025-07-21T08:33:47.704Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.161Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

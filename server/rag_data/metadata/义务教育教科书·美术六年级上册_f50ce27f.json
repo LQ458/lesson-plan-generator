@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·美术六年级上册_f50ce27f",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·美术六年级上册_f50ce27f.pdf",
+  "total_chunks": 47,
+  "total_pages": 51,
+  "processing_method": "ocr",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T06:27:17.686Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.202Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

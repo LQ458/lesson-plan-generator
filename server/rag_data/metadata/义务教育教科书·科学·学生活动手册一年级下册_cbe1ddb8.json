@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·科学·学生活动手册一年级下册_cbe1ddb8",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·科学·学生活动手册一年级下册_cbe1ddb8.pdf",
+  "total_chunks": 14,
+  "total_pages": 0,
+  "processing_method": "text_extraction",
+  "worker_id": "worker_0",
+  "processed_at": "2025-07-21T05:33:01.568Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.185Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "filename": "义务教育教科书·体育与健康教师用书六年级全一册_2f25cbf1",
+  "source": "/Users/LeoQin/Documents/GitHub/PDFconvertor/flattened_pdfs/义务教育教科书·体育与健康教师用书六年级全一册_2f25cbf1.pdf",
+  "total_chunks": 273,
+  "total_pages": 276,
+  "processing_method": "ocr",
+  "worker_id": "worker_11",
+  "processed_at": "2025-07-21T04:45:44.472Z",
+  "enhancementInfo": {
+    "version": "2.0",
+    "timestamp": "2025-07-21T14:25:18.164Z",
+    "enhancements": [
+      "content_cleaning",
+      "ocr_error_correction",
+      "duplicate_removal",
+      "quality_scoring"
+    ]
+  }
+}
