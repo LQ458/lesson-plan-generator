@@ -4,7 +4,8 @@
  */
 
 export const getApiUrl = (endpoint: string = ''): string => {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
+  // For content API calls, use backend directly during development
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
   return endpoint ? `${baseUrl}${endpoint}` : baseUrl;
 };
 
