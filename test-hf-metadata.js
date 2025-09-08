@@ -13,7 +13,7 @@ async function testHFMetadata() {
         // Connect to HuggingFace Space
         console.log("📡 Connecting to HuggingFace Space...");
         const client = await Client.connect("https://lq458-teachai.hf.space/", {
-            hf_token: "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"
+            hf_token: "process.env.RAG_SERVICE_TOKEN || "your_huggingface_token_here""
         });
         
         console.log("✅ Connected successfully");

@@ -6,7 +6,7 @@
 
 // Set environment variables for testing
 process.env.RAG_SERVICE_URL = 'https://lq458-teachai.hf.space';
-process.env.RAG_SERVICE_TOKEN = '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';
+process.env.RAG_SERVICE_TOKEN = 'process.env.RAG_SERVICE_TOKEN || "your_huggingface_token_here"';
 process.env.DASHSCOPE_API_KEY = 'test-key'; // Dummy key for testing
 
 async function testAIServiceRAG() {

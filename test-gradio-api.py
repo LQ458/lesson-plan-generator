@@ -16,7 +16,7 @@ def test_gradio_rag_api():
     try:
         # Connect to the HF Space
         print("🔌 Connecting to HF Space...")
-        client = Client("https://lq458-teachai.hf.space", hf_token="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")
+        client = Client("https://lq458-teachai.hf.space", hf_token="os.getenv("RAG_SERVICE_TOKEN", "your_token_here")")
         print("✅ Connected successfully!")
         
         # Test cases

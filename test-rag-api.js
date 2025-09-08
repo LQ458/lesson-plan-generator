@@ -9,7 +9,7 @@
 
 // Configuration from your .env
 const RAG_SERVICE_URL = 'https://lq458-teachai.hf.space';
-const RAG_SERVICE_TOKEN = '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';
+const RAG_SERVICE_TOKEN = 'process.env.RAG_SERVICE_TOKEN || "your_huggingface_token_here"';
 
 async function testRAGService() {
     console.log('🧪 Testing RAG Service with Frontend Parameters');

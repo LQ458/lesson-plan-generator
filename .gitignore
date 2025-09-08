@@ -418,3 +418,7 @@ Desktop.ini
 data/
 **/data/
 dump.rdb
+# Security: Environment files with secrets
+.env.backup
+server/.env.backup
+web/.env.backup

@@ -19,7 +19,7 @@ async function testAvailableContent() {
     try {
         const { Client } = require('@gradio/client');
         const client = await Client.connect('https://lq458-teachai.hf.space', { 
-            hf_token: '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' 
+            hf_token: 'process.env.RAG_SERVICE_TOKEN || "your_huggingface_token_here"' 
         });
         console.log('✅ Connected to HF Space\n');
 
