@@ -23,9 +23,17 @@ const {
   UserFriendlyError,
 } = require("./utils/error-handler");
 const authRegisterRouter = require("./routes/auth-register");
-const VectorStore = require("./rag/services/vector-store");
-const vectorStore = new VectorStore();
 require("dotenv").config();
+
+// Conditionally initialize vector store only for local RAG
+let vectorStore = null;
+if (!process.env.RAG_SERVICE_URL) {
+  const VectorStore = require("./rag/services/vector-store");
+  vectorStore = new VectorStore();
+  console.log("🔍 Initialized local ChromaDB vector store");
+} else {
+  console.log("🌐 Using external RAG service, skipping local vector store initialization");
+}
 
 // 配置服务器日志系统
 const serverLogger = winston.createLogger({
@@ -467,6 +475,14 @@ app.post(
 app.post(
   "/api/rag/load-documents",
   asyncHandler(async (req, res) => {
+    if (!vectorStore) {
+      return res.status(400).json({
+        success: false,
+        error: "使用外部RAG服务，无需本地加载文档",
+        message: "当前配置使用外部RAG服务",
+      });
+    }
+    
     try {
       const result = await vectorStore.loadDocuments();
       res.json({
@@ -488,6 +504,14 @@ app.post(
 app.post(
   "/api/rag/search",
   asyncHandler(async (req, res) => {
+    if (!vectorStore) {
+      return res.status(400).json({
+        success: false,
+        error: "使用外部RAG服务，请通过AI接口访问",
+        message: "当前配置使用外部RAG服务",
+      });
+    }
+
     const { query, subject, grade, limit = 5, minQualityScore = 0 } = req.body;
 
     if (!query) {
@@ -529,11 +553,23 @@ app.post(
 app.get(
   "/api/rag/stats",
   asyncHandler(async (req, res) => {
+    if (!vectorStore) {
+      return res.json({
+        success: true,
+        data: {
+          ragType: "external",
+          service: process.env.RAG_SERVICE_URL,
+          status: "使用外部HuggingFace RAG服务",
+        },
+        message: "使用外部RAG服务",
+      });
+    }
+
     try {
       const stats = await vectorStore.getCollectionStats();
       res.json({
         success: true,
-        data: stats,
+        data: { ...stats, ragType: "local" },
         message: "统计信息获取成功",
       });
     } catch (error) {
@@ -550,11 +586,24 @@ app.get(
 app.get(
   "/api/rag/health",
   asyncHandler(async (req, res) => {
+    if (!vectorStore) {
+      return res.json({
+        success: true,
+        data: {
+          status: "healthy",
+          ragType: "external",
+          service: process.env.RAG_SERVICE_URL,
+          timestamp: new Date().toISOString(),
+        },
+        message: "外部RAG服务健康",
+      });
+    }
+
     try {
       const health = await vectorStore.healthCheck();
       res.json({
         success: true,
-        data: health,
+        data: { ...health, ragType: "local" },
         message: "健康检查成功",
       });
     } catch (error) {

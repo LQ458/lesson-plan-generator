@@ -22,14 +22,13 @@ pnpm run install:all
 # Development mode (frontend + backend)
 pnpm dev
 
-# Full development mode (with ChromaDB)
-pnpm run dev:full
-
 # Build entire project
 pnpm build
 
 # Production start
 pnpm start
+
+# Note: ChromaDB runs externally via HuggingFace - no local setup needed
 ```
 
 ### Testing
@@ -67,42 +66,25 @@ pnpm format
 
 ### RAG System Management
 
-#### Local Development (ChromaDB)
+#### External RAG Service (HuggingFace)
+
+The RAG system now runs externally via HuggingFace Spaces, eliminating the need for local ChromaDB setup:
 
 ```bash
-# Start ChromaDB service
-pnpm run chroma:start
+# ⚠️  Local ChromaDB commands are disabled - RAG runs externally
+# All rag:* and chroma:* commands will show informational messages
 
-# Stop ChromaDB service
-pnpm run chroma:stop
-
-# Load enhanced educational materials (optimized with breakpoint resume)
-pnpm run rag:load
-
-# Monitor loading progress (live updates)
-pnpm run rag:progress:watch
-
-# Check current loading progress
-pnpm run rag:progress
-
-# Verify loaded data integrity and performance
-pnpm run rag:verify
-
-# Check RAG system status and data quality metrics
-pnpm run rag:status
-
-# Run comprehensive RAG system tests
-pnpm run rag:test
-
-# Test RAG accuracy with quality scoring
-pnpm run rag:test-accuracy
-
-# One-time RAG setup with enhanced data
-pnpm run setup:rag
-
-# Legacy loader (for compatibility)
-pnpm run rag:load:legacy
+# The following commands now display helpful messages:
+pnpm run chroma:start     # Info: ChromaDB not needed locally
+pnpm run rag:load         # Info: RAG loading not needed locally  
+pnpm run rag:status       # Info: RAG status not needed locally
+pnpm run setup:rag        # Info: RAG setup not needed locally
 ```
+
+**External RAG Configuration:**
+- **Service URL**: `https://lq458-teachai.hf.space`
+- **Token**: Set in `server/.env` as `RAG_SERVICE_TOKEN`
+- **No local setup required** - just ensure environment variables are configured
 
 #### ChromaDB Cloud Production
 
@@ -177,10 +159,12 @@ u.initialize().then(() => u.listCloudCollections()).then(console.log);
 
 1. Run `pnpm run install:all` to install dependencies
 2. Copy `server/.env.example` to `server/.env` and configure API keys
-3. Start ChromaDB: `pnpm run chroma:start`
-4. Load enhanced educational data: `pnpm run rag:load` (loads 95,360+ quality-scored chunks)
-5. Verify RAG system: `pnpm run rag:status`
-6. Start development: `pnpm run dev:full`
+   - Set `DASHSCOPE_API_KEY` for AI service
+   - Set `RAG_SERVICE_TOKEN` for HuggingFace RAG service
+   - Set `JWT_SECRET` for authentication
+3. Start development: `pnpm dev`
+
+**Note**: ChromaDB and RAG data loading are no longer needed locally - the system uses external HuggingFace RAG service.
 
 ### Running Tests
 

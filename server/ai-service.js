@@ -1,3 +1,4 @@
+require("dotenv").config();
 const winston = require("winston");
 const OpenAI = require("openai");
 const VectorStore = require("./rag/services/vector-store");
