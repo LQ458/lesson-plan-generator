@@ -1,0 +1,24 @@
+# Hugging Face Spaces configuration
+title: TeachAI RAG Service
+emoji: 🎓
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: 3.44.4
+app_file: app.py
+pinned: false
+license: mit
+duplicated_from: null
+models:
+  - sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+datasets:
+  - null
+tags:
+  - education
+  - rag
+  - chinese
+  - search
+  - vector-database
+  - teaching
+  - lesson-planning
+short_description: Intelligent search across 95,000+ Chinese educational materials

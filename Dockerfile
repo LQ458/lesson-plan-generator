@@ -1,73 +1,130 @@
-# Multi-stage build optimized for RAG loading
+# Multi-stage Dockerfile for TeachAI RAG System
+# Optimized for resource-constrained deployments (4-core CPU, 8GB RAM)
+
+# Stage 1: Build dependencies and prepare environment
 FROM node:18-alpine AS base
-RUN npm install -g pnpm
+LABEL maintainer="TeachAI Team"
+LABEL description="AI-powered lesson plan generator with simplified RAG"
+
+# Install system dependencies for simplified RAG with timeout and retry
+RUN apk update && apk add --no-cache --timeout=300 \
+    sqlite \
+    sqlite-dev \
+    python3 \
+    py3-pip \
+    make \
+    g++ \
+    git \
+    curl \
+    ca-certificates \
+    && rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
+
+# Install pnpm
+RUN npm install -g pnpm@8
+
+# Set working directory
 WORKDIR /app
 
-# Install dependencies
+# Stage 2: Install dependencies
 FROM base AS deps
 COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY web/package.json ./web/package.json
 COPY server/package.json ./server/package.json
 
-# Install all dependencies with proper native support
-RUN pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
+# Install dependencies with optimizations for simplified RAG
+RUN (pnpm install --frozen-lockfile --prod || pnpm install --force --prod) \
+    && pnpm store prune
 
-# Build frontend
+# Stage 3: Build frontend
 FROM base AS web-builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/web/node_modules ./web/node_modules
 COPY web ./web
 COPY package.json pnpm-workspace.yaml ./
-WORKDIR /app/web
-RUN pnpm build
 
-# Prepare server
+WORKDIR /app/web
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN pnpm build \
+    && rm -rf node_modules/.cache \
+    && rm -rf .next/cache
+
+# Stage 4: Prepare server with simplified RAG
 FROM base AS server-builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/server/node_modules ./server/node_modules
 COPY server ./server
 COPY package.json pnpm-workspace.yaml ./
 
-# Production runtime
-FROM base AS runner
-ENV NODE_ENV=production
-ENV PORT=3001
-ENV WEB_PORT=3002
+# Copy simplified RAG system
+COPY server/simple-rag/ ./server/simple-rag/
 
-# Create non-root user  
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+# Stage 5: Production runtime
+FROM node:18-alpine AS runner
+LABEL version="2.0-simplified-rag"
 
-# Copy built application
-COPY --from=web-builder --chown=nextjs:nodejs /app/web/.next ./web/.next
-COPY --from=web-builder --chown=nextjs:nodejs /app/web/public ./web/public
-COPY --from=web-builder --chown=nextjs:nodejs /app/web/package.json ./web/package.json
-COPY --from=web-builder --chown=nextjs:nodejs /app/web/next.config.js ./web/next.config.js
+# Install runtime dependencies
+RUN apk add --no-cache \
+    sqlite \
+    curl \
+    && rm -rf /var/cache/apk/*
 
-COPY --from=server-builder --chown=nextjs:nodejs /app/server ./server
+# Create non-root user
+RUN addgroup -g 1001 -S teachai \
+    && adduser -S teachai -u 1001
+
+WORKDIR /app
+
+# Copy built applications
+COPY --from=web-builder --chown=teachai:teachai /app/web/.next ./web/.next
+COPY --from=web-builder --chown=teachai:teachai /app/web/public ./web/public
+COPY --from=web-builder --chown=teachai:teachai /app/web/package.json ./web/package.json
+COPY --from=web-builder /app/web/next.config.js ./web/next.config.js
+
+COPY --from=server-builder --chown=teachai:teachai /app/server ./server
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/web/node_modules ./web/node_modules
 COPY --from=deps /app/server/node_modules ./server/node_modules
 
-COPY --chown=nextjs:nodejs package.json pnpm-workspace.yaml ./
+COPY --chown=teachai:teachai package.json pnpm-workspace.yaml ./
 
-# Create directories
-RUN mkdir -p ./server/logs ./chroma_db ./server/rag/data
-RUN chown -R nextjs:nodejs ./server/logs ./chroma_db ./server/rag/data
+# Copy Docker support files
+COPY --chown=teachai:teachai docker/ ./docker/
+RUN chmod +x ./docker/*.sh
 
-# Copy entrypoint
-COPY --chown=nextjs:nodejs docker-entrypoint.sh /app/docker-entrypoint.sh
-RUN chmod +x /app/docker-entrypoint.sh
+# Create necessary directories for simplified RAG
+RUN mkdir -p \
+    ./data \
+    ./logs \
+    ./models \
+    ./backups \
+    ./server/simple-rag/data \
+    && chown -R teachai:teachai ./data ./logs ./models ./backups ./server
 
-# Expose correct ports
-EXPOSE 3001 3002
+# Set environment variables for resource-constrained deployment
+ENV NODE_ENV=production
+ENV PORT=3001
+ENV WEB_PORT=3000
+ENV RAG_DB_TYPE=sqlite-vss
+ENV RAG_SQLITE_PATH=/app/data/vectors.db
+ENV RAG_DATA_DIR=/app/server/rag_data/chunks
+ENV RAG_BACKUP_DIR=/app/backups
+ENV EMBEDDING_PROFILE=balanced
+
+# Resource optimization
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV UV_THREADPOOL_SIZE=4
+
+# Expose ports
+EXPOSE 3000 3001
 
 # Switch to non-root user
-USER nextjs
+USER teachai
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3001/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+# Health check for both services
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD ./docker/healthcheck.sh
 
-# Start application
-CMD ["/app/docker-entrypoint.sh"]
+# Start with simplified entrypoint
+ENTRYPOINT ["./docker/entrypoint.sh"]
+CMD ["start"]

@@ -1,0 +1,29 @@
+# TeachAI RAG Service Dependencies
+# Optimized for Hugging Face Spaces deployment
+
+# Core ML and Vector Search
+sentence-transformers==2.2.2
+chromadb==0.4.15
+numpy==1.24.3
+torch==2.0.1+cpu
+
+# Web Framework and API
+gradio==3.44.4
+flask==2.3.3
+requests==2.31.0
+
+# Data Processing
+pandas==2.0.3
+scikit-learn==1.3.0
+
+# Utilities
+pathlib2==2.3.7
+tqdm==4.65.0
+python-dotenv==1.0.0
+
+# Optional: For better Chinese text processing
+jieba==0.42.1
+
+# Performance
+uvloop==0.17.0; sys_platform != "win32"
+gunicorn==21.2.0

@@ -1,40 +1,96 @@
-node_modules
-npm-debug.log
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 .npm
-.nyc_output
-.coverage
+.yarn-integrity
+.pnpm-debug.log*
+
+# Build outputs
 .next
-.cache
+.nuxt
 dist
 build
+out
+*.tsbuildinfo
+web/.next
+
+# Environment files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.git
-.gitignore
-README.md
-Dockerfile
-.dockerignore
-coverage
-*.md
-*.log
+.env.*
+!.env.docker.example
+
+# OS and Editor files
 .DS_Store
-.vscode
-.idea
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
 
-# AI service backups
-server/ai-service.backup.js
-server/migration-report.json
+# Version control
+.git/
+.gitignore
 
-# RAG data included in container for one-command deployment
-# Comment out the line below if you want to exclude RAG data (for smaller images)
-server/rag_data/
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# LARGE FILES AND DIRECTORIES - CRITICAL EXCLUDES
+chroma_db
+docker-data
+backups
+venv
+*.pdf
+*.docx
+*.pptx
+*.zip
+*.tar.gz
+
+# RAG data - INCLUDE chunks for self-hosted deployment, exclude others
+server/rag/exported_csv/
+server/rag/dify-upload/
 server/rag/data/loading-progress.json
+server/logs/
+# Keep server/rag_data/chunks/ - needed for self-hosted RAG
+
+# Large document files
+田野调查计划书*
+Field_Research_Plan_*
+AI生成教案在贵州毕节*
+*.html
+
+# Test and development files
+test/
+tests/
+e2e/
+**/__tests__/
+**/*.test.*
+**/*.spec.*
+jest.config.js
+cypress/
+.github/
+
+# Documentation (will be built inside container)
+*.md
+!CLAUDE.md
 
 # Test and development files
 e2e/

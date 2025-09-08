@@ -2,7 +2,25 @@ const winston = require("winston");
 const OpenAI = require("openai");
 const VectorStore = require("./rag/services/vector-store");
 const PerformanceOptimizer = require("./performance-optimization");
-const vectorStore = new VectorStore();
+const fetch = require('node-fetch');
+const { Client } = require("@gradio/client");
+
+// Initialize vector store or RAG API client
+let vectorStore;
+let ragApiUrl;
+let ragApiToken;
+
+if (process.env.RAG_SERVICE_URL) {
+  ragApiUrl = process.env.RAG_SERVICE_URL;
+  ragApiToken = process.env.RAG_SERVICE_TOKEN;
+  console.log(`🌐 Using external RAG service: ${ragApiUrl}`);
+  if (ragApiToken) {
+    console.log(`🔐 RAG service authentication configured`);
+  }
+} else {
+  vectorStore = new VectorStore();
+  console.log("🔍 Using local ChromaDB vector store");
+}
 
 // 配置增强日志系统，支持AI响应标识
 const logger = winston.createLogger({
@@ -280,20 +298,61 @@ class AIService {
         service: "ai-service",
       });
 
-      const contextData = await vectorStore.getRelevantContext(
-        ragQuery,
-        subject,
-        grade,
-        1500, // 限制上下文长度
-      );
+      let contextData;
 
-      // 确保contextData不为undefined
-      if (contextData && contextData.context) {
-        relevantContext = contextData.context;
-        contextSources = contextData.sources || [];
+      if (ragApiUrl) {
+        // Use external RAG API service with Gradio client
+        logger.info("🌐 [RAG] 连接到外部RAG服务", {
+          requestId,
+          service: ragApiUrl,
+          hasToken: !!ragApiToken
+        });
+
+        const client = await Client.connect(ragApiUrl, {
+          hf_token: ragApiToken
+        });
+
+        const ragResults = await client.predict("/search", {
+          query: ragQuery,
+          subject: subject,
+          grade: grade,
+          limit: 5
+        });
+
+        logger.info("📊 [RAG] 外部服务搜索完成", {
+          requestId,
+          resultsType: typeof ragResults,
+          hasResults: !!(ragResults && ragResults.results)
+        });
+        
+        // Convert API response to expected format
+        if (ragResults && ragResults.results && ragResults.results.length > 0) {
+          relevantContext = ragResults.results.map(r => r.content).slice(0, 1500).join('\n\n');
+          contextSources = ragResults.results.map(r => r.book_name || r.source || 'Unknown source');
+          contextData = {
+            context: relevantContext,
+            sources: contextSources,
+            totalResults: ragResults.total || ragResults.results.length,
+            usedResults: ragResults.results.length
+          };
+        }
       } else {
-        relevantContext = "";
-        contextSources = [];
+        // Use local vector store
+        contextData = await vectorStore.getRelevantContext(
+          ragQuery,
+          subject,
+          grade,
+          1500, // 限制上下文长度
+        );
+
+        // 确保contextData不为undefined
+        if (contextData && contextData.context) {
+          relevantContext = contextData.context;
+          contextSources = contextData.sources || [];
+        } else {
+          relevantContext = "";
+          contextSources = [];
+        }
       }
 
       if (contextSources.length > 0) {
@@ -301,9 +360,10 @@ class AIService {
           requestId,
           sourcesCount: contextSources.length,
           contextLength: relevantContext.length,
-          totalResults: contextData.totalResults || 0,
-          usedResults: contextData.usedResults || 0,
+          totalResults: contextData?.totalResults || 0,
+          usedResults: contextData?.usedResults || 0,
           sources: contextSources,
+          ragType: ragApiUrl ? 'external-api' : 'local-vector-store',
           service: "ai-service",
         });
       } else {
@@ -313,6 +373,7 @@ class AIService {
           subject,
           grade,
           totalResults: contextData?.totalResults || 0,
+          ragType: ragApiUrl ? 'external-api' : 'local-vector-store',
           service: "ai-service",
         });
       }
@@ -321,6 +382,7 @@ class AIService {
         requestId,
         error: error.message,
         stack: error.stack,
+        ragType: ragApiUrl ? 'external-api' : 'local-vector-store',
         service: "ai-service",
       });
     }
@@ -523,20 +585,61 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
         service: "ai-service",
       });
 
-      const contextData = await vectorStore.getRelevantContext(
-        ragQuery,
-        subject,
-        grade,
-        1200, // 限制上下文长度，练习题相对简短
-      );
+      let contextData;
 
-      // 确保contextData不为undefined
-      if (contextData && contextData.context) {
-        relevantContext = contextData.context;
-        contextSources = contextData.sources || [];
+      if (ragApiUrl) {
+        // Use external RAG API service with Gradio client
+        logger.info("🌐 [RAG] 连接到外部RAG服务(练习题)", {
+          requestId,
+          service: ragApiUrl,
+          hasToken: !!ragApiToken
+        });
+
+        const client = await Client.connect(ragApiUrl, {
+          hf_token: ragApiToken
+        });
+
+        const ragResults = await client.predict("/search", {
+          query: ragQuery,
+          subject: subject,
+          grade: grade,
+          limit: 5
+        });
+
+        logger.info("📊 [RAG] 外部服务练习题搜索完成", {
+          requestId,
+          resultsType: typeof ragResults,
+          hasResults: !!(ragResults && ragResults.results)
+        });
+        
+        // Convert API response to expected format
+        if (ragResults && ragResults.results && ragResults.results.length > 0) {
+          relevantContext = ragResults.results.map(r => r.content).slice(0, 1200).join('\n\n');
+          contextSources = ragResults.results.map(r => r.book_name || r.source || 'Unknown source');
+          contextData = {
+            context: relevantContext,
+            sources: contextSources,
+            totalResults: ragResults.total || ragResults.results.length,
+            usedResults: ragResults.results.length
+          };
+        }
       } else {
-        relevantContext = "";
-        contextSources = [];
+        // Use local vector store
+        contextData = await vectorStore.getRelevantContext(
+          ragQuery,
+          subject,
+          grade,
+          1200, // 限制上下文长度，练习题相对简短
+        );
+
+        // 确保contextData不为undefined
+        if (contextData && contextData.context) {
+          relevantContext = contextData.context;
+          contextSources = contextData.sources || [];
+        } else {
+          relevantContext = "";
+          contextSources = [];
+        }
       }
 
       if (contextSources.length > 0) {
@@ -544,9 +647,10 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
           requestId,
           sourcesCount: contextSources.length,
           contextLength: relevantContext.length,
-          totalResults: contextData.totalResults || 0,
-          usedResults: contextData.usedResults || 0,
+          totalResults: contextData?.totalResults || 0,
+          usedResults: contextData?.usedResults || 0,
           sources: contextSources,
+          ragType: ragApiUrl ? 'external-api' : 'local-vector-store',
           service: "ai-service",
         });
       } else {
@@ -556,6 +660,7 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
           subject,
           grade,
           totalResults: contextData?.totalResults || 0,
+          ragType: ragApiUrl ? 'external-api' : 'local-vector-store',
           service: "ai-service",
         });
       }
@@ -564,6 +669,7 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
         requestId,
         error: error.message,
         stack: error.stack,
+        ragType: ragApiUrl ? 'external-api' : 'local-vector-store',
         service: "ai-service",
       });
     }

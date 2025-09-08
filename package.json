@@ -83,6 +83,7 @@
     "url": "https://github.com/your-username/teachai.git"
   },
   "dependencies": {
+    "@gradio/client": "^1.17.1",
     "next": "^15.3.5"
   }
 }

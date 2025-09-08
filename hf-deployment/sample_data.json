@@ -1,0 +1,57 @@
+[
+  {
+    "content": "加法是数学中最基本的运算。例如：2+3=5，表示把2个物体和3个物体放在一起，总共有5个物体。",
+    "metadata": {
+      "subject": "数学",
+      "grade": "一年级",
+      "chapter": "基础加法",
+      "book_name": "小学数学一年级上册",
+      "qualityScore": 0.9,
+      "semanticFeatures": ["基础概念", "运算"]
+    }
+  },
+  {
+    "content": "减法是加法的逆运算。例如：5-3=2，表示从5个物体中拿走3个物体，还剩下2个物体。",
+    "metadata": {
+      "subject": "数学", 
+      "grade": "一年级",
+      "chapter": "基础减法",
+      "book_name": "小学数学一年级上册",
+      "qualityScore": 0.9,
+      "semanticFeatures": ["基础概念", "运算"]
+    }
+  },
+  {
+    "content": "汉字是中华文化的重要组成部分。学习汉字要从基本笔画开始，如：横、竖、撇、捺。",
+    "metadata": {
+      "subject": "语文",
+      "grade": "一年级", 
+      "chapter": "汉字基础",
+      "book_name": "小学语文一年级上册",
+      "qualityScore": 0.85,
+      "semanticFeatures": ["汉字", "笔画"]
+    }
+  },
+  {
+    "content": "动物有很多种类，比如哺乳动物、鸟类、鱼类等。每种动物都有自己的特点和生活环境。",
+    "metadata": {
+      "subject": "科学",
+      "grade": "三年级",
+      "chapter": "动物世界", 
+      "book_name": "小学科学三年级上册",
+      "qualityScore": 0.88,
+      "semanticFeatures": ["生物", "分类"]
+    }
+  },
+  {
+    "content": "地球是我们生活的家园。地球表面有陆地和海洋，陆地上有高山、平原、河流等地形。",
+    "metadata": {
+      "subject": "地理",
+      "grade": "四年级",
+      "chapter": "地球概况",
+      "book_name": "小学地理四年级上册", 
+      "qualityScore": 0.87,
+      "semanticFeatures": ["地理", "地形"]
+    }
+  }
+]

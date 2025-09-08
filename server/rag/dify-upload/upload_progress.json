@@ -1,0 +1,79 @@
+{
+  "last_segment": 1,
+  "uploaded_files": [
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册七年级上册（主编_高俊昌_田忠）.csv",
+      "filename": "义务教育教科书·地理图册七年级上册（主编_高俊昌_田忠）.csv",
+      "document_id": "966dea12-2871-40a7-bc89-ae59a66452ce",
+      "size": 1971,
+      "upload_time": "2025-09-01T16:12:28.764055"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册八年级上册（主编_高俊昌_田忠）.csv",
+      "filename": "义务教育教科书·地理图册八年级上册（主编_高俊昌_田忠）.csv",
+      "document_id": "e9e2390f-6912-4371-95d0-d50cae645e17",
+      "size": 2012,
+      "upload_time": "2025-09-01T16:12:34.912801"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册八年级下册（主编_高俊昌_田忠）.csv",
+      "filename": "义务教育教科书·地理图册八年级下册（主编_高俊昌_田忠）.csv",
+      "document_id": "2920099a-6101-4beb-8579-84e5277fe085",
+      "size": 2012,
+      "upload_time": "2025-09-01T16:12:41.479320"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册八年级上册（主编_钟作慈）.csv",
+      "filename": "义务教育教科书·地理图册八年级上册（主编_钟作慈）.csv",
+      "document_id": "e69bf4e5-5be2-4643-b461-45a8167ba12c",
+      "size": 2044,
+      "upload_time": "2025-09-01T16:12:46.585734"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册七年级下册（主编_钟作慈）.csv",
+      "filename": "义务教育教科书·地理图册七年级下册（主编_钟作慈）.csv",
+      "document_id": "16ada283-665b-402e-a47f-188e8810dcf2",
+      "size": 2044,
+      "upload_time": "2025-09-01T16:12:52.589157"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册八年级下册（主编_钟作慈）.csv",
+      "filename": "义务教育教科书·地理图册八年级下册（主编_钟作慈）.csv",
+      "document_id": "ab597f67-94a4-45a4-9f5b-9810efb52465",
+      "size": 2044,
+      "upload_time": "2025-09-01T16:12:58.475761"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册七年级下册（主编_王民_田忠）.csv",
+      "filename": "义务教育教科书·地理图册七年级下册（主编_王民_田忠）.csv",
+      "document_id": "106bd1d6-2e64-492b-8b8a-6442944617bb",
+      "size": 2068,
+      "upload_time": "2025-09-01T16:13:04.768471"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册七年级上册（主编_王民_田忠）.csv",
+      "filename": "义务教育教科书·地理图册七年级上册（主编_王民_田忠）.csv",
+      "document_id": "91e57f92-04d8-4962-a9a2-7bdab5e6aff2",
+      "size": 2068,
+      "upload_time": "2025-09-01T16:13:10.804430"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册八年级上册（主编_王民_田忠）.csv",
+      "filename": "义务教育教科书·地理图册八年级上册（主编_王民_田忠）.csv",
+      "document_id": "1e9e5657-63b2-4d00-b216-ed62054cff51",
+      "size": 2068,
+      "upload_time": "2025-09-01T16:13:17.100898"
+    },
+    {
+      "file": "/Users/LeoQin/Documents/GitHub/lesson-plan-generator/server/rag/exported_csv/义务教育教科书·地理图册八年级下册（主编_王民_田忠）.csv",
+      "filename": "义务教育教科书·地理图册八年级下册（主编_王民_田忠）.csv",
+      "document_id": "785ee399-7c44-4ef0-8dec-79e4422d4582",
+      "size": 2068,
+      "upload_time": "2025-09-01T16:13:22.829132"
+    }
+  ],
+  "failed_files": [],
+  "total_uploaded": 10,
+  "last_upload_time": "2025-09-01T16:13:22.829186",
+  "start_time": "2025-09-01T16:12:27.588661"
+}

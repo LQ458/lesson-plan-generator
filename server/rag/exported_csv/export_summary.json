@@ -1,0 +1,3810 @@
+{
+  "exportDate": "2025-09-01T06:57:49.379Z",
+  "exportType": "JSON_to_CSV_Direct",
+  "totalBooks": 543,
+  "totalRecords": 28118,
+  "totalFileSize": 95112842,
+  "books": [
+    {
+      "bookName": "中图版（主编_王民）_七年级_义务教育教科书·地理七年级上册（主编_王民）",
+      "fileName": "中图版（主编_王民）_七年级_义务教育教科书·地理七年级上册（主编_王民）.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 83493
+    },
+    {
+      "bookName": "中图版（主编_王民）_七年级_义务教育教科书·地理七年级下册（主编_王民）",
+      "fileName": "中图版（主编_王民）_七年级_义务教育教科书·地理七年级下册（主编_王民）.csv",
+      "recordCount": 22,
+      "columnCount": 35,
+      "fileSizeBytes": 99297
+    },
+    {
+      "bookName": "中图版（主编_王民）_八年级_义务教育教科书·地理八年级上册（主编_王民）",
+      "fileName": "中图版（主编_王民）_八年级_义务教育教科书·地理八年级上册（主编_王民）.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 65256
+    },
+    {
+      "bookName": "中图版（主编_王民）_八年级_义务教育教科书·地理八年级下册（主编_王民）",
+      "fileName": "中图版（主编_王民）_八年级_义务教育教科书·地理八年级下册（主编_王民）.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 73566
+    },
+    {
+      "bookName": "中图版（主编_钟作慈）_七年级_义务教育教科书·地理七年级上册（主编_钟作慈）",
+      "fileName": "中图版（主编_钟作慈）_七年级_义务教育教科书·地理七年级上册（主编_钟作慈）.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 85999
+    },
+    {
+      "bookName": "中图版（主编_钟作慈）_七年级_义务教育教科书·地理七年级下册（主编_钟作慈）",
+      "fileName": "中图版（主编_钟作慈）_七年级_义务教育教科书·地理七年级下册（主编_钟作慈）.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 88939
+    },
+    {
+      "bookName": "中图版（主编_钟作慈）_八年级_义务教育教科书·地理八年级上册（主编_钟作慈）",
+      "fileName": "中图版（主编_钟作慈）_八年级_义务教育教科书·地理八年级上册（主编_钟作慈）.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 75920
+    },
+    {
+      "bookName": "中图版（主编_钟作慈）_八年级_义务教育教科书·地理八年级下册（主编_钟作慈）",
+      "fileName": "中图版（主编_钟作慈）_八年级_义务教育教科书·地理八年级下册（主编_钟作慈）.csv",
+      "recordCount": 28,
+      "columnCount": 35,
+      "fileSizeBytes": 129986
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）三年级上册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）三年级上册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 51358
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）三年级下册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）三年级下册.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 101550
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）五年级上册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）五年级上册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 59769
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）五年级下册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）五年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 64267
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）六年级上册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）六年级上册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 71632
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）六年级下册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）六年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 66144
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）四年级上册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）四年级上册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 54366
+    },
+    {
+      "bookName": "义务教育三至六年级·书法练习指导（实验）四年级下册",
+      "fileName": "义务教育三至六年级·书法练习指导（实验）四年级下册.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 85789
+    },
+    {
+      "bookName": "义务教育教科书_·_数学一年级上册",
+      "fileName": "义务教育教科书_·_数学一年级上册.csv",
+      "recordCount": 28,
+      "columnCount": 28,
+      "fileSizeBytes": 61134
+    },
+    {
+      "bookName": "义务教育教科书_·_数学三年级上册",
+      "fileName": "义务教育教科书_·_数学三年级上册.csv",
+      "recordCount": 46,
+      "columnCount": 28,
+      "fileSizeBytes": 114241
+    },
+    {
+      "bookName": "义务教育教科书_·_数学二年级上册",
+      "fileName": "义务教育教科书_·_数学二年级上册.csv",
+      "recordCount": 52,
+      "columnCount": 26,
+      "fileSizeBytes": 90260
+    },
+    {
+      "bookName": "义务教育教科书_·_数学五年级上册",
+      "fileName": "义务教育教科书_·_数学五年级上册.csv",
+      "recordCount": 85,
+      "columnCount": 26,
+      "fileSizeBytes": 144466
+    },
+    {
+      "bookName": "义务教育教科书_·_数学六年级上册",
+      "fileName": "义务教育教科书_·_数学六年级上册.csv",
+      "recordCount": 93,
+      "columnCount": 26,
+      "fileSizeBytes": 162024
+    },
+    {
+      "bookName": "义务教育教科书_·_数学四年级上册",
+      "fileName": "义务教育教科书_·_数学四年级上册.csv",
+      "recordCount": 81,
+      "columnCount": 26,
+      "fileSizeBytes": 132311
+    },
+    {
+      "bookName": "义务教育教科书·世界历史九年级上册",
+      "fileName": "义务教育教科书·世界历史九年级上册.csv",
+      "recordCount": 73,
+      "columnCount": 28,
+      "fileSizeBytes": 207132
+    },
+    {
+      "bookName": "义务教育教科书·中国历史七年级上册",
+      "fileName": "义务教育教科书·中国历史七年级上册.csv",
+      "recordCount": 75,
+      "columnCount": 28,
+      "fileSizeBytes": 217744
+    },
+    {
+      "bookName": "义务教育教科书·中国历史八年级上册",
+      "fileName": "义务教育教科书·中国历史八年级上册.csv",
+      "recordCount": 103,
+      "columnCount": 28,
+      "fileSizeBytes": 294803
+    },
+    {
+      "bookName": "义务教育教科书·人文地理上册",
+      "fileName": "义务教育教科书·人文地理上册.csv",
+      "recordCount": 81,
+      "columnCount": 28,
+      "fileSizeBytes": 222638
+    },
+    {
+      "bookName": "义务教育教科书·人文地理下册",
+      "fileName": "义务教育教科书·人文地理下册.csv",
+      "recordCount": 79,
+      "columnCount": 28,
+      "fileSizeBytes": 222906
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康_1至2年级全一册",
+      "fileName": "义务教育教科书·体育与健康_1至2年级全一册.csv",
+      "recordCount": 296,
+      "columnCount": 28,
+      "fileSizeBytes": 833135
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康_3至4年级全一册",
+      "fileName": "义务教育教科书·体育与健康_3至4年级全一册.csv",
+      "recordCount": 203,
+      "columnCount": 28,
+      "fileSizeBytes": 577240
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康_5至6年级全一册",
+      "fileName": "义务教育教科书·体育与健康_5至6年级全一册.csv",
+      "recordCount": 221,
+      "columnCount": 28,
+      "fileSizeBytes": 632710
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康七年级全一册",
+      "fileName": "义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 48,
+      "columnCount": 28,
+      "fileSizeBytes": 142546
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康九年级全一册",
+      "fileName": "义务教育教科书·体育与健康九年级全一册.csv",
+      "recordCount": 30,
+      "columnCount": 28,
+      "fileSizeBytes": 90032
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康八年级全一册",
+      "fileName": "义务教育教科书·体育与健康八年级全一册.csv",
+      "recordCount": 36,
+      "columnCount": 28,
+      "fileSizeBytes": 106421
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书一年级全一册",
+      "fileName": "义务教育教科书·体育与健康教师用书一年级全一册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9849
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书三年级全一册",
+      "fileName": "义务教育教科书·体育与健康教师用书三年级全一册.csv",
+      "recordCount": 175,
+      "columnCount": 35,
+      "fileSizeBytes": 943917
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书二年级全一册",
+      "fileName": "义务教育教科书·体育与健康教师用书二年级全一册.csv",
+      "recordCount": 201,
+      "columnCount": 27,
+      "fileSizeBytes": 487655
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书五年级全一册",
+      "fileName": "义务教育教科书·体育与健康教师用书五年级全一册.csv",
+      "recordCount": 167,
+      "columnCount": 35,
+      "fileSizeBytes": 892554
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书六年级全一册",
+      "fileName": "义务教育教科书·体育与健康教师用书六年级全一册.csv",
+      "recordCount": 168,
+      "columnCount": 35,
+      "fileSizeBytes": 895526
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书四年级全一册",
+      "fileName": "义务教育教科书·体育与健康教师用书四年级全一册.csv",
+      "recordCount": 26,
+      "columnCount": 35,
+      "fileSizeBytes": 131802
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书水平一水平一",
+      "fileName": "义务教育教科书·体育与健康教师用书水平一水平一.csv",
+      "recordCount": 262,
+      "columnCount": 35,
+      "fileSizeBytes": 1439243
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书水平三水平三",
+      "fileName": "义务教育教科书·体育与健康教师用书水平三水平三.csv",
+      "recordCount": 256,
+      "columnCount": 35,
+      "fileSizeBytes": 1281799
+    },
+    {
+      "bookName": "义务教育教科书·体育与健康教师用书水平二水平二",
+      "fileName": "义务教育教科书·体育与健康教师用书水平二水平二.csv",
+      "recordCount": 259,
+      "columnCount": 35,
+      "fileSizeBytes": 1409297
+    },
+    {
+      "bookName": "义务教育教科书·俄语七年级全一册",
+      "fileName": "义务教育教科书·俄语七年级全一册.csv",
+      "recordCount": 225,
+      "columnCount": 28,
+      "fileSizeBytes": 503797
+    },
+    {
+      "bookName": "义务教育教科书·俄语九年级全一册",
+      "fileName": "义务教育教科书·俄语九年级全一册.csv",
+      "recordCount": 419,
+      "columnCount": 28,
+      "fileSizeBytes": 867601
+    },
+    {
+      "bookName": "义务教育教科书·俄语八年级全一册",
+      "fileName": "义务教育教科书·俄语八年级全一册.csv",
+      "recordCount": 361,
+      "columnCount": 28,
+      "fileSizeBytes": 757958
+    },
+    {
+      "bookName": "义务教育教科书·化学九年级上册",
+      "fileName": "义务教育教科书·化学九年级上册.csv",
+      "recordCount": 116,
+      "columnCount": 28,
+      "fileSizeBytes": 317880
+    },
+    {
+      "bookName": "义务教育教科书·化学九年级下册",
+      "fileName": "义务教育教科书·化学九年级下册.csv",
+      "recordCount": 109,
+      "columnCount": 28,
+      "fileSizeBytes": 316179
+    },
+    {
+      "bookName": "义务教育教科书·历史七年级下册",
+      "fileName": "义务教育教科书·历史七年级下册.csv",
+      "recordCount": 86,
+      "columnCount": 28,
+      "fileSizeBytes": 251146
+    },
+    {
+      "bookName": "义务教育教科书·历史九年级下册",
+      "fileName": "义务教育教科书·历史九年级下册.csv",
+      "recordCount": 89,
+      "columnCount": 35,
+      "fileSizeBytes": 459215
+    },
+    {
+      "bookName": "义务教育教科书·历史八年级下册",
+      "fileName": "义务教育教科书·历史八年级下册.csv",
+      "recordCount": 84,
+      "columnCount": 35,
+      "fileSizeBytes": 444273
+    },
+    {
+      "bookName": "义务教育教科书·地理七年级上册",
+      "fileName": "义务教育教科书·地理七年级上册.csv",
+      "recordCount": 54,
+      "columnCount": 28,
+      "fileSizeBytes": 150749
+    },
+    {
+      "bookName": "义务教育教科书·地理七年级上册（主编_王民）",
+      "fileName": "义务教育教科书·地理七年级上册（主编_王民）.csv",
+      "recordCount": 2,
+      "columnCount": 24,
+      "fileSizeBytes": 4246
+    },
+    {
+      "bookName": "义务教育教科书·地理七年级上册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理七年级上册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 3184
+    },
+    {
+      "bookName": "义务教育教科书·地理七年级下册",
+      "fileName": "义务教育教科书·地理七年级下册.csv",
+      "recordCount": 44,
+      "columnCount": 28,
+      "fileSizeBytes": 124564
+    },
+    {
+      "bookName": "义务教育教科书·地理七年级下册（主编_王民）",
+      "fileName": "义务教育教科书·地理七年级下册（主编_王民）.csv",
+      "recordCount": 2,
+      "columnCount": 24,
+      "fileSizeBytes": 4330
+    },
+    {
+      "bookName": "义务教育教科书·地理七年级下册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理七年级下册（主编_钟作慈）.csv",
+      "recordCount": 2,
+      "columnCount": 24,
+      "fileSizeBytes": 4282
+    },
+    {
+      "bookName": "义务教育教科书·地理八年级上册",
+      "fileName": "义务教育教科书·地理八年级上册.csv",
+      "recordCount": 69,
+      "columnCount": 28,
+      "fileSizeBytes": 188656
+    },
+    {
+      "bookName": "义务教育教科书·地理八年级上册（主编_王民）",
+      "fileName": "义务教育教科书·地理八年级上册（主编_王民）.csv",
+      "recordCount": 2,
+      "columnCount": 24,
+      "fileSizeBytes": 4246
+    },
+    {
+      "bookName": "义务教育教科书·地理八年级上册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理八年级上册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2974
+    },
+    {
+      "bookName": "义务教育教科书·地理八年级下册",
+      "fileName": "义务教育教科书·地理八年级下册.csv",
+      "recordCount": 44,
+      "columnCount": 28,
+      "fileSizeBytes": 125362
+    },
+    {
+      "bookName": "义务教育教科书·地理八年级下册（主编_王民）",
+      "fileName": "义务教育教科书·地理八年级下册（主编_王民）.csv",
+      "recordCount": 2,
+      "columnCount": 24,
+      "fileSizeBytes": 4330
+    },
+    {
+      "bookName": "义务教育教科书·地理八年级下册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理八年级下册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 3184
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级上册",
+      "fileName": "义务教育教科书·地理图册七年级上册.csv",
+      "recordCount": 128,
+      "columnCount": 27,
+      "fileSizeBytes": 143311
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级上册（主编_朱翔_周瑞祥_刘新民）",
+      "fileName": "义务教育教科书·地理图册七年级上册（主编_朱翔_周瑞祥_刘新民）.csv",
+      "recordCount": 117,
+      "columnCount": 27,
+      "fileSizeBytes": 164941
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级上册（主编_王民_田忠）",
+      "fileName": "义务教育教科书·地理图册七年级上册（主编_王民_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2068
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级上册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理图册七年级上册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 3136
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级上册（主编_高俊昌_田忠）",
+      "fileName": "义务教育教科书·地理图册七年级上册（主编_高俊昌_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 1971
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级上册（主编_高培英_周瑞祥）",
+      "fileName": "义务教育教科书·地理图册七年级上册（主编_高培英_周瑞祥）.csv",
+      "recordCount": 119,
+      "columnCount": 27,
+      "fileSizeBytes": 158615
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级下册",
+      "fileName": "义务教育教科书·地理图册七年级下册.csv",
+      "recordCount": 150,
+      "columnCount": 27,
+      "fileSizeBytes": 169566
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级下册（主编_朱翔_周瑞祥_刘新民）",
+      "fileName": "义务教育教科书·地理图册七年级下册（主编_朱翔_周瑞祥_刘新民）.csv",
+      "recordCount": 151,
+      "columnCount": 27,
+      "fileSizeBytes": 209976
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级下册（主编_王民_田忠）",
+      "fileName": "义务教育教科书·地理图册七年级下册（主编_王民_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2068
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级下册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理图册七年级下册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2044
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级下册（主编_高俊昌_田忠）",
+      "fileName": "义务教育教科书·地理图册七年级下册（主编_高俊昌_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2139
+    },
+    {
+      "bookName": "义务教育教科书·地理图册七年级下册（主编_高培英_周瑞祥）",
+      "fileName": "义务教育教科书·地理图册七年级下册（主编_高培英_周瑞祥）.csv",
+      "recordCount": 153,
+      "columnCount": 27,
+      "fileSizeBytes": 199323
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级上册",
+      "fileName": "义务教育教科书·地理图册八年级上册.csv",
+      "recordCount": 91,
+      "columnCount": 27,
+      "fileSizeBytes": 117548
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级上册（主编_朱翔_周瑞祥_刘新民）",
+      "fileName": "义务教育教科书·地理图册八年级上册（主编_朱翔_周瑞祥_刘新民）.csv",
+      "recordCount": 123,
+      "columnCount": 27,
+      "fileSizeBytes": 178666
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级上册（主编_王民_田忠）",
+      "fileName": "义务教育教科书·地理图册八年级上册（主编_王民_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2068
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级上册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理图册八年级上册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2044
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级上册（主编_高俊昌_田忠）",
+      "fileName": "义务教育教科书·地理图册八年级上册（主编_高俊昌_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2012
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级上册（主编_高培英_周瑞祥）",
+      "fileName": "义务教育教科书·地理图册八年级上册（主编_高培英_周瑞祥）.csv",
+      "recordCount": 122,
+      "columnCount": 27,
+      "fileSizeBytes": 159850
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级下册",
+      "fileName": "义务教育教科书·地理图册八年级下册.csv",
+      "recordCount": 109,
+      "columnCount": 27,
+      "fileSizeBytes": 127117
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级下册（主编_朱翔_周瑞祥_刘新民）",
+      "fileName": "义务教育教科书·地理图册八年级下册（主编_朱翔_周瑞祥_刘新民）.csv",
+      "recordCount": 118,
+      "columnCount": 27,
+      "fileSizeBytes": 172973
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级下册（主编_王民_田忠）",
+      "fileName": "义务教育教科书·地理图册八年级下册（主编_王民_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2068
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级下册（主编_钟作慈）",
+      "fileName": "义务教育教科书·地理图册八年级下册（主编_钟作慈）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2044
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级下册（主编_高俊昌_田忠）",
+      "fileName": "义务教育教科书·地理图册八年级下册（主编_高俊昌_田忠）.csv",
+      "recordCount": 1,
+      "columnCount": 24,
+      "fileSizeBytes": 2012
+    },
+    {
+      "bookName": "义务教育教科书·地理图册八年级下册（主编_高培英_周瑞祥）",
+      "fileName": "义务教育教科书·地理图册八年级下册（主编_高培英_周瑞祥）.csv",
+      "recordCount": 121,
+      "columnCount": 27,
+      "fileSizeBytes": 161039
+    },
+    {
+      "bookName": "义务教育教科书·数学一年级上册",
+      "fileName": "义务教育教科书·数学一年级上册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 68417
+    },
+    {
+      "bookName": "义务教育教科书·数学一年级下册",
+      "fileName": "义务教育教科书·数学一年级下册.csv",
+      "recordCount": 24,
+      "columnCount": 35,
+      "fileSizeBytes": 108547
+    },
+    {
+      "bookName": "义务教育教科书·数学七年级上册",
+      "fileName": "义务教育教科书·数学七年级上册.csv",
+      "recordCount": 120,
+      "columnCount": 28,
+      "fileSizeBytes": 329755
+    },
+    {
+      "bookName": "义务教育教科书·数学七年级下册",
+      "fileName": "义务教育教科书·数学七年级下册.csv",
+      "recordCount": 46,
+      "columnCount": 35,
+      "fileSizeBytes": 187709
+    },
+    {
+      "bookName": "义务教育教科书·数学三年级上册",
+      "fileName": "义务教育教科书·数学三年级上册.csv",
+      "recordCount": 38,
+      "columnCount": 35,
+      "fileSizeBytes": 173542
+    },
+    {
+      "bookName": "义务教育教科书·数学三年级下册",
+      "fileName": "义务教育教科书·数学三年级下册.csv",
+      "recordCount": 34,
+      "columnCount": 35,
+      "fileSizeBytes": 159633
+    },
+    {
+      "bookName": "义务教育教科书·数学九年级上册",
+      "fileName": "义务教育教科书·数学九年级上册.csv",
+      "recordCount": 114,
+      "columnCount": 28,
+      "fileSizeBytes": 314334
+    },
+    {
+      "bookName": "义务教育教科书·数学九年级下册",
+      "fileName": "义务教育教科书·数学九年级下册.csv",
+      "recordCount": 128,
+      "columnCount": 35,
+      "fileSizeBytes": 522441
+    },
+    {
+      "bookName": "义务教育教科书·数学二年级上册",
+      "fileName": "义务教育教科书·数学二年级上册.csv",
+      "recordCount": 29,
+      "columnCount": 35,
+      "fileSizeBytes": 132775
+    },
+    {
+      "bookName": "义务教育教科书·数学二年级下册",
+      "fileName": "义务教育教科书·数学二年级下册.csv",
+      "recordCount": 40,
+      "columnCount": 35,
+      "fileSizeBytes": 182517
+    },
+    {
+      "bookName": "义务教育教科书·数学五年级上册",
+      "fileName": "义务教育教科书·数学五年级上册.csv",
+      "recordCount": 47,
+      "columnCount": 35,
+      "fileSizeBytes": 209970
+    },
+    {
+      "bookName": "义务教育教科书·数学五年级下册",
+      "fileName": "义务教育教科书·数学五年级下册.csv",
+      "recordCount": 62,
+      "columnCount": 35,
+      "fileSizeBytes": 282421
+    },
+    {
+      "bookName": "义务教育教科书·数学八年级上册",
+      "fileName": "义务教育教科书·数学八年级上册.csv",
+      "recordCount": 57,
+      "columnCount": 35,
+      "fileSizeBytes": 233602
+    },
+    {
+      "bookName": "义务教育教科书·数学八年级下册",
+      "fileName": "义务教育教科书·数学八年级下册.csv",
+      "recordCount": 117,
+      "columnCount": 28,
+      "fileSizeBytes": 193637
+    },
+    {
+      "bookName": "义务教育教科书·数学六年级上册",
+      "fileName": "义务教育教科书·数学六年级上册.csv",
+      "recordCount": 56,
+      "columnCount": 35,
+      "fileSizeBytes": 258908
+    },
+    {
+      "bookName": "义务教育教科书·数学六年级下册",
+      "fileName": "义务教育教科书·数学六年级下册.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 101353
+    },
+    {
+      "bookName": "义务教育教科书·数学四年级上册",
+      "fileName": "义务教育教科书·数学四年级上册.csv",
+      "recordCount": 47,
+      "columnCount": 35,
+      "fileSizeBytes": 220447
+    },
+    {
+      "bookName": "义务教育教科书·数学四年级下册",
+      "fileName": "义务教育教科书·数学四年级下册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 65003
+    },
+    {
+      "bookName": "义务教育教科书·日语七年级全一册",
+      "fileName": "义务教育教科书·日语七年级全一册.csv",
+      "recordCount": 225,
+      "columnCount": 28,
+      "fileSizeBytes": 607447
+    },
+    {
+      "bookName": "义务教育教科书·日语九年级全一册",
+      "fileName": "义务教育教科书·日语九年级全一册.csv",
+      "recordCount": 317,
+      "columnCount": 28,
+      "fileSizeBytes": 850267
+    },
+    {
+      "bookName": "义务教育教科书·日语八年级全一册",
+      "fileName": "义务教育教科书·日语八年级全一册.csv",
+      "recordCount": 194,
+      "columnCount": 28,
+      "fileSizeBytes": 540022
+    },
+    {
+      "bookName": "义务教育教科书·物理九年级上册",
+      "fileName": "义务教育教科书·物理九年级上册.csv",
+      "recordCount": 72,
+      "columnCount": 28,
+      "fileSizeBytes": 202297
+    },
+    {
+      "bookName": "义务教育教科书·物理九年级下册",
+      "fileName": "义务教育教科书·物理九年级下册.csv",
+      "recordCount": 75,
+      "columnCount": 28,
+      "fileSizeBytes": 211521
+    },
+    {
+      "bookName": "义务教育教科书·物理九年级全一册",
+      "fileName": "义务教育教科书·物理九年级全一册.csv",
+      "recordCount": 126,
+      "columnCount": 28,
+      "fileSizeBytes": 353512
+    },
+    {
+      "bookName": "义务教育教科书·物理八年级上册",
+      "fileName": "义务教育教科书·物理八年级上册.csv",
+      "recordCount": 88,
+      "columnCount": 28,
+      "fileSizeBytes": 246965
+    },
+    {
+      "bookName": "义务教育教科书·物理八年级下册",
+      "fileName": "义务教育教科书·物理八年级下册.csv",
+      "recordCount": 68,
+      "columnCount": 28,
+      "fileSizeBytes": 191506
+    },
+    {
+      "bookName": "义务教育教科书·物理八年级全一册",
+      "fileName": "义务教育教科书·物理八年级全一册.csv",
+      "recordCount": 148,
+      "columnCount": 35,
+      "fileSizeBytes": 631087
+    },
+    {
+      "bookName": "义务教育教科书·生物学七年级上册",
+      "fileName": "义务教育教科书·生物学七年级上册.csv",
+      "recordCount": 93,
+      "columnCount": 28,
+      "fileSizeBytes": 269869
+    },
+    {
+      "bookName": "义务教育教科书·生物学七年级下册",
+      "fileName": "义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 92,
+      "columnCount": 28,
+      "fileSizeBytes": 260775
+    },
+    {
+      "bookName": "义务教育教科书·生物学八年级上册",
+      "fileName": "义务教育教科书·生物学八年级上册.csv",
+      "recordCount": 83,
+      "columnCount": 28,
+      "fileSizeBytes": 240343
+    },
+    {
+      "bookName": "义务教育教科书·生物学八年级下册",
+      "fileName": "义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 92,
+      "columnCount": 28,
+      "fileSizeBytes": 255790
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册一年级上册",
+      "fileName": "义务教育教科书·科学·学生活动手册一年级上册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 7326
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册一年级下册",
+      "fileName": "义务教育教科书·科学·学生活动手册一年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 7329
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册三年级上册",
+      "fileName": "义务教育教科书·科学·学生活动手册三年级上册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 35576
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册三年级下册",
+      "fileName": "义务教育教科书·科学·学生活动手册三年级下册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 27180
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册二年级上册",
+      "fileName": "义务教育教科书·科学·学生活动手册二年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 11162
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册二年级下册",
+      "fileName": "义务教育教科书·科学·学生活动手册二年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 7074
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册五年级上册",
+      "fileName": "义务教育教科书·科学·学生活动手册五年级上册.csv",
+      "recordCount": 8,
+      "columnCount": 27,
+      "fileSizeBytes": 17421
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册五年级下册",
+      "fileName": "义务教育教科书·科学·学生活动手册五年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 52294
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册六年级上册",
+      "fileName": "义务教育教科书·科学·学生活动手册六年级上册.csv",
+      "recordCount": 8,
+      "columnCount": 27,
+      "fileSizeBytes": 17580
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册六年级下册",
+      "fileName": "义务教育教科书·科学·学生活动手册六年级下册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 39312
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册四年级上册",
+      "fileName": "义务教育教科书·科学·学生活动手册四年级上册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 27347
+    },
+    {
+      "bookName": "义务教育教科书·科学·学生活动手册四年级下册",
+      "fileName": "义务教育教科书·科学·学生活动手册四年级下册.csv",
+      "recordCount": 7,
+      "columnCount": 35,
+      "fileSizeBytes": 32655
+    },
+    {
+      "bookName": "义务教育教科书·科学一年级上册",
+      "fileName": "义务教育教科书·科学一年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4475
+    },
+    {
+      "bookName": "义务教育教科书·科学一年级下册",
+      "fileName": "义务教育教科书·科学一年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 6270
+    },
+    {
+      "bookName": "义务教育教科书·科学七年级上册",
+      "fileName": "义务教育教科书·科学七年级上册.csv",
+      "recordCount": 121,
+      "columnCount": 28,
+      "fileSizeBytes": 331111
+    },
+    {
+      "bookName": "义务教育教科书·科学七年级下册",
+      "fileName": "义务教育教科书·科学七年级下册.csv",
+      "recordCount": 101,
+      "columnCount": 24,
+      "fileSizeBytes": 238006
+    },
+    {
+      "bookName": "义务教育教科书·科学三年级上册",
+      "fileName": "义务教育教科书·科学三年级上册.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 88009
+    },
+    {
+      "bookName": "义务教育教科书·科学三年级下册",
+      "fileName": "义务教育教科书·科学三年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 82520
+    },
+    {
+      "bookName": "义务教育教科书·科学九年级上册",
+      "fileName": "义务教育教科书·科学九年级上册.csv",
+      "recordCount": 146,
+      "columnCount": 28,
+      "fileSizeBytes": 382408
+    },
+    {
+      "bookName": "义务教育教科书·科学九年级下册",
+      "fileName": "义务教育教科书·科学九年级下册.csv",
+      "recordCount": 189,
+      "columnCount": 24,
+      "fileSizeBytes": 464749
+    },
+    {
+      "bookName": "义务教育教科书·科学二年级上册",
+      "fileName": "义务教育教科书·科学二年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4667
+    },
+    {
+      "bookName": "义务教育教科书·科学二年级下册",
+      "fileName": "义务教育教科书·科学二年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 6236
+    },
+    {
+      "bookName": "义务教育教科书·科学五年级上册",
+      "fileName": "义务教育教科书·科学五年级上册.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 95462
+    },
+    {
+      "bookName": "义务教育教科书·科学五年级下册",
+      "fileName": "义务教育教科书·科学五年级下册.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 103764
+    },
+    {
+      "bookName": "义务教育教科书·科学八年级上册",
+      "fileName": "义务教育教科书·科学八年级上册.csv",
+      "recordCount": 125,
+      "columnCount": 28,
+      "fileSizeBytes": 331508
+    },
+    {
+      "bookName": "义务教育教科书·科学八年级下册",
+      "fileName": "义务教育教科书·科学八年级下册.csv",
+      "recordCount": 111,
+      "columnCount": 24,
+      "fileSizeBytes": 249303
+    },
+    {
+      "bookName": "义务教育教科书·科学六年级上册",
+      "fileName": "义务教育教科书·科学六年级上册.csv",
+      "recordCount": 23,
+      "columnCount": 35,
+      "fileSizeBytes": 112769
+    },
+    {
+      "bookName": "义务教育教科书·科学六年级下册",
+      "fileName": "义务教育教科书·科学六年级下册.csv",
+      "recordCount": 23,
+      "columnCount": 35,
+      "fileSizeBytes": 121311
+    },
+    {
+      "bookName": "义务教育教科书·科学四年级上册",
+      "fileName": "义务教育教科书·科学四年级上册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 68987
+    },
+    {
+      "bookName": "义务教育教科书·科学四年级下册",
+      "fileName": "义务教育教科书·科学四年级下册.csv",
+      "recordCount": 20,
+      "columnCount": 35,
+      "fileSizeBytes": 98896
+    },
+    {
+      "bookName": "义务教育教科书·美术一年级上册",
+      "fileName": "义务教育教科书·美术一年级上册.csv",
+      "recordCount": 7,
+      "columnCount": 35,
+      "fileSizeBytes": 37979
+    },
+    {
+      "bookName": "义务教育教科书·美术一年级下册",
+      "fileName": "义务教育教科书·美术一年级下册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 42962
+    },
+    {
+      "bookName": "义务教育教科书·美术七年级上册",
+      "fileName": "义务教育教科书·美术七年级上册.csv",
+      "recordCount": 25,
+      "columnCount": 28,
+      "fileSizeBytes": 72737
+    },
+    {
+      "bookName": "义务教育教科书·美术七年级下册",
+      "fileName": "义务教育教科书·美术七年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 28,
+      "fileSizeBytes": 49969
+    },
+    {
+      "bookName": "义务教育教科书·美术三年级上册",
+      "fileName": "义务教育教科书·美术三年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 61556
+    },
+    {
+      "bookName": "义务教育教科书·美术三年级下册",
+      "fileName": "义务教育教科书·美术三年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 57997
+    },
+    {
+      "bookName": "义务教育教科书·美术九年级上册",
+      "fileName": "义务教育教科书·美术九年级上册.csv",
+      "recordCount": 21,
+      "columnCount": 28,
+      "fileSizeBytes": 61016
+    },
+    {
+      "bookName": "义务教育教科书·美术九年级下册",
+      "fileName": "义务教育教科书·美术九年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 28,
+      "fileSizeBytes": 50388
+    },
+    {
+      "bookName": "义务教育教科书·美术二年级上册",
+      "fileName": "义务教育教科书·美术二年级上册.csv",
+      "recordCount": 9,
+      "columnCount": 35,
+      "fileSizeBytes": 47947
+    },
+    {
+      "bookName": "义务教育教科书·美术二年级下册",
+      "fileName": "义务教育教科书·美术二年级下册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 50546
+    },
+    {
+      "bookName": "义务教育教科书·美术五年级上册",
+      "fileName": "义务教育教科书·美术五年级上册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 58934
+    },
+    {
+      "bookName": "义务教育教科书·美术五年级下册",
+      "fileName": "义务教育教科书·美术五年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 61953
+    },
+    {
+      "bookName": "义务教育教科书·美术八年级上册",
+      "fileName": "义务教育教科书·美术八年级上册.csv",
+      "recordCount": 31,
+      "columnCount": 28,
+      "fileSizeBytes": 89474
+    },
+    {
+      "bookName": "义务教育教科书·美术八年级下册",
+      "fileName": "义务教育教科书·美术八年级下册.csv",
+      "recordCount": 18,
+      "columnCount": 28,
+      "fileSizeBytes": 54044
+    },
+    {
+      "bookName": "义务教育教科书·美术六年级上册",
+      "fileName": "义务教育教科书·美术六年级上册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 72314
+    },
+    {
+      "bookName": "义务教育教科书·美术六年级下册",
+      "fileName": "义务教育教科书·美术六年级下册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 70487
+    },
+    {
+      "bookName": "义务教育教科书·美术四年级上册",
+      "fileName": "义务教育教科书·美术四年级上册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 66996
+    },
+    {
+      "bookName": "义务教育教科书·美术四年级下册",
+      "fileName": "义务教育教科书·美术四年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 57035
+    },
+    {
+      "bookName": "义务教育教科书·艺术一年级上册",
+      "fileName": "义务教育教科书·艺术一年级上册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 54398
+    },
+    {
+      "bookName": "义务教育教科书·艺术一年级下册",
+      "fileName": "义务教育教科书·艺术一年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 57123
+    },
+    {
+      "bookName": "义务教育教科书·艺术七年级上册",
+      "fileName": "义务教育教科书·艺术七年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 14039
+    },
+    {
+      "bookName": "义务教育教科书·艺术七年级下册",
+      "fileName": "义务教育教科书·艺术七年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18359
+    },
+    {
+      "bookName": "义务教育教科书·艺术三年级上册",
+      "fileName": "义务教育教科书·艺术三年级上册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 69928
+    },
+    {
+      "bookName": "义务教育教科书·艺术三年级下册",
+      "fileName": "义务教育教科书·艺术三年级下册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 68177
+    },
+    {
+      "bookName": "义务教育教科书·艺术九年级上册",
+      "fileName": "义务教育教科书·艺术九年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13856
+    },
+    {
+      "bookName": "义务教育教科书·艺术九年级下册",
+      "fileName": "义务教育教科书·艺术九年级下册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 26856
+    },
+    {
+      "bookName": "义务教育教科书·艺术二年级上册",
+      "fileName": "义务教育教科书·艺术二年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 56391
+    },
+    {
+      "bookName": "义务教育教科书·艺术二年级下册",
+      "fileName": "义务教育教科书·艺术二年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 57198
+    },
+    {
+      "bookName": "义务教育教科书·艺术五年级上册",
+      "fileName": "义务教育教科书·艺术五年级上册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 75219
+    },
+    {
+      "bookName": "义务教育教科书·艺术五年级下册",
+      "fileName": "义务教育教科书·艺术五年级下册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 70584
+    },
+    {
+      "bookName": "义务教育教科书·艺术八年级上册",
+      "fileName": "义务教育教科书·艺术八年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18439
+    },
+    {
+      "bookName": "义务教育教科书·艺术八年级下册",
+      "fileName": "义务教育教科书·艺术八年级下册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 22801
+    },
+    {
+      "bookName": "义务教育教科书·艺术六年级上册",
+      "fileName": "义务教育教科书·艺术六年级上册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 71507
+    },
+    {
+      "bookName": "义务教育教科书·艺术六年级下册",
+      "fileName": "义务教育教科书·艺术六年级下册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 68619
+    },
+    {
+      "bookName": "义务教育教科书·艺术四年级上册",
+      "fileName": "义务教育教科书·艺术四年级上册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 77133
+    },
+    {
+      "bookName": "义务教育教科书·艺术四年级下册",
+      "fileName": "义务教育教科书·艺术四年级下册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 74423
+    },
+    {
+      "bookName": "义务教育教科书·英语七年级上册",
+      "fileName": "义务教育教科书·英语七年级上册.csv",
+      "recordCount": 178,
+      "columnCount": 28,
+      "fileSizeBytes": 309222
+    },
+    {
+      "bookName": "义务教育教科书·英语七年级下册",
+      "fileName": "义务教育教科书·英语七年级下册.csv",
+      "recordCount": 275,
+      "columnCount": 28,
+      "fileSizeBytes": 381996
+    },
+    {
+      "bookName": "义务教育教科书·英语九年级上册",
+      "fileName": "义务教育教科书·英语九年级上册.csv",
+      "recordCount": 171,
+      "columnCount": 24,
+      "fileSizeBytes": 371054
+    },
+    {
+      "bookName": "义务教育教科书·英语九年级下册",
+      "fileName": "义务教育教科书·英语九年级下册.csv",
+      "recordCount": 251,
+      "columnCount": 28,
+      "fileSizeBytes": 360887
+    },
+    {
+      "bookName": "义务教育教科书·英语九年级全一册",
+      "fileName": "义务教育教科书·英语九年级全一册.csv",
+      "recordCount": 389,
+      "columnCount": 28,
+      "fileSizeBytes": 602997
+    },
+    {
+      "bookName": "义务教育教科书·英语八年级上册",
+      "fileName": "义务教育教科书·英语八年级上册.csv",
+      "recordCount": 253,
+      "columnCount": 28,
+      "fileSizeBytes": 410843
+    },
+    {
+      "bookName": "义务教育教科书·英语八年级下册",
+      "fileName": "义务教育教科书·英语八年级下册.csv",
+      "recordCount": 256,
+      "columnCount": 28,
+      "fileSizeBytes": 380867
+    },
+    {
+      "bookName": "义务教育教科书·英语（PEP）（三年级起点）三年级上册",
+      "fileName": "义务教育教科书·英语（PEP）（三年级起点）三年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 14255
+    },
+    {
+      "bookName": "义务教育教科书·英语（PEP）（三年级起点）五年级上册",
+      "fileName": "义务教育教科书·英语（PEP）（三年级起点）五年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 16108
+    },
+    {
+      "bookName": "义务教育教科书·英语（PEP）（三年级起点）六年级上册",
+      "fileName": "义务教育教科书·英语（PEP）（三年级起点）六年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 14354
+    },
+    {
+      "bookName": "义务教育教科书·英语（PEP）（三年级起点）四年级上册",
+      "fileName": "义务教育教科书·英语（PEP）（三年级起点）四年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 14520
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）一年级上册",
+      "fileName": "义务教育教科书·英语（一年级起点）一年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13401
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）一年级下册",
+      "fileName": "义务教育教科书·英语（一年级起点）一年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13745
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）三年级上册",
+      "fileName": "义务教育教科书·英语（一年级起点）三年级上册.csv",
+      "recordCount": 34,
+      "columnCount": 27,
+      "fileSizeBytes": 46688
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）三年级下册",
+      "fileName": "义务教育教科书·英语（一年级起点）三年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 11791
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）二年级上册",
+      "fileName": "义务教育教科书·英语（一年级起点）二年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13997
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）二年级下册",
+      "fileName": "义务教育教科书·英语（一年级起点）二年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13418
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）五年级上册",
+      "fileName": "义务教育教科书·英语（一年级起点）五年级上册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 11896
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）五年级下册",
+      "fileName": "义务教育教科书·英语（一年级起点）五年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 11866
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）六年级上册",
+      "fileName": "义务教育教科书·英语（一年级起点）六年级上册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 12088
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）六年级下册",
+      "fileName": "义务教育教科书·英语（一年级起点）六年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 11914
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）四年级上册",
+      "fileName": "义务教育教科书·英语（一年级起点）四年级上册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 11289
+    },
+    {
+      "bookName": "义务教育教科书·英语（一年级起点）四年级下册",
+      "fileName": "义务教育教科书·英语（一年级起点）四年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 11671
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）三年级上册",
+      "fileName": "义务教育教科书·英语（三年级起点）三年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18516
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）三年级下册",
+      "fileName": "义务教育教科书·英语（三年级起点）三年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 10907
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）五年级上册",
+      "fileName": "义务教育教科书·英语（三年级起点）五年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18309
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）五年级下册",
+      "fileName": "义务教育教科书·英语（三年级起点）五年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18589
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）六年级上册",
+      "fileName": "义务教育教科书·英语（三年级起点）六年级上册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 23039
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）六年级下册",
+      "fileName": "义务教育教科书·英语（三年级起点）六年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18590
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）四年级上册",
+      "fileName": "义务教育教科书·英语（三年级起点）四年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18222
+    },
+    {
+      "bookName": "义务教育教科书·英语（三年级起点）四年级下册",
+      "fileName": "义务教育教科书·英语（三年级起点）四年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18671
+    },
+    {
+      "bookName": "义务教育教科书·英语（精通）（三年级起点）三年级上册",
+      "fileName": "义务教育教科书·英语（精通）（三年级起点）三年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 15550
+    },
+    {
+      "bookName": "义务教育教科书·英语（精通）（三年级起点）五年级上册",
+      "fileName": "义务教育教科书·英语（精通）（三年级起点）五年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13687
+    },
+    {
+      "bookName": "义务教育教科书·英语（精通）（三年级起点）六年级上册",
+      "fileName": "义务教育教科书·英语（精通）（三年级起点）六年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18598
+    },
+    {
+      "bookName": "义务教育教科书·英语（精通）（三年级起点）四年级上册",
+      "fileName": "义务教育教科书·英语（精通）（三年级起点）四年级上册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 18798
+    },
+    {
+      "bookName": "义务教育教科书·语文一年级上册",
+      "fileName": "义务教育教科书·语文一年级上册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 43063
+    },
+    {
+      "bookName": "义务教育教科书·语文一年级下册",
+      "fileName": "义务教育教科书·语文一年级下册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 60719
+    },
+    {
+      "bookName": "义务教育教科书·语文七年级上册",
+      "fileName": "义务教育教科书·语文七年级上册.csv",
+      "recordCount": 127,
+      "columnCount": 28,
+      "fileSizeBytes": 371866
+    },
+    {
+      "bookName": "义务教育教科书·语文七年级下册",
+      "fileName": "义务教育教科书·语文七年级下册.csv",
+      "recordCount": 159,
+      "columnCount": 35,
+      "fileSizeBytes": 820836
+    },
+    {
+      "bookName": "义务教育教科书·语文三年级上册",
+      "fileName": "义务教育教科书·语文三年级上册.csv",
+      "recordCount": 51,
+      "columnCount": 35,
+      "fileSizeBytes": 263556
+    },
+    {
+      "bookName": "义务教育教科书·语文三年级下册",
+      "fileName": "义务教育教科书·语文三年级下册.csv",
+      "recordCount": 55,
+      "columnCount": 35,
+      "fileSizeBytes": 289026
+    },
+    {
+      "bookName": "义务教育教科书·语文九年级上册",
+      "fileName": "义务教育教科书·语文九年级上册.csv",
+      "recordCount": 150,
+      "columnCount": 28,
+      "fileSizeBytes": 412344
+    },
+    {
+      "bookName": "义务教育教科书·语文九年级下册",
+      "fileName": "义务教育教科书·语文九年级下册.csv",
+      "recordCount": 149,
+      "columnCount": 28,
+      "fileSizeBytes": 423932
+    },
+    {
+      "bookName": "义务教育教科书·语文二年级上册",
+      "fileName": "义务教育教科书·语文二年级上册.csv",
+      "recordCount": 28,
+      "columnCount": 35,
+      "fileSizeBytes": 118437
+    },
+    {
+      "bookName": "义务教育教科书·语文二年级下册",
+      "fileName": "义务教育教科书·语文二年级下册.csv",
+      "recordCount": 47,
+      "columnCount": 35,
+      "fileSizeBytes": 228726
+    },
+    {
+      "bookName": "义务教育教科书·语文五年级上册",
+      "fileName": "义务教育教科书·语文五年级上册.csv",
+      "recordCount": 69,
+      "columnCount": 35,
+      "fileSizeBytes": 375075
+    },
+    {
+      "bookName": "义务教育教科书·语文五年级下册",
+      "fileName": "义务教育教科书·语文五年级下册.csv",
+      "recordCount": 72,
+      "columnCount": 35,
+      "fileSizeBytes": 381204
+    },
+    {
+      "bookName": "义务教育教科书·语文八年级上册",
+      "fileName": "义务教育教科书·语文八年级上册.csv",
+      "recordCount": 155,
+      "columnCount": 28,
+      "fileSizeBytes": 433298
+    },
+    {
+      "bookName": "义务教育教科书·语文八年级下册",
+      "fileName": "义务教育教科书·语文八年级下册.csv",
+      "recordCount": 134,
+      "columnCount": 28,
+      "fileSizeBytes": 384698
+    },
+    {
+      "bookName": "义务教育教科书·语文六年级上册",
+      "fileName": "义务教育教科书·语文六年级上册.csv",
+      "recordCount": 75,
+      "columnCount": 35,
+      "fileSizeBytes": 399121
+    },
+    {
+      "bookName": "义务教育教科书·语文六年级下册",
+      "fileName": "义务教育教科书·语文六年级下册.csv",
+      "recordCount": 74,
+      "columnCount": 35,
+      "fileSizeBytes": 392247
+    },
+    {
+      "bookName": "义务教育教科书·语文四年级上册",
+      "fileName": "义务教育教科书·语文四年级上册.csv",
+      "recordCount": 60,
+      "columnCount": 35,
+      "fileSizeBytes": 313841
+    },
+    {
+      "bookName": "义务教育教科书·语文四年级下册",
+      "fileName": "义务教育教科书·语文四年级下册.csv",
+      "recordCount": 73,
+      "columnCount": 35,
+      "fileSizeBytes": 382086
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治一年级上册",
+      "fileName": "义务教育教科书·道德与法治一年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 46775
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治一年级下册",
+      "fileName": "义务教育教科书·道德与法治一年级下册.csv",
+      "recordCount": 20,
+      "columnCount": 35,
+      "fileSizeBytes": 79888
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治七年级上册",
+      "fileName": "义务教育教科书·道德与法治七年级上册.csv",
+      "recordCount": 72,
+      "columnCount": 28,
+      "fileSizeBytes": 217003
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治七年级下册",
+      "fileName": "义务教育教科书·道德与法治七年级下册.csv",
+      "recordCount": 62,
+      "columnCount": 28,
+      "fileSizeBytes": 190404
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治三年级上册",
+      "fileName": "义务教育教科书·道德与法治三年级上册.csv",
+      "recordCount": 28,
+      "columnCount": 35,
+      "fileSizeBytes": 153876
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治三年级下册",
+      "fileName": "义务教育教科书·道德与法治三年级下册.csv",
+      "recordCount": 34,
+      "columnCount": 35,
+      "fileSizeBytes": 183195
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治九年级上册",
+      "fileName": "义务教育教科书·道德与法治九年级上册.csv",
+      "recordCount": 87,
+      "columnCount": 28,
+      "fileSizeBytes": 258689
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治九年级下册",
+      "fileName": "义务教育教科书·道德与法治九年级下册.csv",
+      "recordCount": 60,
+      "columnCount": 28,
+      "fileSizeBytes": 179870
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治二年级上册",
+      "fileName": "义务教育教科书·道德与法治二年级上册.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 81975
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治二年级下册",
+      "fileName": "义务教育教科书·道德与法治二年级下册.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 93266
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治五年级上册",
+      "fileName": "义务教育教科书·道德与法治五年级上册.csv",
+      "recordCount": 53,
+      "columnCount": 35,
+      "fileSizeBytes": 295411
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治五年级下册",
+      "fileName": "义务教育教科书·道德与法治五年级下册.csv",
+      "recordCount": 58,
+      "columnCount": 35,
+      "fileSizeBytes": 322883
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治八年级上册",
+      "fileName": "义务教育教科书·道德与法治八年级上册.csv",
+      "recordCount": 70,
+      "columnCount": 28,
+      "fileSizeBytes": 212972
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治八年级下册",
+      "fileName": "义务教育教科书·道德与法治八年级下册.csv",
+      "recordCount": 82,
+      "columnCount": 35,
+      "fileSizeBytes": 458144
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治六年级上册",
+      "fileName": "义务教育教科书·道德与法治六年级上册.csv",
+      "recordCount": 50,
+      "columnCount": 35,
+      "fileSizeBytes": 275101
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治六年级下册",
+      "fileName": "义务教育教科书·道德与法治六年级下册.csv",
+      "recordCount": 51,
+      "columnCount": 35,
+      "fileSizeBytes": 272433
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治四年级上册",
+      "fileName": "义务教育教科书·道德与法治四年级上册.csv",
+      "recordCount": 37,
+      "columnCount": 35,
+      "fileSizeBytes": 200238
+    },
+    {
+      "bookName": "义务教育教科书·道德与法治四年级下册",
+      "fileName": "义务教育教科书·道德与法治四年级下册.csv",
+      "recordCount": 38,
+      "columnCount": 35,
+      "fileSizeBytes": 207104
+    },
+    {
+      "bookName": "义务教育教科书·音乐一年级上册",
+      "fileName": "义务教育教科书·音乐一年级上册.csv",
+      "recordCount": 9,
+      "columnCount": 35,
+      "fileSizeBytes": 37136
+    },
+    {
+      "bookName": "义务教育教科书·音乐一年级下册",
+      "fileName": "义务教育教科书·音乐一年级下册.csv",
+      "recordCount": 9,
+      "columnCount": 35,
+      "fileSizeBytes": 38543
+    },
+    {
+      "bookName": "义务教育教科书·音乐七年级上册",
+      "fileName": "义务教育教科书·音乐七年级上册.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 99777
+    },
+    {
+      "bookName": "义务教育教科书·音乐七年级上册（主编_敬谱）",
+      "fileName": "义务教育教科书·音乐七年级上册（主编_敬谱）.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 91596
+    },
+    {
+      "bookName": "义务教育教科书·音乐七年级下册",
+      "fileName": "义务教育教科书·音乐七年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 6920
+    },
+    {
+      "bookName": "义务教育教科书·音乐七年级下册（主编_敬谱）",
+      "fileName": "义务教育教科书·音乐七年级下册（主编_敬谱）.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 104324
+    },
+    {
+      "bookName": "义务教育教科书·音乐三年级上册",
+      "fileName": "义务教育教科书·音乐三年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 55340
+    },
+    {
+      "bookName": "义务教育教科书·音乐三年级下册",
+      "fileName": "义务教育教科书·音乐三年级下册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 48258
+    },
+    {
+      "bookName": "义务教育教科书·音乐九年级上册",
+      "fileName": "义务教育教科书·音乐九年级上册.csv",
+      "recordCount": 71,
+      "columnCount": 27,
+      "fileSizeBytes": 106664
+    },
+    {
+      "bookName": "义务教育教科书·音乐九年级上册（主编_敬谱）",
+      "fileName": "义务教育教科书·音乐九年级上册（主编_敬谱）.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 81058
+    },
+    {
+      "bookName": "义务教育教科书·音乐九年级下册",
+      "fileName": "义务教育教科书·音乐九年级下册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 68955
+    },
+    {
+      "bookName": "义务教育教科书·音乐九年级下册（主编_敬谱）",
+      "fileName": "义务教育教科书·音乐九年级下册（主编_敬谱）.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 88854
+    },
+    {
+      "bookName": "义务教育教科书·音乐二年级上册",
+      "fileName": "义务教育教科书·音乐二年级上册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 44155
+    },
+    {
+      "bookName": "义务教育教科书·音乐二年级下册",
+      "fileName": "义务教育教科书·音乐二年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 47848
+    },
+    {
+      "bookName": "义务教育教科书·音乐五年级上册",
+      "fileName": "义务教育教科书·音乐五年级上册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 51149
+    },
+    {
+      "bookName": "义务教育教科书·音乐五年级下册",
+      "fileName": "义务教育教科书·音乐五年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 49628
+    },
+    {
+      "bookName": "义务教育教科书·音乐八年级上册",
+      "fileName": "义务教育教科书·音乐八年级上册.csv",
+      "recordCount": 61,
+      "columnCount": 27,
+      "fileSizeBytes": 88485
+    },
+    {
+      "bookName": "义务教育教科书·音乐八年级上册（主编_敬谱）",
+      "fileName": "义务教育教科书·音乐八年级上册（主编_敬谱）.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 84333
+    },
+    {
+      "bookName": "义务教育教科书·音乐八年级下册",
+      "fileName": "义务教育教科书·音乐八年级下册.csv",
+      "recordCount": 16,
+      "columnCount": 27,
+      "fileSizeBytes": 40288
+    },
+    {
+      "bookName": "义务教育教科书·音乐八年级下册（主编_敬谱）",
+      "fileName": "义务教育教科书·音乐八年级下册（主编_敬谱）.csv",
+      "recordCount": 24,
+      "columnCount": 35,
+      "fileSizeBytes": 124706
+    },
+    {
+      "bookName": "义务教育教科书·音乐六年级上册",
+      "fileName": "义务教育教科书·音乐六年级上册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 47370
+    },
+    {
+      "bookName": "义务教育教科书·音乐六年级下册",
+      "fileName": "义务教育教科书·音乐六年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 56424
+    },
+    {
+      "bookName": "义务教育教科书·音乐四年级上册",
+      "fileName": "义务教育教科书·音乐四年级上册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 52914
+    },
+    {
+      "bookName": "义务教育教科书·音乐四年级下册",
+      "fileName": "义务教育教科书·音乐四年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 53671
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）一年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）一年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 34,
+      "fileSizeBytes": 2145
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）一年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）一年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 34,
+      "fileSizeBytes": 8708
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）七年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）七年级上册.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 97762
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）七年级上册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（五线谱）七年级上册（主编_吴斌）.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 2278
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）七年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）七年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9707
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）七年级下册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（五线谱）七年级下册（主编_吴斌）.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 8056
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）三年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）三年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 60653
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）三年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）三年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 87522
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）九年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）九年级上册.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 85453
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）九年级上册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（五线谱）九年级上册（主编_吴斌）.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 30063
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）九年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）九年级下册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 22816
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）九年级下册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（五线谱）九年级下册（主编_吴斌）.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 8839
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）二年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）二年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 34,
+      "fileSizeBytes": 2145
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）二年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）二年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 85133
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）五年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）五年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 61158
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）五年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）五年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 88961
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）八年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）八年级上册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 88756
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）八年级上册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（五线谱）八年级上册（主编_吴斌）.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 2478
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）八年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）八年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18408
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）八年级下册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（五线谱）八年级下册（主编_吴斌）.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9032
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）六年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）六年级上册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 64105
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）六年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）六年级下册.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 93184
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）四年级上册",
+      "fileName": "义务教育教科书·音乐（五线谱）四年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 62606
+    },
+    {
+      "bookName": "义务教育教科书·音乐（五线谱）四年级下册",
+      "fileName": "义务教育教科书·音乐（五线谱）四年级下册.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 93265
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）一年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）一年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 49617
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）一年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）一年级下册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 59729
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）七年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）七年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 59018
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）七年级上册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（简谱）七年级上册（主编_吴斌）.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 31290
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）七年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）七年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9247
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）七年级下册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（简谱）七年级下册（主编_吴斌）.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 6538
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）三年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）三年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 54581
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）三年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）三年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 64143
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）九年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）九年级上册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 65360
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）九年级上册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（简谱）九年级上册（主编_吴斌）.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 39244
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）九年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）九年级下册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 26728
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）九年级下册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（简谱）九年级下册（主编_吴斌）.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9909
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）二年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）二年级上册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 34224
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）二年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）二年级下册.csv",
+      "recordCount": 11,
+      "columnCount": 35,
+      "fileSizeBytes": 57662
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）五年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）五年级上册.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 69301
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）五年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）五年级下册.csv",
+      "recordCount": 14,
+      "columnCount": 35,
+      "fileSizeBytes": 73285
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）八年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）八年级上册.csv",
+      "recordCount": 15,
+      "columnCount": 35,
+      "fileSizeBytes": 75514
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）八年级上册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（简谱）八年级上册（主编_吴斌）.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 2263
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）八年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）八年级下册.csv",
+      "recordCount": 52,
+      "columnCount": 27,
+      "fileSizeBytes": 89331
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）八年级下册（主编_吴斌）",
+      "fileName": "义务教育教科书·音乐（简谱）八年级下册（主编_吴斌）.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9099
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）六年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）六年级上册.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 71630
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）六年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）六年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 63218
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）四年级上册",
+      "fileName": "义务教育教科书·音乐（简谱）四年级上册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 73754
+    },
+    {
+      "bookName": "义务教育教科书·音乐（简谱）四年级下册",
+      "fileName": "义务教育教科书·音乐（简谱）四年级下册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 68942
+    },
+    {
+      "bookName": "人教版-人民教育出版社_七年级_义务教育教科书·体育与健康七年级全一册",
+      "fileName": "人教版-人民教育出版社_七年级_义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 48,
+      "columnCount": 27,
+      "fileSizeBytes": 130937
+    },
+    {
+      "bookName": "人教版-人民教育出版社_七年级_义务教育教科书·俄语七年级全一册",
+      "fileName": "人教版-人民教育出版社_七年级_义务教育教科书·俄语七年级全一册.csv",
+      "recordCount": 301,
+      "columnCount": 27,
+      "fileSizeBytes": 583708
+    },
+    {
+      "bookName": "人教版-人民教育出版社_七年级_义务教育教科书·地理七年级上册",
+      "fileName": "人教版-人民教育出版社_七年级_义务教育教科书·地理七年级上册.csv",
+      "recordCount": 63,
+      "columnCount": 27,
+      "fileSizeBytes": 163178
+    },
+    {
+      "bookName": "人教版-人民教育出版社_九年级_义务教育教科书·体育与健康九年级全一册",
+      "fileName": "人教版-人民教育出版社_九年级_义务教育教科书·体育与健康九年级全一册.csv",
+      "recordCount": 31,
+      "columnCount": 27,
+      "fileSizeBytes": 84491
+    },
+    {
+      "bookName": "人教版-人民教育出版社_九年级_义务教育教科书·俄语九年级全一册",
+      "fileName": "人教版-人民教育出版社_九年级_义务教育教科书·俄语九年级全一册.csv",
+      "recordCount": 529,
+      "columnCount": 27,
+      "fileSizeBytes": 1082731
+    },
+    {
+      "bookName": "人教版-人民教育出版社_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "人教版-人民教育出版社_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 144,
+      "columnCount": 27,
+      "fileSizeBytes": 310394
+    },
+    {
+      "bookName": "人教版-人民教育出版社_八年级_义务教育教科书·体育与健康八年级全一册",
+      "fileName": "人教版-人民教育出版社_八年级_义务教育教科书·体育与健康八年级全一册.csv",
+      "recordCount": 39,
+      "columnCount": 27,
+      "fileSizeBytes": 101798
+    },
+    {
+      "bookName": "人教版-人民教育出版社_八年级_义务教育教科书·俄语八年级全一册",
+      "fileName": "人教版-人民教育出版社_八年级_义务教育教科书·俄语八年级全一册.csv",
+      "recordCount": 474,
+      "columnCount": 27,
+      "fileSizeBytes": 933424
+    },
+    {
+      "bookName": "人教版-人民教育出版社_八年级_义务教育教科书·地理八年级上册",
+      "fileName": "人教版-人民教育出版社_八年级_义务教育教科书·地理八年级上册.csv",
+      "recordCount": 72,
+      "columnCount": 27,
+      "fileSizeBytes": 174756
+    },
+    {
+      "bookName": "人教版_七年级_义务教育教科书·地理七年级下册",
+      "fileName": "人教版_七年级_义务教育教科书·地理七年级下册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 56737
+    },
+    {
+      "bookName": "人教版_七年级_义务教育教科书·数学七年级下册",
+      "fileName": "人教版_七年级_义务教育教科书·数学七年级下册.csv",
+      "recordCount": 66,
+      "columnCount": 35,
+      "fileSizeBytes": 278980
+    },
+    {
+      "bookName": "人教版_七年级_义务教育教科书·生物学七年级下册",
+      "fileName": "人教版_七年级_义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 86,
+      "columnCount": 35,
+      "fileSizeBytes": 376966
+    },
+    {
+      "bookName": "人教版_七年级_义务教育教科书·美术七年级下册",
+      "fileName": "人教版_七年级_义务教育教科书·美术七年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5111
+    },
+    {
+      "bookName": "人教版_七年级_义务教育教科书·英语七年级下册",
+      "fileName": "人教版_七年级_义务教育教科书·英语七年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9099
+    },
+    {
+      "bookName": "人教版_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "人教版_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 72,
+      "columnCount": 35,
+      "fileSizeBytes": 311611
+    },
+    {
+      "bookName": "人教版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "人教版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 30,
+      "columnCount": 35,
+      "fileSizeBytes": 128134
+    },
+    {
+      "bookName": "人教版_九年级_义务教育教科书·美术九年级下册",
+      "fileName": "人教版_九年级_义务教育教科书·美术九年级下册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 22454
+    },
+    {
+      "bookName": "人教版_八年级_义务教育教科书·地理八年级下册",
+      "fileName": "人教版_八年级_义务教育教科书·地理八年级下册.csv",
+      "recordCount": 16,
+      "columnCount": 35,
+      "fileSizeBytes": 69476
+    },
+    {
+      "bookName": "人教版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "人教版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 59,
+      "columnCount": 35,
+      "fileSizeBytes": 246205
+    },
+    {
+      "bookName": "人教版_八年级_义务教育教科书·物理八年级下册",
+      "fileName": "人教版_八年级_义务教育教科书·物理八年级下册.csv",
+      "recordCount": 64,
+      "columnCount": 35,
+      "fileSizeBytes": 270791
+    },
+    {
+      "bookName": "人教版_八年级_义务教育教科书·生物学八年级下册",
+      "fileName": "人教版_八年级_义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 82,
+      "columnCount": 35,
+      "fileSizeBytes": 357573
+    },
+    {
+      "bookName": "人教版_八年级_义务教育教科书·美术八年级下册",
+      "fileName": "人教版_八年级_义务教育教科书·美术八年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18115
+    },
+    {
+      "bookName": "人教版_八年级_义务教育教科书·英语八年级下册",
+      "fileName": "人教版_八年级_义务教育教科书·英语八年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 12141
+    },
+    {
+      "bookName": "人教版（五线谱）_七年级_义务教育教科书·音乐（五线谱）七年级下册",
+      "fileName": "人教版（五线谱）_七年级_义务教育教科书·音乐（五线谱）七年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9921
+    },
+    {
+      "bookName": "人教版（五线谱）_九年级_义务教育教科书·音乐（五线谱）九年级下册",
+      "fileName": "人教版（五线谱）_九年级_义务教育教科书·音乐（五线谱）九年级下册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 23351
+    },
+    {
+      "bookName": "人教版（五线谱）_八年级_义务教育教科书·音乐（五线谱）八年级下册",
+      "fileName": "人教版（五线谱）_八年级_义务教育教科书·音乐（五线谱）八年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18836
+    },
+    {
+      "bookName": "人教版（简谱）_七年级_义务教育教科书·音乐（简谱）七年级下册",
+      "fileName": "人教版（简谱）_七年级_义务教育教科书·音乐（简谱）七年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9443
+    },
+    {
+      "bookName": "人教版（简谱）_九年级_义务教育教科书·音乐（简谱）九年级下册",
+      "fileName": "人教版（简谱）_九年级_义务教育教科书·音乐（简谱）九年级下册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 27316
+    },
+    {
+      "bookName": "冀少版_七年级_义务教育教科书·生物学七年级上册",
+      "fileName": "冀少版_七年级_义务教育教科书·生物学七年级上册.csv",
+      "recordCount": 63,
+      "columnCount": 35,
+      "fileSizeBytes": 276632
+    },
+    {
+      "bookName": "冀少版_七年级_义务教育教科书·生物学七年级下册",
+      "fileName": "冀少版_七年级_义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 108,
+      "columnCount": 35,
+      "fileSizeBytes": 475246
+    },
+    {
+      "bookName": "冀少版_八年级_义务教育教科书·生物学八年级上册",
+      "fileName": "冀少版_八年级_义务教育教科书·生物学八年级上册.csv",
+      "recordCount": 81,
+      "columnCount": 35,
+      "fileSizeBytes": 355758
+    },
+    {
+      "bookName": "冀少版_八年级_义务教育教科书·生物学八年级下册",
+      "fileName": "冀少版_八年级_义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 80,
+      "columnCount": 35,
+      "fileSizeBytes": 352462
+    },
+    {
+      "bookName": "冀教版-河北教育出版社_七年级_义务教育教科书·体育与健康七年级全一册",
+      "fileName": "冀教版-河北教育出版社_七年级_义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 63,
+      "columnCount": 27,
+      "fileSizeBytes": 145385
+    },
+    {
+      "bookName": "冀教版-河北教育出版社_九年级_义务教育教科书·体育与健康九年级全一册",
+      "fileName": "冀教版-河北教育出版社_九年级_义务教育教科书·体育与健康九年级全一册.csv",
+      "recordCount": 56,
+      "columnCount": 27,
+      "fileSizeBytes": 138019
+    },
+    {
+      "bookName": "冀教版-河北教育出版社_八年级_义务教育教科书·体育与健康八年级全一册",
+      "fileName": "冀教版-河北教育出版社_八年级_义务教育教科书·体育与健康八年级全一册.csv",
+      "recordCount": 52,
+      "columnCount": 27,
+      "fileSizeBytes": 134406
+    },
+    {
+      "bookName": "冀教版_七年级_义务教育教科书·体育与健康七年级全一册",
+      "fileName": "冀教版_七年级_义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 73,
+      "columnCount": 35,
+      "fileSizeBytes": 322889
+    },
+    {
+      "bookName": "冀教版_七年级_义务教育教科书·数学七年级上册",
+      "fileName": "冀教版_七年级_义务教育教科书·数学七年级上册.csv",
+      "recordCount": 75,
+      "columnCount": 35,
+      "fileSizeBytes": 311571
+    },
+    {
+      "bookName": "冀教版_七年级_义务教育教科书·数学七年级下册",
+      "fileName": "冀教版_七年级_义务教育教科书·数学七年级下册.csv",
+      "recordCount": 38,
+      "columnCount": 35,
+      "fileSizeBytes": 157579
+    },
+    {
+      "bookName": "冀教版_九年级_义务教育教科书·体育与健康九年级全一册",
+      "fileName": "冀教版_九年级_义务教育教科书·体育与健康九年级全一册.csv",
+      "recordCount": 68,
+      "columnCount": 35,
+      "fileSizeBytes": 304707
+    },
+    {
+      "bookName": "冀教版_九年级_义务教育教科书·数学九年级上册",
+      "fileName": "冀教版_九年级_义务教育教科书·数学九年级上册.csv",
+      "recordCount": 39,
+      "columnCount": 35,
+      "fileSizeBytes": 162830
+    },
+    {
+      "bookName": "冀教版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "冀教版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 42,
+      "columnCount": 35,
+      "fileSizeBytes": 174977
+    },
+    {
+      "bookName": "冀教版_八年级_义务教育教科书·体育与健康八年级全一册",
+      "fileName": "冀教版_八年级_义务教育教科书·体育与健康八年级全一册.csv",
+      "recordCount": 65,
+      "columnCount": 35,
+      "fileSizeBytes": 290695
+    },
+    {
+      "bookName": "冀教版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "冀教版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 40,
+      "columnCount": 35,
+      "fileSizeBytes": 169620
+    },
+    {
+      "bookName": "冀教版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "冀教版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 61,
+      "columnCount": 35,
+      "fileSizeBytes": 253642
+    },
+    {
+      "bookName": "北京版-北京出版社_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "北京版-北京出版社_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 152,
+      "columnCount": 27,
+      "fileSizeBytes": 329172
+    },
+    {
+      "bookName": "北京版-北京出版社_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "北京版-北京出版社_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 119,
+      "columnCount": 27,
+      "fileSizeBytes": 245856
+    },
+    {
+      "bookName": "北京版_七年级_义务教育教科书·生物学七年级上册",
+      "fileName": "北京版_七年级_义务教育教科书·生物学七年级上册.csv",
+      "recordCount": 72,
+      "columnCount": 35,
+      "fileSizeBytes": 315659
+    },
+    {
+      "bookName": "北京版_七年级_义务教育教科书·生物学七年级下册",
+      "fileName": "北京版_七年级_义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 85,
+      "columnCount": 35,
+      "fileSizeBytes": 374125
+    },
+    {
+      "bookName": "北京版_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "北京版_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 127,
+      "columnCount": 35,
+      "fileSizeBytes": 548583
+    },
+    {
+      "bookName": "北京版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "北京版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 41,
+      "columnCount": 35,
+      "fileSizeBytes": 170573
+    },
+    {
+      "bookName": "北京版_八年级_义务教育教科书·生物学八年级上册",
+      "fileName": "北京版_八年级_义务教育教科书·生物学八年级上册.csv",
+      "recordCount": 87,
+      "columnCount": 35,
+      "fileSizeBytes": 380644
+    },
+    {
+      "bookName": "北京版_八年级_义务教育教科书·生物学八年级下册",
+      "fileName": "北京版_八年级_义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 110,
+      "columnCount": 35,
+      "fileSizeBytes": 487155
+    },
+    {
+      "bookName": "北师大版_七年级_义务教育教科书·生物学七年级上册",
+      "fileName": "北师大版_七年级_义务教育教科书·生物学七年级上册.csv",
+      "recordCount": 105,
+      "columnCount": 35,
+      "fileSizeBytes": 468009
+    },
+    {
+      "bookName": "北师大版_七年级_义务教育教科书·生物学七年级下册",
+      "fileName": "北师大版_七年级_义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 117,
+      "columnCount": 35,
+      "fileSizeBytes": 521707
+    },
+    {
+      "bookName": "北师大版_八年级_义务教育教科书·生物学八年级上册",
+      "fileName": "北师大版_八年级_义务教育教科书·生物学八年级上册.csv",
+      "recordCount": 86,
+      "columnCount": 35,
+      "fileSizeBytes": 380245
+    },
+    {
+      "bookName": "北师大版_八年级_义务教育教科书·生物学八年级下册",
+      "fileName": "北师大版_八年级_义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 113,
+      "columnCount": 35,
+      "fileSizeBytes": 499810
+    },
+    {
+      "bookName": "北师大版（主编_郭玉英）_九年级_义务教育教科书·物理九年级全一册",
+      "fileName": "北师大版（主编_郭玉英）_九年级_义务教育教科书·物理九年级全一册.csv",
+      "recordCount": 48,
+      "columnCount": 35,
+      "fileSizeBytes": 210622
+    },
+    {
+      "bookName": "北师大版（主编_郭玉英）_八年级_义务教育教科书·物理八年级全一册",
+      "fileName": "北师大版（主编_郭玉英）_八年级_义务教育教科书·物理八年级全一册.csv",
+      "recordCount": 73,
+      "columnCount": 35,
+      "fileSizeBytes": 323500
+    },
+    {
+      "bookName": "北师大版（主编_闫金铎）_九年级_义务教育教科书·物理九年级全一册",
+      "fileName": "北师大版（主编_闫金铎）_九年级_义务教育教科书·物理九年级全一册.csv",
+      "recordCount": 151,
+      "columnCount": 35,
+      "fileSizeBytes": 677820
+    },
+    {
+      "bookName": "北师大版（主编_闫金铎）_八年级_义务教育教科书·物理八年级上册",
+      "fileName": "北师大版（主编_闫金铎）_八年级_义务教育教科书·物理八年级上册.csv",
+      "recordCount": 41,
+      "columnCount": 35,
+      "fileSizeBytes": 181849
+    },
+    {
+      "bookName": "北师大版（主编_闫金铎）_八年级_义务教育教科书·物理八年级下册",
+      "fileName": "北师大版（主编_闫金铎）_八年级_义务教育教科书·物理八年级下册.csv",
+      "recordCount": 60,
+      "columnCount": 35,
+      "fileSizeBytes": 264619
+    },
+    {
+      "bookName": "华东师大版-华东师范大学出版社_七年级_义务教育教科书·体育与健康七年级全一册",
+      "fileName": "华东师大版-华东师范大学出版社_七年级_义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 58,
+      "columnCount": 27,
+      "fileSizeBytes": 146318
+    },
+    {
+      "bookName": "华东师大版-华东师范大学出版社_九年级_义务教育教科书·体育与健康九年级全一册",
+      "fileName": "华东师大版-华东师范大学出版社_九年级_义务教育教科书·体育与健康九年级全一册.csv",
+      "recordCount": 52,
+      "columnCount": 27,
+      "fileSizeBytes": 137583
+    },
+    {
+      "bookName": "华东师大版-华东师范大学出版社_八年级_义务教育教科书·体育与健康八年级全一册",
+      "fileName": "华东师大版-华东师范大学出版社_八年级_义务教育教科书·体育与健康八年级全一册.csv",
+      "recordCount": 52,
+      "columnCount": 27,
+      "fileSizeBytes": 141879
+    },
+    {
+      "bookName": "华东师大版_七年级_义务教育教科书·体育与健康七年级全一册",
+      "fileName": "华东师大版_七年级_义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 35,
+      "columnCount": 35,
+      "fileSizeBytes": 156111
+    },
+    {
+      "bookName": "华东师大版_七年级_义务教育教科书·数学七年级上册",
+      "fileName": "华东师大版_七年级_义务教育教科书·数学七年级上册.csv",
+      "recordCount": 53,
+      "columnCount": 35,
+      "fileSizeBytes": 216491
+    },
+    {
+      "bookName": "华东师大版_七年级_义务教育教科书·数学七年级下册",
+      "fileName": "华东师大版_七年级_义务教育教科书·数学七年级下册.csv",
+      "recordCount": 33,
+      "columnCount": 35,
+      "fileSizeBytes": 135946
+    },
+    {
+      "bookName": "华东师大版_七年级_义务教育教科书·科学七年级上册",
+      "fileName": "华东师大版_七年级_义务教育教科书·科学七年级上册.csv",
+      "recordCount": 54,
+      "columnCount": 35,
+      "fileSizeBytes": 233437
+    },
+    {
+      "bookName": "华东师大版_七年级_义务教育教科书·科学七年级下册",
+      "fileName": "华东师大版_七年级_义务教育教科书·科学七年级下册.csv",
+      "recordCount": 47,
+      "columnCount": 35,
+      "fileSizeBytes": 203872
+    },
+    {
+      "bookName": "华东师大版_九年级_义务教育教科书·体育与健康九年级全一册",
+      "fileName": "华东师大版_九年级_义务教育教科书·体育与健康九年级全一册.csv",
+      "recordCount": 42,
+      "columnCount": 35,
+      "fileSizeBytes": 188007
+    },
+    {
+      "bookName": "华东师大版_九年级_义务教育教科书·数学九年级上册",
+      "fileName": "华东师大版_九年级_义务教育教科书·数学九年级上册.csv",
+      "recordCount": 43,
+      "columnCount": 35,
+      "fileSizeBytes": 179163
+    },
+    {
+      "bookName": "华东师大版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "华东师大版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 29,
+      "columnCount": 35,
+      "fileSizeBytes": 122291
+    },
+    {
+      "bookName": "华东师大版_九年级_义务教育教科书·科学九年级上册",
+      "fileName": "华东师大版_九年级_义务教育教科书·科学九年级上册.csv",
+      "recordCount": 37,
+      "columnCount": 35,
+      "fileSizeBytes": 161638
+    },
+    {
+      "bookName": "华东师大版_九年级_义务教育教科书·科学九年级下册",
+      "fileName": "华东师大版_九年级_义务教育教科书·科学九年级下册.csv",
+      "recordCount": 88,
+      "columnCount": 35,
+      "fileSizeBytes": 384830
+    },
+    {
+      "bookName": "华东师大版_八年级_义务教育教科书·体育与健康八年级全一册",
+      "fileName": "华东师大版_八年级_义务教育教科书·体育与健康八年级全一册.csv",
+      "recordCount": 49,
+      "columnCount": 35,
+      "fileSizeBytes": 219558
+    },
+    {
+      "bookName": "华东师大版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "华东师大版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 30,
+      "columnCount": 35,
+      "fileSizeBytes": 128597
+    },
+    {
+      "bookName": "华东师大版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "华东师大版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 37,
+      "columnCount": 35,
+      "fileSizeBytes": 153282
+    },
+    {
+      "bookName": "华东师大版_八年级_义务教育教科书·科学八年级上册",
+      "fileName": "华东师大版_八年级_义务教育教科书·科学八年级上册.csv",
+      "recordCount": 64,
+      "columnCount": 35,
+      "fileSizeBytes": 274091
+    },
+    {
+      "bookName": "华东师大版_八年级_义务教育教科书·科学八年级下册",
+      "fileName": "华东师大版_八年级_义务教育教科书·科学八年级下册.csv",
+      "recordCount": 58,
+      "columnCount": 35,
+      "fileSizeBytes": 251190
+    },
+    {
+      "bookName": "商务星图版_七年级_义务教育教科书·地理七年级上册",
+      "fileName": "商务星图版_七年级_义务教育教科书·地理七年级上册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 26452
+    },
+    {
+      "bookName": "商务星图版_七年级_义务教育教科书·地理七年级下册",
+      "fileName": "商务星图版_七年级_义务教育教科书·地理七年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 17393
+    },
+    {
+      "bookName": "商务星图版_八年级_义务教育教科书·地理八年级上册",
+      "fileName": "商务星图版_八年级_义务教育教科书·地理八年级上册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 19867
+    },
+    {
+      "bookName": "商务星图版_八年级_义务教育教科书·地理八年级下册",
+      "fileName": "商务星图版_八年级_义务教育教科书·地理八年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5210
+    },
+    {
+      "bookName": "地质社版_七年级_义务教育教科书·体育与健康七年级全一册",
+      "fileName": "地质社版_七年级_义务教育教科书·体育与健康七年级全一册.csv",
+      "recordCount": 25,
+      "columnCount": 35,
+      "fileSizeBytes": 112414
+    },
+    {
+      "bookName": "教科版_九年级_义务教育教科书·物理九年级上册",
+      "fileName": "教科版_九年级_义务教育教科书·物理九年级上册.csv",
+      "recordCount": 64,
+      "columnCount": 35,
+      "fileSizeBytes": 271942
+    },
+    {
+      "bookName": "教科版_九年级_义务教育教科书·物理九年级下册",
+      "fileName": "教科版_九年级_义务教育教科书·物理九年级下册.csv",
+      "recordCount": 61,
+      "columnCount": 35,
+      "fileSizeBytes": 267296
+    },
+    {
+      "bookName": "教科版_九年级_义务教育教科书·艺术九年级下册",
+      "fileName": "教科版_九年级_义务教育教科书·艺术九年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9355
+    },
+    {
+      "bookName": "教科版_八年级_义务教育教科书·物理八年级上册",
+      "fileName": "教科版_八年级_义务教育教科书·物理八年级上册.csv",
+      "recordCount": 57,
+      "columnCount": 35,
+      "fileSizeBytes": 243624
+    },
+    {
+      "bookName": "教科版_八年级_义务教育教科书·物理八年级下册",
+      "fileName": "教科版_八年级_义务教育教科书·物理八年级下册.csv",
+      "recordCount": 47,
+      "columnCount": 35,
+      "fileSizeBytes": 199986
+    },
+    {
+      "bookName": "教科版_八年级_义务教育教科书·艺术八年级上册",
+      "fileName": "教科版_八年级_义务教育教科书·艺术八年级上册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9624
+    },
+    {
+      "bookName": "教科版_八年级_义务教育教科书·艺术八年级下册",
+      "fileName": "教科版_八年级_义务教育教科书·艺术八年级下册.csv",
+      "recordCount": 7,
+      "columnCount": 35,
+      "fileSizeBytes": 29891
+    },
+    {
+      "bookName": "晋教版_七年级_义务教育教科书·地理七年级上册",
+      "fileName": "晋教版_七年级_义务教育教科书·地理七年级上册.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 78232
+    },
+    {
+      "bookName": "晋教版_七年级_义务教育教科书·地理七年级下册",
+      "fileName": "晋教版_七年级_义务教育教科书·地理七年级下册.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 91029
+    },
+    {
+      "bookName": "晋教版_八年级_义务教育教科书·地理八年级上册",
+      "fileName": "晋教版_八年级_义务教育教科书·地理八年级上册.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 91126
+    },
+    {
+      "bookName": "晋教版_八年级_义务教育教科书·地理八年级下册",
+      "fileName": "晋教版_八年级_义务教育教科书·地理八年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 17833
+    },
+    {
+      "bookName": "桂美版_七年级_义务教育教科书·美术七年级上册",
+      "fileName": "桂美版_七年级_义务教育教科书·美术七年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5207
+    },
+    {
+      "bookName": "桂美版_七年级_义务教育教科书·美术七年级下册",
+      "fileName": "桂美版_七年级_义务教育教科书·美术七年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 12296
+    },
+    {
+      "bookName": "桂美版_九年级_义务教育教科书·美术九年级上册",
+      "fileName": "桂美版_九年级_义务教育教科书·美术九年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5126
+    },
+    {
+      "bookName": "桂美版_九年级_义务教育教科书·美术九年级下册",
+      "fileName": "桂美版_九年级_义务教育教科书·美术九年级下册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 22830
+    },
+    {
+      "bookName": "桂美版_八年级_义务教育教科书·美术八年级上册",
+      "fileName": "桂美版_八年级_义务教育教科书·美术八年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5136
+    },
+    {
+      "bookName": "桂美版_八年级_义务教育教科书·美术八年级下册",
+      "fileName": "桂美版_八年级_义务教育教科书·美术八年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13846
+    },
+    {
+      "bookName": "武汉版_七年级_义务教育教科书·科学七年级上册",
+      "fileName": "武汉版_七年级_义务教育教科书·科学七年级上册.csv",
+      "recordCount": 128,
+      "columnCount": 35,
+      "fileSizeBytes": 555384
+    },
+    {
+      "bookName": "武汉版_七年级_义务教育教科书·科学七年级下册",
+      "fileName": "武汉版_七年级_义务教育教科书·科学七年级下册.csv",
+      "recordCount": 154,
+      "columnCount": 35,
+      "fileSizeBytes": 667802
+    },
+    {
+      "bookName": "武汉版_九年级_义务教育教科书·科学九年级上册",
+      "fileName": "武汉版_九年级_义务教育教科书·科学九年级上册.csv",
+      "recordCount": 147,
+      "columnCount": 35,
+      "fileSizeBytes": 639489
+    },
+    {
+      "bookName": "武汉版_九年级_义务教育教科书·科学九年级下册",
+      "fileName": "武汉版_九年级_义务教育教科书·科学九年级下册.csv",
+      "recordCount": 144,
+      "columnCount": 35,
+      "fileSizeBytes": 626523
+    },
+    {
+      "bookName": "武汉版_八年级_义务教育教科书·科学八年级上册",
+      "fileName": "武汉版_八年级_义务教育教科书·科学八年级上册.csv",
+      "recordCount": 102,
+      "columnCount": 35,
+      "fileSizeBytes": 437921
+    },
+    {
+      "bookName": "武汉版_八年级_义务教育教科书·科学八年级下册",
+      "fileName": "武汉版_八年级_义务教育教科书·科学八年级下册.csv",
+      "recordCount": 150,
+      "columnCount": 35,
+      "fileSizeBytes": 648474
+    },
+    {
+      "bookName": "沪外教版_七年级_义务教育教科书·英语七年级上册",
+      "fileName": "沪外教版_七年级_义务教育教科书·英语七年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4846
+    },
+    {
+      "bookName": "沪外教版_七年级_义务教育教科书·英语七年级下册",
+      "fileName": "沪外教版_七年级_义务教育教科书·英语七年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5154
+    },
+    {
+      "bookName": "沪外教版_九年级_义务教育教科书·英语九年级上册",
+      "fileName": "沪外教版_九年级_义务教育教科书·英语九年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4744
+    },
+    {
+      "bookName": "沪外教版_九年级_义务教育教科书·英语九年级下册",
+      "fileName": "沪外教版_九年级_义务教育教科书·英语九年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5074
+    },
+    {
+      "bookName": "沪外教版_八年级_义务教育教科书·英语八年级上册",
+      "fileName": "沪外教版_八年级_义务教育教科书·英语八年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4879
+    },
+    {
+      "bookName": "沪外教版_八年级_义务教育教科书·英语八年级下册",
+      "fileName": "沪外教版_八年级_义务教育教科书·英语八年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4819
+    },
+    {
+      "bookName": "沪教版-上海教育出版社_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "沪教版-上海教育出版社_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 122,
+      "columnCount": 27,
+      "fileSizeBytes": 281610
+    },
+    {
+      "bookName": "沪教版-上海教育出版社_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "沪教版-上海教育出版社_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 115,
+      "columnCount": 27,
+      "fileSizeBytes": 262676
+    },
+    {
+      "bookName": "沪教版_七年级_义务教育教科书·英语七年级上册",
+      "fileName": "沪教版_七年级_义务教育教科书·英语七年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 12655
+    },
+    {
+      "bookName": "沪教版_七年级_义务教育教科书·英语七年级下册",
+      "fileName": "沪教版_七年级_义务教育教科书·英语七年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4860
+    },
+    {
+      "bookName": "沪教版_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "沪教版_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 109,
+      "columnCount": 35,
+      "fileSizeBytes": 468892
+    },
+    {
+      "bookName": "沪教版_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "沪教版_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 94,
+      "columnCount": 35,
+      "fileSizeBytes": 404453
+    },
+    {
+      "bookName": "沪教版_九年级_义务教育教科书·科学九年级上册",
+      "fileName": "沪教版_九年级_义务教育教科书·科学九年级上册.csv",
+      "recordCount": 238,
+      "columnCount": 35,
+      "fileSizeBytes": 1036249
+    },
+    {
+      "bookName": "沪教版_九年级_义务教育教科书·科学九年级下册",
+      "fileName": "沪教版_九年级_义务教育教科书·科学九年级下册.csv",
+      "recordCount": 259,
+      "columnCount": 35,
+      "fileSizeBytes": 1135558
+    },
+    {
+      "bookName": "沪教版_九年级_义务教育教科书·英语九年级上册",
+      "fileName": "沪教版_九年级_义务教育教科书·英语九年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 12891
+    },
+    {
+      "bookName": "沪教版_九年级_义务教育教科书·英语九年级下册",
+      "fileName": "沪教版_九年级_义务教育教科书·英语九年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 17209
+    },
+    {
+      "bookName": "沪教版_八年级_义务教育教科书·科学八年级上册",
+      "fileName": "沪教版_八年级_义务教育教科书·科学八年级上册.csv",
+      "recordCount": 246,
+      "columnCount": 35,
+      "fileSizeBytes": 1070242
+    },
+    {
+      "bookName": "沪教版_八年级_义务教育教科书·科学八年级下册",
+      "fileName": "沪教版_八年级_义务教育教科书·科学八年级下册.csv",
+      "recordCount": 157,
+      "columnCount": 35,
+      "fileSizeBytes": 678864
+    },
+    {
+      "bookName": "沪教版_八年级_义务教育教科书·美术八年级下册",
+      "fileName": "沪教版_八年级_义务教育教科书·美术八年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5106
+    },
+    {
+      "bookName": "沪教版_八年级_义务教育教科书·英语八年级上册",
+      "fileName": "沪教版_八年级_义务教育教科书·英语八年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13539
+    },
+    {
+      "bookName": "沪教版_八年级_义务教育教科书·英语八年级下册",
+      "fileName": "沪教版_八年级_义务教育教科书·英语八年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13426
+    },
+    {
+      "bookName": "沪科技版_七年级_义务教育教科书·数学七年级上册",
+      "fileName": "沪科技版_七年级_义务教育教科书·数学七年级上册.csv",
+      "recordCount": 57,
+      "columnCount": 35,
+      "fileSizeBytes": 232642
+    },
+    {
+      "bookName": "沪科技版_七年级_义务教育教科书·数学七年级下册",
+      "fileName": "沪科技版_七年级_义务教育教科书·数学七年级下册.csv",
+      "recordCount": 18,
+      "columnCount": 35,
+      "fileSizeBytes": 75023
+    },
+    {
+      "bookName": "沪科技版_九年级_义务教育教科书·数学九年级上册",
+      "fileName": "沪科技版_九年级_义务教育教科书·数学九年级上册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 31245
+    },
+    {
+      "bookName": "沪科技版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "沪科技版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 32,
+      "columnCount": 35,
+      "fileSizeBytes": 133739
+    },
+    {
+      "bookName": "沪科技版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "沪科技版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 19,
+      "columnCount": 35,
+      "fileSizeBytes": 78940
+    },
+    {
+      "bookName": "沪科技版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "沪科技版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 28,
+      "columnCount": 35,
+      "fileSizeBytes": 113568
+    },
+    {
+      "bookName": "沪科技版_八年级_义务教育教科书·物理八年级全一册",
+      "fileName": "沪科技版_八年级_义务教育教科书·物理八年级全一册.csv",
+      "recordCount": 148,
+      "columnCount": 35,
+      "fileSizeBytes": 641299
+    },
+    {
+      "bookName": "沪科技粤教版_九年级_义务教育教科书·物理九年级上册",
+      "fileName": "沪科技粤教版_九年级_义务教育教科书·物理九年级上册.csv",
+      "recordCount": 44,
+      "columnCount": 35,
+      "fileSizeBytes": 190503
+    },
+    {
+      "bookName": "沪科技粤教版_九年级_义务教育教科书·物理九年级下册",
+      "fileName": "沪科技粤教版_九年级_义务教育教科书·物理九年级下册.csv",
+      "recordCount": 31,
+      "columnCount": 35,
+      "fileSizeBytes": 133029
+    },
+    {
+      "bookName": "沪科技粤教版_八年级_义务教育教科书·物理八年级上册",
+      "fileName": "沪科技粤教版_八年级_义务教育教科书·物理八年级上册.csv",
+      "recordCount": 54,
+      "columnCount": 35,
+      "fileSizeBytes": 232432
+    },
+    {
+      "bookName": "沪科技粤教版_八年级_义务教育教科书·物理八年级下册",
+      "fileName": "沪科技粤教版_八年级_义务教育教科书·物理八年级下册.csv",
+      "recordCount": 43,
+      "columnCount": 35,
+      "fileSizeBytes": 186087
+    },
+    {
+      "bookName": "济南版_七年级_义务教育教科书·生物学七年级上册",
+      "fileName": "济南版_七年级_义务教育教科书·生物学七年级上册.csv",
+      "recordCount": 66,
+      "columnCount": 35,
+      "fileSizeBytes": 287992
+    },
+    {
+      "bookName": "济南版_七年级_义务教育教科书·生物学七年级下册",
+      "fileName": "济南版_七年级_义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 90,
+      "columnCount": 35,
+      "fileSizeBytes": 397041
+    },
+    {
+      "bookName": "济南版_八年级_义务教育教科书·生物学八年级上册",
+      "fileName": "济南版_八年级_义务教育教科书·生物学八年级上册.csv",
+      "recordCount": 71,
+      "columnCount": 35,
+      "fileSizeBytes": 308973
+    },
+    {
+      "bookName": "济南版_八年级_义务教育教科书·生物学八年级下册",
+      "fileName": "济南版_八年级_义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 82,
+      "columnCount": 35,
+      "fileSizeBytes": 358666
+    },
+    {
+      "bookName": "浙人美版_八年级_义务教育教科书·美术八年级上册",
+      "fileName": "浙人美版_八年级_义务教育教科书·美术八年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4962
+    },
+    {
+      "bookName": "浙教版_七年级_义务教育教科书·数学七年级上册",
+      "fileName": "浙教版_七年级_义务教育教科书·数学七年级上册.csv",
+      "recordCount": 48,
+      "columnCount": 35,
+      "fileSizeBytes": 194225
+    },
+    {
+      "bookName": "浙教版_七年级_义务教育教科书·科学七年级下册",
+      "fileName": "浙教版_七年级_义务教育教科书·科学七年级下册.csv",
+      "recordCount": 89,
+      "columnCount": 35,
+      "fileSizeBytes": 381084
+    },
+    {
+      "bookName": "浙教版_九年级_义务教育教科书·数学九年级上册",
+      "fileName": "浙教版_九年级_义务教育教科书·数学九年级上册.csv",
+      "recordCount": 45,
+      "columnCount": 35,
+      "fileSizeBytes": 186371
+    },
+    {
+      "bookName": "浙教版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "浙教版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 87431
+    },
+    {
+      "bookName": "浙教版_九年级_义务教育教科书·科学九年级下册",
+      "fileName": "浙教版_九年级_义务教育教科书·科学九年级下册.csv",
+      "recordCount": 100,
+      "columnCount": 35,
+      "fileSizeBytes": 431995
+    },
+    {
+      "bookName": "浙教版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "浙教版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 27,
+      "columnCount": 35,
+      "fileSizeBytes": 112843
+    },
+    {
+      "bookName": "浙教版_八年级_义务教育教科书·科学八年级下册",
+      "fileName": "浙教版_八年级_义务教育教科书·科学八年级下册.csv",
+      "recordCount": 107,
+      "columnCount": 35,
+      "fileSizeBytes": 459970
+    },
+    {
+      "bookName": "湘教版_七年级_义务教育教科书·地理七年级下册",
+      "fileName": "湘教版_七年级_义务教育教科书·地理七年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 74063
+    },
+    {
+      "bookName": "湘教版_七年级_义务教育教科书·数学七年级下册",
+      "fileName": "湘教版_七年级_义务教育教科书·数学七年级下册.csv",
+      "recordCount": 17,
+      "columnCount": 35,
+      "fileSizeBytes": 69135
+    },
+    {
+      "bookName": "湘教版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "湘教版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 32,
+      "columnCount": 35,
+      "fileSizeBytes": 136065
+    },
+    {
+      "bookName": "湘教版_八年级_义务教育教科书·地理八年级上册",
+      "fileName": "湘教版_八年级_义务教育教科书·地理八年级上册.csv",
+      "recordCount": 27,
+      "columnCount": 35,
+      "fileSizeBytes": 115158
+    },
+    {
+      "bookName": "湘教版_八年级_义务教育教科书·地理八年级下册",
+      "fileName": "湘教版_八年级_义务教育教科书·地理八年级下册.csv",
+      "recordCount": 26,
+      "columnCount": 35,
+      "fileSizeBytes": 112554
+    },
+    {
+      "bookName": "湘教版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "湘教版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 21,
+      "columnCount": 35,
+      "fileSizeBytes": 88866
+    },
+    {
+      "bookName": "湘教版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "湘教版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 51008
+    },
+    {
+      "bookName": "湘美版_七年级_义务教育教科书·美术七年级上册",
+      "fileName": "湘美版_七年级_义务教育教科书·美术七年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13865
+    },
+    {
+      "bookName": "湘美版_七年级_义务教育教科书·美术七年级下册",
+      "fileName": "湘美版_七年级_义务教育教科书·美术七年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4982
+    },
+    {
+      "bookName": "科学粤教版-科学出版社_广东教育出版社_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "科学粤教版-科学出版社_广东教育出版社_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 117,
+      "columnCount": 27,
+      "fileSizeBytes": 299718
+    },
+    {
+      "bookName": "科学粤教版-科学出版社_广东教育出版社_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "科学粤教版-科学出版社_广东教育出版社_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 110,
+      "columnCount": 27,
+      "fileSizeBytes": 279414
+    },
+    {
+      "bookName": "科普版_七年级_义务教育教科书·地理七年级上册",
+      "fileName": "科普版_七年级_义务教育教科书·地理七年级上册.csv",
+      "recordCount": 23,
+      "columnCount": 35,
+      "fileSizeBytes": 99636
+    },
+    {
+      "bookName": "科普版_七年级_义务教育教科书·地理七年级下册",
+      "fileName": "科普版_七年级_义务教育教科书·地理七年级下册.csv",
+      "recordCount": 32,
+      "columnCount": 35,
+      "fileSizeBytes": 140762
+    },
+    {
+      "bookName": "科普版_七年级_义务教育教科书·英语七年级上册",
+      "fileName": "科普版_七年级_义务教育教科书·英语七年级上册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 22294
+    },
+    {
+      "bookName": "科普版_七年级_义务教育教科书·英语七年级下册",
+      "fileName": "科普版_七年级_义务教育教科书·英语七年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 17457
+    },
+    {
+      "bookName": "科普版_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "科普版_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 105,
+      "columnCount": 35,
+      "fileSizeBytes": 455435
+    },
+    {
+      "bookName": "科普版_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "科普版_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 52,
+      "columnCount": 35,
+      "fileSizeBytes": 224244
+    },
+    {
+      "bookName": "科普版_九年级_义务教育教科书·英语九年级上册",
+      "fileName": "科普版_九年级_义务教育教科书·英语九年级上册.csv",
+      "recordCount": 12,
+      "columnCount": 35,
+      "fileSizeBytes": 50125
+    },
+    {
+      "bookName": "科普版_九年级_义务教育教科书·英语九年级下册",
+      "fileName": "科普版_九年级_义务教育教科书·英语九年级下册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 32023
+    },
+    {
+      "bookName": "科普版_八年级_义务教育教科书·地理八年级上册",
+      "fileName": "科普版_八年级_义务教育教科书·地理八年级上册.csv",
+      "recordCount": 20,
+      "columnCount": 35,
+      "fileSizeBytes": 86117
+    },
+    {
+      "bookName": "科普版_八年级_义务教育教科书·地理八年级下册",
+      "fileName": "科普版_八年级_义务教育教科书·地理八年级下册.csv",
+      "recordCount": 24,
+      "columnCount": 35,
+      "fileSizeBytes": 104815
+    },
+    {
+      "bookName": "科普版_八年级_义务教育教科书·英语八年级上册",
+      "fileName": "科普版_八年级_义务教育教科书·英语八年级上册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 21850
+    },
+    {
+      "bookName": "科普版_八年级_义务教育教科书·英语八年级下册",
+      "fileName": "科普版_八年级_义务教育教科书·英语八年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18078
+    },
+    {
+      "bookName": "统编版-人民教育出版社_七年级_义务教育教科书·中国历史七年级上册",
+      "fileName": "统编版-人民教育出版社_七年级_义务教育教科书·中国历史七年级上册.csv",
+      "recordCount": 85,
+      "columnCount": 27,
+      "fileSizeBytes": 211955
+    },
+    {
+      "bookName": "统编版-人民教育出版社_七年级_义务教育教科书·人文地理上册",
+      "fileName": "统编版-人民教育出版社_七年级_义务教育教科书·人文地理上册.csv",
+      "recordCount": 93,
+      "columnCount": 27,
+      "fileSizeBytes": 213360
+    },
+    {
+      "bookName": "统编版-人民教育出版社_七年级_义务教育教科书·历史七年级下册",
+      "fileName": "统编版-人民教育出版社_七年级_义务教育教科书·历史七年级下册.csv",
+      "recordCount": 91,
+      "columnCount": 27,
+      "fileSizeBytes": 232393
+    },
+    {
+      "bookName": "统编版-人民教育出版社_九年级_义务教育教科书·世界历史九年级上册",
+      "fileName": "统编版-人民教育出版社_九年级_义务教育教科书·世界历史九年级上册.csv",
+      "recordCount": 84,
+      "columnCount": 27,
+      "fileSizeBytes": 206728
+    },
+    {
+      "bookName": "统编版-人民教育出版社_九年级_义务教育教科书·历史九年级下册",
+      "fileName": "统编版-人民教育出版社_九年级_义务教育教科书·历史九年级下册.csv",
+      "recordCount": 99,
+      "columnCount": 27,
+      "fileSizeBytes": 238133
+    },
+    {
+      "bookName": "统编版-人民教育出版社_八年级_义务教育教科书·中国历史八年级上册",
+      "fileName": "统编版-人民教育出版社_八年级_义务教育教科书·中国历史八年级上册.csv",
+      "recordCount": 117,
+      "columnCount": 27,
+      "fileSizeBytes": 290509
+    },
+    {
+      "bookName": "统编版-人民教育出版社_八年级_义务教育教科书·人文地理下册",
+      "fileName": "统编版-人民教育出版社_八年级_义务教育教科书·人文地理下册.csv",
+      "recordCount": 89,
+      "columnCount": 27,
+      "fileSizeBytes": 211288
+    },
+    {
+      "bookName": "统编版-人民教育出版社_八年级_义务教育教科书·历史八年级下册",
+      "fileName": "统编版-人民教育出版社_八年级_义务教育教科书·历史八年级下册.csv",
+      "recordCount": 94,
+      "columnCount": 27,
+      "fileSizeBytes": 234298
+    },
+    {
+      "bookName": "苏少版_七年级_义务教育教科书·美术七年级上册",
+      "fileName": "苏少版_七年级_义务教育教科书·美术七年级上册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9504
+    },
+    {
+      "bookName": "苏少版_七年级_义务教育教科书·美术七年级下册",
+      "fileName": "苏少版_七年级_义务教育教科书·美术七年级下册.csv",
+      "recordCount": 9,
+      "columnCount": 35,
+      "fileSizeBytes": 39038
+    },
+    {
+      "bookName": "苏少版_九年级_义务教育教科书·美术九年级上册",
+      "fileName": "苏少版_九年级_义务教育教科书·美术九年级上册.csv",
+      "recordCount": 8,
+      "columnCount": 35,
+      "fileSizeBytes": 35331
+    },
+    {
+      "bookName": "苏少版_九年级_义务教育教科书·美术九年级下册",
+      "fileName": "苏少版_九年级_义务教育教科书·美术九年级下册.csv",
+      "recordCount": 13,
+      "columnCount": 35,
+      "fileSizeBytes": 54798
+    },
+    {
+      "bookName": "苏少版_八年级_义务教育教科书·美术八年级上册",
+      "fileName": "苏少版_八年级_义务教育教科书·美术八年级上册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 22792
+    },
+    {
+      "bookName": "苏少版_八年级_义务教育教科书·美术八年级下册",
+      "fileName": "苏少版_八年级_义务教育教科书·美术八年级下册.csv",
+      "recordCount": 10,
+      "columnCount": 35,
+      "fileSizeBytes": 44557
+    },
+    {
+      "bookName": "苏科版_七年级_义务教育教科书·数学七年级上册",
+      "fileName": "苏科版_七年级_义务教育教科书·数学七年级上册.csv",
+      "recordCount": 50,
+      "columnCount": 35,
+      "fileSizeBytes": 207210
+    },
+    {
+      "bookName": "苏科版_七年级_义务教育教科书·生物学七年级上册",
+      "fileName": "苏科版_七年级_义务教育教科书·生物学七年级上册.csv",
+      "recordCount": 95,
+      "columnCount": 35,
+      "fileSizeBytes": 419061
+    },
+    {
+      "bookName": "苏科版_七年级_义务教育教科书·生物学七年级下册",
+      "fileName": "苏科版_七年级_义务教育教科书·生物学七年级下册.csv",
+      "recordCount": 77,
+      "columnCount": 35,
+      "fileSizeBytes": 337628
+    },
+    {
+      "bookName": "苏科版_九年级_义务教育教科书·数学九年级上册",
+      "fileName": "苏科版_九年级_义务教育教科书·数学九年级上册.csv",
+      "recordCount": 49,
+      "columnCount": 35,
+      "fileSizeBytes": 206756
+    },
+    {
+      "bookName": "苏科版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "苏科版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 33,
+      "columnCount": 35,
+      "fileSizeBytes": 140928
+    },
+    {
+      "bookName": "苏科版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "苏科版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 23,
+      "columnCount": 35,
+      "fileSizeBytes": 96859
+    },
+    {
+      "bookName": "苏科版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "苏科版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 48,
+      "columnCount": 35,
+      "fileSizeBytes": 201850
+    },
+    {
+      "bookName": "苏科版_八年级_义务教育教科书·生物学八年级上册",
+      "fileName": "苏科版_八年级_义务教育教科书·生物学八年级上册.csv",
+      "recordCount": 124,
+      "columnCount": 35,
+      "fileSizeBytes": 546672
+    },
+    {
+      "bookName": "苏科版_八年级_义务教育教科书·生物学八年级下册",
+      "fileName": "苏科版_八年级_义务教育教科书·生物学八年级下册.csv",
+      "recordCount": 110,
+      "columnCount": 35,
+      "fileSizeBytes": 489959
+    },
+    {
+      "bookName": "辽海版_七年级_义务教育教科书·美术七年级上册",
+      "fileName": "辽海版_七年级_义务教育教科书·美术七年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13719
+    },
+    {
+      "bookName": "辽海版_七年级_义务教育教科书·美术七年级下册",
+      "fileName": "辽海版_七年级_义务教育教科书·美术七年级下册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 13800
+    },
+    {
+      "bookName": "辽海版_九年级_义务教育教科书·美术九年级下册",
+      "fileName": "辽海版_九年级_义务教育教科书·美术九年级下册.csv",
+      "recordCount": 2,
+      "columnCount": 35,
+      "fileSizeBytes": 9275
+    },
+    {
+      "bookName": "辽海版_八年级_义务教育教科书·美术八年级上册",
+      "fileName": "辽海版_八年级_义务教育教科书·美术八年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 4928
+    },
+    {
+      "bookName": "鄂教版_七年级_义务教育教科书·艺术七年级上册",
+      "fileName": "鄂教版_七年级_义务教育教科书·艺术七年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 14219
+    },
+    {
+      "bookName": "鄂教版_七年级_义务教育教科书·艺术七年级下册",
+      "fileName": "鄂教版_七年级_义务教育教科书·艺术七年级下册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18599
+    },
+    {
+      "bookName": "鄂教版_九年级_义务教育教科书·艺术九年级上册",
+      "fileName": "鄂教版_九年级_义务教育教科书·艺术九年级上册.csv",
+      "recordCount": 3,
+      "columnCount": 35,
+      "fileSizeBytes": 14036
+    },
+    {
+      "bookName": "鄂教版_九年级_义务教育教科书·艺术九年级下册",
+      "fileName": "鄂教版_九年级_义务教育教科书·艺术九年级下册.csv",
+      "recordCount": 6,
+      "columnCount": 35,
+      "fileSizeBytes": 27216
+    },
+    {
+      "bookName": "鄂教版_八年级_义务教育教科书·艺术八年级上册",
+      "fileName": "鄂教版_八年级_义务教育教科书·艺术八年级上册.csv",
+      "recordCount": 4,
+      "columnCount": 35,
+      "fileSizeBytes": 18679
+    },
+    {
+      "bookName": "鄂教版_八年级_义务教育教科书·艺术八年级下册",
+      "fileName": "鄂教版_八年级_义务教育教科书·艺术八年级下册.csv",
+      "recordCount": 5,
+      "columnCount": 35,
+      "fileSizeBytes": 23101
+    },
+    {
+      "bookName": "配套科普版_八年级_义务教育教科书·地理图册八年级上册",
+      "fileName": "配套科普版_八年级_义务教育教科书·地理图册八年级上册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5141
+    },
+    {
+      "bookName": "配套科普版_八年级_义务教育教科书·地理图册八年级下册",
+      "fileName": "配套科普版_八年级_义务教育教科书·地理图册八年级下册.csv",
+      "recordCount": 1,
+      "columnCount": 35,
+      "fileSizeBytes": 5169
+    },
+    {
+      "bookName": "青岛版_七年级_义务教育教科书·数学七年级上册",
+      "fileName": "青岛版_七年级_义务教育教科书·数学七年级上册.csv",
+      "recordCount": 98,
+      "columnCount": 35,
+      "fileSizeBytes": 403028
+    },
+    {
+      "bookName": "青岛版_七年级_义务教育教科书·数学七年级下册",
+      "fileName": "青岛版_七年级_义务教育教科书·数学七年级下册.csv",
+      "recordCount": 46,
+      "columnCount": 35,
+      "fileSizeBytes": 190561
+    },
+    {
+      "bookName": "青岛版_九年级_义务教育教科书·数学九年级上册",
+      "fileName": "青岛版_九年级_义务教育教科书·数学九年级上册.csv",
+      "recordCount": 24,
+      "columnCount": 35,
+      "fileSizeBytes": 100891
+    },
+    {
+      "bookName": "青岛版_九年级_义务教育教科书·数学九年级下册",
+      "fileName": "青岛版_九年级_义务教育教科书·数学九年级下册.csv",
+      "recordCount": 128,
+      "columnCount": 35,
+      "fileSizeBytes": 530377
+    },
+    {
+      "bookName": "青岛版_八年级_义务教育教科书·数学八年级上册",
+      "fileName": "青岛版_八年级_义务教育教科书·数学八年级上册.csv",
+      "recordCount": 57,
+      "columnCount": 35,
+      "fileSizeBytes": 237136
+    },
+    {
+      "bookName": "青岛版_八年级_义务教育教科书·数学八年级下册",
+      "fileName": "青岛版_八年级_义务教育教科书·数学八年级下册.csv",
+      "recordCount": 39,
+      "columnCount": 35,
+      "fileSizeBytes": 160289
+    },
+    {
+      "bookName": "鲁教版-山东教育出版社_九年级_义务教育教科书·化学九年级上册",
+      "fileName": "鲁教版-山东教育出版社_九年级_义务教育教科书·化学九年级上册.csv",
+      "recordCount": 108,
+      "columnCount": 27,
+      "fileSizeBytes": 276337
+    },
+    {
+      "bookName": "鲁教版-山东教育出版社_九年级_义务教育教科书·化学九年级下册",
+      "fileName": "鲁教版-山东教育出版社_九年级_义务教育教科书·化学九年级下册.csv",
+      "recordCount": 97,
+      "columnCount": 27,
+      "fileSizeBytes": 232754
+    }
+  ]
+}
