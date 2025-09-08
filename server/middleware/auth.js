@@ -75,21 +75,16 @@ async function authenticate(req, res, next) {
         const sessionData = JSON.parse(sessionCookie);
 
         if (sessionData.userId) {
-          // 简化的session用户验证
-          // 对于session认证，我们创建一个临时用户对象
-          user = {
-            _id: sessionData.userId,
-            id: sessionData.userId,
-            username: sessionData.username || "session_user",
-            role: "user",
-            isActive: true,
-            preferences:
-              sessionData.userPreferences || sessionData.preferences || {},
-          };
-
-          authMethod = "SESSION";
-          req.user = user;
-          return next();
+          // 从数据库获取完整的用户信息而不是创建临时对象
+          user = await userService.getUserById(sessionData.userId);
+          
+          if (user && user.isActive) {
+            authMethod = "SESSION";
+            req.user = user;
+            return next();
+          } else {
+            console.warn("Session中的用户ID无效或用户未激活:", sessionData.userId);
+          }
         }
       } catch (error) {
         console.warn("Session解析失败:", error.message);

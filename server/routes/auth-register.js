@@ -216,8 +216,24 @@ router.post("/login", loginLimiter, async (req, res) => {
       });
     }
 
-    // 通过用户名或邮箱查找用户并验证密码
-    const user = await userService.validateLogin(loginField, password);
+    let user;
+    
+    // Handle NextAuth session sync - special case for already authenticated users
+    if (password === '__NEXTAUTH_SYNC__') {
+      // For NextAuth sync, just find the user without password validation
+      // since they're already authenticated on the frontend
+      console.log('[AUTH] NextAuth session sync for user:', loginField);
+      user = await userService.getUserByUsername(loginField);
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: "用户不存在",
+        });
+      }
+    } else {
+      // Normal login - validate credentials
+      user = await userService.validateLogin(loginField, password);
+    }
 
     // 生成JWT
     const token = jwt.sign(
