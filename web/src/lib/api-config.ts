@@ -4,9 +4,8 @@
  */
 
 export const getApiUrl = (endpoint: string = ''): string => {
-  // Use NEXTAUTH_URL as base and append :3001/api for backend
-  const nextAuthUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || nextAuthUrl.replace(':3000', ':3001') + '/api';
+  // For content API calls, use backend directly during development
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
   return endpoint ? `${baseUrl}${endpoint}` : baseUrl;
 };
 

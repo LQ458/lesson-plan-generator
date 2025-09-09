@@ -77,7 +77,24 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
     maxAge: 7 * 24 * 60 * 60, // 7 days
   },
+  pages: {
+    signIn: '/login',
+    error: '/login',
+  },
   callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Use NEXTAUTH_URL as baseUrl if available
+      const nextAuthUrl = process.env.NEXTAUTH_URL || baseUrl;
+      
+      // If url starts with base URL, return as is
+      if (url.startsWith(nextAuthUrl)) return url;
+      
+      // If url is relative, prepend with base URL
+      if (url.startsWith('/')) return `${nextAuthUrl}${url}`;
+      
+      // Default redirect to lesson-plan
+      return `${nextAuthUrl}/lesson-plan`;
+    },
     async jwt({ token, user }) {
       if (user) {
         token.username = user.username
@@ -93,10 +110,6 @@ export const authOptions: NextAuthOptions = {
       }
       return session
     }
-  },
-  pages: {
-    signIn: '/login',
-    error: '/login',
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',
