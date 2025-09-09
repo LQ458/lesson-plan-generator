@@ -4,7 +4,17 @@ const OpenAI = require("openai");
 const VectorStore = require("./rag/services/vector-store");
 const PerformanceOptimizer = require("./performance-optimization");
 const fetch = require('node-fetch');
-const { Client } = require("@gradio/client");
+// Dynamic import for @gradio/client (ES Module)
+let Client = null;
+
+// Helper function to get Gradio Client
+async function getGradioClient() {
+  if (!Client) {
+    const gradioModule = await import("@gradio/client");
+    Client = gradioModule.Client;
+  }
+  return Client;
+}
 
 // Initialize vector store or RAG API client
 let vectorStore;
@@ -289,13 +299,17 @@ class AIService {
     let contextSources = [];
 
     try {
-      const ragQuery = `${subject} ${grade} ${topic}`;
+      // Optimize topic for better search results
+      const optimizedTopic = this.optimizeEducationalQuery(topic, subject);
+      const ragQuery = `${subject} ${grade} ${optimizedTopic}`;
+      
       logger.info("🔍 [RAG] 开始检索相关教学资料", {
         requestId,
         query: ragQuery,
+        originalTopic: topic,
+        optimizedTopic: optimizedTopic,
         subject,
         grade,
-        topic,
         service: "ai-service",
       });
 
@@ -309,32 +323,63 @@ class AIService {
           hasToken: !!ragApiToken
         });
 
-        const client = await Client.connect(ragApiUrl, {
+        const GradioClient = await getGradioClient();
+        const client = await GradioClient.connect(ragApiUrl, {
           hf_token: ragApiToken
         });
 
-        const ragResults = await client.predict("/search", {
+        // Try with specific grade first
+        let ragResults = await client.predict("/search_educational_content", {
           query: ragQuery,
           subject: subject,
           grade: grade,
           limit: 5
         });
 
+        // Check if we got meaningful results
+        let hasResults = ragResults && ragResults.data && ragResults.data.length > 0 && 
+                        ragResults.data.some(result => result && result.trim().length > 10);
+
+        // If no results with specific grade, try with "全部" (all grades) as fallback
+        if (!hasResults) {
+          logger.info("🔄 [RAG] 特定年级无结果，尝试全年级搜索", {
+            requestId,
+            originalGrade: grade,
+            fallbackGrade: "全部"
+          });
+
+          ragResults = await client.predict("/search_educational_content", {
+            query: ragQuery,
+            subject: subject,
+            grade: "全部",
+            limit: 5
+          });
+
+          hasResults = ragResults && ragResults.data && ragResults.data.length > 0 && 
+                      ragResults.data.some(result => result && result.trim().length > 10);
+        }
+
         logger.info("📊 [RAG] 外部服务搜索完成", {
           requestId,
           resultsType: typeof ragResults,
-          hasResults: !!(ragResults && ragResults.results)
+          hasResults: hasResults,
+          resultDataType: ragResults ? typeof ragResults.data : 'null'
         });
         
-        // Convert API response to expected format
-        if (ragResults && ragResults.results && ragResults.results.length > 0) {
-          relevantContext = ragResults.results.map(r => r.content).slice(0, 1500).join('\n\n');
-          contextSources = ragResults.results.map(r => r.book_name || r.source || 'Unknown source');
+        // Convert API response to expected format - handle formatted text response
+        if (hasResults) {
+          // ragResults.data contains formatted text, parse it
+          const formattedText = Array.isArray(ragResults.data) ? ragResults.data.join('\n') : ragResults.data;
+          
+          // Extract educational content from formatted text
+          relevantContext = formattedText.slice(0, 1500);
+          contextSources = ['HuggingFace Educational Database'];
+          
           contextData = {
             context: relevantContext,
             sources: contextSources,
-            totalResults: ragResults.total || ragResults.results.length,
-            usedResults: ragResults.results.length
+            totalResults: 1,
+            usedResults: 1
           };
         }
       } else {
@@ -576,13 +621,17 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
     let contextSources = [];
 
     try {
-      const ragQuery = `${subject} ${grade} ${topic} 练习题 习题`;
+      // Optimize topic for better search results
+      const optimizedTopic = this.optimizeEducationalQuery(topic, subject);
+      const ragQuery = `${subject} ${grade} ${optimizedTopic} 练习题 习题`;
+      
       logger.info("🔍 [RAG] 开始检索相关练习题资料", {
         requestId,
         query: ragQuery,
+        originalTopic: topic,
+        optimizedTopic: optimizedTopic,
         subject,
         grade,
-        topic,
         service: "ai-service",
       });
 
@@ -596,32 +645,63 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
           hasToken: !!ragApiToken
         });
 
-        const client = await Client.connect(ragApiUrl, {
+        const GradioClient = await getGradioClient();
+        const client = await GradioClient.connect(ragApiUrl, {
           hf_token: ragApiToken
         });
 
-        const ragResults = await client.predict("/search", {
+        // Try with specific grade first
+        let ragResults = await client.predict("/search_educational_content", {
           query: ragQuery,
           subject: subject,
           grade: grade,
           limit: 5
         });
 
+        // Check if we got meaningful results
+        let hasResults = ragResults && ragResults.data && ragResults.data.length > 0 && 
+                        ragResults.data.some(result => result && result.trim().length > 10);
+
+        // If no results with specific grade, try with "全部" (all grades) as fallback
+        if (!hasResults) {
+          logger.info("🔄 [RAG] 练习题特定年级无结果，尝试全年级搜索", {
+            requestId,
+            originalGrade: grade,
+            fallbackGrade: "全部"
+          });
+
+          ragResults = await client.predict("/search_educational_content", {
+            query: ragQuery,
+            subject: subject,
+            grade: "全部",
+            limit: 5
+          });
+
+          hasResults = ragResults && ragResults.data && ragResults.data.length > 0 && 
+                      ragResults.data.some(result => result && result.trim().length > 10);
+        }
+
         logger.info("📊 [RAG] 外部服务练习题搜索完成", {
           requestId,
           resultsType: typeof ragResults,
-          hasResults: !!(ragResults && ragResults.results)
+          hasResults: hasResults,
+          resultDataType: ragResults ? typeof ragResults.data : 'null'
         });
         
-        // Convert API response to expected format
-        if (ragResults && ragResults.results && ragResults.results.length > 0) {
-          relevantContext = ragResults.results.map(r => r.content).slice(0, 1200).join('\n\n');
-          contextSources = ragResults.results.map(r => r.book_name || r.source || 'Unknown source');
+        // Convert API response to expected format - handle formatted text response
+        if (hasResults) {
+          // ragResults.data contains formatted text, parse it
+          const formattedText = Array.isArray(ragResults.data) ? ragResults.data.join('\n') : ragResults.data;
+          
+          // Extract educational content from formatted text
+          relevantContext = formattedText.slice(0, 1200);
+          contextSources = ['HuggingFace Educational Database'];
+          
           contextData = {
             context: relevantContext,
             sources: contextSources,
-            totalResults: ragResults.total || ragResults.results.length,
-            usedResults: ragResults.results.length
+            totalResults: 1,
+            usedResults: 1
           };
         }
       } else {
@@ -846,6 +926,53 @@ ${requirements ? `- 特殊要求：${requirements}` : ""}
     };
 
     return prompts[gradeLevel] || "";
+  }
+
+  /**
+   * 优化教育查询关键词
+   */
+  optimizeEducationalQuery(topic, subject) {
+    // Educational topic optimization mappings
+    const mathOptimizations = {
+      '一元二次方程': '方程',
+      '一元一次方程': '方程', 
+      '二次函数': '函数',
+      '一次函数': '函数',
+      '三角形的性质': '三角形',
+      '四边形': '四边形',
+      '圆的性质': '圆',
+      '概率统计': '概率',
+      '数列': '数列'
+    };
+
+    const chineseOptimizations = {
+      '现代文阅读理解': '阅读',
+      '文言文阅读': '文言文',
+      '作文写作技巧': '作文',
+      '诗词鉴赏': '诗词',
+      '语法知识': '语法'
+    };
+
+    const scienceOptimizations = {
+      '化学实验': '实验',
+      '物理实验': '实验',
+      '生物实验': '实验',
+      '力学': '力',
+      '电学': '电',
+      '光学': '光'
+    };
+
+    let optimizedTopic = topic;
+
+    if (subject === '数学' && mathOptimizations[topic]) {
+      optimizedTopic = mathOptimizations[topic];
+    } else if (subject === '语文' && chineseOptimizations[topic]) {
+      optimizedTopic = chineseOptimizations[topic];
+    } else if (['物理', '化学', '生物'].includes(subject) && scienceOptimizations[topic]) {
+      optimizedTopic = scienceOptimizations[topic];
+    }
+
+    return optimizedTopic !== topic ? optimizedTopic : topic;
   }
 
   /**
