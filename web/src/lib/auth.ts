@@ -91,6 +91,4 @@ export const authOptions: NextAuthOptions = {
   },
   // Use environment variable for secret
   secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
-  // Trust host in production deployments
-  trustHost: true,
 }
