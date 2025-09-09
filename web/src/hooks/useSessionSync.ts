@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import { getApiUrl, API_ENDPOINTS } from '@/lib/api-config';
 
 export function useSessionSync() {
   const { data: session } = useSession();
@@ -9,8 +10,8 @@ export function useSessionSync() {
       // After successful NextAuth login, sync session with backend domain
       const syncSession = async () => {
         try {
-          // Call backend login again to establish session cookies on localhost:3000
-          const response = await fetch('http://localhost:3001/api/auth/login', {
+          // Call backend login again to establish session cookies
+          const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.LOGIN), {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
