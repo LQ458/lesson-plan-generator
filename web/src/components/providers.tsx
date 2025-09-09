@@ -1,12 +1,6 @@
 "use client";
 
 import { SessionProvider } from "next-auth/react";
-import { useSessionSync } from "@/hooks/useSessionSync";
-
-function SessionSyncWrapper({ children }: { children: React.ReactNode }) {
-  useSessionSync();
-  return <>{children}</>;
-}
 
 export function Providers({
   children,
@@ -15,9 +9,7 @@ export function Providers({
 }) {
   return (
     <SessionProvider>
-      <SessionSyncWrapper>
-        {children}
-      </SessionSyncWrapper>
+      {children}
     </SessionProvider>
   );
 }

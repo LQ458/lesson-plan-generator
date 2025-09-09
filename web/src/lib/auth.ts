@@ -19,13 +19,10 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials): Promise<User | null> {
         if (!credentials?.username || !credentials?.password) {
-          console.log('[NextAuth] Missing credentials')
           return null
         }
 
         try {
-          console.log('[NextAuth] Attempting login for username:', credentials.username)
-          
           // Call backend API to verify credentials
           const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.LOGIN), {
             method: 'POST',
@@ -38,33 +35,20 @@ export const authOptions: NextAuthOptions = {
             }),
           })
 
-          console.log('[NextAuth] Backend response status:', response.status)
-
           if (!response.ok) {
-            const errorText = await response.text()
-            console.log('[NextAuth] Backend error response:', errorText)
             return null
           }
 
           const data = await response.json()
-          console.log('[NextAuth] Backend response data:', {
-            success: data.success,
-            hasUser: !!data.data?.user,
-            userId: data.data?.user?._id,
-            username: data.data?.user?.username
-          })
 
           if (data.success && data.data?.user) {
-            const user = {
+            return {
               id: data.data.user._id,
               username: data.data.user.username,
               preferences: data.data.user.preferences,
             }
-            console.log('[NextAuth] Returning user:', user)
-            return user
           }
 
-          console.log('[NextAuth] Invalid response structure, returning null')
           return null
         } catch (error) {
           console.error('[NextAuth] Auth error:', error)
@@ -83,17 +67,11 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      // Use NEXTAUTH_URL as baseUrl if available
-      const nextAuthUrl = process.env.NEXTAUTH_URL || baseUrl;
-      
-      // If url starts with base URL, return as is
-      if (url.startsWith(nextAuthUrl)) return url;
-      
-      // If url is relative, prepend with base URL
-      if (url.startsWith('/')) return `${nextAuthUrl}${url}`;
-      
-      // Default redirect to lesson-plan
-      return `${nextAuthUrl}/lesson-plan`;
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url
+      return baseUrl
     },
     async jwt({ token, user }) {
       if (user) {
@@ -111,6 +89,8 @@ export const authOptions: NextAuthOptions = {
       return session
     }
   },
-  secret: process.env.NEXTAUTH_SECRET,
-  debug: process.env.NODE_ENV === 'development',
+  // Use environment variable for secret
+  secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
+  // Trust host in production deployments
+  trustHost: true,
 }

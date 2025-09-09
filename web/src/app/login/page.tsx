@@ -127,9 +127,8 @@ export default function LoginPage() {
       if (result?.error) {
         setError("用户名或密码错误");
       } else if (result?.ok) {
-        // Login successful, redirect to main page
-        router.push("/lesson-plan");
-        router.refresh();
+        // Login successful, NextAuth will handle redirect
+        window.location.href = "/lesson-plan";
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -188,8 +187,7 @@ export default function LoginPage() {
         });
 
         if (result?.ok) {
-          router.push("/lesson-plan");
-          router.refresh();
+          window.location.href = "/lesson-plan";
         } else {
           setError("注册成功但登录失败，请手动登录");
         }
@@ -230,8 +228,7 @@ export default function LoginPage() {
       if (result?.error) {
         setError("用户名或密码错误");
       } else if (result?.ok) {
-        router.push("/lesson-plan");
-        router.refresh();
+        window.location.href = "/lesson-plan";
       }
     } catch (error) {
       console.error("Login error:", error);
