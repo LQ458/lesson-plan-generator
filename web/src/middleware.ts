@@ -28,6 +28,12 @@ export default withAuth(
           return true
         }
         
+        // Block other API routes - they should handle their own auth
+        if (pathname.startsWith('/api/')) {
+          console.log('[Middleware] Blocking non-NextAuth API route')
+          return false
+        }
+        
         // Allow access to public routes
         if (pathname === '/' || pathname === '/login') {
           console.log('[Middleware] Allowing public route')
@@ -61,12 +67,13 @@ export default withAuth(
 
 export const config = {
   matcher: [
-    // Match all request paths except for the ones starting with:
-    // - api (but allow /api/auth/* for NextAuth)
-    // - _next/static (static files)
-    // - _next/image (image optimization files)  
-    // - favicon.ico (favicon file)
-    // - public files with extensions
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(png|jpg|jpeg|gif|svg|ico|css|js)$).*)',
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * Allow API routes so NextAuth can work properly
+     */
+    '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 }
