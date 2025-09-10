@@ -617,9 +617,6 @@ app.get(
   }),
 );
 
-// Removed duplicate health endpoint - using main one above
-});
-
 // Root endpoint for Zeabur
 app.get("/", (req, res) => {
   res.status(200).json({
