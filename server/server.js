@@ -640,6 +640,19 @@ app.get("/", (req, res) => {
   });
 });
 
+// Debug endpoint to test nginx proxy
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    success: true,
+    message: 'API server is working!', 
+    timestamp: new Date().toISOString(),
+    path: req.path,
+    url: req.url,
+    method: req.method,
+    headers: req.headers 
+  });
+});
+
 // 404处理
 app.use("*", notFoundHandler);
 
