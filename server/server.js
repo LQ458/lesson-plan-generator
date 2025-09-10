@@ -199,13 +199,13 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser()); // 添加cookie解析中间件
 
 // 注册路由
-app.use("/api/auth", authRegisterRouter);
-app.use("/api/content", require("./routes/content"));
-app.use("/api/export", require("./routes/export"));
-app.use("/api/admin", require("./routes/admin"));
+app.use("/auth", authRegisterRouter);
+app.use("/content", require("./routes/content"));
+app.use("/export", require("./routes/export"));
+app.use("/admin", require("./routes/admin"));
 
 // 健康检查端点
-app.get("/api/health", async (req, res) => {
+app.get("/health", async (req, res) => {
   const dbStats = await database.getStats();
   res.json({
     status: "healthy",
@@ -217,7 +217,7 @@ app.get("/api/health", async (req, res) => {
 });
 
 // 服务器状态端点
-app.get("/api/status", async (req, res) => {
+app.get("/status", async (req, res) => {
   const aiStatus = aiService ? aiService.getStatus() : { enabled: false };
   const dbStats = await database.getStats();
   const userStats = servicesReady ? await userService.getUserStats() : {};
@@ -617,16 +617,7 @@ app.get(
   }),
 );
 
-// Zeabur-specific health check endpoint
-app.get("/api/health", (req, res) => {
-  res.status(200).json({
-    status: "healthy",
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV,
-    version: "1.0.0",
-    cors_origins: process.env.ALLOWED_ORIGINS?.split(',') || 'using defaults',
-    port: process.env.PORT || 3001
-  });
+// Removed duplicate health endpoint - using main one above
 });
 
 // Root endpoint for Zeabur
@@ -641,7 +632,7 @@ app.get("/", (req, res) => {
 });
 
 // Debug endpoint to test nginx proxy
-app.get('/api/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.json({ 
     success: true,
     message: 'API server is working!', 
