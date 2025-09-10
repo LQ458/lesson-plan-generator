@@ -231,23 +231,23 @@ app.get("/status", async (req, res) => {
     ai: aiStatus,
     users: userStats,
     endpoints: [
-      "GET /api/health",
-      "GET /api/status",
-      "POST /api/auth/register",
-      "POST /api/auth/login",
-      "POST /api/auth/refresh",
-      "GET /api/auth/profile",
-      "POST /api/auth/invite-login",
-      "POST /api/auth/verify-invite",
-      "POST /api/lesson-plan",
-      "POST /api/exercises",
-      "POST /api/analyze",
+      "GET /health",
+      "GET /status", 
+      "POST /auth/register",
+      "POST /auth/login",
+      "POST /auth/refresh",
+      "GET /auth/profile",
+      "POST /auth/invite-login",
+      "POST /auth/verify-invite",
+      "POST /lesson-plan",
+      "POST /exercises",
+      "POST /analyze",
     ],
   });
 });
 
 app.post(
-  "/api/auth/refresh",
+  "/auth/refresh",
   asyncHandler(async (req, res) => {
     const { refreshToken: token } = req.body;
 
@@ -266,7 +266,7 @@ app.post(
 );
 
 app.get(
-  "/api/auth/profile",
+  "/auth/profile",
   authenticate,
   asyncHandler(async (req, res) => {
     const user = await userService.getUserById(req.user.id);
@@ -284,7 +284,7 @@ app.get(
 
 // AI功能路由 - 流式输出
 app.post(
-  "/api/lesson-plan",
+  "/lesson-plan",
   aiRequestLogger("lesson-plan"), // 添加AI请求日志
   authenticate, // 启用认证
   apiLimiter, // 启用限流
@@ -315,7 +315,7 @@ app.post(
 );
 
 app.post(
-  "/api/exercises",
+  "/exercises",
   aiRequestLogger("exercises"), // 添加AI请求日志
   authenticate, // 启用认证
   apiLimiter, // 启用限流
@@ -357,7 +357,7 @@ app.post(
 );
 
 app.post(
-  "/api/analyze",
+  "/analyze",
   aiRequestLogger("analyze"), // 添加AI请求日志
   authenticate, // 启用认证
   apiLimiter, // 启用限流
@@ -384,7 +384,7 @@ app.post(
 
 // 邀请码验证和登录路由
 app.post(
-  "/api/auth/invite-login",
+  "/auth/invite-login",
   loginLimiter,
   asyncHandler(async (req, res) => {
     const { inviteCode, userPreferences } = req.body;
@@ -438,7 +438,7 @@ app.post(
 
 // 邀请码验证路由（只验证不登录）
 app.post(
-  "/api/auth/verify-invite",
+  "/auth/verify-invite",
   loginLimiter,
   asyncHandler(async (req, res) => {
     const { inviteCode } = req.body;
@@ -473,7 +473,7 @@ app.post(
 
 // RAG功能路由
 app.post(
-  "/api/rag/load-documents",
+  "/rag/load-documents",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.status(400).json({
@@ -502,7 +502,7 @@ app.post(
 );
 
 app.post(
-  "/api/rag/search",
+  "/rag/search",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.status(400).json({
@@ -551,7 +551,7 @@ app.post(
 );
 
 app.get(
-  "/api/rag/stats",
+  "/rag/stats",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.json({
@@ -584,7 +584,7 @@ app.get(
 );
 
 app.get(
-  "/api/rag/health",
+  "/rag/health",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.json({
@@ -656,8 +656,8 @@ if (require.main === module) {
     console.log(`🚀 服务器启动成功，端口: ${PORT}`);
     console.log(`🌐 环境: ${process.env.NODE_ENV}`);
     console.log(`🔒 CORS Origins: ${process.env.ALLOWED_ORIGINS || 'using defaults'}`);
-    console.log(`📊 健康检查: http://localhost:${PORT}/api/health`);
-    console.log(`📈 服务状态: http://localhost:${PORT}/api/status`);
+    console.log(`📊 健康检查: http://localhost:${PORT}/health`);
+    console.log(`📈 服务状态: http://localhost:${PORT}/status`);
     console.log(`🌍 本地访问: http://localhost:${PORT}`);
   });
 }
