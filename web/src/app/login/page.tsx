@@ -170,9 +170,26 @@ Click the button below to continue to lesson-plan page.`;
         
         setDebugInfo(debugData);
         
-        // Persist debug info across redirects
-        sessionStorage.setItem('teachai_debug_info', debugData);
-        sessionStorage.setItem('teachai_debug_timestamp', Date.now().toString());
+        // Persist debug info across redirects - multiple methods
+        if (typeof window !== 'undefined') {
+          const timestamp = Date.now().toString();
+          
+          // Try sessionStorage first
+          if (window.sessionStorage) {
+            sessionStorage.setItem('teachai_debug_info', debugData);
+            sessionStorage.setItem('teachai_debug_timestamp', timestamp);
+            console.log('[DEBUG] Stored debug info in sessionStorage');
+          }
+          
+          // Also try localStorage as backup
+          if (window.localStorage) {
+            localStorage.setItem('teachai_debug_info', debugData);
+            localStorage.setItem('teachai_debug_timestamp', timestamp);
+            console.log('[DEBUG] Stored debug info in localStorage');
+          }
+        } else {
+          console.log('[DEBUG] Storage not available');
+        }
         
         // Don't auto-redirect, let user see the debug info
         console.log('Login success - debug info set');
@@ -760,10 +777,27 @@ Click the button below to continue to lesson-plan page.
 ⏰ Time: ${new Date().toISOString()}`;
                   
                   const updatedDebugInfo = debugInfo + redirectInfo;
-                  sessionStorage.setItem('teachai_debug_info', updatedDebugInfo);
                   
-                  // Now redirect
-                  window.location.href = "/lesson-plan";
+                  if (typeof window !== 'undefined') {
+                    // Update in both storage types
+                    if (window.sessionStorage) {
+                      sessionStorage.setItem('teachai_debug_info', updatedDebugInfo);
+                      console.log('[DEBUG] Updated debug info in sessionStorage before redirect');
+                    }
+                    if (window.localStorage) {
+                      localStorage.setItem('teachai_debug_info', updatedDebugInfo);
+                      console.log('[DEBUG] Updated debug info in localStorage before redirect');
+                    }
+                  }
+                  
+                  // Also try URL parameter as fallback
+                  const encodedDebug = encodeURIComponent(JSON.stringify({
+                    info: updatedDebugInfo,
+                    timestamp: Date.now()
+                  }));
+                  
+                  // Now redirect with debug parameter
+                  window.location.href = `/lesson-plan?debug=${encodedDebug}`;
                 }}
                 className="mt-4 btn btn-primary w-full"
               >

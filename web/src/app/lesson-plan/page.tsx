@@ -318,8 +318,47 @@ export default function LessonPlanPage() {
 
   // Check for debug info from login redirect
   useEffect(() => {
-    const storedDebugInfo = sessionStorage.getItem('teachai_debug_info');
-    const debugTimestamp = sessionStorage.getItem('teachai_debug_timestamp');
+    let storedDebugInfo = null;
+    let debugTimestamp = null;
+    
+    // First try URL parameters
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const debugParam = urlParams.get('debug');
+      
+      if (debugParam) {
+        try {
+          const debugData = JSON.parse(decodeURIComponent(debugParam));
+          storedDebugInfo = debugData.info;
+          debugTimestamp = debugData.timestamp.toString();
+          console.log('[DEBUG] Loaded debug info from URL parameter');
+          
+          // Clean up URL
+          const newUrl = window.location.pathname;
+          window.history.replaceState({}, '', newUrl);
+        } catch (e) {
+          console.log('[DEBUG] Failed to parse debug URL parameter:', e);
+        }
+      }
+      
+      // Fallback to sessionStorage
+      if (!storedDebugInfo && window.sessionStorage) {
+        storedDebugInfo = sessionStorage.getItem('teachai_debug_info');
+        debugTimestamp = sessionStorage.getItem('teachai_debug_timestamp');
+        if (storedDebugInfo) {
+          console.log('[DEBUG] Loaded debug info from sessionStorage');
+        }
+      }
+      
+      // Final fallback to localStorage
+      if (!storedDebugInfo && window.localStorage) {
+        storedDebugInfo = localStorage.getItem('teachai_debug_info');
+        debugTimestamp = localStorage.getItem('teachai_debug_timestamp');
+        if (storedDebugInfo) {
+          console.log('[DEBUG] Loaded debug info from localStorage');
+        }
+      }
+    }
     
     if (storedDebugInfo && debugTimestamp) {
       const timeElapsed = Date.now() - parseInt(debugTimestamp);
@@ -332,15 +371,27 @@ export default function LessonPlanPage() {
 Environment check on lesson-plan page:
 - NEXT_PUBLIC_API_URL: ${process.env.NEXT_PUBLIC_API_URL || 'Not set'}
 - NODE_ENV: ${process.env.NODE_ENV || 'Not set'}
-- Window location: ${window.location.href}`;
+- Window location: ${window.location.href}
+- SessionStorage available: ${typeof window !== 'undefined' && window.sessionStorage ? 'Yes' : 'No'}
+- LocalStorage available: ${typeof window !== 'undefined' && window.localStorage ? 'Yes' : 'No'}`;
       
       setDebugInfo(storedDebugInfo + additionalInfo);
       
       // Keep debug info for 5 minutes, then auto-clear
       setTimeout(() => {
-        sessionStorage.removeItem('teachai_debug_info');
-        sessionStorage.removeItem('teachai_debug_timestamp');
+        if (typeof window !== 'undefined') {
+          if (window.sessionStorage) {
+            sessionStorage.removeItem('teachai_debug_info');
+            sessionStorage.removeItem('teachai_debug_timestamp');
+          }
+          if (window.localStorage) {
+            localStorage.removeItem('teachai_debug_info');
+            localStorage.removeItem('teachai_debug_timestamp');
+          }
+        }
       }, 5 * 60 * 1000);
+    } else {
+      console.log('[DEBUG] No debug info found in either URL params or sessionStorage');
     }
   }, []);
 
