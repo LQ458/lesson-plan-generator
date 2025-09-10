@@ -28,6 +28,7 @@ export default function LoginPage() {
   const [isRegistering, setIsRegistering] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [debugInfo, setDebugInfo] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordValidation, setPasswordValidation] = useState({
@@ -126,9 +127,28 @@ export default function LoginPage() {
 
       if (result?.error) {
         setError("用户名或密码错误");
+        setDebugInfo(`Login failed: ${result.error}`);
       } else if (result?.ok) {
-        // Login successful, NextAuth will handle redirect
-        window.location.href = "/lesson-plan";
+        // Login successful - show debug info instead of redirecting
+        const redirectUrl = "/lesson-plan";
+        const currentUrl = window.location.href;
+        const apiUrl = getApiUrl();
+        
+        setDebugInfo(`
+DEBUG INFO:
+✅ Login Success!
+🔗 Current URL: ${currentUrl}
+🎯 Redirect URL: ${redirectUrl}
+🔧 API Base URL: ${apiUrl}
+🌐 User Agent: ${navigator.userAgent}
+📍 Origin: ${window.location.origin}
+🔐 NextAuth URL: ${process.env.NEXT_PUBLIC_NEXTAUTH_URL || 'Not set'}
+
+Click the button below to continue to lesson-plan page.
+        `);
+        
+        // Don't auto-redirect, let user see the debug info
+        console.log('Login success - debug info set');
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -187,7 +207,16 @@ export default function LoginPage() {
         });
 
         if (result?.ok) {
-          window.location.href = "/lesson-plan";
+          setDebugInfo(`
+DEBUG INFO - Registration Success:
+✅ Registration & Login Success!
+🔗 Current URL: ${window.location.href}
+🎯 Redirect URL: /lesson-plan
+🔧 API Base URL: ${getApiUrl()}
+📍 Origin: ${window.location.origin}
+
+Click the button below to continue to lesson-plan page.
+          `);
         } else {
           setError("注册成功但登录失败，请手动登录");
         }
@@ -228,7 +257,16 @@ export default function LoginPage() {
       if (result?.error) {
         setError("用户名或密码错误");
       } else if (result?.ok) {
-        window.location.href = "/lesson-plan";
+        setDebugInfo(`
+DEBUG INFO - Direct Login Success:
+✅ Direct Login Success!
+🔗 Current URL: ${window.location.href}
+🎯 Redirect URL: /lesson-plan
+🔧 API Base URL: ${getApiUrl()}
+📍 Origin: ${window.location.origin}
+
+Click the button below to continue to lesson-plan page.
+        `);
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -679,6 +717,25 @@ export default function LoginPage() {
             <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg text-sm mb-6">
               <ExclamationCircleIcon className="w-5 h-5" />
               {error}
+            </div>
+          )}
+
+          {/* Debug Info */}
+          {debugInfo && (
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200 rounded-lg text-sm mb-6">
+              <pre className="whitespace-pre-wrap font-mono text-xs">{debugInfo}</pre>
+              <button
+                onClick={() => window.location.href = "/lesson-plan"}
+                className="mt-4 btn btn-primary w-full"
+              >
+                🚀 Continue to Lesson Plan
+              </button>
+              <button
+                onClick={() => setDebugInfo("")}
+                className="mt-2 text-xs text-gray-500 hover:text-gray-700 w-full"
+              >
+                Hide Debug Info
+              </button>
             </div>
           )}
 
