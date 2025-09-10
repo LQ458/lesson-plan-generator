@@ -119,6 +119,16 @@ export default function LoginPage() {
     setError("");
 
     try {
+      // Log the exact API endpoint that NextAuth will call
+      const authApiUrl = getApiUrl(API_ENDPOINTS.AUTH.LOGIN);
+      console.log('[DEBUG] NextAuth will call:', authApiUrl);
+      
+      setDebugInfo(`🔍 ATTEMPTING LOGIN...
+📍 NextAuth API endpoint: ${authApiUrl}
+🔗 Current URL: ${window.location.href}
+📍 Origin: ${window.location.origin}
+⏳ Calling NextAuth signIn...`);
+
       const result = await signIn("credentials", {
         username: authForm.username,
         password: authForm.password,
@@ -127,25 +137,42 @@ export default function LoginPage() {
 
       if (result?.error) {
         setError("用户名或密码错误");
-        setDebugInfo(`Login failed: ${result.error}`);
+        setDebugInfo(`❌ LOGIN FAILED:
+🚨 Error: ${result.error}
+📍 NextAuth API endpoint: ${authApiUrl}
+🔗 Current URL: ${window.location.href}
+📍 Origin: ${window.location.origin}
+🔧 API Base URL: ${getApiUrl()}
+
+Full result object: ${JSON.stringify(result, null, 2)}`);
       } else if (result?.ok) {
         // Login successful - show debug info instead of redirecting
         const redirectUrl = "/lesson-plan";
         const currentUrl = window.location.href;
         const apiUrl = getApiUrl();
         
-        setDebugInfo(`
-DEBUG INFO:
-✅ Login Success!
+        const debugData = `✅ LOGIN SUCCESS:
 🔗 Current URL: ${currentUrl}
-🎯 Redirect URL: ${redirectUrl}
+🎯 Intended Redirect: ${redirectUrl}
 🔧 API Base URL: ${apiUrl}
-🌐 User Agent: ${navigator.userAgent}
 📍 Origin: ${window.location.origin}
-🔐 NextAuth URL: ${process.env.NEXT_PUBLIC_NEXTAUTH_URL || 'Not set'}
+🔐 NEXTAUTH_URL: ${process.env.NEXT_PUBLIC_NEXTAUTH_URL || 'Not set'}
+📍 NextAuth API endpoint: ${authApiUrl}
 
-Click the button below to continue to lesson-plan page.
-        `);
+Environment Variables:
+- NEXT_PUBLIC_API_URL: ${process.env.NEXT_PUBLIC_API_URL || 'Not set'}
+- NODE_ENV: ${process.env.NODE_ENV || 'Not set'}
+
+NextAuth Result: ${JSON.stringify(result, null, 2)}
+
+Timestamp: ${new Date().toISOString()}
+Click the button below to continue to lesson-plan page.`;
+        
+        setDebugInfo(debugData);
+        
+        // Persist debug info across redirects
+        sessionStorage.setItem('teachai_debug_info', debugData);
+        sessionStorage.setItem('teachai_debug_timestamp', Date.now().toString());
         
         // Don't auto-redirect, let user see the debug info
         console.log('Login success - debug info set');
@@ -725,16 +752,50 @@ Click the button below to continue to lesson-plan page.
             <div className="p-4 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200 rounded-lg text-sm mb-6">
               <pre className="whitespace-pre-wrap font-mono text-xs">{debugInfo}</pre>
               <button
-                onClick={() => window.location.href = "/lesson-plan"}
+                onClick={() => {
+                  // Add redirect tracking info
+                  const redirectInfo = `\n\n🔄 REDIRECT INITIATED:
+📍 From: ${window.location.href}
+🎯 To: /lesson-plan
+⏰ Time: ${new Date().toISOString()}`;
+                  
+                  const updatedDebugInfo = debugInfo + redirectInfo;
+                  sessionStorage.setItem('teachai_debug_info', updatedDebugInfo);
+                  
+                  // Now redirect
+                  window.location.href = "/lesson-plan";
+                }}
                 className="mt-4 btn btn-primary w-full"
               >
                 🚀 Continue to Lesson Plan
               </button>
               <button
                 onClick={() => setDebugInfo("")}
-                className="mt-2 text-xs text-gray-500 hover:text-gray-700 w-full"
+                className="mt-2 text-xs text-gray-500 hover:text-gray-700 w-full block"
               >
                 Hide Debug Info
+              </button>
+              <button
+                onClick={async () => {
+                  try {
+                    const testUrl = getApiUrl(API_ENDPOINTS.AUTH.LOGIN);
+                    const response = await fetch(testUrl, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ test: true })
+                    });
+                    const data = await response.text();
+                    setDebugInfo(debugInfo + `\n\n🔍 DIRECT API TEST:
+📍 Test URL: ${testUrl}
+📊 Status: ${response.status}
+📝 Response: ${data.substring(0, 500)}${data.length > 500 ? '...' : ''}`);
+                  } catch (err) {
+                    setDebugInfo(debugInfo + `\n\n❌ DIRECT API TEST FAILED: ${err}`);
+                  }
+                }}
+                className="mt-2 text-xs bg-blue-500 text-white px-2 py-1 rounded w-full"
+              >
+                🧪 Test API Directly
               </button>
             </div>
           )}

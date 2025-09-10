@@ -306,6 +306,7 @@ const LoadingAnimation = () => {
 
 export default function LessonPlanPage() {
   const { settings } = useSettings();
+  const [debugInfo, setDebugInfo] = useState("");
   const [formData, setFormData] = useState({
     subject: "",
     grade: "",
@@ -314,6 +315,34 @@ export default function LessonPlanPage() {
     objectives: "",
     requirements: "",
   });
+
+  // Check for debug info from login redirect
+  useEffect(() => {
+    const storedDebugInfo = sessionStorage.getItem('teachai_debug_info');
+    const debugTimestamp = sessionStorage.getItem('teachai_debug_timestamp');
+    
+    if (storedDebugInfo && debugTimestamp) {
+      const timeElapsed = Date.now() - parseInt(debugTimestamp);
+      const additionalInfo = `\n\n🎯 REDIRECT COMPLETED:
+📍 Arrived at: ${window.location.href}
+⏰ Time elapsed: ${timeElapsed}ms
+🌐 Current origin: ${window.location.origin}
+🔧 Current API base: ${getApiUrl()}
+
+Environment check on lesson-plan page:
+- NEXT_PUBLIC_API_URL: ${process.env.NEXT_PUBLIC_API_URL || 'Not set'}
+- NODE_ENV: ${process.env.NODE_ENV || 'Not set'}
+- Window location: ${window.location.href}`;
+      
+      setDebugInfo(storedDebugInfo + additionalInfo);
+      
+      // Keep debug info for 5 minutes, then auto-clear
+      setTimeout(() => {
+        sessionStorage.removeItem('teachai_debug_info');
+        sessionStorage.removeItem('teachai_debug_timestamp');
+      }, 5 * 60 * 1000);
+    }
+  }, []);
 
   // 当设置改变时，更新表单默认值
   useEffect(() => {
@@ -517,6 +546,26 @@ export default function LessonPlanPage() {
   return (
     <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Debug Info */}
+        {debugInfo && (
+          <div className="mb-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 rounded-lg border border-yellow-200 dark:border-yellow-700">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-semibold">🐛 Login Debug Information</h3>
+              <button
+                onClick={() => {
+                  setDebugInfo("");
+                  sessionStorage.removeItem('teachai_debug_info');
+                  sessionStorage.removeItem('teachai_debug_timestamp');
+                }}
+                className="text-xs px-2 py-1 bg-yellow-200 dark:bg-yellow-800 rounded"
+              >
+                Clear
+              </button>
+            </div>
+            <pre className="whitespace-pre-wrap font-mono text-xs overflow-x-auto">{debugInfo}</pre>
+          </div>
+        )}
+
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
