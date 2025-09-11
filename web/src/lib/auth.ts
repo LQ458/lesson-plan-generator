@@ -1,7 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import connectToDatabase from './mongodb'
-import User from '@/models/User'
+import User from '../models/User'
 
 interface AuthUser {
   id: string
