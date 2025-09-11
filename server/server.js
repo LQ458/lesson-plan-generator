@@ -12,9 +12,6 @@ const {
   authenticate,
   requireRole,
   apiLimiter,
-  loginLimiter,
-  generateToken,
-  refreshToken,
 } = require("./middleware/auth");
 const {
   errorHandler,
@@ -22,7 +19,6 @@ const {
   notFoundHandler,
   UserFriendlyError,
 } = require("./utils/error-handler");
-const authRegisterRouter = require("./routes/auth-register");
 require("dotenv").config();
 
 // Conditionally initialize vector store only for local RAG
@@ -198,8 +194,9 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser()); // 添加cookie解析中间件
 
-// 注册路由
-app.use("/auth", authRegisterRouter);
+// Authentication is handled by NextAuth.js on the frontend
+// No auth routes needed on Express server
+
 app.use("/content", require("./routes/content"));
 app.use("/export", require("./routes/export"));
 app.use("/admin", require("./routes/admin"));
@@ -233,12 +230,6 @@ app.get("/status", async (req, res) => {
     endpoints: [
       "GET /health",
       "GET /status", 
-      "POST /auth/register",
-      "POST /auth/login",
-      "POST /auth/refresh",
-      "GET /auth/profile",
-      "POST /auth/invite-login",
-      "POST /auth/verify-invite",
       "POST /lesson-plan",
       "POST /exercises",
       "POST /analyze",
@@ -246,41 +237,6 @@ app.get("/status", async (req, res) => {
   });
 });
 
-app.post(
-  "/auth/refresh",
-  asyncHandler(async (req, res) => {
-    const { refreshToken: token } = req.body;
-
-    if (!token) {
-      throw new UserFriendlyError("缺少刷新令牌", 400);
-    }
-
-    const newToken = refreshToken(token);
-
-    res.json({
-      success: true,
-      data: { token: newToken },
-      message: "令牌刷新成功",
-    });
-  }),
-);
-
-app.get(
-  "/auth/profile",
-  authenticate,
-  asyncHandler(async (req, res) => {
-    const user = await userService.getUserById(req.user.id);
-
-    if (!user) {
-      throw new UserFriendlyError("用户信息不存在", 404);
-    }
-
-    res.json({
-      success: true,
-      data: { user: user.toSafeJSON() },
-    });
-  }),
-);
 
 // AI功能路由 - 流式输出
 app.post(

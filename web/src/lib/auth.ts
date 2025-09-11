@@ -1,8 +1,9 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { getApiUrl, API_ENDPOINTS } from './api-config'
+import connectToDatabase from './mongodb'
+import User from '@/models/User'
 
-interface User {
+interface AuthUser {
   id: string
   username: string
   preferences: any
@@ -17,41 +18,46 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
         inviteCode: { label: 'Invite Code', type: 'text' }
       },
-      async authorize(credentials): Promise<User | null> {
+      async authorize(credentials): Promise<AuthUser | null> {
         if (!credentials?.username || !credentials?.password) {
           return null
         }
 
         try {
-          // Call backend API to verify credentials
-          const response = await fetch(getApiUrl(API_ENDPOINTS.AUTH.LOGIN), {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              username: credentials.username,
-              password: credentials.password,
-            }),
+          // Connect to MongoDB directly
+          await connectToDatabase()
+          
+          // Find user by username
+          const user = await User.findOne({ 
+            username: credentials.username,
+            isActive: true
           })
 
-          if (!response.ok) {
+          if (!user) {
+            console.log('[NextAuth] User not found:', credentials.username)
             return null
           }
 
-          const data = await response.json()
-
-          if (data.success && data.data?.user) {
-            return {
-              id: data.data.user._id,
-              username: data.data.user.username,
-              preferences: data.data.user.preferences,
-            }
+          // Validate password
+          const isValidPassword = await user.validatePassword(credentials.password)
+          
+          if (!isValidPassword) {
+            console.log('[NextAuth] Invalid password for user:', credentials.username)
+            return null
           }
 
-          return null
+          // Update last login
+          await user.updateLastLogin()
+
+          console.log('[NextAuth] Authentication successful for user:', credentials.username)
+          
+          return {
+            id: user._id.toString(),
+            username: user.username,
+            preferences: user.preferences,
+          }
         } catch (error) {
-          console.error('[NextAuth] Auth error:', error)
+          console.error('[NextAuth] Authentication error:', error)
           return null
         }
       }
