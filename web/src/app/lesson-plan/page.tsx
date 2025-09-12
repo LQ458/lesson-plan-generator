@@ -306,7 +306,6 @@ const LoadingAnimation = () => {
 
 export default function LessonPlanPage() {
   const { settings } = useSettings();
-  const [debugInfo, setDebugInfo] = useState("");
   const [formData, setFormData] = useState({
     subject: "",
     grade: "",
@@ -316,84 +315,6 @@ export default function LessonPlanPage() {
     requirements: "",
   });
 
-  // Check for debug info from login redirect
-  useEffect(() => {
-    let storedDebugInfo = null;
-    let debugTimestamp = null;
-    
-    // First try URL parameters
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const debugParam = urlParams.get('debug');
-      
-      if (debugParam) {
-        try {
-          const debugData = JSON.parse(decodeURIComponent(debugParam));
-          storedDebugInfo = debugData.info;
-          debugTimestamp = debugData.timestamp.toString();
-          console.log('[DEBUG] Loaded debug info from URL parameter');
-          
-          // Clean up URL
-          const newUrl = window.location.pathname;
-          window.history.replaceState({}, '', newUrl);
-        } catch (e) {
-          console.log('[DEBUG] Failed to parse debug URL parameter:', e);
-        }
-      }
-      
-      // Fallback to sessionStorage
-      if (!storedDebugInfo && window.sessionStorage) {
-        storedDebugInfo = sessionStorage.getItem('teachai_debug_info');
-        debugTimestamp = sessionStorage.getItem('teachai_debug_timestamp');
-        if (storedDebugInfo) {
-          console.log('[DEBUG] Loaded debug info from sessionStorage');
-        }
-      }
-      
-      // Final fallback to localStorage
-      if (!storedDebugInfo && window.localStorage) {
-        storedDebugInfo = localStorage.getItem('teachai_debug_info');
-        debugTimestamp = localStorage.getItem('teachai_debug_timestamp');
-        if (storedDebugInfo) {
-          console.log('[DEBUG] Loaded debug info from localStorage');
-        }
-      }
-    }
-    
-    if (storedDebugInfo && debugTimestamp) {
-      const timeElapsed = Date.now() - parseInt(debugTimestamp);
-      const additionalInfo = `\n\n🎯 REDIRECT COMPLETED:
-📍 Arrived at: ${window.location.href}
-⏰ Time elapsed: ${timeElapsed}ms
-🌐 Current origin: ${window.location.origin}
-🔧 Current API base: ${getApiUrl()}
-
-Environment check on lesson-plan page:
-- NEXT_PUBLIC_API_URL: ${process.env.NEXT_PUBLIC_API_URL || 'Not set'}
-- NODE_ENV: ${process.env.NODE_ENV || 'Not set'}
-- Window location: ${window.location.href}
-- SessionStorage available: ${typeof window !== 'undefined' && window.sessionStorage ? 'Yes' : 'No'}
-- LocalStorage available: ${typeof window !== 'undefined' && window.localStorage ? 'Yes' : 'No'}`;
-      
-      setDebugInfo(storedDebugInfo + additionalInfo);
-      
-      // Keep debug info for 5 minutes, then auto-clear
-      setTimeout(() => {
-        if (typeof window !== 'undefined') {
-          if (window.sessionStorage) {
-            sessionStorage.removeItem('teachai_debug_info');
-            sessionStorage.removeItem('teachai_debug_timestamp');
-          }
-          if (window.localStorage) {
-            localStorage.removeItem('teachai_debug_info');
-            localStorage.removeItem('teachai_debug_timestamp');
-          }
-        }
-      }, 5 * 60 * 1000);
-    } else {
-      console.log('[DEBUG] No debug info found in either URL params or sessionStorage');
-    }
-  }, []);
 
   // 当设置改变时，更新表单默认值
   useEffect(() => {
@@ -597,25 +518,6 @@ Environment check on lesson-plan page:
   return (
     <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Debug Info */}
-        {debugInfo && (
-          <div className="mb-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 rounded-lg border border-yellow-200 dark:border-yellow-700">
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="font-semibold">🐛 Login Debug Information</h3>
-              <button
-                onClick={() => {
-                  setDebugInfo("");
-                  sessionStorage.removeItem('teachai_debug_info');
-                  sessionStorage.removeItem('teachai_debug_timestamp');
-                }}
-                className="text-xs px-2 py-1 bg-yellow-200 dark:bg-yellow-800 rounded"
-              >
-                Clear
-              </button>
-            </div>
-            <pre className="whitespace-pre-wrap font-mono text-xs overflow-x-auto">{debugInfo}</pre>
-          </div>
-        )}
 
         {/* Header */}
         <div className="text-center mb-12">

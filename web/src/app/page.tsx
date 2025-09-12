@@ -79,11 +79,11 @@ export default function HomePage() {
                 href="/login"
                 className="btn btn-primary text-lg px-8 py-4 animate-scale"
               >
-                邀请码登录开始使用
+登录开始使用
               </Link>
               <div className="mt-4">
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  需要邀请码才能使用完整功能
+                  使用您的账户登录体验完整功能
                 </p>
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function HomePage() {
             </Link>
             <div className="flex items-center justify-center mt-2">
               <p className="text-white/90 text-sm">
-                使用邀请码登录体验完整功能
+登录体验完整功能
               </p>
             </div>
           </div>

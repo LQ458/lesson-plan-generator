@@ -56,8 +56,7 @@ export const authOptions: NextAuthOptions = {
       name: 'credentials',
       credentials: {
         username: { label: 'Username', type: 'text' },
-        password: { label: 'Password', type: 'password' },
-        inviteCode: { label: 'Invite Code', type: 'text' }
+        password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials): Promise<AuthUser | null> {
         if (!credentials?.username || !credentials?.password) {

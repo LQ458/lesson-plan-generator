@@ -99,7 +99,7 @@ export function Navbar() {
               <Link
                 href="/login"
                 className="hidden md:flex nav-link text-apple-blue hover:text-apple-blue/80"
-                title="邀请码登录"
+                title="用户登录"
               >
                 <UserIcon className="w-5 h-5" />
                 <span className="hidden lg:inline">登录</span>
