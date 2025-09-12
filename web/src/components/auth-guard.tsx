@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, ReactNode, useState } from "react";
+import { useEffect, ReactNode } from "react";
 
 interface AuthGuardProps {
   children: ReactNode;
