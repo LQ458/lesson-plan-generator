@@ -11,32 +11,25 @@ const protectedRoutes = [
 export default withAuth(
   function middleware(req) {
     // The middleware only runs if the user is authenticated
-    // Add some debugging for production issues
-    console.log('[Middleware] Protected route accessed:', req.nextUrl.pathname)
-    console.log('[Middleware] Has token:', !!req.nextauth.token)
+    // Removed debug logs for production
   },
   {
     callbacks: {
       authorized: ({ token, req }) => {
         const { pathname } = req.nextUrl
         
-        console.log('[Middleware] Authorizing:', pathname, 'Has token:', !!token)
-        
         // Allow NextAuth API routes always
         if (pathname.startsWith('/api/auth')) {
-          console.log('[Middleware] Allowing NextAuth API route')
           return true
         }
         
-        // Block other API routes - they should handle their own auth
+        // Allow other API routes to pass through - they handle their own auth
         if (pathname.startsWith('/api/')) {
-          console.log('[Middleware] Blocking non-NextAuth API route')
-          return false
+          return true
         }
         
         // Allow access to public routes
         if (pathname === '/' || pathname === '/login') {
-          console.log('[Middleware] Allowing public route')
           return true
         }
         
@@ -46,16 +39,10 @@ export default withAuth(
         )
         
         if (isProtectedRoute) {
-          const hasToken = !!token
-          console.log('[Middleware] Protected route, has token:', hasToken)
-          if (!hasToken) {
-            console.log('[Middleware] Redirecting to login - no valid token')
-          }
-          return hasToken
+          return !!token
         }
         
         // Allow access to other routes
-        console.log('[Middleware] Allowing other route')
         return true
       },
     },
