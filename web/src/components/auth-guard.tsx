@@ -34,10 +34,16 @@ export function AuthGuard({ children, fallback }: AuthGuardProps) {
 
     // If not authenticated and not loading, redirect to login
     if (status === "unauthenticated") {
-      addDebug("No session found, redirecting to login");
-      addDebug(`Redirecting from: ${window.location.pathname} to /login`);
-      router.push("/login");
-      return;
+      addDebug("No session found, will redirect to login in 2 seconds to allow debugging");
+      addDebug(`Current path: ${window.location.pathname}`);
+      
+      // Add a delay to allow viewing debug information in production
+      const redirectTimer = setTimeout(() => {
+        addDebug(`Redirecting from: ${window.location.pathname} to /login`);
+        router.push("/login");
+      }, 2000);
+      
+      return () => clearTimeout(redirectTimer);
     }
 
     // If authenticated, log success

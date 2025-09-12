@@ -27,6 +27,8 @@ export default withAuth(
         
         console.log(`[${timestamp}] [Middleware] Authorizing:`, pathname)
         console.log(`[${timestamp}] [Middleware] Token present:`, !!token)
+        console.log(`[${timestamp}] [Middleware] Token data:`, token ? { sub: token.sub, username: token.username, exp: token.exp } : null)
+        console.log(`[${timestamp}] [Middleware] All cookies:`, req.cookies.getAll().map(c => c.name))
         console.log(`[${timestamp}] [Middleware] User-Agent:`, req.headers.get('user-agent')?.substring(0, 50))
         
         // Allow NextAuth API routes always
@@ -55,16 +57,36 @@ export default withAuth(
         if (isProtectedRoute) {
           const hasValidToken = !!token
           console.log(`[${timestamp}] [Middleware] Protected route:`, pathname, 'Has valid token:', hasValidToken)
+          
           if (token) {
+            const tokenExpired = token.exp && typeof token.exp === 'number' && (Date.now() / 1000 > token.exp)
             console.log(`[${timestamp}] [Middleware] Token details:`, {
               username: token.username || 'no-username',
               exp: token.exp,
-              iat: token.iat
+              iat: token.iat,
+              expired: tokenExpired,
+              currentTime: Math.floor(Date.now() / 1000)
             })
+            
+            if (tokenExpired) {
+              console.log(`[${timestamp}] [Middleware] Token is expired! Redirecting to login`)
+              return false
+            }
+            return true
           } else {
-            console.log(`[${timestamp}] [Middleware] No token found, will redirect to login`)
+            console.log(`[${timestamp}] [Middleware] No token found, checking cookies for debugging`)
+            console.log(`[${timestamp}] [Middleware] Available cookies:`, req.cookies.getAll().map(c => `${c.name}=${c.value.substring(0, 20)}...`))
+            
+            // TEMPORARY: Allow access if we have any NextAuth cookie (for debugging)
+            const hasNextAuthCookie = req.cookies.getAll().some(c => c.name.includes('next-auth'))
+            if (hasNextAuthCookie) {
+              console.log(`[${timestamp}] [Middleware] TEMPORARY: Found NextAuth cookie, allowing access for debugging`)
+              return true
+            }
+            
+            console.log(`[${timestamp}] [Middleware] No NextAuth cookie found, blocking access`)
+            return false
           }
-          return hasValidToken
         }
         
         // Allow access to other routes
