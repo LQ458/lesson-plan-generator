@@ -11,15 +11,6 @@ export const getApiUrl = (endpoint: string = ''): string => {
 
 // Common API endpoints
 export const API_ENDPOINTS = {
-  // Auth endpoints
-  AUTH: {
-    LOGIN: '/auth/login',
-    REGISTER: '/auth/register',
-    VERIFY_INVITE: '/auth/verify-invite',
-    VERIFY_TOKEN: '/auth/verify-token',
-    VERIFY: '/auth/verify',
-  },
-  
   // Content endpoints
   CONTENT: {
     STATS: '/content/stats',

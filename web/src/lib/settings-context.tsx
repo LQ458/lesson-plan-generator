@@ -7,7 +7,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { getApiUrl, API_ENDPOINTS } from "./api-config";
+import { useSession } from "next-auth/react";
 
 export interface UserSettings {
   gradeLevel: string;
@@ -35,37 +35,24 @@ const SettingsContext = createContext<SettingsContextType | undefined>(
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<UserSettings>(defaultSettings);
   const [mounted, setMounted] = useState(false);
+  const { data: session } = useSession();
 
   // 从用户会话和localStorage加载设置
   useEffect(() => {
     const loadSettings = async () => {
       let sessionPreferences = null;
 
-      try {
-        // 首先尝试从用户会话获取偏好
-        const sessionResponse = await fetch(getApiUrl(API_ENDPOINTS.AUTH.VERIFY), {
-          credentials: "include",
-        });
-
-        if (sessionResponse.ok) {
-          const sessionData = await sessionResponse.json();
-          if (sessionData.success && sessionData.data?.preferences) {
-            const preferences = sessionData.data.preferences;
-            sessionPreferences = {
-              subject: preferences.subject,
-              gradeLevel: preferences.gradeLevel,
-              easyMode: preferences.easyMode,
-            };
-            console.log("从用户会话加载偏好设置:", sessionPreferences);
-          }
-        } else {
-          console.log("用户未登录，将使用本地设置");
-        }
-      } catch (error) {
-        console.log(
-          "无法获取用户会话，将使用本地设置:",
-          error instanceof Error ? error.message : String(error),
-        );
+      // Get preferences from NextAuth session instead of backend API
+      if (session?.user?.preferences) {
+        const preferences = session.user.preferences;
+        sessionPreferences = {
+          subject: preferences.subject || 'math',
+          gradeLevel: preferences.gradeLevel || 'primary_1',
+          easyMode: preferences.easyMode !== undefined ? preferences.easyMode : true,
+        };
+        console.log("从用户会话加载偏好设置:", sessionPreferences);
+      } else {
+        console.log("用户未登录，将使用本地设置");
       }
 
       // 从localStorage获取本地设置
@@ -93,7 +80,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     };
 
     loadSettings();
-  }, []);
+  }, [session]);
 
   // 自动保存设置到 localStorage
   useEffect(() => {
