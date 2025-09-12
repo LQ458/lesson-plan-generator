@@ -74,17 +74,8 @@ export default withAuth(
             }
             return true
           } else {
-            console.log(`[${timestamp}] [Middleware] No token found, checking cookies for debugging`)
+            console.log(`[${timestamp}] [Middleware] No token found, will redirect to login`)
             console.log(`[${timestamp}] [Middleware] Available cookies:`, req.cookies.getAll().map(c => `${c.name}=${c.value.substring(0, 20)}...`))
-            
-            // TEMPORARY: Allow access if we have any NextAuth cookie (for debugging)
-            const hasNextAuthCookie = req.cookies.getAll().some(c => c.name.includes('next-auth'))
-            if (hasNextAuthCookie) {
-              console.log(`[${timestamp}] [Middleware] TEMPORARY: Found NextAuth cookie, allowing access for debugging`)
-              return true
-            }
-            
-            console.log(`[${timestamp}] [Middleware] No NextAuth cookie found, blocking access`)
             return false
           }
         }

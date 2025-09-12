@@ -14,7 +14,6 @@ import {
   getSubjectLabel,
 } from "@/lib/settings-context";
 import { AuthGuard } from "@/components/auth-guard";
-import { AuthDebugInline } from "@/components/auth-debug-inline";
 import yaml from "js-yaml";
 import { getApiUrl, API_ENDPOINTS } from "@/lib/api-config";
 
@@ -519,7 +518,6 @@ export default function LessonPlanPage() {
 
   return (
     <AuthGuard>
-      <AuthDebugInline />
       <div className="min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

@@ -107,6 +107,10 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
     maxAge: 7 * 24 * 60 * 60, // 7 days
   },
+  jwt: {
+    // Use a signing algorithm instead of encryption for middleware compatibility
+    secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
+  },
   cookies: {
     sessionToken: {
       name: 'next-auth.session-token',
