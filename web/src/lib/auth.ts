@@ -124,24 +124,54 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
+      const timestamp = new Date().toISOString()
+      console.log(`[${timestamp}] [NextAuth] Redirect callback:`, { url, baseUrl })
+      
       // Allows relative callback URLs
-      if (url.startsWith("/")) return `${baseUrl}${url}`
+      if (url.startsWith("/")) {
+        const redirectUrl = `${baseUrl}${url}`
+        console.log(`[${timestamp}] [NextAuth] Redirecting to relative URL:`, redirectUrl)
+        return redirectUrl
+      }
       // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url
+      else if (new URL(url).origin === baseUrl) {
+        console.log(`[${timestamp}] [NextAuth] Redirecting to same origin:`, url)
+        return url
+      }
+      console.log(`[${timestamp}] [NextAuth] Redirecting to baseUrl:`, baseUrl)
       return baseUrl
     },
     async jwt({ token, user }) {
+      const timestamp = new Date().toISOString()
+      console.log(`[${timestamp}] [NextAuth] JWT callback - token:`, !!token, 'user:', !!user)
+      
       if (user) {
+        console.log(`[${timestamp}] [NextAuth] Adding user to token:`, user.username)
         token.username = user.username
         token.preferences = user.preferences
       }
       return token
     },
     async session({ session, token }) {
+      const timestamp = new Date().toISOString()
+      console.log(`[${timestamp}] [NextAuth] Session callback - session:`, !!session, 'token:', !!token)
+      
       if (token) {
+        console.log(`[${timestamp}] [NextAuth] Token data:`, {
+          sub: token.sub,
+          username: token.username,
+          exp: token.exp,
+          iat: token.iat
+        })
         session.user.id = token.sub as string
         session.user.username = token.username as string
         session.user.preferences = token.preferences
+        
+        console.log(`[${timestamp}] [NextAuth] Final session:`, {
+          userId: session.user.id,
+          username: session.user.username,
+          expires: session.expires
+        })
       }
       return session
     }

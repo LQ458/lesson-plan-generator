@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SettingsProvider } from "@/lib/settings-context";
 import { Navbar } from "@/components/navbar";
 import { Providers } from "@/components/providers";
+import { AuthDebug } from "@/components/auth-debug";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
               <div className="min-h-screen bg-light-bg dark:bg-dark-bg">
                 <Navbar />
                 <main className="pb-16 md:pb-0">{children}</main>
+                <AuthDebug />
               </div>
             </SettingsProvider>
           </ThemeProvider>
