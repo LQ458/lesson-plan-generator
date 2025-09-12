@@ -4,12 +4,12 @@
  */
 
 export const getApiUrl = (endpoint: string = ''): string => {
-  // For content API calls, use backend directly during development
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+  // Use /server prefix for Express backend to avoid NextAuth /api conflicts
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/server';
   return endpoint ? `${baseUrl}${endpoint}` : baseUrl;
 };
 
-// Common API endpoints
+// Common API endpoints - all use /server prefix to avoid NextAuth conflicts
 export const API_ENDPOINTS = {
   // Content endpoints
   CONTENT: {
@@ -19,7 +19,7 @@ export const API_ENDPOINTS = {
     FAVORITES: '/content/favorites',
   },
   
-  // AI endpoints
+  // AI endpoints  
   AI: {
     LESSON_PLAN: '/lesson-plan',
     EXERCISES: '/exercises',

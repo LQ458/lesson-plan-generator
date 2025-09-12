@@ -197,12 +197,13 @@ app.use(cookieParser()); // 添加cookie解析中间件
 // Authentication is handled by NextAuth.js on the frontend
 // No auth routes needed on Express server
 
-app.use("/content", require("./routes/content"));
-app.use("/export", require("./routes/export"));
-app.use("/admin", require("./routes/admin"));
+// 使用 /server 前缀避免与 NextAuth /api 冲突
+app.use("/server/content", require("./routes/content"));
+app.use("/server/export", require("./routes/export"));
+app.use("/server/admin", require("./routes/admin"));
 
 // 健康检查端点
-app.get("/health", async (req, res) => {
+app.get("/server/health", async (req, res) => {
   const dbStats = await database.getStats();
   res.json({
     status: "healthy",
@@ -214,7 +215,7 @@ app.get("/health", async (req, res) => {
 });
 
 // 服务器状态端点
-app.get("/status", async (req, res) => {
+app.get("/server/status", async (req, res) => {
   const aiStatus = aiService ? aiService.getStatus() : { enabled: false };
   const dbStats = await database.getStats();
   const userStats = servicesReady ? await userService.getUserStats() : {};
@@ -228,11 +229,11 @@ app.get("/status", async (req, res) => {
     ai: aiStatus,
     users: userStats,
     endpoints: [
-      "GET /health",
-      "GET /status", 
-      "POST /lesson-plan",
-      "POST /exercises",
-      "POST /analyze",
+      "GET /server/health",
+      "GET /server/status", 
+      "POST /server/lesson-plan",
+      "POST /server/exercises",
+      "POST /server/analyze",
     ],
   });
 });
@@ -240,7 +241,7 @@ app.get("/status", async (req, res) => {
 
 // AI功能路由 - 流式输出
 app.post(
-  "/lesson-plan",
+  "/server/lesson-plan",
   aiRequestLogger("lesson-plan"), // 添加AI请求日志
   authenticate, // 启用认证
   apiLimiter, // 启用限流
@@ -271,7 +272,7 @@ app.post(
 );
 
 app.post(
-  "/exercises",
+  "/server/exercises",
   aiRequestLogger("exercises"), // 添加AI请求日志
   authenticate, // 启用认证
   apiLimiter, // 启用限流
@@ -313,7 +314,7 @@ app.post(
 );
 
 app.post(
-  "/analyze",
+  "/server/analyze",
   aiRequestLogger("analyze"), // 添加AI请求日志
   authenticate, // 启用认证
   apiLimiter, // 启用限流
@@ -342,7 +343,7 @@ app.post(
 
 // RAG功能路由
 app.post(
-  "/rag/load-documents",
+  "/server/rag/load-documents",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.status(400).json({
@@ -371,7 +372,7 @@ app.post(
 );
 
 app.post(
-  "/rag/search",
+  "/server/rag/search",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.status(400).json({
@@ -420,7 +421,7 @@ app.post(
 );
 
 app.get(
-  "/rag/stats",
+  "/server/rag/stats",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.json({
@@ -453,7 +454,7 @@ app.get(
 );
 
 app.get(
-  "/rag/health",
+  "/server/rag/health",
   asyncHandler(async (req, res) => {
     if (!vectorStore) {
       return res.json({
@@ -487,7 +488,7 @@ app.get(
 );
 
 // Root endpoint for Zeabur
-app.get("/", (req, res) => {
+app.get("/server", (req, res) => {
   res.status(200).json({
     message: "TeachAI API Server",
     status: "running",
@@ -498,7 +499,7 @@ app.get("/", (req, res) => {
 });
 
 // Debug endpoint to test nginx proxy
-app.get('/test', (req, res) => {
+app.get('/server/test', (req, res) => {
   res.json({ 
     success: true,
     message: 'API server is working!', 
