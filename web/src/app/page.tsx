@@ -79,7 +79,7 @@ export default function HomePage() {
                 href="/login"
                 className="btn btn-primary text-lg px-8 py-4 animate-scale"
               >
-登录开始使用
+邀请码登录开始使用
               </Link>
               <div className="mt-4">
                 <p className="text-sm text-gray-500 dark:text-gray-400">
