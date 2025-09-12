@@ -1,13 +1,54 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import connectToDatabase from './mongodb'
-import User from '../models/User'
+import mongoose from 'mongoose'
+import bcrypt from 'bcryptjs'
 
 interface AuthUser {
   id: string
   username: string
   preferences: any
 }
+
+// Define User schema inline to avoid import issues
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  passwordHash: {
+    type: String,
+    required: true,
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+  preferences: {
+    theme: { type: String, default: 'system' },
+    language: { type: String, default: 'zh_CN' },
+    notifications: { type: Boolean, default: true },
+    subject: { type: String, default: 'math' },
+    gradeLevel: { type: String, default: 'primary_1' },
+    easyMode: { type: Boolean, default: true },
+  },
+  lastLoginAt: Date,
+}, { timestamps: true })
+
+// Add methods
+userSchema.methods.validatePassword = async function (password: string) {
+  return bcrypt.compare(password, this.passwordHash)
+}
+
+userSchema.methods.updateLastLogin = function () {
+  this.lastLoginAt = new Date()
+  return this.save()
+}
+
+// Get or create User model
+const User = mongoose.models.User || mongoose.model('User', userSchema)
 
 export const authOptions: NextAuthOptions = {
   providers: [
