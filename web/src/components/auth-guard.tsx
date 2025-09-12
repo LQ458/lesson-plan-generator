@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, ReactNode } from "react";
+import { useEffect, ReactNode, useCallback } from "react";
 
 interface AuthGuardProps {
   children: ReactNode;
@@ -12,18 +12,16 @@ interface AuthGuardProps {
 export function AuthGuard({ children, fallback }: AuthGuardProps) {
   const { data: session, status } = useSession();
   const router = useRouter();
-  useEffect(() => {
-    // If we're still loading, don't do anything yet
-    if (status === "loading") {
-      return;
-    }
+  
+  const handleRedirect = useCallback(() => {
+    router.push("/login");
+  }, [router]);
 
-    // If not authenticated and not loading, redirect to login
+  useEffect(() => {
     if (status === "unauthenticated") {
-      router.push("/login");
-      return;
+      handleRedirect();
     }
-  }, [status, router]);
+  }, [status, handleRedirect]);
 
   // Show loading state while checking session
   if (status === "loading") {
