@@ -110,12 +110,45 @@ export const authOptions: NextAuthOptions = {
   jwt: {
     // Use a signing algorithm instead of encryption for middleware compatibility
     secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
+    // Force JWT instead of JWE for better compatibility with external API
+    encode: async ({ secret, token }) => {
+      const jwt = require('jsonwebtoken')
+      return jwt.sign(token, secret, { algorithm: 'HS256' })
+    },
+    decode: async ({ secret, token }) => {
+      const jwt = require('jsonwebtoken')
+      return jwt.verify(token, secret, { algorithms: ['HS256'] })
+    }
   },
   cookies: {
     sessionToken: {
-      name: 'next-auth.session-token',
+      name: process.env.NODE_ENV === 'production' 
+        ? '__Secure-next-auth.session-token' 
+        : 'next-auth.session-token',
       options: {
         httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+        domain: process.env.NODE_ENV === 'production' ? process.env.NEXTAUTH_URL?.replace(/https?:\/\//, '') : undefined
+      }
+    },
+    csrfToken: {
+      name: process.env.NODE_ENV === 'production' 
+        ? '__Host-next-auth.csrf-token' 
+        : 'next-auth.csrf-token',
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production'
+      }
+    },
+    callbackUrl: {
+      name: process.env.NODE_ENV === 'production' 
+        ? '__Secure-next-auth.callback-url' 
+        : 'next-auth.callback-url',
+      options: {
         sameSite: 'lax',
         path: '/',
         secure: process.env.NODE_ENV === 'production'
