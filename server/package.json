@@ -52,6 +52,7 @@
     "moment": "^2.29.4",
     "mongoose": "^8.16.0",
     "morgan": "^1.10.0",
+    "next-auth": "^4.24.10",
     "node-cache": "^5.1.2",
     "node-fetch": "2",
     "openai": "^4.67.3",

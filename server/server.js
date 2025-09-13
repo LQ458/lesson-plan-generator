@@ -13,6 +13,7 @@ const {
   requireRole,
   apiLimiter,
 } = require("./middleware/auth");
+const { authenticateCompat } = require("./middleware/nextauth-middleware");
 const {
   errorHandler,
   asyncHandler,
@@ -243,7 +244,7 @@ app.get("/server/status", async (req, res) => {
 app.post(
   "/server/lesson-plan",
   aiRequestLogger("lesson-plan"), // 添加AI请求日志
-  authenticate, // 启用认证
+  authenticateCompat, // 启用NextAuth兼容认证
   apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const { subject, grade, topic, requirements } = req.body;
@@ -274,7 +275,7 @@ app.post(
 app.post(
   "/server/exercises",
   aiRequestLogger("exercises"), // 添加AI请求日志
-  authenticate, // 启用认证
+  authenticateCompat, // 启用NextAuth兼容认证
   apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const {
@@ -508,6 +509,19 @@ app.get('/server/test', (req, res) => {
     url: req.url,
     method: req.method,
     headers: req.headers 
+  });
+});
+
+// Test NextAuth authentication
+app.get('/server/test-auth', authenticateCompat, (req, res) => {
+  res.json({
+    success: true,
+    message: 'NextAuth authentication successful',
+    user: {
+      id: req.user?.id,
+      username: req.user?.username
+    },
+    timestamp: new Date().toISOString()
   });
 });
 
