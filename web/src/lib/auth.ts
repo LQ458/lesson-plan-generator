@@ -129,8 +129,8 @@ export const authOptions: NextAuthOptions = {
         httpOnly: true,
         sameSite: 'lax',
         path: '/',
-        secure: process.env.NODE_ENV === 'production',
-        domain: process.env.NODE_ENV === 'production' ? process.env.NEXTAUTH_URL?.replace(/https?:\/\//, '') : undefined
+        secure: process.env.NODE_ENV === 'production'
+        // Remove domain setting - let NextAuth handle it automatically
       }
     },
     csrfToken: {
