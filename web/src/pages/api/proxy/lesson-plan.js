@@ -1,5 +1,6 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
+import { authOptions } from "../../../lib/auth";
+import { getExpressUrl } from "../../../lib/proxy-config";
 
 export default async function handler(req, res) {
   // Get NextAuth session server-side
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
 
   try {
     // Forward request to Express backend (no auth needed - already validated)
-    const response = await fetch('http://localhost:3002/server/lesson-plan', {
+    const response = await fetch(getExpressUrl('/lesson-plan'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
