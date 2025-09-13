@@ -122,7 +122,7 @@ export default function LoginPage() {
     }
   };
 
-  // Register user (still uses backend API, then signs in with NextAuth)
+  // Register user (uses backend API, then signs in with NextAuth)
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -144,9 +144,48 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    // Registration functionality not implemented yet - show message
-    setError("注册功能暂未开放，请使用现有账户登录");
-    setLoading(false);
+    try {
+      // Call registration API
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: authForm.username.trim(),
+          password: authForm.password,
+          confirmPassword: authForm.confirmPassword,
+          preferences: userPreferences,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Registration successful - now sign in automatically
+        console.log('[Registration] Success, attempting auto-login...');
+        
+        const signInResult = await signIn("credentials", {
+          username: authForm.username,
+          password: authForm.password,
+          redirect: false,
+        });
+
+        if (signInResult?.error) {
+          setError("注册成功但自动登录失败，请手动登录");
+        } else if (signInResult?.ok) {
+          // Registration and login successful
+          router.push("/lesson-plan");
+        }
+      } else {
+        setError(result.error || "注册失败，请重试");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      setError("注册失败，请检查网络连接后重试");
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Direct login (skip invite code)

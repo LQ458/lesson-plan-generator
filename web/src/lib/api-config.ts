@@ -4,12 +4,12 @@
  */
 
 export const getApiUrl = (endpoint: string = ''): string => {
-  // Use /server prefix for Express backend to avoid NextAuth /api conflicts
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/server';
+  // Use API proxy routes within Next.js (recommended by NextAuth)
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || '/api/proxy';
   return endpoint ? `${baseUrl}${endpoint}` : baseUrl;
 };
 
-// Common API endpoints - all use /server prefix to avoid NextAuth conflicts
+// Common API endpoints - all use proxy routes for NextAuth compatibility
 export const API_ENDPOINTS = {
   // Content endpoints
   CONTENT: {

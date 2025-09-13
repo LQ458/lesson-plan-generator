@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors"); // No longer needed with proxy pattern
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -13,7 +13,7 @@ const {
   requireRole,
   apiLimiter,
 } = require("./middleware/auth");
-const { authenticateCompat } = require("./middleware/nextauth-middleware");
+// const { authenticateCompat } = require("./middleware/nextauth-middleware"); // No longer needed
 const {
   errorHandler,
   asyncHandler,
@@ -138,57 +138,13 @@ const aiRequestLogger = (endpoint) => (req, res, next) => {
 
 // 中间件配置
 app.use(helmet());
-// CORS 配置 - 支持环境变量自定义
-const allowedOrigins = process.env.ALLOWED_ORIGINS 
-  ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
-  : [
-      "http://localhost:3000", 
-      "http://localhost:3001",
-      "http://localhost:3002"
-    ];
-
-console.log('🔒 CORS允许的域名:', allowedOrigins);
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      
-      if (allowedOrigins.includes(origin)) {
-        console.log(`✅ CORS allowed request from origin: ${origin}`);
-        return callback(null, true);
-      } else {
-        console.warn(`🚫 CORS blocked request from origin: ${origin}`);
-        console.warn(`🔧 Allowed origins: ${allowedOrigins.join(', ')}`);
-        return callback(new Error('Not allowed by CORS'), false);
-      }
-    },
-    credentials: true, // 允许发送cookies
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "PATCH"],
-    allowedHeaders: [
-      "Content-Type", 
-      "Authorization", 
-      "X-Requested-With",
-      "Accept",
-      "Origin",
-      "Cache-Control",
-      "X-File-Name"
-    ],
-    exposedHeaders: ["Set-Cookie"],
-    preflightContinue: false,
-    optionsSuccessStatus: 200
-  }),
-);
-// Explicit preflight handler for complex CORS requests
-app.options('*', (req, res) => {
-  console.log(`🔄 OPTIONS preflight request from: ${req.get('Origin')}`);
-  res.header('Access-Control-Allow-Origin', req.get('Origin'));
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin, Cache-Control, X-File-Name');
-  res.header('Access-Control-Max-Age', '86400'); // 24 hours
-  res.sendStatus(200);
+// CORS removed - all requests now come through Next.js proxy
+// Simple middleware to log proxy headers from Next.js
+app.use((req, res, next) => {
+  if (req.headers['x-user-id'] || req.headers['x-username']) {
+    console.log(`📋 Proxy request from user: ${req.headers['x-username']} (${req.headers['x-user-id']})`);
+  }
+  next();
 });
 
 app.use(express.json({ limit: "10mb" }));
@@ -199,6 +155,7 @@ app.use(cookieParser()); // 添加cookie解析中间件
 // No auth routes needed on Express server
 
 // 使用 /server 前缀避免与 NextAuth /api 冲突
+app.use("/server/auth", require("./routes/auth"));
 app.use("/server/content", require("./routes/content"));
 app.use("/server/export", require("./routes/export"));
 app.use("/server/admin", require("./routes/admin"));
@@ -244,7 +201,7 @@ app.get("/server/status", async (req, res) => {
 app.post(
   "/server/lesson-plan",
   aiRequestLogger("lesson-plan"), // 添加AI请求日志
-  authenticateCompat, // 启用NextAuth兼容认证
+  // Authentication now handled by Next.js proxy
   apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const { subject, grade, topic, requirements } = req.body;
@@ -275,7 +232,7 @@ app.post(
 app.post(
   "/server/exercises",
   aiRequestLogger("exercises"), // 添加AI请求日志
-  authenticateCompat, // 启用NextAuth兼容认证
+  // Authentication now handled by Next.js proxy
   apiLimiter, // 启用限流
   asyncHandler(async (req, res) => {
     const {
@@ -513,13 +470,13 @@ app.get('/server/test', (req, res) => {
 });
 
 // Test NextAuth authentication
-app.get('/server/test-auth', authenticateCompat, (req, res) => {
+app.get('/server/test-auth', (req, res) => {
   res.json({
     success: true,
-    message: 'NextAuth authentication successful',
-    user: {
-      id: req.user?.id,
-      username: req.user?.username
+    message: 'Request received from Next.js proxy',
+    headers: {
+      userId: req.headers['x-user-id'],
+      username: req.headers['x-username']
     },
     timestamp: new Date().toISOString()
   });
