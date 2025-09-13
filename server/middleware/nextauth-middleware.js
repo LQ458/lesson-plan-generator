@@ -1,5 +1,4 @@
 const { getToken } = require("next-auth/jwt");
-const { jwtDecrypt } = require("jose");
 const userService = require("../services/mongodb-user-service");
 
 // NextAuth JWT 验证中间件
