@@ -9,7 +9,7 @@ A full-stack AI lesson plan generation application built with Next.js and Node.j
 - Node.js >= 18.17.0
 - pnpm >= 8.0.0
 - Python >= 3.8 (for ChromaDB)
-- MongoDB (local or cloud instance)
+- MongoDB >= 4.4 (local or cloud instance)
 
 ### 📦 Package Manager Installation
 
@@ -342,6 +342,7 @@ Please create a `.env` file in the `server/` directory:
 
 ```bash
 # AI Service API Key (Qwen/DashScope)
+# Get your API key from: https://dashscope.aliyun.com/
 DASHSCOPE_API_KEY=your_dashscope_api_key
 
 # MongoDB connection
@@ -406,7 +407,7 @@ MIT License
 - Node.js >= 18.17.0
 - pnpm >= 8.0.0
 - Python >= 3.8 (用于 ChromaDB)
-- MongoDB (本地或云实例)
+- MongoDB >= 4.4 (本地或云实例)
 
 ### 📦 包管理器安装
 
@@ -739,6 +740,7 @@ pnpm format           # 代码格式化
 
 ```bash
 # AI 服务 API 密钥 (Qwen/DashScope)
+# 获取 API 密钥: https://dashscope.aliyun.com/
 DASHSCOPE_API_KEY=your_dashscope_api_key
 
 # MongoDB 连接
