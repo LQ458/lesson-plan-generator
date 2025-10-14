@@ -1,3 +1,523 @@
+# 📚 TeachAI - AI-Powered Lesson Plan Generator
+
+A full-stack AI-powered lesson plan generation application built with Next.js and Node.js, featuring an integrated RAG (Retrieval-Augmented Generation) system for more accurate educational content generation.
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js >= 18.17.0
+- pnpm >= 8.0.0
+- Python >= 3.8 (for ChromaDB)
+
+### 📦 Package Manager Installation
+
+This project uses **pnpm** as the package manager. If you haven't installed pnpm yet, please install it first:
+
+```bash
+# Install pnpm globally
+npm install -g pnpm
+
+# Or use Corepack (Node.js 16.10+)
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+### 🔧 Project Installation & Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/teachai.git
+   cd teachai
+   ```
+
+2. **Install all dependencies**
+
+   ```bash
+   # Install dependencies for root, web, and server
+   pnpm run install:all
+
+   # Or install separately
+   pnpm install # Root dependencies
+   cd web && pnpm install # Frontend dependencies
+   cd ../server && pnpm install # Backend dependencies
+   ```
+
+3. **Install ChromaDB (RAG System)**
+
+   ```bash
+   # Install ChromaDB
+   pip install chromadb
+
+   # Or use conda
+   conda install -c conda-forge chromadb
+   ```
+
+4. **Configure environment variables**
+
+   ```bash
+   # Copy environment template
+   cp server/.env.example server/.env
+
+   # Edit environment variables, set AI API key
+   # DASHSCOPE_API_KEY=your_api_key_here
+   ```
+
+## 🧠 RAG System Setup
+
+This project integrates an advanced RAG (Retrieval-Augmented Generation) system using ChromaDB as the vector database, providing intelligent content generation based on educational materials.
+
+### Starting the RAG System
+
+1. **Start ChromaDB service**
+
+   ```bash
+   # Start ChromaDB vector database
+   pnpm run chroma:start
+   ```
+
+2. **Load educational materials data**
+
+   ```bash
+   # Load educational materials from enhanced chunks to vector database
+   pnpm run rag:load
+   ```
+
+3. **Check RAG system status**
+
+   ```bash
+   # Check database status and data statistics
+   pnpm run rag:status
+   ```
+
+### One-click RAG System Setup
+
+```bash
+# Automatically start ChromaDB and load data
+pnpm run setup:rag
+```
+
+### RAG System Management
+
+```bash
+# Start ChromaDB service
+pnpm run chroma:start
+
+# Stop ChromaDB service
+pnpm run chroma:stop
+
+# Check system status
+pnpm run rag:status
+
+# Reload data
+pnpm run rag:load
+
+# Monitor loading progress (live updates)
+pnpm run rag:progress:watch
+
+# Verify data integrity and performance
+pnpm run rag:verify
+
+# Run comprehensive RAG system tests
+pnpm run rag:test
+```
+
+## 🏃‍♂️ Running the Project
+
+### Development Mode
+
+1. **Standard development mode (without RAG)**
+
+   ```bash
+   # Start both frontend and backend development servers
+   pnpm dev
+   ```
+
+2. **Full development mode (with RAG)**
+
+   ```bash
+   # Start ChromaDB, frontend, and backend servers simultaneously
+   pnpm run dev:full
+   ```
+
+### Starting Services Separately
+
+```bash
+# Start ChromaDB service
+pnpm run chroma:start
+
+# Start backend server
+pnpm run dev:server
+
+# Start frontend server
+pnpm run dev:web
+```
+
+Access URLs:
+- Frontend application: http://localhost:3000
+- Backend API: http://localhost:3001
+- ChromaDB: http://localhost:8000
+
+## 📚 Educational Materials Data
+
+### Data Structure
+
+The project's `server/rag_data/chunks/` folder contains enhanced educational materials data in JSON format:
+
+```
+server/rag_data/chunks/
+├── enhanced_chunk_0001.json
+├── enhanced_chunk_0002.json
+├── enhanced_chunk_0003.json
+└── ... (95,360+ educational chunks)
+```
+
+### Data Format
+
+Each JSON file contains the following structure:
+
+```json
+{
+  "content": "Educational content text",
+  "metadata": {
+    "source": "filename",
+    "page_number": 1,
+    "chunk_index": 0,
+    "qualityScore": 0.85,
+    "ocrConfidence": 0.92,
+    "semanticFeatures": ["definitions", "examples"]
+  }
+}
+```
+
+### Supported Textbook Versions
+
+- **Mathematics**: People's Education Press, Beijing Normal University, Hunan Education, East China Normal University
+- **Chinese**: People's Education Press, Jiangsu Education, Beijing Normal University
+- **English**: People's Education Press, Foreign Language Teaching and Research Press, Yilin Press
+- **Physics**: People's Education Press, Beijing Normal University, Shanghai Science
+- **Chemistry**: People's Education Press, Shandong Science and Technology
+- **Biology**: People's Education Press, Jiangsu Education
+- **Others**: Music, Art, Science, etc.
+
+### Enhanced Data Features (Version 2.0)
+
+- **OCR Error Correction**: Improved text accuracy for Chinese educational content
+- **Duplicate Detection**: Advanced algorithms to identify and merge similar content
+- **Quality Scoring**: Each chunk includes reliability metrics (0.3-1.0 scale)
+- **Content Classification**: Semantic features like formulas, experiments, definitions
+- **Smart Chunking**: Optimized text segmentation for better retrieval
+- **95,360+ Enhanced Chunks**: Comprehensive K-12 curriculum coverage
+
+### Build Project
+
+```bash
+# Build entire project
+pnpm build
+
+# Build separately
+pnpm run build:web     # Build frontend
+pnpm run build:server  # Build backend
+```
+
+## 🎯 Technical Features
+
+### RAG (Retrieval-Augmented Generation) System
+
+This project integrates an advanced RAG system that retrieves relevant educational materials through a vector database, significantly improving the quality and accuracy of AI-generated content.
+
+#### Core Features
+
+- **Intelligent Retrieval**: Semantic similarity-based retrieval of relevant educational content
+- **Multi-version Textbook Support**: Covers mainstream textbooks like People's Education Press, Beijing Normal University, Jiangsu Education, etc.
+- **Grade Adaptation**: Automatically matches grade-relevant educational materials
+- **Subject Specialization**: Provides specialized educational content for different subjects
+- **Real-time Enhancement**: Real-time retrieval and integration of relevant educational resources during generation
+
+#### Data Statistics
+
+- **Educational Materials**: 95,360+ enhanced educational content chunks
+- **Grade Coverage**: Elementary Grade 1 to High School Grade 12
+- **Supported Subjects**: Mathematics, Chinese, English, Physics, Chemistry, Biology, History, Geography, Politics, Music, Art, Science
+- **Textbook Versions**: 20+ mainstream textbook versions
+
+#### Technical Architecture
+
+```
+User Request → AI Service → Vector Retrieval → Content Fusion → Enhanced Generation → Return Result
+                ↓
+        ChromaDB Vector Database
+        (95,360+ educational materials)
+```
+
+### AI Generation Capabilities
+
+- **Lesson Plan Generation**: Supports complete instructional design including teaching objectives, key points, and teaching process
+- **Exercise Generation**: Intelligent question generation supporting multiple question types and difficulty levels
+- **Content Analysis**: Intelligent analysis of educational content, extracting core concepts
+- **Multi-format Output**: Supports text, mind maps, flowcharts, timelines, and other display formats
+
+### User Experience
+
+- **Streaming Output**: Real-time display of generation process, enhancing user experience
+- **Personalized Settings**: Customize generated content based on user preferences
+- **Content Management**: Complete content bookmarking, export, and deletion functionality
+- **Multi-format Export**: Supports PDF, Word, image, and other export formats
+
+## 📖 Usage Guide
+
+### Basic Usage Flow
+
+1. **Start Services**
+
+   ```bash
+   # Start complete services (recommended)
+   pnpm run dev:full
+   ```
+
+2. **Generate Lesson Plans**
+   - Visit http://localhost:3000
+   - Select subject, grade, and topic
+   - Click generate, AI will provide professional lesson plans combined with RAG system
+
+3. **Manage Content**
+   - View generation history
+   - Bookmark quality content
+   - Export as PDF/Word
+
+### Advanced Features
+
+- **RAG System Management**: Use `pnpm run rag:status` to check database status
+- **Data Updates**: Use `pnpm run rag:load` to reload educational materials
+- **System Monitoring**: View generation logs and performance metrics
+
+### Production Environment Startup
+
+```bash
+# Start production environment
+pnpm start
+
+# Start separately
+pnpm run start:web     # Start frontend production server
+pnpm run start:server  # Start backend production server
+```
+
+## 📁 Project Structure
+
+```
+teachai/
+├── web/              # Next.js frontend application
+│   ├── src/
+│   │   ├── app/      # App Router pages
+│   │   └── components/ # React components
+│   ├── package.json
+│   └── pnpm-lock.yaml
+├── server/           # Node.js backend service
+│   ├── models/       # Data models
+│   ├── services/     # Business services
+│   ├── middleware/   # Middleware
+│   ├── config/       # Configuration files
+│   ├── utils/        # Utility functions
+│   ├── rag/          # RAG system implementation
+│   ├── rag_data/     # Enhanced educational materials (95,360+ chunks)
+│   ├── package.json
+│   └── pnpm-lock.yaml
+├── package.json      # Root configuration (workspace)
+├── pnpm-lock.yaml    # Lock file
+└── .gitignore        # Git ignore file
+```
+
+## 🛠️ Development Tools
+
+### Available Scripts
+
+```bash
+pnpm dev              # Start frontend and backend in development mode
+pnpm build            # Build production version
+pnpm start            # Start production servers
+pnpm lint             # Code style check
+pnpm test             # Run tests
+pnpm clean            # Clean node_modules and build files
+pnpm format           # Code formatting
+```
+
+### Git Ignore Rules
+
+The project has a complete `.gitignore` file configured to automatically ignore:
+
+- `**/node_modules/` - Dependency directories at all levels
+- `**/.next/` - Next.js build output
+- `**/*.log` - Log files
+- `.env*` - Environment variable files
+- `.DS_Store` - macOS system files
+- IDE configuration files, etc.
+
+## 🔑 Environment Configuration
+
+Please create a `.env` file in the `server/` directory:
+
+```bash
+# MongoDB connection
+MONGODB_URI=your_mongodb_connection_string
+
+# JWT secret
+JWT_SECRET=your_jwt_secret
+
+# Qwen API Key (Alibaba Cloud DashScope)
+DASHSCOPE_API_KEY=your_dashscope_api_key
+
+# Server port
+PORT=3001
+
+# AI Configuration
+QWEN_MODEL=qwen-plus
+AI_MAX_TOKENS=2000
+AI_TEMPERATURE=0.7
+
+# ChromaDB Configuration (Local)
+CHROMADB_HOST=localhost
+CHROMADB_PORT=8000
+
+# ChromaDB Cloud Configuration (Production)
+CHROMA_CLOUD_ENABLED=false
+CHROMADB_API_KEY=your_chromadb_cloud_api_key
+CHROMADB_TENANT=your_tenant_id
+CHROMADB_DATABASE=teachai
+CHROMADB_COLLECTION=teachai_main
+```
+
+## 📖 Technology Stack
+
+### Frontend (web/)
+
+- **Next.js 15** - React full-stack framework
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling framework
+- **Framer Motion** - Animation library
+- **Lucide React** - Icon library
+
+### Backend (server/)
+
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM
+- **JWT** - Authentication
+- **Winston** - Logging
+- **ChromaDB** - Vector database for RAG
+
+### RAG System
+
+- **ChromaDB** - Vector database
+- **OpenAI Embeddings** - Text embeddings
+- **Enhanced Educational Data** - 95,360+ quality-scored chunks
+- **Semantic Search** - Intelligent content retrieval
+
+## 🚀 Deployment
+
+### Local Development Deployment
+
+```bash
+pnpm build
+pnpm start
+```
+
+### ChromaDB Cloud Production Deployment
+
+For production deployment with ChromaDB Cloud, see the comprehensive [Production Deployment Guide](PRODUCTION-DEPLOYMENT.md).
+
+#### Quick Start for ChromaDB Cloud
+
+1. **Set Environment Variables:**
+```bash
+export CHROMA_CLOUD_ENABLED=true
+export CHROMADB_API_KEY=your_chromadb_api_key
+export CHROMADB_TENANT=your_tenant_id
+export CHROMADB_DATABASE=teachai
+export CHROMADB_COLLECTION=teachai_main
+```
+
+2. **Test Configuration:**
+```bash
+node test-env-config.js
+```
+
+3. **Upload RAG Data to Cloud:**
+```bash
+node server/rag/scripts/cloud-uploader.js
+```
+
+4. **Deploy Application:**
+```bash
+NODE_ENV=production pnpm build && pnpm start
+```
+
+## 🧪 Testing
+
+### Running Tests
+
+```bash
+# Run all tests
+pnpm test
+
+# Run tests with coverage
+pnpm test:coverage
+
+# Run server tests only
+pnpm run test:server
+
+# Run web tests only
+pnpm run test:web
+
+# Run single test file
+cd web && pnpm test -- --testPathPattern=page.test.tsx
+cd server && pnpm test -- --testPathPattern=ai-service.test.js
+```
+
+### RAG System Testing
+
+```bash
+# Test RAG accuracy with quality scoring
+pnpm run rag:test-accuracy
+
+# Run comprehensive RAG system tests
+pnpm run rag:test
+
+# Verify loaded data integrity and performance
+pnpm run rag:verify
+```
+
+## 🤝 Contributing
+
+Welcome to submit Pull Requests and Issues!
+
+### Development Workflow
+
+1. Fork the project
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📄 License
+
+MIT License
+
+## 📞 Contact Us
+
+- Project Link: [GitHub Repository](https://github.com/your-username/teachai)
+- Issue Reports: [Issues](https://github.com/your-username/teachai/issues)
+
+---
+
+**TeachAI** - Let AI become your teaching assistant 🚀
+
+---
+
+# 中文版本 / Chinese Version
+
 # 📚 TeachAI - 智能教案生成器
 
 基于 Next.js 和 Node.js 的全栈 AI 教案生成应用，集成 RAG (检索增强生成) 系统，提供更准确的教学内容生成。
@@ -80,7 +600,7 @@ corepack prepare pnpm@latest --activate
 2. **加载教学材料数据**
 
    ```bash
-   # 加载 optimized 文件夹中的教学材料到向量数据库
+   # 加载增强版教学材料到向量数据库
    pnpm run rag:load
    ```
 
@@ -112,6 +632,15 @@ pnpm run rag:status
 
 # 重新加载数据
 pnpm run rag:load
+
+# 实时监控加载进度
+pnpm run rag:progress:watch
+
+# 验证数据完整性和性能
+pnpm run rag:verify
+
+# 运行综合 RAG 系统测试
+pnpm run rag:test
 ```
 
 ## 🏃‍♂️ 运行项目
@@ -155,14 +684,14 @@ pnpm run dev:web
 
 ### 数据结构
 
-项目的 `server/optimized/` 文件夹包含了预处理的教学材料数据，格式为 JSON 文件：
+项目的 `server/rag_data/chunks/` 文件夹包含了增强版教学材料数据，格式为 JSON 文件：
 
 ```
-server/optimized/
-├── 1751827962807_湘教版数学九年级下册教师用书.pdf.json
-├── 1751827960661_华师大版数学九年级下册电子课本.pdf.json
-├── 1751827949169_人教版物理九年级全一册电子课本.pdf.json
-└── ... (更多教学材料)
+server/rag_data/chunks/
+├── enhanced_chunk_0001.json
+├── enhanced_chunk_0002.json
+├── enhanced_chunk_0003.json
+└── ... (95,360+ 教学内容片段)
 ```
 
 ### 数据格式
@@ -171,16 +700,15 @@ server/optimized/
 
 ```json
 {
-  "chunks": [
-    {
-      "content": "教学内容文本",
-      "page_number": 1,
-      "metadata": {
-        "source": "文件名",
-        "chunk_index": 0
-      }
-    }
-  ]
+  "content": "教学内容文本",
+  "metadata": {
+    "source": "文件名",
+    "page_number": 1,
+    "chunk_index": 0,
+    "qualityScore": 0.85,
+    "ocrConfidence": 0.92,
+    "semanticFeatures": ["definitions", "examples"]
+  }
 }
 ```
 
@@ -193,6 +721,15 @@ server/optimized/
 - **化学**: 人教版、鲁科版
 - **生物**: 人教版、苏教版
 - **其他**: 音乐、美术、科学等
+
+### 增强版数据特性 (版本 2.0)
+
+- **OCR 错误纠正**: 提高中文教育内容的文本准确性
+- **重复检测**: 高级算法识别和合并相似内容
+- **质量评分**: 每个片段包含可靠性指标 (0.3-1.0 评分)
+- **内容分类**: 语义特征如公式、实验、定义等
+- **智能分块**: 优化文本分割以提高检索效果
+- **95,360+ 增强片段**: 全面覆盖 K-12 课程内容
 
 ### 构建项目
 
@@ -221,7 +758,7 @@ pnpm run build:server  # 构建后端
 
 #### 数据统计
 
-- **教学材料数量**: 6,805+ 个教学内容片段
+- **教学材料数量**: 95,360+ 个增强教学内容片段
 - **覆盖年级**: 小学一年级至高中三年级
 - **支持学科**: 数学、语文、英语、物理、化学、生物、历史、地理、政治、音乐、美术、科学
 - **教材版本**: 20+ 种主流教材版本
@@ -232,7 +769,7 @@ pnpm run build:server  # 构建后端
 用户请求 → AI服务 → 向量检索 → 内容融合 → 增强生成 → 返回结果
             ↓
       ChromaDB向量数据库
-      (6,805+ 教学材料)
+      (95,360+ 教学材料)
 ```
 
 ### AI 生成能力
@@ -276,7 +813,7 @@ pnpm run build:server  # 构建后端
 - **数据更新**: 使用 `pnpm run rag:load` 重新加载教学材料
 - **系统监控**: 查看生成日志和性能指标
 
-5. **生产环境启动**
+### 生产环境启动
 
 ```bash
 # 启动生产环境
@@ -290,7 +827,7 @@ pnpm run start:server  # 启动后端生产服务器
 ## 📁 项目结构
 
 ```
-lesson-plan-generator/
+teachai/
 ├── web/              # Next.js 前端应用
 │   ├── src/
 │   │   ├── app/      # App Router 页面
@@ -303,6 +840,8 @@ lesson-plan-generator/
 │   ├── middleware/   # 中间件
 │   ├── config/       # 配置文件
 │   ├── utils/        # 工具函数
+│   ├── rag/          # RAG 系统实现
+│   ├── rag_data/     # 增强版教学材料 (95,360+ 片段)
 │   ├── package.json
 │   └── pnpm-lock.yaml
 ├── package.json      # 根目录配置（工作空间）
@@ -346,11 +885,27 @@ MONGODB_URI=your_mongodb_connection_string
 # JWT 密钥
 JWT_SECRET=your_jwt_secret
 
-# OpenAI API Key (如果使用)
-OPENAI_API_KEY=your_openai_api_key
+# 通义千问 API Key (阿里云 DashScope)
+DASHSCOPE_API_KEY=your_dashscope_api_key
 
 # 服务器端口
-PORT=8080
+PORT=3001
+
+# AI 配置
+QWEN_MODEL=qwen-plus
+AI_MAX_TOKENS=2000
+AI_TEMPERATURE=0.7
+
+# ChromaDB 配置 (本地)
+CHROMADB_HOST=localhost
+CHROMADB_PORT=8000
+
+# ChromaDB 云端配置 (生产环境)
+CHROMA_CLOUD_ENABLED=false
+CHROMADB_API_KEY=your_chromadb_cloud_api_key
+CHROMADB_TENANT=your_tenant_id
+CHROMADB_DATABASE=teachai
+CHROMADB_COLLECTION=teachai_main
 ```
 
 ## 📖 技术栈
@@ -372,10 +927,100 @@ PORT=8080
 - **Mongoose** - ODM
 - **JWT** - 身份验证
 - **Winston** - 日志记录
+- **ChromaDB** - RAG 向量数据库
+
+### RAG 系统
+
+- **ChromaDB** - 向量数据库
+- **OpenAI Embeddings** - 文本嵌入
+- **增强版教育数据** - 95,360+ 质量评分片段
+- **语义搜索** - 智能内容检索
+
+## 🚀 部署
+
+### 本地开发部署
+
+```bash
+pnpm build
+pnpm start
+```
+
+### ChromaDB 云端生产部署
+
+有关 ChromaDB 云端生产部署的详细信息，请参阅综合 [生产部署指南](PRODUCTION-DEPLOYMENT.md)。
+
+#### ChromaDB 云端快速开始
+
+1. **设置环境变量:**
+```bash
+export CHROMA_CLOUD_ENABLED=true
+export CHROMADB_API_KEY=your_chromadb_api_key
+export CHROMADB_TENANT=your_tenant_id
+export CHROMADB_DATABASE=teachai
+export CHROMADB_COLLECTION=teachai_main
+```
+
+2. **测试配置:**
+```bash
+node test-env-config.js
+```
+
+3. **上传 RAG 数据到云端:**
+```bash
+node server/rag/scripts/cloud-uploader.js
+```
+
+4. **部署应用:**
+```bash
+NODE_ENV=production pnpm build && pnpm start
+```
+
+## 🧪 测试
+
+### 运行测试
+
+```bash
+# 运行所有测试
+pnpm test
+
+# 运行测试并生成覆盖率报告
+pnpm test:coverage
+
+# 仅运行服务器测试
+pnpm run test:server
+
+# 仅运行前端测试
+pnpm run test:web
+
+# 运行单个测试文件
+cd web && pnpm test -- --testPathPattern=page.test.tsx
+cd server && pnpm test -- --testPathPattern=ai-service.test.js
+```
+
+### RAG 系统测试
+
+```bash
+# 测试 RAG 准确性和质量评分
+pnpm run rag:test-accuracy
+
+# 运行综合 RAG 系统测试
+pnpm run rag:test
+
+# 验证加载数据的完整性和性能
+pnpm run rag:verify
+```
 
 ## 🤝 贡献
 
 欢迎提交 Pull Request 和 Issue！
+
+### 开发工作流程
+
+1. Fork 项目
+2. 创建功能分支
+3. 提交更改
+4. 推送到分支
+5. 创建 Pull Request
 
 ## 📄 许可证
 
