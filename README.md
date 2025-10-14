@@ -9,6 +9,7 @@ A full-stack AI lesson plan generation application built with Next.js and Node.j
 - Node.js >= 18.17.0
 - pnpm >= 8.0.0
 - Python >= 3.8 (for ChromaDB)
+- MongoDB (local or cloud instance)
 
 ### 📦 Package Manager Installation
 
@@ -340,17 +341,17 @@ The project has a complete `.gitignore` file configured to automatically ignore:
 Please create a `.env` file in the `server/` directory:
 
 ```bash
+# AI Service API Key (Qwen/DashScope)
+DASHSCOPE_API_KEY=your_dashscope_api_key
+
 # MongoDB connection
 MONGODB_URI=your_mongodb_connection_string
 
 # JWT secret
 JWT_SECRET=your_jwt_secret
 
-# OpenAI API Key (if using)
-OPENAI_API_KEY=your_openai_api_key
-
 # Server port
-PORT=8080
+PORT=3001
 ```
 
 ## 📖 Technology Stack
@@ -405,6 +406,7 @@ MIT License
 - Node.js >= 18.17.0
 - pnpm >= 8.0.0
 - Python >= 3.8 (用于 ChromaDB)
+- MongoDB (本地或云实例)
 
 ### 📦 包管理器安装
 
@@ -736,17 +738,17 @@ pnpm format           # 代码格式化
 请在 `server/` 目录下创建 `.env` 文件：
 
 ```bash
+# AI 服务 API 密钥 (Qwen/DashScope)
+DASHSCOPE_API_KEY=your_dashscope_api_key
+
 # MongoDB 连接
 MONGODB_URI=your_mongodb_connection_string
 
 # JWT 密钥
 JWT_SECRET=your_jwt_secret
 
-# OpenAI API Key (如果使用)
-OPENAI_API_KEY=your_openai_api_key
-
 # 服务器端口
-PORT=8080
+PORT=3001
 ```
 
 ## 📖 技术栈
