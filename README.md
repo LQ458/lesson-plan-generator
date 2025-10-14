@@ -1,3 +1,399 @@
+# 📚 TeachAI - AI-Powered Lesson Plan Generator
+
+A full-stack AI lesson plan generation application built with Next.js and Node.js, integrated with RAG (Retrieval-Augmented Generation) system for more accurate educational content generation.
+
+## 🚀 Quick Start
+
+### System Requirements
+
+- Node.js >= 18.17.0
+- pnpm >= 8.0.0
+- Python >= 3.8 (for ChromaDB)
+
+### 📦 Package Manager Installation
+
+This project uses **pnpm** as the package manager. If you haven't installed pnpm yet, please install it first:
+
+```bash
+# Install pnpm globally
+npm install -g pnpm
+
+# Or use Corepack (Node.js 16.10+)
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+### 🔧 Project Installation and Setup
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/LQ458/lesson-plan-generator.git
+   cd lesson-plan-generator
+   ```
+
+2. **Install All Dependencies**
+
+   ```bash
+   # Install dependencies for root, web, and server
+   pnpm run install:all
+
+   # Or install separately
+   pnpm install              # Root dependencies
+   cd web && pnpm install    # Frontend dependencies
+   cd ../server && pnpm install  # Backend dependencies
+   ```
+
+3. **Install ChromaDB (RAG System)**
+
+   ```bash
+   # Install ChromaDB
+   pip install chromadb
+
+   # Or use conda
+   conda install -c conda-forge chromadb
+   ```
+
+4. **Configure Environment Variables**
+
+   ```bash
+   # Copy environment variable template
+   cp server/.env.example server/.env
+
+   # Edit environment variables, set AI API key
+   # DASHSCOPE_API_KEY=your_api_key_here
+   ```
+
+## 🧠 RAG System Setup
+
+This project integrates a RAG (Retrieval-Augmented Generation) system that uses ChromaDB as a vector database to provide intelligent content generation based on educational materials.
+
+### Starting the RAG System
+
+1. **Start ChromaDB Service**
+
+   ```bash
+   # Start ChromaDB vector database
+   pnpm run chroma:start
+   ```
+
+2. **Load Educational Materials**
+
+   ```bash
+   # Load educational materials from optimized folder to vector database
+   pnpm run rag:load
+   ```
+
+3. **Check RAG System Status**
+
+   ```bash
+   # Check database status and data statistics
+   pnpm run rag:status
+   ```
+
+### One-Click RAG System Setup
+
+```bash
+# Automatically start ChromaDB and load data
+pnpm run setup:rag
+```
+
+### RAG System Management
+
+```bash
+# Start ChromaDB service
+pnpm run chroma:start
+
+# Stop ChromaDB service
+pnpm run chroma:stop
+
+# Check system status
+pnpm run rag:status
+
+# Reload data
+pnpm run rag:load
+```
+
+## 🏃‍♂️ Running the Project
+
+### Development Mode
+
+1. **Standard Development Mode (without RAG)**
+
+   ```bash
+   # Start both frontend and backend development servers
+   pnpm dev
+   ```
+
+2. **Full Development Mode (with RAG)**
+
+   ```bash
+   # Start ChromaDB, frontend, and backend servers simultaneously
+   pnpm run dev:full
+   ```
+
+### Starting Services Separately
+
+```bash
+# Start ChromaDB service
+pnpm run chroma:start
+
+# Start backend server
+pnpm run dev:server
+
+# Start frontend server
+pnpm run dev:web
+```
+
+Access URLs:
+
+- Frontend Application: http://localhost:3000
+- Backend API: http://localhost:3001
+- ChromaDB: http://localhost:8000
+
+## 📚 Educational Materials Data
+
+### Data Structure
+
+The `server/optimized/` folder contains preprocessed educational materials in JSON format:
+
+```
+server/optimized/
+├── 1751827962807_湘教版数学九年级下册教师用书.pdf.json
+├── 1751827960661_华师大版数学九年级下册电子课本.pdf.json
+├── 1751827949169_人教版物理九年级全一册电子课本.pdf.json
+└── ... (more educational materials)
+```
+
+### Data Format
+
+Each JSON file contains the following structure:
+
+```json
+{
+  "chunks": [
+    {
+      "content": "Educational content text",
+      "page_number": 1,
+      "metadata": {
+        "source": "Filename",
+        "chunk_index": 0
+      }
+    }
+  ]
+}
+```
+
+### Supported Textbook Versions
+
+- **Mathematics**: People's Education Press, Beijing Normal University Press, Xiang Education Press, East China Normal University Press
+- **Chinese Language**: People's Education Press, Jiangsu Education Press, Beijing Normal University Press
+- **English**: People's Education Press, Foreign Language Teaching and Research Press, Yilin Press
+- **Physics**: People's Education Press, Beijing Normal University Press, Shanghai Science Press
+- **Chemistry**: People's Education Press, Shandong Science and Technology Press
+- **Biology**: People's Education Press, Jiangsu Education Press
+- **Others**: Music, Art, Science, etc.
+
+### Building the Project
+
+```bash
+# Build the entire project
+pnpm build
+
+# Build separately
+pnpm run build:web     # Build frontend
+pnpm run build:server  # Build backend
+```
+
+## 🎯 Technical Features
+
+### RAG (Retrieval-Augmented Generation) System
+
+This project integrates an advanced RAG system that retrieves relevant educational materials through vector database, significantly improving the quality and accuracy of AI-generated content.
+
+#### Core Features
+
+- **Intelligent Retrieval**: Retrieve relevant educational content based on semantic similarity
+- **Multi-Version Textbook Support**: Covers mainstream textbooks like People's Education Press, Beijing Normal University Press, Jiangsu Education Press, etc.
+- **Grade Adaptation**: Automatically matches grade-relevant educational materials
+- **Subject Specialization**: Provides specialized educational content for different subjects
+- **Real-time Enhancement**: Real-time retrieval and integration of relevant educational resources during generation
+
+#### Data Statistics
+
+- **Educational Materials**: 6,805+ educational content chunks
+- **Grade Coverage**: Elementary Grade 1 to High School Grade 12
+- **Supported Subjects**: Mathematics, Chinese, English, Physics, Chemistry, Biology, History, Geography, Politics, Music, Art, Science
+- **Textbook Versions**: 20+ mainstream textbook versions
+
+#### Technical Architecture
+
+```
+User Request → AI Service → Vector Retrieval → Content Fusion → Enhanced Generation → Return Result
+                ↓
+          ChromaDB Vector Database
+          (6,805+ Educational Materials)
+```
+
+### AI Generation Capabilities
+
+- **Lesson Plan Generation**: Supports complete instructional design including teaching objectives, key points and difficulties, teaching process
+- **Exercise Generation**: Intelligent question generation with support for multiple question types and difficulty levels
+- **Content Analysis**: Intelligently analyzes educational content and extracts core concepts
+- **Multi-format Output**: Supports various display formats including text, mind maps, flowcharts, timelines
+
+### User Experience
+
+- **Streaming Output**: Real-time display of generation process for enhanced user experience
+- **Personalized Settings**: Customize generated content based on user preferences
+- **Content Management**: Complete content bookmarking, export, and deletion functionality
+- **Multi-format Export**: Supports export to PDF, Word, images, and other formats
+
+## 📖 Usage Guide
+
+### Basic Usage Flow
+
+1. **Start Services**
+
+   ```bash
+   # Start complete service (recommended)
+   pnpm run dev:full
+   ```
+
+2. **Generate Lesson Plans**
+   - Visit http://localhost:3000
+   - Select subject, grade, and topic
+   - Click generate, AI will provide professional lesson plans combined with RAG system
+
+3. **Manage Content**
+   - View generation history
+   - Bookmark quality content
+   - Export to PDF/Word
+
+### Advanced Features
+
+- **RAG System Management**: Use `pnpm run rag:status` to view database status
+- **Data Update**: Use `pnpm run rag:load` to reload educational materials
+- **System Monitoring**: View generation logs and performance metrics
+
+4. **Production Environment Startup**
+
+```bash
+# Start production environment
+pnpm start
+
+# Start separately
+pnpm run start:web     # Start frontend production server
+pnpm run start:server  # Start backend production server
+```
+
+## 📁 Project Structure
+
+```
+lesson-plan-generator/
+├── web/              # Next.js frontend application
+│   ├── src/
+│   │   ├── app/      # App Router pages
+│   │   └── components/ # React components
+│   ├── package.json
+│   └── pnpm-lock.yaml
+├── server/           # Node.js backend service
+│   ├── models/       # Data models
+│   ├── services/     # Business services
+│   ├── middleware/   # Middleware
+│   ├── config/       # Configuration files
+│   ├── utils/        # Utility functions
+│   ├── package.json
+│   └── pnpm-lock.yaml
+├── package.json      # Root configuration (workspace)
+├── pnpm-lock.yaml    # Lock file
+└── .gitignore        # Git ignore file
+```
+
+## 🛠️ Development Tools
+
+### Available Scripts
+
+```bash
+pnpm dev              # Start frontend and backend in development mode
+pnpm build            # Build production version
+pnpm start            # Start production server
+pnpm lint             # Code style check
+pnpm test             # Run tests
+pnpm clean            # Clean node_modules and build files
+pnpm format           # Code formatting
+```
+
+### Git Ignore Rules
+
+The project has a complete `.gitignore` file configured to automatically ignore:
+
+- `**/node_modules/` - All levels of dependency directories
+- `**/.next/` - Next.js build output
+- `**/*.log` - Log files
+- `.env*` - Environment variable files
+- `.DS_Store` - macOS system files
+- IDE configuration files, etc.
+
+## 🔑 Environment Configuration
+
+Please create a `.env` file in the `server/` directory:
+
+```bash
+# MongoDB connection
+MONGODB_URI=your_mongodb_connection_string
+
+# JWT secret
+JWT_SECRET=your_jwt_secret
+
+# OpenAI API Key (if using)
+OPENAI_API_KEY=your_openai_api_key
+
+# Server port
+PORT=8080
+```
+
+## 📖 Technology Stack
+
+### Frontend (web/)
+
+- **Next.js 15** - React full-stack framework
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling framework
+- **Framer Motion** - Animation library
+- **Lucide React** - Icon library
+
+### Backend (server/)
+
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM
+- **JWT** - Authentication
+- **Winston** - Logging
+
+## 🤝 Contributing
+
+Pull Requests and Issues are welcome!
+
+## 📄 License
+
+MIT License
+
+## 📞 Contact Us
+
+- Project Link: [GitHub Repository](https://github.com/LQ458/lesson-plan-generator)
+- Issue Feedback: [Issues](https://github.com/LQ458/lesson-plan-generator/issues)
+
+---
+
+**TeachAI** - Let AI Be Your Teaching Assistant 🚀
+
+---
+
+# 中文版本 / Chinese Version
+
 # 📚 TeachAI - 智能教案生成器
 
 基于 Next.js 和 Node.js 的全栈 AI 教案生成应用，集成 RAG (检索增强生成) 系统，提供更准确的教学内容生成。
@@ -28,8 +424,8 @@ corepack prepare pnpm@latest --activate
 1. **克隆项目**
 
    ```bash
-   git clone https://github.com/your-username/teachai.git
-   cd teachai
+   git clone https://github.com/LQ458/lesson-plan-generator.git
+   cd lesson-plan-generator
    ```
 
 2. **安装所有依赖**
@@ -383,8 +779,8 @@ MIT License
 
 ## 📞 联系我们
 
-- 项目链接: [GitHub Repository](https://github.com/your-username/teachai)
-- 问题反馈: [Issues](https://github.com/your-username/teachai/issues)
+- 项目链接: [GitHub Repository](https://github.com/LQ458/lesson-plan-generator)
+- 问题反馈: [Issues](https://github.com/LQ458/lesson-plan-generator/issues)
 
 ---
 
