@@ -1,0 +1,60 @@
+{
+  "collectionDate": "2026-07-23",
+  "sourceCategory": "original private K-12 curriculum chunk store",
+  "sourceScope": "one authoritative chunk-store copy; an identical deployment mirror was excluded",
+  "calculationMethod": "recursive enumeration of JSON files; file-size aggregation; JSON.parse; chunk count from a top-level array or a .chunks array; numeric qualityScore or quality_score field count",
+  "script": "scripts/summarize-dataset.mjs",
+  "metrics": {
+    "jsonSourceFiles": {
+      "definition": "Number of files with a .json extension in the counted chunk-store root.",
+      "value": 1556,
+      "collectionDate": "2026-07-23",
+      "sourceCategory": "private chunk-store files",
+      "calculationMethod": "recursive filesystem enumeration",
+      "limitations": "Counts chunk container files, not upstream PDFs or public documents."
+    },
+    "parsedFiles": {
+      "definition": "JSON source files successfully parsed by JSON.parse.",
+      "value": 1556,
+      "collectionDate": "2026-07-23",
+      "sourceCategory": "private chunk-store files",
+      "calculationMethod": "read each JSON file as UTF-8 and call JSON.parse",
+      "limitations": "Successful JSON syntax does not independently validate pedagogical quality."
+    },
+    "parseFailures": {
+      "definition": "JSON source files that could not be read and parsed.",
+      "value": 0,
+      "collectionDate": "2026-07-23",
+      "sourceCategory": "private chunk-store files",
+      "calculationMethod": "count read or JSON.parse exceptions",
+      "limitations": "Does not cover upstream source extraction that is absent from this repository."
+    },
+    "totalChunks": {
+      "definition": "Total records in each parsed top-level array or .chunks array.",
+      "value": 95360,
+      "collectionDate": "2026-07-23",
+      "sourceCategory": "private K-12 curriculum chunks",
+      "calculationMethod": "sum container array lengths",
+      "limitations": "Chunks are not users, source documents, or public records."
+    },
+    "aggregateBytes": {
+      "definition": "Sum of filesystem byte sizes for all counted JSON source files.",
+      "value": 240594877,
+      "display": "240.595 MB decimal; 229.45 MiB",
+      "collectionDate": "2026-07-23",
+      "sourceCategory": "private chunk-store files",
+      "calculationMethod": "sum file stat sizes",
+      "limitations": "Measures serialized JSON files, not only curriculum text."
+    },
+    "chunksWithExplicitQualityScore": {
+      "definition": "Chunks containing a finite numeric qualityScore or quality_score field.",
+      "value": 14394,
+      "coverage": 0.150944,
+      "display": "15.09%",
+      "collectionDate": "2026-07-23",
+      "sourceCategory": "private K-12 curriculum chunks",
+      "calculationMethod": "field presence and finite-number check",
+      "limitations": "Field presence is not a claim that the score is calibrated or comparable across sources."
+    }
+  }
+}

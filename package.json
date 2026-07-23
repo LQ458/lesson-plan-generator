@@ -1,0 +1,43 @@
+{
+  "name": "teachai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lesson planning with bounded curriculum retrieval and streaming output",
+  "license": "MIT",
+  "packageManager": "pnpm@10.23.0",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @teachai/rag build && concurrently -n rag,api,web -c blue,green,magenta \"pnpm --filter @teachai/rag dev\" \"pnpm --filter @teachai/api dev\" \"pnpm --filter @teachai/web dev\"",
+    "build": "pnpm --filter @teachai/rag build && pnpm --filter @teachai/api build && pnpm --filter @teachai/web build",
+    "lint": "eslint .",
+    "typecheck": "pnpm --filter @teachai/rag build && pnpm --filter @teachai/api typecheck && pnpm --filter @teachai/web typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "audit:public": "node scripts/audit-public-snapshot.mjs",
+    "audit:dependencies": "pnpm audit --audit-level=high",
+    "summarize:dataset": "node scripts/summarize-dataset.mjs"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": "8.5.22",
+      "sharp": "0.35.3",
+      "shell-quote": "1.10.0"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.1.1",
+    "@types/supertest": "7.2.1",
+    "concurrently": "10.0.3",
+    "eslint": "10.7.0",
+    "globals": "17.7.0",
+    "supertest": "7.2.2",
+    "tsx": "4.23.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.65.0",
+    "vitest": "4.1.10"
+  }
+}

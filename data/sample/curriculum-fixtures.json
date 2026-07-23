@@ -1,0 +1,302 @@
+[
+  {
+    "id": "syn-math-07-ratio-01",
+    "subject": "Mathematics",
+    "grade": "7",
+    "topic": "Ratios and proportional reasoning",
+    "content": "A ratio compares two quantities using the same unit or clearly named units. Learners can test proportionality by checking whether equivalent pairs share a constant multiplier and can explain that multiplier in the context of the situation.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-math-07-linear-01",
+    "subject": "Mathematics",
+    "grade": "7",
+    "topic": "Linear relationships in tables",
+    "content": "A table represents a linear relationship when equal changes in the input produce equal changes in the output. Students should connect the rate of change to the situation and distinguish it from the starting value.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-math-06-fractions-01",
+    "subject": "Mathematics",
+    "grade": "6",
+    "topic": "Dividing fractions with models",
+    "content": "Fraction division can be interpreted as asking how many groups of one size fit inside another quantity. Number-line or area models help learners justify the reciprocal procedure before using it efficiently.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-math-08-transform-01",
+    "subject": "Mathematics",
+    "grade": "8",
+    "topic": "Geometric transformations",
+    "content": "Translations, rotations, and reflections preserve lengths and angle measures, while dilations preserve angle measures and scale lengths. Coordinate examples let students describe each transformation precisely.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-math-05-volume-01",
+    "subject": "Mathematics",
+    "grade": "5",
+    "topic": "Volume of rectangular prisms",
+    "content": "Volume measures the number of unit cubes that fill a three-dimensional region. Layering cubes shows why multiplying length, width, and height gives the same total as repeated addition by layers.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-science-07-ecosystem-01",
+    "subject": "Science",
+    "grade": "7",
+    "topic": "Energy flow in ecosystems",
+    "content": "Energy enters most ecosystems through producers and moves through feeding relationships. A food-web model should show that energy transfer is directional and that changes to one population can affect several connected populations.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-science-07-motion-01",
+    "subject": "Science",
+    "grade": "7",
+    "topic": "Forces and changes in motion",
+    "content": "An object's motion changes when the forces acting on it are unbalanced. Students can compare force diagrams and observations to predict changes in speed or direction without assuming that motion always requires a forward force.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-science-06-water-01",
+    "subject": "Science",
+    "grade": "6",
+    "topic": "Water cycle systems",
+    "content": "Water moves among the atmosphere, surface, soil, and living things through processes such as evaporation, condensation, precipitation, and transpiration. A system diagram can track matter while noting that energy drives phase changes.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-science-08-reaction-01",
+    "subject": "Science",
+    "grade": "8",
+    "topic": "Evidence of chemical reactions",
+    "content": "Observations such as gas formation, a persistent color change, or an energy change can support a claim that new substances formed. Evidence should be interpreted with controls because a single visible change may also have a physical explanation.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-science-05-matter-01",
+    "subject": "Science",
+    "grade": "5",
+    "topic": "Properties of matter",
+    "content": "Materials can be described and compared using observable or measurable properties such as mass, conductivity, flexibility, and solubility. Selecting a material for a purpose requires matching those properties to design needs.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-ela-07-argument-01",
+    "subject": "English Language Arts",
+    "grade": "7",
+    "topic": "Evidence in an argument",
+    "content": "A strong argument connects a clear claim to relevant evidence through reasoning. Students should distinguish evidence from opinion, explain how each detail supports the claim, and acknowledge a reasonable counterpoint.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-ela-07-perspective-01",
+    "subject": "English Language Arts",
+    "grade": "7",
+    "topic": "Narrative point of view",
+    "content": "Point of view shapes which events, thoughts, and uncertainties a reader can access. Comparing the same event from two narrators helps learners identify how selection and language influence interpretation.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-ela-06-theme-01",
+    "subject": "English Language Arts",
+    "grade": "6",
+    "topic": "Developing a theme",
+    "content": "A theme is a broader idea developed through characters, events, and changes rather than a one-word topic. Learners can trace repeated details and explain how the ending refines the text's message.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-ela-08-rhetoric-01",
+    "subject": "English Language Arts",
+    "grade": "8",
+    "topic": "Rhetorical choices",
+    "content": "Writers adjust organization, examples, tone, and word choice for a particular audience and purpose. Analysis should name a specific choice, describe its effect, and connect that effect to the writer's goal.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-ela-05-info-01",
+    "subject": "English Language Arts",
+    "grade": "5",
+    "topic": "Informational text structure",
+    "content": "Informational texts may organize ideas by sequence, comparison, cause and effect, problem and solution, or description. Recognizing the structure helps readers summarize the central idea and locate supporting details.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-history-07-sources-01",
+    "subject": "History",
+    "grade": "7",
+    "topic": "Primary and secondary sources",
+    "content": "A primary source comes from the period or participant being studied, while a secondary source interprets evidence later. Both require questions about purpose, audience, context, and what information may be missing.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-history-07-trade-01",
+    "subject": "History",
+    "grade": "7",
+    "topic": "Trade networks and exchange",
+    "content": "Trade networks move ideas, technologies, beliefs, and diseases as well as goods. A route map becomes more informative when students explain why particular locations became hubs and who benefited or faced new risks.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-history-06-governance-01",
+    "subject": "History",
+    "grade": "6",
+    "topic": "Systems of governance",
+    "content": "Governance systems distribute decision-making power in different ways. Students can compare who participates, how rules are established, and how leaders are held accountable without assuming that a single label captures every society.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-history-08-industry-01",
+    "subject": "History",
+    "grade": "8",
+    "topic": "Industrialization and social change",
+    "content": "Industrialization altered production, settlement patterns, labor, and environmental conditions. Explanations should connect technological and economic causes to uneven consequences for different groups.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-history-05-local-01",
+    "subject": "History",
+    "grade": "5",
+    "topic": "Investigating local history",
+    "content": "Local history can be investigated through maps, objects, photographs, public records, and oral accounts. Comparing sources helps learners build a timeline while recognizing that every source reflects a particular perspective.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-geography-07-scale-01",
+    "subject": "Geography",
+    "grade": "7",
+    "topic": "Map scale and distance",
+    "content": "Map scale expresses the relationship between a measurement on a map and distance on the ground. Learners can use a scale bar or ratio, keep units consistent, and discuss why curved routes require approximation.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-geography-07-interaction-01",
+    "subject": "Geography",
+    "grade": "7",
+    "topic": "Human and environment interaction",
+    "content": "Communities adapt to, depend on, and modify their environments. A geographic explanation should connect a specific decision to physical conditions, available resources, cultural priorities, and consequences at more than one scale.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-geography-06-climate-01",
+    "subject": "Geography",
+    "grade": "6",
+    "topic": "Climate patterns",
+    "content": "Climate describes long-term patterns rather than a single day's weather. Latitude, elevation, nearby water, and prevailing winds interact, so students should use multiple variables when explaining regional differences.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-geography-08-urban-01",
+    "subject": "Geography",
+    "grade": "8",
+    "topic": "Urbanization",
+    "content": "Urban growth reflects migration, employment, infrastructure, policy, and natural constraints. Evaluating growth requires evidence about access to housing and services as well as economic opportunity and environmental pressure.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-geography-05-landform-01",
+    "subject": "Geography",
+    "grade": "5",
+    "topic": "Landforms and settlement",
+    "content": "Landforms influence transportation, water access, farming, and settlement choices. Students can compare two locations and support a decision with both physical features and human needs.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-art-07-color-01",
+    "subject": "Visual Arts",
+    "grade": "7",
+    "topic": "Color contrast",
+    "content": "Artists use differences in hue, value, and intensity to direct attention and create mood. Students can test two palettes, identify the strongest contrast, and explain how that choice changes the viewer's focus.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-art-07-composition-01",
+    "subject": "Visual Arts",
+    "grade": "7",
+    "topic": "Composition and visual balance",
+    "content": "Composition organizes visual elements within a frame. Balance may be symmetrical, asymmetrical, or radial, and effective critique should refer to placement, scale, negative space, and the path of the viewer's eye.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-art-06-texture-01",
+    "subject": "Visual Arts",
+    "grade": "6",
+    "topic": "Actual and implied texture",
+    "content": "Actual texture can be felt on a surface, while implied texture is represented visually. Mark-making, repeated shapes, and value changes can suggest how an object might feel without changing the surface itself.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-art-08-symbol-01",
+    "subject": "Visual Arts",
+    "grade": "8",
+    "topic": "Visual symbolism",
+    "content": "A visual symbol gains meaning through context, convention, and the artist's choices. Interpretation should cite visible evidence and allow for more than one defensible reading instead of treating symbols as universal codes.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "syn-art-05-pattern-01",
+    "subject": "Visual Arts",
+    "grade": "5",
+    "topic": "Pattern and variation",
+    "content": "A pattern repeats one or more visual elements according to a rule. Variation can change scale, direction, color, or spacing while keeping enough of the rule visible for the pattern to remain coherent.",
+    "sourceType": "synthetic",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  }
+]
