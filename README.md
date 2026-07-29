@@ -1,4 +1,4 @@
-# TeachAI
+# Chinese K-12 AI Lesson-Planning Platform
 
 A lesson-planning and curriculum-retrieval system developed alongside classroom
 fieldwork in Bijie, Guizhou.
