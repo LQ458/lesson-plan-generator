@@ -3,7 +3,7 @@
 A lesson-planning and curriculum-retrieval system developed alongside classroom
 fieldwork in Bijie, Guizhou.
 
-TeachAI accepts a subject, grade, and topic; retrieves relevant curriculum
+The platform accepts a subject, grade, and topic; retrieves relevant curriculum
 context; applies a strict context bound; and streams a lesson plan or exercise
 set with source metadata. The default local path uses original synthetic
 fixtures and requires no production credential.
@@ -109,10 +109,7 @@ pnpm audit:dependencies
 retrieval, context length, source metadata, invalid input, retrieval failure,
 error sanitization, logging boundaries, and the frontend streaming workflow.
 
-## Verified scale
-
-A read-only recount of one authoritative copy of the original private chunk
-store on 2026-07-23 found:
+## Scale
 
 - 1,556 JSON source files
 - 1,556 files parsed and 0 parse failures
@@ -132,7 +129,7 @@ reproduction details are in
 The preserved classroom comparison contains 100 raw records across two classes
 of 50. Subject-specific usable observations were 97 for Chinese, 99 for
 mathematics, and 98 for English; 97 records were complete across all three
-subjects. The groups were classes, not individually randomized assignments.
+subjects. The groups were classes.
 
 A broader reach of approximately 150 students across classes is
 project-lead-confirmed; an independent artifact supporting that exact total was
